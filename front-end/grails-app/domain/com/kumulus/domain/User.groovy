@@ -2,34 +2,41 @@ package com.kumulus.domain
 
 class User {
 
-	String userId
-	String useridPassword
-	String status
-	String collectionRight
-	String importRight
-	String separationRight
-	Integer importKpiTarget
-	Integer separationKpiTarget
-        Client client
+	transient springSecurityService
 
-	static hasMany = [attendances: Attendance,
-	                  nodeses: Nodes]
-                      
-        static belongsTo = [Client]
+	String username
+	String password
+	boolean enabled = true
+	boolean accountExpired
+	boolean accountLocked
+	boolean passwordExpired
 
-	static mapping = {
-		id name: "userId", generator: "assigned"
-		version false
-	}
+	static transients = ['springSecurityService']
 
 	static constraints = {
-		userId maxSize: 45
-		useridPassword nullable: true, maxSize: 100
-		status nullable: true, maxSize: 10
-		collectionRight nullable: true, maxSize: 1
-		importRight nullable: true, maxSize: 1
-		separationRight nullable: true, maxSize: 1
-		importKpiTarget nullable: true
-		separationKpiTarget nullable: true
+		username blank: false, unique: true
+		password blank: false
+	}
+
+	static mapping = {
+		password column: '`password`'
+	}
+
+	Set<Role> getAuthorities() {
+		UserRole.findAllByUser(this).collect { it.role } as Set
+	}
+
+	def beforeInsert() {
+		encodePassword()
+	}
+
+	def beforeUpdate() {
+		if (isDirty('password')) {
+			encodePassword()
+		}
+	}
+
+	protected void encodePassword() {
+		password = springSecurityService.encodePassword(password)
 	}
 }
