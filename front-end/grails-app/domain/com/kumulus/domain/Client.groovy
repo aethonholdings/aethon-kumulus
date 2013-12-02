@@ -2,8 +2,7 @@ package com.kumulus.domain
 
 class Client {
 
-    String companyName
-    String address
+    Company company
     User accountManager
     
     static hasMany = [projects: Project, 

@@ -59,7 +59,7 @@ grails.project.dependency.resolution = {
         // plugins for the compile step
         compile ":scaffolding:2.0.1"
         compile ':cache:1.1.1'
-        compile ':db-reverse-engineer:0.5'
+        // compile ':db-reverse-engineer:0.5'
         compile ":activiti:5.12.1"
 
         // plugins needed at runtime but not for compilation
