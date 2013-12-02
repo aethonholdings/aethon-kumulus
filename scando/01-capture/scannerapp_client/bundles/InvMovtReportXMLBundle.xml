@@ -1,0 +1,98 @@
+<?xml version="1.0" ?>
+<Application-IM>
+<Report>
+	<Report>
+		<jlbl3YProductUom  e030="3Y products UOM:" r070="3Y produs UM:" g060="ΜΜ προϊόντων 3Υ:"/>
+		<ack  e030="ACK" r070="ACK" g060="ΑΠΟΔ."/>
+		<adj  e030="ADJ" r070="ADJ" g060="ΔΙΟΡΘ."/>
+		<adjustments  e030="ADJUSTMENTS" r070="AJUSTARI" g060="ΔΙΟΡΘΩΣΕΙΣ"/>
+		<aju  e030="aju" r070="aju" g060="Διορθθ"/>
+		<sem2  e030="Anter" r070="Anter" g060="Anter"/>
+		<brand  e030="Brand" r070="Brand" g060="Brand"/>
+		<case  e030="Case" r070="Box" g060="Κιβώτιο"/>
+		<code  e030="CODE" r070="COD" g060="Κωδικός"/>
+		<ctot  e030="CTOT" r070="CTOT" g060="CTOT"/>
+		<date  e030="Date :" r070="Data :" g060="Ημερομηνία:"/>
+		<fromDate  e030="Date :" r070="Data :" g060="Ημερομηνία:"/>
+		<defQty  e030="DEF QTY" r070="CANT IMPL" g060="ΠΟΣΟΤΗΤΑ DEF"/>
+		<defUom  e030="DEF UOM" r070="UM IMPL" g060="Μ.Μ. DEF"/>
+		<desc  e030="DESCRIPTION" r070="DESCRIERE" g060="Περιγραφή"/>
+		<Devol  e030="Devol" r070="Revenire" g060="Devol"/>
+		<division  e030="Division" r070="Divizie" g060="Τομέας"/>
+		<documentNo  e030="DOCUMENT NO" r070="Doc. Nr." g060="ΑΡ. ΠΑΡ/ΚΟΥ"/>
+		<bags  e030="eBag per" r070="eBag per" g060="eBag per"/>
+		<brandGroup  e030="eBrand Group:" r070="eBrand Group:" g060="eBrand Group:"/>
+		<bags1  e030="eCase" r070="eCase" g060="eCase"/>
+		<divisionGroup  e030="eDivision Group:" r070="eDivision Group:" g060="eDivision Group:"/>
+		<endOfReport  e030="END OF REPORT" r070="Sfarsitul Raportului" g060="ΤΕΛΟΣ ΑΝΑΦΟΡΑΣ"/>
+		<entes  e030="entes" r070="entitati" g060="entes"/>
+		<subBrandGroup  e030="eSubBrand Group :" r070="eSubBrand Group :" g060="eSubBrand Group :"/>
+		<totalBrandQuantity   e030="eTotal Brand Quantity :" r070="eTotal Cant. Brand :" g060="eTotal Brand Quantity :"/>
+		<totalSubBrandQuantity  e030="eTotal SubBrand Quantity :" r070="eTotal Cant Sub Brand :" g060="eTotal SubBrand Quantity :"/>
+		<grand_total  e030="Grand Total" r070="TOTAL" g060="Γενικό Σύνολο"/>
+		<in  e030="IN" r070="Intrari" g060="IN"/>
+		<init  e030="INIT" r070="Initial" g060="INIT"/>
+		<invMovmt  e030="INVENTORY MOVEMENTS" r070="TRANZACTII STOC" g060="ΚΙΝΗΣΕΙΣ ΑΠΟΘΕΜΑΤΟΣ"/>
+		<invCompanyMovmt  e030="INVENTORY MOVEMENTS BY COMPANY" r070="Tranzactii stoc per companie" g060="ΚΙΝΗΣΕΙΣ ΑΠΟΘΕΜΑΤΟΣ ΑΝΑ ΕΤΑΙΡΕΙΑ"/>
+		<inventory  e030="INVT" r070="INVT" g060="ΑΠΟΓΡΑΦΗ"/>
+		<itx  e030="itx" r070="itx" g060="ITX"/>
+		<last  e030="LAST" r070="ULTIM" g060="ΤΕΛΕΥΤΑΙΟ"/>
+		<load  e030="LOAD" r070="LOAD" g060="ΦΟΡΤΩΣΗ"/>
+		<load  e030="LOAD" r070="INCARCA" g060="ΦΟΡΤΩΣΗ"/>
+		<copk  e030="LOAD" r070="INCARCA" g060="ΦΟΡΤΩΣΗ"/>
+		<location  e030="LOCATION :" r070="LOCATIE :" g060="Αποθήκη:"/>
+		<loct  e030="LOCT" r070="LOCT" g060="ΑΠΟΘ."/>
+		<lu  e030="LU" r070="SKU" g060="LU"/>
+		<companyName  e030="MATUTANO" r070="STARFOODS" g060="MATUTANO"/>
+		<misc  e030="MISC" r070="DIV" g060="ΠΡΩΤΟΚΟΛΛΑ ΚΑΤΑΣΤΡΟΦΗΣ"/>
+		<jlblPrintEqpValN  e030="No" r070="Nu" g060="Αριθμ."/>
+		<of  e030="of" r070="of" g060="από"/>
+		<out  e030="OUT" r070="OUT" g060="ΑΠΟΣΤΟΛΗ"/>
+		<pendi  e030="pendi" r070="asteapta" g060="pendi"/>
+		<jlblPeriod  e030="Period/Month :" r070="Perioada/Luna :" g060="Περίοδος/Μήνας :"/>
+		<phy  e030="PHY" r070="PHY" g060="ΦΥΣ."/>
+		<product  e030="PRDT" r070="PROD" g060="PRDT"/>
+		<jlblPrintEqp  e030="Print Equipments?:" r070="Tiparire Echipamente?:" g060="Εκτύπωση Εξοπλισμών;"/>
+		<prod  e030="Product" r070="Produs" g060="Προϊόν"/>
+		<purc  e030="PURC" r070="CUMP" g060="ΑΓΟΡΑ"/>
+		<purc1  e030="PURC" r070="CUMP" g060="ΑΓΟΡΑ"/>
+		<qty  e030="QTY" r070="CANT" g060="ΠΟΣΟΤ."/>
+		<qty1  e030="QTY" r070="CANT" g060="ΠΟΣΟΤ."/>
+		<rcpt  e030="RCPT" r070="RCPT" g060="ΠΑΡΑΛ>"/>
+		<receipts  e030="RECEIPTS" r070="RECEPTII" g060="ΠΑΡΑΛΑΒΕΣ"/>
+		<recv  e030="recv" r070="recv" g060="Παραλ."/>
+		<retn  e030="RETN" r070="RETN" g060="ΕΠΙΣΤΡ."/>
+		<return  e030="RETN" r070="RETN" g060="ΕΠΙΣΤΡ."/>
+		<retun  e030="retn" r070="retn" g060="Επίστρ."/>
+		<PrintOnAllPages  e030="Sel. Crit. in all pages" r070="Crit. Sel. in toate paginile" g060="Επιλέξτε κριτήρια σε όλες τις σελίδες"/>
+		<sell  e030="SELL" r070="VANZ" g060="ΠΩΛΗΣΗ"/>
+		<sellLUCode  e030="Sell-LU Code :" r070="Sell-LU Code :" g060="ΚΩΔΙΚΟΣ ΠΩΛΗΣΗΣ-ΕΙΔΟΥΣ :"/>
+		<sem  e030="sem" r070="sem" g060="sem"/>
+		<aju2  e030="sem" r070="sem" g060="sem"/>
+		<shipments  e030="SHIPMENTS" r070="LIVRARI" g060="ΑΠΟΣΤΟΛΕΣ"/>
+		<ShowAllProducts  e030="Show All Products" r070="Arata Toate Produsele" g060="Προβολή όλων των προϊόντων"/>
+		<subbrand  e030="SubBrand" r070="SubBrand" g060="Υπο-ομάδα"/>
+		<system  e030="SYSTEM" r070="SYSTEM" g060="ΣΥΣΤΗΜΑ"/>
+		<toDate  e030="To Date :" r070="Pina La :" g060="Ημ/νια 'έως':"/>
+		<toad  e030="TOAD" r070="TOAD" g060="TOAD"/>
+		<totalDivisionQuantity  e030="Total Division:" r070="Total divizie:" g060="Σύνολο τομέα:"/>
+		<transDate  e030="TRANS DATE" r070="DATA TRANZ" g060="ΗΜ/ΝΙΑ ΚΙΝ."/>
+		<transType  e030="TRANS TYPE" r070="TIP TRANZ" g060="ΤΥΠ.ΚΙΝ."/>
+		<transfer  e030="TRFN" r070="TRFN" g060="TRFN"/>
+		<trfr  e030="TRFR" r070="TRFR" g060="TRFR"/>
+		<trin  e030="TRIN" r070="TRIN" g060="TRIN"/>
+		<trod  e030="TROT" r070="TROT" g060="TROT"/>
+		<Type  e030="Type" r070="Tip" g060="Τύπος"/>
+		<ULL  e030="ULL :" r070="ULL :" g060="ULL :"/>
+		<um  e030="UM" r070="UM" g060="UM"/>
+		<un  e030="UN" r070="UN" g060="UN"/>
+		<uom  e030="UOM" r070="UM" g060="Μ.Μ."/>
+		<jlblUom  e030="UOM:" r070="UM:" g060="Μ.Μ.:"/>
+		<userId  e030="USERID :" r070="UTILIZATORID :" g060="ΧΡΗΣΤΗΣ:"/>
+		<warehouse  e030="Warehouse :" r070="Depozit :" g060="Κεντρική αποθήκη:"/>
+		<jlblWeek  e030="Week:" r070="Sapt:" g060="Εβδομάδα:"/>
+		<jlblYear  e030="Year:" r070="An :" g060="Έτος:"/>
+		<jlblPrintEqpValY  e030="Yes" r070="DA" g060="ΝΑΙ"/>
+	</Report>
+</Report>
+</Application-IM>

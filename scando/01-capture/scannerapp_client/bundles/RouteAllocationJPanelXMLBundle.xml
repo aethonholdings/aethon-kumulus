@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<Application-IM>
+<RouteAllocation>
+	<RouteAllocationJPanel>
+		<jbtnShowAllocSC  e030="A" r070="A" g060="A"/>
+		<jrbtnAllocateSC  e030="A" r070="A" g060="A"/>
+		<jlblTotAllocUn  e030="Alloc/UnAlloc" r070="Alocat/Nealocat" g060="Εκχωρ/Μη εκχωρ."/>
+		<jrbtnAllocate  e030="Allocate" r070="Alocare" g060="Εκχώρηση"/>
+		<allocated  e030="Allocated" r070="Alocat" g060="Εκχωρημένα"/>
+		<jlblTotAlloc  e030="Allocated" r070="Alocat" g060="Εκχωρημένα"/>
+		<jlblTotAvail  e030="Available" r070="Disponibil" g060="Διαθέσιμα"/>
+		<available  e030="Available" r070="Disponibil" g060="Διαθέσιμα"/>
+		<jlblCaddies  e030="Caddies :" r070="Display :" g060="Κουτιά:"/>
+		<jlblCases  e030="Cases :" r070="Boxuri :" g060="Κιβ.:"/>
+		<changed  e030="Changed" r070="Schimbat" g060="Έχει αλλάξει"/>
+		<jbtnRetrieveTT  e030="Click to open the specified document" r070="Apasa pt deschidere document specificat" g060="Κάντε κλικ εδώ για να ανοίξετε το καθορισμένο παραστατικό"/>
+		<jbtnShowAllocTT  e030="Click to see the allocation" r070="Apasa pt Vizualizare alocare" g060="Κλκ για να δείτε εκχωρήσεις"/>
+		<jlblSysDate  e030="Date :" r070="Data :" g060="Ημ/νία:"/>
+		<description  e030="Description" r070="Descriere" g060="Περιγραφή"/>
+		<jlblDocNo  e030="Doc No :" r070="Doc. Nr.:" g060="Αρ.Παρ/κού"/>
+		<doclineId  e030="DocLineId" r070="DocLineId" g060="Αρ.Γραμ."/>
+		<jrbtnExistingSC  e030="E" r070="E" g060="E"/>
+		<jlblEaches  e030="Eaches :" r070="Bucati :" g060="Τεμ.:"/>
+		<jrbtnExisting  e030="Existing" r070="Existent" g060="Υπάρχον"/>
+		<jlblItems  e030="Items :" r070="Produs :" g060="Είδη:"/>
+		<lineStatus  e030="Line Status" r070="Stare Linie" g060="Κατ.Γραμμής"/>
+		<jlblLocation  e030="Location :" r070="Locatie :" g060="Αποθήκη:"/>
+		<luCode  e030="LU Code" r070="Cod SKU" g060="LU"/>
+		<jrbtnNewSC  e030="N" r070="N" g060="N"/>
+		<jrbtnNew  e030="New" r070="Nou" g060="Νέο"/>
+		<jbtnRetrieveSC  e030="R" r070="R" g060="R"/>
+		<jbtnRetrieve  e030="Retrieve" r070="Aduce" g060="Ανάκτηση"/>
+		<jlblRoute  e030="Route :" r070="Ruta :" g060="Δρομολόγιο:"/>
+		<title  e030="Route Allocation" r070="Alocare Ruta" g060="Εκχ.σε Δρομολ."/>
+		<sellingCode  e030="Selling Code" r070="Cod Vanzare" g060="Κωδ.Πώλησης"/>
+		<jbtnShowAlloc  e030="Show Allocation" r070="Arata Alocarile" g060="Προβολή Εκχωρήσεων"/>
+		<jlblSystem  e030="System :" r070="System :" g060="Σύστημα:"/>
+		<jlblTotal  e030="Total :" r070="Total :" g060="Συνολο:"/>
+		<jlblTransDate  e030="Trans Date :" r070="Data Tranz :" g060="Ημ/νία Κίν.:"/>
+		<jrbtnNotAllocateSC  e030="U" r070="U" g060="U"/>
+		<jrbtnNotAllocate  e030="Unallocate" r070="Dealocare" g060="Μη εκχώρηση"/>
+		<UOM  e030="UOM" r070="UM" g060="M.M"/>
+	</RouteAllocationJPanel>
+</RouteAllocation>
+</Application-IM>

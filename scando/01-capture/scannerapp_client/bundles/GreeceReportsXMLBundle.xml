@@ -1,0 +1,639 @@
+<?xml version="1.0" ?>
+<Application-IM>
+<Greports>
+	<Greports>
+		<jlbllocationType    e030="Location Type :" r070="Tip Locatie :" g060="ΤΥΠ.ΑΠΟΘΗΚΗΣ:"/>
+		<jlblTransactionType    e030="Transactions:" r070="Tranzactii:     " g060="Κινήσεις:     "/>
+		<jlblToTransDt    e030="Date To:" r070="DATA SFARSIT:" g060="ΗΜ/ΝΙΑ ΕΩΣ:"/>
+		<jlblFromTransDt    e030="Date From:" r070="DATA INCEPUT:" g060="ΗΜ/ΝΙΑ ΑΠΟ:"/>
+		<jlblToLucode    e030="Item To:" r070="Produs, pana la:" g060="ΕΙΔΟΣ ΕΩΣ:"/>
+		<jlblToLucode1    e030="Item To:" r070="PANA LA:" g060="ΕΙΔΟΣ ΕΩΣ:"/>
+		<jlblFromLucode    e030="Item From:" r070="PRODUS DE LA:" g060="ΕΙΔΟΣ ΑΠΟ:"/>
+		<jlblGrcCompanyTitle1    e030="ΑΝΩΝΥΜΟΣ ΒΙΟΜΗΧΑΝΙΚΗ ΓΕΩΡΓΙΚΗ ΕΤΑΙΡΙΑ" r070="ΑΝΩΝΥΜΟΣ ΒΙΟΜΗΧΑΝΙΚΗ ΓΕΩΡΓΙΚΗ ΕΤΑΙΡΙΑ" g060="ΑΝΩΝΥΜΟΣ ΒΙΟΜΗΧΑΝΙΚΗ ΓΕΩΡΓΙΚΗ ΕΤΑΙΡΙΑ"/>
+		<jlblStock     e030="STOCK" r070="STOC" g060="ΥΠΟΛΟΙΠΟ"/>
+		<jlblStock     e030="STOCK" r070="STOC" g060="ΥΠΟΛΟΙΠΟ"/>
+		<Balance     e030="BALANCE" r070="BALANCE" g060="ΥΠΟΛΟΙΠΟ"/>
+		<Balances     e030="BALANCES" r070="BALANCES" g060="ΥΠΟΛΟΙΠΑ"/>
+		<jlblSubbrandDesc      e030="ITEM SUB-BRAND" r070="SUB-BRAND PROD." g060="ΥΠΟΚΑΤΗΓΟΡΙΑ ΕΙΔΟΥΣ"/>
+		<jlblRepotrTitle_2a     e030="2a_CURRENT ON HAND QUANTITIES FOR SELECTED LOCATIONS" r070="2a_STOCUL CURENT IN LOCATIILE SELECTATE" g060="2a_ΥΠΑΡΧΟΥΣΑ ΠΟΣΟΤΗΤΑ ΑΠΟΘΗΚΩΝ ( ΕΠΙΛΟΓΗ ΑΠΟΘΗΚΩΝ)"/>
+		<jlblRepotrTitle_2b     e030="2b_CURRENT ON HAND QUANTITIES FOR SELECTED LOCATIONS AND PAST DATE" r070="2b_CANTITATI CURENTE IN STOC PENTRU LOCATIILE SELECTATE SI ISTORIC" g060="2b_ΥΠΑΡΧΟΥΣΑ ΠΟΣΟΤΗΤΑ ΑΠΟΘΗΚΩΝ ( ΕΠΙΛΟΓΗ ΑΠΟΘΗΚΩΝ ΚΑΙ ΗΜΕΡΟΜΗΝΙΑΣ)"/>
+		<jlblRepotrTitle_1a     e030="1a_ON HAND QUANTITIES PER LOCATION (ITEM, QUANTITIES, PALETTES AND VALUES)" r070="1a_STOC CURENT PE LOCATIE" g060="1a_ΥΠΑΡΧΟΥΣΑ ΠΟΣΟΤΗΤΑ ΑΠΟΘΗΚΗΣ(ΜΕ ΑΞΙΕΣ)"/>
+		<jlblRepotrTitle_1b     e030="1b_ON HAND QUANTITIES PER LOCATION (ITEM, QUANTITIES AND PALETTES)" r070="1b_BAZA STOC CURENT PE LOCATIE" g060="1b_ΥΠΑΡΧΟΥΣΑ ΠΟΣΟΤΗΤΑ ΑΠΟΘΗΚΗΣ"/>
+		<jlblQuantity     e030="ON HAND QUANTITY" r070="CANT. IN STOC" g060="ΥΠΑΡΧΟΥΣΑ ΠΟΣΟΤΗΤΑ (ΤΕΜ)"/>
+		<!-- Sankit  Start-->
+		<jlblQuantityOnHand     e030="ON HAND QUANTITY" r070="CANT. IN STOC" g060="ΥΠΑΡΧΟΥΣΑ ΠΟΣΟΤΗΤΑ"/>
+		<jlblBoxesOnHand     e030="ON HAND QUANTITY" r070="CANT. IN STOC" g060="ΥΠΑΡΧΟΥΣΑ ΠΟΣΟΤΗΤΑ"/>
+		<jlblOnHandEaches     e030="    (EACHES)   " r070="CANT. IN STOC" g060="     (ΤΕΜΑΧΙΑ)    "/>
+		<jlblOnHandCases     e030="     (CASES)    " r070="CANT. IN STOC" g060="     (ΚΙΒΩΤΙΑ)    "/>		
+		<!-- Sanki End -->
+		<lbl_Trans_type     e030="Transaction Type" r070="Transaction Type" g060="Τύπος Κίνησης"/>
+		<jlblLocationType     e030="Location Type:" r070="Tip Locatie:" g060="ΤΥΠΟΙ ΑΠΟΘΗΚΗΣ:"/>
+		<CurrentMonth     e030="CURRENT MONTH" r070="CURRENT MONTH" g060="ΤΡΕΧΩΝ ΜΗΝΑΣ"/>
+		<jlblCurrentStock     e030="CURRENT STOCK" r070="STOC CURENT" g060="ΤΡΕΧΩΝ ΑΠΟΘΕΜΑ"/>
+		<jlblLastCost     e030="LAST COST" r070="COST STANDARD" g060="ΤΙΜΗΚΟΣΤΟΥΣ"/>
+		<jlblBillOfMaterail     e030="BILL OF MATERIALS:" r070="BILL OF MATERIALS:" g060="ΣΥΝΤΑΓΗ:"/>
+		<jlblrpt2afooterTotalValue     e030="TOTALS:" r070="TOTAL:" g060="ΣΥΝΟΛΟ:"/>
+		<jlblrpt2bfooterTotalValue     e030="TOTALS:" r070="TOTAL:" g060="ΣΥΝΟΛΟ:"/>
+		<jlblR33FinalTotal     e030="TOTALS FOR ALL ITEM BRANDS:" r070="TOTAL PER BRAND:" g060="ΣΥΝΟΛΟ ΟΛΩΝ ΤΩΝ ΚΑΤΗΓΟΡΙΩΝ ΕΙΔΩΝ:"/>
+		<jlblrpt5GrandTotalValue     e030="TOTALS FOR ALL ITEM BRANDS:" r070="TOTAL PER BRAND:" g060="ΣΥΝΟΛΟ ΟΛΩΝ ΤΩΝ ΚΑΤΗΓΟΡΙΩΝ ΕΙΔΩΝ:"/>
+		<jlblrpt6GrandTotalValue     e030="TOTALS FOR ALL ITEM BRANDS:" r070="TOTAL PER BRAND:" g060="ΣΥΝΟΛΟ ΟΛΩΝ ΤΩΝ ΚΑΤΗΓΟΡΙΩΝ ΕΙΔΩΝ:"/>
+		<jlblR18FinalTotal     e030="TOTALS FOR ALL LOCATIONS:" r070="TOTAL LOCATII:" g060="ΣΥΝΟΛΟ ΟΛΩΝ ΤΩΝ ΑΠΟΘΗΚΩΝ:"/>
+		<jlblR19FinalTotal     e030="TOTALS FOR ALL LOCATIONS:" r070="TOTALS LOCATII:" g060="ΣΥΝΟΛΟ ΟΛΩΝ ΤΩΝ ΑΠΟΘΗΚΩΝ:"/>
+		<jlblR20FinalTotal     e030="TOTALS FOR ALL LOCATIONS:" r070="TOTAL  PER LOCATII:" g060="ΣΥΝΟΛΟ ΟΛΩΝ ΤΩΝ ΑΠΟΘΗΚΩΝ:"/>
+		<jlblR21FinalTotal     e030="TOTALS FOR ALL LOCATIONS:" r070="TOTAL  PER LOCATII:" g060="ΣΥΝΟΛΟ ΟΛΩΝ ΤΩΝ ΑΠΟΘΗΚΩΝ:"/>
+		<jlblR26FinalTotal     e030="TOTALS FOR ALL LOCATIONS:" r070="TOTAL  PER LOCATII:" g060="ΣΥΝΟΛΟ ΟΛΩΝ ΤΩΝ ΑΠΟΘΗΚΩΝ:"/>
+		<jlblR27FinalTotal     e030="TOTALS FOR ALL LOCATIONS:" r070="TOTAL  PER LOCATII:" g060="ΣΥΝΟΛΟ ΟΛΩΝ ΤΩΝ ΑΠΟΘΗΚΩΝ:"/>
+		<jlblR29FinalTotal     e030="TOTALS FOR ALL LOCATIONS:" r070="TOTAL  PER LOCATII:" g060="ΣΥΝΟΛΟ ΟΛΩΝ ΤΩΝ ΑΠΟΘΗΚΩΝ:"/>
+		<jlblR38FinalTotal     e030="TOTALS FOR ALL LOCATIONS:" r070="TOTAL  PER LOCATII:" g060="ΣΥΝΟΛΟ ΟΛΩΝ ΤΩΝ ΑΠΟΘΗΚΩΝ:"/>
+		<jlblR42FinalTotal     e030="TOTALS FOR ALL LOCATIONS:" r070="TOTAL  PER LOCATII:" g060="ΣΥΝΟΛΟ ΟΛΩΝ ΤΩΝ ΑΠΟΘΗΚΩΝ:"/>
+		<jlblrpt3GrandTotalValue     e030="TOTALS FOR ALL LOCATIONS:" r070="TOTAL  PER LOCATII:" g060="ΣΥΝΟΛΟ ΟΛΩΝ ΤΩΝ ΑΠΟΘΗΚΩΝ:"/>
+		<jlblrpt4GrandTotalValue     e030="TOTALS FOR ALL LOCATIONS:" r070="TOTAL  PER LOCATII:" g060="ΣΥΝΟΛΟ ΟΛΩΝ ΤΩΝ ΑΠΟΘΗΚΩΝ:"/>
+		<jlblTotal_brand     e030="ITEM BRAND TOTALS:" r070="TOTAL BRAND:" g060="ΣΥΝΟΛΟ ΚΑΤΗΓΟΡΙΑΣ ΕΙΔΩΝ:"/>
+		<jlblR33GroupTotal     e030="ITEM BRAND TOTALS:" r070="TOTAL BRAND:" g060="ΣΥΝΟΛΟ ΚΑΤΗΓΟΡΙΑΣ ΕΙΔΩΝ:"/>
+		<jlblR35GroupTotal     e030="ITEM TOTALS:" r070="TOTAL PROD.:" g060="ΣΥΝΟΛΟ ΕΙΔΟΥΣ:"/>
+		<jlblR34Group2Total     e030="ITEM TOTALS:" r070="TOTAL PROD.:" g060="ΣΥΝΟΛΟ ΕΙΔΟΥΣ:"/>
+		<jlblrpt2aTotalValue     e030="TOTAL FOR ALL LOCATIONS" r070="TOTAL PENTRU TOATE LOCATIILE" g060="ΣΥΝΟΛΟ ΑΠΟΘΗΚΩΝ"/>
+		<jlblrpt2bTotalValue     e030="TOTAL FOR ALL LOCATIONS" r070="TOTAL PENTRU TOATE LOCATIILE" g060="ΣΥΝΟΛΟ ΑΠΟΘΗΚΩΝ"/>
+		<jlblR29GroupTotal     e030="LOCATIONS TOTALS:" r070="TOTAL PE LOCATII:" g060="ΣΥΝΟΛΟ ΑΠΟΘΗΚΗΣ::"/>
+		<jlblTotal     e030="LOCATION TOTALS:" r070="TOTAL LOCATIE:" g060="ΣΥΝΟΛΟ ΑΠΟΘΗΚΗΣ:"/>
+		<jlblR18GroupFooterTotal     e030="LOCATION TOTALS:" r070="TOTAL LOCATIE:" g060="ΣΥΝΟΛΟ ΑΠΟΘΗΚΗΣ:"/>
+		<jlblItemTransactionTotalrptTitle   e030="9a_ITEM TRANSACTION REPORT PER TRANSACTION CODE (TOTALS)" r070="9a_RAPORT TRANZACTII PE TIP TRANZACTIE (TOTAL)" g060="9a_ΚΑΤΑΣΤΑΣΗ ΚΙΝΗΣΕΩΝ ΑΠΟΘΗΚΗΣ (ΑΝΑ ΚΩΔΙΚΟ ΤΙΜΟΛΟΓΙΟΥ)"/>
+		<jlblItemTransactionDetailrptTitle   e030="9b_ITEM TRANSACTION REPORT PER TRANSACTION CODE (DETAIL)" r070="9b_RAPORT TRANZACTII COD PRODUS (DETALIAT)" g060="9b_ΚΑΤΑΣΤΑΣΗ ΚΙΝΗΣΕΩΝ ΑΠΟΘΗΚΗΣ (ΑΝΑ ΚΩΔΙΚΟ ΤΙΜΟΛΟΓΙΟΥ ΚΑΙ ΠΑΡΑΣΤΑΤΙΚΟ)"/>
+		<jlblInTransitTransactionLocationToCopackerrptTitle   e030="12_PENDING INTRANSIT TRANSACTIONS BETWEEN LOCATIONS AND CO-PACKERS" r070="12_TRANZACTII IN TRANZIT IN ASTEPTARE INTRE LOCATII SI COPACKERI" g060="12_ΕΚΤΥΠΩΣΗ ΧΕΙΡΟΓΡΑΦΩΝ ΕΣΩΤΕΡΙΚΩΝ ΔΙΑΚΙΝΗΣΕΩΝ"/>
+		<jlblInTransitTransactionLocationToDSDrptTitle   e030="13_PENDING INTRANSIT TRANSACTIONS BETWEEN LOCATIONS AND DSD VANS (DETAILS)" r070="13_PENDING INTRANSIT TRANSACTIONS BETWEEN LOCATIONS AND DSD VANS (DETAILS)" g060="13_ΚΑΤΑΣΤΑΣΗ ΦΟΡΤΩΣΕΩΝ IN- TRANSIT DSD"/>
+		<jlblR19GroupFooterTotal     e030="LOCATION TOTALS:" r070="TOTAL LOCATIE:" g060="ΣΥΝΟΛΟ ΑΠΟΘΗΚΗΣ:"/>
+		<jlblInTransitTransactionLocationExcludeDSDrptTitle_detail   e030="14_PENDING INTRANSIT TRANSACTIONS BETWEEN LOCATIONS (DSD VANS ARE EXCLUDED) (DETAIL)" r070="14_PENDING INTRANSIT TRANSACTIONS BETWEEN LOCATIONS (DSD VANS ARE EXCLUDED) (DETAIL)" g060="14_ΚΑΤΑΣΤΑΣΗ ΦΟΡΤΩΣΕΩΝ IN- TRANSIT  ΑΠΟΘΗΚΩΝ ΑΝΑ ΠΑΡΑΣΤΑΤΙΚΟ"/>
+		<jlblInTransitTransactionLocationExcludeDSDrptTitle_total   e030="14_PENDING INTRANSIT TRANSACTIONS BETWEEN LOCATIONS (DSD VANS ARE EXCLUDED) (TOTALS)" r070="14_PENDING INTRANSIT TRANSACTIONS BETWEEN LOCATIONS (DSD VANS ARE EXCLUDED) (TOTALS)" g060="14_ΚΑΤΑΣΤΑΣΗ ΦΟΡΤΩΣΕΩΝ IN- TRANSIT ΚΕΝΤΡΙΚΗΣ ΑΠΟΘΗΚΗΣ - ΣΥΓΚΕΝΤΡΩΤΙΚΑ"/>
+		<jlblR20GroupFooterTotal     e030="LOCATION TOTALS:" r070="TOTAL LOCATIE:" g060="ΣΥΝΟΛΟ ΑΠΟΘΗΚΗΣ:"/>
+		<jlblR21GroupFooterTotal     e030="LOCATION TOTALS:" r070="TOTAL LOCATIE:" g060="ΣΥΝΟΛΟ ΑΠΟΘΗΚΗΣ:"/>
+		<jlblR27GroupTotal     e030="LOCATION TOTALS:" r070="TOTAL LOCATIE:" g060="ΣΥΝΟΛΟ ΑΠΟΘΗΚΗΣ:"/>
+		<jlblR35FinalTotal     e030="LOCATION TOTALS:" r070="TOTAL LOCATIE:" g060="ΣΥΝΟΛΑ ΑΠΟΘΗΚΗΣ:"/>
+		<jlblR34FinalTotal     e030="WAREHOUSE TOTALS:" r070="WAREHOUSE TOTALS:" g060="ΣΥΝΟΛΟ ΑΠΟΘΗΚΗΣ:"/>
+		<jlblR34WarehouseTotal     e030="TOTALS OF WAREHOUSE BOOK:" r070="TOTALS OF WAREHOUSE BOOK:" g060="ΣΥΝΟΛΑ ΒΙΒΛΙΟΥ ΑΠΟΘΗΚΗΣ:"/>
+		<jlblR38GroupTotal     e030="LOCATION TOTALS:" r070="LOCATIONS TOTALS:" g060="ΣΥΝΟΛΟ ΑΠΟΘΗΚΗΣ:"/>
+		<jlblR42GroupTotal     e030="LOCATION TOTALS:" r070="LOCATIONS TOTALS:" g060="ΣΥΝΟΛΟ ΑΠΟΘΗΚΗΣ:"/>
+		<jlblrptTotalValue     e030="LOCATION TOTALS:" r070="TOTAL LOCATIE:" g060="ΣΥΝΟΛΟ ΑΠΟΘΗΚΗΣ:"/>
+		<jlblTotalQuantity     e030="TOTAL QUANTITY" r070="BUC." g060="ΣΥΝΟΛΙΚΗ ΠΟΣΟΤΗΤΑ"/>
+		<!-- Sankit Start -->		
+		<jlblTotalQuantityEach     e030="TOTAL QUANTITY EACHES" r070="BUC." g060="ΣΥΝΟΛΙΚΗ ΠΟΣΟΤΗΤΑ ΤΕΜΑΧΙΑ"/>
+		<jlblTotalQuantityCase     e030="TOTAL QUANTITY CASES" r070="BOX" g060="ΣΥΝΟΛΙΚΗ ΠΟΣΟΤΗΤΑ ΚΙΒΩΤΙΑ"/>
+		<jlblAvgActCost     e030="AVG ACT COST" r070="AVG ACT COST" g060="ΤΙΜΗ ΚΟΣΤΟΥΣ"/>
+		<!-- Sankit End -->
+		<jlblTotalValue     e030="TOTAL VALUE" r070="TOTAL VALOARE" g060="ΣΥΝΟΛΙΚΗ ΑΞΙΑ"/>
+		<jlblTotalCost     e030="TOTAL COST" r070="TOTAL VALOARE" g060="ΣΥΝΟΛΙΚΟ ΚΟΣΤΟΣ"/> <!-- Sankit Change ΣΥΝΟΛΙΚΗ ΑΞΙΑ to ΣΥΝΟΛΙΚΟ ΚΟΣΤΟΣ-->
+		<jlblTotalCost7     e030="TOTAL COST" r070="TOTAL COST" g060="ΣΥΝΟΛΙΚΗ ΑΞΙΑ"/>
+		<jlblTotalKilograms     e030="TOTAL KILOGRAMS" r070="TOTAL KILOGRAME" g060="ΣΥΝΟΛΙΚΑΚΙΛΑ"/>
+		<lbl_Item_total     e030="ITEM TOTALS" r070="ITEM TOTALS" g060="ΣΥΝΟΛΑ ΕΙΔΟΥΣ"/>
+		<jlblTransTotal     e030="TRANSACTIONS TOTAL" r070="TRANSACTIONS TOTAL" g060="ΣΥΝΑΛΛΑΓΕΣ ΣΥΝΟΛΟ"/>
+		<jcmbTotal     e030="Total" r070="SUMARIZAT" g060="ΣΥΓΚΕΝΤΡΩΤΙΚΟ"/>
+		<jlblTotal     e030="Total" r070="Total" g060="ΣΥΓΚΕΝΤΡΩΤΙΚΟ"/>
+		<jlblStaleTransactionRptTotalsTitle     e030="19_TRANSACTIONS TO STALES WAREHOUSES (TOTALS)" r070="19_TRANZACTII DEPOZITE PERIMATE (TOTAL)" g060="19_ΣΥΓΚΕΝΤΡΩΤΙΚΗ ΚΑΤΑΣΤΑΣΗ ΔΙΑΚΙΝΗΣΕΩΝ ΑΚΑΤΑΛΛΗΛΩΝ"/>
+		<jReportPendingIntransitTransactionsBetweenLocationsandExcludeDSDWithCostPerItemTitle     e030="44_PENDING INTRANSIT TRANSACTIONS BETWEEN LOCATIONS (DSD VANS ARE EXCLUDED) (DETAIL) WITH COSTS PER ITEM BRAND" r070="44_PENDING INTRANSIT TRANSACTIONS BETWEEN LOCATIONS (DSD VANS ARE EXCLUDED) (DETAIL) WITH COSTS PER ITEM BRAND" g060="44_ΣΥΓΚΕΝΤΡΩΤΙΚΗ ΑΠΟΤΙΜΗΣΗ ΦΟΡΤΩΣΕΩΝ ΚΕΝΤΡΙΚΗΣ"/>
+		<jReportPendingIntransitTransactionsBetweenLocationsandDSDWithCostPerItemTitle     e030="43_PENDING INTRANSIT TRANSACTIONS BETWEEN LOCATIONS AND DSD VANS (DETAILS) WITH COSTS PER ITEM BRAND" r070="43_PENDING INTRANSIT TRANSACTIONS BETWEEN LOCATIONS AND DSD VANS (DETAILS) WITH COSTS PER ITEM BRAND" g060="43_ΣΥΓΚΕΝΤΡΩΤΙΚΗ ΑΠΟΤΙΜΗΣΗ ΦΟΡΤΩΣΕΩΝ DSD"/>
+		<lbl_TO_Page_carry_forward     e030="To Page Carry Forward:" r070="To Page Carry Forward:" g060="Σε Μεταφορά Σελίδας:"/>
+		<Sales     e030="SALES" r070="SALES" g060="ΠΩΛΗΣΕΙΣ"/>
+		<jlblGoods_Sold     e030="GOODS SOLD" r070="Vinzari" g060="ΠΩΛΗΘΕΝΤΑ"/>
+		<jlblProdType     e030="PRODUCT/PURCHASED" r070="PRODUCT/PURCHASED" g060="ΠΡΟΙΟΝ/ΕΜΠΟΡΕΥΜΑ"/>
+		<YTD_Balance     e030="YTD BALANCE" r070="YTD BALANCE" g060="ΠΡΟΔΕΥΤΙΚΑ ΥΠΟΛΟΙΠΑ"/>
+		<lbl_Import_Qty     e030="Qty" r070="Qty" g060="Ποσ."/>
+		<lbl_Export_Qty     e030="Qty" r070="Qty" g060="Ποσ."/>
+		<lbl_Balance_Qty     e030="Qty" r070="Qty" g060="Ποσ."/>
+		<jlblQty       e030="Quantity" r070="Cantitate" g060="ΠΟΣ."/>
+		<jlblQty     e030="Qty" r070="BUC." g060="ΠΟΣ."/>
+		<jlblUnit       e030="Units" r070="Units" g060="ΠΟΣ."/>
+		<jlblBeg_qty     e030="QTY" r070="QTY" g060="ΠΟΣ."/>
+		<jlblpur_qty     e030="QTY" r070="QTY" g060="ΠΟΣ."/>
+		<jlblrepack_qty     e030="QTY" r070="QTY" g060="ΠΟΣ."/>
+		<jlblprod_qty     e030="QTY" r070="QTY" g060="ΠΟΣ."/>
+		<jlbltin_qty     e030="QTY" r070="QTY" g060="ΠΟΣ."/>
+		<jlblsal_qty     e030="QTY" r070="QTY" g060="ΠΟΣ."/>
+		<jlbltout_qty     e030="QTY" r070="QTY" g060="ΠΟΣ."/>
+		<jlbldist_qty     e030="QTY" r070="QTY" g060="ΠΟΣ."/>
+		<jlblbal_qty     e030="QTY" r070="QTY" g060="ΠΟΣ."/>
+		<jlblytdbal_qty     e030="QTY" r070="QTY" g060="ΠΟΣ."/>
+		<jlblBeg_Qty     e030="BEGINNING QUANTITY" r070="CANTITATE INITIALA" g060="ΠΟΣ.ΕΝΑΡΞΗΣ"/>
+		<jlblR26Repackingqty       e030="REPACKAGING QUANTITY" r070="Impachetari cant." g060="ΠΟΣΟΤΗΤΑ ΑΝΑΣΥΣΚΕΥΑΣΙΩΝ"/>
+		<jlblR26Purchasedqty       e030="PURCHASED QUANTITY" r070="CANTITATE CUMPARATA" g060="ΠΟΣΟΤΗΤΑ ΑΓΟΡΩΝ"/>
+		<jlblBeg_Value     e030="BEGINNING VALUE" r070="VALOARE INITIALA" g060="ΠΟΣ.ΑΓΟΡΩΝ"/>
+		<jlblPercentage     e030="PERCENTAGE (%)" r070="PROCENTAJ (%)" g060="ΠΟΣΟΣΤΟ (%)"/>
+		<jlblLuCodeDesc_BOM     e030="DESCRIPTION" r070="DESCRIERE" g060="ΠΕΡΙΓΡΑΦΗ"/>
+		<jlblItemSubCategoryDesc     e030="ITEM SUB-BRAND DESCRIPTION" r070="SUB-BRAND PROD. DESCR." g060="ΠΕΡΙΓΡΑΦΗ ΥΠΟΚΑΤΗΓΟΡΙΑΣ ΕΙΔΟΥΣ"/>
+		<lblItem_Description     e030="Item Description:" r070="Item Description:" g060="Περιγραφή Είδους:"/>
+		<jlblLuCodeDesc     e030="ITEM DESCRIPTION" r070="DESCRIERE" g060="ΠΕΡΙΓΡΑΦΗ ΕΙΔΟΥΣ"/>
+		<jlblItem_Description     e030="ITEM DESCRIPTION" r070="DESCR.PRODUS" g060="ΠΕΡΙΓΡΑΦΗ ΕΙΔΟΥΣ"/>
+		<jlblItemDescription     e030="ITEM DESCRIPTION" r070="ITEM DESCRIPTION" g060="ΠΕΡΙΓΡΑΦΗ ΕΙΔΟΥΣ"/>
+		<jlblProduction     e030="PRODUCTION" r070="PRODUCTIE" g060="ΠΑΡΑΧΘΕΝΤΑ"/>
+		<lbl_Document_number     e030="Document Number" r070="Document Number" g060="Παραστατικό"/>
+		<jlblPurchaseBookFiscalDocument        e030="FISCAL DOCUMENT" r070="Document fiscal" g060="ΠΑΡΑΣΤΑΤΙΚΟ"/>
+		<jlblProductionBookFiscalDocument        e030="FISCAL DOCUMENT" r070="Document fiscal" g060="ΠΑΡΑΣΤΑΤΙΚΟ"/>
+		<jlblR20RepackingReceipt       e030="REPACKAGING RECEIPTS" r070="IMPACHETARI RECEPTII" g060="ΠΑΡΑΛΑΒΗ ΑΝΑΣΥΣΚΕΥΑΣΙΑΣ"/>
+		<jlblR21RepackingReceipt       e030="REPACKAGING RECEIPTS" r070="IMPACHETARI RECEPTII" g060="ΠΑΡΑΛΑΒΗ ΑΝΑΣΥΣΚΕΥΑΣΙΑΣ"/>
+		<jlblPurchaseBookRepackingReceipt      e030="REPACKAGING RECEIPTS" r070="IMPACHETARI RECEPTII" g060="ΠΑΡΑΛΑΒΗ ΑΝΑΣΥΣΚΕΥΑΣΙΑΣ"/>
+		<jlblProductionBookRepackingReceipt      e030="REPACKAGING RECEIPTS" r070="IMPACHETARI RECEPTII" g060="ΠΑΡΑΛΑΒΗ ΑΝΑΣΥΣΚΕΥΑΣΙΑΣ"/>
+		<jlblReceipt     e030="RECEIPTS" r070="RECEPTII" g060="ΠΑΡΑΛΑΒΕΣ"/>
+		<TransferIn     e030="TRANSFER Ins" r070="TRANSFER Ins" g060="ΠΑΡΑΛΑΒΕΣ ΕΝΔ"/>
+		<jlblStales_Receipt     e030="STALES RECEIPTS" r070="RECEPTII PERIMATE" g060="ΠΑΡΑΛΑΒΕΣ ΑΚΑΤΑΛΛΗΛΩΝ"/>
+		<jlblstale_in_qty     e030="QTY" r070="QTY" g060="ΠΑΡΑΛ.ΠΟΣΟΤΗΤΑ"/>
+		<jlblR21Purchases              e030="PRODUCTION" r070="PRODUCTIE" g060="ΠΑΡΑΓΩΓΗΣ"/>
+		<jlblProductionBookPurchases             e030="PRODUCTION" r070="PRODUCTIE" g060="ΠΑΡΑΓΩΓΗΣ"/>
+		<Production     e030="PRODUCTION" r070="PRODUCTION" g060="ΠΑΡΑΓΩΓΕΣ"/>
+		<jlblPallets     e030="PALETTES" r070="PALET" g060="ΠΑΛΛΕΤΕΣ"/>
+		<lbl_Uom     e030="Unit of Measure:" r070="Unit of Measure:" g060="Μονάδα Μετρησης:"/>
+		<jlblGrossRevenue     e030="GROSS REVENUE" r070="GROSS REVENUE" g060="ΜΙΚΤΟ ΑΠΟΤΕΛΕΣΜΑ"/>
+		<Gross_Profit     e030="GROSS PROFIT" r070="GROSS PROFIT" g060="ΜΙΚΤΟ ΑΠΟΤΕΛΕΣΜΑ"/>
+		<jlblInvCount     e030="INVENTORY COUNT" r070="INVENTAR" g060="ΜΕΤΡΗΘΕΙΣΑ ΠΟΣΟΤΗΤΑ"/>
+		<jlblR26RepackingValue     e030="AVERAGE PURCHASE PRICE" r070="PRET MEDIU CUMPARARE" g060="ΜΕΣΗ ΤΙΜΗ ΑΓΟΡΩΝ"/>
+		<jlblSubbrand          e030="SUB-BRAND CODE" r070="COD SUB-BRAND" g060="ΚΩΔΙΚΟΣ ΥΠΟΚΑΤΗΓΟΡΙΑΣ"/>
+		<jlblItemSubCategory     e030="ITEM SUB-BRAND CODE" r070="SUB-BRAND COD PROD." g060="ΚΩΔΙΚΟΣ ΥΠΟΚΑΤΗΓΟΡΙΑΣ ΕΙΔΟΥΣ"/>
+		<jlblProdItem       e030="PRODUCED ITEM:" r070="PRODUCED ITEM:" g060="ΚΩΔΙΚΟΣ ΜΙΚΤΟΥ ΚΙΒΩΤΙΟΥ:"/>
+		<lblItem_Code     e030="Item Code:" r070="Item Code:" g060="Κωδικός Είδους:"/>
+		<jlblLuCode     e030="ITEM CODE" r070="PRODUS" g060="ΚΩΔΙΚΟΣ ΕΙΔΟΥΣ"/>
+		<jlblItem_Code     e030="ITEM CODE" r070="COD.PROD." g060="ΚΩΔΙΚΟΣ ΕΙΔΟΥΣ"/>
+		<jlblItemCode     e030="ITEM CODE" r070="ITEM CODE" g060="ΚΩΔΙΚΟΣ ΕΙΔΟΥΣ"/>
+		<jlbl33itemcode     e030="Item Code :" r070="Cod. Prod. :" g060="ΚΩΔΙΚΟΣ ΕΙΔΟΥΣ :"/>
+		<lbl_Trans_code     e030="Trans Code" r070="Trans Code" g060="Κωδ.Κίνησης"/>
+		<jlblBoxes     e030="BOXES" r070="BOX" g060="ΚΟΥΤΙΑ"/>
+		<lbl_Import_Cost     e030="Cost" r070="Cost" g060="Κόστος"/>
+		<jlblCost              e030="COST" r070="COST" g060="ΚΟΣΤΟΣ"/>
+		<jlblsal_cost     e030="COST" r070="COST" g060="ΚΟΣΤΟΣ"/>
+		<jlbltout_cost     e030="COST" r070="COST" g060="ΚΟΣΤΟΣ"/>
+		<jlblstale_cost     e030="COST" r070="COST" g060="ΚΟΣΤΟΣ"/>
+		<jlbldist_cost     e030="COST" r070="COST" g060="ΚΟΣΤΟΣ"/>
+		<jlblCost_Goods_Sold     e030="COST OF GOODS SOLD" r070="COST OF GOODS SOLD" g060="ΚΟΣΤΟΣ ΠΩΛΗΘΕΝΤΩΝ"/>
+		<Cost_Sold     e030="COST SOLD" r070="COST SOLD" g060="ΚΟΣΤΟΣ ΠΩΛΗΘΕΝΤΩΝ"/>
+		<jlblProduction_Cost     e030="PRODUCTION COST" r070="COST PRODUCTIE" g060="ΚΟΣΤΟΣ ΠΑΡΑΧΘΕΝΤΩΝ"/>
+		<jtblStdCost     e030="Cost per unit of measure" r070="COST PE U.M." g060="ΚΟΣΤΟΣ ΜΟΝΑΔΑΣΜΕΤΡΗΣΗΣ"/>
+		<jlblUnitofMeaure     e030="COST PER UNIT OF MEASURE" r070="COST PER UNIT MASURA" g060="ΚΟΣΤΟΣ ΜΟΝΑΔΑΣ ΜΕΤΡΗΣΗΣ"/>
+		<jlblCostVariances     e030="COST VARIANCE" r070="VARIATIE COST" g060="ΚΟΣΤΟΣ ΔΙΑΦΟΡΩΝ"/>
+		
+		<jlblBrand     e030="Brand:" r070="Brand:" g060="ΚΑΤΗΓΟΡΙΑ:"/>
+		<jlblToBrand     e030="Item Brand To:" r070="Brand, pina la:" g060="ΚΑΤΗΓΟΡΙΑ ΕΙΔΟΥΣ ΕΩΣ:"/>
+		<jlblFromBrand     e030="Item Brand From:" r070="Brand, de la :" g060="ΚΑΤΗΓΟΡΙΑ ΕΙΔΟΥΣ ΑΠΟ:"/>
+		<Deductions     e030="DESTRUCTIONS" r070="DESTRUCTIONS" g060="ΚΑΤΑΣΤΡΟΦΕΣ"/>
+		<jlblPurchaseValueCalculationReportTitle     e030="26_PURCHASE VALUE CALCULATION" r070="26_CALCULARE VALOARE CUMPARARE" g060="26_ΚΑΤΑΣΤΑΣΗ ΜΕΣΗΣ ΤΙΜΗΣ ΑΓΟΡΩΝ"/>
+		<jReportNegativeBalanceCheckingReportTitle     e030="35_NEGATIVE BALANCES CHECKING REPORT" r070="35_RAPORT VERIF. BALANTA NEGATIVA" g060="35_ΕΛΕΓΧΟΣ ΑΡΝΗΤΙΚΩΝ ΥΠΟΛΟΙΠΩΝ ΑΠΟΘΗΚΩΝ"/>
+		<jReportTrialBalaceWithoutReportTotalTitle     e030="27_INVENTORY TRIAL BALANCE" r070="27_INVENTORY TRIAL BALANCE" g060="27_ΙΣΟΖΥΓΙΟ ΕΙΔΩΝ ΚΑΤΑΛΛΗΛΩΝ ΑΠΟΘΗΚΩΝ"/>
+		<jReportTrialBalaceWithoutReportDetailTitle     e030="27_INVENTORY TRIAL BALANCE" r070="27_INVENTORY TRIAL BALANCE" g060="27_ΙΣΟΖΥΓΙΟ ΕΙΔΩΝ ΚΑΤΑΛΛΗΛΩΝ ΑΠΟΘΗΚΩΝ"/>
+		<jlblWhseTrialBalanceReportTitle     e030="WHSE TRIAL BALANCE" r070="WHSE TRIAL BALANCE" g060="ΙΣΟΖΥΓΙΟ ΑΠΟΘΗΚΗΣ"/>
+		<jReportTrialBalaceWithReportTitle     e030="29_INVENTORY TRIAL BALANCE" r070="29_INVENTORY TRIAL BALANCE" g060="29_ΙΣΟΖΥΓΙΟ ΕΙΔΩΝ ΚΑΤΑΛΛΗΛΩΝ ΑΠΟΘΗΚΩΝ ΜΕ ΠΡΟΟΔΕΥΤΙΚΟ ΥΠΟΛΟΙΠΟ"/>
+		<jReportPurchaseTrialBalaceReportTitle     e030="33_PURCHASES TRIAL BALANCE" r070="33_BALANTA ACHIZITII" g060="33_ΙΣΟΖΥΓΙΟ ΑΓΟΡΩΝ"/>
+		<jlblDt     e030="Date:" r070="Data:" g060="ΗΜ/ΝΙΑ:"/>
+		<jrptcurdate      e030="Execution Date:" r070="Execution Date:" g060="Ημ/νία Εκτέλεσης:"/>
+		<lblExceuctionDate     e030="Execution Date" r070="Execution Date" g060="Ημ/νία Εκτέλεσης"/>
+		<jrptfromdate     e030="Date From :" r070="Date From :" g060="ΗΜ"/>
+		<lbl_Trans_date     e030="Trans Date" r070="Trans Date" g060="Ημ"/>
+		<jrpttodate     e030="To :" r070="To :" g060="ΈΩΣ :"/>
+		
+		
+		
+		
+		<jlblTransactionOut     e030="TRANSACTIONS OUT" r070="TRANZACTII IES" g060="ΕΞΑΓΩΓΕΣ"/>
+		<Exports     e030="EXPORTS" r070="EXPORTS" g060="ΕΞΑΓΩΓΕΣ"/>
+		<jReportRePackagingTransactionTotalTitle     e030="37_RE-PACKAGING TRANSACTION TOTALS" r070="37__RE-PACKAGING TRANSACTION TOTALS" g060="37_ΕΚΤΥΠΩΣΗ ΚΙΝΗΣΕΩΝ ΣΥΝΤΑΓΩΝ ΑΝΑΣΥΣΚΕΥΑΣΙΑΣ"/>
+		<jlblRepotrTitle_4     e030="4_INVENTORY COUNT DIFFERENCES (TOTALS FOR SELECTED LOCATIONS)" r070="4_DIFERENTE INVENTAR (TOTAL LOCATII)" g060="4_ΕΚΤΥΠΩΣΗ ΔΙΑΦΟΡΩΝ ΦΥΣΙΚΗΣ ΚΑΙ ΠΡΑΓΜΑΤΙΚΗΣ ΑΠΟΓΡΑΦΗΣ"/>
+		<jlblRepotrTitle_3     e030="3_INVENTORY COUNT DIFFERENCES (QUANTITIES AND COSTS)" r070="3_DIFERENTE INVENTAR (CANT. SI COST)" g060="3_ΕΚΤΥΠΩΣΗ ΔΙΑΦΟΡΩΝ ΑΠΟΓΡΑΦΗΣ ΑΠΟΘΗΚΗΣ"/>
+		<jlblStaleTransactionRptPerLocationTitle     e030="18_TRANSACTIONS TO STALES WAREHOUSES PER LOCATION" r070="18_TRANZACTII DEPOZITE PERIMATE PER LOCATIE" g060="18_ΕΚΤΥΠΩΣΗ ΔΙΑΚΙΝΗΣΕΩΝ ΑΚΑΤΑΛΛΗΛΩΝ ΑΝΑ ΑΠΟΘΗΚΗ"/>
+		<jlblTransactionIn     e030="TRANSACTIONS IN" r070="TRANZACTII IN" g060="ΕΙΣΑΓΩΓΕΣ"/>
+		<Imports     e030="IMPORTS" r070="IMPORTS" g060="ΕΙΣΑΓΩΓΕΣ"/>
+		<jlblR34Group3Total     e030="TOTALS:" r070="TOTAL:" g060="ΕΙΔΟΥΣ:"/>
+		<jlblItemcode_BOM     e030="ITEM" r070="PROD" g060="ΕΙΔΟΣ"/>
+		<jlbl35itemcode     e030="Item :" r070="PROD:" g060="ΕΙΔΟΣ :"/>
+		<jlblVariances     e030="VARIANCE" r070="VARIATIE" g060="ΔΙΑΦΟΡΑ"/>
+		<StaleTransfer     e030="STALES TRANSFERS" r070="STALES TRANSFERS" g060="ΔΙΑΚΙΝΗΣΗ ΑΚΑΤ"/>
+		<jlblGrandTotal     e030="Grand Total:" r070="Grand Total:" g060="ΓΕΝΙΚΟ ΣΥΝΟΛΟ:"/>
+		<jlblSatutoryGroupTotal     e030="GENERAL TOTAL:" r070="GENERAL TOTAL:" g060="ΓΕΝΙΚΟ ΣΥΝΟΛΟ:"/>
+		<jlblWhseBookAnalitycalReportTitle     e030="WAREHOUSE BOOK" r070="WAREHOUSE BOOK" g060="ΒΙΒΛΙΟ ΑΠΟΘΗΚΗΣ"/>
+		<jReportInventoryDailyBookReportTitle     e030="34_WAREHOUSE BOOK" r070="34_WAREHOUSE BOOK" g060="34_ΒΙΒΛΙΟ ΑΠΟΘΗΚΗΣ"/>
+		<jlblPrintWeight       e030="PRT WGT" r070="PRT WGT" g060="ΒΑΡΟΣ"/>
+		<jlblWeight            e030="WEIGHT (KG)" r070="GREUTATE (KG)" g060="ΒΑΡΟΣ (ΚΙΛΑ)"/>
+		<jlblR20RepackingShipment      e030="REPACKAGING SHIPMENTS" r070="IMPACHETARI LIVRARI" g060="ΑΠΟΣΤΟΛΗ ΑΝΑΣΥΣΚΕΥΑΣΙΑΣ"/>
+		<jlblR21RepackingShipment      e030="REPACKAGING SHIPMENTS" r070="IMPACHETARI LIVRARI" g060="ΑΠΟΣΤΟΛΗ ΑΝΑΣΥΣΚΕΥΑΣΙΑΣ"/>
+		<jlblPurchaseBookRepackingShipment     e030="REPACKAGING SHIPMENTS" r070="IMPACHETARI LIVRARI" g060="ΑΠΟΣΤΟΛΗ ΑΝΑΣΥΣΚΕΥΑΣΙΑΣ"/>
+		<jlblProductionBookRepackingShipment     e030="REPACKAGING SHIPMENTS" r070="IMPACHETARI LIVRARI" g060="ΑΠΟΣΤΟΛΗ ΑΝΑΣΥΣΚΕΥΑΣΙΑΣ"/>
+		<jlblR18Shipmentqty     e030="STALES SHIPMENT" r070="LIVR. PERIMATE" g060="ΔΙΑΚΙΝΗΣΗ ΑΚΑΤΑΛΛΗΛΩΝ"/>
+		<jlblR19Shipmentqty     e030="STALES SHIPMENT" r070="TRANSPORT BUC." g060="ΔΙΑΚΙΝΗΣΗ ΑΚΑΤΑΛΛΗΛΩΝ"/>
+		<jlblShipment     e030="SHIPMENTS" r070="LIVRARI" g060="ΑΠΟΣΤΟΛΕΣ"/>
+		<TransferOut     e030="TRANSFER OUT" r070="TRANSFER OUT" g060="ΑΠΟΣΤΟΛΕΣ ΕΝΔ"/>
+		<jlblStales_Shipment     e030="STALES SHIPMENTS" r070="LIVRARI PERIMATE" g060="ΑΠΟΣΤΟΛΕΣ ΑΚΑΤΑΛΛΗΛΩΝ"/>
+		<jlblstale_out_qty     e030="QTY" r070="QTY" g060="ΑΠΟΣΤ.ΠΟΣΟΤΗΤΑ"/>
+		<lblLocationSrc     e030="LOCATION SOURCE" r070="LOCATION SOURCE" g060="ΑΠΟΘΗΚΗ ΠΡΟΕΛΕΥΣΗΣ"/>
+		<jlblLocation     e030="Locations:" r070="LOCATII:" g060="ΑΠΟΘΗΚΗ:"/>
+		<jlblLocations_BOM     e030="LOCATIONS" r070="LOCATII" g060="ΑΠΟΘΗΚΕΣ"/>
+		<Beg_year_phy_count     e030="BEG. YEAR PHYSICAL COUNT" r070="BEG. YEAR PHYSICAL COUNT" g060="ΑΠΟΓΡΑΦΗ"/>
+		<jlblRepotrTitle_9     e030="7_INVENTORY COUNTS VALUE PER ITEM FOR ALL OR SELECTED LOCATIONS" r070="7_VALOARE INVENTAR PENTRU LOCATIILE SELECTATE" g060="7_ΑΠΟΓΡΑΦΗ ΠΟΣΟΤΗΤΑΣ ΕΙΔΩΝ ΣΕ ΑΠΟΘΗΚΕΣ"/>
+		<jlblRepotrTitle_8     e030="6_INVENTORY COUNTS VALUE PER ITEM GROUP" r070="6_INVENTAR VALORIC PE GRUPA DE PRODUS" g060="6_ΑΠΟΓΡΑΦΗ ΠΕΡΙΟΔΟΥ ΣΥΓΚΕΝΤΡΩΤΙΚΑ"/>			
+		<jlblRepotrTitle_7     e030="5_INVENTORY COUNTS VALUE PER ITEM" r070="5_INVENTAR VALORIC PE CATEGORIE DE PRODUS" g060="5_ΑΠΟΤΙΜΗΣΗ ΑΠΟΓΡΑΦΩΝ ΠΕΡΙΟΔΟΥ"/>
+		<lbl_Carry_forward     e030="Carry Forward:" r070="Carry Forward:" g060="ΑΠΟ ΜΕΤΑΦΟΡΑ:"/>
+		<lbl_From_Carry_forward     e030="From Page Carry Forward :" r070="From Page Carry Forward :" g060="ΑΠΟ ΜΕΤΑΦΟΡΑ ΣΕΛΙΔΑΣ:"/>
+		<lbl_Export_Cost     e030="Value" r070="Value" g060="Αξία"/>
+		<lbl_Cost_Sold     e030="Value" r070="Value" g060="Αξία"/>
+		<lbl_Gross_Profit     e030="Value" r070="Value" g060="Αξία"/>
+		<lbl_Balance_Cost     e030="Value" r070="Value" g060="Αξία"/>
+		<jlblValue     e030="Value" r070="Valoare" g060="ΑΞΙΑ"/>
+		<jlblVal     e030="Val" r070="Val" g060="ΑΞΙΑ"/>
+		<jlblBeg_cost     e030="COST" r070="COST" g060="ΚΟΣΤΟΣ"/>
+		<jlblpur_cost     e030="COST" r070="COST" g060="ΚΟΣΤΟΣ"/>
+		<jlblrepack_cost     e030="COST" r070="COST" g060="ΚΟΣΤΟΣ"/>
+		<jlblprod_cost     e030="COST" r070="COST" g060="ΚΟΣΤΟΣ"/>
+		<jlbltin_cost     e030="COST" r070="COST" g060="ΚΟΣΤΟΣ"/>
+		<jlblsal_value     e030="SALES VALUE" r070="SALES VALUE" g060="ΑΞΙΑ ΠΩΛΗΣΗΣ"/>
+		<jlblbal_cost     e030="COST" r070="COST" g060="ΚΟΣΤΟΣ"/>
+		<jlblytdbal_cost     e030="COST" r070="COST" g060="ΚΟΣΤΟΣ"/>
+		<jlblsales_value     e030="SALES VALUE" r070="SALES VALUE" g060="ΑΞΙΑ ΠΩΛΗΣΗΣ"/>
+		
+		
+		<jlblStockValue        e030="STOCK VALUE" r070="VAL STOC" g060="ΑΞΙΑ ΜΕΝΟΝΤΩΝ"/>
+		
+		
+		
+		
+		<jlblR20PurchasesValue         e030="PURCHASES VALUE" r070="VALOARE CUMPARARI" g060="ΑΞΙΑ ΑΓΟΡΩΝ"/>
+		<jlblR26PurchasedValue     e030="PURCHASES VALUE" r070="VALOARE CUMPARARI" g060="ΑΞΙΑ ΑΓΟΡΩΝ"/>
+		<jlblPurchaseBookPurchasesValue        e030="PURCHASES VALUE" r070="VALOARE CUMPARARI" g060="ΑΞΙΑ ΑΓΟΡΩΝ"/>
+		<jlblPurchase_Value     e030="PURCHASES VALUE" r070="VALOARE CUMPARARI" g060="ΑΞΙΑ ΑΓΟΡΩΝ"/>
+		<jlblR18ShipmentVal     e030="STALES VALUE" r070="VAL. PERIMATE" g060="ΑΞΙΑ ΑΚΑΤΑΛΛΗΛΩΝ"/>
+		<jlblR19ShipmentVal     e030="STALES VALUE" r070="VALOARE" g060="ΑΞΙΑ ΑΚΑΤΑΛΛΗΛΩΝ"/>
+		<jlblPageHeader     e030="ΑΝΩΝΥΜΟΣ ΒΙΟΜΗΧΑΝΙΚΗ ΓΕΩΡΓΙΚΗ ΕΤΑΙΡΙΑ" r070="ΑΝΩΝΥΜΟΣ ΒΙΟΜΗΧΑΝΙΚΗ ΓΕΩΡΓΙΚΗ ΕΤΑΙΡΙΑ" g060="ΑΝΩΝΥΜΟΣ ΒΙΟΜΗΧΑΝΙΚΗ ΓΕΩΡΓΙΚΗ ΕΤΑΙΡΙΑ"/>
+		<RepackaginUnpack     e030="REPACKAGING-UNPACKAGING" r070="REPACKAGING-UNPACKAGING" g060="ΑΝΑΣΥΣΚΕΥΑΣΙΕΣ"/>
+		<jlblRepackaging     e030="REPACKAGING" r070="Impachetari" g060="ΑΝΑΣΥΣΚΕΥΑΣΙΑ"/>
+		<jlblDailyProductionBookReportTitle     e030="21_DAILY PRODUCTION BOOK (PRODUCTION AND RE-PACKAGING)" r070="21_PRODUCTIA ZILNICA (CUMPARARI SI RE-IMPACHETARI)" g060="21_ΑΝΑΛΥΤΙΚΟ ΗΜΕΡΟΛΟΓΙΟ ΠΑΡΑΓΩΓΗΣ"/>
+		<jlblDailyPurchaseBookReportTitle     e030="20_DAILY PURCHASES BOOK (PURCHASING AND RE-PACKAGING)" r070="20_DAILY PURCHASES BOOK (PURCHASING AND RE-PACKAGING)" g060="20_ΑΝΑΛΥΤΙΚΟ ΗΜΕΡΟΛΟΓΙΟ ΑΓΟΡΩΝ"/>
+		<jReportPendingIntransitTransactionsBetweenLocationsandExcludeDSDWithCostTitle     e030="41_PENDING INTRANSIT TRANSACTIONS BETWEEN LOCATIONS (DSD VANS ARE EXCLUDED) (DETAIL) WITH COSTS" r070="41_PENDING INTRANSIT TRANSACTIONS BETWEEN LOCATIONS (DSD VANS ARE EXCLUDED) (DETAIL) WITH COSTS" g060="41_ΑΝΑΛΥΤΙΚΗ ΑΠΟΤΙΜΗΣΗ ΦΟΡΤΩΣΕΩΝ ΚΕΝΤΡΙΚΗΣ"/>
+		<jReportPendingIntransitTransactionsBetweenLocationsandDSDWithCostTitle     e030="40_PENDING INTRANSIT TRANSACTIONS WITH COSTS" r070="40_PENDING INTRANSIT TRANSACTIONS BETWEEN LOCATIONS AND DSD VANS (DETAILS) WITH COSTS" g060="40_ΑΠΟΤΙΜΗΣΗ ΦΟΡΤΩΣΕΩΝ"/>
+		<jlblInventoryValuationReportReportTitle     e030="38_INVENTORY VALUE REPORT" r070="38_Raport valoare stoc" g060="38_ΑΠΟΤΙΜΗΣΗ ΑΠΟΘΗΚΩΝ"/>
+		<jlblInventoryValuationReportPerItemCategoryReportTitle     e030="42_Inventory Valuation Report per Item Category" r070="42_Valoare stoc per categ. produs" g060="42_ΑΝΑΛΥΤΙΚΗ ΑΠΟΤΙΜΗΣΗ ΑΠΟΘΗΚΗΣ ΑΝΑ ΟΜΑΔΑ ΕΙΔΩΝ"/>
+		<jcmbDetail     e030="Detail" r070="DETALIAT" g060="ΑΝΑΛΥΤΙΚΟ"/>
+		<jlblDetail     e030="Detail" r070="Detalii" g060="ΑΝΑΛΥΤΙΚΟ"/>
+		<jlblItemBreakDownReportTitle     e030="ITEM BREAK DOWN REPORT" r070="ITEM BREAK DOWN REPORT" g060="ΑΝΑΛΥΣΗ ΜΙΚΤΟΥ ΚΙΒΩΤΙΟΥ"/>
+		<jReportRePackagingBillofMaterialsTitle     e030="36_RE-PACKAGING BILL OF MATERIALS" r070="36_RE-PACKAGING BILL OF MATERIALS" g060="36_ΑΝΑΛΥΣΗ ΜΙΚΤΟΥ ΚΙΒΩΤΙΟΥ ΑΝΑΣΥΣΚΕΥΑΣΙΑΣ"/>
+		<lblMesg     e030="ANALYSIS OF MATERIAL CONSUMPTION" r070="ANALYSIS OF MATERIAL CONSUMPTION" g060="ΑΝΑΛΥΣΗ - ΑΝΑΛΩΣΗ ΣΥΣΤΑΤΙΚΩΝ"/>
+		<jlbldetail_Total     e030="Detail/Total:" r070="DETALIAT/SUMARIZAT" g060="ΤΥΠΟΣ:"/>
+		<!-- Changed by shraddha for QA Issue#12265 -->
+		<!-- 
+		<jlblDetailTotal     e030="Detail/Total :" r070="Detalii/Total :" g060="ΤΥΠΟΣ"/>
+		 -->
+		 <jlblDetailTotal     e030="Detail/Total:" r070="Detalii/Total :" g060="ΑΝΑΛΥΤΙΚΟ/ΣΥΓΚΕΝΤΡΩΤΙΚΟ:"/>
+		 
+		<!-- Sankit Start -->
+		<jlblUOM     e030="UOM :" r070="UOM :" g060="UOM :"/>
+		<jlblEACH     e030="EACHES" r070="EACHES" g060="ΤΕΜΑΧΙΑ"/>
+		<jlblCASE     e030="CASES" r070="CASES" g060="ΚΙΒΩΤΙΑ"/>
+		<jlblWhInvCntDate     e030="DATE OF INVENTORY COUNT:" r070="DATE OF INVENTORY COUNT:" g060="ΗΜΕΡΟΜΗΝΙΑ ΑΠΟΓΡΑΦΗΣ:"/>
+		<!-- Sankit End -->
+		<lbl_Reason     e030="Reason" r070="Reason" g060="Αιτιολογία"/>
+		<jlblR20Purchases              e030="PURCHASES" r070="CUMPARARI" g060="ΑΓΟΡΕΣ"/>
+		<jlblPurchaseBookPurchases             e030="PURCHASES" r070="CUMPARARI" g060="ΑΓΟΡΕΣ"/>
+		<jlblPurchase     e030="PURCHASES" r070="CUMPARARI" g060="ΑΓΟΡΕΣ"/>
+		<Purchase     e030="PURCHASES" r070="PURCHASES" g060="ΑΓΟΡΕΣ"/>
+		<jlblWareHouseDesc     e030="WareHouse Desc:" r070="Desc Depozit :" g060="Περιγραφή κεντρικής αποθήκης:"/>
+		<jlblWareHouseCode     e030="WareHouse Code:" r070="Cod Depozit :" g060="Κωδικός κεντρικής αποθήκης:"/>
+		<GrcTransactionBookReportTitle     e030="Transaction Books" r070="Lista tranzactii" g060="Βιβλία συναλλαγών"/>
+		<jlblFiscalDocumentType     e030="FISCAL DOCUMENT TYPE" r070="Tip Document Fiscal" g060="ΦΟΡΟΛΟΓΙΚΟΣ ΤΥΠΟΣ ΠΑΡΑΣΤΑΤΙΚΟΥ"/>
+		<jReportItemTransactionReportperTransactionCodeDetails     e030="9b_ITEM TRANSACTION REPORT PER TRANSACTION CODE (DETAILS)" r070="9b_RAPORT TRANZACTII COD PRODUS PE TIP TRANZACTIE (DETALIAT)" g060="9b_ΚΑΤΑΣΤΑΣΗ ΚΙΝΗΣΕΩΝ ΑΠΟΘΗΚΗΣ (ΑΝΑ ΚΩΔΙΚΟ ΤΙΜΟΛΟΓΙΟΥ ΚΑΙ ΠΑΡΑΣΤΑΤΙΚΟ)"/>
+		<jReportItemTransactionReportperTransactionCodeTotals      e030="9a_ITEM TRANSACTION REPORT PER TRANSACTION CODE (TOTALS)" r070="9a_RAPORT TRANZACTII PE TIP TRANZACTIE (TOTAL)" g060="9a_ΚΑΤΑΣΤΑΣΗ ΚΙΝΗΣΕΩΝ ΑΠΟΘΗΚΗΣ (ΑΝΑ ΚΩΔΙΚΟ ΤΙΜΟΛΟΓΙΟΥ)"></jReportItemTransactionReportperTransactionCodeTotals>
+		<INV_CNT_VAL_RPT_PER_ITEM_PER_LOCT     e030="7_INVENTORY COUNTS VALUE PER ITEM FOR ALL OR SELECTED LOCATIONS" r070="7_VALOARE STOC PE PROD. IN LOCATIILE SELECTATE" g060="7_ΑΠΟΓΡΑΦΗ ΠΟΣΟΤΗΤΑΣ ΕΙΔΩΝ ΣΕ ΑΠΟΘΗΚΕΣ"/>
+		<INV_CNT_VAL_RPT_PER_GROUP     e030="6_INVENTORY COUNTS VALUE PER GROUP" r070="6_VALOARE STOC PE GRUPA PROD." g060="6_ΑΠΟΓΡΑΦΗ ΠΕΡΙΟΔΟΥ ΣΥΓΚΕΝΤΡΩΤΙΚΑ"/>
+		<INV_CNT_VAL_RPT_PER_ITEM     e030="5_INVENTORY COUNTS VALUE PER ITEM" r070="5_VALOARE STOC PE PROD." g060="5_ΑΠΟΓΡΑΦΗ ΠΕΡΙΟΔΟΥ ΑΝΑΛΥΤΙΚΑ"/>
+		<jReportPendingIntransitTransactionsBetweenLocationsandExcludeDSDWithCostPerItem     e030="44_PENDING INTRANSIT TRANSACTIONS BETWEEN LOCATIONS (DSD VANS ARE EXCLUDED) (DETAIL) WITH COSTS PER ITEM BRAND" r070="44_PENDING INTRANSIT TRANSACTIONS BETWEEN LOCATIONS (DSD VANS ARE EXCLUDED) (DETAIL) WITH COSTS PER ITEM BRAND" g060="44_ΣΥΓΚΕΝΤΡΩΤΙΚΗ ΑΠΟΤΙΜΗΣΗ ΦΟΡΤΩΣΕΩΝ ΚΕΝΤΡΙΚΗΣ"/>
+		<jReportPendingIntransitTransactionsBetweenLocationsandDSDWithCostPerItem     e030="43_PENDING INTRANSIT TRANSACTIONS BETWEEN LOCATIONS AND DSD VANS (DETAILS) WITH COSTS PER ITEM BRAND" r070="43_PENDING INTRANSIT TRANSACTIONS BETWEEN LOCATIONS AND DSD VANS (DETAILS) WITH COSTS PER ITEM BRAND" g060="43_ΣΥΓΚΕΝΤΡΩΤΙΚΗ ΑΠΟΤΙΜΗΣΗ ΦΟΡΤΩΣΕΩΝ DSD"/>
+		<jReportInventoryValueReportPerItemCategory     e030="42_INVENTORY VALUE REPORT PER ITEM CATEGORY" r070="42_VALOARE STOC PER CATEG. PRODUS" g060="42_ΑΝΑΛΥΤΙΚΗ ΑΠΟΤΙΜΗΣΗ ΑΠΟΘΗΚΗΣ ΑΝΑ ΟΜΑΔΑ ΕΙΔΩΝ"/>
+		<jReportPendingIntransitTransactionsBetweenLocationsandExcludeDSDWithCost     e030="41_PENDING INTRANSIT TRANSACTIONS BETWEEN LOCATIONS (DSD VANS ARE EXCLUDED) (DETAIL) WITH COSTS" r070="41_PENDING INTRANSIT TRANSACTIONS BETWEEN LOCATIONS (DSD VANS ARE EXCLUDED) (DETAIL) WITH COSTS" g060="41_ΑΝΑΛΥΤΙΚΗ ΑΠΟΤΙΜΗΣΗ ΦΟΡΤΩΣΕΩΝ ΚΕΝΤΡΙΚΗΣ"/>
+		<jReportPendingIntransitTransactionsBetweenLocationsandDSDWithCost     e030="40_PENDING INTRANSIT TRANSACTIONS WITH COSTS" r070="40_PENDING INTRANSIT TRANSACTIONS WITH COSTS" g060="40_ΑΠΟΤΙΜΗΣΗ ΦΟΡΤΩΣΕΩΝ"/>
+		<INV_CNT_DIFFERANCE_TOTALS_RPT     e030="4_INVENTORY COUNT DIFFERENCES TOTALS FOR SELECTED LOCATIONS" r070="4_DIFERENTE INVENTAR (TOTAL LOCATII)" g060="4_ΕΚΤΥΠΩΣΗ ΔΙΑΦΟΡΩΝ ΦΥΣΙΚΗΣ ΚΑΙ ΠΡΑΓΜΑΤΙΚΗΣ ΑΠΟΓΡΑΦΗΣ"/>
+		<jReportInventoryValueReport     e030="38_INVENTORY VALUE REPORT" r070="38_RAPORT VALOARE STOC" g060="38_ΑΠΟΤΙΜΗΣΗ ΑΠΟΘΗΚΩΝ"/>
+		<jReportRePackagingTransactionTotalReport     e030="37_RE-PACKAGING TRANSACTION TOTALS" r070="37_RE-PACKAGING TRANSACTION TOTALS" g060="37_ΕΚΤΥΠΩΣΗ ΚΙΝΗΣΕΩΝ ΣΥΝΤΑΓΩΝ ΑΝΑΣΥΣΚΕΥΑΣΙΑΣ"/>
+		<jReportRePackagingBillofMaterialsReport     e030="36_RE-PACKAGING BILL OF MATERIALS" r070="36_RE-PACKAGING BILL OF MATERIALS" g060="36_ΑΝΑΛΥΣΗ ΜΙΚΤΟΥ ΚΙΒΩΤΙΟΥ ΑΝΑΣΥΣΚΕΥΑΣΙΑΣ"/>
+		<jReportNegativeBalanceCheckingReport     e030="35_NEGATIVE BALANCES CHECKING REPORT" r070="35_RAPORT VERIFICARE BALANTA NEGATIV" g060="35_ΕΛΕΓΧΟΣ ΑΡΝΗΤΙΚΩΝ ΥΠΟΛΟΙΠΩΝ ΑΠΟΘΗΚΩΝ"/>
+		<jReportInventoryDailyBookReport     e030="34_WAREHOUSE BOOK" r070="34_WAREHOUSE BOOK" g060="34_ΒΙΒΛΙΟ ΑΠΟΘΗΚΗΣ"/>
+		<jReportPurchaseTrialBalaceReport     e030="33_PURCHASES TRIAL BALANCE" r070="33_BALANTA ACHIZITII" g060="33_ΙΣΟΖΥΓΙΟ ΑΓΟΡΩΝ"/>
+		<INV_CNT_DIFFERANCE_RPT     e030="3_INVENTORY COUNT DIFFERENCES QUANTITIES AND COSTS" r070="3_DIFERENTE INVENTAR (CANT. SI COST)" g060="3_ΕΚΤΥΠΩΣΗ ΔΙΑΦΟΡΩΝ ΑΠΟΓΡΑΦΗΣ ΑΠΟΘΗΚΗΣ"/>
+		<PAST_QTY_RPT_SELECTED_LOCT     e030="2b_ON HAND QUANTITIES FOR SELECTED LOCATIONS AND PAST DATE" r070="2b_CANTITATI IN STOC PENTRU LOCATIILE SELECTATE SI ISTORIC" g060="2b_ΥΠΑΡΧΟΥΣΑ ΠΟΣΟΤΗΤΑ ΑΠΟΘΗΚΩΝ ( ΕΠΙΛΟΓΗ ΑΠΟΘΗΚΩΝ ΚΑΙ ΗΜΕΡΟΜΗΝΙΑΣ)"/>
+		<CUR_QTY_RPT_SELECTED_LOCT     e030="2a_CURRENT ON HAND QUANTITIES FOR SELECTED LOCATIONS" r070="2a_CANTITATI CURENTE IN STOC PENTRU LOCATIILE SELECTATE" g060="2a_ΥΠΑΡΧΟΥΣΑ ΠΟΣΟΤΗΤΑ ΑΠΟΘΗΚΩΝ ( ΕΠΙΛΟΓΗ ΑΠΟΘΗΚΩΝ)"/>
+		<jReportTrialBalaceWithReport     e030="29_INVENTORY TRIAL BALANCE" r070="29_INVENTORY TRIAL BALANCE" g060="29_ΙΣΟΖΥΓΙΟ ΕΙΔΩΝ ΚΑΤΑΛΛΗΛΩΝ ΑΠΟΘΗΚΩΝ ΜΕ ΠΡΟΟΔΕΥΤΙΚΟ ΥΠΟΛΟΙΠΟ"/>
+		<jReportTrialBalaceWithoutReport     e030="27_INVENTORY TRIAL BALANCE" r070="27_INVENTORY TRIAL BALANCE" g060="27_ΙΣΟΖΥΓΙΟ ΕΙΔΩΝ ΚΑΤΑΛΛΗΛΩΝ ΑΠΟΘΗΚΩΝ"/>
+		<jReportPurchaseValueCalculation     e030="26_PURCHASE VALUE CALCULATION" r070="26_CALCULARE VALOARE CUMPARARE" g060="26_ΚΑΤΑΣΤΑΣΗ ΜΕΣΗΣ ΤΙΜΗΣ ΑΓΟΡΩΝ"/>
+		<jReportDailyProductionBook     e030="21_DAILY PRODUCTION BOOK (PRODUCTION AND RE-PACKAGING)" r070="21_PRODUCTIA ZILNICA (CUMPARARI SI RE-IMPACHETARI)" g060="21_ΑΝΑΛΥΤΙΚΟ ΗΜΕΡΟΛΟΓΙΟ ΠΑΡΑΓΩΓΗΣ"/>
+		<jReportDailyPurchaseBook     e030="20_DAILY PURCHASES BOOK (PURCHASING AND RE-PACKAGING)" r070="20_JURNAL CUMP. ZILNICE(CUMP. SI IMPACHETARI)" g060="20_ΑΝΑΛΥΤΙΚΟ ΗΜΕΡΟΛΟΓΙΟ ΑΓΟΡΩΝ"/>
+		<OH_QTY_RPT_PER_LOCT_WITHOUTCOST     e030="1b_ON HAND QUANTITIES PER LOCATION (ITEM, QUANTITIES AND PALETTS)" r070="1b_CANTITATI IN STOC PE LOCATIE (PRODUS, CANTITATI SI PALETI)" g060="1b_ΥΠΑΡΧΟΥΣΑ ΠΟΣΟΤΗΤΑ ΑΠΟΘΗΚΗΣ"/>
+		<OH_QTY_RPT_PER_LOCT_WITHCOST     e030="1a_ON HAND QUANTITIES PER LOCATION (ITEM, QUANTITIES, PALETTS AND VALUES)" r070="1a_CANTITATI IN STOC PE LOCATIE (PRODUS, CANTITATI, PALETI SI VALORI)" g060="1a_ΥΠΑΡΧΟΥΣΑ ΠΟΣΟΤΗΤΑ ΑΠΟΘΗΚΗΣ (ΜΕ ΑΞΙΕΣ)"/>
+		<jReportTransactionToStaleWarehouseReportTotals     e030="19_TRANSACTIONS TO STALES WAREHOUSES (TOTALS)" r070="19_TRANZACTII DEPOZITE PERIMATE (TOTAL)" g060="19_ΣΥΓΚΕΝΤΡΩΤΙΚΗ ΚΑΤΑΣΤΑΣΗ ΔΙΑΚΙΝΗΣΕΩΝ ΑΚΑΤΑΛΛΗΛΩΝ"/>
+		<jReportTransactionToStaleWarehouseReportperlocation     e030="18_TRANSACTIONS TO STALES WAREHOUSES PER LOCATION" r070="18_TRANZACTII DEPOZITE PERIMATE PER LOCATIE" g060="18_ΕΚΤΥΠΩΣΗ ΔΙΑΚΙΝΗΣΕΩΝ ΑΚΑΤΑΛΛΗΛΩΝ ΑΝΑ ΑΠΟΘΗΚΗ"/>
+		<jReportPendingIntransitTransactionsBetweenLocationsExcludeDsd     e030="14_PENDING INTRANSIT TRANSACTIONS BETWEEN LOCATIONS (DSD VANS ARE EXCLUDED)" r070="14_TRANZACTII IN TRANZIT IN ASTEPTARE INTRE LOCATII (FARA DSD VANS)" g060="14_ΚΑΤΑΣΤΑΣΗ ΦΟΡΤΩΣΕΩΝ IN- TRANSIT ΚΕΝΤΡΙΚΗΣ ΑΠΟΘΗΚΗΣ ΑΝΑ ΠΑΡΑΣΤΑΤΙΚΟ"/>
+		<jReportPendingIntransitTransactionsBetweenLocationsandDSDVansDetails     e030="13_PENDING INTRANSIT TRANSACTIONS BETWEEN LOCATIONS AND DSD VANS (DETAILS)" r070="13_TRANZACTII IN TRANZIT IN ASTEPTARE INTRE LOCATII SI DSD VANS" g060="13_ΚΑΤΑΣΤΑΣΗ ΦΟΡΤΩΣΕΩΝ IN- TRANSIT DSD"/>
+		<jReportPendingIntransitTransactionsBetweenLocationsandCo-Packers     e030="12_PENDING INTRANSIT TRANSACTIONS BETWEEN LOCATIONS AND CO-PACKERS" r070="12_TRANZACTII IN TRANZIT IN ASTEPTARE INTRE LOCATII SI COPACKERI" g060="12_ΕΚΤΥΠΩΣΗ ΧΕΙΡΟΓΡΑΦΩΝ ΕΣΩΤΕΡΙΚΩΝ ΔΙΑΚΙΝΗΣΕΩΝ"/>
+		<jlblItemType       e030="1 PRODUCT / 2 PURCHASED" r070="1 PRODUCT / 2 PURCHASED" g060="1 ΠΡΟΙΟΝ / 2 ΕΜΠΟΡΕΥΜΑ"/>
+		<jReportItemTransactionReport      e030="8_ITEM TRANSACTION REPORT" r070="8_RAPORT TRANZACTII COD PRODUS" g060="8_ΚΙΝΗΣΕΙΣ ΕΙΔΟΥΣ ΑΝΑ ΗΜΕΡΟΜΗΝΙΑ"/>
+		<jlblPeriodType    e030="Report Type :" r070="Ora Raport :" g060="Τύπος αναφοράς :"/>
+		<jbtnRetrieveLocation    e030="Retrieve" r070="Aduce" g060="Ανάκτηση"/>
+		<jbtnClear    e030="Clear" r070="Sterge" g060="Καθαρισμός"/>
+		<jbtnRetrieveLocationTT    e030="Retrieve" r070="Aduce" g060="Ανάκτηση"/>
+		<jbtnClearTT    e030="Clear" r070="Sterge" g060="Καθαρισμός"/>
+		<jlblAllLocation    e030="All Location" r070="Toate Locatiile" g060="Όλες οι αποθήκες"/>
+		<jlblSelectedLocation    e030="Selected Location" r070="Locatie Selectata" g060="Επιλεγμένη αποθήκη"/>
+		<jbtnPrint    e030="Print" r070="Tiparire" g060="Εκτύπωση"/>
+		<jbtnCancel    e030="Cancel" r070="Anulare" g060="Ακύρωση"/>
+		<jbtnPrintSC    e030="P" r070="P" g060="P"/>
+		<jbtnCancelSC    e030="C" r070="C" g060="C"/>
+		<jbtnPrintTT    e030="Print" r070="Tiparire" g060="Εκτύπωση"/>
+		<jbtnCancelTT    e030="Cancel" r070="Anulare" g060="Cancel"/>
+		<GrcTransactionReportTitle    e030="Transaction Reports" r070="Rapoarte Tranzactii" g060="Αναφορές συναλλαγών"/>
+		<jbtnRetrieveLocationSC    e030="R" r070="U" g060="R"/>
+		<jbtnClearSC    e030="L" r070="S" g060="L"/>
+		<jlblAllTransaction    e030="All Transaction" r070="Toate Tranzactiile" g060="Όλες οι συναλλαγές"/>
+		<jlblSelectedTransaction    e030="Selected Transaction" r070="Tranzactie selectata" g060="Επιλεγμένη συναλλαγή"/>
+		<ULL    e030="ULL :" r070="ULL :" g060="ULL :"/>
+		<User    e030="User :" r070="UTILIZATOR:" g060="Χρήστης:"/>
+		<jlblGrcCompanyTitle     e030="TASTY FOODS ΑΒΓΕ" r070="TASTY FOODS ΑΒΓΕ" g060="TASTY FOODS ΑΒΓΕ"/>
+		<jReportPendingIntransitTransactionsBetweenLocationsExcludeDsd_Totals     e030="Pending Intransit Transactions Between Locations (DSD Vans are excluded) (Totals)" r070="Tranzactii in Tranzit in Asteptare intre Locatii (fara DSD Vans) (Total)" g060="Εκκρεμείς πράξεις διαμετακόμισης μεταξύ αποθηκών(εξαιρούνται φορτηγά DSD ) (Σύνολα)"/>
+		<jReportItemTransactionReportperitemandTransactiontype     e030="Item Transaction Report per Item and Transaction Type" r070="Raport tranzactii cod produs pe tip tranzactie" g060="Αναφορά συναλλαγής είδους ανά είδος και τύπο συναλλαγής"/>
+		<GrcInventoryReportTitle     e030="On Hand Quantities and Inventory Counts" r070="Disponibil in toate locatiile" g060="Διαθέσιμες ποσότητες και αποτελέσματα απογραφής"/>
+		<jlblComName     e030="TASTY FOODS ΑΒΓΕ" r070="TASTY FOODS ΑΒΓΕ" g060="TASTY FOODS ΑΒΓΕ"/>
+		<GrcStaleTransactionReportTitle     e030="Stale Transaction Reports" r070="Distrugeri/Expirate" g060="Αναφορές συναλλαγών ακαταλλήλων"/>
+		<jlblAllColumns     e030="Available Columns" r070="Coloane disponibile" g060="Διαθέσιμες Στήλες"/>
+		<jlblSelectedColumns     e030="Selected Columns" r070="Coloane Selectate" g060="Επιλεγμένες στήλες"/>
+		<GrcTrialBalanceReportTitle     e030="Trial Balance Reports" r070="Rapoarte Balanta Verificare" g060="Αναφορές Ισοζυγίου"/>
+		<GrcCostingReportTitle     e030="Costing Reports" r070="Rapoarte Costuri" g060="Αναφορές κοστολόγησης"/>
+		<jlblKilo     e030="KILO" r070="KG." g060="Κιλά"/>
+		<jlblComNameRmn     e030="STAR FOODS EM SRL" r070="STAR FOODS EM SRL" g060="STAR FOODS EM SRL"/>
+		<jlblAvailable     e030="AVAILABLE" r070="DISPONIBIL" g060="Διαθέσιμο"/>
+		<jlbldueIn     e030="DUE-IN" r070="TRANZIT" g060="DUE-IN"/>
+		<jlblPending     e030="PENDING TO ACK." r070="DIFERENTE" g060="ΑΠΟΔΟΧΗ ΣΕ ΕΚΚΡΕΜ."/>
+		<jbtnExcel     e030="Excel" r070="Excel" g060="Excel"/>
+		<jbtnExcelSC     e030="E" r070="E" g060="E"/>
+		<jbtnExcelTT     e030="Excel" r070="Excel" g060="Excel"/>
+		<GrcItemBreakDownReportTitle     e030="Item Break Down Report" r070="Item Break Down Report" g060="Αναφορά Συνταγών"/>
+		<GrcStatutoryReportTitle     e030="Statutory Report" r070="Statutory Report" g060="Ισοζύγια Αποθεμάτων"/>
+		<jReportWhseTrialBalanceReport     e030="Warehouse Trial Balance Report" r070="Warehouse Trial Balance Report" g060="Προοδευτικό Υπόλοιπο Αποθεμάτων Κεντρ.Αποθήκης"/>
+		<jReportWhseBookAnalyticalReport     e030="Warehouse Book Analytical Report" r070="Warehouse Book Analytical Report" g060="Αναλυτικό Βιβλίο Αποθήκης"/>
+		<jReportWhseBookSummaryReport     e030="Warehouse Book Summary Report" r070="Warehouse Book Summary Report" g060="Συνοπτικό Βιβλίο Αποθήκης"/>
+		<jcmbSummary     e030="Summary" r070="Summary" g060="Σύνοψη"/>
+		<DynamicTransactionCodeTitle     e030="Dynamic Transaction Code Report" r070="Dynamic Transaction Code Report" g060="Δυναμική Αναφορά ανά Κωδικό Κίνησης"/>
+		<jlblInTransitqty     e030="IN TRANSIT QUANTITY" r070="IN TRANSIT QUANTITY" g060="ΠΟΣΟΤΗΤΑ IN TRANSIT"/>
+		<jlblInTransitvalue     e030="IN TRANSIT VALUE" r070="IN TRANSIT VALUE" g060="ΑΞΙΑ IN TRANSIT"/>
+		<jlblNo     e030="NO" r070="NO" g060="ΟΧΙ"/>
+		<jlblUom_BOM     e030="UOM" r070="UOM" g060="MM"/>
+		<jReportBillofMaterialsTitle     e030="Bill of Materials Reports" r070="Bill of Materials Reports" g060="Αναφορές Συνταγών"/>
+		<jlblWareHouse     e030="WareHouse:" r070="Depozit:" g060="Κεντρική αποθήκη:"/>
+		<jlblWhseBookSummaryReportTitle       e030="WAREHOUSE BOOK SUMMARY" r070="WAREHOUSE BOOK SUMMARY" g060="ΣΥΝΟΠΤΙΚΟ ΒΙΒΛΙΟ ΑΠΟΘΗΚΗΣ"/>
+		<jrbtnGreekBook   e030="Greek Book" r070="Greek Book" g060="Ελληνικά Βιβλία"/>
+		<jrbtnUsBook   e030="US Book" r070="US Book" g060="Βιβλία US"/>
+		<jrbtnGreekBookSc   e030="G" r070="G" g060="G"/>
+		<jrbtnUsBookSc   e030="U" r070="U" g060="U"/>
+		<jlblInputparameters   e030="PARAMETERS:" r070="PARAMETRII:" g060="ΠΑΡΑΜΕΤΡΟΙ:"/>
+		<jlblpage   e030="PAGE:" r070="PAGINA:" g060="ΣΕΛΙΔΑ:"/>
+		<jlblLocations   e030="Locations:" r070="LOCATII:" g060="ΑΠΟΘΗΚΕΣ:"/>
+		<jlblBook   e030="Book:" r070="Book:" g060="Βιβλίο:"/>
+		<jlblItemTransactionrptTitle   e030="8_ITEM TRANSACTION REPORT" r070="8_RAPORT TRANZACTII COD PRODUS" g060="8_ΚΙΝΗΣΕΙΣ ΕΙΔΟΥΣ ΑΝΑ ΗΜΕΡΟΜΗΝΙΑ/ΚΩΔΙΚΟ ΚΙΝΗΣΗΣ"/>
+		<jlblR8GroupFooterTotal   e030="TRANSACTION TOTALS:" r070="TOTAL TRANZACTiI:" g060="ΣΥΝΟΛΟ ΚΙΝΗΣΗΣ:"/>
+		<jlblR8FinalTotal   e030="Grand TOTALS:" r070="Total:" g060="ΓΕΝΙΚΟ ΣΥΝΟΛΟ:"/>
+		<jlblR9aGroupFooterTotal   e030="TRANSACTION TOTALS:" r070="TOTAL TRANZACTIE:" g060="ΣΥΝΟΛΟ ΚΙΝΗΣΗΣ:"/>
+		<jlblR9aFinalTotal   e030="Grand TOTALS:" r070="Total:" g060="ΓΕΝΙΚΟ ΣΥΝΟΛΟ:"/>
+		<jlblR9bGroupFooterTotal   e030="TRANSACTION TOTALS:" r070="TOTAL TRANZACTiI:" g060="ΣΥΝΟΛΟ ΚΙΝΗΣΗΣ:"/>
+		<jlblR9bFinalTotal   e030="Grand TOTALS:" r070="Total:" g060="ΓΕΝΙΚΟ ΣΥΝΟΛΟ:"/>
+		<jlblR12GroupFooterTotal   e030="TOTALS:" r070="TOTAL:" g060="ΣΥΝΟΛΑ:"/>
+		<jlblR12FinalTotal   e030="Grand TOTALS:" r070="Total:" g060="ΓΕΝΙΚΟ ΣΥΝΟΛΟ:"/>
+		<jlblTransactionCode   e030="TRANSACTION CODE" r070="COD TRANZACTIE" g060="ΚΩΔΙΚΟΣ ΚΙΝΗΣΗΣ"/>
+		<jlblTransactionDesc   e030="TRANSACTION DESCRIPTION" r070="DESCRIERE TRANZACTIE" g060="ΠΕΡΙΓΡΑΦΗ ΚΙΝΗΣΗΣ"/>
+		<jlblFiscalDocument   e030="FISCAL DOCUMENT" r070="NUMAR DOCUMENT" g060="ΠΑΡΑΣΤΑΤΙΚΟ"/>
+		<jlblDate   e030="DATE" r070="DATA" g060="ΗΜΕΡΟΜΗΝΙΑ"/>
+		<jlblitemcode   e030="ITEM CODE" r070="PRODUS" g060="ΚΩΔΙΚΟΣ ΕΙΔΟΥΣ"/>
+		<jlblitemdesc   e030="ITEM DESCRIPTION" r070="DESCRIERE" g060="ΠΕΡΙΓΡΑΦΗ ΕΙΔΟΥΣ"/>
+		<jlblitemqty   e030="QUANTITY" r070="BUC." g060="ΠΟΣΟΤΗΤΑ"/>
+		<jlblitemvalue   e030="VALUE" r070="VALOARE" g060="ΑΞΙΑ"/>
+		<jlblTransactiontotals   e030="TRANSACTION TOTALS:" r070="TOTAL TRANZACTiI:" g060="ΣΥΝΟΛΟ ΚΙΝΗΣΗΣ:"/>
+		<jlblGroupLocation   e030="Location:" r070="LOCATIE:" g060="ΑΠΟΘΗΚΗ:"/>
+		<jlblTransactions   e030="Transactions:" r070="TRANZACTIE:" g060="ΣΥΝΑΛΛΑΓΕΣ:"/>
+		<jlblShipmentqty   e030="SHIPMENT QUANTITY" r070="CANT. LIVR." g060="ΠΟΣΟΤΗΤΑ ΑΠΟΣΤΟΛΗΣ"/>
+		<jlblShipmentVal   e030="SHIPMENT VALUE" r070="VALOARE LIVR" g060="ΑΞΙΑ ΑΠΟΣΤΟΛΗΣ"/>
+		<jlblReceivedqty   e030="RECEIPT QUANTITY" r070="RECEPTIONAT BUC." g060="ΠΟΣΟΤΗΤΑ ΠΑΡΑΛΑΒΗΣ"/>
+		<jlblReceivedval   e030="RECEIPT VALUE" r070="RECEPTIONAT VALOARE" g060="ΑΞΙΑ ΠΑΡΑΛΑΒΗΣ"/>
+		<jlblReferanceFiscalDocument   e030="RELATIVE DOCUMENT" r070="RELATIVE DOCUMENT" g060="ΣΧΕΤΙΚΟ ΠΑΡΑΣΤΑΤΙΚΟ"/>
+		<jlblLucode    e030="Item Code:" r070="Item Code:" g060="ΚΩΔΙΚΟΣ ΕΙΔΟΥΣ:"/>
+		<jrbtnFromToLucodeSC    e030="I" r070="I" g060="I"/>
+		<jrbtnFreeLucodeSC    e030="m" r070="m" g060="m"/>
+		<jlblReportSubType    e030="Report Sub Type :" r070="Report Sub Type :" g060="Τυπ.Αναφοράς:"/>
+		<TransactionQuantity    e030="Transaction Quantity" r070="Transaction Quantity" g060="Ποσ.Κίνησης"/>
+		<BreakDownQuantity    e030="Break Down Quantity" r070="Break Down Quantity" g060="Ποσ.Ανάλυσης"/>
+		<jlblProdPucType     e030="PRODUCED/ PURCHASED :" r070="PRODUCED/ PURCHASED :" g060="ΠΑΡΑΓΩΜΕΝΟ/ ΑΓΟΡΑΖΟΜΕΝΟ :"/>
+		<PurchaseType   e030="PURCHASED" r070="PURCHASED" g060="ΕΜΠΟΡΕΥΜΑ"/>
+		<BOMProduceType   e030="PRODUCED" r070="PRODUCED" g060="ΠΑΡΑΓΩΜΕΝΟ"/>
+		<BOMPurchaseType   e030="PURCHASED" r070="PURCHASED" g060="ΑΓΟΡΑΖΟΜΕΝΟ"/>
+		<ProduceType   e030="PRODUCT" r070="PRODUCT" g060="ΠΡΟΙΟΝ"/>
+		<jlblStatus e030="STATUS" r070="STATUS" g060="ΚΑΤΑΣΤΑΣΗ"/>
+		<CORE_TOT_IMPORT_TRANSACTION_WITHOUT_PRINT_WITH_EXTERNAL_NOTE_NUMBER                 e030="Core Tot Import Transaction Without Print With External Note Number" r070="Core Tot Import Transaction Without Print With External Note Number" g060="Core Tot Import Transaction Without Print With External Note Number"/>
+		<CORE_TOT_IMPORT_TRANSACTION_WITHOUT_PRINT_AND_NO_EXTERNAL_NOTE_NUMBER               e030="Core Tot Import Transaction Without Print And No External Note Number" r070="Core Tot Import Transaction Without Print And No External Note Number" g060="Core Tot Import Transaction Without Print And No External Note Number"/>
+		<CORE_TOT_STALE_RETURN_RECEIPT_NOTE_ONLY_WITHOUT_CREDIT_NOTE_FROM_BILLING            e030="Core Tot Stale Return Receipt Note Only Without Credit Note From Billing" r070="Core Tot Stale Return Receipt Note Only Without Credit Note From Billing" g060="Core Tot Stale Return Receipt Note Only Without Credit Note From Billing"/>
+		<CORE_TOT_GOOD_RETURN_RECEIPT_NOTE_ONLY_WITHOUT_CREDIT_NOTE_FROM_BILLING             e030="Core Tot Good Return Receipt Note Only Without Credit Note From Billing" r070="Core Tot Good Return Receipt Note Only Without Credit Note From Billing" g060="Core Tot Good Return Receipt Note Only Without Credit Note From Billing"/>
+		<CORE_TOT_STALE_RACK_RETURN_RECEIPT_NOTE_ONLY_WITHOUT_CREDIT_NOTE_FROM_BILLING       e030="Core Tot Stale Rack Return Receipt Note Only Without Credit Note From Billing" r070="Core Tot Stale Rack Return Receipt Note Only Without Credit Note From Billing" g060="Core Tot Stale Rack Return Receipt Note Only Without Credit Note From Billing"/>
+		<CORE_TOT_GOOD_RACK_RETURN_RECEIPT_NOTE_ONLY_WITHOUT_CREDIT_NOTE_FROM_BILLING        e030="Core Tot Good Rack Return Receipt Note Only Without Credit Note From Billing" r070="Core Tot Good Rack Return Receipt Note Only Without Credit Note From Billing" g060="Core Tot Good Rack Return Receipt Note Only Without Credit Note From Billing"/>
+		<CORE_TIN_STALE_RETURN_RECEIPT_NOTE_ONLY_WITHOUT_PRINT                               e030="Core Tin Stale Return Receipt Note Only Without Print" r070="Core Tin Stale Return Receipt Note Only Without Print" g060="Core Tin Stale Return Receipt Note Only Without Print"/>
+		<CORE_TIN_GOOD_RETURN_RECEIPT_NOTE_ONLY_WITHOUT_PRINT                                e030="Core Tin Good Return Receipt Note Only Without Print" r070="Core Tin Good Return Receipt Note Only Without Print" g060="Core Tin Good Return Receipt Note Only Without Print"/>
+		<CORE_TIN_STALE_RACK_RETURN_RECEIPT_NOTE_ONLY_WITHOUT_PRINT                          e030="Core Tin Stale Rack Return Receipt Note Only Without Print" r070="Core Tin Stale Rack Return Receipt Note Only Without Print" g060="Core Tin Stale Rack Return Receipt Note Only Without Print"/>
+		<CORE_TIN_GOOD_RACK_RETURN_RECEIPT_NOTE_ONLY_WITHOUT_PRINT                           e030="Core Tin Good Rack Return Receipt Note Only Without Print" r070="Core Tin Good Rack Return Receipt Note Only Without Print" g060="Core Tin Good Rack Return Receipt Note Only Without Print"/>
+		<CORE_TIN_IMPORT_TRANSACTION_WITHOUT_PRINT_WITH_EXTERNAL_NOTE_NUMBER                 e030="Core Tin Import Transaction Without Print With External Note Number" r070="Core Tin Import Transaction Without Print With External Note Number" g060="Core Tin Import Transaction Without Print With External Note Number"/>
+		<CORE_TIN_IMPORT_TRANSACTION_WITHOUT_PRINT_AND_NO_EXTERNAL_NOTE_NUMBER               e030="Core Tin Import Transaction Without Print And No External Note Number" r070="Core Tin Import Transaction Without Print And No External Note Number" g060="Core Tin Import Transaction Without Print And No External Note Number"/>
+		<CORE_TIN_STALE_RETURN_RECEIPT_NOTE_ONLY_WITHOUT_CREDIT_NOTE_FROM_BILLING            e030="Core Tin Stale Return Receipt Note Only Without Credit Note From Billing" r070="Core Tin Stale Return Receipt Note Only Without Credit Note From Billing" g060="Core Tin Stale Return Receipt Note Only Without Credit Note From Billing"/>
+		<CORE_TIN_GOOD_RETURN_RECEIPT_NOTE_ONLY_WITHOUT_CREDIT_NOTE_FROM_BILLING             e030="Core Tin Good Return Receipt Note Only Without Credit Note From Billing" r070="Core Tin Good Return Receipt Note Only Without Credit Note From Billing" g060="Core Tin Good Return Receipt Note Only Without Credit Note From Billing"/>
+		<CORE_TIN_STALE_RACK_RETURN_RECEIPT_NOTE_ONLY_WITHOUT_CREDIT_NOTE_FROM_BILLING       e030="Core Tin Stale Rack Return Receipt Note Only Without Credit Note From Billing" r070="Core Tin Stale Rack Return Receipt Note Only Without Credit Note From Billing" g060="Core Tin Stale Rack Return Receipt Note Only Without Credit Note From Billing"/>
+		<CORE_TIN_GOOD_RACK_RETURN_RECEIPT_NOTE_ONLY_WITHOUT_CREDIT_NOTE_FROM_BILLING        e030="Core Tin Good Rack Return Receipt Note Only Without Credit Note From Billing" r070="Core Tin Good Rack Return Receipt Note Only Without Credit Note From Billing" g060="Core Tin Good Rack Return Receipt Note Only Without Credit Note From Billing"/>
+		<CORE_STALE_RACK_RETURN_TOT                                                          e030="Core Stale Rack Return Tot" r070="Core Stale Rack Return Tot" g060="Core Stale Rack Return Tot"/>
+		<CORE_STALE_RACK_RETURN_TIN                                                          e030="Core Stale Rack Return Tin" r070="Core Stale Rack Return Tin" g060="Core Stale Rack Return Tin"/>
+		<CORE_GOOD_RACK_RETURN_TOT                                                           e030="Core Good Rack Return Tot" r070="Core Good Rack Return Tot" g060="Core Good Rack Return Tot"/>
+		<CORE_GOOD_RACK_RETURN_TIN                                                           e030="Core Good Rack Return Tin" r070="Core Good Rack Return Tin" g060="Core Good Rack Return Tin"/>
+		<EXPORT_RACK_DELIVERY_NOTE                                                           e030="Export Rack Delivery Note" r070="Export Rack Delivery Note" g060="Export Rack Delivery Note"/>
+		<CAN_EXPORT_RACK_DELIVERY_NOTE                                                       e030="Can Export Rack Delivery Note" r070="Can Export Rack Delivery Note" g060="Can Export Rack Delivery Note"/>
+		<EXPORT_SELF_RACK_DELIVERY_NOTE                                                      e030="Export Self Rack Delivery Note" r070="Export Self Rack Delivery Note" g060="Export Self Rack Delivery Note"/>
+		<CAN_EXPORT_SELF_RACK_DELIVERY_NOTE                                                  e030="Can Export Self Rack Delivery Note" r070="Can Export Self Rack Delivery Note" g060="Can Export Self Rack Delivery Note"/>
+		<CANCEL_STALE_RETURN_NOTE                                                            e030="Cancel Stale Return Note" r070="Cancel Stale Return Note" g060="Cancel Stale Return Note"/>
+		<CANCEL_MANUAL_COMBINE_INVOICE                                                       e030="Cancel Manual Combine Invoice" r070="Cancel Manual Combine Invoice" g060="Cancel Manual Combine Invoice"/>
+		<CANCEL_GOOD_RETURN_NOTE_EXPORT                                                      e030="Cancel Good Return Note Export" r070="Cancel Good Return Note Export" g060="Cancel Good Return Note Export"/>
+		<CANCEL_GOOD_RETURN_NOTE_EXPORT_MANUAL                                               e030="Cancel Good Return Note Export Manual" r070="Cancel Good Return Note Export Manual" g060="Cancel Good Return Note Export Manual"/>
+		<CANCEL_STALE_RETURN_NOTE_EXPORT                                                     e030="Cancel Stale Return Note Export" r070="Cancel Stale Return Note Export" g060="Cancel Stale Return Note Export"/>
+		<CANCEL_STALE_RETURN_NOTE_EXPORT_MANUAL                                              e030="Cancel Stale Return Note Export Manual" r070="Cancel Stale Return Note Export Manual" g060="Cancel Stale Return Note Export Manual"/>
+		<CANCEL_SELF_GOOD_RETURN_NOTE_EXPORT                                                 e030="Cancel Self Good Return Note Export" r070="Cancel Self Good Return Note Export" g060="Cancel Self Good Return Note Export"/>
+		<CANCEL_SELF_GOOD_RETURN_NOTE_EXPORT_MANUAL                                          e030="Cancel Self Good Return Note Export Manual" r070="Cancel Self Good Return Note Export Manual" g060="Cancel Self Good Return Note Export Manual"/>
+		<CANCEL_SELF_STALE_RETURN_NOTE_EXPORT                                                e030="Cancel Self Stale Return Note Export" r070="Cancel Self Stale Return Note Export" g060="Cancel Self Stale Return Note Export"/>
+		<CANCEL_SELF_STALE_RETURN_NOTE_EXPORT_MANUAL                                         e030="Cancel Self Stale Return Note Export Manual" r070="Cancel Self Stale Return Note Export Manual" g060="Cancel Self Stale Return Note Export Manual"/>
+		<INVOICE_ONLY_WITH_EXTERNAL_DELIVERY_NOTE                                            e030="Invoice Only With External Delivery Note" r070="Invoice Only With External Delivery Note" g060="Invoice Only With External Delivery Note"/>
+		<CANCEL_INVOICE_ONLY_WITH_EXTERNAL_DELIVERY_NOTE                                     e030="Cancel Invoice Only With External Delivery Note" r070="Cancel Invoice Only With External Delivery Note" g060="Cancel Invoice Only With External Delivery Note"/>
+		<CANCEL_CORE_COMBINED_INVOICE                                                        e030="Cancel Core Combined Invoice" r070="Cancel Core Combined Invoice" g060="Cancel Core Combined Invoice"/>
+		<CANCEL_MANUAL_CORE_COMBINED_INVOICE                                                 e030="Cancel Manual Core Combined Invoice" r070="Cancel Manual Core Combined Invoice" g060="Cancel Manual Core Combined Invoice"/>
+		<SELF_COMBINED_DELIVERY_NOTE                                                         e030="Self Combined Delivery Note" r070="Self Combined Delivery Note" g060="Self Combined Delivery Note"/>
+		<MANUAL_SELF_COMBINED_DELIVERY_NOTE                                                  e030="Manual Self Combined Delivery Note" r070="Manual Self Combined Delivery Note" g060="Manual Self Combined Delivery Note"/>
+		<VOID_SELF_COMBINED_DELIVERY_NOTE                                                    e030="Void Self Combined Delivery Note" r070="Void Self Combined Delivery Note" g060="Void Self Combined Delivery Note"/>
+		<VOID_MANUAL_SELF_COMBINED_DELIVERY_NOTE                                             e030="Void Manual Self Combined Delivery Note" r070="Void Manual Self Combined Delivery Note" g060="Void Manual Self Combined Delivery Note"/>
+		<CORE_TOT_STALE_RETURN_RECEIPT_NOTE_ONLY_WITHOUT_PRINT                               e030="Core Tot Stale Return Receipt Note Only Without Print" r070="Core Tot Stale Return Receipt Note Only Without Print" g060="Core Tot Stale Return Receipt Note Only Without Print"/>
+		<CORE_TOT_GOOD_RETURN_RECEIPT_NOTE_ONLY_WITHOUT_PRINT                                e030="Core Tot Good Return Receipt Note Only Without Print" r070="Core Tot Good Return Receipt Note Only Without Print" g060="Core Tot Good Return Receipt Note Only Without Print"/>
+		<CORE_TOT_STALE_RACK_RETURN_RECEIPT_NOTE_ONLY_WITHOUT_PRINT                          e030="Core Tot Stale Rack Return Receipt Note Only Without Print" r070="Core Tot Stale Rack Return Receipt Note Only Without Print" g060="Core Tot Stale Rack Return Receipt Note Only Without Print"/>
+		<CORE_TOT_GOOD_RACK_RETURN_RECEIPT_NOTE_ONLY_WITHOUT_PRINT                           e030="Core Tot Good Rack Return Receipt Note Only Without Print" r070="Core Tot Good Rack Return Receipt Note Only Without Print" g060="Core Tot Good Rack Return Receipt Note Only Without Print"/>
+		<jlblBillingTransaction e030="Commit" r070="comis" g060="ΕΠΙΒΕΒΑΙΩΣΗ"/>
+		
+		<jlblR8TransationLocation   e030="TRANSATION LOCATION" r070="TRANSATION LOCATION" g060="ΑΠΟΘΗΚΗ"/>
+		<jlblR8RelativeLocation     e030="RELATIVE LOCATION" r070="RELATIVE LOCATION" g060="ΣΧΕΤΙΚΗ ΑΠΟΘΗΚΗ"/>
+		
+		<jlblDebtiCreditTransactions e030="Show Debit/Credit Transactions" r070="Εμφάνιση Συναλλαγών Ειδικών ΧΡ./ΠΙΣΤ." g060="Εμφάνιση Συναλλαγών Ειδικών ΧΡ./ΠΙΣΤ."/>
+		<jlblDebtiCreditTransactionsSC e030="T" r070="T" g060="Ε"/>
+		<jlblYES  e030="YES" r070="DA" g060="ΝΑΙ"/>
+		<jlblNO  e030="NO" r070="NU" g060="ΟΧΙ"/>
+
+    <jblTotalPerDoc  e030="TOTALS PER DOCUMENT:" r070="TOTALS PER DOCUMENT:" g060="ΣΥΝΟΛΟ ΠΑΡΑΣΤΑΤΙΚΟΥ:"/>
+    <jblTotalDoc  e030="DOCUMENT TOTALS" r070="DOCUMENT TOTALS" g060="ΣΥΝΟΛΟ ΠΑΡΑΣΤΑΤΙΚΟΥ"/>
+    <jlblTotalPerLocation     e030="TOTALS PER LOCATION:" r070="TOTALS PER LOCATION:" g060="ΣΥΝΟΛΟ ΑΝΑ ΑΠΟΘΗΚΗ:"/>     	
+    	<!-- By Sunil -->
+ 	    <jlblPurchaseBookReturnsValue          e030="PURCHASE RETURNS VALUE" r070="VALOARE RETURURI" g060="ΑΞΙΑ ΕΠΙΣΤΡΟΦΩΝ ΑΓΟΡΩΝ"/> <!--  By Sunil -->
+		<jlblProductionBookReturnsValue          e030="PRODUCTION RETURNS VALUE" r070="VALOARE RETURURI" g060="ΚΟΣΤΟΣ ΕΠΙΣΤΡΟΦΩΝ ΠΑΡΑΓΩΓΗΣ"/> <!--  By Sunil -->
+		<jlblPurchaseBookReturns               e030="PURCHASE RETURNS" r070="RETURURI" g060="ΕΠΙΣΤΡΟΦΕΣ ΑΓΟΡΩΝ"/><!-- By Sunil -->
+		<jlblProductionBookReturns               e030="PRODUCTION RETURNS" r070="RETURURI" g060="ΕΠΙΣΤΡΟΦΕΣ ΠΑΡΑΓΩΓΗΣ"/><!-- By Sunil -->
+		<jlblProductionBookPurchasesValue        e030="PRODUCTION COST" r070="VALOARE PRODUCTIE" g060="ΚΟΣΤΟΣ ΠΑΡΑΓΩΓΗΣ"/>
+		<jlblR21PurchasesValue         e030="PRODUCTION COST" r070="VALOARE PRODUCTIE" g060="ΚΟΣΤΟΣ ΠΑΡΑΓΩΓΗΣ"/>
+		<jlblR20Returns                e030="PURCHASE RETURNS" r070="RETURURI" g060="ΕΠΙΣΤΡΟΦΕΣ ΑΓΟΡΩΝ"/>
+		<jlblR21Returns                e030="PRODUCTION RETURNS" r070="RETURURI" g060="ΕΠΙΣΤΡΟΦΕΣ ΠΑΡΑΓΩΓΗΣ"/>
+		<jlblR20ReturnsValue           e030="PURCHASE RETURNS VALUE" r070="VALOARE RETURURI" g060="ΑΞΙΑ ΕΠΙΣΤΡΟΦΩΝ ΑΓΟΡΩΝ"/>
+		<jlblR21ReturnsValue           e030="PRODUCTION RETURNS VALUE" r070="VALOARE RETURURI" g060="ΚΟΣΤΟΣ ΕΠΙΣΤΡΟΦΩΝ ΠΑΡΑΓΩΓΗΣ"/>
+		<jlblRTotPerDay                e030="TOTALS PER DAY:" r070="TOTALS PER DAY:" g060="ΣΥΝΟΛΟ ΗΜΕΡΟΜΗΝΙΑΣ:"/>
+		<jlblitem_brand     e030="ITEM BRAND" r070="ITEM BRAND" g060="ITEM BRAND"/>
+		<BROUGHT_FORWARD  e030="BROUGHT FORWARD" r070="BROUGHT FORWARD" g060="ΕΚ ΜΕΤΑΦΟΡΑΣ"/>
+		<CARRIED_FORWARD  e030="CARRIED FORWARD" r070="CARRIED FORWARD" g060="ΣΕ ΜΕΤΑΦΟΡΑ"/>
+		<COMMENT35 e030="ΔΕΝ ΥΠΑΡΧΟΥΝ ΕΓΓΡΑΦΕΣ ΠΟΥ ΝΑ ΠΛΗΡΟΥΝ ΤΑ ΚΡΙΤΗΡΙΑ_NO DATA FOUND" r070="ΔΕΝ ΥΠΑΡΧΟΥΝ ΕΓΓΡΑΦΕΣ ΠΟΥ ΝΑ ΠΛΗΡΟΥΝ ΤΑ ΚΡΙΤΗΡΙΑ_No Data Found" g060="ΔΕΝ ΥΠΑΡΧΟΥΝ ΕΓΓΡΑΦΕΣ ΠΟΥ ΝΑ ΠΛΗΡΟΥΝ ΤΑ ΚΡΙΤΗΡΙΑ_Δεν βρέθηκαν δεδομένα." />
+		<jlblDocument   e030="DOCUMENT NUMBER" r070="NUMAR DOCUMENT" g060="ΑΡΙΘΜΟΣ ΠΑΡΑΣΤΑΤΙΚΟΥ"/>
+		<jlblDocumentType     e030="DOCUMENT DESCRIPTION" r070="Tip Document Fiscal" g060="ΠΕΡΙΓΡΑΦΗ ΠΑΡΑΣΤΑΤΙΚΟΥ"/>
+		<jlbl34Document   e030="Document Number" r070="NUMAR DOCUMENT" g060="ΠΑΡΑΣΤΑΤΙΚΟ"/>
+		<jlbl34DocumentType     e030="Document Description" r070="Tip Document Fiscal" g060="ΠΕΡΙΓΡΑΦΗ ΠΑΡΑΣΤΑΤΙΚΟΥ"/>
+	
+		<jlbl34TransactionCode   e030="Trans Code" r070="Trans Code" g060="ΚΩΔ. ΚΙΝΗΣΗΣ"/>
+		<jlbl34TransactionType     e030="Transaction Description" r070="Tip Document Fiscal" g060="ΑΙΤΙΟΛΟΓΙΑ"/>
+		<jlbl34TransactionDate   e030="Trans Date" r070="Trans Date" g060="ΗΜΕΡΟΜΗΝΙΑ"/>
+		<jlblINSERTS   e030="INSERTS" r070="INSERTS" g060="ΕΙΣΑΓΩΓΕΣ"/>
+		<jlblEXPORTS   e030="EXPORTS" r070="EXPORTS" g060=" ΕΞΑΓΩΓΕΣ"/>
+		<jlblBALANCES    e030="BALANCES " r070="BALANCES " g060="ΥΠΟΛΟΙΠΑ "/>
+		<jlblGROSSPROFIT    e030="GROSS PROFIT " r070="GROSS PROFIT " g060="ΜΙΚΤΟ ΑΠΟΤΕΛΕΣΜΑ"></jlblGROSSPROFIT>
+		<jlblNewGroupLocation e030="LOCATION" r070="LOCATION" g060="ΑΠΟΘΗΚΗΣ" />
+		<jlblGroupTotal e030="TOTALS" r070="TOTALS" g060="ΣΥΝΟΛΟ" />
+		<jlbl34_cost     e030="COST" r070="COST" g060="ΚΟΣΤΟΣ"/>
+		<jlbl34_value     e030="VALUE" r070="VALUE" g060="ΑΞΙΑ"/>
+		<jlbl34_Doc_No     e030="Α.Η.Π" r070="Α.Η.Π" g060="Α.Η.Π"/>
+		<jlblSelTransactionType    e030="Selected Transcations codes:" r070="Selected Transcations codes:" g060="Selected Transcations codes:"/>
+		<jrbtnTransactionSC e030="N" r070="N" g060="N"/>
+		<jrbtnSelectedTransactionSC e030="S" r070="S" g060="S"/>
+		<jlbl34_Month1     e030="JAN" r070="JAN" g060="ΙΑΝΟΥΑΡΙΟΣ"/>
+		<jlbl34_Month2     e030="FEB" r070="FEB" g060="ΦΕΒΡΟΥΑΡΙΟΣ"/>
+		<jlbl34_Month3     e030="MAR" r070="MAR" g060="ΜΑΡΤΙΟΣ"/>
+		<jlbl34_Month4     e030="APR" r070="APR" g060="Απρίλιος"/>
+		<jlbl34_Month5     e030="MAY" r070="MAY" g060="ΜΑΪΟΣ"/>
+		<jlbl34_Month6     e030="JUN" r070="JUN" g060="Ιούνιος"/>
+		<jlbl34_Month7     e030="JUL" r070="JUL" g060="Ιούλιος"/>
+		<jlbl34_Month8     e030="AUG" r070="AUG" g060="Αύγουστος"/>
+		<jlbl34_Month9     e030="SEP" r070="SEP" g060="Σεπτέμβριος"/>
+		<jlbl34_Month10    e030="OCT" r070="OCT" g060="Οκτώβριος"/>
+		<jlbl34_Month11    e030="NOV" r070="NOV" g060="Νοέμβριος"/>
+		<jlbl34_Month12    e030="DEC" r070="DEC" g060="Δεκέμβριος"/>
+		<jlbl34_LBLMonth    e030="Month: " r070="Month:" g060="ΠΕΡΙΟΔΟΣ:"/>
+		<jlbl34_LBLYear    e030="Year: " r070="Year:" g060="ΕΤΟΣ:"/>
+		<jlbl34_UOM    e030="CASE/EACH: " r070="CASE/EACH:" g060="ΚΙΒΩΤΙΑ/ΤΕΜΑΧΙΑ:"/>
+		<jlbl34_UOM_Case    e030="CASE " r070="CASE" g060="ΚΙΒΩΤΙΑ"/>
+		<jlbl34_UOM_Each    e030="EACH " r070="EACH" g060="ΤΕΜΑΧΙΑ"/>
+		
+		<jlbl27Qty e030="QTY" r070="QTY" g060="ΠΟΣΟΤΗΤΑ"/>
+		<jlbl27COST e030="COST" r070="COST" g060="ΚΟΣΤΟΣ"/>
+		<jlbl27IMPORT   e030="IMPORTS" r070="IMPORTS" g060="ΕΙΣΑΓΩΓΕΣ"/>
+		<jlbl27EXPORTS   e030="EXPORTS" r070="EXPORTS" g060=" ΕΞΑΓΩΓΕΣ"/>
+
+   <!-- for reoprt 27-29-->
+    <jlbl29Beg_qty     e030="QTY" r070="QTY" g060="ΠΟΣΟΤΗΤΑ"/>
+		<jlbl29pur_qty     e030="QTY" r070="QTY" g060="ΠΟΣΟΤΗΤΑ"/>
+		<jlbl29repack_qty     e030="QTY" r070="QTY" g060="ΠΟΣΟΤΗΤΑ"/>
+		<jlbl29prod_qty     e030="QTY" r070="QTY" g060="ΠΟΣΟΤΗΤΑ"/>
+		<jlbl29tin_qty     e030="QTY" r070="QTY" g060="ΠΟΣΟΤΗΤΑ"/>
+		<jlbl29sal_qty     e030="QTY" r070="QTY" g060="ΠΟΣΟΤΗΤΑ"/>
+		<jlbl29tout_qty     e030="QTY" r070="QTY" g060="ΠΟΣΟΤΗΤΑ"/>
+		<jlbl29dist_qty     e030="QTY" r070="QTY" g060="ΠΟΣΟΤΗΤΑ"/>
+		<jlbl29bal_qty     e030="QTY" r070="QTY" g060="ΠΟΣΟΤΗΤΑ"/>
+		<jlbl29ytdbal_qty     e030="QTY" r070="QTY" g060="ΠΟΣΟΤΗΤΑ"/>
+		<jlbl29sal_value     e030="SALES VALUE" r070="SALES VALUE" g060="ΑΞΙΑ"/>
+		<jlbl29stale_in_qty     e030="RECEIPTS QTY" r070="RECEIPTS QTY	" g060="ΠΑΡΑΛΑΒΕΣ ΠΟΣΟΤΗΤΑ"/>
+		<jlbl29stale_out_qty     e030="TRANSFER OUT QTY" r070="TRANSFER OUT QTY" g060="ΑΠΟΣΤΟΛΕΣ ΠΟΣΟΤΗΤΑ"/>
+		<!-- for reoprt 27-29-->
+		
+		<!-- Added for Export to Excel Change -->
+		<jlblExportTOExcelButton   e030="Export to Excel" r070="Export în Excel" g060="Εξαγωγή στο Excel"/>
+		<jlblExportTOExcelButtonSC   e030="E" r070="E" g060="Ε"/>
+		<jlblExportTOExcelTT   e030="Export to Excel" r070="Export în Excel" g060="Εξαγωγή στο Excel"/>
+		<!-- End Addition for Export to Excel Functionality -->
+
+    <jlblSubTotal     e030="SUB TOTAL:" r070="ΜΕΡ.ΣΥΝΟΛΟ" g060="ΜΕΡ.ΣΥΝΟΛΟ:"/>			
+    <TransferIn29     e030="TRANSFER Ins" r070="TRANSFER Ins" g060="ΠΑΡΑΛΑΒΕΣ ΕΝΔ/ΣΩΝ"/>    
+    <TransferOut29     e030="TRANSFER OUT" r070="TRANSFER OUT" g060="ΑΠΟΣΤΟΛΕΣ ΕΝΔ/ΣΕΩΝ"/>    
+    <StaleTransfer29     e030="STALES TRANSFERS" r070="STALES TRANSFERS" g060="ΔΙΑΚΙΝΗΣΗ ΑΚΑΤ/ΛΩΝ"/>
+    <YTD_Balance29     e030="YTD BALANCE" r070="YTD BALANCE" g060="ΠΡΟOΔΕΥΤΙΚΑ ΥΠΟΛΟΙΠΑ"/>    
+    
+    <!--Added For report 38  -->
+    
+   		<jlblAVG_ACT_COST38     		e030="AVG  ACT COST" r070="AVG  ACT COST" g060="ΤΙΜΗ ΚΟΣΤΟΥΣ"/>
+		<jlblSTALES_TRANSFER_OUT_IN     e030="STALES TRANSFER OUT/IN" r070="STALES TRANSFER OUT/IN" g060="ΑΠΟΣΤΟΛΕΣ/ ΠΑΡΑΛΑΒΕΣ ΑΚΑΤΑΛΛΗΛΩΝ"/>
+		<jlblTRANSFER_OUT_IN     		e030="TRANSFER OUT/IN" r070="TRANSFER OUT/IN" g060="ΑΠΟΣΤΟΛΕΣ/ΠΑΡΑΛΑΒΕΣ ΕΝΔ/ΣΩΝ"/>
+		
+		<jlblSubType38     e030="Sub Type :" r070="Sub Type :" g060="ΤΥΠΟΣ"/>
+		
+		<jlblDETAIL38     e030="DETAIL" r070="DETAIL" g060="ΑΝΑΛΥΤΙΚΑ ΑΝΑ ΑΠΟΘΗΚΗ"/>
+		<jlblITEM_TOTALS38     e030="ITEM TOTALS" r070="ITEM TOTALS" g060="ΣΥΓΚΕΝΤΡΩΤΙΚΑ ΑΝΑ ΕΙΔΟΣ"/>
+		<jlblBRAND_TOTALS38     e030="BRAND TOTALS" r070="BRAND TOTALS" g060="ΣΥΓΚΕΝΤΩΤΙΚΑ ΑΝΑ ΚΑΤΗΓΟΡΙΑ ΕΙΔΩΝ"/>
+		
+		<jlblTRANSACTION_CODE_DESCRIPTION  e030="TRANSACTION CODE DESCRIPTION" r070="TRANSACTION CODE DESCRIPTION" g060="ΚΩΔΙΚΟΣ ΚΙΝΗΣΗΣ"/>
+   		<jlblNr     e030="Nr" r070="Nr" g060="Α/Α"/>
+   		<jlblUnit36       e030="UNITS" r070="UNITS" g060="ΤΕΜΑΧΙΑ"/>
+   		<jlbl37Case    e030="CS" r070="CS" g060="ΚΒ"/>
+   		<jlbl37Each    e030="EA" r070="EA" g060="ΤΜ"/>
+   		
+   			<jlblTotalCost40     e030="TOTAL COST" r070="TOTAL VALOARE" g060="ΑΞΙΑ ΚΟΣΤΟΥΣ"/>
+    <!--End For report 38  -->
+    <!--Added by jiten Client Issue 1220-->
+    <jlblOfficial     e030="OFFICIAL" r070="OFFICIAL" g060="ΛΟΓΙΣΤΙΚΕΣ ΚΙΝΗΣΕΙΣ"/>
+    <jlblUnOfficial     e030="NON OFFICIAL" r070="NON OFFICIAL" g060="ΑΛΛΕΣ ΚΙΝΗΣΕΙΣ"/>    
+    <!--Finsihed by jiten-->
+    <jlblTotal_brand18     e030="ITEM BRAND TOTALS" r070="TOTAL BRAND" g060="ΣΥΝΟΛΟ ΚΑΤΗΓΟΡΙΑΣ ΕΙΔΩΝ"/>
+    
+      <!-- Added By Jaydip Makadia For ItemTransactionDetailReport 9B -->    
+	    <statusCOMMITED  e030="Commit" r070="Comis" g060="Εκτέλεση"/>
+    	<statusCANCELLED  e030="Cancel" r070="Anulare" g060="Ακύρωση"/>
+    <!-- finished By Jaydip Makadia For ItemTransactionDetailReport 9B -->    
+    	
+    	<lblExceuctionDateSc     e030="D" r070="D" g060="D"/><!-- added by shraddha for QA Issue#9970 -->
+    	<!-- Added by shraddha for QA Issue#12341 -->
+		<lbl_CostOfSales     e030="Cost of Sales" r070="Cost of Sales" g060="ΚΟΣΤΟΣ ΠΩΛΗΘΕΝΤΩΝ"/>
+		<lbl_NetRevenue     e030="Net Revanue" r070="Net Revanue" g060="ΜΙΚΤΟ ΑΠΟΤΕΛΕΣΜΑ"/>
+		<!-- finished by shraddha for QA Issue#12341 -->
+		
+		<jlblOf     e030="Of" r070="Of" g060="Από"/>
+		<jlblReasoncode e030="Reason Code" r070="Reason Code" g060="Κωδ.Αιτιολ."/><!-- Added by shraddha for Client Test Issue#1648 -->
+
+    <jlblProductWithNoTransaction e030="Products with no transaction" r070="Products with no transaction" g060="Products with no transaction"/>
+		<jlblProductWithNoTransactionSC e030="P" r070="P" g060="P"/>
+		
+		<jlblCase36       e030="CASE" r070="CASE" g060="Κιβώτια"/>
+		
+	    <jbtnMdb e030="MDB" r070="MDB" g060="MDB"/>
+		<jbtnMdbSC e030="M" r070="M" g060="M"/>
+		<jbtnMdbTT e030="MDB" r070="MDB" g060="MDB"/>
+		
+		<jbtnDownLoadMdb e030="Download MDB" r070="Download MDB" g060="Download MDB"/>
+		<jbtnDownLoadMdbSC e030="D" r070="D" g060="D"/>
+		<jbtnDownLoadMdbTT e030="Download MDB" r070="Download MDB" g060="Download MDB"/>
+		
+		<jbtnTextFileDownLoad e030="Download Text File" r070="Download Text File" g060="Download Text File"/>
+		<jbtnTextFileDownLoadSC e030="T" r070="T" g060="T"/>
+		<jbtnTextFileDownLoadTT e030="Download Text File" r070="Download Text File" g060="Download Text File"/>
+		
+		<jbtnPDFFileDownLoad e030="Download PDF File" r070="Download PDF File" g060="Download PDF File"/>
+		<jbtnPDFFileDownLoadSC e030="F" r070="F" g060="F"/>
+		<jbtnPDFFileDownLoadTT e030="Download PDF File" r070="Download PDF File" g060="Download PDF File"/>
+		
+		
+		<lblReportGenerationIsInProcess  e030="Processing..." r070="Επεξεργασία ..." g060="Επεξεργασία ..."/>
+		
+		
+		<lblRefDocNbr e030="Reference Document" r070="Reference Document" g060="Σχετικό Παραστατικό"/>	<!-- ADDED By SHALIN SHAH For CLIENT ISSUE 370 -->
+		
+	</Greports>
+</Greports>
+</Application-IM>
+

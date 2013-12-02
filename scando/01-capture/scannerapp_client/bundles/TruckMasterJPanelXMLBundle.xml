@@ -1,0 +1,61 @@
+<?xml version="1.0" ?>
+<Application-IM>
+<TruckMaster>
+	<TRUCKMASTERJPANEL>
+		<jbtnretrieveTT  e030="Retrieve data" r070="Aduce date" g060="Ανάκτηση δεδομένων"/>
+		<jlblBig   e030="Big :" r070="Big :" g060="Μεγάλο :"/>
+		<jbtnCloseSC   e030="C" r070="C" g060="C"/>
+		<jbtnCancelSC  e030="C" r070="C" g060="C"/>
+		<jlblCreateDt  e030="Create Date :" r070="Create Date :" g060="Ημ/νια Δημ.:"/>
+		<jtblCreatedt  e030="Created Date" r070="Created Date" g060="Ημ/νια Δημ.:"/>
+		<jlblDimension   e030="Dimensions :" r070="Dimensions :" g060="Διαστάσεις :"/>
+		<jlblDriverNm   e030="Driver Name :" r070="Driver Name :" g060="Όνομα Οδηγού:"/>
+		<jlblFreightCost   e030="Freight Cost :" r070="Freight Cost :" g060="Μεταφορικά:"/>
+		<jlblHeight   e030="Height :" r070="Height :" g060="Ύψος :"/>
+		<jlblLength   e030="Length :" r070="Length :" g060="Μήκος :"/>
+		<jlblmedium   e030="Medium :" r070="Medium :" g060="Μεσαίο:"/>
+		<jbtnOKSC  e030="O" r070="O" g060="O"/>
+		<jbtnOK  e030="OK" r070="OK" g060="OK"/>
+		<jbtnOKTT  e030="OK" r070="OK" g060="OK"/>
+		<jtblPlateNo  e030="Plate Number" r070="Plate Number" g060="Αρ.Πινακίδας"/>
+		<jlblPlatNo   e030="Plate Number :" r070="Plate Number :" g060="Αρ.Πινακίδας:"/>
+		<jbtnretrieveSC  e030="R" r070="E" g060="R"/>
+		<jbtnSaveSC   e030="S" r070="S" g060="S"/>
+		<jlblSmall   e030="Small :" r070="Small :" g060="Μικρό:"/>
+		<jtblStatus  e030="Status" r070="Status" g060="Κατάσταση"/>
+		<jtblTruckDsc   e030="Truck Description" r070="Truck Description" g060="Περιγραφή Φορτηγού"/>
+		<jlblTruckDsc   e030="Truck Description :" r070="Truck Description :" g060="Περιγραφή Φορτηγού:"/>
+		<Title  e030="Truck Master" r070="Truck Master" g060="Αρχείο Φορτηγών"/>
+		<jtblTruckNo  e030="Truck Number" r070="Truck Number" g060="Αρ. Φορτηγού"/>
+		<jlblTruckNo  e030="Truck Number :" r070="Truck Number :" g060="Αρ. Φορτηγού :"/>
+		<truckNumberDialogTitle  e030="Truck Number Dialog" r070="Truck Number Dialog" g060="Truck Number Dialog"/>
+		<jlblTruckType   e030="Truck Type :" r070="Truck Type :" g060="Τϋπ.Φορτηγού:"/>
+		<jlblWeight   e030="Weight :" r070="Weight :" g060="Βάρος :"/>
+		<jlblWidth   e030="Width :" r070="Width :" g060="Πλάτος:"/>
+		<jbtnTCancelSC  e030="Z" r070="Z" g060="z"/>
+		<jlblOprCancel  e030="Cancel" r070="Anulare" g060="Ακύρωση"/>
+		<jbtnCancel  e030="Cancel" r070="Anulare" g060="Ακύρωση"/>
+		<jbtnCancelTT  e030="Cancel" r070="Anulare" g060="Ακύρωση"/>
+		<jbtnTCancel  e030="Cancel(Z)" r070="Anulare(Z)" g060="Ακύρωση(Ζ)"/>
+		<jbtnTCancelTT  e030="Cancel document" r070="Cancel document" g060="Ακυρωτικό παραστατικού"/>
+		<jbtnretrieve  e030="Retrieve" r070="Aduce" g060="Ανάκτηση"/>
+		<jlblOprSave  e030="Save" r070="Salvare" g060="Αποθήκευση"/>
+		<jbtnSave   e030="Save" r070="Salvare" g060="Αποθήκευση"/>
+		<jbtnSaveTT   e030="Save document" r070="Salveaza document" g060="Αποθήκευση παραστατικού;"/>
+		<jrbtnExistingSC  e030="E" r070="X" g060="Ε"/>
+		<jlblvolum   e030="Volume :" r070="Volume :" g060="Όγκος:"/>
+		<jbtnClose   e030="Close" r070="Inchide" g060="Κλείσιμο"/>
+		<jbtnCloseTT   e030="Close the screen" r070="Inchide ecran" g060="Κλείσιμο οθόνης"/>
+		<jrbtnNewSC  e030="N" r070="N" g060="Ν"/>
+		<jlblYES  e030="YES" r070="DA" g060="ΝΑΙ"/>
+		<jrbtnNew  e030="New" r070="Nou" g060="Νέο"/>
+		<jlblNO  e030="NO" r070="NU" g060="ΟΧΙ"/>
+		<jlblSystem  e030="System :" r070="System :" g060="Σύστημα:"/>
+		<jrbtnExisting  e030="Existing" r070="Existent" g060="Υπάρχον"/>
+		<jLblCreateUser  e030="C User" r070="C Utilizator" g060="Χρήστης Δημ"/>
+		<jLblUpdateUser  e030="U User" r070="U Utilizator" g060="Χρήστης Ενημ."/>
+		<jLblUpdateDateTime  e030="U Time :" r070="U Ora :" g060="Ώρα Ενημ:"/>
+		<docCancel e030="Do you want to cancel the Truck ?" r070="Doriti sa anulati documentul?" g060="Θέλετε να ακυρώσετε το Φορτηγού;"/>
+	</TRUCKMASTERJPANEL>
+</TruckMaster>
+</Application-IM>

@@ -1,0 +1,160 @@
+<?xml version="1.0" ?>
+<Application-IM>
+<InventoryTransformation>
+	<INVENTORYTRANSFORMATIONJPANEL>
+		<accNo  e030="Account No" r070="Nr Cont" g060="Αρ.Λογ/μού"/>
+		<Address  e030="Address :" r070="Adresa:" g060="Διεύθυνση:"/>
+		<frameTitle  e030="Adjust Acknowledgement" r070="Confirmare Ajustare" g060="Αποδοχή Διόρθωσης"/>
+		<jrbtnAutomated  e030="Automated" r070="Automat(D)" g060="Αυτόματο"/>
+		<BagsUnit  e030="Bags/Case" r070="Buc./Box" g060="Σακ./Κιβ."/>
+		<bags-case  e030="Bags/Case" r070="Buc./Box" g060="Σακ./Κιβ."/>
+		<jbtnBOM e030="BOM(V)" r070="BOM(V)" g060="BOM(V)"/>
+		<jlblbreakdowncmp  e030="Break Down Quantity:" r070="Cantitate Defalcata:" g060="Ανάλωση Ποσότητας ανά ΤΕΜ Παραγωγής:"/>
+		<jbtncancelcmpSC  e030="C" r070="C" g060="C"/>
+		<jlblCaddies  e030="Caddies :" r070="Display :" g060="Κουτιά:"/>
+		<jlbleachpercasecmp  e030="Caddy/Each Per Case:" r070="Bucati per box" g060="Τεμ Ανά Κιβ.:"/>
+		<jbtncancelcmp  e030="Cancel" r070="Anulare" g060="Ακύρωση"/>
+		<jbtnDupDocCancel e030="Cancel" r070="Cancel" g060="Ακύρωση"/>
+		<jbtnCancel  e030="Cancel" r070="Anulare" g060="Ακύρωση"/>
+		<jbtnCancel1  e030="Cancel" r070="Anulare" g060="Ακύρωση"/>
+		<jlblOprCancel  e030="Cancel" r070="Anulare" g060="Ακύρωση"/>
+		<jbtnCancelTT  e030="Cancel document" r070="Anulare document" g060="Ακύρωση Παρ/κού"/>
+		<jbtnClearAll  e030="Cancel(Z)" r070="Anulare(Z)" g060="Ακύρωση"/>
+		<carrierID  e030="Carrier ID" r070="ID Transportator" g060="Κωδ.Μεταφ."/>
+		<jlblCases  e030="Cases :" r070="Boxuri :" g060="Κιβ.:"/>
+		<lblCopackerDocNoPrint  e030="CO-PACKER DELIVERY NOTE NO." r070="ΔΕΛΤΙΟ ΑΠΟΣΤΟΛΗΣ ΑΝΑΣΥΣΚΕΥΑΣΙΑΣ ." g060="Αριθ. Δ.Α. Ανα/στή"/>
+		<jlblCopackeDocNo  e030="Co-packer Delivery Note No:" r070="Aviz Expeditie Impachetare:" g060="Αριθ. Δ.Α. Ανα/στή :"/>
+		<jlblCopackeDocdialogheader  e030="Co-packer Delivery Note Number Dialog" r070="Co-packer Delivery Note Number Dialog" g060="Διάαλογος Αριθ. Δ.Α. Ανα/στή :"/>
+		<Comments  e030="Comments :" r070="Comentarii:" g060="Σχόλια:"/>
+		<jlblOprCommit  e030="Commit" r070="Comis" g060="ΕΚΤΕΛΕΣΘΗΚΕ"/>
+		<jbtnComponent  e030="Component" r070="Componenta(V)" g060="Στοιχείο"/>
+		<lblComponents  e030="COMPONENTS" r070="ΑΝΑΛΩΣΗ ΣΥΣΤΑΤΙΚΩΝ" g060="ΑΝΑΛΩΣΗ ΣΥΣΤΑΤΙΚΩΝ"/>
+		<costCenter  e030="Cost Center" r070="Centru Cost" g060="Κ.Κόστους"/>
+		<jrbtnAutomatedSC  e030="D" r070="D" g060="D"/>
+		<date   e030="Date" r070="Data" g060="Ημ/νία"/>
+		<jlblSysDate  e030="Date :" r070="Data :" g060="Ημ/νία:"/>
+		<jlbldate1  e030="Date:" r070="Data:" g060="Ημ/νία:"/>
+		<rowDelete1  e030="Delete Row" r070="Sterge Rind" g060="Διαγραφή γραμμής"/>
+		<description  e030="Description" r070="Descriere" g060="Περιγραφή"/>
+		<docCancel  e030="Do you want to cancel the Document" r070="Doriti sa anulati documentul?" g060="Θέλετε να ακυρώσετε το παραστατικό;"/>
+		<DocNoExists  e030="Do you want to changed document number?" r070="Schimbati nr. documentului?" g060="Θέλετε να αλλάξετε αριθμό παραστατικού;"/>
+		<rowDelete  e030="Do you want to delete the specified row" r070="Stergeti randul?" g060="Θέλετε να διαγράψετε την επιλεγείσα γραμμή;"/>
+		<docLineId  e030="Doc Line Id" r070="Linie Doc." g060="Γραμμή"/>
+		<jlblDocNo  e030="Doc No :" r070="Doc. Nr.:" g060="Αρ.Παρ/κού"/>
+		<DocNo  e030="Doc. No :" r070="Doc. No :" g060="Αρ.Παρ/κού"/>
+		<jlblDocSeries  e030="Doc. Series :" r070="Serie Doc." g060="Σειρά Παρ/ικού :"/>
+		<DocNoExists1  e030="Document Number Exist" r070="Nr. Doc. Existent" g060="Ο αριθμός παραστατικού υπάρχει"/>
+		<DocNoHeader  e030="Document Number Header Dialog" r070="Doc. Nr." g060="Διάλογος κεφαλίδας αριθμού παραστατικού"/>
+		<jlblDocumentTypecode  e030="Document Type Code :" r070="Cod Tip Doc." g060="Κωδ.τύπου παρ/κού :"/>
+		<jlblDocType  e030="Document Type:" r070="Tip Doc." g060="Τυπ.Παρ/κού"/>
+		<jrbtnExistingSC  e030="E" r070="X" g060="Ε"/>
+		<jlblEaches  e030="Eaches :" r070="Bucati :" g060="Τεμ.:"/>
+		<jrbtnExisting  e030="Existing" r070="Existent" g060="Υπάρχον"/>
+		<jbtnCost  e030="Freight" r070="Cost transport" g060="Μεταφορικά"/>
+		<freightReptTitle  e030="Freight" r070="Cost transport" g060="Μεταφορικά"/>
+		<freightCost  e030="Freight Cost" r070="Cost transport" g060="Μεταφορικά"/>
+		<lblFulladress  e030="Full address" r070="Πλήρης διεύθυνση" g060="Πλήρης διεύθυνση"/>
+		<fullName  e030="Full Name" r070="Nume" g060="Πλήρης επωνυμία"/>
+		<ReportTitle1  e030="INTERNAL TRANSFER" r070="ΔΕΛΤΙΟ ΕΣΩΤΕΡΙΚΗΣ ΔΙΑΚΙΝΗΣΗΣ ΑΝΑΣ/ΣΙΑΣ" g060="ΔΕΛΤΙΟ ΕΣΩΤΕΡΙΚΗΣ ΔΙΑΚΙΝΗΣΗΣ ΑΝΑΣ/ΣΙΑΣ"/>
+		<title  e030="Inventory Transformation" r070="Impachetari/Infolieri" g060="Μετασχηματισμός Αποθεμάτων"/>
+		<InventoryTransformation1   e030="Inventory Transformation" r070="Impachetari/Infolieri" g060="Μετασχηματισμός Αποθεμάτων"/>
+		<InventoryTransformation   e030="InventoryTransformation" r070="Impachetari/Infolieri" g060="Μετασχηματισμός Αποθεμάτων"/>
+		<lblitemcode  e030="ITEM CODE" r070="ΚΩΔΙΚΟΣ ΕΙΔΟΥΣ" g060="Κωδ.Είδους"/>
+		<lblitemdesc  e030="ITEM DESCRIPTION" r070="ΠΕΡΙΓΡΑΦΗ ΕΙΔΟΥΣ" g060="Περιγραφή"/>
+		<jlblItems  e030="Items :" r070="Produs :" g060="Είδη:"/>
+		<jrbtnpackSC  e030="K" r070="H" g060="K"/>
+		<lineStatus  e030="Line Status" r070="Stare Linie" g060="Κατάσταση Γραμμής"/>
+		<jlblDestination  e030="Location :" r070="Locatie :" g060="Αποθήκη:"/>
+		<lblLocationFrom  e030="LOCATION FROM" r070="ΑΠΟΘΗΚΗ ΑΠΟ" g060="Αποθ.Προελ."/>
+		<lblLocationTo  e030="LOCATION To" r070="ΑΠΟΘΗΚΕΥΣΗ ΑΠΟ ." g060="Αποθ.Προορ."/>
+		<jlblLocationType  e030="Doc. Number :" r070="Doc. Number :" g060="Doc. Number:"/>
+		<jlblOPMLocation  e030="Logical Location :" r070="Locatie Logica:" g060="Λογ.Αποθήκη:"/>
+		<luCode  e030="LU Code" r070="Cod SKU" g060="LU"/>
+		<jlbllucodecmp  e030="Lu Code:" r070="Cod SKU:" g060="LU:"/>
+		<volume  e030="M3" r070="Volum" g060="m³"/>
+		<jrbtnManual  e030="Manual" r070="Manual" g060="Χειρόγραφο"/>
+		<plate2  e030="Matricula Numbro:" r070="Numar inmatriculare:" g060="Αρ.Πινακ.2"/>
+		<plate1  e030="Matricula:" r070="Numar:" g060="Αρ.Πινακ.1"/>
+		<jrbtnNewSC  e030="N" r070="N" g060="N"/>
+		<jrbtnNew  e030="New" r070="Nou" g060="Νέο"/>
+		<jlblNO  e030="NO" r070="NU" g060="ΟΧΙ"/>
+		<jbtnComponentSC  e030="O" r070="V" g060="Ο"/>
+		<jbtnokcmpSC  e030="O" r070="O" g060="Ο"/>
+		<jbtnDupDocOk e030="Ok" r070="Ok" g060="ΟΚ"/>
+		<jbtnokcmp  e030="OK" r070="OK" g060="ΟΚ"/>
+		<jbtnOK  e030="OK" r070="OK" g060="ΟΚ"/>
+		<jrbtnpacking  e030="Pack" r070="Pachet" g060="Συσκευασία"/>
+		<Pckqty  e030="Packing Qty" r070="Cant Impachetare" g060="Ποσότητα συσκ."/>
+		<Pckqtycase e030="Packing Qty(Case)" r070="Packing Qty(Case)" g060="Ποσ.Συσκευασίας(Κιβ.)"/>
+		<lblPageTotals  e030="PAGE TOTALS:" r070="ΣΕΛΙΔΑ ΣΥΝΟΛΑ:" g060="Σύνολο Σελίδων:"/>
+		<jlblpage  e030="Page:" r070="Pagina:" g060="Σελ.:"/>
+		<lblgrcpage  e030="PAGE:" r070="ΣΕΛΙΔΑ: ." g060="Σελ.:"/>
+		<position   e030="Position" r070="Pozitie" g060="Θέση"/>
+		<ProductType  e030="Product Type" r070="Tipul produsului" g060="Τυπ.Προϊόντ."/>
+		<lblProducts  e030="PRODUCTS" r070="ΠΑΡΑΓΩΜΕΝΑ" g060="Προϊόντα"/>
+		<jlblqtyproduced  e030="Qty Produced" r070="Cant Produsa" g060="Παραχθ.Ποσοτ."/>
+		<jlblqtyproducedcmp  e030="Qty Produced:" r070="Cant Produsa:" g060="Παραχθ.Ποσοτ. σε ΜΜ:"/>
+		<qtyProduced  e030="Quantity" r070="Cantitate" g060="Ποσότητα"/>
+		<lblqtyboxes  e030="QUANTITY (BOXES)" r070="ΑΠΟΣΟΤΗΤΑ (ΚΟΥΤΙΑ)" g060="ΠΟΣΟΤΗΤΑ (ΚΟΥΤΙΑ)"/>
+		<lblqtyeach  e030="QUANTITY (EACHES)" r070="ΠΟΣΟΤΗΤΑ (ΤΕΜ)" g060="ΠΟΣΟΤΗΤΑ (ΤΕΜ)"/>
+		<jbtnRetrieveSC  e030="R" r070="E" g060="R"/>
+		<jlblREASONCODE e030="REASON CODE:" r070="REASON CODE:" g060="ΚΩΔ.ΑΙΤΙΟΛ."/>
+		<jlblReasoncode e030="Reason Code:" r070="Reason Code:" g060="Κωδ.Αιτιολ."/>
+		<ReportTitle  e030="RECEIPT NOTE FROM CO-PACKER" r070="ΔΕΛΤΙΟ ΠΑΡΑΛΑΒΗΣ ΑΝΑΣΥΣΚΕΥΑΣΙΑΣ." g060="ΔΕΛΤΙΟ ΠΑΡΑΛΑΒΗΣ ΑΝΑΣΥΣΚΕΥΑΣΙΑΣ"/>
+		<jlblRelativedocument e030="RELATIVE DOCUMENT" r070="RELATIVE DOCUMENT" g060="ΣΧΕΤ.ΠΑΡ/ΚΟ"/>
+		<jlblrequiredqtycmp  e030="Required Quantity:" r070="Cantitate Necesara:" g060="Απαιτούμενη ποσότητα:"/>
+		<jbtnRetrieve  e030="Retrieve" r070="Aduce" g060="Ανάκτηση"/>
+		<jbtnRetrieveTT  e030="Retrieve data" r070="Aduce date" g060="Ανάκτηση Δεδομένων"/>
+		<sellingCode  e030="Selling Code" r070="Cod Vanzare" g060="Κωδ.Πώλησης"/>
+		<jlblsellingcodecmp  e030="Selling Code :" r070="Cod Vanzare :" g060="Κωδ.Ανάσυ/σιας:"/>
+		<jbtnBOMTT e030="Show BOM" r070="Show BOM" g060="Εμφ.Συνταγής"/>
+		<signature   e030="Signature" r070="Semnatura" g060="Υπογραφή"/>
+		<jlblSource  e030="Source :" r070="Sursa :" g060="Προέλευση:"/>
+		<Company  e030="STAR FOODS" r070="STAR FOODS" g060="STAR FOODS"/>
+		<rmncmpname  e030="STAR FOODS" r070="STAR FOODS" g060="STAR FOODS"/>
+		<status  e030="Status :" r070="Stare :" g060="Κατάσταση:"/>
+		<jlblSystem  e030="System :" r070="System :" g060="Σύστημα:"/>
+		<grccmpname  e030="TASTY" r070="TASTY" g060="TASTY"/>
+		<CompanyTitle  e030="TASTY FOODS ΑΒΓΕ" r070="TASTY FOODS ΑΒΓΕ" g060="TASTY FOODS ΑΒΓΕ"/>
+		<lblTaxId e030="Tax code:" r070="Tax code:" g060="ΑΦΜ:"/>
+		<jlblTotal  e030="Total :" r070="Total :" g060="Συν:"/>
+		<lblTotals  e030="TOTALS:" r070="ΣΥΝΟΛΟ:" g060="ΣΥΝΟΛΑ:"/>
+		<lbldocumentno  e030="TRANSACTION CODE - SERIES - NUMBER" r070="ΚΩΔΙΚΟΣ ΚΙΝΗΣΗΣ - ΣΕΙΡΑ - ΑΡΙΘΜΟΣ ." g060="ΚΩΔΙΚΟΣ ΚΙΝΗΣΗΣ - ΣΕΙΡΑ - ΑΡΙΘΜΟΣ"/>
+		<jlblTranscationCode  e030="Transaction Code :" r070="Cod Tranzactie :" g060="Κωδ.Κίνησης"/>
+		<jlblTransferDate  e030="Transfer Date :" r070="Data Transfer :" g060="Ημ/νία Μεταφοράς:"/>
+		<TransportistaName  e030="Transportista Name :" r070="Nume Transportator :" g060="Επωνυμία Μεταφ.:"/>
+		<tname  e030="Transportista Name:" r070="Nume Transportator:" g060="Επωνυμία Μεταφ.:"/>
+		<TruckID  e030="Truck ID :" r070="ID Camion:" g060="Κωδ.Φορτηγού:"/>
+		<jlbltruckno  e030="Truck No:" r070="Nr Camion:" g060="Αρ.Φορτηγού:"/>
+		<jrbtnunpackSC  e030="U" r070="S" g060="U"/>
+		<jrbtnManualSC  e030="U" r070="U" g060="U"/>
+		<jrbtnunpacking  e030="Un-Pack" r070="Despach." g060="Αποσυσκευασία"/>
+		<unpackqty  e030="UnPacking Qty" r070="Cant Despach." g060="Ποσότητα αποσυσκ."/>
+		<unpackqtycase e030="UnPacking Qty(Case)" r070="UnPacking Qty(Case)" g060="Ποσότητα απο-συσκευασίας(Κιβ.)"/>
+		<UOM  e030="UOM" r070="UM" g060="Μ.Μ."/>
+		<jlbluomcmp  e030="UOM:" r070="UM:" g060="Μ.Μ.:"/>
+		<jlblUser e030="USER:" r070="USER:" g060="Χρήστης:"/>
+		<jbtnBOMSC e030="V" r070="V" g060="V"/>
+		<lblVatecode  e030="VAT Code" r070="Κώδικας ΦΠΑ" g060="Κωδ.ΦΠΑ"/>
+		<ReportTitle3 e030="VOID INTERNAL TRANSFER" r070="VOID INTERNAL TRANSFER" g060="ΑΚΥΡΩΣΗ ΔΕΛΤΙΟ ΕΣΩΤ. ΔΙΑΚ/ΣΗΣ ΑΝΑΣ/ΣΙΑΣ"/>
+		<ReportTitle2 e030="VOID RECEIPT NOTE FROM CO-PACKER" r070="VOID RECEIPT NOTE FROM CO-PACKER" g060="ΑΚΥΡΩΣΗ ΔΕΛΤΙΟ ΠΑΡΑΛΑΒΗΣ ΑΝΑΣΥΣΚΕΥΑΣΙΑΣ"/>
+		<Volumn  e030="Volumn :" r070="Volum :" g060="Όγκος"/>
+		<VOLUME_LABEL  e030="Volumn:" r070="Volum :" g060="Όγκος"/>
+		<jlblYES  e030="YES" r070="DA" g060="ΝΑΙ"/>
+		<jbtnClearAllSC  e030="Z" r070="Z" g060="Z"/>
+		<CompanyTitle1  e030="ΑΝΩΝΥΜΟΣ ΒΙΟΜΗΧΑΝΙΚΗ ΓΕΩΡΓΙΚΗ ΕΤΑΙΡΙΑ" r070="ΑΝΩΝΥΜΟΣ ΒΙΟΜΗΧΑΝΙΚΗ ΓΕΩΡΓΙΚΗ ΕΤΑΙΡΙΑ ." g060="ΑΝΩΝΥΜΟΣ ΒΙΟΜΗΧΑΝΙΚΗ ΓΕΩΡΓΙΚΗ ΕΤΑΙΡΙΑ"/>
+		<!--Added for Client Issue#1198 by jiten -->
+		<ReportTitle4 e030="VOID RECEIPT NOTE FROM CO-PACKER" r070="VOID RECEIPT NOTE FROM CO-PACKER" g060="ΑΚΥΡΩΣΗ ΔΕΛΤΙΟ ΠΑΡΑΛΑΒΗΣ ΑΠΟΣ/ΣΙΑΣ"/>
+		<ReportTitle5  e030="RECEIPT NOTE FROM CO-PACKER" r070="ΔΕΛΤΙΟ ΠΑΡΑΛΑΒΗΣ ΑΠΟΣΥΣΚΕΥΑΣΙΑΣ" g060="ΔΕΛΤΙΟ ΠΑΡΑΛΑΒΗΣ ΑΠΟΣΥΣΚΕΥΑΣΙΑΣ"/>
+		<ReportTitle6 e030="VOID INTERNAL TRANSFER" r070="VOID INTERNAL TRANSFER" g060="ΑΚΥΡΩΣΗ ΔΕΛΤΙΟ ΕΣΩΤ. ΔΙΑΚ/ΣΗΣ ΑΠΟΣ/ΣΙΑΣ"/>
+		<ReportTitle7  e030="INTERNAL TRANSFER" r070="ΔΕΛΤΙΟ ΕΣΩΤΕΡΙΚΗΣ ΔΙΑΚΙΝΗΣΗΣ ΑΠΟΣ/ΣΙΑΣ" g060="ΔΕΛΤΙΟ ΕΣΩΤΕΡΙΚΗΣ ΔΙΑΚΙΝΗΣΗΣ ΑΠΟΣ/ΣΙΑΣ"/>
+		<lblOf  e030="Of" r070="Of" g060="Από"/>
+		<!-- added by shraddha for Client Issue 1674 -->
+		<jlblcurrsellingcodecmp  e030="Selling Code :" r070="Cod Vanzare :" g060="Κωδ.Ανάλωσης:"/>
+		<jlblcurreachpercasecmp  e030="Caddy/Each Per Case:" r070="Bucati per box" g060="Τεμ.Ανά Κιβ. Ανάλωσης:"/>
+		<Pckqtycase_bom e030="Packing Qty(Case)" r070="Packing Qty(Case)" g060="Ποσ. Ανάλωσης (Κιβ)"/>
+		<Pckqty_bom e030="Packing Qty" r070="Cant Impachetare" g060="Ποσ. Ανάλωσης (Τεμ)"/>
+		<!-- finish by shraddha for Client Issue 1674 -->
+	</INVENTORYTRANSFORMATIONJPANEL>
+</InventoryTransformation>
+</Application-IM>

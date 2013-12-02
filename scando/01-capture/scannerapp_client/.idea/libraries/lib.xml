@@ -1,0 +1,31 @@
+<component name="libraryTable">
+  <library name="lib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/target/lib/jackson-mapper-asl-1.9.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/jaxb-impl-2.2.3-1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/morena-6.4.0.12.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/thumbnailator-0.4.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/gson-2.2.4.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/activation-1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/commons-io-2.0.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/imgscalr-lib-4.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/jackson-xc-1.9.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/object-size-fetcher-1.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/jersey-client-1.17.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/jersey-json-1.17.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/stax-api-1.0-2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/jackson-jaxrs-1.9.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/morena_license-6.4.0.12.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/morena_win-6.4.0.12.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/jackson-core-asl-1.9.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/jersey-core-1.17.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/jaxb-api-2.2.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/jettison-1.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/morena_osx-6.4.0.12.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/junit-3.8.1.jar!/" />
+      <root url="jar://$PROJECT_DIR$/target/lib/log4j-1.2.17.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

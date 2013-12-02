@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+<Application-IM>
+<Report>
+	<Report>
+		<brandGroup  e030="Brand Group:" r070="Brand Grup:" g060="Brand Group:"/>
+		<code  e030="CODE" r070="COD" g060="ΚΩΔ."/>
+		<desc  e030="DESCRIPTION" r070="DESCRIERE" g060="ΠΕΡΙΓΡΑΦΗ"/>
+		<diff  e030="Diff" r070="Diferente" g060="Αποκλ."/>
+		<divisionGroup  e030="Division Group:" r070="Grup divizie:" g060="Ομάδα Τομέα:"/>
+		<final  e030="Final" r070="Final" g060="Τελικό"/>
+		<fromDate  e030="From Date :" r070="De la :" g060="Ημ/νία 'από' :"/>
+		<grand_total  e030="Grand Total" r070="TOTAL" g060="Γεν.Σύνολο"/>
+		<initial  e030="initial" r070="initial" g060="αρχικό"/>
+		<inv  e030="Inv." r070="Inv." g060="Απογραφή"/>
+		<location  e030="LOCATION :" r070="LOCATIE :" g060="ΑΠΟΘΗΚΗ:"/>
+		<lu  e030="LU" r070="SKU" g060="LU"/>
+		<companyName  e030="MATUTANO" r070="STARFOODS" g060="MATUTANO"/>
+		<Received  e030="Recevied" r070="Receptionat" g060="Εισαγωγή"/>
+		<sell  e030="SELL" r070="VANZ" g060="ΠΩΛΗΣΗΣ"/>
+		<shift1  e030="shift1" r070="Schimb1" g060="Βαρδια 1"/>
+		<shift2  e030="shift2" r070="Schimb2" g060="Βαρδια 2"/>
+		<shift3  e030="shift3" r070="Schimb3" g060="Βαρδια 3"/>
+		<Shipped  e030="Shipped" r070="Livrat" g060="Εξαγωγή"/>
+		<stock  e030="STOCK" r070="STOC" g060="ΑΠ¨ΟΘΕΜΑ"/>
+		<stockDay  e030="Stock Per Day" r070="Stoc Pe Zi" g060="Απόθεμα ανά ημέρα"/>
+		<stockShift  e030="Stock Per Shift" r070="Stoc pe Schimb" g060="Απόθεμα ανά βάρδια"/>
+		<subBrandGroup  e030="SubBrand Group :" r070="SubBrand Grup :" g060="Υπο-Ομάδα:"/>
+		<toDate  e030="To Date :" r070="Pina La :" g060="Ημ/νία 'έως' :"/>
+		<totalBrandQuantity   e030="Total Brand Quantity :" r070="Total Brand Cant :" g060="Σύνολο ποσότητας ομάδας:"/>
+		<totalDivisionQuantity  e030="Total division Quantity :" r070="Total cant. divizie:" g060="Σύνολο ποσότητας τομέα:"/>
+		<totalSubBrandQuantity  e030="Total Subbrand Quantity :" r070="Total Subbrand Cant :" g060="Σύνολο ποσότητας υπο-ομάδας:"/>
+		<userId  e030="USERID :" r070="UTILIZATORID :" g060="ΧΡΗΣΤΗΣ:"/>
+		<warehouse  e030="Warehouse :" r070="Depozit :" g060="Κεντρ.Απόθήκη :"/>
+	</Report>
+</Report>
+</Application-IM>

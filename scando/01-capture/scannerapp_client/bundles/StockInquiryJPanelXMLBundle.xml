@@ -1,0 +1,155 @@
+<?xml version="1.0" ?>
+<Application-IM>
+<StockInquiry>
+	<STOCKINQUIRYJPANEL>
+		<MAX_PER_PAGECD  e030="12" r070="12" g060="12"/>
+		<MAX_PER_PAGE1CD  e030="20" r070="20" g060="20"/>
+		<MAX_PER_PAGE  e030="25" r070="25" g060="25"/>
+		<MAX_PER_PAGE1  e030="33" r070="33" g060="33"/>
+		<jsRow  e030="Rows Retrieved" r070="Rinduri aduse" g060="Γραμμές ανακτήιθηκαν"/>
+		<jrbtnAllSC  e030="A" r070="T" g060="Α"/>
+		<jcmbOPM  e030="All" r070="Tot" g060="Όλα"/>
+		<jrbtnAll  e030="All" r070="Tot" g060="Όλα"/>
+		<jlblalllocation  e030="All locations" r070="Toate locatiile" g060="Όλες οι αποθήκες"/>
+		<available  e030="Available" r070="Disponibil" g060="Διαθέσιμο"/>
+		<jrbtnBrandSC  e030="B" r070="B" g060="Β"/>
+		<jtblBagsunit1  e030="Bags/" r070="Buc./" g060="Σακ./"/>
+		<jtblBagsunit  e030="Bags/Case" r070="Buc./Box" g060="Σακ./Κιβ."/>
+		<brand  e030="Brand" r070="Brand" g060="Brand"/>
+		<jrbtnBrand  e030="Brand" r070="Brand" g060="Brand"/>
+		<jrbtnCaseSC  e030="C" r070="X" g060="C"/>
+		<RPT_LBL_CDY  e030="Caddies" r070="Caddies" g060="Κουτιά"/>
+		<jrbtnCaddyEach  e030="Caddy/Each" r070="Display/Buc" g060="Τεμάχια"/>
+		<RPT_LBL_CARR_CODE  e030="Carrier Code" r070="Carrier Code" g060="Κωδ.Μεταφ."/>
+		<jrbtnCase  e030="Case" r070="Box" g060="Κιβ."/>
+		<jtblBagsunit2  e030="Case" r070="Box" g060="Κιβ."/>
+		<jtblCasetype1  e030="Case" r070="Box" g060="Κιβ."/>
+		<CaseAvailable  e030="Case Available" r070="Case Available" g060="Διαθ.Κιβώτια"/>
+		<CaseDueIns  e030="Case DueIns" r070="Case DueIns" g060="Διαθ.Κιβώτια"/>
+		<jtblCasetype  e030="Case Label" r070="Case Label" g060="Ετικέτα Κιβ."/>
+		<CaseLastInvCountDiff  e030="Case Last Inv Count Diff" r070="Case Last Inv Count Diff" g060="Τελ.διαφ.Απογρ.Κιβ."/>
+		<CaseLastPhyTheoQty  e030="Case Last Phy Qty" r070="Case Last Phy Qty" g060="Τελ.Φυσ.Απογρ.Κιβ."/>
+		<CaseLastTheoQty  e030="Case Last Theo Qty" r070="Case Last Theo Qty" g060="Τελ.Λογ.Απογρ.Κιβ."/>
+		<CasePendAck  e030="Case Pend-Ack" r070="Case Pend-Ack" g060="Κιβ. Σε εκκρεμ."/>
+		<Caseperpallate  e030="Case Per Pallet" r070="Case per pallate" g060="Κιβ. / Παλέτα"/>
+		<CaseReserved  e030="Case Reserved" r070="Case Reserved" g060="Δεσμ.Κιβ."/>
+		<CaseStockon  e030="Case Stock" r070="Case Stock" g060="Αποθεμα Κιβ."/>
+		<CaseTotal  e030="Case Total" r070="Case Total" g060="Συν.Κιβωτίων"/>
+		<jrbtnCaseEach  e030="Case-Each" r070="Case-Each" g060="Κιβ. - Τεμ."/>
+		<RPT_LBL_CASES  e030="Cases" r070="Cases" g060="Κιβ."/>
+		<RPT_LBL_CHNL  e030="Channel" r070="Channel" g060="Κανάλι"/>
+		<RPT_LBL_CT  e030="City" r070="City" g060="Πόλη"/>
+		<jbtnPrintTT  e030="Click to Print" r070="Apasa pt Tiparire" g060="Κλικ για εκτύπωση"/>
+		<jbtnClose  e030="Close" r070="Inchide" g060="Κλείσιμο"/>
+		<jbtnCloseTT  e030="Close the screen" r070="Inchide ecran" g060="Κλείσιμο οθόνης"/>
+		<coPacker  e030="Co-Packer" r070="Impachetare" g060="Ανασυσκευαστής"/>
+		<code e030="Code" r070="Cod" g060="Κωδ,"/>
+		<mappedluCode  e030="Core" r070="Mapped" g060="Αντιπρόσωπος"/>
+		<RPT_LBL_COUNTY  e030="County" r070="County" g060="Περιοχή"/>
+		<jlblStockdate  e030="Current Date:" r070="Current Date:" g060="Τρ.Ημ/νία-¨Ωρα:"/>
+		<RPT_LBL_CURR_STK  e030="Current Stock" r070="Current Stock" g060="ΤΡΕΧΟΝ ΑΠΟΘΕΜΑ"/>
+		<RPT_LBL_CUST_NM  e030="Cust/Loc Name" r070="Cust/Loc Name" g060="Αποθ.Πελάτη"/>
+		<RPT_LBL_CUST_NO  e030="Cust/Loc No" r070="Cust/Loc No" g060="Κωδ.Αποθ.Πελ."/>
+		<jrbtnCaddyEachSC  e030="D" r070="D" g060="D"/>
+		<date   e030="Date" r070="Data" g060="Ημ/νία"/>
+		<jlblSysDate  e030="Date :" r070="Data :" g060="Ημ/νία :"/>
+		<jlblDate  e030="Date :" r070="Data :" g060="Ημ/νία :"/>
+		<jlblDateType  e030="Date Type" r070="Date Type" g060="Τυπ.Ημ/νίας"/>
+		<jlbldate1  e030="Date:" r070="Data:" g060="Ημ/νία:"/>
+		<jcmbUOM  e030="Default" r070="Implicit" g060="Προεπιλεγμένο"/>
+		<RPT_LBL_DEL_DT  e030="Del. Dt." r070="Del. Dt." g060="Del. Dt."/>
+		<description  e030="Description" r070="Descriere" g060="Περιγραφή"/>
+		<dueIn  e030="Due In" r070="Tranzit" g060="In Transit"/>
+		<jbtnCloseSC  e030="E" r070="C" g060="Ε"/>
+		<EachAvailable  e030="Each Available" r070="Each Available" g060="Διαθ.Τεμάχια"/>
+		<EachDueIns  e030="Each DueIns" r070="Each DueIns" g060="Διαθ.Τεμάχια"/>
+		<EachLastInvCountDiff  e030="Each Last Inv Count Diff" r070="Each Last Inv Count Diff" g060="Τελ.διαφ.Απογρ.Τεμ."/>
+		<EachLastPhyTheoQty  e030="Each Last Phy Qty" r070="Each Last Phy Qty" g060="Τελ.Φυσ.Απογρ.Τεμ."/>
+		<EachLastTheoQty  e030="Each Last Theo Qty" r070="Each Last Theo Qty" g060="Τελ.Λογ.Απογρ.Τεμ."/>
+		<EachPendAck  e030="Each Pend-Ack" r070="Each Pend-Ack" g060="Τεμ. Σε εκκρεμ."/>
+		<EachReserved  e030="Each Reserved" r070="Each Reserved" g060="Δεσμ.Τεμ."/>
+		<EachStockon  e030="Each Stock" r070="Each Stock" g060="Απόθεμα Τεμ."/>
+		<EachTotal  e030="Each Total" r070="Each Total" g060="Συνολο Τεμ."/>
+		<RPT_LBL_EACH  e030="Eaches" r070="Eaches" g060="Τεμάχια"/>
+		<RPT_LBL_END_DT  e030="End Date" r070="End Date" g060="Ημ/νία 'έως'"/>
+		<jrbtnSubFamilySC  e030="F" r070="F" g060="F"/>
+		<fullName  e030="Full Name" r070="Nume" g060="Πλήρης Επωνυμία"/>
+		<groupby  e030="Group By :" r070="Grupate dupa:" g060="Ομαδοποίηση κατά:"/>
+		<Heigth  e030="Heigth" r070="Heigth" g060="Ύψος"/>
+		<RPT_LBL_ITEM_DESC  e030="Item Description" r070="Item Description" g060="Περιγραφή Είδους"/>
+		<RPT_LBL_ITEM_ID  e030="Item ID" r070="Item ID" g060="Κωδ.Είδους"/>
+		<lblReportName  e030="Item wise Stock Verification Report" r070="Item wise Stock Verification Report" g060="Αναφορά Επιβεβαίωσης Αποθεμάτων ανά Είδος"/>
+		<jrbtnLUCodeSC  e030="L" r070="S" g060="L"/>
+		<LastInvCountDiff  e030="Last Inv Count Diff" r070="Last Inv Count Diff" g060="Τελ.Διαφ.Απογρ,"/>
+		<LastPhyTheoQty  e030="Last Phy Qty" r070="Last Phy Qty" g060="Τελ.Φυσ.Απογρ."/>
+		<jlblLastPhyDate  e030="Last Physical Document Date :" r070="Last Physical Document Data :" g060="Ημ/νια Παρ/κου Τελ. Απογρ."/>
+		<LastTheoQty  e030="Last Theo Qty" r070="Last Theo Qty" g060="Τελ.Θεωρ.Ποσ/τα"/>
+		<Length  e030="Length" r070="Length" g060="Μήκος"/>
+		<LOAD_DATE  e030="Load Date" r070="Load Date" g060="Ημ/νία Φόρτ."/>
+		<jlblWH  e030="Location :" r070="Locatie :" g060="Αποθήκη:"/>
+		<jlblLocation  e030="Logical Location :" r070="Locatie Logica :" g060="Λογική αποθήκη :"/>
+		<luCode  e030="LU Code" r070="Cod SKU" g060="LU"/>
+		<jrbtnLUCode  e030="LU Code" r070="Cod SKU" g060="LU"/>
+		<jrbtnNoneSC  e030="N" r070="N" g060="N"/>
+		<jsNoData  e030="No Data Found" r070="Nu s-au gasit date" g060="Δεν βρέθηκαν δεδομένα"/>
+		<jrbtnNone  e030="None" r070="Nimic" g060="Κανένας"/>
+		<jbtnSortSC  e030="O" r070="O" g060="O"/>
+		<RPT_LBL_ORD_NO  e030="Order No" r070="Order No" g060="Αρ.Παρ/λίας"/>
+		<RPT_LBL_ORD_STAT  e030="Order Status" r070="Order Status" g060="Κατ.Παρ/λίας"/>
+		<RPT_LBL_ORD_STAT  e030="Order Status" r070="Order Status" g060="Κατ.Παρ/λίας"/>
+		<jlblOrderType  e030="Order Type" r070="Order Type" g060="Τύπ.Παρ/λίας"/>
+		<jbtnPrintSC  e030="P" r070="P" g060="P"/>
+		<jlblpage  e030="Page:" r070="Pagina:" g060="Σελ.:"/>
+		<pendAck  e030="Pend-Ack" r070="Ast.Conf" g060="Εκκρ.Αποδοχή"/>
+		<position   e030="Position" r070="Pozitie" g060="Θέση"/>
+		<jbtnPrint  e030="Print" r070="Tiparire" g060="Εκτύπωση"/>
+		<RPT_LBL_PROV  e030="Province" r070="Province" g060="Επαρχία"/>
+		<jbtnRetrieveSC  e030="R" r070="E" g060="R"/>
+		<Reserved  e030="Reserved" r070="Reserved" g060="Δεσμευμένα"/>
+		<jbtnRetrieve  e030="Retrieve" r070="Aduce" g060="Ανάκτηση"/>
+		<jbtnRetrieveTT  e030="Retrieve data" r070="Aduce date" g060="Ανάκτηση Δεδομένων"/>
+		<RPT_LBL_RT  e030="Route" r070="Route" g060="Δρομολόγιο:"/>
+		<route  e030="Route" r070="Ruta" g060="Δρομολόγιο:"/>
+		<jrbtnSellingCodeSC  e030="S" r070="V" g060="S"/>
+		<jlblStockdate1 e030="Selected Date:" r070="Selected Date:" g060="Ημ/νία Επιλογής:"/>
+		<selectionProduct  e030="Selection by Product :" r070="Selectie dupa Produs:" g060="Επιλογή ανά προϊόν:"/>
+		<sell e030="Selling" r070="Vanzare" g060="Πώλησης"/>
+		<jrbtnSellingCode  e030="Selling Code" r070="Cod Vanzare" g060="Κωδ.Πώλησης"/>
+		<sellingCode  e030="Selling Code" r070="Cod Vanzare" g060="Κωδ.Πώλησης"/>
+		<jlblShipmentMethod  e030="Shipment Method" r070="Shipment Method" g060="Τρόπος Αποστολής"/>
+		<signature   e030="Signature" r070="Semnatura" g060="Υπογραφή"/>
+		<jbtnSort  e030="Sort" r070="Sort" g060="Ταξινόμηση"/>
+		<jbtnSortTT  e030="Sort" r070="Sort" g060="Ταξινόμηση"/>
+		<rmncmpname  e030="STAR FOODS" r070="STAR FOODS" g060="STAR FOODS"/>
+		<RPT_LBL_ST_DT  e030="Start Date" r070="Start Date" g060="Ημ/νία 'από':"/>
+		<Stockon  e030="Stock" r070="Stock" g060="Απόθεμα"/>
+		<DetailStockInquiryTitle  e030="Stock Inquiry" r070="Interogare Stoc" g060="Αναζήτηση αποθέματος"/>
+		<DetailTitle  e030="Stock Inquiry" r070="Interogare Stoc" g060="Αναζήτηση αποθέματος"/>
+		<Title  e030="Stock Inquiry" r070="Interogare Stoc" g060="Αναζήτηση αποθέματος"/>
+		<PallateQty  e030="Stock Pallet Qty" r070="Stock Pallet Qty" g060="Ποσοτ. σε ακερ. Παλετες"/><!-- changed for CLienty Issue#1616 -->
+		<subFamily  e030="Sub Family" r070="Sub Familie" g060="Υπο-ομάδα"/>
+		<jrbtnSubFamily  e030="Sub Family" r070="Sub Familie" g060="Υπο-ομάδα"/>
+		<grccmpname  e030="TASTY" r070="TASTY" g060="TASTY"/>
+		<totValue  e030="Tot Value" r070="Val Total" g060="Συν. Αξία"/>
+		<columnTotal  e030="Total" r070="Total" g060="Σύνολο"/>
+		<total  e030="Total" r070="Total" g060="Σύνολο"/>
+		<RPT_LBL_TOT_EACH  e030="Total Eaches" r070="Total Eaches" g060="Συν.Τεμαχ."/>
+		<RPT_TOT_ORD_CASES  e030="Total Ordered Cases" r070="Total Ordered Cases" g060="Συν.Παραγ.Κιβ."/>
+		<TRIP_NUMBER  e030="Trip" r070="Trip" g060="Αρ.Δρομολ."/>
+		<RPT_LBL_TRIP  e030="Trip" r070="Trip" g060="Δρομολόγιο"/>
+		<jtblCasetype2  e030="Type" r070="Tip" g060="Τυπ."/>
+		<UOM  e030="UOM" r070="UM" g060="M.M"/>
+		<selectionUOM  e030="UOM :" r070="UM :" g060="Μ.Μ:"/>
+		<jlblUOM  e030="UOM :" r070="UM :" g060="Μ.Μ:"/>
+		<Width  e030="Width" r070="Width" g060="Πλάτος"/>
+		<RPT_LBL_ZIP  e030="Zip Code" r070="Zip Code" g060="Ταχ.Κωδ."/>
+		<jrbtnCaseEachSC e030="H" r070="H" g060="H"/>
+		<!-- Added for Report Change -->
+		<rptLblTotalItem e030="Total Items:" r070="Total Items:" g060="Συν.Ειδών:"/>
+		<!-- End Addition for Report Change -->
+		<lblOf  e030="Of" r070="Of" g060="Από"/>
+		<footerTotal  e030="Total:" r070="Total" g060="Σύνολο:"/>
+		
+	</STOCKINQUIRYJPANEL>
+</StockInquiry>
+</Application-IM>

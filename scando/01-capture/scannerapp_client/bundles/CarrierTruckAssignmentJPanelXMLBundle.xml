@@ -1,0 +1,66 @@
+<?xml version="1.0" ?>
+
+<!--
+============================ Modification History ============================
+
+   Date			   Author              Code #                  Description of Modifications
+   ====			   ======		       ======				   ============================
+18/05/2011		Shalin Shah		CarTrkAssgJPnlXMLBun#1				QA Issue# 13753
+
+-->
+
+<Application-IM>
+<CarrierTruckAssignment>
+	<CARRIERTRUCKASSIGNMENTJPANEL>
+		<jbtnretrieveTT  e030="Retrieve data" r070="Aduce date" g060="Ανάκτηση δεδομένων"/>
+		<jlblLocationSelected  e030="Assigned Location" r070="Assigned Location" g060="Ορισθείσα Αποθήκη"/>
+		<jlblTruckSelected  e030="Assigned Truck" r070="Assigned Truck" g060="Ορισθέν Φορτηγό"/>
+		<jlblLocationAll  e030="Available Location" r070="Available Location" g060="Διαθέσιμες Αποθήκες"/>
+		<jlblTruckAll  e030="Available Truck" r070="Available Truck" g060="Διαθέσιμα Φορτηγά"/>
+		<jbtnCloseSC   e030="C" r070="C" g060="C"/>
+		<jbtnCancelSC  e030="C" r070="C" g060="C"/>
+		<jtblCarrierCode  e030="Carrier Code" r070="Carrier Code" g060="Κωδ.Μεταφ."/>
+		<jlblCarrierCode  e030="Carrier Code :" r070="Carrier Code :" g060="Κωδ.Μεταφ.:"/>
+		<CarrierCodeDialogTitle  e030="Carrier Code Dialog" r070="Carrier Code Dialog" g060="Διάλογος Κωδ. Μεταφορέα"/>
+		<Title  e030="Carrier Truck Assignment" r070="Carrier Truck Assignment" g060="Ορισμός Φορτηγού Μεταφορέα"/>
+		<jlblCreateDt  e030="Create Date :" r070="Create Date :" g060="Ημ/νία Δημ.:"/>
+		<jlblDefTuckNo   e030="Default Truck Number :" r070="Default Truck Number :" g060="Προεπιλ.Κωδ.Φορτηγού:"/>		<!-- For CarTrkAssgJPnlXMLBun#1 by Shalin === Changed the Spelling error of Default. Originally it was "Defualt" -->
+		<jlblLocation  e030="Location Number :" r070="Location Number :" g060="Κωδ.Αποθήκης:"/>
+		<jbtnOKSC  e030="O" r070="O" g060="O"/>
+		<jbtnOK  e030="OK" r070="OK" g060="OK"/>
+		<jbtnOKTT  e030="OK" r070="OK" g060="OK"/>
+		<jtblPlateNo  e030="Plate Number" r070="Plate Number" g060="Αρ.Κυκλοφ."/>
+		<jbtnretrieveSC  e030="R" r070="E" g060="R"/>
+		<jbtnSaveSC   e030="S" r070="S" g060="S"/>
+		<jtblStatus  e030="Status" r070="Status" g060="Κατάσταση"/>
+		<jtblStatus  e030="Status" r070="Status" g060="Κατάσταση"/>
+		<jtblTruckDesc  e030="Truck Description" r070="Truck Description" g060="Περιγραφή Φορτηγού"/>
+		<jtblTruckNo  e030="Truck Number" r070="Truck Number" g060="Κωδ.Φορτηγού"/>
+		<truckNumberDialogTitle  e030="Truck Number Dialog" r070="Truck Number Dialog" g060="Διάλογος Κωδ. Φορτηγού"/>
+		<jbtnTCancelSC  e030="Z" r070="Z" g060="z"/>
+		<jlblOprCancel  e030="Cancel" r070="Anulare" g060="Ακύρωση"/>
+		<jbtnCancel  e030="Cancel" r070="Anulare" g060="Ακύρωση"/>
+		<jbtnCancelTT  e030="Cancel" r070="Anulare" g060="Ακύρωση"/>
+		<jbtnTCancel  e030="Cancel(Z)" r070="Anulare(Z)" g060="Ακύρωση(Ζ)"/>
+		<jbtnTCancelTT  e030="Cancel document" r070="Cancel document" g060="Ακυρωτικό παραστατικού"/>
+		<jbtnretrieve  e030="Retrieve" r070="Aduce" g060="Ανάκτηση"/>
+		<jlblOprSave  e030="Save" r070="Salvare" g060="ΑΠΟΘΗΚΕΥΣΗ"/>
+		<jbtnSave   e030="Save" r070="Salvare" g060="ΑΠΟΘΗΚΕΥΣΗ"/>
+		<jbtnSaveTT   e030="Save document" r070="Salveaza document" g060="Αποθήκευση παραστατικού;"/>
+		<jrbtnExistingSC  e030="E" r070="X" g060="Ε"/>
+		<docCancel  e030="Do you want to cancel the Document" r070="Doriti sa anulati documentul?" g060="Θέλετε να ακυρώσετε το παραστατικό;"/>
+		<jbtnClose   e030="Close" r070="Inchide" g060="Κλείσιμο"/>
+		<jbtnCloseTT   e030="Close the screen" r070="Inchide ecran" g060="Κλείσιμο οθόνης"/>
+		<jrbtnNewSC  e030="N" r070="N" g060="Ν"/>
+		<jlblYES  e030="YES" r070="DA" g060="ΝΑΙ"/>
+		<jrbtnNew  e030="New" r070="Nou" g060="Νέο"/>
+		<jlblNO  e030="NO" r070="NU" g060="ΟΧΙ"/>
+		<jtblCarrierDesc  e030="Carrier Description" r070="Carrier Description" g060="Περιγραφή Μεταφορέα"/>
+		<jlblSystem  e030="System :" r070="System :" g060="Σύστημα:"/>
+		<jrbtnExisting  e030="Existing" r070="Existent" g060="Υπάρχον"/>
+		<jLblCreateUser  e030="C User" r070="C Utilizator" g060="Χρήστης Δημ."/>
+		<jLblUpdateUser  e030="U User" r070="U Utilizator" g060="Χρήστης Ενημ"/>
+		<jLblUpdateDateTime  e030="U Time :" r070="U Ora :" g060="Ώρα Ενημ:"/>
+	</CARRIERTRUCKASSIGNMENTJPANEL>
+</CarrierTruckAssignment>
+</Application-IM>

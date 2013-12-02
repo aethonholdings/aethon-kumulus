@@ -1,0 +1,111 @@
+<?xml version="1.0" ?>
+<Application-IM>
+<DeliveryNoteReport>
+	<DeliveryNoteReport>
+		<jlblCaddies  e030="Caddies :" r070="Display :" g060="Κουτιά :"/>
+		<jtblLUCode  e030="LU Code" r070="Cod SKU" g060="LU"/>
+		<COMPANY_PHONE  e030="null" r070="null" g060="123456790"/>
+		<address  e030="Address" r070="Adresa" g060="Διεύθυνση"/>
+		<SOURCE  e030="Source" r070="Sursa" g060="Αποθήκη"/>
+		<ORDNO  e030="Doc. No. :" r070="Doc. Nr.:" g060="Αρ.Παρ/κού :"/>
+		<SELLING  e030="Selling Code" r070="Cod Vanzare" g060="Κωδ.Πωλησ."/>
+		<THANKDATA  e030="Agradecemos el llenado de los siguientes datos" r070="Agradecemos el llenado de los siguientes datos" g060="Ευχαριστούμε για την συμπλήρωση των πιο κάτω στοιχείων"/>
+		<FECHA  e030="Shipped" r070="Livrat" g060="Αποστολή"/>
+		<LOADDATE  e030="Shippment Date" r070="Data Livrare" g060="Ημ/νία Αποστ."/>
+		<SELLOS  e030="Sellos" r070="Stampila" g060="Sellos"/>
+		<ORIGINAL  e030="eORIGINAL" r070="eORIGINAL" g060="eORIGINAL"/>
+		<COPY  e030="eCOPY" r070="eCOPY" g060="eCOPY"/>
+		<ADDRESS_LABEL2  e030="OFICINAS CENTRALES: C/ TARRAGONA, 161 -  6 Planta  -  08015  -  BARCELONA" r070="OFICINAS CENTRALES: C/ TARRAGONA, 161 -  6 Planta  -  08015  -  BARCELONA" g060="OFICINAS CENTRALES: C/ TARRAGONA, 161 - 6 Planta - 08015 - BARCELONA"/>
+		<ADDRESS_LABEL3  e030="ALMACEN: Ctra. MADRID-IRUN, Km. 245 (Aduana de Burgos) - 09192 - VILLAFRIA - BURGOS" r070="ALMACEN: Ctra. MADRID-IRUN, Km. 245 (Aduana de Burgos) - 09192 - VILLAFRIA - BURGOS" g060="ALMACEN: Ctra. MADRID-IRUN, Km. 245 (Aduana de Burgos) - 09192 - VILLAFRIA - BURGOS"/>
+		<CONTACT_LABEL2  e030="ALMACEN - Tel: 947474500  FAX: 947475091" r070="ALMACEN - Tel: 947474500  FAX: 947475091" g060="ALMACEN - Tel: 947474500 FAX: 947475091"/>
+		<LOAD_DATE_LABEL  e030="FECHA DE CARGA:" r070="FECHA DE CARGA:" g060="FECHA DE CARGA:"/>
+		<REF_ORDER_NUMBER_LABEL  e030="REF PEDIDO:" r070="REF PIERDUT:" g060="REF PEDIDO:"/>
+		<SYSTEM_PLANT  e030="Domicilio Social:" r070="Sediu social:" g060="Domicilio Social:"/>
+		<RECEIVING_QTY_LABEL  e030="Recibida" r070="Receptie" g060="Recibida"/>
+		<VOLUME_LABEL  e030="Volumen" r070="Volum" g060="Volumen"/>
+		<AMTCONT  e030="Cantidad" r070="Cantitate" g060="Cantidad"/>
+		<CJS_LABEL  e030="Cjs." r070="Cjs." g060="Cjs."/>
+		<UND_LABEL  e030="Und." r070="Und." g060="Und."/>
+		<CONTINUE_END_PAGE_LABEL  e030="(continua en pagina siguiente)" r070="(continua pe pagina urmatoare)" g060="(continua en pagina siguiente)"/>
+		<CONTINUE_NEXT_PAGE_LABEL  e030="(Viene de pagina anterior)" r070="(Venit din pagina anterioara)" g060="(Viene de pagina anterior)"/>
+		<PRODDESCP_LABEL  e030="Description Producto" r070="Descriere Produs" g060="Description Producto"/>
+		<BOTTOM1_LABEL  e030="Domicilio Social Avenida de los Olmos, 2 -01013 - Alava" r070="Sediu social" g060="Domicilio Social Avenida de los Olmos, 2 -01013 - Alava"/>
+		<BOTTOM2_LABEL  e030="Registro Mercantll de Alava: Hoja VI-2. 184, Folio, Tomo 583, Sc.Gral,Inscr, 23" r070="Registro Mercantll de Alava: Hoja VI-2. 184, Folio, Tomo 583, Sc.Gral,Inscr, 23" g060="Registro Mercantll de Alava: Hoja VI-2. 184, Folio, Tomo 583, Sc.Gral,Inscr, 23"/>
+		<BOTTOM3_LABEL  e030="Conserbatoria do registo de Alenquer n 888" r070="Conserbatoria do registo de Alenquer n 888" g060="Conserbatoria do registo de Alenquer n 888"/>
+		<BOTTOM4_LABEL  e030="Contribuinte N : 500163197" r070="Contribuinte N : 500163197" g060="Contribuinte N : 500163197"/>
+		<TOTEL_LABEL  e030="TOTELS" r070="TOTAL" g060="TOTELS"/>
+		<AELLSD_LABEL  e030="Agradecemos el llenado de los siguientes datos:" r070="Va rugam sa completati urmatoarele date:" g060="Agradecemos el llenado de los siguientes datos:"/>
+		<CEBE_LABEL  e030="Camiσn en buen estado:" r070="Camion in stare buna:" g060="Camiσn en buen estado:"/>
+		<PEBE_LABEL  e030="Precintos en buen estado:" r070="Legaturi in stare buna:" g060="Precintos en buen estado:"/>
+		<PPO_LABEL  e030="(Procesado por ordenador)" r070="(Procesat de calculator)" g060="(Procesado por ordenador)"/>
+		<COPIA_LABEL  e030="**COPIA**" r070="Volum" g060="**COPIA**"/>
+		<OELD_LABEL  e030="Observaciones en la descarga:" r070="Observatii la descarcare:" g060="Observaciones en la descarga:"/>
+		<REC_LABEL  e030="(Recepcion en cliente)" r070="(Receptie la client)" g060="(Recepcion en cliente)"/>
+		<MAX_PER_PAGE  e030="null" r070="null" g060="25"/>
+		<MAX_PER_PAGE1  e030="null" r070="null" g060="33"/>
+		<client  e030="Client" r070="Client" g060="Πελάτης"/>
+		<jlblShipmentTime  e030="Shipment Time :" r070="Ora Livrare:" g060="Ώρα Αποστ."/>
+		<HORA  e030="Hora" r070="Ora" g060="Ώρα"/>
+		<PHNO  e030="Phone" r070="Telefon" g060="Τηλ.:"/>
+		<jlblEaches  e030="Eaches :" r070="Bucati :" g060="Τεμάχια:"/>
+		<COMMENTS  e030="Comments:" r070="Comentarii:" g060="Σχόλια:"/>
+		<DELIVERY_COMMENTS  e030="COMENTARIOS:" r070="COMENTARII:" g060="ΣΧΟΛΙΑ:"/>
+		<DELIVCOMM  e030="delivery comments :" r070="Comentarii Livrare :" g060="Σχόλια παράδοσης :"/>
+		<jlblTotal  e030="Total :" r070="Total:" g060="Σύνολο:"/>
+		<jlblDestination  e030="Destination :" r070="Destinatie ." g060="Προορισμός :"/>
+		<PRODES  e030="Product Description" r070="Descriere Produs" g060="Περιγραφή Είδους"/>
+		<RECEIPT  e030="Receipt" r070="Receptie" g060="Παραλαβή"/>
+		<NO  e030="NO" r070="NU" g060="ΟΧΙ"/>
+		<NO_LABEL  e030="NO" r070="NU" g060="ΟΧΙ"/>
+		<SI  e030="YES" r070="DA" g060="ΝΑΙ"/>
+		<UNIDADES_LABEL  e030="Unidades" r070="Unitati" g060="Μονάδες"/>
+		<CARRIER  e030="Carrier" r070="Transportator" g060="Μεταφορέας"/>
+		<KILO_LB  e030="Kilos" r070="Kg" g060="Κιλά"/>
+		<jlblCases  e030="Cases :" r070="Boxuri :" g060="Κιβώτια :"/>
+		<BOTTOM5_LABEL  e030="Capital Social: EUR 4.054.229" r070="Capital Social:" g060="Κεφάλαιο υποδομής: EUR 4.054.229"/>
+		<ORDSTATUS  e030="Status :" r070="Stare :" g060="Κατάσταση:"/>
+		<jlblShipDate  e030="Shipment Date :" r070="Data Livrare :" g060="Ημ/νία Αποστ."/>
+		<SHDATE  e030="Shipment Date" r070="Data Livrare" g060="Ημ/νία Αποστ."/>
+		<SEALSTATE  e030="Seals In Good State" r070="Sigiliu in Stare Buna" g060="Συσκευασία σε καλή κατάσταση"/>
+		<RETURN  e030="Return" r070="Retur" g060="Επιστροφή"/>
+		<DelivNote  e030="Delivery Note" r070="Aviz Expeditie" g060="Δελτίο Αποστολής"/>
+		<ORIGINAL_LABEL  e030="**ORIGINAL**" r070="**ORIGINALA**" g060="ΠΡΩΤΟΤΥΠΟ"/>
+		<PLATENO  e030="Plate No" r070="Numar" g060="Αρ.Κυκλοφ."/>
+		<TRIPNO  e030="Trip No" r070="Nr Transport" g060="Αρ.Αποστ."/>
+		<POREF  e030="PO REF" r070="PO REF" g060="Παρ.Αγοράς"/>
+		<REASON  e030="Reason" r070="Motiv" g060="Αιτία"/>
+		<COMPANY_NAME_SEBU  e030="SNACK VENTURES, S.A." r070="STAR FOODS EM SRL" g060="`"/>
+		<ADDRESS_LABEL1  e030="SNACK VENTURES MANUFACTURING, S.L." r070="STAR FOODS EM SRL" g060="SNACK VENTURES MANUFACTURING, S.L."/>
+		<SI_LABEL  e030="SI" r070="SI" g060="SI"/>
+		<SALIDA  e030="Salida" r070="Iesire" g060="Salida"/>
+		<PAGE_LAB  e030="Pagina" r070="Pagina" g060="Pagina"/>
+		<CONTACT_LABEL1  e030="OFIC. CENTRALES - Tel: 934840500  FAX: 934840558" r070="OFIC. CENTRALES - Tel: 934840500  FAX: 934840558" g060="OFIC. CENTRALES - Tel: 934840500 FAX: 934840558"/>
+		<TIF_LABEL  e030="NIF:" r070="NIF:" g060="NIF:"/>
+		<TRIP_NUMBER_LABEL  e030="N VIAJE:" r070="N TRANSP:" g060="N VIAJE:"/>
+		<SEAL_NUMBER_LABEL  e030="N PRECINTO:" r070="N SIGILIU:" g060="N PRECINTO:"/>
+		<ICS_NUMBER  e030="N ICS:" r070="N ICS:" g060="N ICS:"/>
+		<CONTAINER_LABEL  e030="N CONTENEDOR:" r070="N CONTENEDOR:" g060="N CONTENEDOR:"/>
+		<jlblTotM3  e030="M3" r070="Volum" g060="M3"/>
+		<VOL_LABEL  e030="m3" r070="Volum" g060="M3"/>
+		<LLEGADA  e030="Llegada" r070="Sosire" g060="Άφιξη"/>
+		<KG  e030="KGS" r070="KG" g060="κιλά"/>
+		<KILO_LB_ST  e030="Kgs" r070="Kg" g060="κιλά"/>
+		<HID_LABEL  e030="Hora inicio descarga" r070="Ora descarcare" g060="Hora inicio descarga"/>
+		<HFD_LABEL  e030="Hora fin descarga" r070="Ora descarcare" g060="Hora fin descarga"/>
+		<HHC_LABEL  e030="HHC" r070="HHC" g060="HHC"/>
+		<FYS_LABEL  e030="FIRMA Y SELLO" r070="FIRMA Y SELLO" g060="FIRMA Y SELLO"/>
+		<FHS_LABEL  e030="Fecha y hora de Salida" r070="Fecha y hora de Salida" g060="Fecha y hora de Salida"/>
+		<FHL_LABEL  e030="Fecha y hora de llegada" r070="Fecha y hora de llegada" g060="Fecha y hora de llegada"/>
+		<SHIPPING_DATE  e030="FECHA SALIDA:" r070="FECHA SALIDA:" g060="FECHA SALIDA:"/>
+		<DELIVERY_DATE_LABEL  e030="FECHA DE ENTREGA:" r070="FECHA DE ENTREGA:" g060="FECHA DE ENTREGA:"/>
+		<EST_LABEL  e030="Est." r070="Est." g060="Est."/>
+		<EVIDO_LABEL  e030="ENVIADO:" r070="Trimis:" g060="ENVIADO:"/>
+		<EAN_LABEL  e030="EAN" r070="Cod EAN" g060="EAN"/>
+		<DESCARGA  e030="Descarga" r070="Descarca" g060="Παραλαβή"/>
+		<DEVENTA_LABEL  e030="de venta" r070="De vanz" g060="De venta"/>
+		<LUCODE_LABEL  e030="Codigo" r070="Cod" g060="Codigo"/>
+		<FACTORY  e030="CIF" r070="CUI" g060="CIF"/>
+		<CIF  e030="CIF" r070="CUI" g060="CIF"/>
+	</DeliveryNoteReport>
+</DeliveryNoteReport>
+</Application-IM>

@@ -1,0 +1,22 @@
+<?xml version="1.0" ?>
+<Application-IM>
+<TextFieldJPanel>
+	<TextFieldJPanel>
+		<jlblUOM  e030="UOM" r070="UM" g060="Μ.Μ."/>
+		<jlblPickLoc  e030="Picking Location" r070="Locatie Picking" g060="Θέση Συλλογής"/>
+		<jlblBrand  e030="Brand :" r070="Brand :" g060="Brand:"/>
+		<jlblSellingCode  e030="Selling Code :" r070="Cod Vanzare :" g060="Κωδ. Πώλησης :"/>
+		<jlblLUCode  e030="LU Code :" r070="Cod SKU :" g060="LU:"/>
+		<jlblReasonCode  e030="Reason Code" r070="Motiv" g060="Κωδ.Αιτιολ.:"/>
+		<jlblQuantity  e030="Shipped :" r070="Livrat :" g060="Έχει αποσταλεί :"/>
+		<jlblPallateNo  e030="Pallet No :" r070="Nr Palet :" g060="Αριθμ. Παλέτας :"/>
+		<jbtnSellHelpTT  e030="Search selling and LU Code" r070="Cautare cod HHC and cod SKU" g060="Αναζήτηση κωδικού πωλήσεων και κωδικού είδους"/>
+		<jlblPallateNoConstant e030="Pallet Constant:" r070="Nr Constant:" g060="Σταθ.Αρ.Παλέτας:"/>
+		<jlblPallet e030="Pallet:" r070="Pallet:" g060="Παλέτα:"/>
+		<jlblCase e030="Case:" r070="Case:" g060="Κιβώτια:"/>
+		<jlblEach e030="Each:" r070="Each:" g060="Τεμάχια:"/>
+		<jlblareacode e030="Area Code :" r070="Area Code :" g060="Κωδ.Περιοχής:"/>
+		<jbtnUpdateQuantity  e030="Update Quantity" r070="Update Quantity" g060="Update Quantity"/>
+	</TextFieldJPanel>
+</TextFieldJPanel>
+</Application-IM>

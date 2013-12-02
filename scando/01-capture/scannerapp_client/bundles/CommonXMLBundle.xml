@@ -1,0 +1,178 @@
+<?xml version="1.0" ?>
+<Application-IM>
+<Common>
+	<Common>
+		<jlblDayWeek  e030="Day :" r070="Zi :" g060="Ημέρα:"/>
+		<jtblAccount  e030="Account Number" r070="Numar Cont" g060="Αρ. Λογ/μού"/>
+		<AccountTitle  e030="Account Number" r070="Numar Cont" g060="Αρ. Λογ/μού"/>
+		<jlblAddress  e030="Address" r070="Adresa" g060="Διεύθυνση"/>
+		<jbtnCancelSC  e030="C" r070="C" g060="C"/>
+		<jtblAvailable  e030="Case Available Quantity" r070="Cant disponibila" g060="Διαθέσιμη Ποσοτητα Κιβ."/>
+		<jlblMisDocQty  e030="Case Misc Doc. Qty" r070="Caz Cant. bon consum" g060="Ποσ.Κιβ.Πρωτοκ.Κατ/φης"/>
+		<jtblShipped  e030="Case Shipped Quantity" r070="Cant Livrata" g060="Αποστ.Ποσοτ.Κιβ."/>
+		<CopackerNumber  e030="Co-Packer Delivery Note Number" r070="Co-Packer Delivery Note Number" g060="Δ.Α.Ανασυσκ/στή"/>
+		<CopackerDialogTitle  e030="Co-Packer Delivery Note Number Dialog" r070="Co-Packer Delivery Note Number Dialog" g060="Διοάλογος Δ.Α. Ανασυσκευαστή"/>
+		<jlblComments  e030="Comments" r070="Comentarii" g060="Σχόλια"/>
+		<jtblCompany  e030="Company" r070="Companie" g060="Εταιρεία"/>
+		<jtblCostCenter  e030="Cost Center" r070="Centru Cost" g060="Κ.Κόστους"/>
+		<CostCentreTitle  e030="CostCentre" r070="CentruCost" g060="Κ.Κόστους"/>
+		<CostCentreDesc  e030="CostCentre Description" r070="Descriere Centru Cost" g060="Περιγραφή Κ. Κόστους"/>
+		<CostCentreNo  e030="CostCentre No" r070="Nr Centru Cost" g060="Αρ. Κ. Κόστους"/>
+		<jrbtnGrcsimplepringSC  e030="D" r070="D" g060="D"/>
+		<jlblDerection  e030="Derection" r070="Derection" g060="Κατεύθυνση"/>
+		<jtblReasonCodeDesc  e030="Description" r070="Descriere" g060="Περιγραφή"/>
+		<jtblCodeDesc  e030="Description" r070="Descriere" g060="Περιγραφή"/>
+		<jtblEachAvailable  e030="Each Available Quantity" r070="Fiecare Cant disponibila" g060="Διαθέσιμη Ποσοτητα Τεμ."/>
+		<jlblEachMisDocQty  e030="Each Misc Doc. Qty" r070="Fiecare Cant. bon consum" g060="Ποσ.Τεμ.Πρωτοκ.Κατ/φης"/>
+		<jtblEachShipped  e030="Each Shipped Quantity" r070="Fiecare Cant Livrata" g060="Αποστ.Ποσοτ. Τεμ"/>
+		<jtblEntryDate  e030="Entry Date" r070="Data" g060="Ημ/νια Καταχ.:"/>
+		<jrbtFreightSC  e030="F" r070="F" g060="F"/>
+		<jrbtFreight  e030="Freight" r070="Cost transport" g060="Μεταφορικά"/>
+		<jlblFreightcost  e030="Freight Cost :" r070="Cost transport :" g060="Μεταφορικά:"/>
+		<lblInvDiffReportSc  e030="I" r070="I" g060="null"/>
+		<jtblInvoiceDate  e030="Invoice Date" r070="Invoice Date" g060="Ημ/νία Τιμ.:"/>
+		<jtblInvoiceNo  e030="Invoice No." r070="Nr. Facura" g060="Αρ.Τιμολ."/>
+		<jlblDateWeek  e030="Last Closing :" r070="Ultima Inchidere :" g060="Τελ. Kλείσιμο:"/>
+		<LocationDialogTitle  e030="Location" r070="Locatie" g060="Αποθήκη"/>
+		<jlblMatricula  e030="Matricula" r070="Numar" g060="Αρ.Πινακίδας"/>
+		<jlblMatriculaNo  e030="Matricula Numbro" r070="Numar inmatriculare" g060="Αρ.Πινακίδας"/>
+		<jbtnOKSC  e030="O" r070="O" g060="O"/>
+		<jbtnOK  e030="OK" r070="OK" g060="OK"/>
+		<jbtnOKTT  e030="OK" r070="OK" g060="OK"/>
+		<jrbtnWithOutPriceSC  e030="P" r070="P" g060="P"/>
+		<jrbtnDocPrintSC  e030="P" r070="P" g060="P"/>
+		<ItemQtyNegativeAgainsMiscellaneousDocumentJDialogTitle  e030="Quantity will Post in Negative against Saved Miscellaneous Document" r070="Stocul va deveni negativ" g060="Θα ενημερωθούν αρνητικές ποσότητες με τα φυλαγμένα προωτόκολλα καταστροφής"/>
+		<jbtnRemoveSC  e030="R" r070="R" g060="R"/>
+		<jchkStockFlag  e030="Show Theoritical Stock" r070="Arata Stoc Teoretic" g060="Εμφ.Θεωρ.Αποθ."/>
+		<jtblStockOnHand  e030="Stock On Hand" r070="Stock On Hand" g060="Απόθεμα Εις Χείρας"/>
+		<SupplierTitle  e030="Supplier" r070="Furnizor" g060="Προμηθευτής"/>
+		<jlblTname  e030="Transportista Name" r070="Nume Transportator" g060="Επωνυμία Μεταφορέα"/>
+		<jlblTruckNo  e030="Truck No" r070="Nr Camion" g060="Αρ.Φορτηγού"/>
+		<jrbtCustomsSC  e030="U" r070="U" g060="U"/>
+		<jlblVolumn  e030="Volumn" r070="Volum" g060="Όγκος"/>
+		<jbtnAddSC  e030="A" r070="A" g060="A"/>
+		<jbtnCancel  e030="Cancel" r070="Anulare" g060="Ακύρωση"/>
+		<jbtnCancelTT  e030="Cancel" r070="Anulare" g060="Ακύρωση"/>
+		<ChangeDialogTitle  e030="Change Location" r070="Schimb Loc" g060="Αλλαγή Αποθήκης"/>
+		<jrbtOthers  e030="Other" r070="Altele" g060="Λοιπά"/>
+		<jtblLocation  e030="Location Id" r070="Id Locatie" g060="Κωδ.Αποθ."/>
+		<jtblItem  e030="Item Id" r070="Cod. Prod." g060="Κωδ.Είδους"/>
+		<jlblCarrierID  e030="Carrier ID" r070="ID Transportator" g060="Κωδ.Μεταφ."/>
+		<jtblSelling  e030="Selling Id" r070="Cod Vanzare" g060="Κωδ.Πώλησης"/>
+		<!-- <lblInvDiffReport  e030="Inventory Difference Report" r070="Inventory Difference Report" g060="Αναφορά Αποκλίσεων Απογραφής"/>-->
+		<lblInvDiffReport  e030="Inventory Physical Count Report" r070="Inventory Physical Count Report" g060="Κατάσταση Aπογραφών"/>
+		<jtblSystemInfoValue  e030="Value" r070="Valoare" g060="Αξία"/>
+		<jlblLocation  e030="Location :" r070="Locatie :" g060="Αποθήκη:"/>
+		<AccountNo  e030="Account No" r070="Nr Cont" g060="Αρ.Λογ/μού"/>
+		<CarrierNo  e030="Carrier No" r070="Nr Transportator" g060="Αρ.Μεταφορ."/>
+		<SupplierNo  e030="Supplier No" r070="Nr Furnizor" g060="Κωδ.Προμ/τη"/>
+		<jlblAccount  e030="Account Number :" r070="Numar Cont :" g060="Αρ. Λογ/μού:"/>
+		<jrbtnDelivNote  e030="Delivery Note" r070="Aviz Expeditie" g060="Δελτίο Αποστολής"/>
+		<jbtnRemove  e030="REMOVE" r070="STERGE" g060="ΔΙΑΓΡΑΦΗ"/>
+		<jbtnRemoveTT  e030="Remove" r070="Remove" g060="ΔΙΑΓΡΑΦΗ"/>
+		<jtblAvailableQty  e030="Available" r070="Available" g060="Διαθέσιμο"/>
+		<jrbtnWithPriceSC  e030="W" r070="C" g060="W"/>
+		<jrbtnDocPrint  e030="Print Document" r070="Tiparire Borderou" g060="Εκτύπωση Παρ/κού"/>
+		<jrbtnGrcDocPrint  e030="Print Document(With Document Number)" r070="Tiparire Document(cu Numar Document)" g060="Εκτύπωση Παρ/κού (με αρίθμηση)"/>
+		<jrbtnGrcDocPrint1  e030="Document Print" r070="Document Print" g060="Εκτύπωση παραστατικού"/>
+		<reportDialogTitle  e030="Physical Inventory Document Print" r070="Tiparire Document Inventar Fizic" g060="Εκτύπωση Κατάστασης Φυσικής Απογραφής"/>
+		<reportDialogTitleTransfer  e030="Transfer Out Document Print" r070="Tiparire Document Iesiri" g060="Εκτύπωση Παρ/κού Εσ.Διακ. Εξαγωγής"/>
+		<reportDialogTitleMiscellaneous  e030="Miscellaneous Document Print" r070="Tiparire Document Bon Consum" g060="Εκτύπωση παρ/κου Πρωτ. Κατ/φης"/>
+		<jbtnSelect  e030="Select" r070="Selectare" g060="Επιλογή"/>
+		<ItemQtyOverjDialogTitle  e030="Item does not have enough quantity" r070="Produs cu cant. Insuficienta" g060="Δεν επαρκεί η ποσότητα του είδους"/>
+		<jlblEntryDate  e030="Entry Date :" r070="Data:" g060="Ημ/νια Καταχ.:"/>
+		<jlblInvoiceDt  e030="Invoice Date :" r070="Data facturii :" g060="Ημ/νία Τιμ.:"/>
+		<jtblBlank  e030="Blank" r070="Blank" g060="Κενό"/>
+		<jlblCostCenter  e030="Cost Center :" r070="Centru Cost :" g060="Κ.Κόστους"/>
+		<invClosingTitle  e030="Inventory Closing" r070="Inchidere luna" g060="Κλείσιμο Αποθεμάτων"/>
+		<jtblFreightCost  e030="Freight Cost" r070="Cost transport" g060="Μεταφορικά"/>
+		<ReasonCodeDialogTitle  e030="Reason Code" r070="Motiv" g060="Κωδ.Αιτίας"/>
+		<ReasonCodeHeader  e030="Reason Code" r070="Motiv" g060="Κωδ.Αιτίας"/>
+		<jtblReasonCode  e030="Reason Code" r070="Motiv" g060="Κωδ.Αιτίας"/>
+		<jtblCode  e030="Code" r070="Cod" g060="Κωδ."/>
+		<FreightDialogTitle  e030="Freight Details" r070="Detalii transport" g060="Στοιχ.Μεταφ/κών"/>
+		<jrbtnWithPrice  e030="With Price" r070="Cu Pret" g060="Με τιμή"/>
+		<CarrierTitle  e030="Carrier" r070="Transportator" g060="Μεταφορέας"/>
+		<jlblCarrier  e030="Carrier" r070="Transportator" g060="Μεταφορέας"/>
+		<jrbtnDelivNoteSC  e030="N" r070="E" g060="N"/>
+		<jchkFinalSC  e030="N" r070="N" g060="N"/>
+		<jtblSystemInfoName  e030="Name" r070="Nume" g060="Επωνυμία"/>
+		<msgValidInfo  e030="Please Enter Valid Information !" r070="Introduceti Informatie Valida !" g060="Παρακαλώ εισάγετε σωστές πληροφορίες!"/>
+		<jtblDescription  e030="Location Description" r070="Descriere Locatie" g060="Περιγραφή Αποθήκης"/>
+		<AccountDesc  e030="Account Description" r070="Descriere Cont" g060="Περιγραφή Λογαριασμού"/>
+		<CarrierDesc  e030="Carrier Description" r070="Desc Transportator" g060="Περιγραφή Μεταφορέα"/>
+		<jtblDesc  e030="Product Description" r070="Descriere Produs" g060="Περιφραφή Προϊόντος"/>
+		<SupplierDesc  e030="Supplier Description" r070="Descriere Furnizor" g060="Περιγραφή προμηθευτή"/>
+		<VersionInfoTitle  e030="Version Information" r070="Informatie Versiune" g060="Πληροφ. Έκδοσης"/>
+		<jchkPrefill  e030="Pre-fill" r070="Pre-introd" g060="Γεμάτη"/>
+		<jchkDisplayFlag  e030="Display" r070="Afisare" g060="Προθήκη"/>
+		<ProductDialogTitle  e030="Product" r070="Produs" g060="Προϊόν"/>
+		<jbtnAdd  e030="ADD" r070="AD." g060="ΠΡΟΣΘΗΚΗ"/>
+		<jbtnAddTT  e030="Add" r070="Ad." g060="ΠΡΟΣΘΗΚΗ"/>
+		<ConfigureDialogTitle  e030="Configure Parameters" r070="Configurare Parametri" g060="Ρύθμιση παραμέτρων"/>
+		<jlblTotal  e030="Total :" r070="Total:" g060="Σύνολο"/>
+		<jrbtOthersSC  e030="T" r070="T" g060="T"/>
+		<jchkFinal  e030="Final" r070="Final" g060="Τελικό"/>
+		<jrbtCustoms  e030="Customs" r070="Vama" g060="Εκτελωνισμός"/>
+		<jlblTelePhone  e030="Telephone" r070="Telefon" g060="Τηλ.:"/>
+		<jlblInvoice  e030="Invoice :" r070="Factura :" g060="Τιμολ.:"/>
+		<jlblFreight  e030="Freight :" r070="Cost transport :" g060="Μεταφορικά"/>
+		<phyInvTitle  e030="Physical Inventory" r070="Inventar Fizic" g060="Φυσικό Απόθεμα"/>
+		<jtblCountry  e030="Country" r070="Tara" g060="Χώρα"/>
+		<jrbtnWithOutPrice  e030="Without Price" r070="Fara Pret" g060="Χωρίς τιμή"/>
+		<CopackerLocationcode e030="Co-Packer location code" r070="Co-Packer location code" g060="Κωδ.Αποθ.Ανασυσκ."/>
+		<CopackerLocationDesc e030="Co-Packer location description" r070="Co-Packer location description" g060="Περιγραφή αποθ. Ανασυσκευασίας"/>
+		<Copackerdate e030="Document date" r070="Document date" g060="Ημ/νια Παρ/κού"/>
+		<!-- <lblInvDiff_PrdReport e030="Inventory Difference Report For Difference Product" r070="Inventory Difference Report For Difference Product" g060="Αναφορά Αποκλίσεων Απογραφής"/> -->
+		<lblInvDiff_PrdReport e030="Inventory Physical Count Report (Only Differences)" r070="Inventory Physical Count Report (Only Differences)" g060="Κατάσταση Aπογραφών (Μόνο Διαφορές)"/> 
+		<lblInvDiff_PrdReportSc e030="D" r070="D" g060="D"/>
+		<lblInvCountReport e030="Inventory Count For Item" r070="Inventory Count For Item" g060="Φυσική Απογραφή για το Είδος"/>
+		<lblInvCountReportSc e030="F" r070="F" g060="F"/>
+		<jlblFromLucode e030="From LU Code :" r070="From LU Code :" g060="Από LU:"/>
+		<jlblToLucode e030="To LU Code :" r070="To LU Code :" g060="Έως LU:"/>
+		<jlblLocationSeries e030="Loc Series:" r070="Loc Series:" g060="Σειρ.Αποθ.:"/>
+		<jlblReasoncode e030="Reason Code:" r070="Reason Code:" g060="Κωδ.Αιτίας:"/>
+		<openingqty e030="Original Opening Qty" r070="Original Opening Qty" g060="Original Opening Qty"/>
+		<newqty e030="New Opening Qty" r070="New Opening Qty" g060="New Opening Qty"/>
+		<UpdateQtyDialogTitle  e030="Update Opening Quanity Dialog" r070="Update Opening Quanity Dialog" g060="Update Opening Quanity Dialog"/>
+		<compantyQty e030="Company Opening Qty:" r070="Company Opening Qty:" g060="Company Opening Qty:"/>
+		<openQty e030="Opening Qty:" r070="Opening Qty:" g060="Opening Qty:"/>
+		<TotalopenQty e030="Total Company Original Opening Qty : " r070="Total Company Original Opening Qty : " g060="Total Company Original Opening Qty : "/>
+		<TotalnewQty e030="Total New Opening Qty : " r070="Total New Opening Qty : " g060="Total New Opening Qty : "/>
+		<Savelbl e030="Save" r070="Save" g060="Save"/>
+		<Originallbl e030="Original :" r070="Original :" g060="Original :"/>
+		<jlblOrigialTotalOpeningQty e030="Total Company Orignal Qty :" r070="Total Company Orignal Qty :" g060="Total Company Orignal Qty :"/>
+		<jlblOrigialGoodsOpeningQty e030="Total Company Goods Qty :" r070="Total Company Goods Qty :" g060="Total Company Goods Qty :"/>
+		<jlblOrigialStaleOpeningQty e030="Total Company Stale Qty :" r070="Total Company Stale Qty :" g060="Total Company Stale Qty :"/>
+		<jlblNew e030="New :" r070="New :" g060="New :"/>
+		<jlblNewTotalOpeningQty e030="Total New Qty :" r070="Total New Qty :" g060="Total New Qty :"/>
+		<jlblNewGoodsQty e030="Total Goods Qty :" r070="Total Goods Qty :" g060="Total Goods Qty :"/>
+		<jlblNewStaleQty e030="Total Stale Qty :" r070="Total Stale Qty :" g060="Total Stale Qty :"/>
+		<PendingTransactionTitle e030="Pending Transactions" r070="Pending Transactions" g060="Κινήσεις σε εκκρεμότητα"/>
+		<jbtnPreview e030="Preview" r070="Preview" g060="Εμφάνιση"/>
+		<jbtnPreviewSC  e030="W" r070="W" g060="W"/>
+		
+		<!-- startfor client test issue 920(ret reason code field in production return screen) by shraddha -->
+		<retReasonCodeDialogTitle  e030="Return Reason Code" r070="Return Reason Code" g060="Return Reason Code"/>
+		<retReasonCodeHeader  e030="Return Reason Code" r070="Return Reason Code" g060="Return Reason Code"/>
+		<!--finish for client test issue 920(ret reason code field in production return screen) by shraddha -->
+		<!--start for unit test issue 4856 by shraddha -->
+		<DocumentNoDialogTitle  e030="Document Number" r070="Document Number" g060="Αρ.Παρ/κού"/>
+		<documentNo  e030="Document_Number" r070="Document_Number" g060="Αρ.Παρ/κού"/>
+		<!--start for unit test issue 4856 by shraddha -->
+		<!--start for client test issue 1480 by shraddha -->
+		<jbtnLegalPrint e030="Legal Print" r070="Legal Print" g060="Legal Print"/>
+		<jbtnLegalPrintSC  e030="L" r070="L" g060="L"/>
+		<jbtnRePrint  e030="Reprint" r070="Reprint" g060="Reprint"/>
+		<jbtnRePrintSC  e030="E" r070="E" g060="E"/>
+		<!--end for client test issue 1480 by shraddha -->
+		<!--start for client test issue 1628 by shraddha -->
+		<UOM  e030="UOM" r070="UM" g060="M.M"/>
+		<jlblUOM_Case    e030="CASE " r070="CASE" g060="ΚΙΒΩΤΙΑ"/>
+		<jlblUOM_Each    e030="EACH " r070="EACH" g060="ΤΕΜΑΧΙΑ"/>
+		<!--end for client test issue 1628 by shraddha -->
+		
+		
+	</Common>
+</Common>
+</Application-IM>

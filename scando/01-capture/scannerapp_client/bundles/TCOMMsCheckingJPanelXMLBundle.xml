@@ -1,0 +1,91 @@
+<?xml version="1.0" ?>
+<!--
+============================ Modification History ============================
+
+   Date			   Author              Code #                  Description of Modifications
+   ====			   ======		       ======				   ============================
+16/05/2011		Shalin Shah		TCOMMsChkJPnlBundle#1				QA Issue# 12825
+
+-->
+<Application-IM>
+<TCOMMsChecking>
+	<TCOMMSCHECKINGJPANEL>
+		<jbtnselectallSC  e030="A" r070="A" g060="A"/>
+		<jlblAll1  e030="ALL" r070="TOT" g060="ΟΛΑ"/>
+		<ALL  e030="ALL" r070="TOT" g060="ΟΛΑ"/>
+		<jbtncloseSC  e030="C" r070="C" g060="C"/>
+		<jbtnClear  e030="Clear Data" r070="Sterge Date" g060="Απαλοιφή Δεδομένων"/>
+		<jbtnClearTT  e030="Clears the table and enables the Search Criteria" r070="Sterge tabel si activeaza Criterii Cautare" g060="Καθαρίζει τον πίνακα και ενεργοποιεί τα Κριτήρια Αναζήτησης"/>
+		<jbtncloseTT  e030="Click to close" r070="Apasa pt inchidere" g060="Κάντε κλικ για κλείσιμο"/>
+		<jbtnRetrieveTT  e030="Click to open the specified document" r070="Apasa pt deschidere document specificat" g060="Κλικ για να ανοίξετε το επιλεγμένο παραστατικό"/>
+		<jbtnPrintTT  e030="Click to Print" r070="Apasa pt Tiparire" g060="Κάντε κλικ για εκτύπωση"/>
+		<jbtnselectallTT  e030="Click to select all the rows" r070="Apasa pt selectie toate rindurile" g060="Κάντε κλικ για επιλογή όλων των γραμμών"/>
+		<jbtnsortTT  e030="Click to sort" r070="Apasa pt sortare" g060="Κάντε κλικ για ταξινόμηση"/>
+		<jbtnunselectTT  e030="Click to un-select all the rows" r070="Apasa pt de-selectie toate rindurile" g060="Κάντε κλικ για κατάργηση επιλογής όλων των γραμμών"/>
+		<jbtnclose  e030="Close" r070="Inchide" g060="Κλείσιμο"/>
+		<Corrugate  e030="Corrugate" r070="Carton" g060="Χαρτοκιβώτιο"/>
+		<jlblCorrugate  e030="Corrugate :" r070="Carton:" g060="Χαρτοκιβώτιο:"/>
+		<date   e030="Date" r070="Data" g060="Ημ/νία"/>
+		<jlblDate  e030="Date :" r070="Data :" g060="Ημ/νία:"/>
+		<jlbldate1 e030="Date:" r070="Date:" g060="Ημ/νία:"/>
+		<jlbldoctype  e030="Doc Type :" r070="Tip Doc." g060="Τύπ.Παρ/ικού :"/>
+		<documentDate  e030="Document Date" r070="Data Doc." g060="Ημ/νια Παρ/κού"/>
+		<documentNumber  e030="Document No" r070="Doc. Nr." g060="Αρ.Παρ/κού"/>
+		<documentType  e030="Document Type :" r070="Tip Doc. :" g060="Τύπ. παρ/κού :"/>
+		<jlblfromdt  e030="From Date :" r070="De la :" g060="Ημ/νία 'από':"/>
+		<fullName  e030="Full Name" r070="Nume" g060="Πλήρης Επωνυμία"/>
+		<jbtnClearSC  e030="L" r070="L" g060="L"/>
+		<jlbllocation  e030="Location :" r070="Locatie :" g060="Αποθήκη:"/>
+		<jlblMatch  e030="Match" r070="Match" g060="Συμφωνία"/>
+		<jlblNo  e030="No" r070="Nu" g060="ΟΧΙ"/>
+		<jsNoData  e030="No Data Found" r070="Nu s-au gasit date" g060="Δεν βρέθηκαν δεδομένα"/>
+		<jbtnsortSC  e030="o" r070="o" g060="O"/>
+		<Overridden  e030="Overridden" r070="Suprascris" g060="Διόρθωμένο"/>
+		<jlblOverridden  e030="Overridden :" r070="Suprascris:" g060="Διορθωμένο:"/>
+		<jbtnPrintSC  e030="P" r070="p" g060="P"/>
+		<jlblpage  e030="Page:" r070="Pagina:" g060="Σελ.:"/>
+		<position   e030="Position" r070="Pozitie" g060="Θέση"/>
+		<jbtnPrint  e030="Print" r070="Tiparire" g060="Εκτύπωση"/>
+		<quality  e030="Quantity" r070="Calitate" g060="Ποσότητα"/><!-- Changed for QA Issue#12790 -->
+		<jbtnRetrieveSC  e030="R" r070="R" g060="R"/>
+		<jsRecFound  e030="Records Found" r070="Inregistrari gasite" g060="Βρέθηκαν Εγγραφές"/>
+		<jbtnRetrieve  e030="Retrieve" r070="Aduce" g060="Ανάκτηση"/>
+		<reverseRouteShipment  e030="Reverse Route Shipment" r070="Vizualizare czi. retur" g060="Ανάκληση δρομολογίου"/>
+		<jlblroute  e030="Route :" r070="Ruta :" g060="Δρομ.:"/>
+		<routeNumber  e030="Route Number" r070="Numar Ruta" g060="Αρ. Δρομ."/>
+		<routeShipment  e030="Route Shipment" r070="Vizualizare comenzi" g060="Αποστολή δρομολογίου"/>
+		<salesperson  e030="Sales Person" r070="Vinzator" g060="Πωλητής"/>
+		<jbtnselectall  e030="Select All" r070="Select Tot" g060="Επιλογή Όλων"/>
+		<blank1  e030="Select/" r070="Selectare/" g060="Επιλογή/"/>
+		<blank  e030="Select/Unselect" r070="Select/Deselect" g060="Επιλογή/Αποεπιλογή"/>
+		<signature   e030="Signature" r070="Semnatura" g060="Υπογραφή"/>
+		<jbtnsort  e030="Sort" r070="Sort" g060="Ταξινόμηση"/>
+		<system  e030="System " r070="System :" g060="Συστημα "/>
+		<jlblsys  e030="System :" r070="System :" g060="Συστημα:"/>
+		<grccmpname  e030="TASTY" r070="TASTY" g060="TASTY"/>
+		<Title  e030="TCOMM" r070="TCOMM" g060="TCOMM"/>
+		<jlbltodate  e030="To Date :" r070="Pina La :" g060="Ημ/νία 'έως':"/>
+		<jlblTotal  e030="Total Documents:" r070="Total Documente:" g060="Σύνολο παραστατικών:"/>
+		<jbtnunselectSC  e030="u" r070="u" g060="U"/>
+		<ULL  e030="ULL :" r070="ULL :" g060="ULL:"/>
+		<jbtnunselect  e030="Un-Select All" r070="Deselect tot" g060="Απο-Επιλογή Όλων"/>
+		<blank2  e030="Unselect" r070="Deselect" g060="Κατάργηση επιλογής"/>
+		<User  e030="User :" r070="Utilizator :" g060="Χρήστης:"/>
+		<jlblWithDiff  e030="With Diff." r070="Cu Dif." g060="Με διαφορά"/>
+		<jlblYes  e030="Yes" r070="DA" g060="ΝΑΙ"/>
+		<HHCIMErrorMgtTitle  e030="HHC-IM Error Management" r070="HHC-IM Error Management" g060="HHC-IM Error Management"/>
+		<SessionID  e030="Session ID" r070="Session ID" g060="Session ID"/>
+		<error  e030="Error Description" r070="Error Description" g060="Error Description"/>
+		<jbtnSave  e030="Save" r070="Save" g060="ΦΥΛΑΞΗ"/>		
+		<jbtnSaveSC  e030="S" r070="S" g060="S"/>		
+		<jbtnSaveTT  e030="Save" r070="Save" g060="Save"/>			
+		<CheckedValue  e030="Checked" r070="Checked" g060="Checked"/>		
+		<UnCheckedValue  e030="UnChecked" r070="UnChecked" g060="UnChecked"/>		
+		<documentTypeCol  e030="Document Type " r070="Tip Doc. " g060="Τύπ. παρ/κού "/>
+		<jlblTotalError  e030="Total Errors:" r070="Total Errors:" g060="Total Errors:"/>
+		<jbtnOK  e030="OK" r070="OK" g060="OK"/>
+		<lblOf  e030="Of" r070="Of" g060="Από"/>
+		<CheckedUnchecked e030="Select" r070="Select" g060="Select" />	<!-- By Shalin Shah for TCOMMsChkJPnlBundle#1 -->
+	</TCOMMSCHECKINGJPANEL>
+</TCOMMsChecking>
+</Application-IM>

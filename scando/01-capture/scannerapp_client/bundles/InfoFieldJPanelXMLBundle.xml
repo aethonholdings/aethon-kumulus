@@ -1,0 +1,11 @@
+<?xml version="1.0" ?>
+<Application-IM>
+<InfoFieldJPanel>
+	<InfoFieldJPanel>
+		<jLblCreateDateTime  e030="C Time :" r070="C Timp :" g060="Ώρα Δημ :"/>
+		<jLblCreateUser  e030="C User :" r070="C Utilizator" g060="Χρήστης Δημ. :"/>
+		<jLblUpdateDateTime  e030="U Time :" r070="U Ora :" g060="Ώρα Ενημ :"/>
+		<jLblUpdateUser  e030="U User :" r070="U Utilizator" g060="Χρήστης Ενημ :"/>
+	</InfoFieldJPanel>
+</InfoFieldJPanel>
+</Application-IM>

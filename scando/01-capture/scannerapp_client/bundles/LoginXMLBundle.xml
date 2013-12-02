@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<Application-IM>
+<Login>
+	<Login>
+		<jspStr1  e030="http://g2m/userexpiration/password_update" r070="http://g2m/userexpiration/password_update" g060="http://g2m/userexpiration/password_update"/>
+		<BundleReleaseFile  e030="/bundles/BundleRelease.properties" r070="/bundles/BundleRelease.properties" g060="/bundles/BundleRelease.properties"/>
+		<ClientReleaseFile  e030="/com/fritolay/im/apps/common/view/ClientRelease.properties" r070="/com/fritolay/im/apps/common/view/ClientRelease.properties" g060="/com/fritolay/im/apps/common/view/ClientRelease.properties"/>
+		<ServerReleaseFile  e030="/com/fritolay/im/components/common/utils/ServerRelease.properties" r070="/com/fritolay/im/components/common/utils/ServerRelease.properties" g060="/com/fritolay/im/components/common/utils/ServerRelease.properties"/>
+		<ServerUsedReleaseFile  e030="/IMSessionManager.properties" r070="/IMSessionManager.properties" g060="/IMSessionManager.properties"/>
+		<jbtnCancelSC  e030="C" r070="A" g060="C"/>
+		<jspStr0  e030="IEXPLORE.EXE" r070="IEXPLORE.EXE" g060="IEXPLORE.EXE"/>
+		<jbtnLogonSC  e030="L" r070="I" g060="L"/>
+		<jlblLogin  e030="Login Id :" r070="Id Utilizator:" g060="Χρήστης:"/>
+		<jlblProject  e030="Project :" r070="Limba :" g060="Γλώσσα :"/>
+		<jlblPassword  e030="Password :" r070="Parola :" g060="Κωδ. Πρόσβασης:"/>
+		<jbtnLogon  e030="Logon" r070="Iesire" g060="ΕΙΣΟΔΟΣ"/>
+		<jbtnLogonTT  e030="Log on to Scanner System" r070="Logare in Inventory Management" g060="Είσοδος στη Διαχείριση Αποθεμάτων"/>
+	</Login>
+</Login>
+</Application-IM>

@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<Application-IM>
+<ScreenReport>
+	<ScreenReport>
+		<jlblGrandTotal  e030="Grand Total :" r070="Total:" g060="Γεν.Σύνολο:"/>
+		<jlblCompanyName  e030="STAR FOODS" r070="STAR FOODS" g060="TASTY FOODS"/>
+		<rmncmpname  e030="STAR FOODS" r070="STAR FOODS" g060="TASTY FOODS"/>
+		<grccmpname  e030="TASTY" r070="TASTY" g060="TASTY"/>
+		<ULL  e030="ULL :" r070="ULL :" g060="ULL :"/>
+		<TitleRomania  e030="Standard Cost/Period Closing" r070="Cost Standard/Inchidere de luna" g060="Πρότυπο κόστος / Κλείσιμο περιόδου"/>
+		<TitleGreece  e030="Average actual cost/Period Closing" r070="Cost mediu actual/Inchidere perioada" g060="Μέσο πραγματικό κόστος / Κλείσιμο περιόδου"/>
+		<Page  e030="Page :" r070="Pagina:" g060="Σελίοδα:"/>
+		<jlblPageTotal  e030="Page Total :" r070="Pagina Total:" g060="Σύνολα Σελίδων"/>
+		<of  e030="of" r070="of" g060="από"/>
+		<User  e030="User :" r070="Utilizator :" g060="Χρήστης:"/>
+		<Comment  e030="Comment :" r070="Comment :" g060="Comment :"/>
+	</ScreenReport>
+</ScreenReport>
+</Application-IM>

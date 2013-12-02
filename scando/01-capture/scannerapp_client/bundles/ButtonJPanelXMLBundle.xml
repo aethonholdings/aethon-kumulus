@@ -1,0 +1,49 @@
+<?xml version="1.0" ?>
+<Application-IM>
+<ButtonJPanel>
+	<ButtonJPanel>
+		<jbtnDelete   e030="Delete (B)" r070="Sterge (B)" g060="Διαγραφή"/>
+		<jbtnCloseSC   e030="C" r070="C" g060="C"/>
+		<jbtnComponent   e030="Components…" r070="Componente…" g060="Στοιχεία"/>
+		<jbtnFreight   e030="Freight" r070="Cost transport" g060="Μεταφορικά"/>
+		<jbtnShip  e030="Generar Envνo" r070="Generar Envνo" g060="Generar Envνo"/>
+		<jbtnComponentSC  e030="M" r070="M" g060="M"/>
+		<jbtnCommitSC   e030="M" r070="M" g060="M"/>
+		<jbtnShip2  e030="Modif. Envνo" r070="Modif. Livr." g060="Modif. Envνo"/>
+		<jbtnProduceCostSC  e030="O" r070="O" g060="O"/>
+		<jbtnPrintSC   e030="P" r070="P" g060="P"/>
+		<jbtnRecv  e030="Recibido" r070="Recibido" g060="Παραλαβή"/>
+		<jbtnSaveSC   e030="S" r070="S" g060="S"/>
+		<jbtnUpdateSC   e030="U" r070="U" g060="U"/>
+		<jbtnCancel  e030="Cancel" r070="Anulare" g060="Ακύρωση"/>
+		<jbtnSave   e030="Save" r070="Salvare" g060="Φύλαξη"/>
+		<jbtnCommitTT   e030="Save the record" r070="Salveaza inregistrare" g060="Αποθήκευση εγγραφής"/>
+		<jbtnSaveTT   e030="Save document" r070="Salveaza document" g060="Φυλ.Παρ/κού"/>
+		<jbtnDeleteSC   e030="B" r070="B" g060="B"/>
+		<jbtnDeleteTT   e030="Delete the selected row" r070="Sterge Rindul Selectat" g060="Διαγραφή της επιλεγμένης γραμμής"/>
+		<jbtnCommit   e030="Commit" r070="Comitere" g060="Επιβεβαίωση"/>
+		<jbtnPrint   e030="Print" r070="Tiparire" g060="Εκτύπωση"/>
+		<jbtnPrintTT   e030="Print Document" r070="Tiparire Borderou" g060="Εκτύπωση Παρ/κού"/>
+		<jbtnUpdate   e030="Update" r070="Modificare" g060="Ενημέρωση"/>
+		<jbtnUpdateTT   e030="Update the selected row" r070="Modificare rand selectat" g060="Ενημέρωση της επιλεγμένης γραμμής"/>
+		<jbtnEditHeader  e030="edit Header" r070="Modifica Antet" g060="Διορθ.Επικεφ."/>
+		<jbtnEditHeaderTT  e030="edit the header" r070="Modifica Antet" g060="Επεξεργασία της κεφαλίδας"/>
+		<jbtnAdd   e030="Apply" r070="Aplica(Y)" g060="Εφαρμογή"/>
+		<jbtnEditHeaderSC  e030="H" r070="I" g060="H"/>
+		<jbtnClose   e030="Close" r070="Inchide" g060="Κλείσιμο"/>
+		<jbtnCloseTT   e030="Close the screen" r070="Inchide ecran" g060="Κλείσιμο Φόρμας"/>
+		<jbtnProduceCost  e030="Produce Cost" r070="Cost productie" g060="Υπ/μός Κόστους"/>
+		<jbtnPickList  e030="Pick List" r070="Pick List" g060="Λίστα Συλλογής"/>
+		<jbtnComponentTT  e030="Show components" r070="Arata componentele" g060="Προβολή στοιχείων"/>
+		<jbtnFreightTT   e030="Show Freight" r070="Arata Freight" g060="Εμφαν. Μεταφ/κών"/>
+		<jbtnAddTT   e030="Add new row in table" r070="Ad. Rind nou in tabel" g060="Προσθήκη νέας γραμμής στον πίνακα"/>
+		<jbtnFreightSC   e030="t" r070="t" g060="Τ"/>
+		<jbtnAddSC   e030="y" r070="y" g060="Υ"/>
+		<jbtnBOM e030="BOM" r070="BOM" g060="BOM"/>
+		<jbtnBOMSC e030="B" r070="B" g060="B"/>
+		<jbtnBOMTT e030="Bill Of Materials" r070="Bill Of Materials" g060="Συνταγή (BOM)"/>
+		<jbtnProduceCostTT e030="Produce Cost" r070="Produce Cost" g060="Κόστος παραγωγής"/>
+		<jbtnRecalculate e030="Recalculate(Z)" r070="Recalculate(Z)" g060="Recalculate(Z)"/>
+	</ButtonJPanel>
+</ButtonJPanel>
+</Application-IM>

@@ -1,0 +1,58 @@
+<?xml version="1.0" ?>
+<Application-IM>
+<Report>
+	<Report>
+		<jlbl3YProductUom  e030="3Y products UOM:" r070="3Y produs UM:" g060="ΜΜ προϊόντων 3Υ:"/>
+		<brand  e030="Brand" r070="Brand" g060="Brand"/>
+		<brandGroup  e030="Brand Group:" r070="Brand Grup:" g060="Όμιλος ομάδας:"/>
+		<case  e030="Case" r070="Box" g060="Κιβ."/>
+		<caseType  e030="Case Label" r070="Case Label" g060="Ετικέτα Κιβωτίου"/>
+		<code  e030="CODE" r070="COD" g060="ΚΩΔ.:"/>
+		<costcenter1  e030="Cost Center1" r070="Centru Cost1" g060="Κ.Κ.1"/>
+		<costcenter2  e030="Cost Center2" r070="Centru Cost2" g060="Κ.Κ.2"/>
+		<costcenter3  e030="Cost Center3" r070="Centru Cost3" g060="Κ.Κ.3"/>
+		<costcenter4  e030="Cost Center4" r070="Centru Cost4" g060="Κ.Κ.4"/>
+		<description  e030="Descpription" r070="Descriere" g060="Περιγραφή"/>
+		<division  e030="Division" r070="Divizie" g060="Τομέας"/>
+		<divisionGroup  e030="Division Group:" r070="Grup divizie:" g060="Ομάδα Τομέων:"/>
+		<bags  e030="eBag per Case" r070="eBag per Case" g060="eBag per Case"/>
+		<jlblInventoryFromDate  e030="From Date :" r070="De la :" g060="Ημ/νία 'από'"/>
+		<jlblInventoryDate  e030="Inventory Date :" r070="Data inventar :" g060="Ημ/νία Απογρ.:"/>
+		<Invlocation  e030="INVENTORY LOCATION :" r070="Locatie Inventar:" g060="ΑΠΟΘΗΗ:"/>
+		<Invtime  e030="Inventory Time :" r070="Data inventar:" g060="Ώρα Απογρ:"/>
+		<location  e030="LOCATION :" r070="LOCATIE :" g060="ΑΠΟΘΗΚΗ:"/>
+		<jlblLocation  e030="Location :" r070="Locatie :" g060="Αποθήκη:"/>
+		<LU  e030="LU Code" r070="Cod SKU" g060="LU"/>
+		<companyNamefull  e030="MATUTANO INVENTORY MANAGEMENT" r070="STARFOODS INVENTORY MANAGEMENT" g060="ΔΙΑΧΕΙΡΙΣΗ ΑΠΟΘΕΜΑΤΩΝ TASTY FOODS"/>
+		<miscSummReport  e030="MISCELLENEOUS SUMMARY REPORT" r070="RAPORT SUMARIZAT BON CONSUM" g060="ΣΥΝΟΠΤΙΚΗ ΑΝΑΦΟΡΑ ΠΡΩΤΟΚΟΛΛΩΝ ΚΑΤΑΣΤΡΟΦΗΣ"/>
+		<miscSummCompanyReport  e030="MISCELLENEOUS SUMMARY REPORT BY COMPANY" r070="RAPORT SUMARIZAT BON CONSUM PE COMPANIE" g060="ΣΥΝΟΠΤΙΚΗ ΑΝΑΦΟΡΑ ΠΡΩΤΟΚΟΛΛΩΝ ΚΑΤΑΣΤΡΟΦΗΣ ΑΝΑ ΕΤΑΙΡΙΑ"/>
+		<jlblPrintEqpValN  e030="No" r070="Nu" g060="ΟΧΙ"/>
+		<opmLoc  e030="OPM Location :" r070="OPM Locatie :" g060="Αποθ. OPM:"/>
+		<jlblPeriod  e030="Period/Month :" r070="Perioada/Luna :" g060="Περίοδος/Μήνας :"/>
+		<jlblPrintEqp  e030="Print Equipments?:" r070="Tiparire Echipamente?:" g060="Εκτυπωτής; :"/>
+		<reportdate  e030="Report Date :" r070="Data Raport :" g060="Ημ/νία Αναφ.:"/>
+		<reportno  e030="REPORT NO. :" r070="NR. RAPORT :" g060="ΑΡ. ΑΝΑΦΟΡΑΣ :"/>
+		<reporttime  e030="Report Time :" r070="Ora Raport :" g060="Ώρα Αναφ.:"/>
+		<PrintOnAllPages  e030="Sel. Crit. in all pages" r070="Crit. Sel. in toate paginile" g060="Επιλέξτε κριτήρια σε όλες τις σελίδες"/>
+		<selling  e030="Selling Code" r070="Cod Vanzare" g060="Κωδ.Πώλησης"/>
+		<ShowAllProducts  e030="Show All Products" r070="Arata Toate Produsele" g060="Προβολή όλων των προϊόντων"/>
+		<subbrand  e030="SubBrand" r070="SubBrand" g060="Sub Brand"/>
+		<subBrandGroup  e030="SubBrand Group :" r070="SubBrand Grup :" g060="Sub Brand"/>
+		<jlblInventoryToDate  e030="To Date :" r070="Pina La :" g060="Ημ/νία 'έως':"/>
+		<total  e030="Total" r070="Total" g060="Σύνολο"/>
+		<totalBrandPrice  e030="Total Brand Price :" r070="Total Brand Pret:" g060="Σύνολο αξίας brand:"/>
+		<totalBrandQuantity   e030="Total Brand Quantity :" r070="Total Brand Cant :" g060="Σύν.ποσότητας brand:"/>
+		<totalDivisionPrice   e030="Total Division Price :" r070="Total pret divizie:" g060="Σύνολο αξίας τομέα:"/>
+		<totalDivisionQuantity  e030="Total Division Quantity :" r070="Total Division Quantity :" g060="Συν.Ποσότητα Τομέα:"/>
+		<totalSubBrandPrice  e030="Total SubBrand Price :" r070="Total SubBrand Pret :" g060="Συν.Αξίας Sub Brand:"/>
+		<totalSubBrandQuantity  e030="Total SubBrand Quantity :" r070="Total SubBrand Quantity :" g060="Συν.Ποσότητα Sub Brand:"/>
+		<totalprice  e030="TotalPrice" r070="PretTotal" g060="Συν.Αξία"/>
+		<type  e030="Type" r070="Tip" g060="Τυπ."/>
+		<UOM  e030="UOM" r070="UM" g060="Μ.Μ."/>
+		<jlblUom  e030="UOM:" r070="UOM:" g060="Μ.Μ."/>
+		<jlblWeek  e030="Week :" r070="Sapt :" g060="Εβδομ.:"/>
+		<jlblYear  e030="Year :" r070="An :" g060="Έτος:"/>
+		<jlblPrintEqpValY  e030="Yes" r070="DA" g060="Ναι"/>
+	</Report>
+</Report>
+</Application-IM>

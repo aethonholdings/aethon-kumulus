@@ -1,0 +1,326 @@
+<?xml version="1.0" ?>
+<Application-IM>
+<Averageactualcost>
+	<AVERAGEACTUALCOSTJPANEL>
+		<date   e030="Date" r070="Data" g060="Date"/>
+		<MAX_PER_PAGE  e030="null" r070="null" g060="32"/>
+		<MAX_PER_PAGE1  e030="null" r070="null" g060="42"/>
+		<COMPANY_PHONE  e030="null" r070="null" g060="123456789"/>
+		<CONTINUE_END_PAGE_LABEL  e030="(continua en pagina siguiente)" r070="(continua pe pagina urmatoare)" g060="(continua en pagina siguiente)"/>
+		<PPO_LABEL  e030="(Procesado por ordenador)" r070="(Procesat de calculator)" g060="(Procesado por ordenador)"/>
+		<REC_LABEL  e030="(Recepcion en cliente)" r070="(Receptie la client)" g060="(Recepcion en cliente)"/>
+		<CONTINUE_NEXT_PAGE_LABEL  e030="(Viene de pagina anterior)" r070="(Venit din pagina anterioara)" g060="(Viene de pagina anterior)"/>
+		<THANKDATA  e030="Agradecemos el llenado de los siguientes datos" r070="Agradecemos el llenado de los siguientes datos" g060="Agradecemos el llenado de los siguientes datos"/>
+		<AELLSD_LABEL  e030="trim" r070="Va rugam sa completati urmatoarele date:" g060="Agradecemos el llenado de los siguientes datos:"/>
+		<CONTACT_LABEL2  e030="ALMACEN - Tel: 947474500  FAX: 947475091" r070="ALMACEN - Tel: 947474500  FAX: 947475091" g060="ALMACEN - Tel: 947474500 FAX: 947475091"/>
+		<ADDRESS_LABEL3  e030="ALMACEN: Ctra. MADRID-IRUN, Km. 245 (Aduana de Burgos) - 09192 - VILLAFRIA - BURGOS" r070="ALMACEN: Ctra. MADRID-IRUN, Km. 245 (Aduana de Burgos) - 09192 - VILLAFRIA - BURGOS" g060="ALMACEN: Ctra. MADRID-IRUN, Km. 245 (Aduana de Burgos) - 09192 - VILLAFRIA - BURGOS"/>
+		<jlblBook  e030="Book :" r070="Book :" g060="Βιβλίο :"/>
+		<jbtnReportCancelSC  e030="C" r070="A" g060="C"/>
+		<jlblCaddies  e030="Caddies :" r070="Display :" g060="Πακέτα :"/>
+		<CEBE_LABEL  e030="Camiσn en buen estado:" r070="Camion in stare buna:" g060="Camiσn en buen estado:"/>
+		<AMTCONT  e030="Cantidad" r070="Cantitate" g060="Cantidad"/>
+		<FACTORY  e030="CIF" r070="CUI" g060="CIF"/>
+		<CIF  e030="CIF" r070="CUI" g060="CIF"/>
+		<CJS_LABEL  e030="Cjs." r070="Cjs." g060="Cjs."/>
+		<client  e030="Client" r070="Client" g060="Client"/>
+		<statusSaveP  e030="Close Period" r070="Inchide luna" g060="Κλείσιμο Περιόδου"/>
+		<jbtnSavedPeriodClosing  e030="Close Period" r070="Inchide luna" g060="Κλείσιμο Περιόδου"/>
+		<jbtnSavedPeriodClosingTT  e030="Close Period" r070="Close Period" g060="Κλείσιμο Περιόδου"/>
+		<LUCODE_LABEL  e030="Codigo" r070="Cod" g060="Codigo"/>
+		<comments  e030="Comments :" r070="Comentarii:" g060="Σχόλια:"/>
+		<jbtnCommitPeriodClosing  e030="Commit Period" r070="Comitere Perioada" g060="Οριστικ.Περιόδου"/>
+		<jbtnCommitPeriodClosingTT  e030="Commit Period" r070="Comitere Perioada" g060="Οριστικ.Περιόδου"/>
+		<BOTTOM3_LABEL  e030="Conserbatoria do registo de Alenquer n 888" r070="Conserbatoria do registo de Alenquer n 888" g060="Conserbatoria do registo de Alenquer n 888"/>
+		<BOTTOM4_LABEL  e030="Contribuinte N : 500163197" r070="Contribuinte N : 500163197" g060="Contribuinte N : 500163197"/>
+		<costCenter  e030="Cost Center" r070="Centru Cost" g060="Κέντρο Κόστους"/>
+		<jlblCreateDate  e030="Created Date :" r070="Data creare :" g060="Created Date :"/>
+		<DEVENTA_LABEL  e030="de venta" r070="De vanz" g060="De venta"/>
+		<DESCARGA  e030="Descarga" r070="Descarca" g060="Descarga"/>
+		<jtblDescription  e030="Description" r070="Descriere" g060="Περιγραφή"/>
+		<PRODDESCP_LABEL  e030="Description Producto" r070="Descriere Produs" g060="Description Producto"/>
+		<jtblDiffCost  e030="Closing Cost" r070="Closing Cost" g060="Κόστος Κλεισ/τος"/>
+		<jtblDiffQty  e030="Closing Qty" r070="Closing Qty" g060="Ποσότητα Κλεισ/τος"/>
+		<jlblDocNo  e030="Doc. No. :" r070="Doc. Nr.:" g060="Αρ.Παρ/κού:"/>
+		<ORDNO  e030="Doc. No. :" r070="Doc. Nr.:" g060="Αρ.Παρ/κού:"/>
+		<jsDocNo  e030="Document Number" r070="Nr. Document" g060="Αριθμός παραστατικού"/>
+		<BOTTOM1_LABEL  e030="Domicilio Social Avenida de los Olmos, 2 -01013 - Alava" r070="Sediu social" g060="Domicilio Social Avenida de los Olmos, 2 -01013 - Alava"/>
+		<SYSTEM_PLANT  e030="Domicilio Social:" r070="Sediu social:" g060="Domicilio Social:"/>
+		<EAN_LABEL  e030="EAN" r070="Cod EAN" g060="EAN"/>
+		<COPY  e030="eCOPY" r070="eCOPY" g060="eCOPY"/>
+		<EVIDO_LABEL  e030="ENVIADO:" r070="Trimis:" g060="ENVIADO:"/>
+		<ORIGINAL  e030="eORIGINAL" r070="eORIGINAL" g060="eORIGINAL"/>
+		<EST_LABEL  e030="Est." r070="Est." g060="Est."/>
+		<jbtnFetchCostFromExcelSC  e030="F" r070="I" g060="F"/>
+		<LOAD_DATE_LABEL  e030="FECHA DE CARGA:" r070="FECHA DE CARGA:" g060="FECHA DE CARGA:"/>
+		<DELIVERY_DATE_LABEL  e030="FECHA DE ENTREGA:" r070="FECHA DE ENTREGA:" g060="FECHA DE ENTREGA:"/>
+		<SHIPPING_DATE  e030="FECHA SALIDA:" r070="FECHA SALIDA:" g060="FECHA SALIDA:"/>
+		<FHL_LABEL  e030="Fecha y hora de llegada" r070="Fecha y hora de llegada" g060="Fecha y hora de llegada"/>
+		<FHS_LABEL  e030="Fecha y hora de Salida" r070="Fecha y hora de Salida" g060="Fecha y hora de Salida"/>
+		<FYS_LABEL  e030="FIRMA Y SELLO" r070="FIRMA Y SELLO" g060="FIRMA Y SELLO"/>
+		<freightReptTitle  e030="Freight" r070="Cost transport" g060="Φορτίο"/>
+		<jlblFromItem  e030="From Item:" r070="From Item:" g060="ΕΙΔΟΣ ΑΠΟ:"/>
+		<jrbtngreekbooksSC  e030="G" r070="G" g060="G"/>
+		<jlblGreece  e030="Greece" r070="Greece" g060="Greece"/>
+		<HHC_LABEL  e030="HHC" r070="HHC" g060="HHC"/>
+		<HFD_LABEL  e030="Hora fin descarga" r070="Ora descarcare" g060="Hora fin descarga"/>
+		<HID_LABEL  e030="Hora inicio descarga" r070="Ora descarcare" g060="Hora inicio descarga"/>
+		<jbtnRetProdSC  e030="I" r070="I" g060="I"/>
+		<jtblInTransitQty  e030="In-Transit Qty" r070="In-Transit Qty" g060="Ποσότητα καθ'οδόν"/>
+		<jtblInTransitCost  e030="In-Transit Cost" r070="In-Transit Cost" g060="Κόστος καθ'οδόν"/>
+		<KG  e030="KGS" r070="KG" g060="KGS"/>
+		<KILO_LB_ST  e030="Kgs" r070="Kg" g060="KGS"/>
+		<LLEGADA  e030="Llegada" r070="Sosire" g060="Llegada"/>
+		<jtblLUCode  e030="LU Code" r070="Cod SKU" g060="LU Code"/>
+		<jbtnMultiPackSC  e030="M" r070="M" g060="M"/>
+		<jttblM3  e030="M3" r070="Volum" g060="M3"/>
+		<jlblTotM3  e030="M3" r070="Volum" g060="M3"/>
+		<VOL_LABEL  e030="m3" r070="Volum" g060="M3"/>
+		<jbtnMultiPack  e030="MultiPack" r070="MultiPack" g060="Πολυσυσκευασία"/>
+		<jbtnMultiPackTT  e030="MultiPack" r070="MultiPack" g060="Πολυσυσκευασία"/>
+		<CONTAINER_LABEL  e030="N CONTENEDOR:" r070="N CONTENEDOR:" g060="N CONTENEDOR:"/>
+		<ICS_NUMBER  e030="N ICS:" r070="N ICS:" g060="N ICS:"/>
+		<SEAL_NUMBER_LABEL  e030="N PRECINTO:" r070="N SIGILIU:" g060="N PRECINTO:"/>
+		<TRIP_NUMBER_LABEL  e030="N VIAJE:" r070="N TRANSP:" g060="N VIAJE:"/>
+		<TIF_LABEL  e030="NIF:" r070="NIF:" g060="NIF:"/>
+		<OELD_LABEL  e030="Observaciones en la descarga:" r070="Observatii la descarcare:" g060="Observaciones en la descarga:"/>
+		<CONTACT_LABEL1  e030="OFIC. CENTRALES - Tel: 934840500  FAX: 934840558" r070="OFIC. CENTRALES - Tel: 934840500  FAX: 934840558" g060="OFIC. CENTRALES - Tel: 934840500 FAX: 934840558"/>
+		<ADDRESS_LABEL2  e030="OFICINAS CENTRALES: C/ TARRAGONA, 161 -  6 Planta  -  08015  -  BARCELONA" r070="OFICINAS CENTRALES: C/ TARRAGONA, 161 -  6 Planta  -  08015  -  BARCELONA" g060="OFICINAS CENTRALES: C/ TARRAGONA, 161 - 6 Planta - 08015 - BARCELONA"/>
+		<jbtnOK  e030="OK" r070="OK" g060="OK"/>
+		<jtblOthersQty  e030="Others Qty" r070="Others Qty" g060="Λοιπά Ποσότητα"/>
+		<jtblOthersCost  e030="Others Cost" r070="Others Cost" g060="Λοιπά Κόστος"/>
+		<jbtnPrintSC  e030="P" r070="P" g060="P"/>
+		<PAGE_LAB  e030="Pagina" r070="Pagina" g060="Pagina"/>
+		<lblPeriod  e030="Period :" r070="Luna :" g060="Περίοδος :"/>
+		<jlblPeriodClosingReport  e030="Period Closing Report" r070="Period Closing Report" g060="Αναφορά Κλεισίματος Περιόδου"/>
+		<PeriodClosingReportTitle  e030="Period Closing Report" r070="Period Closing Report" g060="Αναφορά Κλεισίματος Περιόδου"/>
+		<plate1  e030="Plate 1" r070="Numar 1" g060="Πινακίδα 1"/>
+		<PEBE_LABEL  e030="Precintos en buen estado:" r070="Legaturi in stare buna:" g060="Precintos en buen estado:"/>
+		<jbtlProductionQty  e030="Production Qty" r070="Production Qty" g060="Ποσότητα Παραγωγής"/>
+		<jbtlPurchaseQty  e030="Purchase Qty" r070="Purchase Qty" g060="Ποσότητα Αγορών"/>
+		<jbtnClosingQuantitySC  e030="Q" r070="F" g060="Q"/>
+		<jbtnRetrieveSC  e030="R" r070="E" g060="R"/>
+		<jbtnSavedPeriodClosingSC  e030="R" r070="H" g060="R"/>
+		<jlblPeriodClosingReportSC  e030="R" r070="R" g060="R"/>
+		<jtblReasonCode  e030="ReasonCode" r070="Motiv" g060="Κωδ. Αιτιολογίας"/>
+		<jtblReceivedQty  e030="Received Qty" r070="Cant Recept." g060="Παραληφθείσα ποσότητα"/>
+		<RECEIVING_QTY_LABEL  e030="Recibida" r070="Receptie" g060="Recibida"/>
+		<REF_ORDER_NUMBER_LABEL  e030="REF PEDIDO:" r070="REF PIERDUT:" g060="REF PEDIDO:"/>
+		<BOTTOM2_LABEL  e030="Registro Mercantll de Alava: Hoja VI-2. 184, Folio, Tomo 583, Sc.Gral,Inscr, 23" r070="Registro Mercantll de Alava: Hoja VI-2. 184, Folio, Tomo 583, Sc.Gral,Inscr, 23" g060="Registro Mercantll de Alava: Hoja VI-2. 184, Folio, Tomo 583, Sc.Gral,Inscr, 23"/>
+		<jtblRepackingQty  e030="Repacking Qty" r070="Repacking Qty" g060="Ποσότητα Ανασυσκ."/>
+		<jtblRepackingCost  e030="Repacking Cost" r070="Repacking Cost" g060="Κόστος Ανασυσκ."/>
+		<jtblSalesQty  e030="Sales Qty" r070="Sales Qty" g060="Ποσότητα Πωλ."/>
+		<jtblSalesCost  e030="Sales Cost" r070="Sales Cost" g060="Κόστος Πωλήσεων"/>
+		<SALIDA  e030="Salida" r070="Iesire" g060="Salida"/>
+		<jlblSelectExcelFile  e030="Select Excel file" r070="Select Excel file" g060="Επέξατε αρχείο Excel"/>
+		<jtblSellingCode  e030="Selling Code" r070="Cod Vanzare" g060="Κωδικός Πώλησης"/>
+		<SELLING  e030="Selling Code" r070="Cod Vanzare" g060="Κωδικός Πώλησης"/>
+		<SELLOS  e030="Sellos" r070="Stampila" g060="Sellos"/>
+		<jtblQuantity  e030="Shipped" r070="Livrat" g060="Έχει αποσταλεί"/>
+		<jlblTotQuantity  e030="Shipped" r070="Livrat" g060="Έχει αποσταλεί"/>
+		<FECHA  e030="Shipped" r070="Livrat" g060="Έχει αποσταλεί"/>
+		<LOADDATE  e030="Shipment Date" r070="Data Livrare" g060="Ημ/νία αποστολής"/>
+		<SI_LABEL  e030="SI" r070="SI" g060="SI"/>
+		<ADDRESS_LABEL1  e030="SNACK VENTURES MANUFACTURING, S.L." r070="STAR FOODS EM SRL" g060="SNACK VENTURES MANUFACTURING, S.L."/>
+		<COMPANY_NAME_SEBU  e030="SNACK VENTURES, S.A." r070="STAR FOODS EM SRL" g060="SNACK VENTURES, S.A."/>
+		<SOURCE  e030="Source" r070="Sursa" g060="Αποθήκη"/>
+		<srNo  e030="Sr. No." r070="Sr. No." g060="Sr. No."/>
+		<jtblStaleQty  e030="Stale Qty" r070="Stale Qty" g060="Ποσότητα Ακαταλ."/>
+		<jtblStaleCost  e030="Stale Cost" r070="Stale Cost" g060="Κόστος Ακαταλ."/>
+		<companyNameGreece  e030="TASTY" r070="TASTY" g060="TASTY"/>
+		<jlblToItem  e030="To Item:" r070="To Item:" g060="ΕΙΔΟΣ ΕΩΣ:"/>
+		<TOTEL_LABEL  e030="TOTELS" r070="TOTAL" g060="TOTELS"/>
+		<jrbtnusbooksSC  e030="U" r070="U" g060="U"/>
+		<ULL  e030="ULL :" r070="ULL :" g060="ULL :"/>
+		<UND_LABEL  e030="Und." r070="Und." g060="Und."/>
+		<jtblUOM  e030="UOM" r070="UM" g060="Μ.Μ"/>
+		<jlblUS  e030="US" r070="US" g060="US"/>
+		<VOLUME_LABEL  e030="Volumen" r070="Volum" g060="Volumen"/>
+		<jbtnCancelSC  e030="A" r070="U" g060="Α"/>
+		<REASON  e030="Reason" r070="Motiv" g060="Αιτία"/>
+		<statusCancel  e030="Cancel" r070="Anulare" g060="ΑΚΥΡΩΘΗΚΕ"/>
+		<jbtnCancel  e030="Cancel" r070="Anulare" g060="Ακύρωση"/>
+		<jbtnCancel  e030="Cancel" r070="Anulare" g060="Ακύρωση"/>
+		<jbtnCancelTT  e030="Cancel" r070="Anulare" g060="Ακύρωση"/>
+		<jttblDocLineId  e030="DocLineId" r070="DocLineId" g060="Αναγνωριστικό γραμμής παραστατικού"/>
+		<carrierID  e030="Carrier ID" r070="ID Transportator" g060="Αναγνωριστικό Μεταφορέα"/>
+		<userId  e030="USERID :" r070="UTILIZATORID :" g060="ΑΝΑΓΝΩΡΙΣΤΙΚΟ ΧΡΗΣΤΗ:"/>
+		<jsRet  e030="Retrieve" r070="Returnat" g060="Ανακτημένο"/>
+		<jbtnRetrieve  e030="Retrieve" r070="Aduce" g060="Ανάκτηση"/>
+		<jbtnRetrieveTT  e030="Retrieve data…" r070="Aduce date…" g060="Ανάκτηση δεδομένων..."/>
+		<jbtnRetProdTT  e030="Retrieve Products" r070="Aduce Produse" g060="Ανάκτηση προϊόντων"/>
+		<jbtnRetProd  e030="Retrieve Products" r070="Aduce Produse" g060="Ανάκτηση προϊόντων"/>
+		<POREF  e030="PO REF" r070="PO REF" g060="ΑΝΑΦΟΡΑ ΕΝΤΟΛΗΣ ΑΓΟΡΑΣ"/>
+		<jtblOpeningCost  e030="Opening Cost" r070="Cost Initial" g060="Άνοιγμα Κόστους"/>
+		<jtblOpeningQty  e030="Opening Qty." r070="Cant Initiala" g060="Άνοιγμα Ποσότητας"/>
+		<COPIA_LABEL  e030="**COPY**" r070="**COPIE**" g060="ΑΝΤΙΓΡΑΦΗ"/>
+		<statusSave  e030="Save" r070="Salvat" g060="ΑΠΟΘΗΚΕΥΜΕΝΟ"/>
+		<jsSaving  e030="Saving.........." r070="Salvare.........." g060="Αποθήκευση.........."/>
+		<jlblSource  e030="Source :" r070="Sursa :" g060="Αποθήκη:"/>
+		<TRIPNO  e030="Trip No" r070="Nr Transport" g060="Αρ. Δρομολόγησης"/>
+		<accNo  e030="Account No" r070="Nr Cont" g060="Αρ. Λογαριασμού"/>
+		<jlblPeriodNo  e030="Period No :" r070="Nr Perioada :" g060="Αριθμ. Περιόδου :"/>
+		<PLATENO  e030="Plate No" r070="Numar" g060="Αριθμ. Πινακίδας"/>
+		<jtblStandardCost  e030="Standard Cost" r070="Cost Standard" g060="Βασικό Κόστος"/>
+		<TitleRomania  e030="Standard Cost/Period Closing" r070="Cost Standard/Inchidere de luna" g060="Βασικό κόστος/Κλείσιμο περιόδου"/>
+		<jrbtnusbooks  e030="US Books" r070="US Books" g060="Βιβλία US"/>
+		<ORIGINAL_LABEL  e030="**ORIGINAL**" r070="**ORIGINALA**" g060="ΓΝΗΣΙΟ"/>
+		<DelivNote  e030="Delivery Note" r070="Aviz Expeditie" g060="Δελτίο Αποστολής"/>
+		<statusINVENTORYCONTROLL  e030="NOT INVENTORY CONTROLLED" r070="NOT INVENTORY CONTROLLED" g060="ΔΕΝ ΕΧΕΙ ΠΡΑΓΜΑΤΟΠΟΙΗΘΕΙ ΕΛΕΓΧΟΣ ΑΠΟΘΕΜΑΤΟΣ"/>
+		<statusNOTRECEIVED  e030="Not Receive" r070="Nereceptionat" g060="ΔΕΝ ΕΧΕΙ ΠΡΑΓΜΑΤΟΠΟΙΗΘΕΙ ΛΗΨΗ"/>
+		<jsNoRow  e030="No Rows to delete" r070="Nu sint rinduri de sters" g060="Δεν υπάρχουν γραμμές για διαγραφή"/>
+		<jsDataNot  e030="Data not available" r070="Date indisponibile" g060="Δεν υπάρχουν διαθέσιμα δεδομένα"/>
+		<jlblTINCreateDate  e030="TIN Create DateTime" r070="DataOra Creare TIN" g060="Δημιουργία Ημερομηνίας Ώρας ΤΙΝ"/>
+		<header  e030="Transfer Out Edit Dialog" r070="Dialog Editare Iesiri" g060="Διάλογος επεξεργασίας αποστολής ενδοδιακίνησης"/>
+		<address  e030="Address:" r070="Adresa:" g060="Διεύθυνση:"/>
+		<jrbtnExistingSC  e030="E" r070="X" g060="Ε"/>
+		<jlblItems  e030="Items :" r070="Produs :" g060="Είδη :"/>
+		<statusPENDACK  e030="PENDING ACK" r070="AST.CONF" g060="ΕΚΚΡΕΜΗΣ ΑΠΟΔΟΧΗ"/>
+		<jbtnPrint  e030="Print" r070="Tiparire" g060="Εκτύπωση"/>
+		<jbtnPrintTT  e030="Print" r070="Tiparire" g060="Εκτύπωση"/>
+		<jrbtngreekbooks  e030="Greek Books" r070="Greek Books" g060="Ελληνικά βιβλία εσόδων/εξόδων"/>
+		<jlblUpdateDate  e030="Updated Date :" r070="Modif Data :" g060="Ενημερώθηκε την ημερομηνία:"/>
+		<jlblTINUpdateDate  e030="TIN Update DateTime" r070="DataOra Modif TIN" g060="Ενημέρωση Ημερομηνίας Ώρας ΤΙΝ"/>
+		<jbtnEditHead  e030="Edit Header" r070="Modifica Antet" g060="Επεξεργασία Κεφαλίδας"/>
+		<jbtnEditHeadTT  e030="Edit Header" r070="Modifica Antet" g060="Επεξεργασία Κεφαλίδας"/>
+		<jsSelectRow  e030="Select a row to delete" r070="Selectati rind pentru sterg" g060="Επιλέξτε γραμμή για διαγραφή"/>
+		<return  e030="Return" r070="Retur" g060="Επιστροφή"/>
+		<carrierName  e030="Carrier Name" r070="Nume Transportator" g060="Επωνυμία Μεταφορέα"/>
+		<jlblLastClosingYear  e030="Last Closing Year :" r070="Ultimul An Inchis :" g060="Έτος τελευταίου κλεισίματος :"/>
+		<jlblYear  e030="Year :" r070="An :" g060="Έτος:"/>
+		<jlblYear  e030="Year :" r070="An :" g060="Έτος:"/>
+		<statusCommit  e030="Commit" r070="Comis" g060="ΕΧΕΙ ΕΚΤΕΛΕΣΤΕΙ"/>
+		<jbtnEditHeadSC  e030="H" r070="H" g060="Η"/>
+		<jbtnPurchaseCostSC  e030="H" r070="H" g060="Η"/>
+		<SEALSTATE  e030="Seals In Good State" r070="Sigiliu in Stare Buna" g060="Η σφράγιση είναι σε καλή κατάσταση"/>
+		<SHDATE  e030="Shipment Date" r070="Data Livrare" g060="Ημ/νία αποστολής"/>
+		<jlblShipDate  e030="Shipment Date :" r070="Data Livrare :" g060="Ημ/νία αποστολής :"/>
+		<jlblDate  e030="Shipment Date :" r070="Data Livrare :" g060="Ημ/νία αποστολής :"/>
+		<jlblPeriodStartDate  e030="Period Start Date :" r070="Data Inceput Perioada:" g060="Ημ/νία Έναρξης Περιόδου :"/>
+		<jlblPeriodEndDate  e030="Period End Date :" r070="Data Sfirsit Perioada:" g060="Ημ/νία Λήξης Περιόδου :"/>
+		<jlblPeriodClosingDate  e030="Period Closing Date :" r070="Data Inchidere Perioada" g060="Ημερομηνία Κλεισίματος Περιόδου :"/>
+		<jlbldate1  e030="Date:" r070="Data:" g060="Ημερομηνία:"/>
+		<jlblSysDate  e030="Date :" r070="Data :" g060="Ημερομηνία:"/>
+		<lblDate  e030="Date :" r070="Data :" g060="Ημερομηνία:"/>
+		<docCancel  e030="Do you want to cancel the Document" r070="Doriti sa anulati documentul?" g060="Θέλετε να ακυρώσετε το παραστατικό;"/>
+		<rowDelete  e030="Do you want to delete the specified row" r070="Stergeti randul?" g060="Θέλετε να διαγράψετε τη συγκεκριμένη γραμμή;"/>
+		<position   e030="Position" r070="Pozitie" g060="Θέση"/>
+		<jttblLineStatus  e030="Line Status" r070="Stare Linie" g060="Κατάσταση γραμμής"/>
+		<status  e030="Status :" r070="Stare :" g060="Κατάσταση:"/>
+		<ORDSTATUS  e030="Status :" r070="Stare :" g060="Κατάσταση:"/>
+		<BOTTOM5_LABEL  e030="Capital Social: EUR 4.054.229" r070="Capital Social:" g060="Κεφάλαιο υποδομής: EUR 4.054.229"/>
+		<jlblCases  e030="Cases :" r070="Boxuri :" g060="Κιβώτια :"/>
+		<KILO_LB  e030="Kilos" r070="Kg" g060="Κιλά"/>
+		<jbtnPurchaseCost  e030="Purchase Cost" r070="Cost Cumparare" g060="Κόστος αγοράς"/>
+		<jbtnPurchaseCostTT  e030="Purchase Cost" r070="Cost Cumparare" g060="Κόστος αγοράς"/>
+		<jbtlPurchaseCost  e030="Purchase Cost" r070="Purchase Cost" g060="Κόστος αγοράς"/>
+		<jbtlProductionCost  e030="Production Cost" r070="Production Cost" g060="ΚΟΣΤΟΣ ΠΑΡΑΓΩΓΗΣ"/>
+		<freightCost  e030="Freight Cost" r070="Cost transport" g060="Κόστος φορτίου"/>
+		<jbtnFetchCostFromExcel  e030="Fetch Cost From Excel" r070="Importa Cost din Excel" g060="Λήψη κόστους από το Excel"/>
+		<jbtnFetchCostFromExcelTT  e030="Fetch Cost From Excel" r070="Importa Cost din Excel" g060="Λήψη κόστους από το Excel"/>
+		<jlblOPMLocation  e030="Logical Location :" r070="Locatie Logica:" g060="Λογική Αποθήκη :"/>
+		<jtblStandardCostGrc  e030="Avg.Act.Cost" r070="Cst.Med.Act." g060="Μέσο πραγματικό κόστος"/>
+		<TitleGreece   e030="Average actual cost/Period Closing" r070="Cost mediu actual/Inchidere perioada" g060="Μέσο πραγματικό κόστος/Κλείσιμο περιόδου"/>
+		<CARRIER  e030="Carrier" r070="Transportator" g060="Μεταφορέας"/>
+		<Unauthorized  e030="Unauthorized" r070="Neautorizat" g060="Μη εξουσιοδοτημένο"/>
+		<UnauthProd   e030="UnAuthorized Product Do you want to continue?" r070="Produs neautorizat. Doriti sa continuati?" g060="Μη εξουσιοδοτημένο προϊόν. Επιθυμείτε να συνεχίσετε;"/>
+		<UNIDADES_LABEL  e030="Unidades" r070="Unitati" g060="Μονάδες"/>
+		<jrbtnNewSC  e030="N" r070="N" g060="Ν"/>
+		<SI  e030="YES" r070="DA" g060="ΝΑΙ"/>
+		<jlblYES  e030="YES" r070="DA" g060="ΝΑΙ"/>
+		<jrbtnNew  e030="New" r070="Nou" g060="Νέο"/>
+		<tname  e030="Transportista Name:" r070="Nume Transportator:" g060="Όνομα μεταφορέα:"/>
+		<NO  e030="NO" r070="NU" g060="ΟΧΙ"/>
+		<jlblNO  e030="NO" r070="NU" g060="ΟΧΙ"/>
+		<NO_LABEL  e030="NO" r070="NU" g060="ΟΧΙ"/>
+		<RECEIPT  e030="Receipt" r070="Receptie" g060="Παραλαβή"/>
+		<statusWITHDIFF  e030="Received with Diff." r070="Receptionat cu Dif." g060="Παραλαβή με απόκλιση"/>
+		<jlblTINDocDate  e030="TIN Doc DateTime" r070="DataOra Doc TIN" g060="Παραστατικό Ημερομηνίας Ώρας ΤΙΝ"/>
+		<statusRECEIVED  e030="Receive" r070="Receptionat" g060="ΠΑΡΕΛΗΦΘΗ"/>
+		<PRODES  e030="Product Description" r070="Descriere Produs" g060="Περιγραφή προϊόντος"/>
+		<jlblLastClosingPeriod  e030="Last Closing Period :" r070="Ultima Perioada Inchisa :" g060="Περίοδος τελευταίου κλεισίματος :"/>
+		<plate2  e030="Plate 2" r070="Numar 2" g060="Πινακίδα 2"/>
+		<fullName  e030="Full Name" r070="Nume" g060="Πλήρης επωνυμία"/>
+		<jbtnClosingQuantity  e030="Closing Quantity" r070="Cantitate Finala" g060="Ποσότητα κατά το κλείσιμο"/>
+		<jtblClosingQuantity  e030="Closing Quantity" r070="Cantitate Finala" g060="Ποσότητα κατά το κλείσιμο"/>
+		<jbtnClosingQuantityTT  e030="Closing Quantity" r070="Cantitate Finala" g060="Ποσότητα κατά το κλείσιμο"/>
+		<Products  e030="Products" r070="Produse" g060="Προϊόντα"/>
+		<jlblDestination  e030="Destination :" r070="Destinatie ." g060="Προορισμός :"/>
+		<jtblBagsunit  e030="Bags/Case" r070="Buc./Box" g060="Σακουλάκια/Κιβώτιο"/>
+		<jlblpage  e030="Page:" r070="Pagina:" g060="Σελίδα :"/>
+		<jlblpage  e030="Page:" r070="Pagina:" g060="Σελίδα :"/>
+		<jtblProductFlag  e030="Product Flag" r070="Flag Produs" g060="Σημαία προϊόντος"/>
+		<jtblTotalCost  e030="Total Cost" r070="Total Cost" g060="Συνολικό Κόστος"/>
+		<jlblTotal  e030="Total :" r070="Total :" g060="Σύνολο:"/>
+		<frTotal  e030="Total :" r070="Total :" g060="Σύνολο:"/>
+		<jlblSystem  e030="System :" r070="System :" g060="Σύστημα:"/>
+		<DELIVCOMM  e030="delivery comments :" r070="Comentarii Livrare :" g060="σχόλια αποστολής :"/>
+		<DELIVERY_COMMENTS  e030="COMENTARIOS:" r070="COMENTARII:" g060="ΣΧΟΛΙΑ:"/>
+		<COMMENTS  e030="Comments:" r070="Comentarii:" g060="Σχόλια:"/>
+		<jlblCommnet  e030="Comment :" r070="Comentarii :" g060="Σχόλιο :"/>
+		<jbtnCommitPeriodClosingSC  e030="T" r070="T" g060="Τ"/>
+		<jlblEaches  e030="Eaches :" r070="Bucati :" g060="Τεμάχια :"/>
+		<PHNO  e030="Phone" r070="Telefon" g060="Τηλέφωνο"/>
+		<jtblCasetype  e030="Case Label" r070="Case Label" g060="Ετικέτα Κιβωτίου"/>
+		<jrbtnExisting  e030="Existing" r070="Existent" g060="Υπάρχων"/>
+		<signature   e030="Signature" r070="Semnatura" g060="Υπογραφή"/>
+		<freight  e030="Freight :" r070="Cost transport :" g060="Φορτίο :"/>
+		<jlblCreatedUser  e030="C User" r070="C Utilizator" g060="Χρήστης C"/>
+		<jlblUpdatedUser  e030="U User" r070="U Utilizator" g060="Χρήστης U"/>
+		<HORA  e030="Hora" r070="Ora" g060="Ώρα"/>
+		<jlblShipmentTime  e030="Shipment Time :" r070="Ora Livrare:" g060="Ώρα Αποστολής :"/>
+		<jbtnBOM e030="BOM(V)" r070="BOM(V)" g060="BOM(V)"/>
+		<jbtnBOMSC e030="V" r070="V" g060="V"/>
+		<jlblsellingcodecmp e030="Selling Code :" r070="Cod Vanzare :" g060="Κωδ.Ανάσυ/σιας:"/>
+		<jlbllucodecmp e030="Lu Code:" r070="Cod SKU:" g060="LU:"/>
+		<jlbluomcmp e030="UOM:" r070="UM:" g060="M.M.:"/>
+		<jlblqtyproducedcmp e030="Qty Produced:" r070="Cant Produsa:" g060="Παραχθ.Ποσοτ. σε ΜΜ:"/>
+		<jlblbreakdowncmp e030="Break Down Quantity:" r070="Cantitate Defalcata:" g060="Ανάλωση Ποσότητας ανά ΤΕΜ Παραγωγής:"/>
+		<jlblrequiredqtycmp e030="Required Quantity:" r070="Cantitate Necesara:" g060="Απαιτούμενη ποσότητα:"/>
+		<jlbleachpercasecmp e030="Caddy/Each Per Case:" r070="Bucati per box" g060="Τεμ Ανά Κιβ.:"/>
+		<jbtnokcmp e030="OK" r070="OK" g060="OK"/>
+		<jbtncancelcmp e030="Cancel" r070="Anulare" g060="Ακύρωση"/>
+		<jbtnokcmpSC e030="O" r070="O" g060="O"/>
+		<jbtncancelcmpSC e030="C" r070="C" g060="C"/>
+		<luCode e030="LU Code" r070="Cod SKU" g060="Κωδικός είδους"/>
+		<description e030="Description" r070="Descriere" g060="Περιγραφή"/>
+		<Pckqtycase e030="Packing Qty(Case)" r070="Packing Qty(Case)" g060="Ποσότητα συσκευασίας(Κιβώτιο)"/>
+		<unpackqtycase e030="UnPacking Qty(Case)" r070="UnPacking Qty(Case)" g060="Ποσότητα απο-συσκευασίας(Κιβώτιο)"/>
+		<Pckqty e030="Packing Qty" r070="Cant Impachetare" g060="Ποσότητα συσκευασίας"/>
+		<jtblBrandCode e030="Brand Code" r070="Brand Code" g060="Μάρκα κώδικα"/>
+		<CaddyEach e030="Caddy/Each" r070="Display/Buc" g060="Πακέτο/Τεμάχιο"/>
+		<Case e030="Case" r070="Box" g060="Κιβώτιο"/>
+		<jlblUom e030="Uom:" r070="Um:" g060="M.M:"/>
+		<jlblProductionCostFile e030="Production Cost File:" r070="Production Cost File:" g060="Αρχείο Κόστους Παραγωγής:"/>
+		<jlblGrandTotal  e030="Grand Total :" r070="Grand Total :" g060="Τελικό Σύνολο:"/>
+		<jlblSummary  e030="Summary" r070="Summary" g060="Συγκεντρωτικό"/>
+		<jlblAverageCostFile   e030="Average Cost File:" r070="Average Cost File:" g060="Average Cost File:"/>
+		<InvalidItems   e030="Mentioned Items could not be processed : " r070="Mentioned Items could not be processed : " g060="Mentioned Items could not be processed : "/>
+		<jbtnupdateqty e030="Update Opening Qty. for Item" r070="Update Opening Qty. for Item" g060="Update Opening Qty. for Item" />
+		<NotcalculatedItems  e030="Average Actual Cost does not calculated for products : " r070="Average Actual Cost does not calculated for products : " g060="Average Actual Cost does not calculated for products : "/>
+		<jchkFinalizedOpeningQty e030="Finalized Opening Qty." r070="Finalized Opening Qty." g060="Finalized Opening Qty."/>
+		<jlblExportTOExcelButton   e030="Export to Excel" r070="Export în Excel" g060="Εξαγωγή στο Excel"/>
+		<jlblExportTOExcelButtonSC   e030="E" r070="E" g060="Ε"/>
+		<jlblExportTOExcelTT   e030="Export to Excel" r070="Export în Excel" g060="Εξαγωγή στο Excel"/>
+    <jlblFinalizedOpeningQty e030="Finalized Opening Qty.:" r070="Finalized Opening Qty.:" g060="Finalized Opening Qty.:"/>
+		<True e030="True" r070="True" g060="True" />
+		<False e030="False" r070="False" g060="False" />		
+		<jlblGrcCompanyTitle     e030="TASTY FOODS ΑΒΓΕ" r070="TASTY FOODS ΑΒΓΕ" g060="TASTY FOODS ΑΒΓΕ"/>
+		<jbtnRecalculate e030="Recalculate(Z)" r070="Recalculate(Z)" g060="Recalculate(Z)"/>
+		<jbtnRecalculateSC e030="Z" r070="Z" g060="Z"/>
+		<jbtnRecalculateTT e030="Recalculate" r070="Recalculate" g060="Recalculate"/>
+		<jbtnSaveSC   e030="S" r070="S" g060="S"/>
+		<!--  Added by shraddha for client Issue#1484-->
+		<ItemsNotInProductMaster e030="Products not exist in Product Master : " r070="Products not exist in Product Master :" g060="Products not exist in Product Master : " />
+		<ItemsNotInFile e030="Products not exist in File : " r070="Products not exist in File :" g060="Products not exist in File : " />
+	<!-- finished by shraddha for client Issue#1484 -->
+	<lblOf  e030="Of" r070="Of" g060="Από"/>
+	<!-- added by shraddha for Client Issue 1674 -->
+		<jlblcurrsellingcodecmp  e030="Selling Code :" r070="Cod Vanzare :" g060="Κωδ.Ανάλωσης:"/>
+		<jlblcurreachpercasecmp  e030="Caddy/Each Per Case:" r070="Bucati per box" g060="Τεμ.Ανά Κιβ. Ανάλωσης:"/>
+		<Pckqtycase_bom e030="Packing Qty(Case)" r070="Packing Qty(Case)" g060="Ποσ. Ανάλωσης (Κιβ)"/>
+		<Pckqty_bom e030="Packing Qty" r070="Cant Impachetare" g060="Ποσ. Ανάλωσης (Τεμ)"/>
+		<!-- finish by shraddha for Client Issue 1674 -->
+		
+	</AVERAGEACTUALCOSTJPANEL>
+</Averageactualcost>
+</Application-IM>

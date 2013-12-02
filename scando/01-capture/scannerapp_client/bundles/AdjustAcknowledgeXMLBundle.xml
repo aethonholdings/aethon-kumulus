@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="iso-8859-1" ?>
+<Application-IM>
+<AdjustAcknowledge>
+	<ADJUSTACKNOWLEDGEJPANEL>
+		<!-- start Unit Test Issue#2909 -->
+		<!-- <rmncmpname e030="STAR FOODS" r070="STAR FOODS" g060="TASTY FOODS"/>  --> 		<!-- BY NAIMISH -->
+		<!-- <grccmpname e030="TASTY FOODS" r070="TASTY FOODS" g060="TASTY FOODS"/>  --> 		<!-- BY NAIMISH -->
+		<rmncmpname e030="STAR FOODS" r070="STAR FOODS" g060="STAR FOODS"/>
+		<grccmpname e030="TASTY" r070="TASTY" g060="TASTY"/>
+		<!-- Finish Unit Test Issue#2909 -->
+		
+		
+		<!--Change By Sunil -->
+		<fullName e030="Full Name" r070="Nume" g060="Full Name"/>
+		<position  e030="Position" r070="Pozitie" g060="Position"/>
+		<date  e030="Date" r070="Data" g060="Date"/>
+		<signature  e030="Signature" r070="Semnatura" g060="Signature"/>
+		<srNo e030="Sr. No." r070="Sr. No." g060="Sr. No."/><!--By Sunil -->
+		
+		<!--End -->
+		<Title e030="Adjust Acknowledgement" r070="Confirmare Ajustare" g060="Adjust Acknowledgement"/>
+		<Title1 e030="Stale Adjust Acknowledgement" r070="Ajustare Confirmare Perimate" g060="Stale Adjust Acknowledgement"/>
+		<Title2 e030="CoPacker Adjust Acknowledgement" r070="Impachetare Confirmare Ajustare" g060="CoPacker Adjust Acknowledgement"/>
+		<Title3 e030="ITX Adjust Acknowledgement" r070="ITX Dif." g060="ITX Adjust Acknowledgement"/>
+		<jlblTotal e030="Total : " r070="Total:" g060="Total:"/>
+		<jlblItems e030="Items : " r070="Produs :" g060="Items : "/>
+		<jlblCases e030="Cases : " r070="Boxuri : " g060="Cases : "/>
+		<jlblCaddies e030="Caddies : " r070="Display : " g060="Caddies : "/>
+		<jlblEaches e030="Eaches : " r070="Bucati : " g060="Eaches : "/>
+		<jlblTotReceived e030="Received" r070="Receptionat" g060="Received"></jlblTotReceived>
+		<jlblTotM3 e030="Adjusted" r070="Ajustat" g060="Adjusted"></jlblTotM3>
+		<sellingCode e030="Selling Code" r070="Cod Vanzare" g060="Selling Code"/>
+		<luCode e030="Lu Code" r070="Cod SKU" g060="Lu Code"/>
+		<desc e030="Description" r070="Descriere" g060="Description"/>
+		<uom e030="UOM" r070="UM" g060="UOM"/>
+		<shipped e030="Shipped" r070="Livrat" g060="Shipped"/>
+		<received e030="Received" r070="Receptionat" g060="Received"></received>
+		<adjustment e030="Adjust" r070="Ajustare" g060="Adjust"/>
+		<diffAck e030="Diff.Ack" r070="Conf.Dif" g060="Diff.Ack"></diffAck>
+		<reasonCode e030="ReasonCode" r070="Motiv" g060="ReasonCode"/>
+		<hidden1 e030="docLineId" r070="Linie Doc." g060="docLineId"/>
+		<jlblDestination e030="Destination : " r070="Destinatie ." g060="Destination : "/>
+		<jlblSource e030="Source : " r070="Sursa : " g060="Source : "></jlblSource>
+		<jlblSysDate e030="Date : " r070="Data : " g060="Date : "/>
+		<jlblDocNo e030="Doc No : " r070="Doc. Nr." g060="Doc No : "/>
+		<jlblShipDate e030="Shipment Date : " r070="Data Livrare : " g060="Shipment Date : "/>
+		<jlblShipTime e030="Shipment Time : " r070="Ora Livrare:" g060="Shipment Time : "/>
+		<jlblSystem e030="System" r070="System" g060="System"/>
+		<jlblRecvDate e030="Received Date : " r070="Data Receptie : " g060="Received Date : "/>
+		<jlblRecvTime e030="Received Time : " r070="Ora receptie :" g060="Received Time : "/>
+		<jlblTotShipped e030="Shipped" r070="Livrat" g060="Shipped"></jlblTotShipped>
+		<jbtnAcknowlwdge e030="Acknowledge" r070="Confirmare" g060="Acknowledge"/>
+		<jbtnClose e030="Close" r070="Inchide" g060="Close"/>
+		<jbtnRetrieve e030="Retrieve" r070="Aduce" g060="Retrieve"/>
+		<jrbtnNew e030="New" r070="Nou" g060="New"/>
+		<jrbtnExisting e030="Existing" r070="Existent" g060="Existing"></jrbtnExisting>
+		<jbtnAcknowlwdgeSC e030="G" r070="F" g060="G"></jbtnAcknowlwdgeSC>
+		<jrbtnNewSC e030="N" r070="N" g060="N"/>
+		<jrbtnExistingSC e030="E" r070="X" g060="E"/>
+		<jbtnCloseSC e030="C" r070="C" g060="C"/>
+		<jbtnRetrieveSC e030="R" r070="E" g060="R"></jbtnRetrieveSC>
+		<jbtnAcknowlwdgeTT e030="Click here to save the adjustments" r070="Apasa aici pt salvare ajustari" g060="Click here to save the adjustments"/>
+		<jbtnCloseTT e030="Click here to close the window" r070="Apasa aici pt inchidere fereastra" g060="Click here to close the window"/>
+		<jbtnRetrieveTT e030="Click here to retrieve specified document" r070="Apasa aici pt obtinere document specificat" g060="Click here to retrieve specified document"/>
+		<jlblOPMLocation e030="Logical Location : " r070="Locatie Logica : " g060="Logical Location : "></jlblOPMLocation>
+		<jbtnPrint e030="Print" r070="Tiparire" g060="Print"/>
+		<jbtnPrintTT e030="Click to Print" r070="Apasa pt Tiparire" g060="Click to Print"></jbtnPrintTT>
+		<jbtnPrintSC e030="P" r070="P" g060="P"/>
+		<jtblBagsunit e030="Bags/Case"  r070="Buc./Box" g060="Bags/Case"/>
+		<jtblCasetype e030="Case Type"  r070="Tip Box" g060="Case Type"/>
+		<jlblStatus e030="Status" r070="Stare" g060="Status"/>
+		<statusRECEIVED e030="Acknowledged" r070="Confirmat" g060="Acknowledged"/>
+		<statusPENDACK e030="Pending Ack." r070="Ast.Conf" g060="Pending Ack."/>
+		<TOADate e030="TOADate" r070="Data transf." g060="TOADate"></TOADate>
+		<diffAck2 e030="Diff.Ack2" r070="Conf.Dif2" g060="Diff.Ack2"/>
+		<MAX_PER_PAGE e030="25" r070="25" g060="25"/>
+		<MAX_PER_PAGE1 e030="33" r070="33" g060="33"/>
+		<newTIN e030="Create TIN" r070="Creare TIN" g060="Create TIN"/>
+		<updateTIN e030="Update TIN" r070="Modificare TIN" g060="Update TIN"/>
+		<!-- Added by jiten-->
+		<newSTI e030="Create STI" r070="Creare STI" g060="Create STI"/>
+		<updateSTI e030="Update STI" r070="Modificare STI" g060="Update STI"/>
+		
+		<newCTI e030="Create CTI" r070="Creare CTI" g060="Create CTI"/>
+		<updateCTI e030="Update CTI" r070="Modificare CTI" g060="Update CTI"/>
+		
+		<newITI e030="Create ITI" r070="Creare ITI" g060="Create ITI"/>
+		<updateITI e030="Update ITI" r070="Modificare ITI" g060="Update ITI"/>
+		
+		<!-- finish by jiten -->
+		
+		<!-- Added by jiten for gap43 -->
+		<MAX_PER_PAGECD e030="12" r070="12" g060="12"/>
+		<MAX_PER_PAGE1CD e030="20" r070="20" g060="20"/>
+		<jtblMappedCode e030="Mapped Code " r070="Cod Mapat" g060="Mapped Code"/>
+		<code e030="Code" r070="Cod" g060="Code"/>
+		<selling e030="Selling" r070="Vanzare" g060="Selling"/>
+		<!-- finish by jiten for gap43-->
+		
+		<!-- Added by jiten for 2910-->
+		<jlbldate1 e030="Date:" r070="Data:" g060="Date:"/>
+		<jlblpage e030="Page:" r070="Pagina:" g060="Page:"/>
+		<!--Finished for 2910 -->
+		
+</ADJUSTACKNOWLEDGEJPANEL>
+</AdjustAcknowledge>
+</Application-IM>
