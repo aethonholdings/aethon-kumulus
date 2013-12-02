@@ -1,0 +1,45 @@
+2013-12-02 15:34:19,522 [FileSystemWatcher: files=#219 cl=groovy.lang.GroovyClassLoader@b7ff0] ERROR StackTrace  - Full Stack Trace:
+org.codehaus.groovy.grails.exceptions.InvalidPropertyException: No property found for name [user] for class [class com.kumulus.domain.Nodes]
+	at org.codehaus.groovy.grails.commons.DefaultGrailsDomainClass.getPropertyByName(DefaultGrailsDomainClass.java:665)
+	at org.codehaus.groovy.grails.commons.GrailsDomainConfigurationUtil.configureDomainClassRelationships(GrailsDomainConfigurationUtil.java:161)
+	at org.codehaus.groovy.grails.commons.DomainClassArtefactHandler.initialize(DomainClassArtefactHandler.java:64)
+	at org.codehaus.groovy.grails.commons.DefaultGrailsApplication.initializeArtefacts(DefaultGrailsApplication.java:624)
+	at org.codehaus.groovy.grails.commons.DefaultGrailsApplication.initializeArtefacts(DefaultGrailsApplication.java:597)
+	at org.codehaus.groovy.grails.commons.DefaultGrailsApplication.addArtefact(DefaultGrailsApplication.java:828)
+	at org.codehaus.groovy.grails.commons.DefaultGrailsApplication.addArtefact(DefaultGrailsApplication.java:538)
+	at org.codehaus.groovy.grails.commons.GrailsApplication$addArtefact$2.call(Unknown Source)
+	at org.codehaus.groovy.grails.plugins.DomainClassGrailsPlugin$_closure3.doCall(DomainClassGrailsPlugin.groovy:128)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:606)
+	at org.springsource.loaded.ri.ReflectiveInterceptor.jlrMethodInvoke(ReflectiveInterceptor.java:1260)
+	at org.codehaus.groovy.reflection.CachedMethod.invoke(CachedMethod.java:90)
+	at groovy.lang.MetaMethod.doMethodInvoke(MetaMethod.java:233)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:1086)
+	at groovy.lang.ExpandoMetaClass.invokeMethod(ExpandoMetaClass.java:1110)
+	at groovy.lang.MetaClassImpl.invokeMethod(MetaClassImpl.java:910)
+	at groovy.lang.Closure.call(Closure.java:411)
+	at org.codehaus.groovy.grails.plugins.DefaultGrailsPlugin.invokeOnChangeListener(DefaultGrailsPlugin.java:767)
+	at org.codehaus.groovy.grails.plugins.DefaultGrailsPlugin.notifyOfEvent(DefaultGrailsPlugin.java:716)
+	at org.codehaus.groovy.grails.plugins.DefaultGrailsPlugin.notifyOfEvent(DefaultGrailsPlugin.java:731)
+	at org.codehaus.groovy.grails.plugins.AbstractGrailsPluginManager.informOfClassChange(AbstractGrailsPluginManager.java:409)
+	at org.codehaus.groovy.grails.compiler.GrailsProjectWatcher$2.run(GrailsProjectWatcher.java:263)
+	at org.codehaus.groovy.grails.compiler.GrailsProjectWatcher.firePendingClassChangeEvents(GrailsProjectWatcher.java:124)
+	at org.codehaus.groovy.grails.cli.agent.GrailsPluginManagerReloadPlugin.reloadEvent(GrailsPluginManagerReloadPlugin.java:42)
+	at org.springsource.loaded.TypeRegistry.fireReloadEvent(TypeRegistry.java:1643)
+	at org.springsource.loaded.ReloadableType.loadNewVersion(ReloadableType.java:396)
+	at org.springsource.loaded.TypeRegistry.loadNewVersion(TypeRegistry.java:808)
+	at org.springsource.loaded.agent.ReloadableFileChangeListener.fileChanged(ReloadableFileChangeListener.java:51)
+	at org.springsource.loaded.agent.Watcher.determineChangesSince(FileSystemWatcher.java:218)
+	at org.springsource.loaded.agent.Watcher.run(FileSystemWatcher.java:205)
+	at java.lang.Thread.run(Thread.java:744)
+2013-12-02 15:34:19,530 [FileSystemWatcher: files=#219 cl=groovy.lang.GroovyClassLoader@b7ff0] ERROR StackTrace  - Full Stack Trace:
+org.codehaus.groovy.grails.exceptions.InvalidPropertyException: No property found for name [user] for class [class com.kumulus.domain.Nodes]
+	at java.lang.Thread.run(Thread.java:744)
+2013-12-02 15:34:19,530 [FileSystemWatcher: files=#219 cl=groovy.lang.GroovyClassLoader@b7ff0] ERROR StackTrace  - Full Stack Trace:
+org.codehaus.groovy.grails.exceptions.InvalidPropertyException: No property found for name [user] for class [class com.kumulus.domain.Nodes]
+	at java.lang.Thread.run(Thread.java:744)
+2013-12-02 15:34:19,530 [FileSystemWatcher: files=#219 cl=groovy.lang.GroovyClassLoader@b7ff0] ERROR StackTrace  - Full Stack Trace:
+org.codehaus.groovy.grails.exceptions.InvalidPropertyException: No property found for name [user] for class [class com.kumulus.domain.Nodes]
+	at java.lang.Thread.run(Thread.java:744)

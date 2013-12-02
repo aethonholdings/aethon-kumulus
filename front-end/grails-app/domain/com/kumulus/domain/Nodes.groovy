@@ -16,15 +16,17 @@ class Nodes {
 	Date lastUpdateDatetime
 	Integer documentSequenceNumber
 	Boolean uploaded
-	Nodes nodes
+        
+        // relationships
+	Nodes parent
 	User user
 	Project project
 
-	static hasMany = [nodeses: Nodes]
-	static belongsTo = [Project, User]
+	static belongsTo = [Project, User, Nodes]
 
 	static mapping = {
 		id column: "node_id"
+                parent column: "parent_node_id"
 		version false
 	}
 
