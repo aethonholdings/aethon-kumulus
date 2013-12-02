@@ -10,9 +10,12 @@ class User {
 	String separationRight
 	Integer importKpiTarget
 	Integer separationKpiTarget
+        Client client
 
 	static hasMany = [attendances: Attendance,
 	                  nodeses: Nodes]
+                      
+        static belongsTo = [Client]
 
 	static mapping = {
 		id name: "userId", generator: "assigned"
