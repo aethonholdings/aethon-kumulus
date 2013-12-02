@@ -41,7 +41,8 @@ grails.project.dependency.resolution = {
         grailsCentral()
         mavenCentral()
         // uncomment these (or add new ones) to enable remote dependency resolution from public Maven repositories
-        mavenRepo "https://maven.alfresco.com/nexus/content/groups/public/"
+        mavenRepo "https://maven.alfresco.com/nexus/content/groups/public/" // activiti
+        mavenRepo "http://repo.spring.io/milestone/"                        // Spring Security
         //mavenRepo "http://repository.codehaus.org"
         //mavenRepo "http://download.java.net/maven/2/"
         //mavenRepo "http://repository.jboss.com/maven2/"
@@ -59,8 +60,9 @@ grails.project.dependency.resolution = {
         // plugins for the compile step
         compile ":scaffolding:2.0.1"
         compile ':cache:1.1.1'
-        // compile ':db-reverse-engineer:0.5'
         compile ":activiti:5.12.1"
+        compile ":spring-security-ldap:2.0-RC2"
+        // compile ':db-reverse-engineer:0.5'
 
         // plugins needed at runtime but not for compilation
         runtime ":hibernate:3.6.10.4" // or ":hibernate4:4.1.11.4"
