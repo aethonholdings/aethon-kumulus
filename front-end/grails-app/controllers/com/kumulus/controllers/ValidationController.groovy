@@ -1,6 +1,13 @@
 package com.kumulus.controllers
 
-class ValidationController {
+import grails.plugin.springsecurity.annotation.Secured
 
-    def index() { }
+@Secured(['ROLE_ADMIN'])
+class ValidationController {
+    
+    static allowedMethods = [save: "POST", update: "POST", delete: "POST"]
+        
+    def index() { 
+        render 'success'
+    }
 }

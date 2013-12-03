@@ -5,12 +5,12 @@ class BootStrap {
     def init = { servletContext ->
         
         // create Spring roles
-        if(!Role.findByAuthority('admin')) def adminRole = new Role(authority: 'admin').save()
-        if(!Role.findByAuthority('collect')) def collectRole = new Role(authority: 'collect').save()
-        if(!Role.findByAuthority('import')) def importRole = new Role(authority: 'import').save()
-        if(!Role.findByAuthority('validate')) def validateRole = new Role(authority: 'validate').save()
-        if(!Role.findByAuthority('export')) def exportRole = new Role(authority: 'export').save()
-        if(!Role.findByAuthority('view')) def viewRole = new Role(authority: 'view').save()
+        if(!Role.findByAuthority('ROLE_ADMIN')) def adminRole = new Role(authority: 'ROLE_ADMIN').save()
+        if(!Role.findByAuthority('ROLE_COLLECT')) def collectRole = new Role(authority: 'ROLE_COLLECT').save()
+        if(!Role.findByAuthority('ROLE_IMPORT')) def importRole = new Role(authority: 'ROLE_IMPORT').save()
+        if(!Role.findByAuthority('ROLE_VALIDATE')) def validateRole = new Role(authority: 'ROLE_VALIDATE').save()
+        if(!Role.findByAuthority('ROLE_EXPORT')) def exportRole = new Role(authority: 'ROLE_EXPORT').save()
+        if(!Role.findByAuthority('ROLE_VIEW')) def viewRole = new Role(authority: 'ROLE_VIEW').save()
         
         // create a client company
         if(!Company.findByName('Jee Ah Chian Co')) {
@@ -43,11 +43,11 @@ class BootStrap {
                 company: company
             ).save()
             
-            UserRole.create user, Role.findByAuthority('collect')
-            UserRole.create user, Role.findByAuthority('import')
-            UserRole.create user, Role.findByAuthority('validate')
-            UserRole.create user, Role.findByAuthority('export')
-            UserRole.create user, Role.findByAuthority('view')
+            UserRole.create user, Role.findByAuthority('ROLE_COLLECT')
+            UserRole.create user, Role.findByAuthority('ROLE_IMPORT')
+            UserRole.create user, Role.findByAuthority('ROLE_VALIDATE')
+            UserRole.create user, Role.findByAuthority('ROLE_EXPORT')
+            UserRole.create user, Role.findByAuthority('ROLE_VIEW')
             
         }
         
@@ -81,12 +81,12 @@ class BootStrap {
                 company: company
             ).save()
             
-            UserRole.create user, Role.findByAuthority('admin')
-            UserRole.create user, Role.findByAuthority('collect')
-            UserRole.create user, Role.findByAuthority('import')
-            UserRole.create user, Role.findByAuthority('validate')
-            UserRole.create user, Role.findByAuthority('export')
-            UserRole.create user, Role.findByAuthority('view')
+            UserRole.create user, Role.findByAuthority('ROLE_ADMIN')
+            UserRole.create user, Role.findByAuthority('ROLE_COLLECT')
+            UserRole.create user, Role.findByAuthority('ROLE_IMPORT')
+            UserRole.create user, Role.findByAuthority('ROLE_VALIDATE')
+            UserRole.create user, Role.findByAuthority('ROLE_EXPORT')
+            UserRole.create user, Role.findByAuthority('ROLE_VIEW')
             
         }
         
