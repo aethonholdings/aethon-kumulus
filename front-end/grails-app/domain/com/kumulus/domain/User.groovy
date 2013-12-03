@@ -3,7 +3,6 @@ package com.kumulus.domain
 class User {
 
         // Spring definitions
-    
 	transient springSecurityService
 
 	String username
@@ -19,21 +18,22 @@ class User {
         String userId
 	String useridPassword
 	String status
+        String name
+        String telephone
+        String email
+
 	String collectionRight
 	String importRight
 	String separationRight
 	Integer importKpiTarget
 	Integer separationKpiTarget
-        Client client
 
         static hasMany = [attendances: Attendance,
                         nodeses: Nodes]
                       
-        static belongsTo = [Client]
+        static belongsTo = [company: Company]
         
         // mappings and constraints
-    
-    
 	static constraints = {
                 // Spring constraints
 		username blank: false, unique: true
