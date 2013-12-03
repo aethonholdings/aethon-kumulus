@@ -60,8 +60,9 @@ grails.project.dependency.resolution = {
         // plugins for the compile step
         compile ":scaffolding:2.0.1"
         compile ':cache:1.1.1'
-        compile ":activiti:5.12.1"
+        compile ":spring-security-core:2.0-RC2"
         compile ":spring-security-ldap:2.0-RC2"
+        // compile ":activiti:5.12.1"
         // compile ":alfresco:0.4"
         // compile ':db-reverse-engineer:0.5'
 
