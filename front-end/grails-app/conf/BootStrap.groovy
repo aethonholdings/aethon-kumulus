@@ -80,7 +80,7 @@ class BootStrap {
                 type: 'CONTAINER', 
                 createDateTime: new Date(),
                 lastUpdateDatetime: new Date(),
-                parent : rootNode, 
+                parent: rootNode, 
                 project: project       
             ).save()
             
@@ -90,7 +90,29 @@ class BootStrap {
                 type: 'CONTAINER', 
                 createDateTime: new Date(),
                 lastUpdateDatetime: new Date(),
-                parent : rootNode, 
+                parent: rootNode, 
+                project: project       
+            ).save()
+            
+            def documentNode = new Nodes(
+                name: 'Document 1',
+                barcode: 'AE18101978',
+                comment: 'no comment',
+                type: 'DOCUMENT', 
+                createDateTime: new Date(),
+                lastUpdateDatetime: new Date(),
+                parent: containerNode, 
+                project: project       
+            ).save()
+            
+            documentNode = new Nodes(
+                name: 'Document 2',
+                barcode: 'AE26051979',
+                comment: 'no comment',
+                type: 'DOCUMENT', 
+                createDateTime: new Date(),
+                lastUpdateDatetime: new Date(),
+                parent: containerNode, 
                 project: project       
             ).save()
             
