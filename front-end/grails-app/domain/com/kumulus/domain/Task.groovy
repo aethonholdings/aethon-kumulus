@@ -2,18 +2,20 @@ package com.kumulus.domain
 
 class Task {
 
-    User owner
     String type
+    String status
     Date start
     Date end
     
     static hasMany = [nodes: Nodes]
     
-    static belongsTo = [user: User]
+    static belongsTo = [owner: User]
     
     static constraints = {
-        start blank: false
-        owner blank: false
-        type blank: false 
+        start nullable: false
+        end nullable: true
+        owner nullable: false
+        type nullable: false
+        status nullable: false
     }
 }
