@@ -13,16 +13,15 @@ class BootStrap {
         if(!Role.findByAuthority('ROLE_VIEW')) def viewRole = new Role(authority: 'ROLE_VIEW').save()
         
         // create a client company
-        if(!Company.findByName('Jee Ah Chian Co')) {
-            
-            def company = new Company(
+        if(!Company.findByName('Jee Ah Chian Co')) def company = new Company(
                 name: 'Jee Ah Chian Co',
                 street: 'Kelantan Lane', 
                 buildingNumber: '9',
                 unitNumber: '06/01',
                 postcode: '208628'
             ).save()
-            
+        
+        if(!User.findByUsername('test')) { 
             def user = new User(
                 username: 'test',
                 userId: 'test',
@@ -40,45 +39,7 @@ class BootStrap {
                 separationRight: 'Y',
                 importKpiTarget: 1000,
                 separationKpiTarget: 0,
-                company: company
-            ).save()
-            
-            UserRole.create user, Role.findByAuthority('ROLE_COLLECT')
-            UserRole.create user, Role.findByAuthority('ROLE_IMPORT')
-            UserRole.create user, Role.findByAuthority('ROLE_VALIDATE')
-            UserRole.create user, Role.findByAuthority('ROLE_EXPORT')
-            UserRole.create user, Role.findByAuthority('ROLE_VIEW')
-            
-        }
-        
-        if(!Company.findByName('Kumulus Pte Ltd')) {
-            
-            def company = new Company(
-                name: 'Kumulus Pte Ltd',
-                street: 'Waterloo Street', 
-                buildingNumber: '261',
-                unitNumber: '03/32',
-                postcode: '180261'
-            ).save()
-            
-            def user = new User(
-                username: 'admin',
-                userId: 'admin',
-                password: 'password',
-                useridPassword: 'password',
-                name: 'admin',
-                telephone: '+65 62952533', 
-                email: 'konstantinos.dimitriou@aethon.sg',
-                accountExpired: false,
-                accountLocked: false,
-                passwordExpired: false,
-                status: 'A',
-                collectionRight: 'Y',
-                importRight: 'Y',
-                separationRight: 'Y',
-                importKpiTarget: 1000,
-                separationKpiTarget: 0,
-                company: company
+                company: Company.findByName('Jee Ah Chian Co')
             ).save()
             
             UserRole.create user, Role.findByAuthority('ROLE_ADMIN')
@@ -90,7 +51,52 @@ class BootStrap {
             
         }
         
+        // create a project
+        if(!Project.findByProjectName('test project')) {
+            def project = new Project(
+                projectName: 'test project',
+                status: '001',
+                client: Company.findByName('Jee Ah Chian Co')
+            )
+            if(!project.save()) project.errors.allErrors.each { error -> println "${error}" }
+        }
+        
+        // create a set of nodes for the project
+        if(!Nodes.findByProject(Project?.findByProjectName('test project'))) {
+            def project = Project.findByProjectName('test project') 
+            def rootNode = new Nodes(
+                name: 'root node',
+                comment: 'no comment',
+                type: 'ROOT', 
+                createDateTime: new Date(),
+                lastUpdateDatetime: new Date(),
+                project: project
+            )
+            if(!rootNode.save()) rootNode.errors.allErrors.each { error -> println "${error}" }
+            
+            def containerNode = new Nodes(
+                name: 'Container 1',
+                comment: 'no comment',
+                type: 'CONTAINER', 
+                createDateTime: new Date(),
+                lastUpdateDatetime: new Date(),
+                parent : rootNode, 
+                project: project       
+            ).save()
+            
+            containerNode = new Nodes(
+                name: 'Container 2',
+                comment: 'no comment',
+                type: 'CONTAINER', 
+                createDateTime: new Date(),
+                lastUpdateDatetime: new Date(),
+                parent : rootNode, 
+                project: project       
+            ).save()
+            
+        }
     }
+
     def destroy = {
         
     }

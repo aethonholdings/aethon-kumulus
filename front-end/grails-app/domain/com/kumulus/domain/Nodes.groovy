@@ -17,12 +17,7 @@ class Nodes {
 	Integer documentSequenceNumber
 	Boolean uploaded
         
-        // relationships
-	Nodes parent
-	User user
-	Project project
-
-	static belongsTo = [Project, User, Nodes]
+	static belongsTo = [project: Project, parent: Nodes]
 
 	static mapping = {
 		id column: "node_id"

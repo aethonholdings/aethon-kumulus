@@ -28,8 +28,7 @@ class User {
 	Integer importKpiTarget
 	Integer separationKpiTarget
 
-        static hasMany = [attendances: Attendance,
-                        nodeses: Nodes]
+        static hasMany = [attendances: Attendance, tasks: Task]
                       
         static belongsTo = [company: Company]
         
