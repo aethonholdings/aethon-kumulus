@@ -51,24 +51,44 @@ class BootStrap {
             
         }
         
-        /*
-        if(!Company.findByName('Kumulus Pte Ltd')) new Company(
-            name: 'Kumulus Pte Ltd',
-            street: 'Waterloo Street', 
-            buildingNumber: '261',
-            unitNumber: '03/32',
-            postcode: '180261', 
-        ).save()
-        
-        if(!Company.findByName('Aethon Holdings Pte Ltd')) new Company(
-            name: 'Aethon Holdings Pte Ltd',
-            street: 'Waterloo Street', 
-            buildingNumber: '261',
-            unitNumber: '03/32',
-            postcode: '180261', 
-        ).save()
-        */
-        
+        if(!Company.findByName('Kumulus Pte Ltd')) {
+            
+            def company = new Company(
+                name: 'Kumulus Pte Ltd',
+                street: 'Waterloo Street', 
+                buildingNumber: '261',
+                unitNumber: '03/32',
+                postcode: '180261'
+            ).save()
+            
+            def user = new User(
+                username: 'admin',
+                userId: 'admin',
+                password: 'password',
+                useridPassword: 'password',
+                name: 'admin',
+                telephone: '+65 62952533', 
+                email: 'konstantinos.dimitriou@aethon.sg',
+                accountExpired: false,
+                accountLocked: false,
+                passwordExpired: false,
+                status: 'A',
+                collectionRight: 'Y',
+                importRight: 'Y',
+                separationRight: 'Y',
+                importKpiTarget: 1000,
+                separationKpiTarget: 0,
+                company: company
+            ).save()
+            
+            UserRole.create user, Role.findByAuthority('admin')
+            UserRole.create user, Role.findByAuthority('collect')
+            UserRole.create user, Role.findByAuthority('import')
+            UserRole.create user, Role.findByAuthority('validate')
+            UserRole.create user, Role.findByAuthority('export')
+            UserRole.create user, Role.findByAuthority('view')
+            
+        }
         
     }
     def destroy = {
