@@ -119,7 +119,7 @@ class BootStrap {
         }
         
         // create a task assigned to the test user
-        if(Nodes.findByBarcode('AE18101978') && Nodes.findByBarcode('AE26051979') && !Task.findByOwner(User.findByUsername('test'))) {
+        if(Nodes.findByName('Document 1') && Nodes.findByName('Document 1') && !Task.findByOwner(User.findByUsername('test'))) {
             def task = new Task (
                 owner: User.findByUsername('test'),
                 type: 'TASK_VALIDATION',
