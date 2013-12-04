@@ -3,25 +3,26 @@
   <h2>Welcome to Kumulus Home</h2>
   <sec:ifLoggedIn>
     <sec:ifAllGranted roles="ROLE_VALIDATE">
-      <p>You have ${validationTasks?.count()} tasks pending</p>
+      <p>You have ${tasks?.count()} task<g:if test="${tasks?.count()>1}">s</g:if> pending</p>
       <div class="validationTaskTable">
         <table>
           <thead>
-            <g:sortableColumn property="created" title="Created"/>
-            <g:sortableColumn property="barcode" title="Container barcode"/>
-            <g:sortableColumn property="name" title="Document name"/>
-            <g:sortableColumn property="comment" title="Comments"/>
+            <g:sortableColumn property="id" title="Id"/>  
+            <g:sortableColumn property="created" title="Time created"/>
+            <g:sortableColumn property="barcode" title="Task"/>
+            <g:sortableColumn property="action" title="Action pending"/>
           </thead>
-          <g:each in="${validationTasks}" var="task">
-            <g:each in="${validationTasks.nodes}" var="node">
-              <tr>
-                <td>${task.created}</td>
-                <td>${node.barcode}</td>
-                <td>${node.name}</td>
-                <td>${node.comment}</td>
-              </tr>
-            </g:each>
-          </g:each>      
+          <g:each in="${tasks.list()}">
+            <tr>
+              <td>${it.id}</td>
+              <td>${it.created.format("d/M/YYYY - HH:mm:ss")}</td>
+              <td>
+                <g:if test="${it.type=='TASK_VALIDATION'}">Validate</g:if>
+                <g:if test="${it.type=='TASK_CLASSIFICATION'}">Classify</g:if>
+              </td>
+              <td><g:link controller="extraction" action="validate">To do</g:link></td>
+            </tr>
+          </g:each>
         </table>
       </div>
     </sec:ifAllGranted>

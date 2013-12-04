@@ -8,6 +8,7 @@ class BootStrap {
         if(!Role.findByAuthority('ROLE_ADMIN')) def adminRole = new Role(authority: 'ROLE_ADMIN').save()
         if(!Role.findByAuthority('ROLE_COLLECT')) def collectRole = new Role(authority: 'ROLE_COLLECT').save()
         if(!Role.findByAuthority('ROLE_IMPORT')) def importRole = new Role(authority: 'ROLE_IMPORT').save()
+        if(!Role.findByAuthority('ROLE_CLASSIFY')) def validateRole = new Role(authority: 'ROLE_CLASSIFY').save()
         if(!Role.findByAuthority('ROLE_VALIDATE')) def validateRole = new Role(authority: 'ROLE_VALIDATE').save()
         if(!Role.findByAuthority('ROLE_EXPORT')) def exportRole = new Role(authority: 'ROLE_EXPORT').save()
         if(!Role.findByAuthority('ROLE_VIEW')) def viewRole = new Role(authority: 'ROLE_VIEW').save()
@@ -44,6 +45,7 @@ class BootStrap {
             
             UserRole.create user, Role.findByAuthority('ROLE_ADMIN')
             UserRole.create user, Role.findByAuthority('ROLE_COLLECT')
+            UserRole.create user, Role.findByAuthority('ROLE_CLASSIFY')
             UserRole.create user, Role.findByAuthority('ROLE_IMPORT')
             UserRole.create user, Role.findByAuthority('ROLE_VALIDATE')
             UserRole.create user, Role.findByAuthority('ROLE_EXPORT')
@@ -116,10 +118,20 @@ class BootStrap {
                 project: project       
             ).save()
             
+            documentNode = new Nodes(
+                name: 'Document 3',
+                comment: 'no comment',
+                type: 'DOCUMENT', 
+                createDateTime: new Date(),
+                lastUpdateDatetime: new Date(),
+                parent: containerNode, 
+                project: project       
+            ).save()
+            
         }
         
         // create a task assigned to the test user
-        if(Nodes.findByName('Document 1') && Nodes.findByName('Document 1') && !Task.findByOwner(User.findByUsername('test'))) {
+        if(!Task.findByOwner(User.findByUsername('test'))) {
             def task = new Task (
                 owner: User.findByUsername('test'),
                 type: 'TASK_VALIDATION',
@@ -128,8 +140,18 @@ class BootStrap {
             )
             task.addToNodes(Nodes.findByName('Document 1'))
             task.addToNodes(Nodes.findByName('Document 2'))
-            if(!task.save()) task.errors.allErrors.each { error -> println "${error}" } 
+            if(!task.save()) task.errors.allErrors.each { error -> println "${error}" }
+            
+            task = new Task (
+                owner: User.findByUsername('test'),
+                type: 'TASK_CLASSIFICATION',
+                created: new Date(), 
+                status: 'PENDING'
+            )
+            task.addToNodes(Nodes.findByName('Document 3'))
+            if(!task.save()) task.errors.allErrors.each { error -> println "${error}" }
         }
+        
     }
 
     def destroy = {
