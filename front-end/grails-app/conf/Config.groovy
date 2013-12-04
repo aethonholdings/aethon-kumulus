@@ -128,3 +128,38 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/**/images/**':                  ['permitAll'],
 	'/**/favicon.ico':                ['permitAll']
 ]
+
+// LDAP configuration
+/*
+ldap = {
+    directories {
+        ephesoft { 
+            url = "ldap://example.com"
+            base = "ou=example,dc=com"
+            userDn = "uid=someuser,ou=example,dc=com"
+            password = "password" 
+            searchControls { 
+                countLimit = 40 
+                timeLimit = 600 
+                searchScope = "subtree" 
+            }
+        }
+        alfresco {
+            urls = [ 
+                "ldap://s1.example2.com",
+                "ldap://s2.example2.com",
+            ]
+            base = "ou=example2,dc=com"
+        }
+    }
+
+    schemas = [ 
+        my.app.MyGldapoSchemaClass1,
+        my.app.MyGldapoSchemaClass2 
+    ]
+
+    typemappings = [
+        my.app.MyTypeMappings
+    ]
+}
+*/
