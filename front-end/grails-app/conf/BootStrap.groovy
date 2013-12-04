@@ -77,6 +77,7 @@ class BootStrap {
             def containerNode = new Nodes(
                 name: 'Container 1',
                 comment: 'no comment',
+                barcode: 'AE18101978',
                 type: 'CONTAINER', 
                 createDateTime: new Date(),
                 lastUpdateDatetime: new Date(),
@@ -87,6 +88,7 @@ class BootStrap {
             containerNode = new Nodes(
                 name: 'Container 2',
                 comment: 'no comment',
+                barcode: 'AE26051979',
                 type: 'CONTAINER', 
                 createDateTime: new Date(),
                 lastUpdateDatetime: new Date(),
@@ -96,7 +98,6 @@ class BootStrap {
             
             def documentNode = new Nodes(
                 name: 'Document 1',
-                barcode: 'AE18101978',
                 comment: 'no comment',
                 type: 'DOCUMENT', 
                 createDateTime: new Date(),
@@ -107,7 +108,6 @@ class BootStrap {
             
             documentNode = new Nodes(
                 name: 'Document 2',
-                barcode: 'AE26051979',
                 comment: 'no comment',
                 type: 'DOCUMENT', 
                 createDateTime: new Date(),
@@ -123,10 +123,11 @@ class BootStrap {
             def task = new Task (
                 owner: User.findByUsername('test'),
                 type: 'TASK_VALIDATION',
-                start: new Date(), 
+                created: new Date(), 
                 status: 'PENDING'
             )
-            task.addToNodes(Nodes.findByBarcode('AE18101978'))
+            task.addToNodes(Nodes.findByName('Document 1'))
+            task.addToNodes(Nodes.findByName('Document 2'))
             if(!task.save()) task.errors.allErrors.each { error -> println "${error}" } 
         }
     }

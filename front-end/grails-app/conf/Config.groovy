@@ -114,51 +114,8 @@ log4j = {
            'net.sf.ehcache.hibernate'
 }
 
-// Added by the Grails Activiti plugin:
-activiti {
-	processEngineName = "activiti-engine-default"
-        databaseType = "mysql"
-        deploymentName = appName
-        deploymentResources = ["file:./grails-app/conf/**/*.bpmn*.xml",
-                                                        "file:./grails-app/conf/**/*.png",
-                                                        "file:./src/taskforms/**/*.form"]
-        jobExecutorActivate = false
-        mailServerHost = "smtp.yourserver.com"
-        mailServerPort = "25"
-        mailServerUsername = ""
-        mailServerPassword = ""
-        mailServerDefaultFrom = "username@yourserver.com"
-        history = "audit" // "none", "activity", "audit" or "full"
-        sessionUsernameKey = "username"
-        useFormKey = true
-}
-
-environments {
-	development {
-		activiti {
-			  processEngineName = "activiti-engine-dev"
-			  databaseSchemaUpdate = true // true, false or "create-drop"
-		}
-	}
-	test {
-		activiti {
-			  processEngineName = "activiti-engine-test"
-			  databaseSchemaUpdate = true
-		  mailServerPort = "5025"
-		}
-	}
-	production {
-		activiti {
-			  processEngineName = "activiti-engine-prod"
-			  databaseSchemaUpdate = false
-			  jobExecutorActivate = true
-		}
-	}
-}
-
-
-
 // Added by the Spring Security Core plugin:
+grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/home'  // added by Konstantinos to configure login landing page
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'com.kumulus.domain.User'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'com.kumulus.domain.UserRole'
 grails.plugin.springsecurity.authority.className = 'com.kumulus.domain.Role'
@@ -171,4 +128,3 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/**/images/**':                  ['permitAll'],
 	'/**/favicon.ico':                ['permitAll']
 ]
-
