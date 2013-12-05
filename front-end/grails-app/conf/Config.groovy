@@ -124,7 +124,6 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/**/css/**':                       ['permitAll'],
 	'/**/images/**':                    ['permitAll'],
 	'/**/favicon.ico':                  ['permitAll'],
-        '/home/**':                            ['permitAll'] // kons
 ]
 
 //// LDAP configuration
