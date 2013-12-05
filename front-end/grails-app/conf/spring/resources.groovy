@@ -1,8 +1,8 @@
-import sg.kumulus.utility.MyUserDetailsContextMapper
+// import sg.kumulus.utility.MyUserDetailsContextMapper
 
 // Place your Spring DSL code here
 beans = {
-    ldapUserDetailsMapper(MyUserDetailsContextMapper) {
+    // ldapUserDetailsMapper(MyUserDetailsContextMapper) {
         // bean attributes
-    }
+    // }
 }

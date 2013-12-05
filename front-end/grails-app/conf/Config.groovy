@@ -116,9 +116,6 @@ log4j = {
 
 // Added by the Spring Security Core plugin:
 grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/home'  // added by Konstantinos to configure login landing page
-grails.plugin.springsecurity.userLookup.userDomainClassName = 'com.kumulus.domain.User'
-grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'com.kumulus.domain.UserRole'
-grails.plugin.springsecurity.authority.className = 'com.kumulus.domain.Role'
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/':                              ['permitAll'],
 	'/index':                         ['permitAll'],

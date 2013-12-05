@@ -10,13 +10,13 @@ class Task {
     
     static hasMany = [nodes: Nodes]
     
-    static belongsTo = [owner: User]
+    // static belongsTo = [owner: User]
     
     static constraints = {
         created nullable: false
         started nullable: true
         ended nullable: true
-        owner nullable: false
+        // owner nullable: false
         type nullable: false
         status nullable: false
     }

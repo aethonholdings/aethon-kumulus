@@ -6,10 +6,9 @@ class Project {
 	String status
 
 	static hasMany = [applicationParameters: ApplicationParameter,
-	                  attendances: Attendance,
 	                  nodes: Nodes]
                       
-        static belongsTo = [client: Company]
+        // static belongsTo = [client: Company]
 
 	static mapping = {
 		id column: "project_id"
