@@ -130,14 +130,18 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 ]
 
 // LDAP configuration
-// grails.plugin.springsecurity.providerNames = ['ldapAuthProvider','anonymousAuthenticationProvider','rememberMeAuthenticationProvider']
+grails.plugin.springsecurity.providerNames = ['ldapAuthProvider','anonymousAuthenticationProvider','rememberMeAuthenticationProvider']
 grails.plugin.springsecurity.ldap.context.server = 'ldap://test.kumulus.sg:389'
+
+// manager
 grails.plugin.springsecurity.ldap.context.managerDn = 'cn=admin,dc=aethon,dc=sg'
 grails.plugin.springsecurity.ldap.context.managerPassword = 'Ke$haIsGreat666'
+
+// search
 grails.plugin.springsecurity.ldap.search.base = 'dc=aethon,dc=sg'
+grails.plugin.springsecurity.ldap.search.searchSubtree = true
+
+// authorities
 grails.plugin.springsecurity.ldap.user.base = 'ou=people'
 grails.plugin.springsecurity.ldap.authorities.groupSearchBase = 'ou=people,dc=aethon,dc=sg'
-// grails.plugin.springsecurity.ldap.context.managerDn = 'uid=admin,ou=system'
-// grails.plugin.springsecurity.password.algorithm = 'SHA-256'
-// grails.plugin.springsecurity.ldap.authorities.retrieveGroupRoles = true 
-// grails.plugin.springsecurity.ldap.authorities.retrieveDatabaseRoles = false
+grails.plugin.springsecurity.ldap.authorities.retrieveGroupRoles = true 
