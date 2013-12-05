@@ -130,36 +130,14 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 ]
 
 // LDAP configuration
-/*
-ldap = {
-    directories {
-        ephesoft { 
-            url = "ldap://example.com"
-            base = "ou=example,dc=com"
-            userDn = "uid=someuser,ou=example,dc=com"
-            password = "password" 
-            searchControls { 
-                countLimit = 40 
-                timeLimit = 600 
-                searchScope = "subtree" 
-            }
-        }
-        alfresco {
-            urls = [ 
-                "ldap://s1.example2.com",
-                "ldap://s2.example2.com",
-            ]
-            base = "ou=example2,dc=com"
-        }
-    }
-
-    schemas = [ 
-        my.app.MyGldapoSchemaClass1,
-        my.app.MyGldapoSchemaClass2 
-    ]
-
-    typemappings = [
-        my.app.MyTypeMappings
-    ]
-}
-*/
+// grails.plugin.springsecurity.providerNames = ['ldapAuthProvider','anonymousAuthenticationProvider','rememberMeAuthenticationProvider']
+grails.plugin.springsecurity.ldap.context.server = 'ldap://test.kumulus.sg:389'
+grails.plugin.springsecurity.ldap.context.managerDn = 'cn=admin,dc=aethon,dc=sg'
+grails.plugin.springsecurity.ldap.context.managerPassword = 'Ke$haIsGreat666'
+grails.plugin.springsecurity.ldap.search.base = 'dc=aethon,dc=sg'
+grails.plugin.springsecurity.ldap.user.base = 'ou=people'
+grails.plugin.springsecurity.ldap.authorities.groupSearchBase = 'ou=people,dc=aethon,dc=sg'
+// grails.plugin.springsecurity.ldap.context.managerDn = 'uid=admin,ou=system'
+// grails.plugin.springsecurity.password.algorithm = 'SHA-256'
+// grails.plugin.springsecurity.ldap.authorities.retrieveGroupRoles = true 
+// grails.plugin.springsecurity.ldap.authorities.retrieveDatabaseRoles = false
