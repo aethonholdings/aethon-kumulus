@@ -5,13 +5,13 @@ class HomeController {
     def springSecurityService
     
     def index() { 
-        def auth = springSecurityService.authentication
+        def auth = springSecurityService.getAuthentication()
+
         // def user = springSecurityService.currentUser
         // def tasks = Task.findByOwnerAndStatus(user, "PENDING")
-        render auth
-        // user.authorities.each({
-        //         render it
-        // })
+        render "Username: " + auth.getPrincipal().getUsername()
+        render "<br>Authorities: " + auth.getPrincipal().getAuthorities()
+
         // render view:"index", layout:"main", model:[user: user, tasks: tasks]
 
     }
