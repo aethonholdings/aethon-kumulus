@@ -21,7 +21,7 @@ grails.project.fork = [
     console: [maxMemory: 768, minMemory: 64, debug: false, maxPerm: 256]
 ]
 
-grails.project.dependency.resolver = "maven" // or ivy
+// grails.project.dependency.resolver = "maven" // or ivy
 grails.project.dependency.resolution = {
     // inherit Grails' default dependencies
     inherits("global") {
@@ -37,12 +37,12 @@ grails.project.dependency.resolution = {
 
         grailsPlugins()
         grailsHome()
-        mavenLocal()
+        // mavenLocal()
         grailsCentral()
-        mavenCentral()
+        // mavenCentral()
         // uncomment these (or add new ones) to enable remote dependency resolution from public Maven repositories
-        mavenRepo "https://maven.alfresco.com/nexus/content/groups/public/" // activiti
-        mavenRepo "http://repo.spring.io/milestone/"                        // Spring Security
+        // mavenRepo "https://maven.alfresco.com/nexus/content/groups/public/" // activiti
+        // mavenRepo "http://repo.spring.io/milestone/"                        // Spring Security
         //mavenRepo "http://repository.codehaus.org"
         //mavenRepo "http://download.java.net/maven/2/"
         //mavenRepo "http://repository.jboss.com/maven2/"
