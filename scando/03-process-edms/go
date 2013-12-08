@@ -1,3 +1,0 @@
-export PYTHONPATH=/usr/share/mayan/src/python-magic/:/usr/share/mayan/lib/python2.7/site-packages/:/usr/share/mayan/src/django-mptt/
-export MAGICK_TMPDIR=/mnt
-./process.py
