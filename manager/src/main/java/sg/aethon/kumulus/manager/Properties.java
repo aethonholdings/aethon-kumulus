@@ -63,8 +63,8 @@ public class Properties
         db_url = ini.get("Kumulus", "kum_db_url", String.class);
         fs_root = ini.get("Kumulus", "kum_fs_root", String.class);
 
-        eph_db_user = ini.get("Ephesoft", "eph_db_user", String.class);
-        eph_db_pass = ini.get("Ephesoft", "eph_db_pass", String.class);
+        eph_db_user = ini.get("Ephesoft", "eph_db_username", String.class);
+        eph_db_pass = ini.get("Ephesoft", "eph_db_password", String.class);
         eph_db_url = ini.get("Ephesoft", "eph_db_url", String.class);
         eph_ssh_host = ini.get("Ephesoft", "eph_ssh_host", String.class);
         eph_ssh_port = ini.get("Ephesoft", "eph_ssh_port", Integer.class);

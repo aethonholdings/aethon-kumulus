@@ -9,7 +9,6 @@ package sg.aethon.kumulus.manager.tasks;
 import com.jcraft.jsch.ChannelSftp;
 import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.Session;
-import com.jcraft.jsch.UserInfo;
 import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -30,6 +29,12 @@ public class UploadTask implements Task
 {
     private final Log log = LogFactory.getLog(UploadTask.class);
 
+    @Override
+    public int getPeriod(Properties p)
+    {
+        return 30;
+    }
+    
     @Override
     public void execute(Properties p)
             throws Exception
@@ -206,37 +211,11 @@ public class UploadTask implements Task
     public Session getSSH(final Properties p)
             throws Exception
     {
-        UserInfo ui = new UserInfo() {
-            @Override
-            public String getPassphrase() {
-                throw new UnsupportedOperationException("Not supported yet.");
-            }
-            @Override
-            public String getPassword() {
-                return p.eph_ssh_pass;
-            }
-            @Override
-            public boolean promptPassword(String string) {
-                throw new UnsupportedOperationException("Not supported yet.");
-            }
-            @Override
-            public boolean promptPassphrase(String string) {
-                throw new UnsupportedOperationException("Not supported yet.");
-            }
-            @Override
-            public boolean promptYesNo(String string) {
-                return true;
-            }
-            @Override
-            public void showMessage(String string) {
-                throw new UnsupportedOperationException("Not supported yet.");
-            }
-        };
         JSch.setConfig("StrictHostKeyChecking", "yes");
         JSch jsch = new JSch();
         jsch.setKnownHosts(p.known_hosts);
         Session session = jsch.getSession(p.eph_ssh_user, p.eph_ssh_host, p.eph_ssh_port);
-        session.setUserInfo(ui);
+        session.setPassword(p.eph_ssh_pass);
         session.connect(10000);
         return session;
     }
