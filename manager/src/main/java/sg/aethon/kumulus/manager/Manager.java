@@ -44,7 +44,6 @@ class Executor implements Runnable
        {
            try
            {
-             log.info("Service Executing " + new java.util.Date());
              task.execute(properties);
            }
            catch (Exception e)

@@ -85,11 +85,11 @@ public class Utilities {
             throws Exception
     {
         java.util.Properties props = new java.util.Properties();
-    	props.put("mail.transport.protocol", "smtp");
-    	props.put("mail.smtp.port", p.smtp_port);
-    	props.put("mail.smtp.auth", "true");
-    	props.put("mail.smtp.starttls.enable", "true");
-    	props.put("mail.smtp.starttls.required", "true");
+        props.put("mail.transport.protocol", "smtp");
+        props.put("mail.smtp.port", p.smtp_port);
+        props.put("mail.smtp.auth", "true");
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.starttls.required", "true");
 
         final javax.mail.Session session = javax.mail.Session.getInstance(props);
         MimeMessage message = new MimeMessage(session);

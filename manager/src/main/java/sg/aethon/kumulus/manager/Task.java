@@ -14,6 +14,7 @@ package sg.aethon.kumulus.manager;
 public interface Task
 {
    int getPeriod(Properties p);
+   
    void execute(Properties p)
            throws Exception;
 }
