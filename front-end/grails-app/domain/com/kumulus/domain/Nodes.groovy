@@ -11,7 +11,7 @@ class Nodes {
 	String hierarchy
 	String thumbnailImageName
 	String actualImageName
-	String creatorId
+	String creatorLDAPUid
 	Date createDatetime
 	Date lastUpdateDatetime
 	Integer documentSequenceNumber
@@ -35,7 +35,7 @@ class Nodes {
 		hierarchy nullable: true, maxSize: 200
 		thumbnailImageName nullable: true, maxSize: 1000
 		actualImageName nullable: true, maxSize: 1000
-		creatorId nullable: true, maxSize: 45
+		creatorLDAPUid nullable: true, maxSize: 45
 		createDatetime nullable: true
 		lastUpdateDatetime nullable: true
 		documentSequenceNumber nullable: true

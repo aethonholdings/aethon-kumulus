@@ -9,7 +9,7 @@ class BootStrap {
             def project = new Project(
                 projectName: 'test project',
                 status: '001',
-                // client: Company.findByName('Jee Ah Chian Co')
+                clientLDAPId: 'Kumulus Pte Ltd'
             )
             if(!project.save()) project.errors.allErrors.each { error -> println "${error}" }
         }
@@ -32,6 +32,7 @@ class BootStrap {
                 comment: 'no comment',
                 barcode: 'AE18101978',
                 type: 'CONTAINER', 
+                creatorLDAPUid: 'kumulus', 
                 createDateTime: new Date(),
                 lastUpdateDatetime: new Date(),
                 parent: rootNode, 
@@ -43,6 +44,7 @@ class BootStrap {
                 comment: 'no comment',
                 barcode: 'AE26051979',
                 type: 'CONTAINER', 
+                creatorLDAPUid: 'kumulus', 
                 createDateTime: new Date(),
                 lastUpdateDatetime: new Date(),
                 parent: rootNode, 
@@ -53,6 +55,7 @@ class BootStrap {
                 name: 'Document 1',
                 comment: 'no comment',
                 type: 'DOCUMENT', 
+                creatorLDAPUid: 'kumulus', 
                 createDateTime: new Date(),
                 lastUpdateDatetime: new Date(),
                 parent: containerNode, 
@@ -63,6 +66,7 @@ class BootStrap {
                 name: 'Document 2',
                 comment: 'no comment',
                 type: 'DOCUMENT', 
+                creatorLDAPUid: 'kumulus', 
                 createDateTime: new Date(),
                 lastUpdateDatetime: new Date(),
                 parent: containerNode, 
@@ -73,6 +77,7 @@ class BootStrap {
                 name: 'Document 3',
                 comment: 'no comment',
                 type: 'DOCUMENT', 
+                creatorLDAPUid: 'kumulus', 
                 createDateTime: new Date(),
                 lastUpdateDatetime: new Date(),
                 parent: containerNode, 
@@ -81,27 +86,27 @@ class BootStrap {
             
         }
         
-//        // create a task assigned to the test user
-//        if(!Task.findByOwner(User.findByUsername('test'))) {
-//            def task = new Task (
-//                owner: User.findByUsername('test'),
-//                type: 'TASK_VALIDATION',
-//                created: new Date(), 
-//                status: 'PENDING'
-//            )
-//            task.addToNodes(Nodes.findByName('Document 1'))
-//            task.addToNodes(Nodes.findByName('Document 2'))
-//            if(!task.save()) task.errors.allErrors.each { error -> println "${error}" }
-//            
-//            task = new Task (
-//                owner: User.findByUsername('test'),
-//                type: 'TASK_CLASSIFICATION',
-//                created: new Date(), 
-//                status: 'PENDING'
-//            )
-//            task.addToNodes(Nodes.findByName('Document 3'))
-//            if(!task.save()) task.errors.allErrors.each { error -> println "${error}" }
-//        }
+        // create a task assigned to the test user
+        if(!Task.findByOwnerLDAPUid('kumulus')) {
+            def task = new Task (
+                ownerLDAPUid: 'kumulus',
+                type: 'TASK_VALIDATE',
+                created: new Date(), 
+                status: 'PENDING'
+            )
+            task.addToNodes(Nodes.findByName('Document 1'))
+            task.addToNodes(Nodes.findByName('Document 2'))
+            if(!task.save()) task.errors.allErrors.each { error -> println "${error}" }
+            
+            task = new Task (
+                ownerLDAPUid: 'kumulus',
+                type: 'TASK_CLASSIFY',
+                created: new Date(), 
+                status: 'PENDING'
+            )
+            task.addToNodes(Nodes.findByName('Document 3'))
+            if(!task.save()) task.errors.allErrors.each { error -> println "${error}" }
+        }
         
     }
 

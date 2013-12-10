@@ -21,8 +21,8 @@ environments {
     }
     test {
         dataSource {
-            dbCreate = "update"
-            url = "jdbc:h2:mem:testDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE"
+            dbCreate = "create-drop"
+            url = "jdbc:mysql://kumulus.cokd1jwuhqlu.ap-southeast-1.rds.amazonaws.com/kumulus?autoreconnect=true"
         }
     }
     production {
