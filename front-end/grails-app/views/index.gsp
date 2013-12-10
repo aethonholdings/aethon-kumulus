@@ -105,7 +105,7 @@
 		<div id="page-body" role="main">
 			<h1>Welcome to Kumulus</h1>
 			<p>This is the prototype home page, used to test functionality</p>
-                        <p><g:link controller="login">Login</g:link> to Kumulus</p>
+                        <p><g:link controller="login" style="color:blue">Login</g:link> to Kumulus</p>
 		</div>
 	</body>
 </html>

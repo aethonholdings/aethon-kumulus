@@ -25,7 +25,7 @@
         <div class="logo">
 
         </div>
-        <div class="sessionManagement" style="color:white">
+        <div class="sessionManagement">
             Welcome
             <sec:loggedInUserInfo field="username"/> |
             <g:link controller="#" action="#">Manage User</g:link>|
@@ -37,30 +37,20 @@
 <div class='main'>
     <div class='leftContentDiv'>
 
-        <div class='menu' style="margin-top: 5px">
-            <span class="actionButton" onclick="myHome()" >MY HOME</span>
+        <div class='menu'>
+            <button class="actionButton" onclick="captureDocument()">CAPTURE DOCUMENTS</button>
         </div>
         <div class='menu'>
-            <span class="actionButton" onclick="captureDocument()">CAPTURE DOCUMENTS</span>
+            <button class="actionButton" onclick="validateDocument()">VALIDATE DOCUMENTS</button>
         </div>
         <div class='menu'>
-            <span class="actionButton" onclick="validateDocument()">VALIDATE DOCUMENTS</span>
+            <button class="actionButton" onclick="searchDocument()">SEARCH FOR DOCUMENTS</button>
         </div>
         <div class='menu'>
-            <span class="actionButton" onclick="searchDocument()">SEARCH DOCUMENTS</span>
-        </div>
-        <div class='menu'>
-            <span class="actionButton" onclick="downloadDocument()">DOWNLOAD LEDGER </span>
+            <button class="actionButton" onclick="downloadDocument()">DOWNLOAD LEDGER </button>
         </div>
     </div>
     <div class="rightContentDiv">
-        <div class='myHomeDiv' id='myHomeDiv'>
-            <div id="states">
-                <g:render template="myHomeContent"
-                          model="[user: user, tasks:tasks]"
-                         />
-            </div>
-        </div>
         <div class='captureDocumentDiv' id='captureDocumentDiv'>
             <div>
                 content for capture document...
