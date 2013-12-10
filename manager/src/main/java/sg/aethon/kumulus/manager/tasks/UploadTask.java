@@ -9,7 +9,6 @@ package sg.aethon.kumulus.manager.tasks;
 import com.jcraft.jsch.ChannelSftp;
 import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.Session;
-import com.jcraft.jsch.UserInfo;
 import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -30,6 +29,12 @@ public class UploadTask implements Task
 {
     private final Log log = LogFactory.getLog(UploadTask.class);
 
+    @Override
+    public int getPeriod(Properties p)
+    {
+        return 30;
+    }
+    
     @Override
     public void execute(Properties p)
             throws Exception
@@ -79,15 +84,16 @@ public class UploadTask implements Task
                     createDirectories(sftp, dest_path, pdirs);
                     /* upload documents */
                     List<Map<String, Object>> docs = 
-                        conn.queryForList("select hierarchy, node_id, name, comment from nodes where status=2 and type='D' "+
-                                          "and uploaded=False and project_id=?", new Object[]{project_id});
+                        conn.queryForList("select hierarchy, node_id, name, comment from nodes "+
+                                          "where status=2 and type='D' and uploaded=False "+
+                                          "and project_id=?", new Object[]{project_id});
                     for (Map<String, Object> doc: docs)
                     {
-                        String hierarchy = doc.get("hierarchy").toString();
-                        String path = hierarchy.substring(1, hierarchy.length()-1).replaceAll(", ", "/");
+                        String hier = doc.get("hierarchy").toString();
+                        String path = hier.substring(1, hier.length()-1).replaceAll(", ", "/");
                         Integer node_id = Integer.valueOf(Integer.parseInt(doc.get("node_id").toString()));
-                        uploadDocument(sftp, conn, p.fs_root, dest_path+"/"+path, node_id, doc.get("name").toString(),
-                                       doc.get("comment").toString());
+                        uploadDocument(sftp, conn, p.fs_root, dest_path+"/"+path, node_id,
+                                       doc.get("name").toString(), doc.get("comment").toString());
                     }
                 }
                 finally
@@ -174,7 +180,8 @@ public class UploadTask implements Task
             throws Exception
     {
         List<Map<String, Object>> filenames =
-                conn.queryForList("select actual_image_name, node_id, uploaded from nodes where parent_node_id=? "+
+                conn.queryForList("select actual_image_name, node_id, uploaded from nodes "+
+                                  "where parent_node_id=? "+
                                   "order by document_sequence_number", new Object[]{doc_node_id});
         int i = 1;
         for (Map<String, Object> map: filenames)
@@ -187,14 +194,13 @@ public class UploadTask implements Task
                 int page_node_id = (int) map.get("node_id");
                 log.info(fsroot+filename+" --> "+sftp_path+"/."+i);
                 sftp.put(fsroot+filename, sftp_path+"/."+i, ChannelSftp.OVERWRITE);
-                conn.update("update nodes set last_update_datetime=now(), last_update_id=null, uploaded=True where node_id=?",
-                            new Object[]{page_node_id});
+                conn.update("update nodes set last_update_datetime=now(), last_update_id=null, "+
+                            "uploaded=True where node_id=?", new Object[]{page_node_id});
             }
             i++;
         }
-        /* put an empty file to signify end of upload */
-        conn.update("update nodes set last_update_datetime=now(), last_update_id=null, uploaded=True where node_id=?",
-                    new Object[]{doc_node_id});
+        conn.update("update nodes set last_update_datetime=now(), last_update_id=null, "+
+                    "uploaded=True where node_id=?", new Object[]{doc_node_id});
     }
     
     public void uploadFileFromString(ChannelSftp sftp, String path, String data, String name)
@@ -206,37 +212,11 @@ public class UploadTask implements Task
     public Session getSSH(final Properties p)
             throws Exception
     {
-        UserInfo ui = new UserInfo() {
-            @Override
-            public String getPassphrase() {
-                throw new UnsupportedOperationException("Not supported yet.");
-            }
-            @Override
-            public String getPassword() {
-                return p.eph_ssh_pass;
-            }
-            @Override
-            public boolean promptPassword(String string) {
-                throw new UnsupportedOperationException("Not supported yet.");
-            }
-            @Override
-            public boolean promptPassphrase(String string) {
-                throw new UnsupportedOperationException("Not supported yet.");
-            }
-            @Override
-            public boolean promptYesNo(String string) {
-                return true;
-            }
-            @Override
-            public void showMessage(String string) {
-                throw new UnsupportedOperationException("Not supported yet.");
-            }
-        };
         JSch.setConfig("StrictHostKeyChecking", "yes");
         JSch jsch = new JSch();
         jsch.setKnownHosts(p.known_hosts);
         Session session = jsch.getSession(p.eph_ssh_user, p.eph_ssh_host, p.eph_ssh_port);
-        session.setUserInfo(ui);
+        session.setPassword(p.eph_ssh_pass);
         session.connect(10000);
         return session;
     }

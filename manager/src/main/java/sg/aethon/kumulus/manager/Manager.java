@@ -1,8 +1,11 @@
 package sg.aethon.kumulus.manager;
 
+import java.util.ArrayList;
+import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import sg.aethon.kumulus.manager.tasks.UploadTask;
+import sg.aethon.kumulus.manager.tasks.ValidationTask;
 
 public class Manager 
 {
@@ -10,7 +13,13 @@ public class Manager
             throws Exception
     {
         Properties p = new Properties();
-        new Thread(new Executor(p, new UploadTask())).start();
+        List<Task> tasks = new ArrayList<>();
+        tasks.add(new UploadTask());
+        tasks.add(new ValidationTask());
+        for (Task task: tasks)
+        {
+            new Thread(new Executor(p, task)).start();
+        }
     }
 }
 
@@ -35,7 +44,6 @@ class Executor implements Runnable
        {
            try
            {
-             log.info("Service Executing " + new java.util.Date());
              task.execute(properties);
            }
            catch (Exception e)
@@ -47,7 +55,7 @@ class Executor implements Runnable
            {
               synchronized(this)
               {
-                 try { this.wait(30000); }
+                 try { this.wait(task.getPeriod(properties)*1000); }
                  catch(InterruptedException ie) { }
               }
            }
