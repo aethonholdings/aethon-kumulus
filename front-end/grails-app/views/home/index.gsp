@@ -17,10 +17,10 @@
               <td>${it.id}</td>
               <td>${it.created.format("d/M/YYYY - HH:mm:ss")}</td>
               <td>
-                <g:if test="${it.type=='TASK_VALIDATION'}">Validate</g:if>
-                <g:if test="${it.type=='TASK_CLASSIFICATION'}">Classify</g:if>
+                <g:if test="${it.type=='TASK_VALIDATE'}">Validate</g:if>
+                <g:if test="${it.type=='TASK_CLASSIFY'}">Classify</g:if>
               </td>
-              <td><g:link controller="extraction" action="validate">To do</g:link></td>
+              <td><g:link controller="home" action="validate">To do</g:link></td>
             </tr>
           </g:each>
         </table>

@@ -39,12 +39,12 @@ grails.project.dependency.resolution = {
         grailsCentral()
         
         // mavenLocal()
-        // mavenCentral()
+        mavenCentral()
         
         // uncomment these (or add new ones) to enable remote dependency resolution from public Maven repositories
         // mavenRepo "https://maven.alfresco.com/nexus/content/groups/public/" // activiti
         // mavenRepo "http://repo.spring.io/milestone/"                        // Spring Security
-        // mavenRepo "http://repository.codehaus.org"
+        mavenRepo "http://repository.codehaus.org"
         // mavenRepo "http://download.java.net/maven/2/"
         // mavenRepo "http://repository.jboss.com/maven2/"
     }
@@ -63,6 +63,8 @@ grails.project.dependency.resolution = {
         compile ':cache:1.1.1'
         compile ":spring-security-core:2.0-RC2"
         compile ":spring-security-ldap:2.0-RC2"
+        compile ":rest:0.8"
+        // compile ":gorm-rest-client:1.0.0.M1"
         // compile ":activiti:5.12.1"
         // compile ':db-reverse-engineer:0.5'
 
