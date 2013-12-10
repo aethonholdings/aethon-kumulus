@@ -126,21 +126,19 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/**/favicon.ico':                  ['permitAll'],
 ]
 
-//// LDAP configuration
+// LDAP configuration
 grails.plugin.springsecurity.providerNames = ['ldapAuthProvider','rememberMeAuthenticationProvider']
 grails.plugin.springsecurity.ldap.context.server = 'ldap://test.kumulus.sg:389'
 
-//// manager
+// manager
 grails.plugin.springsecurity.ldap.context.managerDn = 'cn=admin,dc=aethon,dc=sg'
 grails.plugin.springsecurity.ldap.context.managerPassword = 'Ke$haIsGreat666'
 
-//// search
+// search
 grails.plugin.springsecurity.ldap.user.base = 'ou=people,dc=aethon,dc=sg'
 grails.plugin.springsecurity.ldap.search.base = 'dc=aethon,dc=sg'
 grails.plugin.springsecurity.ldap.search.searchSubtree = true
 
-//// authorities
+// authorities
+grails.plugin.springsecurity.ldap.authorities.groupRoleAttribute = 'cn'
 grails.plugin.springsecurity.ldap.authorities.groupSearchBase = 'ou=groups,dc=aethon,dc=sg'
-grails.plugin.springsecurity.ldap.authorities.groupSearchFilter = 'member={0}'
-grails.plugin.springsecurity.ldap.authorities.retrieveGroupRoles = true 
-grails.plugin.springsecurity.ldap.authorities.retrieveDatabaseRoles = false
