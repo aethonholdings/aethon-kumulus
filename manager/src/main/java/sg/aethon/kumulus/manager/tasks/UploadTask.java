@@ -39,24 +39,20 @@ public class UploadTask implements Task
     public void execute(Properties p)
             throws Exception
     {
-        JdbcTemplate conn = getConnection(p);
+        JdbcTemplate conn = Utilities.getKumulusConnection(p);
         /* iterate per project */
-        List<Map<String, Object>> projects = 
-                conn.queryForList("select project_id, project_name from project where status='A'");
-        for (Map<String, Object> project : projects)
+        List<Map<String, Object>> tasks = 
+                conn.queryForList("select task.id, task.project_id, project_name "+
+                                  "from task inner join project "+
+                                  "on task.project_id=project.project_id "+
+                                  "where status='?'", new Object[]{Status.READY_FOR_UPLOAD.code});
+        for (Map<String, Object> task : tasks)
         {
-            final String project_name = (String) project.get("project_name");
+            final Integer task_id = Integer.valueOf(Integer.parseInt(task.get("task_id").toString()));
+            final Integer project_id = Integer.valueOf(Integer.parseInt(task.get("project_id").toString()));
+            final String project_name = (String) task.get("project_name");
             log.info("Working on project "+project_name);
             Properties.PerProjectProperties p3 = p.get(project_name);
-            if (p3 == null)
-            {
-                log.info("Not configuration for that project, ignoring...");
-                continue;
-            }
-            else
-            {
-                log.info("Configuration found, processing...");
-            }
             Session ssh = getSSH(p);
             try
             {
@@ -64,11 +60,6 @@ public class UploadTask implements Task
                 sftp.connect();
                 try
                 {
-                    Integer project_id = Integer.valueOf(Integer.parseInt(project.get("project_id").toString()));
-                    /* mark our territory */
-                    conn.update("update nodes set last_update_datetime=now(), last_update_id=null, status=2 "+
-                                "where status=1 and project_id=?",
-                                new Object[]{project_id});
                     /* create remote directories */
                     List<String> dirs = 
                         conn.queryForList("select distinct hierarchy from nodes where status=2 and type='D' "+
@@ -80,7 +71,7 @@ public class UploadTask implements Task
                         dir = dir.substring(1, dir.length()-1).replaceAll(", ", "/");
                         pdirs.add(dir);
                     }
-                    String dest_path = p.get(project_name).eph_ssh_path;
+                    String dest_path = p3.stage_path;
                     createDirectories(sftp, dest_path, pdirs);
                     /* upload documents */
                     List<Map<String, Object>> docs = 
@@ -105,6 +96,7 @@ public class UploadTask implements Task
             {
                 ssh.disconnect();
             }
+            conn.update("update tasks set status=? where id=?", Status.READY_FOR_BATCH_INSTANCE, task_id);
         }
     }
     
@@ -217,13 +209,8 @@ public class UploadTask implements Task
         jsch.setKnownHosts(p.known_hosts);
         Session session = jsch.getSession(p.eph_ssh_user, p.eph_ssh_host, p.eph_ssh_port);
         session.setPassword(p.eph_ssh_pass);
-        session.connect(10000);
+        session.connect(p.ssh_timeout);
         return session;
-    }
-
-    public JdbcTemplate getConnection(Properties p)
-    {
-        return Utilities.getConnection(p.db_username, p.db_password, p.db_url);
     }
 
 }

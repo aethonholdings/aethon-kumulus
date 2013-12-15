@@ -33,7 +33,7 @@ public class ValidationTask implements Task
     public void execute(Properties p)
             throws Exception
     {
-        JdbcTemplate conn = getConnection(p);
+        JdbcTemplate conn = Utilities.getKumulusConnection(p);
         try (Transaction trans = Utilities.createTransaction(p, conn))
         {
             List<String> list = conn.queryForList("select batch_name from batch_instance", String.class);
@@ -43,11 +43,7 @@ public class ValidationTask implements Task
             }
             trans.success();
         }
-        Utilities.sendEmail(p, p.smtp_from, Utilities.getDate(p).toString(), "Email was sent!");
+        Utilities.sendEmail(p, p.smtp_from, Utilities.now(p).toString(), "Email was sent!");
     }
 
-    public JdbcTemplate getConnection(Properties p)
-    {
-        return Utilities.getConnection(p.eph_db_user, p.eph_db_pass, p.eph_db_url);
-    }
 }

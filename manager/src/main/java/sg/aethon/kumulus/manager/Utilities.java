@@ -65,7 +65,7 @@ public class Utilities {
     
     private static final Map<CacheKey, DriverManagerDataSource> dscache = new HashMap();
 
-    public static JdbcTemplate getConnection(String username, String password, String url)
+    private static JdbcTemplate getConnection(String username, String password, String url)
     {
         DriverManagerDataSource ds;
         CacheKey key = new CacheKey(username, password, url);
@@ -84,6 +84,16 @@ public class Utilities {
             }
         }
         return new JdbcTemplate(ds);
+    }
+
+    public static JdbcTemplate getEphesoftConnection(Properties p)
+    {
+        return Utilities.getConnection(p.eph_db_user, p.eph_db_pass, p.eph_db_url);
+    }
+
+    public static JdbcTemplate getKumulusConnection(Properties p)
+    {
+        return Utilities.getConnection(p.db_username, p.db_password, p.db_url);
     }
 
     public static class Transaction implements AutoCloseable
@@ -167,9 +177,9 @@ public class Utilities {
      * @param p
      * @return
      */
-    public static Timestamp getDate(Properties p)
+    public static Timestamp now(Properties p)
     {
-        JdbcTemplate conn = Utilities.getConnection(p.eph_db_user, p.eph_db_pass, p.eph_db_url);
+        JdbcTemplate conn = Utilities.getEphesoftConnection(p);
         String time = conn.queryForObject("select now()", String.class);
         return Timestamp.valueOf(time);
     }

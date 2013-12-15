@@ -21,6 +21,7 @@ public class Properties
     final public String known_hosts;
     final public int db_timeout;
     final public int task_period;
+    final public int ssh_timeout;
 
     final public String db_username;
     final public String db_password;
@@ -42,11 +43,13 @@ public class Properties
 
     public class PerProjectProperties
     {
-        final public String eph_ssh_path;
+        final public String eph_path;
+        final public String stage_path;
 
-        public PerProjectProperties(String dest_path)
+        public PerProjectProperties(String dest_path, String stage_path)
         {
-            this.eph_ssh_path = dest_path;
+            this.eph_path = dest_path;
+            this.stage_path = stage_path;
         }
     }
     
@@ -75,6 +78,7 @@ public class Properties
         known_hosts = ini.get("Global", "known_hosts", String.class);
         db_timeout = ini.get("Global", "db_timeout", Integer.class);
         task_period = ini.get("Global", "task_period", Integer.class);
+        ssh_timeout = ini.get("Global", "ssh_timeout", Integer.class);
 
         db_username = ini.get("Kumulus", "kum_db_username", String.class);
         db_password = ini.get("Kumulus", "kum_db_password", String.class);
@@ -101,7 +105,8 @@ public class Properties
             if (sname.startsWith(":") && sname.length()>1)
             {
                 PerProjectProperties p3 = 
-                        new PerProjectProperties(section.get("eph_ssh_path", String.class));
+                        new PerProjectProperties(section.get("eph_path", String.class),
+                                                 section.get("stage_path", String.class));
                 proj.put(section.getName().substring(1), p3);
             }
         }

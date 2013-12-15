@@ -4,8 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import sg.aethon.kumulus.manager.tasks.UploadTask;
-import sg.aethon.kumulus.manager.tasks.ValidationTask;
+import sg.aethon.kumulus.manager.tasks.*;
 
 public class Manager 
 {
@@ -14,7 +13,10 @@ public class Manager
     {
         Properties p = new Properties();
         List<Task> tasks = new ArrayList<>();
+        tasks.add(new CreateNewTask());
         tasks.add(new UploadTask());
+        tasks.add(new BatchInstanceTask());
+        tasks.add(new ReviewTask());
         tasks.add(new ValidationTask());
         for (Task task: tasks)
         {
