@@ -6,6 +6,7 @@
 
 package sg.aethon.kumulus.manager;
 
+import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Objects;
@@ -108,6 +109,19 @@ public class Utilities {
         {
             transport.close();
         }
+    }
+
+    /**
+     * Method to get the current timestamp: the whole idea is that we select
+     * the Ephesoft database to be the definitive one.
+     * @param p
+     * @return
+     */
+    public static Timestamp getDate(Properties p)
+    {
+        JdbcTemplate conn = Utilities.getConnection(p.eph_db_user, p.eph_db_pass, p.eph_db_url);
+        String time = conn.queryForObject("select now()", String.class);
+        return Timestamp.valueOf(time);
     }
 
 }

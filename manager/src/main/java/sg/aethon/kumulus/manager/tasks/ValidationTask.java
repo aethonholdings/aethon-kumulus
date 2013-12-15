@@ -38,7 +38,7 @@ public class ValidationTask implements Task
         {
             log.info(item);
         }
-        Utilities.sendEmail(p, p.smtp_from, "Success!", "Email was sent!");
+        Utilities.sendEmail(p, p.smtp_from, Utilities.getDate(p).toString(), "Email was sent!");
     }
 
     public JdbcTemplate getConnection(Properties p)

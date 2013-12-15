@@ -9,6 +9,9 @@ import java.util.HashMap;
 import java.util.Map;
 import org.ini4j.Profile.Section;
 import org.ini4j.Wini;
+import org.ini4j.spi.BeanTool;
+
+class MandatoryPropertyNotSet extends RuntimeException { }
 
 /**
  *
@@ -55,7 +58,18 @@ public class Properties
     public Properties() throws Exception
     {
         final String filename = System.getenv().get("KUMULUS_MANAGER_CONFIG");
-        Wini ini = new Wini(new File(filename));
+        Wini ini = new Wini(new File(filename))
+        {
+            @Override
+            public <T> T get(Object sectionName, Object optionName, Class<T> clazz)
+            {
+                T result = super.get(sectionName, optionName, clazz);
+                if (!"".equals(result))
+                    return result;
+                else
+                    throw new MandatoryPropertyNotSet();
+            }
+        };
         known_hosts = ini.get("Global", "known_hosts", String.class);
 
         db_username = ini.get("Kumulus", "kum_db_username", String.class);
