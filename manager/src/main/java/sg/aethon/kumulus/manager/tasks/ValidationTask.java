@@ -13,6 +13,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import sg.aethon.kumulus.manager.Properties;
 import sg.aethon.kumulus.manager.Task;
 import sg.aethon.kumulus.manager.Utilities;
+import sg.aethon.kumulus.manager.Utilities.Transaction;
 
 /**
  *
@@ -33,10 +34,14 @@ public class ValidationTask implements Task
             throws Exception
     {
         JdbcTemplate conn = getConnection(p);
-        List<String> list = conn.queryForList("select batch_name from batch_instance", String.class);
-        for (String item: list)
+        try (Transaction trans = Utilities.createTransaction(p, conn))
         {
-            log.info(item);
+            List<String> list = conn.queryForList("select batch_name from batch_instance", String.class);
+            for (String item: list)
+            {
+                log.info(item);
+            }
+            trans.success();
         }
         Utilities.sendEmail(p, p.smtp_from, Utilities.getDate(p).toString(), "Email was sent!");
     }

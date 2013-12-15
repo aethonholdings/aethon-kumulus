@@ -9,7 +9,6 @@ import java.util.HashMap;
 import java.util.Map;
 import org.ini4j.Profile.Section;
 import org.ini4j.Wini;
-import org.ini4j.spi.BeanTool;
 
 class MandatoryPropertyNotSet extends RuntimeException { }
 

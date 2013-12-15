@@ -15,7 +15,11 @@ import javax.mail.Transport;
 import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
+import org.springframework.transaction.PlatformTransactionManager;
+import org.springframework.transaction.TransactionDefinition;
+import org.springframework.transaction.TransactionStatus;
 
 /**
  *
@@ -80,6 +84,52 @@ public class Utilities {
             }
         }
         return new JdbcTemplate(ds);
+    }
+
+    public static class Transaction implements AutoCloseable
+    {
+        private final PlatformTransactionManager manager;
+        private final TransactionStatus trans;
+        private boolean success = false;
+        Transaction(final Properties p, JdbcTemplate conn, final int isolation)
+        {
+            this.manager = new DataSourceTransactionManager(conn.getDataSource());
+            this.trans = manager.getTransaction(new TransactionDefinition()
+            {
+                @Override
+                public int getPropagationBehavior() { return PROPAGATION_REQUIRED; }
+                @Override
+                public int getIsolationLevel() { return isolation; }
+                @Override
+                public int getTimeout() { return 30; }
+                @Override
+                public boolean isReadOnly() { return false; }
+                @Override
+                public String getName() { return null; }
+            });
+        }
+        @Override
+        public void close()
+        {
+            if (success)
+                manager.commit(trans);
+            else
+                manager.rollback(trans);
+        }
+        public void success()
+        {
+            this.success = true;
+        }
+    }
+
+    public static Transaction createTransaction(Properties p, JdbcTemplate conn)
+    {
+        return new Transaction(p, conn, TransactionDefinition.ISOLATION_READ_COMMITTED);
+    }
+    
+    public static Transaction createSerializableTransaction(Properties p, JdbcTemplate conn)
+    {
+        return new Transaction(p, conn, TransactionDefinition.ISOLATION_SERIALIZABLE);
     }
 
     public static void sendEmail(Properties p, String recipient, String subject, String text)
