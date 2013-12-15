@@ -13,6 +13,7 @@ public class Manager
     {
         Properties p = new Properties();
         List<Task> tasks = new ArrayList<>();
+        tasks.add(new SynchronizeTask());
         tasks.add(new CreateNewTask());
         tasks.add(new UploadTask());
         tasks.add(new BatchInstanceTask());

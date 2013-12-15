@@ -6,24 +6,15 @@
 
 package sg.aethon.kumulus.manager.tasks;
 
-import sg.aethon.kumulus.manager.Properties;
-import sg.aethon.kumulus.manager.Task;
-
 /**
  *
  * @author theo
  */
-public class ReviewTask  implements Task
+public class ReviewTask extends NotificationTask
 {
-
-    @Override
-    public int getPeriod(Properties p) {
-        return p.task_period;
-    }
-
-    @Override
-    public void execute(Properties p) throws Exception {
-        
+    public ReviewTask()
+    {
+        super(Status.READY_FOR_REVIEW, "Pending review work");
     }
     
 }

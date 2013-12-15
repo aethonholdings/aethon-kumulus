@@ -6,44 +6,14 @@
 
 package sg.aethon.kumulus.manager.tasks;
 
-import java.util.List;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
-import org.springframework.jdbc.core.JdbcTemplate;
-import sg.aethon.kumulus.manager.Properties;
-import sg.aethon.kumulus.manager.Task;
-import sg.aethon.kumulus.manager.Utilities;
-import sg.aethon.kumulus.manager.Utilities.Transaction;
-
 /**
  *
  * @author theo
  */
-public class ValidationTask implements Task
+public class ValidationTask extends NotificationTask
 {
-    private final Log log = LogFactory.getLog(ValidationTask.class);
-
-    @Override
-    public int getPeriod(Properties p)
+    public ValidationTask()
     {
-        return p.task_period;
+        super(Status.READY_FOR_VALIDATION, "Pending validation work");
     }
-
-    @Override
-    public void execute(Properties p)
-            throws Exception
-    {
-        JdbcTemplate conn = Utilities.getKumulusConnection(p);
-        try (Transaction trans = Utilities.createTransaction(p, conn))
-        {
-            List<String> list = conn.queryForList("select batch_name from batch_instance", String.class);
-            for (String item: list)
-            {
-                log.info(item);
-            }
-            trans.success();
-        }
-        Utilities.sendEmail(p, p.smtp_from, Utilities.now(p).toString(), "Email was sent!");
-    }
-
 }

@@ -51,7 +51,7 @@ public class UploadTask implements Task
             final Integer task_id = Integer.valueOf(Integer.parseInt(task.get("task_id").toString()));
             final Integer project_id = Integer.valueOf(Integer.parseInt(task.get("project_id").toString()));
             final String project_name = (String) task.get("project_name");
-            log.info("Working on project "+project_name);
+            log.info("Working on task "+task_id);
             Properties.PerProjectProperties p3 = p.get(project_name);
             Session ssh = getSSH(p);
             try
