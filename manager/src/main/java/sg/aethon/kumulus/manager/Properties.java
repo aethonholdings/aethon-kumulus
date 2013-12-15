@@ -18,11 +18,14 @@ class MandatoryPropertyNotSet extends RuntimeException { }
  */
 public class Properties
 {
+    final public String known_hosts;
+    final public int db_timeout;
+    final public int task_period;
+
     final public String db_username;
     final public String db_password;
     final public String db_url;
     final public String fs_root;
-    final public String known_hosts;
     final public String smtp_server;
     final public int smtp_port;
     final public String smtp_username;
@@ -70,6 +73,8 @@ public class Properties
             }
         };
         known_hosts = ini.get("Global", "known_hosts", String.class);
+        db_timeout = ini.get("Global", "db_timeout", Integer.class);
+        task_period = ini.get("Global", "task_period", Integer.class);
 
         db_username = ini.get("Kumulus", "kum_db_username", String.class);
         db_password = ini.get("Kumulus", "kum_db_password", String.class);

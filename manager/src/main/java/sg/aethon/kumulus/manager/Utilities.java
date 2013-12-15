@@ -101,7 +101,7 @@ public class Utilities {
                 @Override
                 public int getIsolationLevel() { return isolation; }
                 @Override
-                public int getTimeout() { return 30; }
+                public int getTimeout() { return p.db_timeout; }
                 @Override
                 public boolean isReadOnly() { return false; }
                 @Override

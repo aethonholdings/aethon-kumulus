@@ -32,7 +32,7 @@ public class UploadTask implements Task
     @Override
     public int getPeriod(Properties p)
     {
-        return 30;
+        return p.task_period;
     }
     
     @Override
