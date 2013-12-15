@@ -28,6 +28,6 @@ public interface Task
     
     int getPeriod(Properties p);
    
-   void execute(Properties p)
-           throws Exception;
+    void execute(Properties p) 
+            throws Exception;
 }
