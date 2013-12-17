@@ -39,7 +39,6 @@ public class UploadTask implements Task
             throws Exception
     {
         JdbcTemplate conn = Commons.getKumulusConnection(p);
-        /* iterate per project */
         List<Map<String, Object>> tasks = 
                 conn.queryForList("select task.id, task.project_id, project_name "+
                                   "from task inner join project "+
@@ -70,7 +69,7 @@ public class UploadTask implements Task
                         dir = dir.substring(1, dir.length()-1).replaceAll(", ", "/");
                         pdirs.add(dir);
                     }
-                    String dest_path = p3.stage_path;
+                    String dest_path = p3.stage_path + "/" + task_id;
                     createDirectories(sftp, dest_path, pdirs);
                     /* upload documents */
                     List<Map<String, Object>> docs = 

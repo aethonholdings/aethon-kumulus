@@ -15,12 +15,13 @@ public interface Task
 {
     enum Status
     {
+        ERROR(-1),
         READY_FOR_UPLOAD(1),
         READY_FOR_BATCH_INSTANCE(2),
-        READY_FOR_REVIEW(3),
-        READY_FOR_VALIDATION(4),
-        FINISHED(5),
-        ERROR(6);
+        CREATED(3),
+        READY_FOR_REVIEW(4),
+        READY_FOR_VALIDATION(5),
+        FINISHED(6);
         
         public final int code;
         Status(int code) { this.code = code; }
