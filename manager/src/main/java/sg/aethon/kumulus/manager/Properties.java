@@ -22,6 +22,7 @@ public class Properties
     final public int db_timeout;
     final public int task_period;
     final public int ssh_timeout;
+    final public String admin_email;
 
     final public String db_username;
     final public String db_password;
@@ -79,6 +80,7 @@ public class Properties
         db_timeout = ini.get("Global", "db_timeout", Integer.class);
         task_period = ini.get("Global", "task_period", Integer.class);
         ssh_timeout = ini.get("Global", "ssh_timeout", Integer.class);
+        admin_email = ini.get("Global", "admin_email", String.class);
 
         db_username = ini.get("Kumulus", "kum_db_username", String.class);
         db_password = ini.get("Kumulus", "kum_db_password", String.class);

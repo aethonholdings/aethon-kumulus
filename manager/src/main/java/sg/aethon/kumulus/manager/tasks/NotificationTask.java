@@ -21,10 +21,16 @@ public abstract class NotificationTask implements Task
 {
     private final Status to_monitor;
     private final String subject;
-    public NotificationTask(Status to_monitor, String subject)
+    private final String body;
+    private final boolean send_to_admin;
+    
+    public NotificationTask(Status to_monitor, String subject, String body,
+                            boolean send_to_admin)
     {
         this.to_monitor = to_monitor;
         this.subject = subject;
+        this.body = body;
+        this.send_to_admin = send_to_admin;
     }
     
     @Override
@@ -52,9 +58,7 @@ public abstract class NotificationTask implements Task
             try (Utilities.Transaction tran = Utilities.createTransaction(p, conn))
             {
                 conn.update("update task set reported=true where task_id=?", new Object[]{task_id});
-                Utilities.sendEmail(p, user_email,
-                                    subject,
-                                    "Please login to your kumulus account and get it done!");
+                Utilities.sendEmail(p, send_to_admin ? p.admin_email : user_email, subject, body);
                 tran.success();
             }
         }

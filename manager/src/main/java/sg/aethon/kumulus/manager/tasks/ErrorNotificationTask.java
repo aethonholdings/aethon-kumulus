@@ -10,10 +10,13 @@ package sg.aethon.kumulus.manager.tasks;
  *
  * @author theo
  */
-public class ValidationTask extends NotificationTask
+public class ErrorNotificationTask extends NotificationTask
 {
-    public ValidationTask()
+    public ErrorNotificationTask()
     {
-        super(Status.READY_FOR_VALIDATION, "Pending validation work");
+        super(Status.ERROR,
+                "An error has occured",
+                "Please fix as soon as possible!",
+                true);
     }
 }

@@ -17,8 +17,9 @@ public class Manager
         tasks.add(new CreateNewTask());
         tasks.add(new UploadTask());
         tasks.add(new BatchInstanceTask());
-        tasks.add(new ReviewTask());
-        tasks.add(new ValidationTask());
+        tasks.add(new ReviewNotificationTask());
+        tasks.add(new ValidationNotificationTask());
+        tasks.add(new ErrorNotificationTask());
         for (Task task: tasks)
         {
             new Thread(new Executor(p, task)).start();

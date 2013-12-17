@@ -10,11 +10,14 @@ package sg.aethon.kumulus.manager.tasks;
  *
  * @author theo
  */
-public class ReviewTask extends NotificationTask
+public class ReviewNotificationTask extends NotificationTask
 {
-    public ReviewTask()
+    public ReviewNotificationTask()
     {
-        super(Status.READY_FOR_REVIEW, "Pending review work");
+        super(Status.READY_FOR_REVIEW,
+                "Pending review work",
+                "Please login to your kumulus account and get it done!",
+                false);
     }
     
 }
