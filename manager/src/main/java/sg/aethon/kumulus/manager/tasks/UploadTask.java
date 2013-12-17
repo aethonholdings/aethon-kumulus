@@ -7,7 +7,6 @@
 package sg.aethon.kumulus.manager.tasks;
 
 import com.jcraft.jsch.ChannelSftp;
-import com.jcraft.jsch.JSch;
 import com.jcraft.jsch.Session;
 import java.io.ByteArrayInputStream;
 import java.util.ArrayList;
@@ -19,7 +18,7 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.jdbc.core.JdbcTemplate;
 import sg.aethon.kumulus.manager.Properties;
 import sg.aethon.kumulus.manager.Task;
-import sg.aethon.kumulus.manager.Utilities;
+import sg.aethon.kumulus.manager.Commons;
 
 /**
  *
@@ -39,7 +38,7 @@ public class UploadTask implements Task
     public void execute(Properties p)
             throws Exception
     {
-        JdbcTemplate conn = Utilities.getKumulusConnection(p);
+        JdbcTemplate conn = Commons.getKumulusConnection(p);
         /* iterate per project */
         List<Map<String, Object>> tasks = 
                 conn.queryForList("select task.id, task.project_id, project_name "+
@@ -53,7 +52,7 @@ public class UploadTask implements Task
             final String project_name = (String) task.get("project_name");
             log.info("Working on task "+task_id);
             Properties.PerProjectProperties p3 = p.get(project_name);
-            Session ssh = getSSH(p);
+            Session ssh = Commons.getSSH(p);
             try
             {
                 ChannelSftp sftp = (ChannelSftp) ssh.openChannel("sftp");
@@ -201,16 +200,4 @@ public class UploadTask implements Task
         sftp.put(new ByteArrayInputStream(data.getBytes("UTF-8")), path+"/."+name, ChannelSftp.OVERWRITE);
     }
     
-    public Session getSSH(final Properties p)
-            throws Exception
-    {
-        JSch.setConfig("StrictHostKeyChecking", "yes");
-        JSch jsch = new JSch();
-        jsch.setKnownHosts(p.known_hosts);
-        Session session = jsch.getSession(p.eph_ssh_user, p.eph_ssh_host, p.eph_ssh_port);
-        session.setPassword(p.eph_ssh_pass);
-        session.connect(p.ssh_timeout);
-        return session;
-    }
-
 }

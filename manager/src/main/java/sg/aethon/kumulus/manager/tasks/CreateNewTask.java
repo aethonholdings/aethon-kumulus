@@ -15,9 +15,8 @@ import org.apache.commons.logging.LogFactory;
 import org.springframework.jdbc.core.JdbcTemplate;
 import sg.aethon.kumulus.manager.Properties;
 import sg.aethon.kumulus.manager.Task;
-import sg.aethon.kumulus.manager.Utilities;
-import sg.aethon.kumulus.manager.Utilities.Transaction;
-import org.apache.commons.lang.StringUtils;
+import sg.aethon.kumulus.manager.Commons;
+import sg.aethon.kumulus.manager.Commons.Transaction;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 
 /**
@@ -35,7 +34,7 @@ public class CreateNewTask implements Task
 
     @Override
     public void execute(Properties p) throws Exception {
-        JdbcTemplate conn = Utilities.getKumulusConnection(p);
+        JdbcTemplate conn = Commons.getKumulusConnection(p);
         /* iterate per project */
         List<Map<String, Object>> projects = 
                 conn.queryForList("select project_id, project_name from project where status='A'");
@@ -54,21 +53,22 @@ public class CreateNewTask implements Task
                 log.info("Configuration found, processing...");
             }
             Integer project_id = Integer.valueOf(Integer.parseInt(project.get("project_id").toString()));
-            try (Transaction trans = Utilities.createTransaction(p, conn))
+            try (Transaction trans = Commons.createTransaction(p, conn))
             {
+                conn.execute("DROP TEMPORARY TABLE selection IF EXISTS");
                 /* mark our territory: notice the FOR UPDATE clause */
-                List<Integer> nodes =
-                    conn.queryForList("select node_id from nodes where status=1 and project_id=? FOR UPDATE",
-                                      Integer.class, new Object[]{project_id});
-                if (nodes.size() > 0)
+                conn.execute("CREATE TEMPORARY TABLE selection "+
+                             "(select node_id from nodes where status=1 and project_id=? FOR UPDATE)");
+                int size = conn.queryForObject("select count(*) from selection", Integer.class);
+                if (size > 0)
                 {
-                    String nodes_in = StringUtils.join(nodes, ",");
-                    int user_id = conn.queryForObject("select top 1 last_update_id from nodes where node_id in (?)",
-                                                     new Object[]{nodes_in}, Integer.class);
+                    int user_id = conn.queryForObject("select top 1 last_update_id from nodes "+
+                                                      "inner join selection on selection.node_id=nodes.node_id "+
+                                                      "where node_id in (?)", Integer.class);
                     /* finalized nodes exists, so create a new task */
                     SimpleJdbcInsert ins = new SimpleJdbcInsert(conn).withTableName("tasks").usingGeneratedKeyColumns("id");
                     Map<String, Object> parameters = new HashMap<>();
-                    Timestamp now = Utilities.now(p);
+                    Timestamp now = Commons.now(p);
                     parameters.put("created", now);
                     parameters.put("last_update", now);
                     parameters.put("status", Status.READY_FOR_UPLOAD.code);
@@ -77,9 +77,10 @@ public class CreateNewTask implements Task
                     int task_id = ins.executeAndReturnKey(parameters).intValue();
                     conn.update("insert into task_nodes (nodes_id, task_id) "+
                                 "select node_is, ? "+
-                                "from nodes where node_id in (?)", new Object[]{task_id, nodes_in});
+                                "from selection", new Object[]{task_id});
                     conn.update("update nodes set last_update_datetime=now(), last_update_id=null, status=2 "+
-                                "where node_id in (?)", new Object[]{nodes_in});
+                                "where node_id in (select node_id from selection)");
+                    conn.execute("DROP TEMPORARY TABLE selection");
                     /* commit and release locks */
                     trans.success();
                 }

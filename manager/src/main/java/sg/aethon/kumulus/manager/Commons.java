@@ -6,6 +6,8 @@
 
 package sg.aethon.kumulus.manager;
 
+import com.jcraft.jsch.JSch;
+import com.jcraft.jsch.Session;
 import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.Map;
@@ -25,7 +27,7 @@ import org.springframework.transaction.TransactionStatus;
  *
  * @author theo
  */
-public class Utilities {
+public class Commons {
     
     private static class CacheKey
     {
@@ -88,12 +90,12 @@ public class Utilities {
 
     public static JdbcTemplate getEphesoftConnection(Properties p)
     {
-        return Utilities.getConnection(p.eph_db_user, p.eph_db_pass, p.eph_db_url);
+        return Commons.getConnection(p.eph_db_user, p.eph_db_pass, p.eph_db_url);
     }
 
     public static JdbcTemplate getKumulusConnection(Properties p)
     {
-        return Utilities.getConnection(p.db_username, p.db_password, p.db_url);
+        return Commons.getConnection(p.db_username, p.db_password, p.db_url);
     }
 
     public static class Transaction implements AutoCloseable
@@ -179,9 +181,21 @@ public class Utilities {
      */
     public static Timestamp now(Properties p)
     {
-        JdbcTemplate conn = Utilities.getEphesoftConnection(p);
+        JdbcTemplate conn = Commons.getEphesoftConnection(p);
         String time = conn.queryForObject("select now()", String.class);
         return Timestamp.valueOf(time);
+    }
+
+    public static Session getSSH(final Properties p)
+            throws Exception
+    {
+        JSch.setConfig("StrictHostKeyChecking", "yes");
+        JSch jsch = new JSch();
+        jsch.setKnownHosts(p.known_hosts);
+        Session session = jsch.getSession(p.eph_ssh_user, p.eph_ssh_host, p.eph_ssh_port);
+        session.setPassword(p.eph_ssh_pass);
+        session.connect(p.ssh_timeout);
+        return session;
     }
 
 }

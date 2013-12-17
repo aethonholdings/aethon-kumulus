@@ -11,7 +11,7 @@ import java.util.Map;
 import org.springframework.jdbc.core.JdbcTemplate;
 import sg.aethon.kumulus.manager.Properties;
 import sg.aethon.kumulus.manager.Task;
-import sg.aethon.kumulus.manager.Utilities;
+import sg.aethon.kumulus.manager.Commons;
 
 /**
  *
@@ -43,7 +43,7 @@ public abstract class NotificationTask implements Task
     public void execute(Properties p)
             throws Exception
     {
-        JdbcTemplate conn = Utilities.getKumulusConnection(p);
+        JdbcTemplate conn = Commons.getKumulusConnection(p);
         /* iterate per project */
         List<Map<String, Object>> tasks = 
                 conn.queryForList("select task.id, user_email "+
@@ -55,10 +55,10 @@ public abstract class NotificationTask implements Task
         {
             final Integer task_id = Integer.valueOf(Integer.parseInt(task.get("task_id").toString()));
             final String user_email = task.get("user_email").toString();
-            try (Utilities.Transaction tran = Utilities.createTransaction(p, conn))
+            try (Commons.Transaction tran = Commons.createTransaction(p, conn))
             {
                 conn.update("update task set reported=true where task_id=?", new Object[]{task_id});
-                Utilities.sendEmail(p, send_to_admin ? p.admin_email : user_email, subject, body);
+                Commons.sendEmail(p, send_to_admin ? p.admin_email : user_email, subject, body);
                 tran.success();
             }
         }
