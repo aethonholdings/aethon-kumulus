@@ -28,12 +28,14 @@ public class CreateNewTask implements Task
     private final Log log = LogFactory.getLog(CreateNewTask.class);
 
     @Override
-    public int getPeriod(Properties p) {
+    public int getPeriod(Properties p) 
+    {
         return p.task_period;
     }
 
     @Override
-    public void execute(Properties p) throws Exception {
+    public void execute(Properties p) throws Exception 
+    {
         JdbcTemplate conn = Commons.getKumulusConnection(p);
         /* iterate per project */
         List<Map<String, Object>> projects = 
