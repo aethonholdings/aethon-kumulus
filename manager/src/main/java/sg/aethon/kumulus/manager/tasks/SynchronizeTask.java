@@ -44,14 +44,10 @@ public class SynchronizeTask implements Task
     @Override
     public void execute(Properties p) throws Exception
     {
-        Timestamp new_ts = Commons.now(p);
         JdbcTemplate kum = Commons.getKumulusConnection(p);
         List<Integer> ids = kum.queryForList("select batch_instance_id from task "+
-                                             "where status<>? and batch_instance_id is not null "+
-                                             ((ts == null) ? "" : "and last_modified > ?"),
-                                             Integer.class,
-                                             (ts == null) ? new Object[] {Status.FINISHED.code}
-                                                          : new Object[] {Status.FINISHED.code, ts});
+                                             "where status<>? and batch_instance_id is not null",
+                                             Integer.class, new Object[] {Status.FINISHED.code});
         String in_part = StringUtils.join(ids, ",");
         JdbcTemplate eph = Commons.getEphesoftConnection(p);
         List<Map<String, Object>> rows =
@@ -65,7 +61,6 @@ public class SynchronizeTask implements Task
                        "where status<>? and batch_instance_id=?",
                        new Object[] {new_status.code, new_status.code, id});
         }
-        ts = new_ts;
     }
     
 }
