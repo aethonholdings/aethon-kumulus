@@ -9,8 +9,6 @@ package sg.aethon.kumulus.manager.tasks;
 import com.jcraft.jsch.ChannelSftp;
 import com.jcraft.jsch.Session;
 import java.io.ByteArrayInputStream;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import org.apache.commons.logging.Log;
@@ -58,20 +56,8 @@ public class UploadTask implements Task
                 sftp.connect();
                 try
                 {
-                    /* create remote directories */
-                    List<String> dirs = 
-                        conn.queryForList("select distinct hierarchy from nodes where status=2 and type='D' "+
-                                          "and uploaded=False and project_id=?",
-                                          String.class, new Object[]{project_id});
-                    List<String> pdirs = new ArrayList<>();
-                    for (String dir: dirs)
-                    {
-                        dir = dir.substring(1, dir.length()-1).replaceAll(", ", "/");
-                        pdirs.add(dir);
-                    }
                     createDirIfNotPresent(sftp, p3.stage_path, task_id.toString());
                     String dest_path = p3.stage_path + "/" + task_id;
-                    createDirectories(sftp, dest_path, pdirs);
                     /* upload documents */
                     List<Map<String, Object>> docs = 
                         conn.queryForList("select hierarchy, node_id, name, comment from nodes "+
@@ -80,7 +66,7 @@ public class UploadTask implements Task
                     for (Map<String, Object> doc: docs)
                     {
                         String hier = doc.get("hierarchy").toString();
-                        String path = hier.substring(1, hier.length()-1).replaceAll(", ", "/");
+                        String path = hier.substring(1, hier.length()-1).replaceAll(", ", "-");
                         Integer node_id = Integer.valueOf(Integer.parseInt(doc.get("node_id").toString()));
                         uploadDocument(sftp, conn, p.fs_root, dest_path+"/"+path, node_id,
                                        doc.get("name").toString(), doc.get("comment").toString());
@@ -100,40 +86,6 @@ public class UploadTask implements Task
         }
     }
     
-    public void createDirectories(ChannelSftp sftp, String path, List<String> dirs)
-            throws Exception
-    {
-        /* create a tree of hashmaps */
-        Map root = new HashMap();
-        for (String dir: dirs)
-        {
-            Map current = root;
-            String[] comps = dir.split("/");
-            for (String comp: comps)
-            {
-                if (!current.containsKey(comp))
-                {
-                    current.put(comp, new HashMap());
-                }
-                current = (Map) current.get(comp);
-            }
-        }
-        
-        /* traverse it to create the directories */
-        traverse(sftp, path, root);
-    }
-
-    public void traverse(ChannelSftp sftp, String path, Map current)
-            throws Exception
-    {
-        for (Object d: current.keySet())
-        {
-            String dir = (String) d;
-            createDirIfNotPresent(sftp, path, dir);
-            traverse(sftp, path+"/"+dir, (Map) current.get(d));
-        }
-    }
-
     public void createDirIfNotPresent(ChannelSftp sftp, String path, final String dir)
             throws Exception
     {
@@ -172,17 +124,18 @@ public class UploadTask implements Task
             throws Exception
     {
         List<Map<String, Object>> filenames =
-                conn.queryForList("select actual_image_name, node_id, uploaded from nodes "+
+                conn.queryForList("select actual_image_name, name, node_id, uploaded from nodes "+
                                   "where parent_node_id=? and uploaded=False "+
                                   "order by document_sequence_number", new Object[]{doc_node_id});
         for (Map<String, Object> map: filenames)
         {
-            String fullname = (String) map.get("actual_image_name");
-            fullname = fullname.replace('\\', '/');
-            String filename = fullname.substring(fullname.lastIndexOf("/")+1);
+            String fullname = map.get("actual_image_name").toString().replace('\\', '/');
+            String filename = (String) map.get("name");
             long page_node_id = (long) map.get("node_id");
-            log.info(fsroot+fullname+" --> "+sftp_path+"/"+filename);
-            sftp.put(fsroot+fullname, sftp_path+"/"+filename, ChannelSftp.OVERWRITE);
+            String src = fsroot + fullname;
+            String dest = sftp_path + "-" + filename;
+            log.info(src + " --> " + dest);
+            sftp.put(src, dest, ChannelSftp.OVERWRITE);
             conn.update("update nodes set last_update_datetime=now(), last_update_id=null, "+
                         "uploaded=True where node_id=?", new Object[]{page_node_id});
         }
