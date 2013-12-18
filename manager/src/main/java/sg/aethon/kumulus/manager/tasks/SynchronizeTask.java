@@ -6,7 +6,6 @@
 
 package sg.aethon.kumulus.manager.tasks;
 
-import java.sql.Timestamp;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -23,7 +22,6 @@ import sg.aethon.kumulus.manager.Task;
 public class SynchronizeTask implements Task
 {
     private final Map<String, Status> map = new HashMap<>();
-    private Timestamp ts;
     
     public SynchronizeTask()
     {
