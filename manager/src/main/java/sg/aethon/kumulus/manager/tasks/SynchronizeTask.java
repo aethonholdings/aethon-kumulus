@@ -61,7 +61,7 @@ public class SynchronizeTask implements Task
         {
             int id = ((Number) row.get("id")).intValue();
             Status new_status = map.get(row.get("batch_status").toString());
-            kum.update("update task set status=?, reported=null "+
+            kum.update("update task set status=?, reported=false "+
                        "where status<>? and batch_instance_id=?",
                        new Object[] {new_status.code, new_status.code, id});
         }

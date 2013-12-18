@@ -8,6 +8,8 @@ package sg.aethon.kumulus.manager.tasks;
 
 import java.util.List;
 import java.util.Map;
+import org.apache.commons.logging.Log;
+import org.apache.commons.logging.LogFactory;
 import org.springframework.jdbc.core.JdbcTemplate;
 import sg.aethon.kumulus.manager.Properties;
 import sg.aethon.kumulus.manager.Task;
@@ -19,6 +21,9 @@ import sg.aethon.kumulus.manager.Commons;
  */
 public abstract class NotificationTask implements Task
 {
+    private final Log log = LogFactory.getLog(NotificationTask.class);
+
+    
     private final Status to_monitor;
     private final String subject;
     private final String body;
@@ -49,15 +54,16 @@ public abstract class NotificationTask implements Task
                 conn.queryForList("select task.id, user_email "+
                                   "from task inner join user "+
                                   "on task.user_id=user.user_id "+
-                                  "where task.status='?' and task.reported=false",
+                                  "where task.status=? and task.reported=false",
                                   new Object[]{to_monitor.code});
         for (Map<String, Object> task : tasks)
         {
-            final Integer task_id = Integer.valueOf(Integer.parseInt(task.get("task_id").toString()));
+            final Integer task_id = Integer.valueOf(Integer.parseInt(task.get("id").toString()));
+            log.info("Sending email for task " + task_id);
             final String user_email = task.get("user_email").toString();
             try (Commons.Transaction tran = Commons.createTransaction(p, conn))
             {
-                conn.update("update task set reported=true where task_id=?", new Object[]{task_id});
+                conn.update("update task set reported=true where id=?", new Object[]{task_id});
                 Commons.sendEmail(p, send_to_admin ? p.admin_email : user_email, subject, body);
                 tran.success();
             }
