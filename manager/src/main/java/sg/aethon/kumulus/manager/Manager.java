@@ -19,6 +19,7 @@ public class Manager
         tasks.add(new BatchInstanceTask());
         tasks.add(new ReviewNotificationTask());
         tasks.add(new ValidationNotificationTask());
+        tasks.add(new LedgerTask());
         tasks.add(new ErrorNotificationTask());
         for (Task task: tasks)
         {
