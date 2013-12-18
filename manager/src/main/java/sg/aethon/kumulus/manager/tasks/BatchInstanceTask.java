@@ -8,10 +8,8 @@ package sg.aethon.kumulus.manager.tasks;
 
 import com.jcraft.jsch.ChannelExec;
 import com.jcraft.jsch.Session;
-import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.InputStream;
-import java.io.OutputStream;
 import java.util.List;
 import java.util.Map;
 import org.apache.commons.logging.Log;
@@ -20,6 +18,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import sg.aethon.kumulus.manager.Commons;
 import sg.aethon.kumulus.manager.Properties;
 import sg.aethon.kumulus.manager.Task;
+
+class RemoteCommandException extends Exception { }
 
 /**
  *
@@ -57,7 +57,7 @@ public class BatchInstanceTask implements Task
                     /* and the batch instance has been created */
                     conn.update("update task "+
                                 "set batch_instance_id=?, last_batch_instance_id=null, status=? "+
-                                "where task_id=?",
+                                "where task.id=?",
                                 new Object[]{last_batch_instance_id.intValue()+1, Status.CREATED.code, task_id});
                 }
                 /* restart from the beginning */
@@ -90,42 +90,49 @@ public class BatchInstanceTask implements Task
     private void execute(Session ssh, String command)
             throws Exception
     {
-        boolean success = false;
         try
         {
+            ChannelExec channel = (ChannelExec) ssh.openChannel("exec");
             try
             {
-                ChannelExec sh = (ChannelExec) ssh.openChannel("exec");
-                InputStream is = new ByteArrayInputStream((command+"\n").getBytes());
-                sh.setInputStream(is);
-                OutputStream os = new ByteArrayOutputStream();
-                sh.setOutputStream(os);
-                sh.setErrStream(os);
-                sh.connect();
-                try
+                channel.setCommand(command);
+                channel.setInputStream(null);
+                ByteArrayOutputStream err = new ByteArrayOutputStream();
+                channel.setErrStream(err);
+                InputStream in = channel.getInputStream();
+                channel.connect();
+                byte[] tmp = new byte[1024];
+                StringBuilder buf = new StringBuilder();
+                while(true)
                 {
-                    Thread.sleep(10*1000);
-                    String out = os.toString();
-                    success = (out.length() == 0);
-                    log.info("Command Execution Output: " + out);
-                }
-                finally
-                {
-                    sh.disconnect();
+                    while (in.available()>0)
+                    {
+                        int i = in.read(tmp, 0, 1024);
+                        if (i<0)
+                            break;
+                        buf.append(new String(tmp, 0, i));
+                    }
+                    if (channel.isClosed())
+                    {
+                        log.info("STDOUT: " + buf.toString());
+                        log.info("STDERR: " + new String(err.toByteArray(), "UTF-8"));
+                        int ec = channel.getExitStatus();
+                        log.info("exit-status: " + ec);
+                        if (ec > 0)
+                            throw new RemoteCommandException();
+                        break;
+                    }
+                    Thread.sleep(1000);
                 }
             }
             finally
             {
-                ssh.disconnect();
+                channel.disconnect();
             }
         }
-        catch (Exception ex)
+        finally
         {
-            /* if command execution was successful, 
-             * we should not throw an exception even if one is raised */
-            if (!success) throw ex;
-            else ex.printStackTrace();
+            ssh.disconnect();
         }
     }
-    
 }
