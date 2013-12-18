@@ -44,12 +44,14 @@ public class Properties
 
     public class PerProjectProperties
     {
-        final public String eph_path;
+        final public String eph_dest_path;
+        final public String eph_src_path;
         final public String stage_path;
 
-        public PerProjectProperties(String dest_path, String stage_path)
+        public PerProjectProperties(String dest_path, String src_path, String stage_path)
         {
-            this.eph_path = dest_path;
+            this.eph_dest_path = dest_path;
+            this.eph_src_path = src_path;
             this.stage_path = stage_path;
         }
     }
@@ -107,7 +109,8 @@ public class Properties
             if (sname.startsWith(":") && sname.length()>1)
             {
                 PerProjectProperties p3 = 
-                        new PerProjectProperties(section.get("eph_path", String.class),
+                        new PerProjectProperties(section.get("eph_dest_path", String.class),
+                                                 section.get("eph_src_path", String.class),
                                                  section.get("stage_path", String.class));
                 proj.put(section.getName().substring(1), p3);
             }
