@@ -43,10 +43,10 @@ public class UploadTask implements Task
                 conn.queryForList("select task.id, task.project_id, project_name "+
                                   "from task inner join project "+
                                   "on task.project_id=project.project_id "+
-                                  "where status='?'", new Object[]{Status.READY_FOR_UPLOAD.code});
+                                  "where task.status=?", new Object[]{Status.READY_FOR_UPLOAD.code});
         for (Map<String, Object> task : tasks)
         {
-            final Integer task_id = Integer.valueOf(Integer.parseInt(task.get("task_id").toString()));
+            final Integer task_id = Integer.valueOf(Integer.parseInt(task.get("id").toString()));
             final Integer project_id = Integer.valueOf(Integer.parseInt(task.get("project_id").toString()));
             final String project_name = (String) task.get("project_name");
             log.info("Working on task "+task_id);
@@ -69,6 +69,7 @@ public class UploadTask implements Task
                         dir = dir.substring(1, dir.length()-1).replaceAll(", ", "/");
                         pdirs.add(dir);
                     }
+                    createDirIfNotPresent(sftp, p3.stage_path, task_id.toString());
                     String dest_path = p3.stage_path + "/" + task_id;
                     createDirectories(sftp, dest_path, pdirs);
                     /* upload documents */
@@ -94,7 +95,8 @@ public class UploadTask implements Task
             {
                 ssh.disconnect();
             }
-            conn.update("update tasks set status=? where id=?", Status.READY_FOR_BATCH_INSTANCE, task_id);
+            conn.update("update task set status=? where id=?", Status.READY_FOR_BATCH_INSTANCE.code, task_id);
+            log.info("Finished task " + task_id);
         }
     }
     
@@ -171,23 +173,18 @@ public class UploadTask implements Task
     {
         List<Map<String, Object>> filenames =
                 conn.queryForList("select actual_image_name, node_id, uploaded from nodes "+
-                                  "where parent_node_id=? "+
+                                  "where parent_node_id=? and uploaded=False "+
                                   "order by document_sequence_number", new Object[]{doc_node_id});
-        int i = 1;
         for (Map<String, Object> map: filenames)
         {
-            boolean uploaded = (boolean) map.get("uploaded");
-            if (!uploaded)
-            {
-                String filename = (String) map.get("actual_image_name");
-                filename = filename.replace('\\', '/');
-                int page_node_id = (int) map.get("node_id");
-                log.info(fsroot+filename+" --> "+sftp_path+"/."+i);
-                sftp.put(fsroot+filename, sftp_path+"/."+i, ChannelSftp.OVERWRITE);
-                conn.update("update nodes set last_update_datetime=now(), last_update_id=null, "+
-                            "uploaded=True where node_id=?", new Object[]{page_node_id});
-            }
-            i++;
+            String fullname = (String) map.get("actual_image_name");
+            fullname = fullname.replace('\\', '/');
+            String filename = fullname.substring(fullname.lastIndexOf("/")+1);
+            long page_node_id = (long) map.get("node_id");
+            log.info(fsroot+fullname+" --> "+sftp_path+"/"+filename);
+            sftp.put(fsroot+fullname, sftp_path+"/"+filename, ChannelSftp.OVERWRITE);
+            conn.update("update nodes set last_update_datetime=now(), last_update_id=null, "+
+                        "uploaded=True where node_id=?", new Object[]{page_node_id});
         }
         conn.update("update nodes set last_update_datetime=now(), last_update_id=null, "+
                     "uploaded=True where node_id=?", new Object[]{doc_node_id});
@@ -196,7 +193,7 @@ public class UploadTask implements Task
     public void uploadFileFromString(ChannelSftp sftp, String path, String data, String name)
             throws Exception
     {
-        sftp.put(new ByteArrayInputStream(data.getBytes("UTF-8")), path+"/."+name, ChannelSftp.OVERWRITE);
+        sftp.put(new ByteArrayInputStream(data.getBytes("UTF-8")), path+"/"+name, ChannelSftp.OVERWRITE);
     }
     
 }
