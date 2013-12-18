@@ -23,7 +23,6 @@ public abstract class NotificationTask implements Task
 {
     private final Log log = LogFactory.getLog(NotificationTask.class);
 
-    
     private final Status to_monitor;
     private final String subject;
     private final String body;
