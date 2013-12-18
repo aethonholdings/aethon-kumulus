@@ -45,15 +45,19 @@ public class BatchInstanceTask implements Task
                                   "on task.project_id=project.project_id "+
                                   "where task.status=? order by task.id",
                                   new Object[]{Status.READY_FOR_BATCH_INSTANCE.code});
+        if (tasks.size() == 0)
+            return;
         for (Map<String, Object> task : tasks)
         {
             final int task_id = ((Number) task.get("id")).intValue();
             final Number last_batch_instance_id = (Number) task.get("last_batch_instance_id");
             if (last_batch_instance_id != null)
             {
+                log.info("Getting the batch instance for " + task_id);
                 /* we have already submitted a folder to Ephesoft */
                 if (last_batch_instance_id.intValue()+1 == getLastBatchInstanceID(p))
                 {
+                    log.info("Found batch instance: " + (last_batch_instance_id.intValue()+1));
                     /* and the batch instance has been created */
                     conn.update("update task "+
                                 "set batch_instance_id=?, last_batch_instance_id=null, status=? "+
@@ -69,6 +73,7 @@ public class BatchInstanceTask implements Task
         /* take the first available: see the order by clause in the query */
         Map<String, Object> task = tasks.get(0);
         final Integer task_id = Integer.valueOf(Integer.parseInt(task.get("id").toString()));
+        log.info("Moving files for task " + task_id);
         final String project_name = (String) task.get("project_name");
         Properties.PerProjectProperties p3 = p.get(project_name);
         String src_path = p3.eph_src_path + "\\" + task_id + "\\" + project_name;
