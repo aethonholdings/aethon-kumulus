@@ -76,7 +76,7 @@ public class BatchInstanceTask implements Task
         log.info("Moving files for task " + task_id);
         final String project_name = (String) task.get("project_name");
         Properties.PerProjectProperties p3 = p.get(project_name);
-        String src_path = p3.eph_src_path + "\\" + task_id + "\\" + project_name;
+        String src_path = p3.eph_src_path + "\\" + task_id;
         String dest_path = p3.eph_dest_path;
         String command = String.format("move \"%s\" \"%s\"", src_path, dest_path);
         log.info(command);
