@@ -7,7 +7,7 @@
 	<body>
 		<div id="page-body" role="main">
 			<h1>Welcome to Kumulus</h1>
-                        <p>Login to Kumulus</p>
+                        <p><g:link controller="login">Login</g:link> to Kumulus</p>
 		</div>
 	</body>
 </html>

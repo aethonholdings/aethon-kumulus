@@ -115,7 +115,7 @@ log4j = {
 }
 
 //// Added by the Spring Security Core plugin:
-//// grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/home'  // added by Konstantinos to configure login landing page
+//// 
 //grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 //	'/':                                ['permitAll'],
 //	'/index':                           ['permitAll'],
@@ -125,7 +125,6 @@ log4j = {
 //	'/**/images/**':                    ['permitAll'],
 //	'/**/favicon.ico':                  ['permitAll'],
 //]
-//grails.plugin.springsecurity.providerNames = ['anonymousAuthenticationProvider', 'rememberMeAuthenticationProvider']
 //// 'ldapAuthProvider'
 //
 //
@@ -150,6 +149,7 @@ log4j = {
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'com.kumulus.domain.User'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'com.kumulus.domain.UserRole'
 grails.plugin.springsecurity.authority.className = 'com.kumulus.domain.Role'
+grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/home'  // added by Konstantinos to configure login landing page
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/':                              ['permitAll'],
 	'/index':                         ['permitAll'],
@@ -159,4 +159,6 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/**/images/**':                  ['permitAll'],
 	'/**/favicon.ico':                ['permitAll']
 ]
+grails.plugin.springsecurity.providerNames = ['anonymousAuthenticationProvider', 'rememberMeAuthenticationProvider']
+
 
