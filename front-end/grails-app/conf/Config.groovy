@@ -114,11 +114,6 @@ log4j = {
            'net.sf.ehcache.hibernate'
 }
 
-//// 'ldapAuthProvider'
-//
-//
-
-
 // Added by the Spring Security Core plugin:
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'com.kumulus.domain.User'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'com.kumulus.domain.UserRole'
@@ -133,7 +128,7 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/**/images/**':                  ['permitAll'],
 	'/**/favicon.ico':                ['permitAll']
 ]
-grails.plugin.springsecurity.providerNames = ['anonymousAuthenticationProvider', 'rememberMeAuthenticationProvider']
+grails.plugin.springsecurity.providerNames = ['ldapAuthProvider', 'anonymousAuthenticationProvider', 'rememberMeAuthenticationProvider']
 
 // LDAP configuration
 grails.plugin.springsecurity.ldap.context.server = 'ldap://test.kumulus.sg:389'
