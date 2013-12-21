@@ -117,21 +117,6 @@ log4j = {
 //// 'ldapAuthProvider'
 //
 //
-//// LDAP configuration
-//grails.plugin.springsecurity.ldap.context.server = 'ldap://test.kumulus.sg:389'
-//
-//// manager
-//grails.plugin.springsecurity.ldap.context.managerDn = 'cn=admin,dc=aethon,dc=sg'
-//grails.plugin.springsecurity.ldap.context.managerPassword = 'Ke$haIsGreat666'
-//
-//// search
-//grails.plugin.springsecurity.ldap.user.base = 'ou=people,dc=aethon,dc=sg'
-//grails.plugin.springsecurity.ldap.search.base = 'dc=aethon,dc=sg'
-//grails.plugin.springsecurity.ldap.search.searchSubtree = true
-//
-//// authorities
-//grails.plugin.springsecurity.ldap.authorities.groupRoleAttribute = 'cn'
-//grails.plugin.springsecurity.ldap.authorities.groupSearchBase = 'ou=groups,dc=aethon,dc=sg'
 
 
 // Added by the Spring Security Core plugin:
@@ -149,5 +134,21 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/**/favicon.ico':                ['permitAll']
 ]
 grails.plugin.springsecurity.providerNames = ['anonymousAuthenticationProvider', 'rememberMeAuthenticationProvider']
+
+// LDAP configuration
+grails.plugin.springsecurity.ldap.context.server = 'ldap://test.kumulus.sg:389'
+
+// manager
+grails.plugin.springsecurity.ldap.context.managerDn = 'cn=admin,dc=aethon,dc=sg'
+grails.plugin.springsecurity.ldap.context.managerPassword = 'Ke$haIsGreat666'
+
+// search
+grails.plugin.springsecurity.ldap.user.base = 'ou=people,dc=aethon,dc=sg'
+grails.plugin.springsecurity.ldap.search.base = 'dc=aethon,dc=sg'
+grails.plugin.springsecurity.ldap.search.searchSubtree = true
+
+// authorities
+grails.plugin.springsecurity.ldap.authorities.groupRoleAttribute = 'cn'
+grails.plugin.springsecurity.ldap.authorities.groupSearchBase = 'ou=groups,dc=aethon,dc=sg'
 
 
