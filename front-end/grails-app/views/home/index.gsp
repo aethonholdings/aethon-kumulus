@@ -30,21 +30,6 @@
         <div class='main'>
             <div class='leftContentDiv'>
 
-                <div class='menu' style="margin-top: 5px">
-                    <span class="actionButton" onclick="myHome()" >MY HOME</span>
-                </div>
-                <div class='menu'>
-                    <span class="actionButton" onclick="captureDocument()">CAPTURE DOCUMENTS</span>
-                </div>
-                <div class='menu'>
-                    <span class="actionButton" onclick="validateDocument()">VALIDATE DOCUMENTS</span>
-                </div>
-                <div class='menu'>
-                    <span class="actionButton" onclick="searchDocument()">SEARCH DOCUMENTS</span>
-                </div>
-                <div class='menu'>
-                    <span class="actionButton" onclick="downloadDocument()">DOWNLOAD LEDGER </span>
-                </div>
             </div>
             <div class="rightContentDiv">
                                 <p>You have ${tasks?.count()} task<g:if test="${tasks?.count()>1}">s</g:if> pending</p>
