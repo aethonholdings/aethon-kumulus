@@ -114,31 +114,33 @@ log4j = {
            'net.sf.ehcache.hibernate'
 }
 
-// Added by the Spring Security Core plugin:
-grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/home'  // added by Konstantinos to configure login landing page
-grails.plugin.springsecurity.controllerAnnotations.staticRules = [
-	'/':                                ['permitAll'],
-	'/index':                           ['permitAll'],
-	'/index.gsp':                       ['permitAll'],
-	'/**/js/**':                        ['permitAll'],
-	'/**/css/**':                       ['permitAll'],
-	'/**/images/**':                    ['permitAll'],
-	'/**/favicon.ico':                  ['permitAll'],
-]
-
-// LDAP configuration
-grails.plugin.springsecurity.providerNames = ['ldapAuthProvider','rememberMeAuthenticationProvider']
-grails.plugin.springsecurity.ldap.context.server = 'ldap://test.kumulus.sg:389'
-
-// manager
-grails.plugin.springsecurity.ldap.context.managerDn = 'cn=admin,dc=aethon,dc=sg'
-grails.plugin.springsecurity.ldap.context.managerPassword = 'Ke$haIsGreat666'
-
-// search
-grails.plugin.springsecurity.ldap.user.base = 'ou=people,dc=aethon,dc=sg'
-grails.plugin.springsecurity.ldap.search.base = 'dc=aethon,dc=sg'
-grails.plugin.springsecurity.ldap.search.searchSubtree = true
-
-// authorities
-grails.plugin.springsecurity.ldap.authorities.groupRoleAttribute = 'cn'
-grails.plugin.springsecurity.ldap.authorities.groupSearchBase = 'ou=groups,dc=aethon,dc=sg'
+//// Added by the Spring Security Core plugin:
+//// grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/home'  // added by Konstantinos to configure login landing page
+//grails.plugin.springsecurity.controllerAnnotations.staticRules = [
+//	'/':                                ['permitAll'],
+//	'/index':                           ['permitAll'],
+//	'/index.gsp':                       ['permitAll'],
+//	'/**/js/**':                        ['permitAll'],
+//	'/**/css/**':                       ['permitAll'],
+//	'/**/images/**':                    ['permitAll'],
+//	'/**/favicon.ico':                  ['permitAll'],
+//]
+//grails.plugin.springsecurity.providerNames = ['anonymousAuthenticationProvider', 'rememberMeAuthenticationProvider']
+//// 'ldapAuthProvider'
+//
+//
+//// LDAP configuration
+//grails.plugin.springsecurity.ldap.context.server = 'ldap://test.kumulus.sg:389'
+//
+//// manager
+//grails.plugin.springsecurity.ldap.context.managerDn = 'cn=admin,dc=aethon,dc=sg'
+//grails.plugin.springsecurity.ldap.context.managerPassword = 'Ke$haIsGreat666'
+//
+//// search
+//grails.plugin.springsecurity.ldap.user.base = 'ou=people,dc=aethon,dc=sg'
+//grails.plugin.springsecurity.ldap.search.base = 'dc=aethon,dc=sg'
+//grails.plugin.springsecurity.ldap.search.searchSubtree = true
+//
+//// authorities
+//grails.plugin.springsecurity.ldap.authorities.groupRoleAttribute = 'cn'
+//grails.plugin.springsecurity.ldap.authorities.groupSearchBase = 'ou=groups,dc=aethon,dc=sg'

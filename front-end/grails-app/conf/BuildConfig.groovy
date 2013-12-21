@@ -5,8 +5,8 @@ grails.project.test.reports.dir = "target/test-reports"
 grails.project.work.dir = "target/work"
 grails.project.target.level = 1.6
 grails.project.source.level = 1.6
-grails.server.port.http=9090
-//grails.project.war.file = "target/${appName}-${appVersion}.war"
+grails.server.port.http=8080
+grails.project.war.file = "target/${appName}-${appVersion}.war"
 
 grails.project.fork = [
     // configure settings for compilation JVM, note that if you alter the Groovy version forked compilation is required
@@ -62,9 +62,9 @@ grails.project.dependency.resolution = {
         // plugins for the compile step
         compile ":scaffolding:2.0.1"
         compile ':cache:1.1.1'
-        compile ":spring-security-core:2.0-RC2"
-        compile ":spring-security-ldap:2.0-RC2"
-        compile ":rest:0.8"
+        // compile ":spring-security-core:2.0-RC2"
+        // compile ":spring-security-ldap:2.0-RC2"
+        // compile ":rest:0.8"
         // compile ":gorm-rest-client:1.0.0.M1"
         // compile ":activiti:5.12.1"
         // compile ':db-reverse-engineer:0.5'

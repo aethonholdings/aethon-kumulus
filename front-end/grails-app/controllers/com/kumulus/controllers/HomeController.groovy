@@ -12,12 +12,12 @@ class HomeController {
     
     def index() { 
 
-        def auth = springSecurityService.getAuthentication()
-        
-        String username = auth.getPrincipal().getUsername()
-        def tasks = Task.findByOwnerLDAPUidAndStatus(username, "PENDING")
-
-        render view:"index", layout:"main", model:[user: username, tasks: tasks]
+//        def auth = springSecurityService.getAuthentication()
+//        
+//        String username = auth.getPrincipal().getUsername()
+//        def tasks = Task.findByOwnerLDAPUidAndStatus(username, "PENDING")
+//
+//        render view:"index", layout:"main", model:[user: username, tasks: tasks]
         
     }
     

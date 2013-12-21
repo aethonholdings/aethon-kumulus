@@ -5,18 +5,11 @@
   Time: 11:19 AM
   To change this template use File | Settings | File Templates.
 --%>
-<%--
-  Created by IntelliJ IDEA.
-  User: damyant
-  Date: 12/10/13
-  Time: 11:48 AM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
 <head>
     <meta name="layout" content="main"/>
-    <title>HomePage</title>
+    <title>Home | Kumulus </title>
 </head>
 <body>
 <div class="header">
