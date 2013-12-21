@@ -130,10 +130,10 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 ]
 grails.plugin.springsecurity.providerNames = ['ldapAuthProvider', 'anonymousAuthenticationProvider', 'rememberMeAuthenticationProvider']
 
-// LDAP configuration
-grails.plugin.springsecurity.ldap.context.server = 'ldap://test.kumulus.sg:389'
+// LDAP configuration ----------------------------
 
-// manager
+// server
+grails.plugin.springsecurity.ldap.context.server = 'ldap://test.kumulus.sg:389'
 grails.plugin.springsecurity.ldap.context.managerDn = 'cn=admin,dc=aethon,dc=sg'
 grails.plugin.springsecurity.ldap.context.managerPassword = 'Ke$haIsGreat666'
 

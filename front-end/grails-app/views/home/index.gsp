@@ -7,74 +7,75 @@
 --%>
 <%@ page contentType="text/html;charset=UTF-8" %>
 <html>
-<head>
-    <meta name="layout" content="main"/>
-    <title>Home | Kumulus </title>
-</head>
-<body>
-<div class="header">
+    <head>
+        <meta name="layout" content="main"/>
+        <title>Home | Kumulus </title>
+    </head>
+    <body>
+        <div class="header">
 
-    <div class="headerBlock">
-        <div class="logo">
+            <div class="headerBlock">
+                <div class="logo">
 
-        </div>
-        <div class="sessionManagement" style="color:white">
-            Welcome
-            <sec:loggedInUserInfo field="username"/> |
-            <g:link controller="#" action="#">Manage User</g:link>|
-            <g:link controller="#" action="#">Logout</g:link>
-        </div>
+                </div>
+                <div class="sessionManagement" style="color:white">
+                    Welcome
+                    <sec:loggedInUserInfo field="username"/> |
+                    <g:link controller="#" action="#">Manage User</g:link>|
+                    <g:link controller="#" action="#">Logout</g:link>
+                </div>
 
-    </div>
-</div>
-<div class='main'>
-    <div class='leftContentDiv'>
+            </div>
+        </div>
+        <div class='main'>
+            <div class='leftContentDiv'>
 
-        <div class='menu' style="margin-top: 5px">
-            <span class="actionButton" onclick="myHome()" >MY HOME</span>
-        </div>
-        <div class='menu'>
-            <span class="actionButton" onclick="captureDocument()">CAPTURE DOCUMENTS</span>
-        </div>
-        <div class='menu'>
-            <span class="actionButton" onclick="validateDocument()">VALIDATE DOCUMENTS</span>
-        </div>
-        <div class='menu'>
-            <span class="actionButton" onclick="searchDocument()">SEARCH DOCUMENTS</span>
-        </div>
-        <div class='menu'>
-            <span class="actionButton" onclick="downloadDocument()">DOWNLOAD LEDGER </span>
-        </div>
-    </div>
-    <div class="rightContentDiv">
-        <div class='myHomeDiv' id='myHomeDiv'>
-            <div id="states">
-                <g:render template="myHomeContent"
-                          model="[user: user, tasks:tasks]"
-                         />
+                <div class='menu' style="margin-top: 5px">
+                    <span class="actionButton" onclick="myHome()" >MY HOME</span>
+                </div>
+                <div class='menu'>
+                    <span class="actionButton" onclick="captureDocument()">CAPTURE DOCUMENTS</span>
+                </div>
+                <div class='menu'>
+                    <span class="actionButton" onclick="validateDocument()">VALIDATE DOCUMENTS</span>
+                </div>
+                <div class='menu'>
+                    <span class="actionButton" onclick="searchDocument()">SEARCH DOCUMENTS</span>
+                </div>
+                <div class='menu'>
+                    <span class="actionButton" onclick="downloadDocument()">DOWNLOAD LEDGER </span>
+                </div>
+            </div>
+            <div class="rightContentDiv">
+                                <p>You have ${tasks?.count()} task<g:if test="${tasks?.count()>1}">s</g:if> pending</p>
+                <div class="validationTaskTable">
+                    <table>
+                        <thead class='thclass'>
+                        <tr>
+                        <g:sortableColumn property="id" title="Id"/>
+                        <g:sortableColumn property="created" title="Time created"/>
+                        <g:sortableColumn property="barcode" title="Task"/>
+                        <g:sortableColumn property="action" title="Action pending"/>
+                        </tr>
+                        </thead>
+                        <tbody class='tdclass'>
+                        <g:each in="${tasks.list()}" status="i" var="taskInstance">
+                            <tr class="${(i % 2) == 0 ? 'odd' : 'even'}" >
+                                <td>${taskInstance.id}</td>
+                                <td>${taskInstance.created.format("d/M/YYYY - HH:mm:ss")}</td>
+                                <td>
+                                    <g:if test="${taskInstance.type=='TASK_VALIDATE'}">Validate</g:if>
+                                    <g:if test="${taskInstance.type=='TASK_CLASSIFY'}">Classify</g:if>
+                                </td>
+                                <td>
+                                    <g:if test="${taskInstance.type=='TASK_VALIDATE'}"><g:link controller="home" action="validate">To do</g:link></g:if>
+                                </td>
+                            </tr>
+                        </g:each>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-        <div class='captureDocumentDiv' id='captureDocumentDiv'>
-            <div>
-                content for capture document...
-            </div>
-        </div>
-        <div class='validateDocumentDiv' id='validateDocumentDiv'>
-            <div>
-                content for validate document...
-            </div>
-        </div>
-        <div class='searchForDocumentDiv' id='searchForDocumentDiv'>
-            <div>
-                content for search document...
-            </div>
-        </div>
-        <div class='DownloadDocumentDiv' id='DownloadDocumentDiv'>
-            <div>
-                content for download document...
-            </div>
-        </div>
-    </div>
-</div>
-</body>
+    </body>
 </html>
