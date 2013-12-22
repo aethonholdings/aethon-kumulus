@@ -2,7 +2,7 @@ package com.kumulus.controllers
 
 import grails.plugin.springsecurity.annotation.Secured
 import com.kumulus.domain.*
-
+import static groovyx.net.http.ContentType.*
 
 class HomeController {
 
@@ -25,15 +25,10 @@ class HomeController {
     @Secured(['ROLE_VALIDATE'])
     def validate() {
         
-        
-        // Credentials defaultcreds = new UsernamePasswordCredentials("username", "password"); 
-        // client.getState().setCredentials(new AuthScope("serverName", 8080), defaultcreds); 
-        // client.getParams().setAuthenticationPreemptive(true);
-        
-        // this is where we call the ephesoft API to log in
-        
+        withRest(uri: "http://www.google.com") {
+            def html = get(path : '/search',  query : [q:'Groovy'], headers : [Accept : 'application/xml'], contentType : TEXT)
+            render html.data.text
+        }
         
     }
-    
-    
 }
