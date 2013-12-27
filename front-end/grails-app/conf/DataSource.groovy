@@ -1,8 +1,6 @@
 dataSource {
     pooled = true
     driverClassName = "com.mysql.jdbc.Driver"
-    username = "kumulus"
-    password = "password"
 }
 hibernate {
     cache.use_second_level_cache = true
@@ -17,6 +15,8 @@ environments {
         dataSource {
             dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
             url = "jdbc:mysql://localhost:3306/kumulus?autoreconnect=true"
+            username = "kumulus"
+            password = "password"
         }
     }
     test {
