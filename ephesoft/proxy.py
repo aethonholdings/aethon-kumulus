@@ -315,5 +315,6 @@ class ReverseProxyResource(BasicReverseProxyResource):
     def render(self, request):
         if request.path == '/dcma/UploadBatch.html'\
            or request.path == '/dcma/WebScanner.html':
-            return ''
+            return '<meta http-equiv="refresh" content="0; '\
+                   'url=http://localhost/dcma/BatchList.html" />'
         return BasicReverseProxyResource.render(self, request)
