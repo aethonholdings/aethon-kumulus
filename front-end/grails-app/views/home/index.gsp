@@ -13,8 +13,8 @@
         <div id='leftContent'></div>
         <div id="rightContent">
             <p>You have ${tasks?.count()} task<g:if test="${tasks?.count()>1}">s</g:if> pending</p>
-            <table>
-                <thead class='thclass'>
+            <table class="pure-table">
+                <thead>
                 <tr>
                 <g:sortableColumn property="id" title="Id"/>
                 <g:sortableColumn property="created" title="Time created"/>
@@ -22,7 +22,7 @@
                 <g:sortableColumn property="action" title="Action pending"/>
                 </tr>
                 </thead>
-                <tbody class='tdclass'>
+                <tbody>
                 <g:each in="${tasks.list()}" status="i" var="taskInstance">
                     <tr class="${(i % 2) == 0 ? 'odd' : 'even'}" >
                         <td>${taskInstance.id}</td>
