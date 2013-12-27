@@ -235,7 +235,7 @@ class ReverseProxy(HTTPChannel):
 
 
 
-class ReverseProxyResource(Resource):
+class BasicReverseProxyResource(Resource):
     """
     Resource that renders the results gotten from another server
 
@@ -309,3 +309,11 @@ class ReverseProxyResource(Resource):
             request.getAllHeaders(), request.content.read(), request)
         self.reactor.connectTCP(self.host, self.port, clientFactory)
         return NOT_DONE_YET
+
+
+class ReverseProxyResource(BasicReverseProxyResource):
+    def render(self, request):
+        if request.path == '/dcma/UploadBatch.html'\
+           or request.path == '/dcma/WebScanner.html':
+            return ''
+        return BasicReverseProxyResource.render(self, request)
