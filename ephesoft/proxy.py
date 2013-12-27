@@ -89,6 +89,11 @@ class BasicProxyClient(HTTPClient):
 
 
 class ProxyClient(BasicProxyClient):
+    def handleHeader(self, key, value):
+        if key == "Location":
+            value = value.replace("test.ephesoft.kumulus.sg:8080", "localhost")
+        BasicProxyClient.handleHeader(self, key, value)
+
     def handleResponsePart(self, buffer):
         BasicProxyClient.handleResponsePart(self, buffer)
 
