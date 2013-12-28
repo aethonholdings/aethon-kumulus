@@ -28,7 +28,7 @@ from twisted.web.resource import Resource
 from twisted.web.server import NOT_DONE_YET
 from twisted.web.http import HTTPClient, Request, HTTPChannel
 
-import config
+import config, cshelve
 
 class BasicProxyClient(HTTPClient):
     """
@@ -331,7 +331,7 @@ def is_uri_valid(uri):
     return False
 
 class ReverseProxyResource(BasicReverseProxyResource):
-    sessions = {}
+    sessions = cshelve.CShelve(config.STATE_DB, 'c', True)
     def render(self, request):
         valid_prefix = '/dcma/ReviewValidate.html?batch_id='
         if not request.uri.startswith(valid_prefix)\
@@ -348,6 +348,9 @@ class ReverseProxyResource(BasicReverseProxyResource):
         if request.uri.startswith(valid_prefix):
             batch_id = request.uri[len(valid_prefix):]
             if request.received_cookies.has_key('JSESSIONID'):
-                print 'Batch instance %s accessed by user %s' %\
-                      (batch_id, self.sessions[request.received_cookies['JSESSIONID']])
+                if self.sessions.has_key(request.received_cookies['JSESSIONID']):
+                    print 'Batch instance %s accessed by user %s' %\
+                          (batch_id, self.sessions[request.received_cookies['JSESSIONID']])
+                else:
+                    return 'Security error.'
         return BasicReverseProxyResource.render(self, request)

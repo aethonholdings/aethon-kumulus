@@ -1,6 +1,7 @@
 # PYTHON .GITIGNORE -------------
 
 *.pyc
+*.shelve
 
 # JAVA .GITIGNORE -------------
 

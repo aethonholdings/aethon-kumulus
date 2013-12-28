@@ -3,6 +3,7 @@ ORIGINAL_PORT = 8080
 PROXIED = 'localhost'
 PROXIED_PORT = 80
 USE_SSL = False
+STATE_DB = 'state.shelve'
 
 def fq_original():
     return '%s:%s' % (ORIGINAL, ORIGINAL_PORT)
