@@ -28,6 +28,7 @@ from twisted.web.resource import Resource
 from twisted.web.server import NOT_DONE_YET
 from twisted.web.http import HTTPClient, Request, HTTPChannel
 
+import config
 
 class BasicProxyClient(HTTPClient):
     """
@@ -91,7 +92,7 @@ class BasicProxyClient(HTTPClient):
 class ProxyClient(BasicProxyClient):
     def handleHeader(self, key, value):
         if key == "Location":
-            value = value.replace("test.ephesoft.kumulus.sg:8080", "localhost")
+            value = value.replace(config.fq_original(), config.fq_proxied())
         BasicProxyClient.handleHeader(self, key, value)
 
     def handleResponsePart(self, buffer):
@@ -316,5 +317,5 @@ class ReverseProxyResource(BasicReverseProxyResource):
         if request.path == '/dcma/UploadBatch.html'\
            or request.path == '/dcma/WebScanner.html':
             return '<meta http-equiv="refresh" content="0; '\
-                   'url=http://localhost/dcma/BatchList.html" />'
+                   'url=http://%s/dcma/BatchList.html" />' % config.fq_proxied()
         return BasicReverseProxyResource.render(self, request)
