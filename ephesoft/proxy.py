@@ -312,54 +312,42 @@ class BasicReverseProxyResource(Resource):
         return NOT_DONE_YET
 
 valid_uris = ['/dcma/less-1.3.1.min.js',
-              '/dcma/login/login.nocache.js',
               '/dcma/utility.js',
-              '/dcma/i18n/common/locale.js',
-              '/dcma/i18n/login/locale.js',
-              '/dcma/images/spacer.gif',
-              '/dcma/themes/common.css',
-              '/dcma/login/js/amathcontext.js',
-              '/dcma/login/js/bigdecimal.js',
-              '/dcma/login/gwt/standard/standard.css',
-              '/dcma/login/css/style.css',
-              '/dcma/login/loginService',
-              '/dcma/themes/theme.less',
-              '/dcma/themes/default_theme/images/logo_login.png',
-              '/dcma/themes/default_theme/images/loginPage_left.png',
-              '/dcma/themes/default_theme/images/loginPage_logo.png',
-              '/dcma/themes/default_theme/images/loginPage_bg.png',
-              '/dcma/themes/default_theme/images/loginPage_right.png',
-              '/dcma/themes/default_theme/images/loginPage_footer.png',
-              '/dcma/login/gwt/standard/images/corner.png',
-              '/dcma/login/gwt/standard/images/vborder.png',
-              '/dcma/login/gwt/standard/images/hborder.png',
+              '/dcma/login/*',
+              '/dcma/i18n/*',
+              '/dcma/images/*',
+              '/dcma/themes/*',
+              '/dcma/reviewValidate/*',
               '/dcma/j_security_check',
               '/dcma/ReviewValidate.css',
-              '/dcma/jquery/jquery-ui-1.10.3.custom.css',
-              '/dcma/reviewValidate/reviewValidate.nocache.js',
-              '/dcma/jquery/jquery-1.9.1.js',
-              '/dcma/i18n/rv/locale.js',
-              '/dcma/jquery/jquery-ui.js',
-              '/dcma/reviewValidate/js/amathcontext.js',
-              '/dcma/reviewValidate/js/bigdecimal.js',
-              '/dcma/reviewValidate/gwt/standard/standard.css',
-              '/dcma/reviewValidate/css/style.css',
-              '/dcma/reviewValidate/rvService',
-              '/dcma/themes/default_theme/images/icon_cirTic.gif',
-              '/dcma/themes/default_theme/images/tableView.png']
+              '/dcma/jquery/*']
+
+def is_uri_valid(uri):
+    for valid in valid_uris:
+        if valid.endswith('*') and uri.startswith(valid[:-1]):
+            return True
+        elif valid == uri:
+            return True
+    return False
 
 class ReverseProxyResource(BasicReverseProxyResource):
+    sessions = {}
     def render(self, request):
         valid_prefix = '/dcma/ReviewValidate.html?batch_id='
         if not request.uri.startswith(valid_prefix)\
-           and not request.uri in valid_uris:
+           and not is_uri_valid(request.uri):
             if request.uri == '/dcma/BatchList.html':
                 return 'Thank you for reviewing the batch instance!'
             else:
                 print 'Blocked URL: %s' % request.uri
                 return "Invalid option. "\
                        "Please click your browser's back button."
+        if request.uri == '/dcma/j_security_check':
+            self.sessions[request.received_cookies['JSESSIONID']] =\
+                request.args['j_username'][0]
         if request.uri.startswith(valid_prefix):
             batch_id = request.uri[len(valid_prefix):]
-            print batch_id
+            if request.received_cookies.has_key('JSESSIONID'):
+                print 'Batch instance %s accessed by user %s' %\
+                      (batch_id, self.sessions[request.received_cookies['JSESSIONID']])
         return BasicReverseProxyResource.render(self, request)
