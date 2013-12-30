@@ -337,6 +337,7 @@ class ReverseProxyResource(BasicReverseProxyResource):
     sessions = cshelve.CShelve(config.STATE_DB, 'c', True)
 
     def render(self, request):
+        request.getSession()
         if not is_uri_valid(request.uri):
             if request.uri == '/dcma/BatchList.html':
                 return 'Thank you for reviewing the batch instance!'
@@ -345,15 +346,15 @@ class ReverseProxyResource(BasicReverseProxyResource):
                 return "Invalid option. "\
                        "Please click your browser's back button."
         if request.uri == '/dcma/j_security_check':
-            self.sessions[request.received_cookies['JSESSIONID']] =\
+            self.sessions[request.received_cookies['TWISTED_SESSION']] =\
                 request.args['j_username'][0]
         valid_prefix = '/dcma/ReviewValidate.html?batch_id='
         if request.uri.startswith(valid_prefix):
             batch_id = request.uri[len(valid_prefix):]
-            if request.received_cookies.has_key('JSESSIONID'):
-                if self.sessions.has_key(request.received_cookies['JSESSIONID']):
+            if request.received_cookies.has_key('TWISTED_SESSION'):
+                if self.sessions.has_key(request.received_cookies['TWISTED_SESSION']):
                     print 'Batch instance %s accessed by user %s' %\
-                          (batch_id, self.sessions[request.received_cookies['JSESSIONID']])
+                          (batch_id, self.sessions[request.received_cookies['TWISTED_SESSION']])
                 else:
                     return 'Security error.'
         return BasicReverseProxyResource.render(self, request)
