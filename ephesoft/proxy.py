@@ -337,24 +337,31 @@ class ReverseProxyResource(BasicReverseProxyResource):
     sessions = cshelve.CShelve(config.STATE_DB, 'c', True)
 
     def render(self, request):
+        # add a twisted cookie if not already there
         request.getSession()
+        # filter the uri to limit user's access to ephesoft
         if not is_uri_valid(request.uri):
             if request.uri == '/dcma/BatchList.html':
+                # TODO: ideally redirect to next batch for current user
                 return 'Thank you for reviewing the batch instance!'
             else:
                 print 'Blocked URL: %s' % request.uri
                 return "Invalid option. "\
                        "Please click your browser's back button."
+        # make a note of the username attempting login wrt the twisted cookie
         if request.uri == '/dcma/j_security_check':
             self.sessions[request.received_cookies['TWISTED_SESSION']] =\
                 request.args['j_username'][0]
         valid_prefix = '/dcma/ReviewValidate.html?batch_id='
         if request.uri.startswith(valid_prefix):
+            # kumulus access rights check
             if request.received_cookies.has_key('TWISTED_SESSION')\
                and self.sessions.has_key(request.received_cookies['TWISTED_SESSION']):
                 batch_id = request.uri[len(valid_prefix):]
                 user_id = self.sessions[request.received_cookies['TWISTED_SESSION']]
+                # TODO: check that valid user has access to the batch instance...
                 print 'Batch instance %s accessed by user %s' % (batch_id, user_id)
             else:
+                # ...or send him to the login page
                 request.requestHeaders.removeHeader('Cookie')
         return BasicReverseProxyResource.render(self, request)
