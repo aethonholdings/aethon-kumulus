@@ -13,62 +13,58 @@ Writer expressionOut = getExpressionOut()
 registerSitemeshPreprocessMode()
 createTagBody(1, {->
 printHtmlPart(0)
-expressionOut.print(resource(dir: 'css', file: 'main.css'))
-printHtmlPart(1)
 createTagBody(2, {->
-createClosureForHtmlPart(2, 3)
-invokeTag('captureTitle','sitemesh',3,[:],3)
+createClosureForHtmlPart(1, 3)
+invokeTag('captureTitle','sitemesh',2,[:],3)
 })
-invokeTag('wrapTitleTag','sitemesh',3,[:],2)
-printHtmlPart(3)
+invokeTag('wrapTitleTag','sitemesh',2,[:],2)
+printHtmlPart(2)
 })
-invokeTag('captureHead','sitemesh',4,[:],1)
-printHtmlPart(3)
+invokeTag('captureHead','sitemesh',3,[:],1)
+printHtmlPart(2)
 createTagBody(1, {->
-printHtmlPart(4)
-invokeTag('loggedInUserInfo','sec',9,['field':("username")],-1)
-printHtmlPart(5)
+printHtmlPart(3)
 expressionOut.print(tasks?.count())
-printHtmlPart(6)
+printHtmlPart(4)
 if(true && (tasks?.count()>1)) {
-printHtmlPart(7)
+printHtmlPart(5)
 }
+printHtmlPart(6)
+invokeTag('sortableColumn','g',9,['property':("id"),'title':("Id")],-1)
+printHtmlPart(7)
+invokeTag('sortableColumn','g',10,['property':("created"),'title':("Time created")],-1)
+printHtmlPart(7)
+invokeTag('sortableColumn','g',11,['property':("barcode"),'title':("Task")],-1)
+printHtmlPart(7)
+invokeTag('sortableColumn','g',12,['property':("action"),'title':("Action pending")],-1)
 printHtmlPart(8)
-invokeTag('sortableColumn','g',18,['property':("id"),'title':("Id")],-1)
-printHtmlPart(9)
-invokeTag('sortableColumn','g',19,['property':("created"),'title':("Time created")],-1)
-printHtmlPart(9)
-invokeTag('sortableColumn','g',20,['property':("barcode"),'title':("Task")],-1)
-printHtmlPart(9)
-invokeTag('sortableColumn','g',21,['property':("action"),'title':("Action pending")],-1)
-printHtmlPart(10)
 loop:{
 int i = 0
-for( taskInstance in (tasks.list()) ) {
-printHtmlPart(11)
+for( taskInstance in (tasks?.list()) ) {
+printHtmlPart(9)
 expressionOut.print((i % 2) == 0 ? 'odd' : 'even')
-printHtmlPart(12)
+printHtmlPart(10)
 expressionOut.print(taskInstance.id)
-printHtmlPart(13)
+printHtmlPart(11)
 expressionOut.print(taskInstance.created.format("dd/MM/yyyy - HH:mm:ss"))
-printHtmlPart(14)
+printHtmlPart(12)
 if(true && (taskInstance.type=='TASK_VALIDATE')) {
+printHtmlPart(13)
+}
+printHtmlPart(14)
+if(true && (taskInstance.type=='TASK_CLASSIFY')) {
 printHtmlPart(15)
 }
 printHtmlPart(16)
-if(true && (taskInstance.type=='TASK_CLASSIFY')) {
-printHtmlPart(17)
+if(true && (taskInstance.type=='TASK_VALIDATE')) {
+createClosureForHtmlPart(17, 4)
+invokeTag('link','g',25,['controller':("home"),'action':("validate")],4)
 }
 printHtmlPart(18)
-if(true && (taskInstance.type=='TASK_VALIDATE')) {
-createClosureForHtmlPart(19, 4)
-invokeTag('link','g',34,['controller':("home"),'action':("validate")],4)
-}
-printHtmlPart(20)
 i++
 }
 }
-printHtmlPart(21)
+printHtmlPart(19)
 })
 invokeTag('captureBody','sitemesh',1,[:],1)
 }
@@ -77,7 +73,7 @@ protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1388390096000L
+public static final long LAST_MODIFIED = 1388398344000L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'
