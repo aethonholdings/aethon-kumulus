@@ -95,9 +95,6 @@ class ProxyClient(BasicProxyClient):
             value = value.replace(config.fq_original(), config.fq_proxied())
         BasicProxyClient.handleHeader(self, key, value)
 
-    def handleResponsePart(self, buffer):
-        BasicProxyClient.handleResponsePart(self, buffer)
-
 
 class ProxyClientFactory(ClientFactory):
     """
