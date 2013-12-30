@@ -2,12 +2,9 @@ package com.kumulus.domain
 
 class Task {
 
-    String ownerLDAPUid
+    String userId
     String type
-    String status
     Date created
-    Date started
-    Date ended
 
     static hasMany = [nodes: Nodes]
     

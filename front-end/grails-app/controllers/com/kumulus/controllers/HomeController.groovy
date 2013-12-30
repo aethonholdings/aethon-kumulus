@@ -12,7 +12,6 @@ class HomeController {
     def index() { 
 
         def auth = springSecurityService.getAuthentication()
-        
         String username = auth.getPrincipal().getUsername()
         def tasks = Task.findByOwnerLDAPUidAndStatus(username, "PENDING")
 

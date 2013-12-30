@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.6.10)
 # Database: kumulus
-# Generation Time: 2013-12-30 05:50:21 +0000
+# Generation Time: 2013-12-30 06:34:23 +0000
 # ************************************************************
 
 
@@ -30,20 +30,25 @@
 
 
 
+# Dump of table attendance
+# ------------------------------------------------------------
+
+
+
 # Dump of table nodes
 # ------------------------------------------------------------
 
 LOCK TABLES `nodes` WRITE;
 /*!40000 ALTER TABLE `nodes` DISABLE KEYS */;
 
-INSERT INTO `nodes` (`node_id`, `actual_image_name`, `barcode`, `comment`, `create_datetime`, `creatorldapuid`, `document_sequence_number`, `hierarchy`, `internal_comment`, `last_update_datetime`, `name`, `parent_node_id`, `project_id`, `status`, `thumbnail_image_name`, `type`, `uploaded`)
+INSERT INTO `nodes` (`node_id`, `project_id`, `name`, `type`, `barcode`, `comment`, `internal_comment`, `status`, `parent_node_id`, `hierarchy`, `thumbnail_image_name`, `actual_image_name`, `creator_id`, `create_datetime`, `last_update_id`, `last_update_datetime`, `document_sequence_number`, `creatorldapuid`, `uploaded`)
 VALUES
-	(1,NULL,NULL,'no comment',NULL,NULL,NULL,NULL,NULL,'2013-12-30 13:48:29','root node',NULL,1,NULL,NULL,'ROOT',NULL),
-	(2,NULL,'AE18101978','no comment',NULL,'kumulus',NULL,NULL,NULL,'2013-12-30 13:48:29','Container 1',1,1,NULL,NULL,'CONTAINER',NULL),
-	(3,NULL,'AE26051979','no comment',NULL,'kumulus',NULL,NULL,NULL,'2013-12-30 13:48:29','Container 2',1,1,NULL,NULL,'CONTAINER',NULL),
-	(4,NULL,NULL,'no comment',NULL,'kumulus',NULL,NULL,NULL,'2013-12-30 13:48:29','Document 1',3,1,NULL,NULL,'DOCUMENT',NULL),
-	(5,NULL,NULL,'no comment',NULL,'kumulus',NULL,NULL,NULL,'2013-12-30 13:48:29','Document 2',3,1,NULL,NULL,'DOCUMENT',NULL),
-	(6,NULL,NULL,'no comment',NULL,'kumulus',NULL,NULL,NULL,'2013-12-30 13:48:29','Document 3',3,1,NULL,NULL,'DOCUMENT',NULL);
+	(1,1,'root node','ROOT',NULL,'no comment',NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,NULL,'2013-12-30 13:48:29',NULL,NULL,NULL),
+	(2,1,'Container 1','CONTAINER','AE18101978','no comment',NULL,NULL,1,NULL,NULL,NULL,NULL,NULL,NULL,'2013-12-30 13:48:29',NULL,'kumulus',NULL),
+	(3,1,'Container 2','CONTAINER','AE26051979','no comment',NULL,NULL,1,NULL,NULL,NULL,NULL,NULL,NULL,'2013-12-30 13:48:29',NULL,'kumulus',NULL),
+	(4,1,'Document 1','DOCUMENT',NULL,'no comment',NULL,NULL,3,NULL,NULL,NULL,NULL,NULL,NULL,'2013-12-30 13:48:29',NULL,'kumulus',NULL),
+	(5,1,'Document 2','DOCUMENT',NULL,'no comment',NULL,NULL,3,NULL,NULL,NULL,NULL,NULL,NULL,'2013-12-30 13:48:29',NULL,'kumulus',NULL),
+	(6,1,'Document 3','DOCUMENT',NULL,'no comment',NULL,NULL,3,NULL,NULL,NULL,NULL,NULL,NULL,'2013-12-30 13:48:29',NULL,'kumulus',NULL);
 
 /*!40000 ALTER TABLE `nodes` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -60,17 +65,12 @@ UNLOCK TABLES;
 LOCK TABLES `project` WRITE;
 /*!40000 ALTER TABLE `project` DISABLE KEYS */;
 
-INSERT INTO `project` (`project_id`, `clientldapid`, `project_name`, `status`)
+INSERT INTO `project` (`project_id`, `project_name`, `status`, `clientldapid`)
 VALUES
-	(1,'Kumulus Pte Ltd','test project','001');
+	(1,'test project','001','Kumulus Pte Ltd');
 
 /*!40000 ALTER TABLE `project` ENABLE KEYS */;
 UNLOCK TABLES;
-
-
-# Dump of table role
-# ------------------------------------------------------------
-
 
 
 # Dump of table task
@@ -79,12 +79,27 @@ UNLOCK TABLES;
 LOCK TABLES `task` WRITE;
 /*!40000 ALTER TABLE `task` DISABLE KEYS */;
 
-INSERT INTO `task` (`id`, `version`, `created`, `ended`, `ownerldapuid`, `started`, `status`, `type`)
+INSERT INTO `task` (`id`, `created`, `last_updated`, `status`, `batch_instance_id`, `user_id`, `reported`, `project_id`, `last_batch_instance_id`, `type`)
 VALUES
-	(1,0,'2013-12-30 13:48:29',NULL,'kumulus',NULL,'PENDING','TASK_VALIDATE'),
-	(2,0,'2013-12-30 13:48:29',NULL,'kumulus',NULL,'PENDING','TASK_CLASSIFY');
+	(1,'2013-12-30 13:48:29','2013-12-30 13:48:29',0,NULL,'kumulus',0,1,NULL,'VALIDATION'),
+	(2,'2013-12-30 13:50:00','2013-12-30 13:50:00',0,NULL,'kumulus',0,1,NULL,'CLASSIFICATION');
 
 /*!40000 ALTER TABLE `task` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table task_history
+# ------------------------------------------------------------
+
+LOCK TABLES `task_history` WRITE;
+/*!40000 ALTER TABLE `task_history` DISABLE KEYS */;
+
+INSERT INTO `task_history` (`id`, `task_id`, `last_updated`, `status`, `reported`)
+VALUES
+	(1,1,'2013-12-30 13:48:29',0,NULL),
+	(2,2,'2013-12-30 13:50:00',0,NULL);
+
+/*!40000 ALTER TABLE `task_history` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
@@ -94,22 +109,17 @@ UNLOCK TABLES;
 LOCK TABLES `task_nodes` WRITE;
 /*!40000 ALTER TABLE `task_nodes` DISABLE KEYS */;
 
-INSERT INTO `task_nodes` (`task_nodes_id`, `nodes_id`)
+INSERT INTO `task_nodes` (`task_nodes_id`, `nodes_id`, `task_id`)
 VALUES
-	(1,5),
-	(1,4),
-	(2,6);
+	(2,4,1),
+	(3,5,1),
+	(4,6,2);
 
 /*!40000 ALTER TABLE `task_nodes` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
 # Dump of table user
-# ------------------------------------------------------------
-
-
-
-# Dump of table user_role
 # ------------------------------------------------------------
 
 
@@ -121,3 +131,4 @@ UNLOCK TABLES;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
