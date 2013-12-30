@@ -320,7 +320,9 @@ valid_uris = ['/dcma/less-1.3.1.min.js',
               '/dcma/reviewValidate/*',
               '/dcma/j_security_check',
               '/dcma/ReviewValidate.css',
-              '/dcma/jquery/*']
+              '/dcma/ReviewValidate.html?batch_id=*',
+              '/dcma/jquery/*',
+              '/favicon.ico']
 
 def is_uri_valid(uri):
     for valid in valid_uris:
@@ -331,11 +333,11 @@ def is_uri_valid(uri):
     return False
 
 class ReverseProxyResource(BasicReverseProxyResource):
+
     sessions = cshelve.CShelve(config.STATE_DB, 'c', True)
+
     def render(self, request):
-        valid_prefix = '/dcma/ReviewValidate.html?batch_id='
-        if not request.uri.startswith(valid_prefix)\
-           and not is_uri_valid(request.uri):
+        if not is_uri_valid(request.uri):
             if request.uri == '/dcma/BatchList.html':
                 return 'Thank you for reviewing the batch instance!'
             else:
@@ -345,6 +347,7 @@ class ReverseProxyResource(BasicReverseProxyResource):
         if request.uri == '/dcma/j_security_check':
             self.sessions[request.received_cookies['JSESSIONID']] =\
                 request.args['j_username'][0]
+        valid_prefix = '/dcma/ReviewValidate.html?batch_id='
         if request.uri.startswith(valid_prefix):
             batch_id = request.uri[len(valid_prefix):]
             if request.received_cookies.has_key('JSESSIONID'):
