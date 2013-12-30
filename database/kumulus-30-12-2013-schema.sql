@@ -20,6 +20,59 @@
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
 
 
+
+# Dump of table role
+# ------------------------------------------------------------
+
+CREATE TABLE `role` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `version` bigint(20) NOT NULL,
+  `authority` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `authority` (`authority`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+# Dump of table user
+# ------------------------------------------------------------
+
+CREATE TABLE `user` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `version` bigint(20) NOT NULL,
+  `account_expired` bit(1) NOT NULL,
+  `account_locked` bit(1) NOT NULL,
+  `enabled` bit(1) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `password_expired` bit(1) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `user_id` varchar(45) NOT NULL,
+  `userid_password` varchar(100) DEFAULT NULL,
+  `status` varchar(10) DEFAULT NULL,
+  `collection_right` varchar(1) DEFAULT NULL,
+  `import_right` varchar(1) DEFAULT NULL,
+  `separation_right` varchar(1) DEFAULT NULL,
+  `import_kpi_target` int(11) DEFAULT NULL,
+  `separation_kpi_target` int(11) DEFAULT NULL,
+  `user_email` varchar(45) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`),
+  KEY `user_id` (`user_id`),
+  UNIQUE KEY `username` (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+# Dump of table user_role
+# ------------------------------------------------------------
+
+CREATE TABLE `user_role` (
+  `role_id` bigint(20) NOT NULL,
+  `user_id` bigint(20) NOT NULL,
+  PRIMARY KEY (`role_id`,`user_id`),
+  KEY `FK143BF46A3D7D4261` (`role_id`),
+  KEY `FK143BF46AE2A80641` (`user_id`),
+  CONSTRAINT `FK143BF46AE2A80641` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
+  CONSTRAINT `FK143BF46A3D7D4261` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
 # Dump of table application_parameter
 # ------------------------------------------------------------
 
@@ -92,17 +145,10 @@ CREATE TABLE `nodes` (
   `creatorldapuid` varchar(45) DEFAULT NULL,
   `uploaded` bit(1) DEFAULT b'0',
   PRIMARY KEY (`node_id`),
-  KEY `fk_project` (`project_id`),
-  KEY `fk_user` (`creator_id`),
-  KEY `parent_node_id` (`parent_node_id`),
-  KEY `last_update_id` (`last_update_id`),
-  KEY `NODES_ID` (`node_id`),
-  KEY `NODES_PROJECT_ID` (`project_id`),
-  KEY `NODES_PARENT_NODE_ID` (`parent_node_id`),
-  KEY `NODES_CREATOR_ID` (`creator_id`),
-  CONSTRAINT `fk_project` FOREIGN KEY (`project_id`) REFERENCES `project` (`project_id`),
-  CONSTRAINT `nodes_ibfk_1` FOREIGN KEY (`parent_node_id`) REFERENCES `nodes` (`node_id`),
-  CONSTRAINT `nodes_ibfk_2` FOREIGN KEY (`last_update_id`) REFERENCES `user` (`user_id`)
+  KEY `FK64212B14D5E1553` (`project_id`),
+  KEY `FK64212B1EFDC50D` (`parent_node_id`),
+  CONSTRAINT `FK64212B1EFDC50D` FOREIGN KEY (`parent_node_id`) REFERENCES `nodes` (`node_id`),
+  CONSTRAINT `FK64212B14D5E1553` FOREIGN KEY (`project_id`) REFERENCES `project` (`project_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
@@ -177,33 +223,11 @@ CREATE TABLE `task_nodes` (
   `nodes_id` bigint(20) NOT NULL,
   `task_id` bigint(20) NOT NULL,
   PRIMARY KEY (`task_nodes_id`),
-  KEY `fk_1_idx` (`nodes_id`),
-  KEY `fk_2_idx` (`task_id`),
-  CONSTRAINT `fk_1` FOREIGN KEY (`nodes_id`) REFERENCES `nodes` (`node_id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `fk_2` FOREIGN KEY (`task_id`) REFERENCES `task` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
+  KEY `FK4DF5B3772EED58CF` (`task_nodes_id`),
+  KEY `FK4DF5B377C4D00893` (`nodes_id`),
+  CONSTRAINT `FK4DF5B377C4D00893` FOREIGN KEY (`nodes_id`) REFERENCES `nodes` (`node_id`),
+  CONSTRAINT `FK4DF5B3772EED58CF` FOREIGN KEY (`task_nodes_id`) REFERENCES `task` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-
-
-# Dump of table user
-# ------------------------------------------------------------
-
-CREATE TABLE `user` (
-  `user_id` varchar(45) NOT NULL,
-  `userid_password` varchar(100) DEFAULT NULL,
-  `status` varchar(10) DEFAULT NULL,
-  `collection_right` varchar(1) DEFAULT NULL,
-  `import_right` varchar(1) DEFAULT NULL,
-  `separation_right` varchar(1) DEFAULT NULL,
-  `import_kpi_target` int(11) DEFAULT NULL,
-  `separation_kpi_target` int(11) DEFAULT NULL,
-  `user_email` varchar(45) NOT NULL DEFAULT '',
-  PRIMARY KEY (`user_id`),
-  KEY `USER_ID` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-
-
 
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;

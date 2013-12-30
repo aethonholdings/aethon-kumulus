@@ -13,7 +13,7 @@ class HomeController {
 
         def auth = springSecurityService.getAuthentication()
         String username = auth.getPrincipal().getUsername()
-        def tasks = Task.findByOwnerLDAPUidAndStatus(username, "PENDING")
+        def tasks = Task.findByUserId(username)
 
         render view:"index", layout:"main", model:[user: username, tasks: tasks]
         

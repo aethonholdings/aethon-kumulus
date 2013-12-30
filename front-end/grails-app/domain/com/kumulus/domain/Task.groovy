@@ -3,17 +3,14 @@ package com.kumulus.domain
 class Task {
 
     String userId
-    String type
     Date created
+    String type
 
     static hasMany = [nodes: Nodes]
     
     static constraints = {
         created nullable: false
-        started nullable: true
-        ended nullable: true
-        ownerLDAPUid nullable: false
+        userId nullable: false
         type nullable: false
-        status nullable: false
     }
 }
