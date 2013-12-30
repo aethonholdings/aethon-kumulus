@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.6.10)
 # Database: kumulus
-# Generation Time: 2013-12-30 06:34:23 +0000
+# Generation Time: 2013-12-30 07:49:32 +0000
 # ************************************************************
 
 
@@ -73,16 +73,21 @@ VALUES
 UNLOCK TABLES;
 
 
+# Dump of table role
+# ------------------------------------------------------------
+
+
+
 # Dump of table task
 # ------------------------------------------------------------
 
 LOCK TABLES `task` WRITE;
 /*!40000 ALTER TABLE `task` DISABLE KEYS */;
 
-INSERT INTO `task` (`id`, `created`, `last_updated`, `status`, `batch_instance_id`, `user_id`, `reported`, `project_id`, `last_batch_instance_id`, `type`)
+INSERT INTO `task` (`id`, `created`, `last_updated`, `status`, `batch_instance_id`, `user_id`, `reported`, `project_id`, `last_batch_instance_id`, `type`, `version`)
 VALUES
-	(1,'2013-12-30 13:48:29','2013-12-30 13:48:29',0,NULL,'kumulus',0,1,NULL,'VALIDATION'),
-	(2,'2013-12-30 13:50:00','2013-12-30 13:50:00',0,NULL,'kumulus',0,1,NULL,'CLASSIFICATION');
+	(1,'2013-12-30 13:48:29','2013-12-30 13:48:29',0,NULL,'kumulus',0,1,NULL,'VALIDATION',0),
+	(2,'2013-12-30 13:50:00','2013-12-30 13:50:00',0,NULL,'kumulus',0,1,NULL,'CLASSIFICATION',0);
 
 /*!40000 ALTER TABLE `task` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -124,6 +129,11 @@ UNLOCK TABLES;
 
 
 
+# Dump of table user_role
+# ------------------------------------------------------------
+
+
+
 
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
@@ -131,4 +141,3 @@ UNLOCK TABLES;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
