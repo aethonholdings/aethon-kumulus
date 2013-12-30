@@ -356,5 +356,7 @@ class ReverseProxyResource(BasicReverseProxyResource):
                     print 'Batch instance %s accessed by user %s' %\
                           (batch_id, self.sessions[request.received_cookies['TWISTED_SESSION']])
                 else:
-                    return 'Security error.'
+                    request.requestHeaders.removeHeader('Cookie')
+            else:
+                request.requestHeaders.removeHeader('Cookie')
         return BasicReverseProxyResource.render(self, request)
