@@ -14,7 +14,6 @@ class HomeController {
         def auth = springSecurityService.getAuthentication()
         String username = auth.getPrincipal().getUsername()
         def tasks = Task.findByUserId(username)
-
         render view:"index", layout:"main", model:[user: username, tasks: tasks]
         
     }
@@ -23,16 +22,11 @@ class HomeController {
     @Secured(['ROLE_VALIDATE'])
     def validate() {
         
-        withRest(uri: "http://test.ephesoft.kumulus.sg:8080") {
-            def html = get(path : '/dcma/j_security_check',  headers : [Accept : 'application/xml'], contentType : TEXT)
-            render html.data.text
-        }
-        render 'this is where we use REST HttpBuilder to log on and embed ephesoft<br>'
-        render "see --> <a href='http://groovy.codehaus.org/modules/http-builder/doc/auth.html'>here</a>"
-
-//        withHttp(uri: "http://test.ephesoft.kumulus.sg:8080") {
-//            def html = post(path : '/dcma/j_security_check',  body : [j_username: 'kumulus', password: 'password'])
-//            render html
-//        }   
+        withHttp(uri: "http://test.ephesoft.kumulus.sg:8080") {
+            
+            def html = post(path : '/dcma/j_security_check',  body : [j_username: 'ephesoft', j_password: 'Ke$haIsGreat666'])
+            render html
+        
+        }   
     }
 }
