@@ -65,9 +65,6 @@ grails.project.dependency.resolution = {
         compile ":spring-security-core:2.0-RC2"
         compile ":spring-security-ldap:2.0-RC2"
         compile ":rest:0.8"
-        // compile ":gorm-rest-client:1.0.0.M1"
-        // compile ":activiti:5.12.1"
-        // compile ':db-reverse-engineer:0.5'
 
         // plugins needed at runtime but not for compilation
         runtime ":hibernate:3.6.10.4" // or ":hibernate4:4.1.11.4"
