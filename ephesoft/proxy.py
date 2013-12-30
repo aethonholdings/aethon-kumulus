@@ -350,13 +350,11 @@ class ReverseProxyResource(BasicReverseProxyResource):
                 request.args['j_username'][0]
         valid_prefix = '/dcma/ReviewValidate.html?batch_id='
         if request.uri.startswith(valid_prefix):
-            batch_id = request.uri[len(valid_prefix):]
-            if request.received_cookies.has_key('TWISTED_SESSION'):
-                if self.sessions.has_key(request.received_cookies['TWISTED_SESSION']):
-                    print 'Batch instance %s accessed by user %s' %\
-                          (batch_id, self.sessions[request.received_cookies['TWISTED_SESSION']])
-                else:
-                    request.requestHeaders.removeHeader('Cookie')
+            if request.received_cookies.has_key('TWISTED_SESSION')\
+               and self.sessions.has_key(request.received_cookies['TWISTED_SESSION']):
+                batch_id = request.uri[len(valid_prefix):]
+                user_id = self.sessions[request.received_cookies['TWISTED_SESSION']]
+                print 'Batch instance %s accessed by user %s' % (batch_id, user_id)
             else:
                 request.requestHeaders.removeHeader('Cookie')
         return BasicReverseProxyResource.render(self, request)
