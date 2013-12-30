@@ -23,16 +23,12 @@ class HomeController {
     @Secured(['ROLE_VALIDATE'])
     def validate() {
         
-        withRest(uri: "http://test.ephesoft.kumulus.sg:8080") {
+        withRest(uri: "http://test.ephesoft.kumulus.sg:8081/dcma/ReviewValidate.html?batch_id=BI5") {
             def html = get(path : '/dcma/j_security_check',  headers : [Accept : 'application/xml'], contentType : TEXT)
             render html.data.text
         }
         render 'this is where we use REST HttpBuilder to log on and embed ephesoft<br>'
         render "see --> <a href='http://groovy.codehaus.org/modules/http-builder/doc/auth.html'>here</a>"
 
-//        withHttp(uri: "http://test.ephesoft.kumulus.sg:8080") {
-//            def html = post(path : '/dcma/j_security_check',  body : [j_username: 'kumulus', password: 'password'])
-//            render html
-//        }   
     }
 }
