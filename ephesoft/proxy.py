@@ -311,6 +311,7 @@ class BasicReverseProxyResource(Resource):
         self.reactor.connectTCP(self.host, self.port, clientFactory)
         return NOT_DONE_YET
 
+
 valid_uris = ['/dcma/less-1.3.1.min.js',
               '/dcma/utility.js',
               '/dcma/login/*',
@@ -324,6 +325,7 @@ valid_uris = ['/dcma/less-1.3.1.min.js',
               '/dcma/jquery/*',
               '/favicon.ico']
 
+
 def is_uri_valid(uri):
     for valid in valid_uris:
         if valid.endswith('*') and uri.startswith(valid[:-1]):
@@ -331,6 +333,7 @@ def is_uri_valid(uri):
         elif valid == uri:
             return True
     return False
+
 
 class ReverseProxyResource(BasicReverseProxyResource):
 
