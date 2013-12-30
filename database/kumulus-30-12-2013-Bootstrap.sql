@@ -86,8 +86,8 @@ LOCK TABLES `task` WRITE;
 
 INSERT INTO `task` (`id`, `created`, `last_updated`, `status`, `batch_instance_id`, `user_id`, `reported`, `project_id`, `last_batch_instance_id`, `type`, `version`)
 VALUES
-	(1,'2013-12-30 13:48:29','2013-12-30 13:48:29',0,NULL,'kumulus',0,1,NULL,'VALIDATION',0),
-	(2,'2013-12-30 13:50:00','2013-12-30 13:50:00',0,NULL,'kumulus',0,1,NULL,'CLASSIFICATION',0);
+	(1,'2013-12-30 13:48:29','2013-12-30 13:48:29',0,NULL,'kumulus',0,1,NULL,'TASK_VALIDATE',0),
+	(2,'2013-12-30 13:50:00','2013-12-30 13:50:00',0,NULL,'kumulus',0,1,NULL,'TASK_CLASSIFY',0);
 
 /*!40000 ALTER TABLE `task` ENABLE KEYS */;
 UNLOCK TABLES;
