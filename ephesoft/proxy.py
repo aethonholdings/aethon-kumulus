@@ -348,8 +348,30 @@ class ReverseProxyResource(BasicReverseProxyResource):
         # filter the uri to limit user's access to ephesoft
         if not is_uri_valid(request.uri):
             if request.uri == '/dcma/BatchList.html':
-                # TODO: ideally redirect to next batch for current user
-                return 'Thank you for reviewing the batch instance!'
+                if request.received_cookies.has_key('TWISTED_SESSION')\
+                   and self.sessions.has_key(request.received_cookies['TWISTED_SESSION']):
+                    user_id = self.sessions[request.received_cookies['TWISTED_SESSION']]
+                    # find extra work for current user
+                    print 'Find extra work for user %s' % user_id
+
+                    def get_more_work(user_id):
+                        return self.cp.runQuery("SELECT batch_instance_id FROM task "
+                                                "WHERE user_id = %s AND status in (4,5) "
+                                                "LIMIT 1", user_id)
+                    
+                    def handle_new_work(batch_id):
+                        if batch_id:
+                            request.write('<meta http-equiv="refresh" content="0; '\
+                                          'url=http://%s/dcma/ReviewValidate.html?batch_id=BI%s" />'\
+                                          % (config.fq_proxied(), batch_id[0][0]))
+                        else:
+                            request.write('No more validation work for you at this time!')
+                        request.finish()
+                    
+                    get_more_work(user_id).addCallback(handle_new_work)
+                    return NOT_DONE_YET
+                else:
+                    return 'No more validation work for you at this time!'
             else:
                 print 'Blocked URL: %s' % request.uri
                 return "Invalid option. "\
