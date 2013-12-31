@@ -27,6 +27,7 @@ from twisted.internet.protocol import ClientFactory
 from twisted.web.resource import Resource
 from twisted.web.server import NOT_DONE_YET
 from twisted.web.http import HTTPClient, Request, HTTPChannel
+from twisted.enterprise import adbapi
 
 import config, cshelve
 
@@ -336,6 +337,11 @@ class ReverseProxyResource(BasicReverseProxyResource):
 
     sessions = cshelve.CShelve(config.STATE_DB, 'c', True)
 
+    cp = adbapi.ConnectionPool('MySQLdb',
+                               host=config.DB_HOST, port=config.DB_PORT,
+                               user=config.DB_USER, passwd=config.DB_PASS,
+                               db=config.DB_NAME)
+
     def render(self, request):
         # add a twisted cookie if not already there
         request.getSession()
@@ -352,16 +358,29 @@ class ReverseProxyResource(BasicReverseProxyResource):
         if request.uri == '/dcma/j_security_check':
             self.sessions[request.received_cookies['TWISTED_SESSION']] =\
                 request.args['j_username'][0]
-        valid_prefix = '/dcma/ReviewValidate.html?batch_id='
+        valid_prefix = '/dcma/ReviewValidate.html?batch_id=BI'
         if request.uri.startswith(valid_prefix):
+            batch_id = request.uri[len(valid_prefix):]
             # kumulus access rights check
             if request.received_cookies.has_key('TWISTED_SESSION')\
-               and self.sessions.has_key(request.received_cookies['TWISTED_SESSION']):
-                batch_id = request.uri[len(valid_prefix):]
+               and self.sessions.has_key(request.received_cookies['TWISTED_SESSION'])\
+               and batch_id.isdigit() and not batch_id.startswith('0'):
                 user_id = self.sessions[request.received_cookies['TWISTED_SESSION']]
-                # TODO: check that valid user has access to the batch instance...
+                # check that valid user has access to the batch instance
                 print 'Batch instance %s accessed by user %s' % (batch_id, user_id)
+
+                def get_owner(batch_id):
+                    return self.cp.runQuery("SELECT user_id FROM task "
+                                            "WHERE batch_instance_id = %s", batch_id)
+                
+                def validate(owner):
+                    if not owner or owner[0][0] != user_id:
+                        request.requestHeaders.removeHeader('Cookie')
+                    return BasicReverseProxyResource.render(self, request)
+                
+                get_owner(batch_id).addCallback(validate)
+                return NOT_DONE_YET
             else:
-                # ...or send him to the login page
+                # send the user to the login page
                 request.requestHeaders.removeHeader('Cookie')
         return BasicReverseProxyResource.render(self, request)
