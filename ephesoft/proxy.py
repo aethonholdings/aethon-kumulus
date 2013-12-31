@@ -371,7 +371,8 @@ class ReverseProxyResource(BasicReverseProxyResource):
                     get_more_work(user_id).addCallback(handle_new_work)
                     return NOT_DONE_YET
                 else:
-                    return 'No more validation work for you at this time!'
+                    request.requestHeaders.removeHeader('Cookie')
+                    return BasicReverseProxyResource.render(self, request)
             else:
                 print 'Blocked URL: %s' % request.uri
                 return "Invalid option. "\
