@@ -16,6 +16,7 @@ import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.jdbc.core.JdbcTemplate;
 import sg.aethon.kumulus.manager.Commons;
+import sg.aethon.kumulus.manager.Commons.Transaction;
 import sg.aethon.kumulus.manager.Properties;
 import sg.aethon.kumulus.manager.Task;
 
@@ -40,29 +41,39 @@ public class BatchInstanceTask implements Task
     {
         JdbcTemplate conn = Commons.getKumulusConnection(p);
         List<Map<String, Object>> tasks = 
-                conn.queryForList("select task.id, task.project_id, project_name, last_batch_instance_id "+
+                conn.queryForList("select task.id, task.project_id, project_name, "+
+                                  "last_batch_instance_id, user_id "+
                                   "from task inner join project "+
                                   "on task.project_id=project.project_id "+
                                   "where task.status=? order by task.id",
                                   new Object[]{Status.READY_FOR_BATCH_INSTANCE.code});
-        if (tasks.size() == 0)
+        if (tasks.isEmpty())
             return;
         for (Map<String, Object> task : tasks)
         {
             final int task_id = ((Number) task.get("id")).intValue();
             final Number last_batch_instance_id = (Number) task.get("last_batch_instance_id");
+            final String user_id = task.get("user_id").toString();
             if (last_batch_instance_id != null)
             {
                 log.info("Getting the batch instance for " + task_id);
                 /* we have already submitted a folder to Ephesoft */
-                if (last_batch_instance_id.intValue()+1 == getLastBatchInstanceID(p))
+                int batch_instance_id = last_batch_instance_id.intValue()+1;
+                if (batch_instance_id == getLastBatchInstanceID(p))
                 {
-                    log.info("Found batch instance: " + (last_batch_instance_id.intValue()+1));
+                    log.info("Found batch instance: " + batch_instance_id);
                     /* and the batch instance has been created */
-                    conn.update("update task "+
-                                "set batch_instance_id=?, last_batch_instance_id=null, status=? "+
-                                "where task.id=?",
-                                new Object[]{last_batch_instance_id.intValue()+1, Status.CREATED.code, task_id});
+                    try (Transaction tran = Commons.createTransaction(p, conn))
+                    {
+                        conn.update("update task "+
+                                    "set batch_instance_id=?, last_batch_instance_id=null, status=? "+
+                                    "where task.id=?",
+                                    new Object[]{batch_instance_id, Status.CREATED.code, task_id});
+                        JdbcTemplate eph = Commons.getEphesoftConnection(p);
+                        eph.update("insert into kumulus_batch_instance (id, user_id) " +
+                                   "values (?, '?')", new Object[]{batch_instance_id, user_id});
+                        tran.success();
+                    }
                 }
                 /* restart from the beginning */
                 return;
