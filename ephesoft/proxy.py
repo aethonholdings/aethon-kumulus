@@ -323,6 +323,7 @@ valid_uris = ['/dcma/less-1.3.1.min.js',
               '/dcma/jquery/*',
               '/favicon.ico']
 
+valid_prefix = '/dcma/ReviewValidate.html?batch_id=BI'
 
 def is_uri_valid(uri):
     for valid in valid_uris:
@@ -335,7 +336,7 @@ def is_uri_valid(uri):
 
 class ReverseProxyResource(BasicReverseProxyResource):
 
-    sessions = cshelve.CShelve(config.STATE_DB, 'c', True)
+    sessions = cshelve.CShelve(config.STATE_DB, 'c', False)
 
     cp = adbapi.ConnectionPool('MySQLdb',
                                host=config.DB_HOST, port=config.DB_PORT,
@@ -345,13 +346,14 @@ class ReverseProxyResource(BasicReverseProxyResource):
     def render(self, request):
         # add a twisted cookie if not already there
         request.getSession()
-        # filter the uri to limit user's access to ephesoft
         if not is_uri_valid(request.uri):
             if request.uri == '/dcma/BatchList.html':
-                if request.received_cookies.has_key('TWISTED_SESSION')\
-                   and self.sessions.has_key(request.received_cookies['TWISTED_SESSION']):
+                try:
                     user_id = self.sessions[request.received_cookies['TWISTED_SESSION']]
-                    # find extra work for current user
+                except KeyError:
+                    request.requestHeaders.removeHeader('Cookie')
+                    return BasicReverseProxyResource.render(self, request)
+                else:
                     print 'Find extra work for user %s' % user_id
 
                     def get_more_work(user_id):
@@ -375,41 +377,40 @@ class ReverseProxyResource(BasicReverseProxyResource):
                     
                     get_more_work(user_id).addCallback(handle_new_work)
                     return NOT_DONE_YET
-                else:
-                    request.requestHeaders.removeHeader('Cookie')
-                    return BasicReverseProxyResource.render(self, request)
             else:
                 print 'Blocked URL: %s' % request.uri
                 return "Invalid option. "\
                        "Please click your browser's back button."
-        # make a note of the username attempting login wrt the twisted cookie
-        if request.uri == '/dcma/j_security_check':
-            self.sessions[request.received_cookies['TWISTED_SESSION']] =\
-                request.args['j_username'][0]
-        valid_prefix = '/dcma/ReviewValidate.html?batch_id=BI'
-        if request.uri.startswith(valid_prefix):
-            batch_id = request.uri[len(valid_prefix):]
-            # kumulus access rights check
-            if request.received_cookies.has_key('TWISTED_SESSION')\
-               and self.sessions.has_key(request.received_cookies['TWISTED_SESSION'])\
-               and batch_id.isdigit() and not batch_id.startswith('0'):
-                user_id = self.sessions[request.received_cookies['TWISTED_SESSION']]
-                # check that valid user has access to the batch instance
-                print 'Batch instance %s accessed by user %s' % (batch_id, user_id)
-
-                def get_owner(batch_id):
-                    return self.cp.runQuery("SELECT user_id "
-                                            "FROM kumulus_batch_instance "
-                                            "WHERE id = %s", batch_id)
-                
-                def validate(owner):
-                    if not owner or owner[0][0] != user_id:
+        else:
+            # the uri is valid
+            if request.uri == '/dcma/j_security_check':
+                # make a note of the username attempting login wrt the twisted cookie
+                self.sessions[request.received_cookies['TWISTED_SESSION']] =\
+                    request.args['j_username'][0]
+                reactor.callInThread(self.sessions.sync)
+            elif request.uri.startswith(valid_prefix):
+                batch_id = request.uri[len(valid_prefix):]
+                # kumulus access rights check
+                if batch_id.isdigit() and not batch_id.startswith('0'):
+                    try:
+                        user_id = self.sessions[request.received_cookies['TWISTED_SESSION']]
+                    except KeyError:
                         request.requestHeaders.removeHeader('Cookie')
-                    return BasicReverseProxyResource.render(self, request)
-                
-                get_owner(batch_id).addCallback(validate)
-                return NOT_DONE_YET
-            else:
-                # send the user to the login page
-                request.requestHeaders.removeHeader('Cookie')
-        return BasicReverseProxyResource.render(self, request)
+                    else:
+                        print 'Batch instance %s accessed by user %s' % (batch_id, user_id)
+        
+                        def get_owner(batch_id):
+                            return self.cp.runQuery("SELECT user_id "
+                                                    "FROM kumulus_batch_instance "
+                                                    "WHERE id = %s", batch_id)
+                        
+                        def validate(owner):
+                            if not owner or owner[0][0] != user_id:
+                                request.requestHeaders.removeHeader('Cookie')
+                            return BasicReverseProxyResource.render(self, request)
+                        
+                        get_owner(batch_id).addCallback(validate)
+                        return NOT_DONE_YET
+                else:
+                    request.requestHeaders.removeHeader('Cookie')
+            return BasicReverseProxyResource.render(self, request)
