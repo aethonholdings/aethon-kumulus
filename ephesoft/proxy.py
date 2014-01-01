@@ -355,8 +355,13 @@ class ReverseProxyResource(BasicReverseProxyResource):
                     print 'Find extra work for user %s' % user_id
 
                     def get_more_work(user_id):
-                        return self.cp.runQuery("SELECT batch_instance_id FROM task "
-                                                "WHERE user_id = %s AND status in (4,5) "
+                        return self.cp.runQuery("SELECT k.id "
+                                                "FROM kumulus_batch_instance k "
+                                                "INNER JOIN batch_instance b "
+                                                "ON k.id = b.id "
+                                                "WHERE k.user_id = %s "
+                                                "AND batch_status in ('READY_FOR_VALIDATION', "
+                                                                     "'READY_FOR_REVIEW') "
                                                 "LIMIT 1", user_id)
                     
                     def handle_new_work(batch_id):
@@ -393,8 +398,9 @@ class ReverseProxyResource(BasicReverseProxyResource):
                 print 'Batch instance %s accessed by user %s' % (batch_id, user_id)
 
                 def get_owner(batch_id):
-                    return self.cp.runQuery("SELECT user_id FROM task "
-                                            "WHERE batch_instance_id = %s", batch_id)
+                    return self.cp.runQuery("SELECT user_id "
+                                            "FROM kumulus_batch_instance "
+                                            "WHERE id = %s", batch_id)
                 
                 def validate(owner):
                     if not owner or owner[0][0] != user_id:

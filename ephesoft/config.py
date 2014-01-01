@@ -5,11 +5,11 @@ PROXIED_PORT = 80
 USE_SSL = False
 STATE_DB = 'state.shelve'
 
-DB_HOST = 'kumulus.cokd1jwuhqlu.ap-southeast-1.rds.amazonaws.com'
+DB_HOST = 'test.ephesoft.kumulus.sg'
 DB_PORT = 3306
-DB_USER = 'kumulus'
-DB_PASS = 'd7!8d826ddx1'
-DB_NAME = 'kumulus'
+DB_USER = 'root'
+DB_PASS = '123456!'
+DB_NAME = 'ephesoft'
 
 def fq_original():
     return '%s:%s' % (ORIGINAL, ORIGINAL_PORT)
