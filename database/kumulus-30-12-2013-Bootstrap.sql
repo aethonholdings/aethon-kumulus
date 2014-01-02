@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.6.10)
 # Database: kumulus
-# Generation Time: 2013-12-30 07:49:32 +0000
+# Generation Time: 2014-01-02 05:35:44 +0000
 # ************************************************************
 
 
@@ -23,11 +23,38 @@
 # Dump of table application_parameter
 # ------------------------------------------------------------
 
+LOCK TABLES `application_parameter` WRITE;
+/*!40000 ALTER TABLE `application_parameter` DISABLE KEYS */;
+
+INSERT INTO `application_parameter` (`param_id`, `param_name`, `param_val`, `project_id`)
+VALUES
+	(1,'refresh_interval','10',NULL),
+	(2,'breath_interval','5',NULL),
+	(3,'targetKPI','5000',NULL),
+	(4,'version','v1.1.3',NULL),
+	(5,'total_upload_images_at_once','21',NULL);
+
+/*!40000 ALTER TABLE `application_parameter` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table application_tot
 # ------------------------------------------------------------
 
+LOCK TABLES `application_tot` WRITE;
+/*!40000 ALTER TABLE `application_tot` DISABLE KEYS */;
+
+INSERT INTO `application_tot` (`object_type`, `object_name`, `object_value`)
+VALUES
+	('STATUS','In Progress','0'),
+	('STATUS','Done','1'),
+	('NODE_TYPE','Container','C'),
+	('NODE_TYPE','Box','B'),
+	('NODE_TYPE','Document','D'),
+	('STATUS','Sealed','2');
+
+/*!40000 ALTER TABLE `application_tot` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table attendance
@@ -57,6 +84,17 @@ UNLOCK TABLES;
 # Dump of table param_names
 # ------------------------------------------------------------
 
+LOCK TABLES `param_names` WRITE;
+/*!40000 ALTER TABLE `param_names` DISABLE KEYS */;
+
+INSERT INTO `param_names` (`param`)
+VALUES
+	('breath_interval'),
+	('refresh_interval'),
+	('targetKPI');
+
+/*!40000 ALTER TABLE `param_names` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table project
@@ -67,7 +105,10 @@ LOCK TABLES `project` WRITE;
 
 INSERT INTO `project` (`project_id`, `project_name`, `status`, `clientldapid`)
 VALUES
-	(1,'test project','001','Kumulus Pte Ltd');
+	(1,'test project','001','Kumulus Pte Ltd'),
+	(2,'Inventory','001','A'),
+	(3,'scannerapp','001','A'),
+	(4,'warehouse','001','I');
 
 /*!40000 ALTER TABLE `project` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -86,8 +127,8 @@ LOCK TABLES `task` WRITE;
 
 INSERT INTO `task` (`id`, `created`, `last_updated`, `status`, `batch_instance_id`, `user_id`, `reported`, `project_id`, `last_batch_instance_id`, `type`, `version`)
 VALUES
-	(1,'2013-12-30 13:48:29','2013-12-30 13:48:29',0,NULL,'kumulus',0,1,NULL,'TASK_VALIDATE',0),
-	(2,'2013-12-30 13:50:00','2013-12-30 13:50:00',0,NULL,'kumulus',0,1,NULL,'TASK_CLASSIFY',0);
+	(1,'2013-12-30 13:48:29','2013-12-30 13:48:29',0,5,'kumulus',0,1,NULL,'TASK_VALIDATE',0),
+	(2,'2013-12-30 13:50:00','2013-12-30 13:50:00',0,6,'kumulus',0,1,NULL,'TASK_CLASSIFY',0);
 
 /*!40000 ALTER TABLE `task` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -127,6 +168,15 @@ UNLOCK TABLES;
 # Dump of table user
 # ------------------------------------------------------------
 
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+
+INSERT INTO `user` (`id`, `version`, `account_expired`, `account_locked`, `enabled`, `password`, `password_expired`, `username`, `user_id`, `userid_password`, `status`, `collection_right`, `import_right`, `separation_right`, `import_kpi_target`, `separation_kpi_target`, `user_email`)
+VALUES
+	(1,0,0,0,1,'',0,'ADMIN','ADMIN','a3d95763b3d68d3ea1d5644e250a59de1826c9c7','A','Y','Y','N',1000,0,'');
+
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table user_role
