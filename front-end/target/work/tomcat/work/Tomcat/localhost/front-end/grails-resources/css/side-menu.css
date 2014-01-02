@@ -20,7 +20,7 @@ Add transition to containers so they can push in and out.
 This is the parent `<div>` that contains the menu and the content area.
 */
 #layout {
-    padding-left: 150px; /* left col width "#menu" */
+/*    padding-left: 150px; */  /* left col width "#menu" */
     left: 0;
 }
 

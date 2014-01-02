@@ -21,7 +21,7 @@
             </div>
             <div class="content">
                 <p>You have ${tasks?.count()} task<g:if test="${tasks?.count()>1}">s</g:if> pending</p>
-                <table class="pure-table">
+                <table class="pure-table" width="100%">
                     <thead>
                         <tr>
                             <g:sortableColumn property="id" title="Id"/>
