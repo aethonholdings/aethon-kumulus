@@ -14,35 +14,27 @@ registerSitemeshPreprocessMode()
 printHtmlPart(0)
 createTagBody(1, {->
 printHtmlPart(1)
-expressionOut.print(resource(dir: 'css', file: 'main.css'))
+invokeTag('layoutHead','g',5,[:],-1)
 printHtmlPart(2)
-expressionOut.print(resource(dir: 'css', file: 'side-menu.css'))
+invokeTag('layoutResources','r',6,[:],-1)
 printHtmlPart(3)
-invokeTag('javascript','g',7,['src':("ui.js")],-1)
-printHtmlPart(4)
-invokeTag('layoutHead','g',8,[:],-1)
-printHtmlPart(4)
-invokeTag('layoutResources','r',9,[:],-1)
-printHtmlPart(5)
 })
-invokeTag('captureHead','sitemesh',10,[:],1)
-printHtmlPart(5)
+invokeTag('captureHead','sitemesh',7,[:],1)
+printHtmlPart(3)
 createTagBody(1, {->
-printHtmlPart(6)
-invokeTag('loggedInUserInfo','sec',27,['field':("username")],-1)
-printHtmlPart(7)
-invokeTag('layoutBody','g',30,[:],-1)
-printHtmlPart(8)
+printHtmlPart(2)
+invokeTag('layoutBody','g',9,[:],-1)
+printHtmlPart(3)
 })
-invokeTag('captureBody','sitemesh',34,[:],1)
-printHtmlPart(9)
+invokeTag('captureBody','sitemesh',10,[:],1)
+printHtmlPart(4)
 }
 public static final Map JSP_TAGS = new HashMap()
 protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1388398344000L
+public static final long LAST_MODIFIED = 1388647661000L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'
