@@ -11,7 +11,7 @@
                 <div class="pure-menu pure-menu-open">
                     <a class="pure-menu-heading" href="">kumulus</a>
                     <ul>
-                        <li><a href="">Start new project</a></li>
+                        <li><a href="">Prepare scans</a></li>
                         <li><a href="">Classify scans</a></li>
                         <li><a href="">Validate data</a></li>
                         <li><a href="">Extract ledger</a></li>
@@ -36,11 +36,11 @@
                                 <td>${taskInstance.id}</td>
                                 <td>${taskInstance.created.format("dd/MM/yyyy - HH:mm:ss")}</td>
                                 <td>
-                                    <g:if test="${taskInstance.type=='TASK_VALIDATE'}">Validate</g:if>
-                                    <g:if test="${taskInstance.type=='TASK_CLASSIFY'}">Classify</g:if>
+                                    <g:if test="${taskInstance.status==5}">Validate</g:if>
+                                    <g:if test="${taskInstance.status==4}">Classify</g:if>
                                 </td>
                                 <td>
-                                    <g:if test="${taskInstance.type=='TASK_VALIDATE'}"><g:link controller="home" action="validate">To do</g:link></g:if>
+                                    <g:if test="${taskInstance.status==5}"><g:link controller="home" action="validate">To do</g:link></g:if>
                                 </td>
                             </tr>
                         </g:each>

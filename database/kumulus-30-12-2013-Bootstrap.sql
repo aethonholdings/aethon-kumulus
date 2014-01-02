@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.6.10)
 # Database: kumulus
-# Generation Time: 2014-01-02 05:35:44 +0000
+# Generation Time: 2014-01-02 14:17:23 +0000
 # ************************************************************
 
 
@@ -125,10 +125,10 @@ UNLOCK TABLES;
 LOCK TABLES `task` WRITE;
 /*!40000 ALTER TABLE `task` DISABLE KEYS */;
 
-INSERT INTO `task` (`id`, `created`, `last_updated`, `status`, `batch_instance_id`, `user_id`, `reported`, `project_id`, `last_batch_instance_id`, `type`, `version`)
+INSERT INTO `task` (`id`, `created`, `last_updated`, `status`, `batch_instance_id`, `user_id`, `reported`, `project_id`, `last_batch_instance_id`, `version`)
 VALUES
-	(1,'2013-12-30 13:48:29','2013-12-30 13:48:29',0,5,'kumulus',0,1,NULL,'TASK_VALIDATE',0),
-	(2,'2013-12-30 13:50:00','2013-12-30 13:50:00',0,6,'kumulus',0,1,NULL,'TASK_CLASSIFY',0);
+	(1,'2013-12-30 13:48:29','2013-12-30 13:48:29',5,5,'kumulus',0,1,NULL,0),
+	(2,'2013-12-30 13:50:00','2013-12-30 13:50:00',4,6,'kumulus',0,1,NULL,0);
 
 /*!40000 ALTER TABLE `task` ENABLE KEYS */;
 UNLOCK TABLES;

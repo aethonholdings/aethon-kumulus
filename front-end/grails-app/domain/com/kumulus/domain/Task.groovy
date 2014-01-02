@@ -4,13 +4,12 @@ class Task {
 
     String userId
     Date created
-    String type
-
+    long status
     static hasMany = [nodes: Nodes]
     
     static constraints = {
         created nullable: false
         userId nullable: false
-        type nullable: false
+        status nullable: false
     }
 }

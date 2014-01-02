@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.6.10)
 # Database: kumulus
-# Generation Time: 2013-12-30 07:45:10 +0000
+# Generation Time: 2014-01-02 14:16:20 +0000
 # ************************************************************
 
 
@@ -34,7 +34,7 @@ CREATE TABLE `application_parameter` (
   KEY `project_id` (`project_id`),
   CONSTRAINT `application_parameter_ibfk_1` FOREIGN KEY (`project_id`) REFERENCES `project` (`project_id`),
   CONSTRAINT `application_parameter_ibfk_2` FOREIGN KEY (`project_id`) REFERENCES `project` (`project_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 
 
@@ -132,7 +132,7 @@ CREATE TABLE `project` (
   `clientldapid` varchar(50) NOT NULL,
   PRIMARY KEY (`project_id`),
   UNIQUE KEY `project_name_UNIQUE` (`project_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 
 
@@ -166,7 +166,6 @@ CREATE TABLE `task` (
   `reported` bit(1) NOT NULL DEFAULT b'0',
   `project_id` int(11) NOT NULL,
   `last_batch_instance_id` bigint(20) DEFAULT NULL,
-  `type` varchar(255) NOT NULL,
   `version` bigint(20) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `batch_instance_id_UNIQUE` (`batch_instance_id`),
@@ -238,7 +237,7 @@ CREATE TABLE `user` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 
 
