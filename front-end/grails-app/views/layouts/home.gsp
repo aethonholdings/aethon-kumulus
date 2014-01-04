@@ -3,10 +3,10 @@
     <head>
         <link rel="stylesheet" type="text/css" href="${resource(dir: 'css', file: 'pure-min.css')}"/>
         <link rel="stylesheet" type="text/css" href="${resource(dir: 'css', file: 'side-menu.css')}"/>
-        <g:javascript library="jquery" plugin="jquery"/>
         <g:javascript src="ui.js"/>
-        <g:layoutHead/>
+        <g:javascript library='jquery' />
         <r:layoutResources />
+        <g:layoutHead/>
     </head>
     <body>
         <div id="layout">

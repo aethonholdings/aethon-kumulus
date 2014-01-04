@@ -14,8 +14,9 @@ class CollectController {
     @Secured(['ROLE_COLLECT'])
     def workflow() {
         // this is not secured at user permission level yet
+        def project = Project.findById(params.id)
         def nodeList = Nodes.findAllByProject(Project.findById(params.id))
-        render view:"workflow", layout:"home", model:[nodes: nodeList]
+        render view:"workflow", layout:"home", model:[nodes: nodeList, project: project]
     }
     
     @Secured(['ROLE_COLLECT'])

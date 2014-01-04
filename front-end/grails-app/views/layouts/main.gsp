@@ -2,8 +2,8 @@
 <html lang="en">
     <head>
         <link rel="stylesheet" type="text/css" href="${resource(dir: 'css', file: 'pure-min.css')}"/>
-        <g:layoutHead/>
         <r:layoutResources />
+        <g:layoutHead/>
     </head>
     <body>
         <div id="layout">
