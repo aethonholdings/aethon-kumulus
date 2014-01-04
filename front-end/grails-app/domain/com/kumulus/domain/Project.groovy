@@ -9,8 +9,6 @@ class Project {
 	static hasMany = [applicationParameters: ApplicationParameter,
 	                  nodes: Nodes]
                       
-        // static belongsTo = [client: Company]
-
 	static mapping = {
 		id column: "project_id"
 		version false

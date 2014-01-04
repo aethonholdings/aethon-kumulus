@@ -3,6 +3,7 @@
     <head>
         <link rel="stylesheet" type="text/css" href="${resource(dir: 'css', file: 'pure-min.css')}"/>
         <link rel="stylesheet" type="text/css" href="${resource(dir: 'css', file: 'side-menu.css')}"/>
+        <g:javascript library="jquery" plugin="jquery"/>
         <g:javascript src="ui.js"/>
         <g:layoutHead/>
         <r:layoutResources />
@@ -13,11 +14,11 @@
                 <div class="pure-menu pure-menu-open">
                     <a class="pure-menu-heading" href="">kumulus</a>
                     <ul>
-                        <li><a href="">Prepare scans</a></li>
-                        <li><a href="">Classify scans</a></li>
-                        <li><a href="">Validate data</a></li>
-                        <li><a href="">Extract ledger</a></li>
+                        <li><g:link controller="home" action="index">Review tasks</g:link></li>
+                        <li><g:link controller="collect" action="index">Prepare scans</g:link></li>
+                        <li><a href="">Extract data</a></li>
                         <li><a href="">Access archive</a></li>
+                        <li><a href="">Order materials</a></li>
                     </ul>
                 </div>
             </div>
