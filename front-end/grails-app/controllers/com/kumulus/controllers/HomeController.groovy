@@ -14,7 +14,7 @@ class HomeController {
         def auth = springSecurityService.getAuthentication()
         String username = auth.getPrincipal().getUsername()
         def tasks = Task.findByUserId(username)
-        render view:"index", layout:"main", model:[user: username, tasks: tasks]
+        render view:"index", layout:"home", model:[user: username, tasks: tasks]
         
     }
     
@@ -28,12 +28,6 @@ class HomeController {
             render html
         
         }
-    }
-    
-    @Secured(['ROLE_COLLECT'])
-    def collect() {
-        
-        
     }
     
 }

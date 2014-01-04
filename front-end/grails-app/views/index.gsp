@@ -5,15 +5,7 @@
         <title>Welcome | Kumulus</title>
     </head>
     <body>
-        <div id="layout">
-            <div id="header">
-                <div id="logo" class="header-element"></div>
-                <div id="session-management" class="header-element">Welcome <b><sec:loggedInUserInfo field="username"/></b></div>
-            </div>
-            <div id="layoutBody">
-                <h1>Welcome to Kumulus</h1>
-                <p><g:link controller="login">Log in</g:link></p>
-            </div>
-        </div>
+        <h1>Welcome to Kumulus</h1>
+        <p><g:link controller="login">Log in</g:link></p>
     </body>
 </html>
