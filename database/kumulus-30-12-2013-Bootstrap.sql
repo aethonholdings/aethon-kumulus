@@ -5,9 +5,9 @@
 # http://www.sequelpro.com/
 # http://code.google.com/p/sequel-pro/
 #
-# Host: 127.0.0.1 (MySQL 5.6.10)
+# Host: kumulus.cokd1jwuhqlu.ap-southeast-1.rds.amazonaws.com (MySQL 5.6.13-log)
 # Database: kumulus
-# Generation Time: 2014-01-02 14:17:23 +0000
+# Generation Time: 2014-01-04 08:10:05 +0000
 # ************************************************************
 
 
@@ -60,6 +60,15 @@ UNLOCK TABLES;
 # Dump of table attendance
 # ------------------------------------------------------------
 
+LOCK TABLES `attendance` WRITE;
+/*!40000 ALTER TABLE `attendance` DISABLE KEYS */;
+
+INSERT INTO `attendance` (`attendance_id`, `user_id`, `project_id`, `login_from_time`, `login_to_time`)
+VALUES
+	(1,'ADMIN',3,'2014-01-04 07:57:56','2014-01-04 07:58:02');
+
+/*!40000 ALTER TABLE `attendance` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table nodes
@@ -105,10 +114,10 @@ LOCK TABLES `project` WRITE;
 
 INSERT INTO `project` (`project_id`, `project_name`, `status`, `clientldapid`)
 VALUES
-	(1,'test project','001','Kumulus Pte Ltd'),
-	(2,'Inventory','001','A'),
-	(3,'scannerapp','001','A'),
-	(4,'warehouse','001','I');
+	(1,'test project','A','Kumulus Pte Ltd'),
+	(2,'Inventory','A','A'),
+	(3,'scannerapp','A','A'),
+	(4,'warehouse','A','I');
 
 /*!40000 ALTER TABLE `project` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -125,10 +134,10 @@ UNLOCK TABLES;
 LOCK TABLES `task` WRITE;
 /*!40000 ALTER TABLE `task` DISABLE KEYS */;
 
-INSERT INTO `task` (`id`, `created`, `last_updated`, `status`, `batch_instance_id`, `user_id`, `reported`, `project_id`, `last_batch_instance_id`, `version`)
+INSERT INTO `task` (`id`, `created`, `last_updated`, `status`, `batch_instance_id`, `user_id`, `reported`, `project_id`, `last_batch_instance_id`, `type`, `version`)
 VALUES
-	(1,'2013-12-30 13:48:29','2013-12-30 13:48:29',5,5,'kumulus',0,1,NULL,0),
-	(2,'2013-12-30 13:50:00','2013-12-30 13:50:00',4,6,'kumulus',0,1,NULL,0);
+	(1,'2013-12-30 13:48:29','2013-12-30 13:48:29',0,5,'kumulus',0,1,NULL,'TASK_VALIDATE',0),
+	(2,'2013-12-30 13:50:00','2013-12-30 13:50:00',0,6,'kumulus',0,1,NULL,'TASK_CLASSIFY',0);
 
 /*!40000 ALTER TABLE `task` ENABLE KEYS */;
 UNLOCK TABLES;

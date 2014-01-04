@@ -27,6 +27,13 @@ class HomeController {
             def html = post(path : '/dcma/j_security_check',  body : [j_username: 'ephesoft', j_password: 'Ke$haIsGreat666'])
             render html
         
-        }   
+        }
     }
+    
+    @Secured(['ROLE_COLLECT'])
+    def collect() {
+        
+        
+    }
+    
 }

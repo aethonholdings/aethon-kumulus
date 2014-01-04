@@ -6,8 +6,8 @@
 
 	<Resource name="jdbc/scannerappDB" auth="Container" type="javax.sql.DataSource"
                maxActive="1000" maxIdle="50" maxWait="10000"
-               username="aethon" password="d7!8d826ddx1" 
+               username="kumulus" password="d7!8d826ddx1" 
                driverClassName="com.mysql.jdbc.Driver"
-               url="jdbc:mysql://scando.cokd1jwuhqlu.ap-southeast-1.rds.amazonaws.com:3306/scannerapp?autoReconnect=true"/>
+               url="jdbc:mysql://kumulus.cokd1jwuhqlu.ap-southeast-1.rds.amazonaws.com:3306/kumulus?autoReconnect=true"/>
 	
 </Context>

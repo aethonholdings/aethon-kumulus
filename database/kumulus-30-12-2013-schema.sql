@@ -5,9 +5,9 @@
 # http://www.sequelpro.com/
 # http://code.google.com/p/sequel-pro/
 #
-# Host: 127.0.0.1 (MySQL 5.6.10)
+# Host: kumulus.cokd1jwuhqlu.ap-southeast-1.rds.amazonaws.com (MySQL 5.6.13-log)
 # Database: kumulus
-# Generation Time: 2014-01-02 14:16:20 +0000
+# Generation Time: 2014-01-04 08:07:51 +0000
 # ************************************************************
 
 
@@ -70,7 +70,7 @@ CREATE TABLE `attendance` (
   KEY `ATTENDANCE_PROJECT_ID` (`project_id`),
   CONSTRAINT `fk_attendance_project` FOREIGN KEY (`project_id`) REFERENCES `project` (`project_id`),
   CONSTRAINT `fk_attendance_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
 
 
@@ -166,6 +166,7 @@ CREATE TABLE `task` (
   `reported` bit(1) NOT NULL DEFAULT b'0',
   `project_id` int(11) NOT NULL,
   `last_batch_instance_id` bigint(20) DEFAULT NULL,
+  `type` varchar(255) NOT NULL,
   `version` bigint(20) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `batch_instance_id_UNIQUE` (`batch_instance_id`),
