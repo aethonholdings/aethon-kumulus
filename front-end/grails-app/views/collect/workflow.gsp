@@ -10,7 +10,6 @@
         <div id="nodeTree">
             <ul>
                 <li>Root node 1</li>
-                <li>Root node 2</li>
             </ul>
         </div>
         <p>${nodes}</p>
