@@ -6,11 +6,8 @@
         <script type="text/javascript">
 
 $(document).ready ( function(){
-  $('#nodeTree').jstree();
-  $.getJSON("/front-end/collect/refreshTree", function(result){
-    $.each(result, function(i, field){
-      $("div").append(field + " ");
-    });
+  $.getJSON("/front-end/collect/refreshTree/1", function(result){
+    $('#nodeTree').jstree({'core': {'data': result}});
   });
 });
 
@@ -19,10 +16,6 @@ $(document).ready ( function(){
     </head>
     <body>
         <p><b>Prepare documents for scanning > ${project.projectName}</b></p>
-        <div id="nodeTree">
-            <ul>
-                <li>Root node 1</li>
-            </ul>
-        </div>
+        <div id="nodeTree"></div>
     </body>
 </html>
