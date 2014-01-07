@@ -91,10 +91,31 @@ class BasicProxyClient(HTTPClient):
 
 
 class ProxyClient(BasicProxyClient):
+    orig_js = """onload="document.getElementById('j_username').focus();"""
+    extra_js = """"""
+
     def handleHeader(self, key, value):
         if key == "Location":
             value = value.replace(config.fq_original(), config.fq_proxied())
         BasicProxyClient.handleHeader(self, key, value)
+
+    def handleResponsePart(self, buffer):
+        i = buffer.find(self.orig_js)
+        if i > 0:
+            i += len(self.orig_js)
+            buffer = buffer[:i] + self.extra_js + buffer[i:]
+            bytes_to_remove = len(self.extra_js)
+            lines = []
+            for line in buffer.split("\r\n"):
+                if bytes_to_remove > 0 and line.startswith('<!--') and line.endswith('-->'):
+                    capacity = len(line) - 7
+                    line = line[:4] + line[4:4 + max(0, capacity-bytes_to_remove)] + line[-3:]
+                    bytes_to_remove -= capacity - (len(line)-7)
+                lines.append(line)
+            buffer = "\r\n".join(lines)
+            if bytes_to_remove > 0:
+                print 'Warning: Could not remove enough comments from page source'
+        BasicProxyClient.handleResponsePart(self, buffer)
 
 
 class ProxyClientFactory(ClientFactory):
