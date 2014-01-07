@@ -91,10 +91,42 @@ class BasicProxyClient(HTTPClient):
 
 
 class ProxyClient(BasicProxyClient):
+    orig_js = """onload="document.getElementById('j_username').focus();"""
+    extra_js = """document.getElementById('j_username').value='%s';document.getElementById('j_password').value='%s';%s"""
+
     def handleHeader(self, key, value):
         if key == "Location":
             value = value.replace(config.fq_original(), config.fq_proxied())
         BasicProxyClient.handleHeader(self, key, value)
+
+    def handleResponsePart(self, buffer):
+        i = buffer.find(self.orig_js)
+        if i > 0:
+            i += len(self.orig_js)
+            try:
+                username = self.father.args['username'][0]
+            except:
+                username = ''
+            try:
+                password = self.father.args['password'][0]
+            except:
+                password = ''
+            extra_js = self.extra_js % (username, password,
+                                        "document.loginForm.submit();"
+                                        if (username != '' and password != '') else '')
+            buffer = buffer[:i] + extra_js + buffer[i:]
+            bytes_to_remove = len(extra_js)
+            lines = []
+            for line in buffer.split("\r\n"):
+                if bytes_to_remove > 0 and line.startswith('<!--') and line.endswith('-->'):
+                    capacity = len(line) - 7
+                    line = line[:4] + line[4:4 + max(0, capacity-bytes_to_remove)] + line[-3:]
+                    bytes_to_remove -= capacity - (len(line)-7)
+                lines.append(line)
+            buffer = "\r\n".join(lines)
+            if bytes_to_remove > 0:
+                print 'Warning: Could not remove enough comments from page source'
+        BasicProxyClient.handleResponsePart(self, buffer)
 
 
 class ProxyClientFactory(ClientFactory):
@@ -347,7 +379,8 @@ class ReverseProxyResource(BasicReverseProxyResource):
         # add a twisted cookie if not already there
         request.getSession()
         if not is_uri_valid(request.uri):
-            if request.uri == '/dcma/BatchList.html':
+            if request.uri == '/dcma/BatchList.html'\
+               or request.uri.startswith('/dcma/BatchList.html?'):
                 try:
                     user_id = self.sessions[request.received_cookies['TWISTED_SESSION']]
                 except KeyError:
