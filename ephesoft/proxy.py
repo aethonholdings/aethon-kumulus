@@ -92,8 +92,7 @@ class BasicProxyClient(HTTPClient):
 
 class ProxyClient(BasicProxyClient):
     orig_js = """onload="document.getElementById('j_username').focus();"""
-    extra_js = """document.getElementById('j_username').value='ephesoft';
-    document.getElementById('j_password').value='Ke$haIsGreat666';"""
+    extra_js = """document.getElementById('j_username').value='%s';document.getElementById('j_password').value='%s';"""
 
     def handleHeader(self, key, value):
         if key == "Location":
@@ -104,8 +103,17 @@ class ProxyClient(BasicProxyClient):
         i = buffer.find(self.orig_js)
         if i > 0:
             i += len(self.orig_js)
-            buffer = buffer[:i] + self.extra_js + buffer[i:]
-            bytes_to_remove = len(self.extra_js)
+            try:
+                username = self.father.args['username'][0]
+            except:
+                username = ''
+            try:
+                password = self.father.args['password'][0]
+            except:
+                password = ''
+            extra_js = self.extra_js % (username, password)
+            buffer = buffer[:i] + extra_js + buffer[i:]
+            bytes_to_remove = len(extra_js)
             lines = []
             for line in buffer.split("\r\n"):
                 if bytes_to_remove > 0 and line.startswith('<!--') and line.endswith('-->'):
@@ -369,7 +377,8 @@ class ReverseProxyResource(BasicReverseProxyResource):
         # add a twisted cookie if not already there
         request.getSession()
         if not is_uri_valid(request.uri):
-            if request.uri == '/dcma/BatchList.html':
+            if request.uri == '/dcma/BatchList.html'\
+               or request.uri.startswith('/dcma/BatchList.html?'):
                 try:
                     user_id = self.sessions[request.received_cookies['TWISTED_SESSION']]
                 except KeyError:
