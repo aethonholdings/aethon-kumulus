@@ -92,7 +92,7 @@ class BasicProxyClient(HTTPClient):
 
 class ProxyClient(BasicProxyClient):
     orig_js = """onload="document.getElementById('j_username').focus();"""
-    extra_js = """document.getElementById('j_username').value='%s';document.getElementById('j_password').value='%s';document.loginForm.submit();"""
+    extra_js = """document.getElementById('j_username').value='%s';document.getElementById('j_password').value='%s';%s"""
 
     def handleHeader(self, key, value):
         if key == "Location":
@@ -111,7 +111,9 @@ class ProxyClient(BasicProxyClient):
                 password = self.father.args['password'][0]
             except:
                 password = ''
-            extra_js = self.extra_js % (username, password)
+            extra_js = self.extra_js % (username, password,
+                                        "document.loginForm.submit();"
+                                        if (username != '' and password != '') else '')
             buffer = buffer[:i] + extra_js + buffer[i:]
             bytes_to_remove = len(extra_js)
             lines = []
