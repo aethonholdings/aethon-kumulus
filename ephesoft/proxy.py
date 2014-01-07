@@ -92,7 +92,8 @@ class BasicProxyClient(HTTPClient):
 
 class ProxyClient(BasicProxyClient):
     orig_js = """onload="document.getElementById('j_username').focus();"""
-    extra_js = """"""
+    extra_js = """document.getElementById('j_username').value='ephesoft';
+    document.getElementById('j_password').value='Ke$haIsGreat666';"""
 
     def handleHeader(self, key, value):
         if key == "Location":
