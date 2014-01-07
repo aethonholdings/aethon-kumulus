@@ -2,6 +2,7 @@ package com.kumulus.controllers
 
 import grails.plugin.springsecurity.annotation.Secured
 import com.kumulus.domain.*
+import grails.converters.*
 
 class CollectController {
 
@@ -15,13 +16,25 @@ class CollectController {
     def workflow() {
         // this is not secured at user permission level yet
         def project = Project.findById(params.id)
-        def nodeList = Nodes.findAllByProject(Project.findById(params.id))
-        render view:"workflow", layout:"home", model:[nodes: nodeList, project: project]
+        render view:"workflow", layout:"home", model:[project: project]
     }
     
     @Secured(['ROLE_COLLECT'])
     def refreshTree() {
-        
+        // this is not secured at user permission level yet
+        def nodeList = Nodes.findAllByProject(params.id)
+        def tree = []
+        for(node in nodeList) {
+            def parentId = "#"
+            if(node.parent) parentId = node?.parent.id
+            def treeNode = [
+                id: node.id,
+                text: node.name, 
+                parent: parentId
+            ]
+            tree.add(treeNode)
+        }
+        render tree as JSON        
     }
     
 }

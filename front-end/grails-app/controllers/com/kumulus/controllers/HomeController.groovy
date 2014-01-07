@@ -18,7 +18,6 @@ class HomeController {
         
     }
     
-    
     @Secured(['ROLE_VALIDATE'])
     def validate() {
         
