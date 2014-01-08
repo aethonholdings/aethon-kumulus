@@ -14,7 +14,7 @@ registerSitemeshPreprocessMode()
 printHtmlPart(0)
 createTagBody(1, {->
 printHtmlPart(1)
-expressionOut.print(resource(dir: 'css', file: 'pure-min.css'))
+expressionOut.print(resource(dir: 'css/pure', file: 'pure-min.css'))
 printHtmlPart(2)
 invokeTag('layoutResources','r',5,[:],-1)
 printHtmlPart(3)
@@ -38,7 +38,7 @@ protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1388847064000L
+public static final long LAST_MODIFIED = 1389176021000L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'

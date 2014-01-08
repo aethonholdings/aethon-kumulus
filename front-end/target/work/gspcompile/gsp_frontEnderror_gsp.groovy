@@ -31,7 +31,7 @@ invokeTag('captureMeta','sitemesh',5,['gsp_sm_xmlClosingForEmptyTag':(""),'name'
 printHtmlPart(1)
 if((grails.util.Environment.current.name == 'development') && true) {
 printHtmlPart(4)
-expressionOut.print(resource(dir: 'css', file: 'errors.css'))
+expressionOut.print(resource(dir: 'css/kumulus', file: 'errors.css'))
 printHtmlPart(5)
 }
 printHtmlPart(6)
@@ -58,7 +58,7 @@ protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1388390096000L
+public static final long LAST_MODIFIED = 1389176021000L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'

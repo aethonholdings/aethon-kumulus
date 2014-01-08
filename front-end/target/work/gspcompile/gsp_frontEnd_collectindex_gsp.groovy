@@ -32,14 +32,14 @@ printHtmlPart(6)
 createTagBody(3, {->
 expressionOut.print(projectInstance?.projectName)
 })
-invokeTag('link','g',20,['controller':("collect"),'action':("workflow"),'id':(projectInstance?.id)],3)
+invokeTag('link','g',19,['controller':("collect"),'action':("workflow"),'id':(projectInstance?.id)],3)
 printHtmlPart(6)
 expressionOut.print(projectInstance?.clientLDAPId)
 printHtmlPart(7)
 }
 printHtmlPart(8)
 })
-invokeTag('captureBody','sitemesh',27,[:],1)
+invokeTag('captureBody','sitemesh',26,[:],1)
 printHtmlPart(9)
 }
 public static final Map JSP_TAGS = new HashMap()
@@ -47,7 +47,7 @@ protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1388845822000L
+public static final long LAST_MODIFIED = 1389176021000L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'

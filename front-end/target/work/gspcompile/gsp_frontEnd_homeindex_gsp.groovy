@@ -12,67 +12,34 @@ Writer out = getOut()
 Writer expressionOut = getExpressionOut()
 registerSitemeshPreprocessMode()
 printHtmlPart(0)
-createTagBody(1, {->
 printHtmlPart(1)
-createTagBody(2, {->
-createClosureForHtmlPart(2, 3)
-invokeTag('captureTitle','sitemesh',3,[:],3)
-})
-invokeTag('wrapTitleTag','sitemesh',3,[:],2)
-printHtmlPart(3)
-})
-invokeTag('captureHead','sitemesh',4,[:],1)
-printHtmlPart(3)
 createTagBody(1, {->
-printHtmlPart(4)
-expressionOut.print(tasks?.count())
-printHtmlPart(5)
-if(true && (tasks?.count()>1)) {
-printHtmlPart(6)
-}
-printHtmlPart(7)
-loop:{
-int i = 0
-for( taskInstance in (tasks?.list()) ) {
-printHtmlPart(8)
-expressionOut.print((i % 2) == 0 ? 'odd' : 'even')
-printHtmlPart(9)
-expressionOut.print(taskInstance.id)
-printHtmlPart(10)
-if(true && (taskInstance.status==5)) {
-printHtmlPart(11)
-}
-printHtmlPart(12)
-if(true && (taskInstance.status==4)) {
-printHtmlPart(13)
-}
-printHtmlPart(14)
-expressionOut.print(taskInstance.created.format("dd/MM/yyyy - HH:mm:ss"))
-printHtmlPart(10)
-if(true && (taskInstance.status==5)) {
-createClosureForHtmlPart(15, 4)
-invokeTag('link','g',27,['controller':("home"),'action':("validate")],4)
-}
-printHtmlPart(12)
-if(true && (taskInstance.status==4)) {
-createClosureForHtmlPart(15, 4)
-invokeTag('link','g',28,['controller':("home"),'action':("classify")],4)
-}
-printHtmlPart(16)
-i++
-}
-}
-printHtmlPart(17)
+printHtmlPart(2)
+invokeTag('captureMeta','sitemesh',10,['gsp_sm_xmlClosingForEmptyTag':(""),'http-equiv':("Content-Type"),'content':("text/html; charset=UTF-8")],-1)
+printHtmlPart(2)
+createTagBody(2, {->
+createClosureForHtmlPart(3, 3)
+invokeTag('captureTitle','sitemesh',11,[:],3)
 })
-invokeTag('captureBody','sitemesh',34,[:],1)
-printHtmlPart(18)
+invokeTag('wrapTitleTag','sitemesh',11,[:],2)
+printHtmlPart(4)
+})
+invokeTag('captureHead','sitemesh',12,[:],1)
+printHtmlPart(4)
+createTagBody(1, {->
+printHtmlPart(5)
+invokeTag('loggedInUserInfo','sec',14,['field':("username")],-1)
+printHtmlPart(6)
+})
+invokeTag('captureBody','sitemesh',15,[:],1)
+printHtmlPart(7)
 }
 public static final Map JSP_TAGS = new HashMap()
 protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1388845840000L
+public static final long LAST_MODIFIED = 1389176021000L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'

@@ -16,33 +16,36 @@ createTagBody(1, {->
 printHtmlPart(1)
 expressionOut.print(resource(dir: 'css/jstree', file: 'jstree-min.css'))
 printHtmlPart(2)
-invokeTag('javascript','g',4,['src':("jstree.min.js")],-1)
+invokeTag('javascript','g',4,['src':("jstree/jstree.min.js")],-1)
 printHtmlPart(3)
-invokeTag('javascript','g',5,['src':("nodeTree.js")],-1)
+invokeTag('javascript','g',5,['src':("kumulus/nodeTree.js")],-1)
 printHtmlPart(4)
 createTagBody(2, {->
 createClosureForHtmlPart(5, 3)
-invokeTag('captureTitle','sitemesh',15,[:],3)
+invokeTag('captureTitle','sitemesh',8,[:],3)
 })
-invokeTag('wrapTitleTag','sitemesh',15,[:],2)
+invokeTag('wrapTitleTag','sitemesh',8,[:],2)
 printHtmlPart(6)
 })
-invokeTag('captureHead','sitemesh',16,[:],1)
+invokeTag('captureHead','sitemesh',9,[:],1)
 printHtmlPart(6)
 createTagBody(1, {->
 printHtmlPart(7)
-expressionOut.print(project.projectName)
-printHtmlPart(8)
-})
-invokeTag('captureBody','sitemesh',20,[:],1)
+createClosureForHtmlPart(8, 2)
+invokeTag('link','g',11,['action':("index")],2)
 printHtmlPart(9)
+expressionOut.print(project.projectName)
+printHtmlPart(10)
+})
+invokeTag('captureBody','sitemesh',54,[:],1)
+printHtmlPart(11)
 }
 public static final Map JSP_TAGS = new HashMap()
 protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1389082034000L
+public static final long LAST_MODIFIED = 1389176021000L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'
