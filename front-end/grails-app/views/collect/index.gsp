@@ -3,8 +3,7 @@
         <title>Prepare scans | Kumulus</title>
     </head>
     <body>
-        <p><b>Prepare documents for scanning</b></p>
-        <p>Select an active project to collect scans for:</p> 
+        <p>Prepare documents for scanning</p>
         <table class="pure-table" width="100%">
             <thead>
                 <tr>

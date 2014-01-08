@@ -8,11 +8,11 @@
     <title>Prepare scans | Kumulus</title>
   </head>
   <body>
-    <p><b>Prepare documents for scanning > ${project.projectName}</b></p>
+    <p><g:link action='index'>Prepare documents for scanning</g:link> > ${project.projectName}</p>
     <div class="pure-g">
       <div class="pure-u-1-3">
         <div class="grid-element"><h3>Archive structure</h3></div>
-        <div class="grid-element" style="overflow-y:auto;">
+        <div class="grid-element" style="overflow-y:auto;overflow-x:auto;">
           <div id="nodeTree"></div>
         </div>
         <div class="grid-element grid-footer">
@@ -30,11 +30,11 @@
             </div>
             <div class="pure-control-group">
               <label for="barcode">Barcode</label>
-              <input id="barcode" type="text" placeholder="Scan container barcode">
+              <input id="barcode" type="text" placeholder="Scan container barcode" disabled>
             </div>
             <div class="pure-control-group">
               <label for="type">Container type</label>
-              <select id="type" class="pure-input-1-4">
+              <select id="type" class="pure-input-1-4" disabled>
                 <option>Container</option>  
                 <option>Box</option>
                 <option>Document</option>
@@ -42,7 +42,7 @@
             </div>
             <div class="pure-control-group">
               <label for="comment">Comment</label>
-              <input id="comment" type="text" placeholder="Enter comments here" class="pure-input-1-2">
+              <input id="comment" type="text" placeholder="Enter comments here" class="pure-input-1-2" disabled>
             </div>
             <div class="grid-element grid-footer">
               <a class="pure-button pure-button-primary" href="#">Save</a>

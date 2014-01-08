@@ -3,8 +3,7 @@
         <title>Extract | Kumulus</title>
     </head>
     <body>
-        <p><b>Review data extraction tasks</b></p>
-        <p>You have ${tasks?.count()} task<g:if test="${tasks?.count()>1}">s</g:if> pending</p>
+        <p>Pending tasks</p>
         <table class="pure-table" width="100%">
             <thead>
                 <tr>

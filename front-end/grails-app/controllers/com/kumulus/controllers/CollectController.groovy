@@ -29,10 +29,6 @@ class CollectController {
             id: 'root',
             text: project.projectName, 
             parent: '#', 
-            state: [
-                selected: true,
-                opened: true
-            ]
         ]
         tree.add(rootTreeNode)
         for(node in nodeList) {
@@ -42,9 +38,6 @@ class CollectController {
                 id: node.id,
                 text: node.name, 
                 parent: parentID,
-                state: [
-                    opened: false
-                ]
             ]
             tree.add(treeNode)
         }
