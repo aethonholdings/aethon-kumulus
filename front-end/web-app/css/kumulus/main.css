@@ -1,14 +1,3 @@
-/* FONT STACK */
-html {
-    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
-}
-
-/* MAIN CONTAINERS */
-
-body {
-    color: #777;
-}
-
 #layout {
     left: 0;
 }
@@ -55,4 +44,15 @@ body {
     float: left;
     margin-left: 40px;
     margin-right: 40px;
+}
+
+/* grids */
+.grid-element {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.grid-footer {
+    position:absolute; 
+    bottom:0;
 }

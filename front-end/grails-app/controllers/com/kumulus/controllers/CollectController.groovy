@@ -22,15 +22,29 @@ class CollectController {
     @Secured(['ROLE_COLLECT'])
     def refreshTree() {
         // this is not secured at user permission level yet
-        def nodeList = Nodes.findAllByProject(Project.findById(params.id))
+        def project = Project.findById(params.id)
+        def nodeList = Nodes.findAllByProject(project)
         def tree = []
+        def rootTreeNode = [
+            id: 'root',
+            text: project.projectName, 
+            parent: '#', 
+            state: [
+                selected: true,
+                opened: true
+            ]
+        ]
+        tree.add(rootTreeNode)
         for(node in nodeList) {
-            def parentId = "#"
-            if(node.parent) parentId = node?.parent.id
+            def parentID = 'root'
+            if(node.parent) parentID = node.parent.id
             def treeNode = [
                 id: node.id,
                 text: node.name, 
-                parent: parentId
+                parent: parentID,
+                state: [
+                    opened: false
+                ]
             ]
             tree.add(treeNode)
         }
