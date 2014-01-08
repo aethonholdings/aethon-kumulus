@@ -5,17 +5,11 @@ import com.kumulus.domain.*
 import static groovyx.net.http.ContentType.*
 
 class HomeController {
-
-    def springSecurityService
     
     @Secured(['ROLE_CLASSIFY', 'ROLE_ADMIN', 'ROLE_VIEW', 'ROLE_COLLECT', 'ROLE_EXPORT', 'ROLE_VALIDATE', 'ROLE_IMPORT'])
     def index() { 
 
-        def auth = springSecurityService.getAuthentication()
-        String username = auth.getPrincipal().getUsername()
-        def tasks = Task.findByUserId(username)
-        render view:"index", layout:"home", model:[user: username, tasks: tasks]
-        
+        render view:"index", layout:"home"
     }
     
     @Secured(['ROLE_VALIDATE'])
