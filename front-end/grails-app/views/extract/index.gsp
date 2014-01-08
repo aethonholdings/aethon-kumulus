@@ -1,9 +1,9 @@
 <html>
     <head>
-        <title>Review tasks | Kumulus</title>
+        <title>Extract | Kumulus</title>
     </head>
     <body>
-        <p><b>Review tasks</b></p>
+        <p><b>Review data extraction tasks</b></p>
         <p>You have ${tasks?.count()} task<g:if test="${tasks?.count()>1}">s</g:if> pending</p>
         <table class="pure-table" width="100%">
             <thead>
@@ -24,8 +24,7 @@
                         </td>
                         <td>${taskInstance.created.format("dd/MM/yyyy - HH:mm:ss")}</td>
                         <td>
-                            <g:if test="${taskInstance.status==5}"><g:link controller="home" action="validate">To do</g:link></g:if>
-                            <g:if test="${taskInstance.status==4}"><g:link controller="home" action="classify">To do</g:link></g:if>
+                            <g:link controller="extract" action="workflow" batchId="">To do</g:link>
                         </td>
                     </tr>
                 </g:each>
