@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" type="text/css" href="${resource(dir: 'css', file: 'pure-min.css')}"/>
-        <link rel="stylesheet" type="text/css" href="${resource(dir: 'css', file: 'side-menu.css')}"/>
-        <g:javascript src="ui.js"/>
+        <link rel="stylesheet" type="text/css" href="${resource(dir: 'css/pure', file: 'pure-min.css')}"/>
+        <link rel="stylesheet" type="text/css" href="${resource(dir: 'css/pure', file: 'side-menu.css')}"/>
+        <g:javascript src="pure/ui.js"/>
         <g:javascript library='jquery' />
         <r:layoutResources />
         <g:layoutHead/>

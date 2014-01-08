@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <link rel="stylesheet" type="text/css" href="${resource(dir: 'css', file: 'pure-min.css')}"/>
+        <link rel="stylesheet" type="text/css" href="${resource(dir: 'css/pure', file: 'pure-min.css')}"/>
         <r:layoutResources />
         <g:layoutHead/>
     </head>
