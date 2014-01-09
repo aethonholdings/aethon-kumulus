@@ -1,10 +1,11 @@
 $(document).ready(function(){
     $.getJSON("/front-end/collect/refreshTree/1", function(result){
+        // create the nodetree
         $('#nodeTree').on('changed.jstree', function (e, data) {
-            $('#barcode').val(data.instance.get_node(data.selected[0]).text);
-            $('#parent').val("test");
-            $('#comment').val("test");
-            $('#type').val("test");
+            var node=data.instance.get_node(data.selected[0]);
+            $('#barcode').val(node.original.barcode);
+            $('#comment').val(node.original.comment);
+            $('#type').val(node.original.type);
         });
         $('#nodeTree').jstree({
             'core': {
@@ -14,9 +15,17 @@ $(document).ready(function(){
                 'plugins' : ['dnd']
             }
         });
-        
     });
 });
+
+function findNode(id) {
+    var i;
+    for(i=0;i<nodes.length;i++){
+        if(nodes[i].id==id) return(nodes[i]);
+    }
+}
+
+
 
 function add_node() {
     var ref = $('#nodeTree').jstree(true);

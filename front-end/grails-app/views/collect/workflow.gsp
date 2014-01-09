@@ -25,10 +25,6 @@
         <form name="newContainer" action="add" method="POST" class="pure-form pure-form-aligned">
           <fieldset>
             <div class="pure-control-group">
-              <label for="parent">Parent barcode</label>
-              <input id="parent" type="text" placeholder="#" disabled>
-            </div>
-            <div class="pure-control-group">
               <label for="barcode">Barcode</label>
               <input id="barcode" type="text" placeholder="Scan container barcode" disabled>
             </div>

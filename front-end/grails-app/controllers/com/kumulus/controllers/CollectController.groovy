@@ -23,31 +23,46 @@ class CollectController {
     def refreshTree() {
         // this is not secured at user permission level yet
         def project = Project.findById(params.id)
-        def nodeList = Nodes.findAllByProject(project)
+        def nodeList = Nodes.findAllByProject(project)  // temporary solution, should be filtering out documents here
         def tree = []
+        
+        // add the root node
         def rootTreeNode = [
             id: 'root',
-            text: project.projectName, 
-            parentText: '#',
-            parent: '#'
+            parent: '#',         
+            text: project.projectName,
+            barcode: "",
+            comment: "",
+            type: "Root"
         ]
         tree.add(rootTreeNode)
+        
+        // build the tree under the root node
         for(node in nodeList) {
-            def parentID = 'root'
-            def parentText = '#'
-            if(node.parent) {
-                parentID = node.parent.id
-                parentText = node.parent.name
+            if(node.type!='D') {
+                def parentID = 'root'
+                def nodeType
+                if(node.parent) parentID = node.parent.id
+                switch(node.type) {
+                    case 'B':
+                        nodeType = "Box"
+                        break
+                    case 'C':
+                        nodeType = "Container"
+                        break
+                }
+                
+                def treeNode = [
+                    id: node.id,
+                    parent: parentID,
+                    text: node.name, 
+                    barcode: node.barcode,
+                    comment: node.comment,
+                    type: nodeType
+                ]
+                tree.add(treeNode)
             }
-            def treeNode = [
-                id: node.id,
-                text: node.name, 
-                parentText: parentText,
-                parent: parentID,
-            ]
-            tree.add(treeNode)
         }
-        println tree
         render tree as JSON        
     }
     
