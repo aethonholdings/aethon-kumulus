@@ -28,19 +28,19 @@ class CollectController {
         
         // add the root node
         def rootTreeNode = [
-            id: 'root',
+            id: 'ROOT',
             parent: '#',         
             text: project.projectName,
             barcode: "",
             comment: "",
-            type: "Root"
+            type: "ROOT"
         ]
         tree.add(rootTreeNode)
         
         // build the tree under the root node
         for(node in nodeList) {
             if(node.type!='D') {
-                def parentID = 'root'
+                def parentID = 'ROOT'
                 def nodeType
                 if(node.parent) parentID = node.parent.id
                 switch(node.type) {

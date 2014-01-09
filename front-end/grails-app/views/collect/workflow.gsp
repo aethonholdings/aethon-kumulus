@@ -16,8 +16,9 @@
           <div id="nodeTree" class="jstree-draggable"></div>
         </div>
         <div class="grid-element grid-footer">
-          <a class="pure-button pure-button-primary" onclick="add_node();">Add</a>
-          <a class="pure-button pure-button-primary" onclick="delete_node();">Delete</a>
+          <a id="button-add" class="pure-button pure-button-primary" onclick="add_node();">Add</a>
+          <a id="button-edit" class="pure-button pure-button-primary" onclick="edit_node();">Edit</a>
+          <a id="button-delete" class="pure-button pure-button-primary" onclick="delete_node();">Delete</a>
         </div>
       </div>
       <div class="pure-u-2-3">
@@ -33,7 +34,6 @@
               <select id="type" class="pure-input-1-4" disabled>
                 <option>Container</option>  
                 <option>Box</option>
-                <option>Document</option>
               </select>
             </div>
             <div class="pure-control-group">

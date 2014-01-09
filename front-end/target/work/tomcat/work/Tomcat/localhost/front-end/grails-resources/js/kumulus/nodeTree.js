@@ -1,8 +1,11 @@
 $(document).ready(function(){
     $.getJSON("/front-end/collect/refreshTree/1", function(result){
         // create the nodetree
+        $('#button-edit').prop('disabled', true);
         $('#nodeTree').on('changed.jstree', function (e, data) {
+            toggle_input_disabled(true);
             var node=data.instance.get_node(data.selected[0]);
+            if(node.original.type=='ROOT') $('#button-edit').prop('disabled', true); else $('#button-edit').prop('disabled', false);
             $('#barcode').val(node.original.barcode);
             $('#comment').val(node.original.comment);
             $('#type').val(node.original.type);
@@ -25,8 +28,6 @@ function findNode(id) {
     }
 }
 
-
-
 function add_node() {
     var ref = $('#nodeTree').jstree(true);
     var sel = ref.get_selected();
@@ -44,3 +45,12 @@ function delete_node() {
     if(!sel.length) { return false; }
     ref.delete_node(sel);
 };
+
+function edit_node() {
+    if($('#button-edit').prop('disabled')==false) toggle_input_disabled(false);
+};
+
+function toggle_input_disabled(bool) {
+    $('#type').prop('disabled', bool);
+    $('#comment').prop('disabled', bool); 
+}
