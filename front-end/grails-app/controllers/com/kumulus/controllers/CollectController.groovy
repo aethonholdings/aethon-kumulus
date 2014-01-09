@@ -28,19 +28,26 @@ class CollectController {
         def rootTreeNode = [
             id: 'root',
             text: project.projectName, 
-            parent: '#', 
+            parentText: '#',
+            parent: '#'
         ]
         tree.add(rootTreeNode)
         for(node in nodeList) {
             def parentID = 'root'
-            if(node.parent) parentID = node.parent.id
+            def parentText = '#'
+            if(node.parent) {
+                parentID = node.parent.id
+                parentText = node.parent.name
+            }
             def treeNode = [
                 id: node.id,
                 text: node.name, 
+                parentText: parentText,
                 parent: parentID,
             ]
             tree.add(treeNode)
         }
+        println tree
         render tree as JSON        
     }
     

@@ -13,11 +13,11 @@
       <div class="pure-u-1-3">
         <div class="grid-element"><h3>Archive structure</h3></div>
         <div class="grid-element" style="overflow-y:auto;overflow-x:auto;">
-          <div id="nodeTree"></div>
+          <div id="nodeTree" class="jstree-draggable"></div>
         </div>
         <div class="grid-element grid-footer">
-          <a class="pure-button pure-button-primary" href="#">Add</a>
-          <a class="pure-button pure-button-primary" href="#">Delete</a>
+          <a class="pure-button pure-button-primary" onclick="add_node();">Add</a>
+          <a class="pure-button pure-button-primary" onclick="delete_node();">Delete</a>
         </div>
       </div>
       <div class="pure-u-2-3">
