@@ -1,14 +1,13 @@
+var state;
+
 $(document).ready(function(){
     $.getJSON("/front-end/collect/refreshTree/1", function(result){
-        // create the nodetree
+        // create the node tree
         $('#button-edit').prop('disabled', true);
         $('#nodeTree').on('changed.jstree', function (e, data) {
-            toggle_input_disabled(true);
             var node=data.instance.get_node(data.selected[0]);
-            if(node.original.type=='ROOT') $('#button-edit').prop('disabled', true); else $('#button-edit').prop('disabled', false);
-            $('#barcode').val(node.original.barcode);
-            $('#comment').val(node.original.comment);
-            $('#type').val(node.original.type);
+            refreshContainerInformation(node);
+            state = "READY";
         });
         $('#nodeTree').jstree({
             'core': {
@@ -53,4 +52,21 @@ function edit_node() {
 function toggle_input_disabled(bool) {
     $('#type').prop('disabled', bool);
     $('#comment').prop('disabled', bool); 
+}
+
+function cancel() {
+    var ref = $('#nodeTree').jstree(true),
+        nodes = ref.get_selected();
+    if(nodes.length) {
+        var node = $('#nodeTree').jstree(true).get_node(nodes[0]);
+        refreshContainerInformation(node);
+    }
+}
+
+function refreshContainerInformation(node) {
+    if(node.original.type=='ROOT') $('#button-edit').prop('disabled', true); else $('#button-edit').prop('disabled', false);
+    $('#barcode').val(node.original.barcode);
+    $('#comment').val(node.original.comment);
+    $('#type').val(node.original.type);
+    toggle_input_disabled(true);
 }

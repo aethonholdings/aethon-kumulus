@@ -30,7 +30,7 @@
               <input id="barcode" type="text" placeholder="Scan container barcode" disabled>
             </div>
             <div class="pure-control-group">
-              <label for="type">Container type</label>
+              <label for="type">Type</label>
               <select id="type" class="pure-input-1-4" disabled>
                 <option>Container</option>  
                 <option>Box</option>
@@ -41,7 +41,8 @@
               <input id="comment" type="text" placeholder="Enter comments here" class="pure-input-1-2" disabled>
             </div>
             <div class="grid-element grid-footer">
-              <a class="pure-button pure-button-primary" href="#">Save</a>
+              <a id="button-save" class="pure-button pure-button-primary" href="#">Save</a>
+              <a id="button-cancel" class="pure-button pure-button-primary" onclick="cancel();">Cancel</a>
             </div>
           </fieldset>
         </form>
