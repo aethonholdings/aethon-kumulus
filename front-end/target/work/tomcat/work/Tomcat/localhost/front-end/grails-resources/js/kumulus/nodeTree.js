@@ -7,7 +7,6 @@ $(document).ready(function(){
         $('#nodeTree').on('changed.jstree', function (e, data) {
             var node=data.instance.get_node(data.selected[0]);
             refreshContainerInformation(node);
-            state = "READY";
         });
         $('#nodeTree').jstree({
             'core': {
@@ -17,6 +16,7 @@ $(document).ready(function(){
                 'plugins' : ['dnd']
             }
         });
+        state = "READY";
     });
 });
 
@@ -28,13 +28,18 @@ function findNode(id) {
 }
 
 function add_node() {
-    var ref = $('#nodeTree').jstree(true);
-    var sel = ref.get_selected();
-    if(!sel.length) { return false; }
-    sel = sel[0];
-    sel = ref.create_node(sel, {'type':'C'});
-    if(sel) {
-        ref.edit(sel);
+    var tree = $('#nodeTree').jstree(true);
+    var parent = tree.get_selected();
+    if(!parent.length) { return false; }
+    parent = parent[0];
+    tree.open_node(parent);
+    var node = tree.create_node(parent, {'type':'C'});
+    if(node) {
+        $('#barcode').val('');
+        $('#comment').val('');
+        $('#type').val('Container');
+        tree.edit(node);
+        state = "CREATE NEW";
     }
 };
 
@@ -55,10 +60,10 @@ function toggle_input_disabled(bool) {
 }
 
 function cancel() {
-    var ref = $('#nodeTree').jstree(true),
-        nodes = ref.get_selected();
+    var tree = $('#nodeTree').jstree(true);
+    var nodes = tree.get_selected();
     if(nodes.length) {
-        var node = $('#nodeTree').jstree(true).get_node(nodes[0]);
+        var node = tree.get_node(nodes[0]);
         refreshContainerInformation(node);
     }
 }
