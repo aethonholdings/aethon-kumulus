@@ -1,12 +1,21 @@
 var state;
+var tree;
+var selectedNode;
+var newNode;
 
 $(document).ready(function(){
-    $.getJSON("/front-end/collect/refreshTree/1", function(result){
+    $.getJSON("/front-end/collect/refreshTree/"+$('#project').attr('projectID'), function(result){
         // create the node tree
-        $('#button-edit').prop('disabled', true);
         $('#nodeTree').on('changed.jstree', function (e, data) {
-            var node=data.instance.get_node(data.selected[0]);
-            refreshContainerInformation(node);
+            // tree not locked, update the container information
+            if (state!="CREATE NEW") {
+                selectedNode = data.instance.get_node(data.selected[0]);
+                refreshContainerInformation(selectedNode);
+            } else {
+                if(data.instance.get_node(data.selected[1])!=selectedNode) {
+                    tree.select_node(selectedNode);
+                };
+            }
         });
         $('#nodeTree').jstree({
             'core': {
@@ -16,62 +25,93 @@ $(document).ready(function(){
                 'plugins' : ['dnd']
             }
         });
-        state = "READY";
+        tree = $('#nodeTree').jstree(true);
+        ready();
     });
 });
 
-function findNode(id) {
-    var i;
-    for(i=0;i<nodes.length;i++){
-        if(nodes[i].id==id) return(nodes[i]);
+
+// --- READY STATE
+
+function ready() {
+    toggle_input_disabled(true);
+    state = "READY";
+}
+
+function refreshContainerInformation(node) {
+    if(node){
+        $('#barcode').val(node.original.barcode);
+        $('#comment').val(node.original.comment);
+        $('#type').val(node.original.type);
+    } else {
+        $('#barcode').val('Scan container barcode');
+        $('#comment').val('Enter comments here');
+        $('#type').val('Container');
     }
 }
 
+function delete_node() {
+    selectedNode = tree.get_selected();
+    if(selectedNode.length && selectedNode!='ROOT' && state=="READY") {
+        if(confirm("Please confirm that you would like to delete this archive item")) {
+            tree.delete_node(selectedNode);
+            // need to perform JSON action here
+            ready();
+        }
+    }
+};
+
+// --- ADD NODE STATE
+
 function add_node() {
-    var tree = $('#nodeTree').jstree(true);
-    var parent = tree.get_selected();
-    if(!parent.length) { return false; }
-    parent = parent[0];
-    tree.open_node(parent);
-    var node = tree.create_node(parent, {'type':'C'});
-    if(node) {
+    var selectedNode = tree.get_selected();
+    if(!selectedNode.length) { return false; }
+    selectedNode = selectedNode[0];
+    newNode = tree.create_node(selectedNode, {'type':'C'});
+    tree.open_node(selectedNode);
+    if(newNode) {
+        tree.redraw(false);
         $('#barcode').val('');
         $('#comment').val('');
         $('#type').val('Container');
-        tree.edit(node);
+        $('#barcode').prop('disabled', false);
+        $('#type').prop('disabled', false);
+        $('#comment').prop('disabled', false);
+        $('#nodeTree').prop('disabled', true);
+        $('#barcode').focus();
         state = "CREATE NEW";
     }
 };
 
-function delete_node() {
-    var ref = $('#nodeTree').jstree(true),
-        sel = ref.get_selected();
-    if(!sel.length) { return false; }
-    ref.delete_node(sel);
-};
+// --- EDIT STATE
 
 function edit_node() {
-    if($('#button-edit').prop('disabled')==false) toggle_input_disabled(false);
+    selectedNode = tree.get_selected();
+    if(state=="READY" && selectedNode.length && selectedNode!="ROOT") {
+        toggle_input_disabled(false);
+        state = "EDIT";
+    }
 };
 
+// --- GENERAL FUNCTIONS
+
 function toggle_input_disabled(bool) {
+    $('#barcode').prop('disabled', true);
     $('#type').prop('disabled', bool);
     $('#comment').prop('disabled', bool); 
 }
 
 function cancel() {
-    var tree = $('#nodeTree').jstree(true);
-    var nodes = tree.get_selected();
-    if(nodes.length) {
-        var node = tree.get_node(nodes[0]);
-        refreshContainerInformation(node);
+    if(state=="CREATE NEW" || state=="EDIT") {
+        tree.delete_node(newNode);
+        tree.redraw(false);
+    } else {
+        var nodes = tree.get_selected();
+        if(nodes.length) {
+            var node = tree.get_node(nodes[0]);
+            refreshContainerInformation(node);
+        }
     }
+    ready();
 }
 
-function refreshContainerInformation(node) {
-    if(node.original.type=='ROOT') $('#button-edit').prop('disabled', true); else $('#button-edit').prop('disabled', false);
-    $('#barcode').val(node.original.barcode);
-    $('#comment').val(node.original.comment);
-    $('#type').val(node.original.type);
-    toggle_input_disabled(true);
-}
