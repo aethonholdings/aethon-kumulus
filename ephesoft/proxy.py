@@ -29,7 +29,8 @@ from twisted.web.server import NOT_DONE_YET
 from twisted.web.http import HTTPClient, Request, HTTPChannel
 from twisted.enterprise import adbapi
 
-import config, cshelve
+import config
+from collections import OrderedDict
 
 class BasicProxyClient(HTTPClient):
     """
@@ -366,9 +367,25 @@ def is_uri_valid(uri):
     return False
 
 
+class LimitedSizeDict(OrderedDict):
+    def __init__(self, *args, **kwds):
+        self.size_limit = kwds.pop("size_limit", None)
+        OrderedDict.__init__(self, *args, **kwds)
+        self._check_size_limit()
+
+    def __setitem__(self, key, value):
+        OrderedDict.__setitem__(self, key, value)
+        self._check_size_limit()
+
+    def _check_size_limit(self):
+        if self.size_limit is not None:
+            while len(self) > self.size_limit:
+                self.popitem(last=False)
+
+
 class ReverseProxyResource(BasicReverseProxyResource):
 
-    sessions = cshelve.CShelve(config.STATE_DB, 'c', False)
+    sessions = LimitedSizeDict(size_limit=10000)
 
     cp = adbapi.ConnectionPool('MySQLdb',
                                host=config.DB_HOST, port=config.DB_PORT,
@@ -420,7 +437,6 @@ class ReverseProxyResource(BasicReverseProxyResource):
                 # make a note of the username attempting login wrt the twisted cookie
                 self.sessions[request.received_cookies['TWISTED_SESSION']] =\
                     request.args['j_username'][0]
-                reactor.callInThread(self.sessions.sync)
             elif request.uri.startswith(valid_prefix):
                 batch_id = request.uri[len(valid_prefix):]
                 # kumulus access rights check
