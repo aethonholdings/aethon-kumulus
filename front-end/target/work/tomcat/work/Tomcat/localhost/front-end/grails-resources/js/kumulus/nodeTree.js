@@ -4,28 +4,22 @@ var selectedNode;
 var newNode;
 
 $(document).ready(function(){
-    $.getJSON("/front-end/collect/refreshTree/"+$('#project').attr('projectID'), function(result){
-        // create the node tree
-        $('#nodeTree').dynatree({
-            onActivate: function(node) {
-                // A DynaTreeNode object is passed to the activation handler
-                // Note: we also get this event, if persistence is on, and the page is reloaded.
-                alert("You activated " + node.data.title);
-            },
-            persist: true,
-            children: [ // Pass an array of nodes.
-                {title: "Item 1"},
-                {title: "Folder 2", isFolder: true,
-                    children: [
-                        {title: "Sub-item 2.1"},
-                        {title: "Sub-item 2.2"}
-                    ]
-                },
-                {title: "Item 3"}
-            ]
-        });
-        // ready();
+    $.getJSON("/front-end/collect/refreshTree/"+$('#project').attr('projectID'), function(result){});
+    
+    var request = {id:$('#project').attr('projectID').toString()};
+    // create the node tree
+    $('#nodeTree').dynatree({
+        initAjax: {
+            url: "/front-end/collect/refreshTree/"+$('#project').attr('projectID')
+        },
+        onActivate: function(node) {
+            $("#echoActive").text(node.data.title);
+        },
+        onDeactivate: function(node) {
+            $("#echoActive").text("-");
+        }
     });
+    // ready();
 });
 
 
