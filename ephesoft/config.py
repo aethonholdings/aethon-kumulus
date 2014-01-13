@@ -3,7 +3,6 @@ ORIGINAL_PORT = 8080
 PROXIED = 'localhost'
 PROXIED_PORT = 80
 USE_SSL = False
-STATE_DB = 'state.shelve'
 
 DB_HOST = 'test.ephesoft.kumulus.sg'
 DB_PORT = 3306
