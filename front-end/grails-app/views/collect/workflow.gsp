@@ -40,12 +40,12 @@
               <label for="comment">Comment</label>
               <input id="comment" type="text" placeholder="Enter comments here" class="pure-input-1-2" disabled>
             </div>
-            <div class="grid-element grid-footer">
-              <a id="button-save" class="pure-button pure-button-primary" href="#">Save</a>
-              <a id="button-cancel" class="pure-button pure-button-primary" onclick="cancel();">Cancel</a>
-            </div>
           </fieldset>
         </form>
+        <div class="grid-element grid-footer">
+          <a id="button-save" class="pure-button pure-button-primary" onclick="save();">Save</a>
+          <a id="button-cancel" class="pure-button pure-button-primary" onclick="cancel();">Cancel</a>
+        </div>
       </div>
     </div>
   </body>

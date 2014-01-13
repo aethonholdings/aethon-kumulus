@@ -66,4 +66,28 @@ class CollectController {
         render tree as JSON        
     }
     
+    @Secured(['ROLE_COLLECT'])
+    def update() {
+        // this is not secured at user permission level yet
+        def data = request.JSON
+        def node = Nodes.findById(data?.id)
+        if(node && !node.hasErrors()){
+            def projectID
+            def nodeType
+            node.comment = data?.comment;    
+            switch(data?.type) {
+                case 'Box':
+                    nodeType = 'B'
+                    break
+                case 'Container':
+                    nodeType = 'C'
+                    break
+            }
+            projectID = node.project.id
+            node.type = nodeType
+            node.save()
+            redirect (action: "refreshTree", params: [id: projectID])
+        }
+        
+    }
 }

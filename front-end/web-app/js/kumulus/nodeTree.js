@@ -4,11 +4,11 @@ var selectedNode;
 var newNode;
 
 $(document).ready(function(){
-    $.getJSON("/front-end/collect/refreshTree/"+$('#project').attr('projectID'), function(result){
+        $.getJSON("/front-end/collect/refreshTree/"+$('#project').attr('projectID'), function(result){
         // create the node tree
         $('#nodeTree').on('changed.jstree', function (e, data) {
             // tree not locked, update the container information
-            if (state!="CREATE NEW") {
+            if (state!="CREATE NEW" && state!="EDIT") {
                 selectedNode = data.instance.get_node(data.selected[0]);
                 refreshContainerInformation(selectedNode);
             } else {
@@ -32,7 +32,6 @@ $(document).ready(function(){
 
 
 // --- READY STATE
-
 function ready() {
     toggle_input_disabled(true);
     state = "READY";
@@ -60,6 +59,10 @@ function delete_node() {
         }
     }
 };
+
+function refreshTree(data) {
+    
+}
 
 // --- ADD NODE STATE
 
@@ -93,7 +96,7 @@ function edit_node() {
     }
 };
 
-// --- GENERAL FUNCTIONS
+// --- INPUT INTERFACE ACTIONS
 
 function toggle_input_disabled(bool) {
     $('#barcode').prop('disabled', true);
@@ -114,4 +117,31 @@ function cancel() {
     }
     ready();
 }
+
+function save() {
+    
+    var data = {
+        id: selectedNode.toString(),
+        barcode: $("#barcode").val(), 
+        type: $("#type").val(),
+        comment: $("#comment").val()
+    };
+    
+    if(state!="READY") {
+        var target;
+        if(state=="EDIT") target = "/front-end/collect/update/"; else target = "/front-end/collect/new/";
+        $.ajax({
+            url: target,
+            type: 'POST',
+            data: JSON.stringify(data),
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            async: false,
+            success: function(msg) {
+                ready();
+            }
+        });
+    }
+}
+
 
