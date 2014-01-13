@@ -1,10 +1,8 @@
 <html>
   <head>
-    <link rel="stylesheet" type="text/css" href="${resource(dir: 'css/jstree', file: 'jstree-min.css')}"/>
-    <g:javascript src="jstree/jstree.min.js"/>
-    <g:javascript src="kumulus/nodeTree.js"/>
-    <script type="text/javascript">
-    </script>
+    <link rel="stylesheet" type="text/css" href="${resource(dir: 'css/dynatree/skin', file: 'ui.dynatree.css')}"/>
+    <g:javascript src='dynatree/jquery.dynatree.js'/>
+    <g:javascript src='kumulus/nodeTree.js'/>
     <title>Prepare scans | Kumulus</title>
   </head>
   <body>

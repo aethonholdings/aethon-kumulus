@@ -4,9 +4,10 @@
         <link rel="stylesheet" type="text/css" href="${resource(dir: 'css/pure', file: 'pure-min.css')}"/>
         <link rel="stylesheet" type="text/css" href="${resource(dir: 'css/pure', file: 'side-menu.css')}"/>
         <link rel="stylesheet" type="text/css" href="${resource(dir: 'css/kumulus', file: 'main.css')}"/>
-        <g:javascript src="pure/ui.js"/>
         <g:javascript library='jquery' />
-        <r:layoutResources />
+        <r:layoutResources />             
+        <g:javascript src='jquery/ui/jquery-ui.js'/>
+        <g:javascript src="pure/ui.js"/>   
         <g:layoutHead/>
     </head>
     <body>
