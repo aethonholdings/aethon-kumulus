@@ -6,6 +6,8 @@ import grails.converters.*
 
 class CollectController {
 
+    def nodeService
+    
     @Secured(['ROLE_COLLECT'])
     def index() { 
         def projectList = Project.findAllByStatus("A")
@@ -20,46 +22,23 @@ class CollectController {
     }
     
     @Secured(['ROLE_COLLECT'])
-    def refreshTree() {
-        // this is not secured at user permission level yet
+    def getProject() {
         def project = Project.findById(params?.id)
         if(project) {
-            def nodeList = Nodes.findAllByProject(project)  // temporary solution, should be filtering out documents here
+            // get the root nodes
+            def nodeList = Nodes.findAllByProjectAndParent(project, null)  // temporary solution, should be filtering out documents here
             def tree = []
+            for(node in nodeList) {
+                tree.add nodeService.getNode(node.id)
+            }
+            
 
             // build the tree
-            for(node in nodeList) {
-                if(node.type!='D') {
-                    def parentID = 'ROOT'
-                    def nodeType
-                    if(node.parent) parentID = node.parent.id
-                    switch(node.type) {
-                        case 'B':
-                            nodeType = "Box"
-                            break
-                        case 'C':
-                            nodeType = "Container"
-                            break
-                    }
 
-                    def treeNode = [
-                        key: node.id,
-                        title: node.comment,
-                        isFolder: true,
-                        expand: true,
-                        parent: parentID,
-                        text: node.name, 
-                        barcode: node.barcode,
-                        
-                        type: nodeType
-                    ]
-                    tree.add(treeNode)
-                }
-            }
             render tree as JSON  
         }
     }
-    
+        
     @Secured(['ROLE_COLLECT'])
     def update() {
         // this is not secured at user permission level yet
@@ -71,16 +50,17 @@ class CollectController {
             node.comment = data?.comment;    
             switch(data?.type) {
                 case 'Box':
-                    nodeType = 'B'
-                    break
+                nodeType = 'B'
+                break
+                
                 case 'Container':
-                    nodeType = 'C'
-                    break
+                nodeType = 'C'
+                break
             }
             projectID = node.project.id
             node.type = nodeType
             node.save()
-            redirect (action: "refreshTree", params: [id: projectID])
+            redirect (action: "getTree", params: [id: projectID])
         }
         
     }

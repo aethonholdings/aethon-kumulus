@@ -4,13 +4,11 @@ var selectedNode;
 var newNode;
 
 $(document).ready(function(){
-    $.getJSON("/front-end/collect/refreshTree/"+$('#project').attr('projectID'), function(result){});
     
-    var request = {id:$('#project').attr('projectID').toString()};
     // create the node tree
     $('#nodeTree').dynatree({
         initAjax: {
-            url: "/front-end/collect/refreshTree/"+$('#project').attr('projectID')
+            url: "/front-end/collect/getProject/"+$('#project').attr('projectID')
         },
         onActivate: function(node) {
             $("#echoActive").text(node.data.title);
