@@ -24,15 +24,30 @@ class CollectController {
     @Secured(['ROLE_COLLECT'])
     def getProject() {
         def project = Project.findById(params?.id)
+        def tree = []
         if(project) {
-            // get the root nodes
+            def rootNode = [
+                key: "#",
+                title: "Root",
+                isFolder: true,
+                expand: true,
+                select: true,
+                children: tree,
+                parent: null,
+                text: null, 
+                barcode: null,
+                comment: null,
+                type: "ROOT",
+                id: "ROOT"
+            ]
+            // get the top-level nodes
             def nodeList = Nodes.findAllByProjectAndParent(project, null)  // temporary solution, should be filtering out documents here
-            def tree = []
             for(node in nodeList) {
-                tree.add nodeService.getNode(node.id, false)
+                rootNode.children.add nodeService.getTree(node.id, false)
             }
+            
             // build the tree
-            render tree as JSON  
+            render rootNode as JSON  
         }
     }
         
@@ -63,8 +78,7 @@ class CollectController {
     def delete() {
         def data = request.JSON
         if(data?.id) {
-            def node = Nodes.findById(data?.id)
-            node.delete()
+            nodeService.deleteNode(data.id)
         }
     }
 }

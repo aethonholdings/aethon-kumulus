@@ -10,12 +10,13 @@ $(document).ready(function(){
         initAjax: {
             title: 'Archive structure',
             url: '/front-end/collect/getProject/'+$('#project').attr('projectID'),
-            minExpandLevel: 1,
+            minExpandLevel: 0,
             autoFocus: true,
             persist: true,
             clickFolderMode: 1, 
             selectMode: 1, 
-            rootVisible: true
+            rootVisible: true,
+            keyboard: true
         },
         onActivate: function(node) {
             if(state=="READY") {
@@ -36,7 +37,7 @@ function ready() {
 }
 
 function refresh_container_information(node) {
-    if(node){
+    if(node && node.data.id!="ROOT"){
         $('#barcode').val(node.data.barcode);
         $('#name').val(node.data.title);
         $('#type').val(node.data.type);
@@ -50,7 +51,7 @@ function refresh_container_information(node) {
 }
 
 function delete_node() {
-    if(selectedNode && state=="READY") {
+    if(selectedNode && state=="READY"  && selectedNode.data.id!="ROOT") {
         if(confirm("Please confirm that you would like to delete this archive item")) {
             var data = { id: selectedNode.data.id }
             $.ajax({
@@ -58,10 +59,12 @@ function delete_node() {
                 type: 'POST',
                 data: JSON.stringify(data),
                 contentType: 'application/json; charset=utf-8',
-                dataType: 'json',
+                dataType: 'text',
                 async: false,
                 success: function(data) {
+                    alert("here")
                     selectedNode.remove();
+                    tree.reload();
                     ready();
                 }
             });
@@ -95,7 +98,7 @@ function add_node() {
 // --- EDIT STATE
 
 function edit_node() {
-    if(selectedNode && state=="READY") {
+    if(selectedNode && state=="READY"  && selectedNode.data.id!="ROOT") {
         enable(false);
         $('#type').focus();
         state = "EDIT";
@@ -125,6 +128,8 @@ function cancel() {
 }
 
 function save() {
+    
+    // need a case selection here
     
     var data = {
         id: selectedNode.data.id,

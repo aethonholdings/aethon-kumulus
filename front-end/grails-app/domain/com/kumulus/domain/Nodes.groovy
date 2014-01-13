@@ -23,7 +23,6 @@ class Nodes {
 		id column: "node_id"
                 parent column: "parent_node_id"
 		version false
-                parent cascade: 'all-delete-orphan'
 	}
 
 	static constraints = {
