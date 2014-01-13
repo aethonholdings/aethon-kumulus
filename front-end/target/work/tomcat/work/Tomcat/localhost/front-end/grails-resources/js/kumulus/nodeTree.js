@@ -14,7 +14,8 @@ $(document).ready(function(){
             autoFocus: true,
             persist: true,
             clickFolderMode: 1, 
-            selectMode: 1
+            selectMode: 1, 
+            rootVisible: true
         },
         onActivate: function(node) {
             if(state=="READY") {
@@ -37,21 +38,33 @@ function ready() {
 function refresh_container_information(node) {
     if(node){
         $('#barcode').val(node.data.barcode);
-        $('#comment').val(node.data.title);
+        $('#name').val(node.data.title);
         $('#type').val(node.data.type);
+        $('#comment').val(node.data.comment);
     } else {
         $('#barcode').val('Scan container barcode');
-        $('#comment').val('Enter comments here');
+        $('#name').val('Enter name here');
         $('#type').val('');
+        $('#comment').val('Enter comments here');
     }
 }
 
 function delete_node() {
     if(selectedNode && state=="READY") {
         if(confirm("Please confirm that you would like to delete this archive item")) {
-            selectedNode.remove();
-            // need to perform JSON action here
-            ready();
+            var data = { id: selectedNode.data.id }
+            $.ajax({
+                url: "/front-end/collect/delete/",
+                type: 'POST',
+                data: JSON.stringify(data),
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                async: false,
+                success: function(data) {
+                    selectedNode.remove();
+                    ready();
+                }
+            });
         }
     }
 };
@@ -68,7 +81,7 @@ function add_node() {
     enable(false);
     if(newNode) {
         $('#barcode').val('');
-        $('#comment').val('');
+        $('#name').val('');
         $('#type').val('Container');
         $('#barcode').prop('disabled', false);
         $('#type').prop('disabled', false);
@@ -94,6 +107,7 @@ function edit_node() {
 function enable(bool) {
     $('#barcode').prop('disabled', true);
     $('#type').prop('disabled', bool);
+    $('#name').prop('disabled', bool); 
     $('#comment').prop('disabled', bool); 
     if(bool==false) tree.disable(); else tree.enable();
 }
@@ -102,30 +116,27 @@ function cancel() {
     switch(state) {
         case "CREATE NEW":
             newNode.remove();
-            break;
             
         case "EDIT":
+            refresh_container_information(selectedNode);
+            ready();
             break;
-            
-        
     }
-
-    refresh_container_information(selectedNode);
-    ready();
 }
 
 function save() {
     
     var data = {
-        id: selectedNode.toString(),
+        id: selectedNode.data.id,
         barcode: $("#barcode").val(), 
         type: $("#type").val(),
+        name: $("#name").val(),
         comment: $("#comment").val()
     };
     
     if(state!="READY") {
         var target;
-        if(state=="EDIT") target = "/front-end/collect/update/"; else target = "/front-end/collect/new/";
+        if(state=="EDIT") target = "/front-end/collect/update/"; else target = "/front-end/collect/insert/";
         $.ajax({
             url: target,
             type: 'POST',
@@ -134,7 +145,7 @@ function save() {
             dataType: 'json',
             async: false,
             success: function(data) {
-                refresh_tree(data);
+                selectedNode.data.title = data.name
                 ready();
             }
         });

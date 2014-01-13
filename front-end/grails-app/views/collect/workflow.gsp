@@ -28,6 +28,10 @@
               <input id="barcode" type="text" placeholder="Scan container barcode" disabled>
             </div>
             <div class="pure-control-group">
+              <label for="name">Name</label>
+              <input id="name" type="text" placeholder="Enter name here" class="pure-input-1-2" disabled>
+            </div>
+            <div class="pure-control-group">
               <label for="type">Type</label>
               <select id="type" class="pure-input-1-4" disabled>
                 <option>Container</option>  
@@ -36,7 +40,7 @@
             </div>
             <div class="pure-control-group">
               <label for="comment">Comment</label>
-              <input id="comment" type="text" placeholder="Enter comments here" class="pure-input-1-2" disabled>
+              <textarea id="comment" type="text" placeholder="Enter comments here" class="pure-input-1-2" disabled rows="5"></textarea>
             </div>
           </fieldset>
         </form>

@@ -31,10 +31,7 @@ class CollectController {
             for(node in nodeList) {
                 tree.add nodeService.getNode(node.id, false)
             }
-            
-
             // build the tree
-
             render tree as JSON  
         }
     }
@@ -44,24 +41,30 @@ class CollectController {
         // this is not secured at user permission level yet
         def data = request.JSON
         def node = Nodes.findById(data?.id)
-        if(node && !node.hasErrors()){
-            def projectID
-            def nodeType
-            node.comment = data?.comment;    
-            switch(data?.type) {
-                case 'Box':
-                nodeType = 'B'
-                break
-                
-                case 'Container':
-                nodeType = 'C'
-                break
-            }
-            projectID = node.project.id
-            node.type = nodeType
-            node.save()
-            redirect (action: "getTree", params: [id: projectID])
+        if(node) nodeService.saveNode(node, data?.barcode, data?.name, data?.comment, data?.type)
+        render node as JSON
+    }
+    
+    @Secured(['ROLE_COLLECT'])
+    def insert() {
+        // this is not secured at user permission level yet
+        def data = request.JSON
+        def parent = Nodes.findById(data?.id)
+        def node = new Nodes()
+        if(node && data?.barcode && data?.name && data?.comment && data?.type && parent) {
+            node.parent = parent
+            node.project = parent.project
+            nodeService.saveNode(node, data?.barcode, data?.name, data?.comment, data?.type, 0)
+            render node as JSON
         }
-        
+    }
+    
+    @Secured(['ROLE_COLLECT'])
+    def delete() {
+        def data = request.JSON
+        if(data?.id) {
+            def node = Nodes.findById(data?.id)
+            node.delete()
+        }
     }
 }
