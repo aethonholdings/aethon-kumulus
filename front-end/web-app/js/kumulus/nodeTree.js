@@ -4,7 +4,7 @@ var selectedNode;
 var newNode;
 
 $(document).ready(function(){
-        $.getJSON("/front-end/collect/refreshTree/"+$('#project').attr('projectID'), function(result){
+    $.getJSON("/front-end/collect/refreshTree/"+$('#project').attr('projectID'), function(result){
         // create the node tree
         $('#nodeTree').on('changed.jstree', function (e, data) {
             // tree not locked, update the container information
@@ -17,15 +17,7 @@ $(document).ready(function(){
                 };
             }
         });
-        $('#nodeTree').jstree({
-            'core': {
-                'data' : result,
-                'multiple' : false,
-                'check_callback' : true,
-                'plugins' : ['dnd']
-            }
-        });
-        tree = $('#nodeTree').jstree(true);
+        refresh_tree(result)
         ready();
     });
 });
@@ -60,8 +52,16 @@ function delete_node() {
     }
 };
 
-function refreshTree(data) {
-    
+function refresh_tree(data) {
+    $('#nodeTree').jstree({
+        'core': {
+            'data' : data,
+            'multiple' : false,
+            'check_callback' : true,
+        }
+    });
+    tree = $('#nodeTree').jstree(true);
+    tree.refresh(true);
 }
 
 // --- ADD NODE STATE
@@ -137,7 +137,8 @@ function save() {
             contentType: 'application/json; charset=utf-8',
             dataType: 'json',
             async: false,
-            success: function(msg) {
+            success: function(data) {
+                refresh_tree(data);
                 ready();
             }
         });
