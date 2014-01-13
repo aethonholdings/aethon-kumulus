@@ -6,13 +6,13 @@ import grails.transaction.Transactional
 @Transactional
 class NodeService {
 
-    def getNode(nodeID) {
+    def getNode(nodeID, expand) {
         def node = Nodes.findById(nodeID)
         def children = []
         if(node) {
             def childNodes = Nodes.findAllByParent(node)
             for (child in childNodes) {
-                children.add(getNode(child.id))
+                children.add(getNode(child.id, false))
             }
             
             if(node.type!='D') {
@@ -32,12 +32,14 @@ class NodeService {
                     key: node.id,
                     title: node.comment,
                     isFolder: true,
-                    expand: true,
+                    expand: expand,
                     children: children,
                     parent: parentID,
                     text: node.name, 
                     barcode: node.barcode,
-                    type: nodeType
+                    comment: node.internalComment,
+                    type: nodeType,
+                    id: node.id
                 ]
                 return(treeNode)
             }

@@ -29,7 +29,7 @@ class CollectController {
             def nodeList = Nodes.findAllByProjectAndParent(project, null)  // temporary solution, should be filtering out documents here
             def tree = []
             for(node in nodeList) {
-                tree.add nodeService.getNode(node.id)
+                tree.add nodeService.getNode(node.id, false)
             }
             
 

@@ -8,70 +8,65 @@ $(document).ready(function(){
     // create the node tree
     $('#nodeTree').dynatree({
         initAjax: {
-            url: "/front-end/collect/getProject/"+$('#project').attr('projectID')
+            title: 'Archive structure',
+            url: '/front-end/collect/getProject/'+$('#project').attr('projectID'),
+            minExpandLevel: 1,
+            autoFocus: true,
+            persist: true,
+            clickFolderMode: 1, 
+            selectMode: 1
         },
         onActivate: function(node) {
-            $("#echoActive").text(node.data.title);
-        },
-        onDeactivate: function(node) {
-            $("#echoActive").text("-");
+            if(state=="READY") {
+                selectedNode = node;
+                refresh_container_information(node);
+            }
         }
     });
-    // ready();
+    tree = $('#nodeTree').dynatree("getTree");
+    ready();
 });
 
 
 // --- READY STATE
 function ready() {
-    toggle_input_disabled(true);
+    enable(true);
     state = "READY";
 }
 
-function refreshContainerInformation(node) {
+function refresh_container_information(node) {
     if(node){
-        $('#barcode').val(node.original.barcode);
-        $('#comment').val(node.original.comment);
-        $('#type').val(node.original.type);
+        $('#barcode').val(node.data.barcode);
+        $('#comment').val(node.data.title);
+        $('#type').val(node.data.type);
     } else {
         $('#barcode').val('Scan container barcode');
         $('#comment').val('Enter comments here');
-        $('#type').val('Container');
+        $('#type').val('');
     }
 }
 
 function delete_node() {
-    selectedNode = tree.get_selected();
-    if(selectedNode.length && selectedNode!='ROOT' && state=="READY") {
+    if(selectedNode && state=="READY") {
         if(confirm("Please confirm that you would like to delete this archive item")) {
-            tree.delete_node(selectedNode);
+            selectedNode.remove();
             // need to perform JSON action here
             ready();
         }
     }
 };
 
-function refresh_tree(data) {
-    $('#nodeTree').jstree({
-        'core': {
-            'data' : data,
-            'multiple' : false,
-            'check_callback' : true,
-        }
-    });
-    tree = $('#nodeTree').jstree(true);
-    tree.refresh(true);
-}
-
 // --- ADD NODE STATE
 
 function add_node() {
-    var selectedNode = tree.get_selected();
-    if(!selectedNode.length) { return false; }
-    selectedNode = selectedNode[0];
-    newNode = tree.create_node(selectedNode, {'type':'C'});
-    tree.open_node(selectedNode);
+    if(!selectedNode) { return false; }
+    newNode = selectedNode.addChild({
+        title: "New",
+        isFolder: true
+    });
+    selectedNode.expand();
+    enable(false);
     if(newNode) {
-        tree.redraw(false);
         $('#barcode').val('');
         $('#comment').val('');
         $('#type').val('Container');
@@ -87,32 +82,35 @@ function add_node() {
 // --- EDIT STATE
 
 function edit_node() {
-    selectedNode = tree.get_selected();
-    if(state=="READY" && selectedNode.length && selectedNode!="ROOT") {
-        toggle_input_disabled(false);
+    if(selectedNode && state=="READY") {
+        enable(false);
+        $('#type').focus();
         state = "EDIT";
     }
 };
 
 // --- INPUT INTERFACE ACTIONS
 
-function toggle_input_disabled(bool) {
+function enable(bool) {
     $('#barcode').prop('disabled', true);
     $('#type').prop('disabled', bool);
     $('#comment').prop('disabled', bool); 
+    if(bool==false) tree.disable(); else tree.enable();
 }
 
 function cancel() {
-    if(state=="CREATE NEW" || state=="EDIT") {
-        tree.delete_node(newNode);
-        tree.redraw(false);
-    } else {
-        var nodes = tree.get_selected();
-        if(nodes.length) {
-            var node = tree.get_node(nodes[0]);
-            refreshContainerInformation(node);
-        }
+    switch(state) {
+        case "CREATE NEW":
+            newNode.remove();
+            break;
+            
+        case "EDIT":
+            break;
+            
+        
     }
+
+    refresh_container_information(selectedNode);
     ready();
 }
 
