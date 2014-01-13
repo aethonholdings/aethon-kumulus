@@ -7,6 +7,7 @@
         <g:javascript library='jquery' />
         <r:layoutResources />             
         <g:javascript src='jquery/ui/jquery-ui.js'/>
+        <g:javascript src='jquery/cookie/jquery.cookie.js'/>
         <g:javascript src="pure/ui.js"/>   
         <g:layoutHead/>
     </head>
