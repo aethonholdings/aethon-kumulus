@@ -15,7 +15,7 @@
         </div>
         <div class="grid-element grid-footer">
           <a id="button-add" class="pure-button pure-button-primary" onclick="add_node();">Add</a>
-          <a id="button-edit" class="pure-button pure-button-primary" onclick="edit_node();">Edit</a>
+          <a id="button-edit" class="pure-button pure-button-primary" onclick="update_node();">Edit</a>
           <a id="button-delete" class="pure-button pure-button-primary" onclick="delete_node();">Delete</a>
         </div>
       </div>

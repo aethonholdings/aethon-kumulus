@@ -107,7 +107,7 @@ function add_node() {
 function update_node() {
     if(selectedNode && state=="READY"  && selectedNode.data.id!="ROOT") {
         enable(false);
-        $('#type').focus();
+        $('#name').focus();
         state = "UPDATE";
     }
 };
@@ -143,7 +143,7 @@ function save() {
         case "UPDATE":
         
             data = {
-                parentID: selectedNode.data.id,
+                id: selectedNode.data.id,
                 project: selectedNode.data.project,
                 barcode: $("#barcode").val(), 
                 type: $("#type").val(),
@@ -176,9 +176,9 @@ function save() {
         dataType: 'json',
         async: false,
             success: function(data) {
-            selectedNode.data.title = data.name
-            ready();
-        }
+                tree.reload();
+                ready();
+            }
     });
 }
 

@@ -43,7 +43,7 @@ class CollectController {
         // this is not secured at user permission level yet
         def data = request.JSON
         def node = Nodes.findById(data?.id)
-        if(node) nodeService.saveNode(node, data?.barcode, data?.name, data?.comment, data?.type)
+        if(node) nodeService.saveNode(node, data?.barcode, data?.name, data?.comment, data?.type, 0)
         render node as JSON
     }
     
@@ -52,7 +52,6 @@ class CollectController {
         // this is not secured at user permission level yet
         def response = [done: false, message: "Error"]
         def data = request.JSON
-        println(data)
         def parent
         if(data?.parentID!="ROOT") parent = Nodes.findById(data.parentID) else parent = null
         def project = Project.findById(data?.project)
