@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.6.10)
 # Database: kumulus
-# Generation Time: 2014-01-14 12:45:00 +0000
+# Generation Time: 2014-01-14 13:42:19 +0000
 # ************************************************************
 
 
@@ -85,7 +85,8 @@ LOCK TABLES `nodes` WRITE;
 INSERT INTO `nodes` (`node_id`, `project_id`, `name`, `type`, `barcode`, `comment`, `internal_comment`, `status`, `parent_node_id`, `hierarchy`, `thumbnail_image_name`, `actual_image_name`, `creator_id`, `create_datetime`, `last_update_id`, `last_update_datetime`, `document_sequence_number`, `creatorldapuid`, `uploaded`)
 VALUES
 	(24,1,'2013 invoices','C','0001','','test','0',NULL,NULL,NULL,NULL,'kumulus','2014-01-14 16:14:00','kumulus','2014-01-14 16:14:00',NULL,NULL,NULL),
-	(25,1,NULL,'D',NULL,NULL,NULL,NULL,24,NULL,NULL,NULL,'kumulus','2014-01-14 16:14:00','kumulus','2014-01-14 16:14:00',NULL,NULL,0);
+	(25,1,NULL,'D',NULL,NULL,NULL,'0',24,NULL,NULL,NULL,'kumulus','2014-01-14 16:14:00','kumulus','2014-01-14 16:14:00',NULL,NULL,0),
+	(26,1,NULL,'D',NULL,NULL,NULL,'0',24,NULL,NULL,NULL,'kumulus','2014-01-14 16:14:00','kumulus','2014-01-14 16:14:00',NULL,NULL,0);
 
 /*!40000 ALTER TABLE `nodes` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -135,7 +136,8 @@ LOCK TABLES `task` WRITE;
 
 INSERT INTO `task` (`id`, `created`, `last_updated`, `status`, `batch_instance_id`, `user_id`, `reported`, `project_id`, `last_batch_instance_id`, `type`, `version`, `batch_instance_url_id`, `batch_instanceid`)
 VALUES
-	(1,'2014-01-14 16:14:00','2014-01-14 16:14:00',5,NULL,'kumulus',0,1,NULL,'',0,'BI2D','');
+	(1,'2014-01-14 16:14:00','2014-01-14 16:14:00',5,NULL,'kumulus',0,1,NULL,'',0,'BI2D',''),
+	(2,'2014-01-14 21:33:00','2014-01-14 21:33:00',5,NULL,'kumulus',0,1,NULL,'',0,'BI2C','');
 
 /*!40000 ALTER TABLE `task` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -153,7 +155,12 @@ VALUES
 	(2,1,'2014-01-14 16:14:00',2,NULL),
 	(3,1,'2014-01-14 16:14:00',3,NULL),
 	(4,1,'2014-01-14 16:14:00',4,NULL),
-	(5,1,'2014-01-14 16:14:00',5,NULL);
+	(5,1,'2014-01-14 16:14:00',5,NULL),
+	(6,2,'2014-01-14 21:33:00',1,NULL),
+	(7,2,'2014-01-14 21:33:00',2,NULL),
+	(8,2,'2014-01-14 21:33:00',3,NULL),
+	(9,2,'2014-01-14 21:33:00',4,NULL),
+	(10,2,'2014-01-14 21:33:00',5,NULL);
 
 /*!40000 ALTER TABLE `task_history` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -167,7 +174,8 @@ LOCK TABLES `task_nodes` WRITE;
 
 INSERT INTO `task_nodes` (`task_nodes_id`, `nodes_id`, `task_id`)
 VALUES
-	(1,25,1);
+	(1,25,1),
+	(2,26,2);
 
 /*!40000 ALTER TABLE `task_nodes` ENABLE KEYS */;
 UNLOCK TABLES;
