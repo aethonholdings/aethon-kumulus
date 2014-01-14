@@ -2,7 +2,7 @@ package com.kumulus.domain
 
 class Nodes {
 
-	String name
+        String name
 	String type
 	String barcode
 	String comment
@@ -11,10 +11,12 @@ class Nodes {
 	String hierarchy
 	String thumbnailImageName
 	String actualImageName
-	String creatorLDAPUid
+        String creatorId
 	Date createDatetime
+        String lastUpdateId
 	Date lastUpdateDatetime
 	Integer documentSequenceNumber
+        String creatorldapuid
 	Boolean uploaded
         
 	static belongsTo = [project: Project, parent: Nodes]
@@ -35,10 +37,10 @@ class Nodes {
 		hierarchy nullable: true, maxSize: 200
 		thumbnailImageName nullable: true, maxSize: 1000
 		actualImageName nullable: true, maxSize: 1000
-		creatorLDAPUid nullable: true, maxSize: 45
 		createDatetime nullable: true
 		lastUpdateDatetime nullable: true
 		documentSequenceNumber nullable: true
+                creatorldapuid nullable: true, maxSize: 45
 		uploaded nullable: true
 	}
 }

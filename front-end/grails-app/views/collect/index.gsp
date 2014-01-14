@@ -3,7 +3,7 @@
         <title>Prepare scans | Kumulus</title>
     </head>
     <body>
-        <p>Prepare documents for scanning</p>
+        <p>Prepare documents for import</p>
         <table class="pure-table" width="100%">
             <thead>
                 <tr>

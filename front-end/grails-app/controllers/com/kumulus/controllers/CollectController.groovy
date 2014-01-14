@@ -7,7 +7,7 @@ import grails.converters.*
 class CollectController {
 
     def nodeService
-    def treeRenderService
+    def springSecurityService
     
     @Secured(['ROLE_COLLECT'])
     def index() { 
@@ -21,24 +21,7 @@ class CollectController {
         def project = Project.findById(params.id)
         render view:"workflow", layout:"home", model:[project: project]
     }
-    
-    @Secured(['ROLE_COLLECT'])
-    def getRoot() {
-        def rootNode = treeRenderService.renderRoot(Project?.findById(params?.id))    
-        render rootNode as JSON  
-    }    
-    
-    @Secured(['ROLE_COLLECT'])
-    def getChildren() {
-        def treeNodes = []
-        def node = Nodes.findById(params?.id)         // should check permissions first
-        if (node) {
-            def children = Nodes.findAllByParent(node)
-            children.each {treeNodes.add(treeRenderService.renderNode(it))}
-        }
-        render treeNodes as JSON  
-    }
-        
+            
     @Secured(['ROLE_COLLECT'])
     def update() {
         // this is not secured at user permission level yet
@@ -57,9 +40,24 @@ class CollectController {
         if(data?.parentID!="ROOT") parent = Nodes.findById(data.parentID) else parent = null
         def project = Project.findById(data?.project)
         def node = new Nodes()
-        if(node && data?.barcode && data?.name && data?.comment && data?.type && project) {
-            node.parent = parent
-            node.project = project
+        if(node && data?.barcode && data?.name && data?.type && project) {
+            def map = [
+                project: project,
+                parent: parent,
+                status: 0,
+                hierarchy: null,
+                thumbnailImageName: null, 
+                actualImageName: null,
+                creatorId: springSecurityService.getCurrentUser(),
+                createDatetime: new Date(),
+                lastUpdateId: springSecurityService.getCurrentUser(),
+                lastUpdateDatetime: new Date(),
+                documentSequenceNumber: null,
+                creatorldapuid: springSecurityService.getCurrentUser(),
+                uploaded: false
+            ]
+            bindData(node, map)
+            println(map)
             nodeService.saveNode(node, data?.barcode, data?.name, data?.comment, data?.type, 0)
             response.done = true
             response.message = "OK"

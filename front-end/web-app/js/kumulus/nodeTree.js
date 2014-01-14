@@ -9,7 +9,7 @@ $(document).ready(function(){
     $('#nodeTree').dynatree({
         initAjax: {
             title: 'Archive structure',
-            url: '/front-end/collect/getRoot/'+$('#project').attr('projectID'),
+            url: '/front-end/treeRender/getRoot/'+$('#project').attr('projectID'),
             minExpandLevel: 0,
             autoFocus: true,
             persist: true,
@@ -26,7 +26,7 @@ $(document).ready(function(){
         }, 
         onLazyRead: function(node) {
             node.appendAjax({
-                url: '/front-end/collect/getChildren/', 
+                url: '/front-end/treeRender/getChildren/', 
                 data : {
                     "id": node.data.key
                 }
