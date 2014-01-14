@@ -24,15 +24,15 @@
         <form name="newContainer" action="add" method="POST" class="pure-form pure-form-aligned">
           <fieldset>
             <div class="pure-control-group">
-              <label for="barcode">Barcode</label>
+              <label for="barcode">* Barcode</label>
               <input id="barcode" type="text" placeholder="Scan container barcode" disabled>
             </div>
             <div class="pure-control-group">
-              <label for="name">Name</label>
+              <label for="name">* Name</label>
               <input id="name" type="text" placeholder="Enter name here" class="pure-input-1-2" disabled>
             </div>
             <div class="pure-control-group">
-              <label for="type">Type</label>
+              <label for="type">* Type</label>
               <select id="type" class="pure-input-1-4" disabled>
                 <option>Container</option>  
                 <option>Box</option>

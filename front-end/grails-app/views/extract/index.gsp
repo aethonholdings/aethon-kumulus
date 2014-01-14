@@ -19,7 +19,7 @@
                         <td>${taskInstance.id}</td>
                         <td>
                             <g:if test="${taskInstance.status==5}">Validate</g:if>
-                            <g:if test="${taskInstance.status==4}">Classify</g:if>
+                            <g:if test="${taskInstance.status==4}">Review</g:if>
                         </td>
                         <td>${taskInstance.created.format("dd/MM/yyyy - HH:mm:ss")}</td>
                         <td>

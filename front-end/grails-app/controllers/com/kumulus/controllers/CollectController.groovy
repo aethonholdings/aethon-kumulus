@@ -7,6 +7,7 @@ import grails.converters.*
 class CollectController {
 
     def nodeService
+    def treeRenderService
     
     @Secured(['ROLE_COLLECT'])
     def index() { 
@@ -23,7 +24,7 @@ class CollectController {
     
     @Secured(['ROLE_COLLECT'])
     def getRoot() {
-        def rootNode = nodeService.renderRoot(Project?.findById(params?.id))    
+        def rootNode = treeRenderService.renderRoot(Project?.findById(params?.id))    
         render rootNode as JSON  
     }    
     
@@ -33,7 +34,7 @@ class CollectController {
         def node = Nodes.findById(params?.id)         // should check permissions first
         if (node) {
             def children = Nodes.findAllByParent(node)
-            children.each {treeNodes.add(nodeService.renderNode(it))}
+            children.each {treeNodes.add(treeRenderService.renderNode(it))}
         }
         render treeNodes as JSON  
     }

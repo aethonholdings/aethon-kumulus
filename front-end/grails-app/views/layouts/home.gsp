@@ -20,8 +20,10 @@
                         <li><g:link controller="home" action="index">Home</g:link></li>
                         <li><g:link controller="collect" action="index">Prepare scans</g:link></li>
                         <li><g:link controller="extract" action="index">Extract data</g:link></li>
+                        <li><a href="">Download ledger</a></li>
                         <li><a href="">Access archive</a></li>
                         <li><a href="">Order materials</a></li>
+                        <li><a href="">Manage account</a></li>
                     </ul>
                 </div>
             </div>

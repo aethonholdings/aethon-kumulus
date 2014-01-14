@@ -15,10 +15,4 @@ class ExtractController {
         render view:"index", layout:"home", model:[user: username, tasks: tasks]
     }
     
-    @Secured(['ROLE_EXTRACT'])
-    def workflow() {
-        redirect(url: 'http://test.ephesoft.kumulus.sg:8081/dcma/BatchList.html?username=ephesoft&password=Ke$haIsGreat666')
-    }
-    
-    
 }

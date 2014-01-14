@@ -136,50 +136,51 @@ function cancel() {
 
 function save() {
     
-    var target, data;
-    // need a case selection here
-    switch(state) {
-        
-        case "UPDATE":
-        
-            data = {
-                id: selectedNode.data.id,
-                project: selectedNode.data.project,
-                barcode: $("#barcode").val(), 
-                type: $("#type").val(),
-                name: $("#name").val(),
-                comment: $("#comment").val()
-            };
+    if(!$("#barcode").val() || !$("#type").val() || !$("#name").val()) {
+        alert("Please complete all required input fields")
+        return(false);
+    } else {
+        var target, data;
+        // need a case selection here
+        switch(state) {
+            case "UPDATE":
+                data = {
+                    id: selectedNode.data.id,
+                    project: selectedNode.data.project,
+                    barcode: $("#barcode").val(), 
+                    type: $("#type").val(),
+                    name: $("#name").val(),
+                    comment: $("#comment").val()
+                };
+                target = "/front-end/collect/update/";
+                break;
 
-            target = "/front-end/collect/update/";
-            break;
-            
-        case "INSERT":
-            
-            data = {
-                parentID: selectedNode.data.id,
-                project: selectedNode.data.project,
-                barcode: $("#barcode").val(), 
-                type: $("#type").val(),
-                name: $("#name").val(),
-                comment: $("#comment").val()
-            };
-            
-            target = "/front-end/collect/insert/";
-            break;
+            case "INSERT":
+                data = {
+                    parentID: selectedNode.data.id,
+                    project: selectedNode.data.project,
+                    barcode: $("#barcode").val(), 
+                    type: $("#type").val(),
+                    name: $("#name").val(),
+                    comment: $("#comment").val()
+                };
+                target = "/front-end/collect/insert/";
+                break;
+                
+        }
+        $.ajax({
+            url: target,
+            type: 'POST',
+            data: JSON.stringify(data),
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            async: false,
+                success: function(data) {
+                    tree.reload();
+                    ready();
+                }
+        });
     }
-    $.ajax({
-        url: target,
-        type: 'POST',
-        data: JSON.stringify(data),
-        contentType: 'application/json; charset=utf-8',
-        dataType: 'json',
-        async: false,
-            success: function(data) {
-                tree.reload();
-                ready();
-            }
-    });
 }
 
 
