@@ -36,8 +36,7 @@ class CollectController {
         // this is not secured at user permission level yet
         def response = [done: false, message: "Error"]
         def data = request.JSON
-        def parent
-        if(data?.parentID!="ROOT") parent = Nodes.findById(data.parentID) else parent = null
+        if(data?.parentID!="ROOT") def parent = Nodes.findById(data.parentID) else def parent = null
         def project = Project.findById(data?.project)
         def node = new Nodes()
         if(node && data?.barcode && data?.name && data?.type && project) {
@@ -57,7 +56,6 @@ class CollectController {
                 uploaded: false
             ]
             bindData(node, map)
-            println(springSecurityService.principal.username)
             nodeService.saveNode(node, data?.barcode, data?.name, data?.comment, data?.type, 0)
             response.done = true
             response.message = "OK"
