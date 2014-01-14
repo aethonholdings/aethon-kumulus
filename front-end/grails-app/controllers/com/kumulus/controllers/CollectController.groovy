@@ -48,16 +48,16 @@ class CollectController {
                 hierarchy: null,
                 thumbnailImageName: null, 
                 actualImageName: null,
-                creatorId: springSecurityService.getCurrentUser(),
+                creatorId: springSecurityService.principal.username,
                 createDatetime: new Date(),
-                lastUpdateId: springSecurityService.getCurrentUser(),
+                lastUpdateId: springSecurityService.principal.username,
                 lastUpdateDatetime: new Date(),
                 documentSequenceNumber: null,
-                creatorldapuid: springSecurityService.getCurrentUser(),
+                creatorldapuid: springSecurityService.principal.username,
                 uploaded: false
             ]
             bindData(node, map)
-            println(map)
+            println(springSecurityService.principal.username)
             nodeService.saveNode(node, data?.barcode, data?.name, data?.comment, data?.type, 0)
             response.done = true
             response.message = "OK"

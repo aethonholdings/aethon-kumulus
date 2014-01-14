@@ -20,7 +20,9 @@ class TreeRenderController {
         def node = Nodes.findById(params?.id)         // should check permissions first
         if (node) {
             def children = Nodes.findAllByParent(node)
-            children.each {treeNodes.add(treeRenderService.renderNode(it))}
+            children.each {
+                if(it?.type!='D') treeNodes.add(treeRenderService.renderNode(it))
+            }
         }
         render treeNodes as JSON  
     }

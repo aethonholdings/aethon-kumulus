@@ -49,7 +49,7 @@ class TreeRenderService {
             key: "#",
             title: "Root",
             isFolder: true,
-            expand: true,
+            expand: false,
             select: true,
             isLazy: false,
             parent: null,
@@ -64,9 +64,7 @@ class TreeRenderService {
         
         // get the top-level nodes
         def nodeList = Nodes.findAllByProjectAndParent(project, null)  // temporary solution, should be filtering out documents here
-        nodeList.each {
-            root.children.add renderNode(it)
-        }
+        nodeList.each { root.children.add renderNode(it) }
         return(root)
     }
     
