@@ -112,7 +112,8 @@ class NodeService {
                 isFolder: isFolder,
                 comment: node.internalComment,
                 type: nodeType,
-                id: node.id
+                id: node.id, 
+                project: node.project.id
             ]
         }
     }
@@ -133,7 +134,8 @@ class NodeService {
             comment: null,
             children: children,
             type: "ROOT",
-            id: "ROOT"
+            id: "ROOT",
+            project: project.id
         ]
         
         // get the top-level nodes

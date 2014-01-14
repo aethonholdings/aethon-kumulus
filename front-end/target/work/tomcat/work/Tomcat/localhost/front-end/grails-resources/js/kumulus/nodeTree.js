@@ -54,7 +54,7 @@ function refresh_container_information(node) {
         $('#barcode').val('Scan container barcode');
         $('#name').val('Enter name here');
         $('#type').val('');
-        $('#comment').val('Enter comments here');
+        $('#comment').val('');
     }
 }
 
@@ -67,10 +67,9 @@ function delete_node() {
                 type: 'POST',
                 data: JSON.stringify(data),
                 contentType: 'application/json; charset=utf-8',
-                dataType: 'text',
+                dataType: 'json',
                 async: false,
                 success: function(data) {
-                    alert("here")
                     selectedNode.remove();
                     tree.reload();
                     ready();
@@ -99,17 +98,17 @@ function add_node() {
         $('#comment').prop('disabled', false);
         $('#nodeTree').prop('disabled', true);
         $('#barcode').focus();
-        state = "CREATE NEW";
+        state = "INSERT";
     }
 };
 
 // --- EDIT STATE
 
-function edit_node() {
+function update_node() {
     if(selectedNode && state=="READY"  && selectedNode.data.id!="ROOT") {
         enable(false);
         $('#type').focus();
-        state = "EDIT";
+        state = "UPDATE";
     }
 };
 
@@ -125,10 +124,10 @@ function enable(bool) {
 
 function cancel() {
     switch(state) {
-        case "CREATE NEW":
+        case "INSERT":
             newNode.remove();
             
-        case "EDIT":
+        case "UPDATE":
             refresh_container_information(selectedNode);
             ready();
             break;
@@ -137,32 +136,50 @@ function cancel() {
 
 function save() {
     
+    var target, data;
     // need a case selection here
-    
-    var data = {
-        id: selectedNode.data.id,
-        barcode: $("#barcode").val(), 
-        type: $("#type").val(),
-        name: $("#name").val(),
-        comment: $("#comment").val()
-    };
-    
-    if(state!="READY") {
-        var target;
-        if(state=="EDIT") target = "/front-end/collect/update/"; else target = "/front-end/collect/insert/";
-        $.ajax({
-            url: target,
-            type: 'POST',
-            data: JSON.stringify(data),
-            contentType: 'application/json; charset=utf-8',
-            dataType: 'json',
-            async: false,
-            success: function(data) {
-                selectedNode.data.title = data.name
-                ready();
-            }
-        });
+    switch(state) {
+        
+        case "UPDATE":
+        
+            data = {
+                parentID: selectedNode.data.id,
+                project: selectedNode.data.project,
+                barcode: $("#barcode").val(), 
+                type: $("#type").val(),
+                name: $("#name").val(),
+                comment: $("#comment").val()
+            };
+
+            target = "/front-end/collect/update/";
+            break;
+            
+        case "INSERT":
+            
+            data = {
+                parentID: selectedNode.data.id,
+                project: selectedNode.data.project,
+                barcode: $("#barcode").val(), 
+                type: $("#type").val(),
+                name: $("#name").val(),
+                comment: $("#comment").val()
+            };
+            
+            target = "/front-end/collect/insert/";
+            break;
     }
+    $.ajax({
+        url: target,
+        type: 'POST',
+        data: JSON.stringify(data),
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'json',
+        async: false,
+            success: function(data) {
+            selectedNode.data.title = data.name
+            ready();
+        }
+    });
 }
 
 

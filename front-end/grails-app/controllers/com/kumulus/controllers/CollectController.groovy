@@ -22,36 +22,6 @@ class CollectController {
     }
     
     @Secured(['ROLE_COLLECT'])
-    def getProject() {
-        def project = Project.findById(params?.id)
-        def tree = []
-        if(project) {
-            def rootNode = [
-                key: "#",
-                title: "Root",
-                isFolder: true,
-                expand: true,
-                select: true,
-                children: tree,
-                parent: null,
-                text: null, 
-                barcode: null,
-                comment: null,
-                type: "ROOT",
-                id: "ROOT"
-            ]
-            // get the top-level nodes
-            def nodeList = Nodes.findAllByProjectAndParent(project, null)  // temporary solution, should be filtering out documents here
-            for(node in nodeList) {
-                rootNode.children.add nodeService.getTree(node.id, false)
-            }
-            
-            // build the tree
-            render rootNode as JSON  
-        }
-    }
-    
-    @Secured(['ROLE_COLLECT'])
     def getRoot() {
         def rootNode = nodeService.renderRoot(Project?.findById(params?.id))    
         render rootNode as JSON  
@@ -80,22 +50,31 @@ class CollectController {
     @Secured(['ROLE_COLLECT'])
     def insert() {
         // this is not secured at user permission level yet
+        def response = [done: false, message: "Error"]
         def data = request.JSON
-        def parent = Nodes.findById(data?.id)
+        println(data)
+        def parent
+        if(data?.parentID!="ROOT") parent = Nodes.findById(data.parentID) else parent = null
+        def project = Project.findById(data?.project)
         def node = new Nodes()
-        if(node && data?.barcode && data?.name && data?.comment && data?.type && parent) {
+        if(node && data?.barcode && data?.name && data?.comment && data?.type && project) {
             node.parent = parent
-            node.project = parent.project
+            node.project = project
             nodeService.saveNode(node, data?.barcode, data?.name, data?.comment, data?.type, 0)
-            render node as JSON
+            response.done = true
+            response.message = "OK"
         }
+        render response as JSON
     }
     
     @Secured(['ROLE_COLLECT'])
     def delete() {
         def data = request.JSON
+        def response = [done: false]
         if(data?.id) {
             nodeService.deleteNode(data.id)
+            response.done = true
         }
+        render response as JSON
     }
 }

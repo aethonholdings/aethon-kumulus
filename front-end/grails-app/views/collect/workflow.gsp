@@ -40,7 +40,7 @@
             </div>
             <div class="pure-control-group">
               <label for="comment">Comment</label>
-              <textarea id="comment" type="text" placeholder="Enter comments here" class="pure-input-1-2" disabled rows="5"></textarea>
+              <textarea id="comment" type="text" class="pure-input-1-2" disabled rows="5"></textarea>
             </div>
           </fieldset>
         </form>
