@@ -9,7 +9,7 @@ $(document).ready(function(){
     $('#nodeTree').dynatree({
         initAjax: {
             title: 'Archive structure',
-            url: '/front-end/collect/getProject/'+$('#project').attr('projectID'),
+            url: '/front-end/collect/getRoot/'+$('#project').attr('projectID'),
             minExpandLevel: 0,
             autoFocus: true,
             persist: true,
@@ -23,6 +23,14 @@ $(document).ready(function(){
                 selectedNode = node;
                 refresh_container_information(node);
             }
+        }, 
+        onLazyRead: function(node) {
+            node.appendAjax({
+                url: '/front-end/collect/getChildren/', 
+                data : {
+                    "id": node.data.key
+                }
+            });
         }
     });
     tree = $('#nodeTree').dynatree("getTree");
