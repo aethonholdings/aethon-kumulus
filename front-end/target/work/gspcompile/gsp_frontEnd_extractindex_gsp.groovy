@@ -42,16 +42,15 @@ printHtmlPart(10)
 }
 printHtmlPart(11)
 expressionOut.print(taskInstance.created.format("dd/MM/yyyy - HH:mm:ss"))
-printHtmlPart(7)
-createClosureForHtmlPart(12, 3)
-invokeTag('link','g',26,['controller':("extract"),'action':("workflow"),'batchId':("")],3)
+printHtmlPart(12)
+expressionOut.print(taskInstance.batchInstanceUrlId)
 printHtmlPart(13)
 i++
 }
 }
 printHtmlPart(14)
 })
-invokeTag('captureBody','sitemesh',32,[:],1)
+invokeTag('captureBody','sitemesh',36,[:],1)
 printHtmlPart(15)
 }
 public static final Map JSP_TAGS = new HashMap()
@@ -59,7 +58,7 @@ protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1389176021000L
+public static final long LAST_MODIFIED = 1389708005000L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'

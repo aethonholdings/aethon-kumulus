@@ -5,8 +5,8 @@ import org.codehaus.groovy.grails.web.taglib.exceptions.GrailsTagException
 import org.springframework.web.util.*
 import grails.util.GrailsUtil
 
-class gsp_frontEnd_collectworkflow_gsp extends GroovyPage {
-public String getGroovyPageFileName() { "/WEB-INF/grails-app/views/collect/workflow.gsp" }
+class gsp_frontEnd_accessindex_gsp extends GroovyPage {
+public String getGroovyPageFileName() { "/WEB-INF/grails-app/views/access/index.gsp" }
 public Object run() {
 Writer out = getOut()
 Writer expressionOut = getExpressionOut()
@@ -14,33 +14,18 @@ registerSitemeshPreprocessMode()
 printHtmlPart(0)
 createTagBody(1, {->
 printHtmlPart(1)
-expressionOut.print(resource(dir: 'css/dynatree/skin', file: 'ui.dynatree.css'))
-printHtmlPart(2)
-invokeTag('javascript','g',4,['src':("dynatree/jquery.dynatree.js")],-1)
-printHtmlPart(3)
-invokeTag('javascript','g',5,['src':("kumulus/nodeTree.js")],-1)
-printHtmlPart(3)
 createTagBody(2, {->
-createClosureForHtmlPart(4, 3)
-invokeTag('captureTitle','sitemesh',6,[:],3)
+createClosureForHtmlPart(2, 3)
+invokeTag('captureTitle','sitemesh',3,[:],3)
 })
-invokeTag('wrapTitleTag','sitemesh',6,[:],2)
+invokeTag('wrapTitleTag','sitemesh',3,[:],2)
+printHtmlPart(3)
+})
+invokeTag('captureHead','sitemesh',4,[:],1)
+printHtmlPart(3)
+createClosureForHtmlPart(4, 1)
+invokeTag('captureBody','sitemesh',17,[:],1)
 printHtmlPart(5)
-})
-invokeTag('captureHead','sitemesh',7,[:],1)
-printHtmlPart(5)
-createTagBody(1, {->
-printHtmlPart(6)
-createClosureForHtmlPart(7, 2)
-invokeTag('link','g',9,['action':("index")],2)
-printHtmlPart(8)
-expressionOut.print(project.id)
-printHtmlPart(9)
-expressionOut.print(project.projectName)
-printHtmlPart(10)
-})
-invokeTag('captureBody','sitemesh',53,[:],1)
-printHtmlPart(11)
 }
 public static final Map JSP_TAGS = new HashMap()
 protected void init() {
