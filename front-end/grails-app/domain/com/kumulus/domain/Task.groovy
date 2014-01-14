@@ -5,7 +5,10 @@ class Task {
     String userId
     Date created
     long status
-    static hasMany = [nodes: Nodes]
+    String batchInstanceID
+    String batchInstanceUrlId
+    
+    static hasMany= [nodes: Nodes]
     
     static constraints = {
         created nullable: false

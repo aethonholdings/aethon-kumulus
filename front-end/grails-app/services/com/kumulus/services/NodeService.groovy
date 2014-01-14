@@ -18,16 +18,13 @@ class NodeService {
         }
     }
     
-    def saveNode(node, barcode, comment, internalComment, type, status) {
+    def saveNode(node, barcode, name, comment, type, status) {
         if(node && !node.hasErrors()){
             def nodeType
-            if(comment) node.comment = comment
-            if(barcode) {
-                node.barcode = barcode
-                node.name = barcode
-            }
-            if(internalComment) node.internalComment = internalComment;
-            if(status) node.status = status
+            node.comment = comment
+            node.barcode = barcode
+            node.name = name
+            node.status = status
             switch(type) {
                 case 'Box':
                 nodeType = 'B'

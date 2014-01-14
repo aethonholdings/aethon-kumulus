@@ -3,7 +3,7 @@
         <title>Extract | Kumulus</title>
     </head>
     <body>
-        <p>Pending tasks</p>
+        <p>Pending data extraction tasks</p>
         <table class="pure-table" width="100%">
             <thead>
                 <tr>
@@ -23,7 +23,11 @@
                         </td>
                         <td>${taskInstance.created.format("dd/MM/yyyy - HH:mm:ss")}</td>
                         <td>
-                            <g:link controller="extract" action="workflow" batchId="">To do</g:link>
+                          <form action="http://test.ephesoft.kumulus.sg:8080/dcma/ReviewValidate.html?batch_id=${taskInstance.batchInstanceUrlId}" method="post" target="_blank">
+                            <input type="hidden" name="username" value="ephesoft">
+                            <input type="hidden" name="password" value="Ke$haIsGreat666">
+                            <input type="submit" class="pure-button pure-button-primary" value="To do">
+                          </form>
                         </td>
                     </tr>
                 </g:each>

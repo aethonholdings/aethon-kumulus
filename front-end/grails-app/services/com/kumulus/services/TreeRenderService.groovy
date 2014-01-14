@@ -29,12 +29,12 @@ class TreeRenderService {
             }
             def treeNode = [
                 key: node.id,
-                title: node.comment,
+                title: node.name,
                 isLazy: true,
                 text: node.name, 
                 barcode: node.barcode,
                 isFolder: isFolder,
-                comment: node.internalComment,
+                comment: node.comment,
                 type: nodeType,
                 id: node.id, 
                 project: node.project.id
