@@ -5,9 +5,9 @@
 # http://www.sequelpro.com/
 # http://code.google.com/p/sequel-pro/
 #
-# Host: kumulus.cokd1jwuhqlu.ap-southeast-1.rds.amazonaws.com (MySQL 5.6.13-log)
+# Host: 127.0.0.1 (MySQL 5.6.10)
 # Database: kumulus
-# Generation Time: 2014-01-08 08:43:31 +0000
+# Generation Time: 2014-01-14 12:45:00 +0000
 # ************************************************************
 
 
@@ -84,14 +84,8 @@ LOCK TABLES `nodes` WRITE;
 
 INSERT INTO `nodes` (`node_id`, `project_id`, `name`, `type`, `barcode`, `comment`, `internal_comment`, `status`, `parent_node_id`, `hierarchy`, `thumbnail_image_name`, `actual_image_name`, `creator_id`, `create_datetime`, `last_update_id`, `last_update_datetime`, `document_sequence_number`, `creatorldapuid`, `uploaded`)
 VALUES
-	(7,1,'AA000000001','B','AA000000001','First container','','0',NULL,'[test project, AA000000001]',NULL,NULL,'ADMIN','2014-01-08 08:33:51','ADMIN','2014-01-08 08:33:51',NULL,NULL,0),
-	(8,1,'AA000000002','B','AA000000002','Second container','','0',NULL,'[test project, AA000000002]',NULL,NULL,'ADMIN','2014-01-08 08:34:13','ADMIN','2014-01-08 08:34:13',NULL,NULL,0),
-	(9,1,'AA000000003','C','AA000000003','Container test','','0',8,'[test project, AA000000002, AA000000003]',NULL,NULL,'ADMIN','2014-01-08 08:37:03','ADMIN','2014-01-08 08:37:03',NULL,NULL,0),
-	(10,1,'AA000000004','B','AA000000004','Another test','','0',8,'[test project, AA000000002, AA000000004]',NULL,NULL,'ADMIN','2014-01-08 08:38:26','ADMIN','2014-01-08 08:38:26',NULL,NULL,0),
-	(11,1,'AA000000005','B','AA000000005','Box','','0',7,'[test project, AA000000001, AA000000005]',NULL,NULL,'ADMIN','2014-01-08 08:38:38','ADMIN','2014-01-08 08:38:38',NULL,NULL,0),
-	(12,1,'AA000000007','C','AA000000007','','Container','0',11,'[test project, AA000000001, AA000000005, AA000000007]',NULL,NULL,'ADMIN','2014-01-08 08:38:48','ADMIN','2014-01-08 08:38:48',NULL,NULL,0),
-	(14,1,'AA000000008','C','AA000000008','Folder','','0',11,'[test project, AA000000001, AA000000005, AA000000008]',NULL,NULL,'ADMIN','2014-01-08 08:39:18','ADMIN','2014-01-08 08:39:18',NULL,NULL,0),
-	(15,1,'AA000000009','C','AA000000009','Layer 3 test','','0',10,'[test project, AA000000002, AA000000004, AA000000009]',NULL,NULL,'ADMIN','2014-01-08 08:39:33','ADMIN','2014-01-08 08:39:33',NULL,NULL,0);
+	(24,1,'2013 invoices','C','0001','','test','0',NULL,NULL,NULL,NULL,'kumulus','2014-01-14 16:14:00','kumulus','2014-01-14 16:14:00',NULL,NULL,NULL),
+	(25,1,NULL,'D',NULL,NULL,NULL,NULL,24,NULL,NULL,NULL,'kumulus','2014-01-14 16:14:00','kumulus','2014-01-14 16:14:00',NULL,NULL,0);
 
 /*!40000 ALTER TABLE `nodes` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -122,9 +116,7 @@ LOCK TABLES `project` WRITE;
 INSERT INTO `project` (`project_id`, `project_name`, `status`, `clientldapid`)
 VALUES
 	(1,'test project','A','Kumulus Pte Ltd'),
-	(2,'Inventory','A','A'),
-	(3,'scannerapp','A','A'),
-	(4,'warehouse','A','I');
+	(3,'scannerapp','A','A');
 
 /*!40000 ALTER TABLE `project` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -138,16 +130,47 @@ UNLOCK TABLES;
 # Dump of table task
 # ------------------------------------------------------------
 
+LOCK TABLES `task` WRITE;
+/*!40000 ALTER TABLE `task` DISABLE KEYS */;
+
+INSERT INTO `task` (`id`, `created`, `last_updated`, `status`, `batch_instance_id`, `user_id`, `reported`, `project_id`, `last_batch_instance_id`, `type`, `version`, `batch_instance_url_id`, `batch_instanceid`)
+VALUES
+	(1,'2014-01-14 16:14:00','2014-01-14 16:14:00',5,NULL,'kumulus',0,1,NULL,'',0,'BI2D','');
+
+/*!40000 ALTER TABLE `task` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table task_history
 # ------------------------------------------------------------
 
+LOCK TABLES `task_history` WRITE;
+/*!40000 ALTER TABLE `task_history` DISABLE KEYS */;
+
+INSERT INTO `task_history` (`id`, `task_id`, `last_updated`, `status`, `reported`)
+VALUES
+	(1,1,'2014-01-14 16:14:00',1,NULL),
+	(2,1,'2014-01-14 16:14:00',2,NULL),
+	(3,1,'2014-01-14 16:14:00',3,NULL),
+	(4,1,'2014-01-14 16:14:00',4,NULL),
+	(5,1,'2014-01-14 16:14:00',5,NULL);
+
+/*!40000 ALTER TABLE `task_history` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table task_nodes
 # ------------------------------------------------------------
 
+LOCK TABLES `task_nodes` WRITE;
+/*!40000 ALTER TABLE `task_nodes` DISABLE KEYS */;
+
+INSERT INTO `task_nodes` (`task_nodes_id`, `nodes_id`, `task_id`)
+VALUES
+	(1,25,1);
+
+/*!40000 ALTER TABLE `task_nodes` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table user

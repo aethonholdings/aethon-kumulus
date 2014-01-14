@@ -5,9 +5,9 @@
 # http://www.sequelpro.com/
 # http://code.google.com/p/sequel-pro/
 #
-# Host: kumulus.cokd1jwuhqlu.ap-southeast-1.rds.amazonaws.com (MySQL 5.6.13-log)
+# Host: 127.0.0.1 (MySQL 5.6.10)
 # Database: kumulus
-# Generation Time: 2014-01-04 08:07:51 +0000
+# Generation Time: 2014-01-14 12:48:58 +0000
 # ************************************************************
 
 
@@ -34,7 +34,7 @@ CREATE TABLE `application_parameter` (
   KEY `project_id` (`project_id`),
   CONSTRAINT `application_parameter_ibfk_1` FOREIGN KEY (`project_id`) REFERENCES `project` (`project_id`),
   CONSTRAINT `application_parameter_ibfk_2` FOREIGN KEY (`project_id`) REFERENCES `project` (`project_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 
@@ -70,7 +70,7 @@ CREATE TABLE `attendance` (
   KEY `ATTENDANCE_PROJECT_ID` (`project_id`),
   CONSTRAINT `fk_attendance_project` FOREIGN KEY (`project_id`) REFERENCES `project` (`project_id`),
   CONSTRAINT `fk_attendance_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 
@@ -102,9 +102,9 @@ CREATE TABLE `nodes` (
   PRIMARY KEY (`node_id`),
   KEY `FK64212B14D5E1553` (`project_id`),
   KEY `FK64212B1EFDC50D` (`parent_node_id`),
-  CONSTRAINT `FK64212B1EFDC50D` FOREIGN KEY (`parent_node_id`) REFERENCES `nodes` (`node_id`),
-  CONSTRAINT `FK64212B14D5E1553` FOREIGN KEY (`project_id`) REFERENCES `project` (`project_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+  CONSTRAINT `FK64212B14D5E1553` FOREIGN KEY (`project_id`) REFERENCES `project` (`project_id`),
+  CONSTRAINT `FK64212B1EFDC50D` FOREIGN KEY (`parent_node_id`) REFERENCES `nodes` (`node_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 
@@ -132,7 +132,7 @@ CREATE TABLE `project` (
   `clientldapid` varchar(50) NOT NULL,
   PRIMARY KEY (`project_id`),
   UNIQUE KEY `project_name_UNIQUE` (`project_name`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 
@@ -168,10 +168,12 @@ CREATE TABLE `task` (
   `last_batch_instance_id` bigint(20) DEFAULT NULL,
   `type` varchar(255) NOT NULL,
   `version` bigint(20) NOT NULL,
+  `batch_instance_url_id` varchar(5) DEFAULT NULL,
+  `batch_instanceid` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `batch_instance_id_UNIQUE` (`batch_instance_id`),
   KEY `fk_4_idx` (`status`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 
@@ -190,7 +192,7 @@ CREATE TABLE `task_history` (
   KEY `fk_1_idx` (`task_id`),
   KEY `fk_3_idx` (`task_id`),
   CONSTRAINT `fk_3` FOREIGN KEY (`task_id`) REFERENCES `task` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 
@@ -206,9 +208,9 @@ CREATE TABLE `task_nodes` (
   PRIMARY KEY (`task_nodes_id`),
   KEY `FK4DF5B3772EED58CF` (`task_nodes_id`),
   KEY `FK4DF5B377C4D00893` (`nodes_id`),
-  CONSTRAINT `FK4DF5B377C4D00893` FOREIGN KEY (`nodes_id`) REFERENCES `nodes` (`node_id`),
-  CONSTRAINT `FK4DF5B3772EED58CF` FOREIGN KEY (`task_nodes_id`) REFERENCES `task` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+  CONSTRAINT `FK4DF5B3772EED58CF` FOREIGN KEY (`task_nodes_id`) REFERENCES `task` (`id`),
+  CONSTRAINT `FK4DF5B377C4D00893` FOREIGN KEY (`nodes_id`) REFERENCES `nodes` (`node_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 
@@ -238,7 +240,7 @@ CREATE TABLE `user` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `username` (`username`),
   KEY `user_id` (`user_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 
@@ -253,8 +255,8 @@ CREATE TABLE `user_role` (
   PRIMARY KEY (`role_id`,`user_id`),
   KEY `FK143BF46A3D7D4261` (`role_id`),
   KEY `FK143BF46AE2A80641` (`user_id`),
-  CONSTRAINT `FK143BF46AE2A80641` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`),
-  CONSTRAINT `FK143BF46A3D7D4261` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`)
+  CONSTRAINT `FK143BF46A3D7D4261` FOREIGN KEY (`role_id`) REFERENCES `role` (`id`),
+  CONSTRAINT `FK143BF46AE2A80641` FOREIGN KEY (`user_id`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
