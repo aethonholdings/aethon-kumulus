@@ -94,7 +94,7 @@ CREATE TABLE `document` (
   `company` varchar(255) DEFAULT NULL,
   `date` datetime NOT NULL,
   `identifier` varchar(30) DEFAULT NULL,
-  `nodes` tinyblob NOT NULL,
+  `node` tinyblob NOT NULL,
   `thumbnail_id` bigint(20) NOT NULL,
   `type` varchar(10) NOT NULL,
   PRIMARY KEY (`id`),
