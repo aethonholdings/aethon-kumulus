@@ -2,20 +2,20 @@ package com.kumulus.domain
 
 class Project {
 
-        String clientLDAPId
-	String projectName
-	String status
+    String clientLDAPId
+    String projectName
+    String status
 
-	static hasMany = [nodes: Nodes]
-                      
-	static mapping = {
-		id column: "project_id"
-		version false
-	}
+    static hasMany = [nodes: Nodes, lineItems: LineItem]
 
-	static constraints = {
-		projectName nullable: true, maxSize: 50, unique: true
-		status nullable: true, maxSize: 10
-                clientLDAPId nullable: false, maxSize: 50
-	}
+    static mapping = {
+        id column: "project_id"
+        version false
+    }
+
+    static constraints = {
+        projectName nullable: true, maxSize: 50, unique: true
+        status nullable: true, maxSize: 10
+        clientLDAPId nullable: false, maxSize: 50
+    }
 }
