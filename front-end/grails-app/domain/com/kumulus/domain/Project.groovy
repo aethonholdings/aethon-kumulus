@@ -6,8 +6,7 @@ class Project {
 	String projectName
 	String status
 
-	static hasMany = [applicationParameters: ApplicationParameter,
-	                  nodes: Nodes]
+	static hasMany = [nodes: Nodes]
                       
 	static mapping = {
 		id column: "project_id"
