@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.6.10)
 # Database: kumulus
-# Generation Time: 2014-01-14 12:48:58 +0000
+# Generation Time: 2014-01-16 05:11:08 +0000
 # ************************************************************
 
 
@@ -18,6 +18,7 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
 
 # Dump of table application_parameter
 # ------------------------------------------------------------
@@ -76,6 +77,8 @@ CREATE TABLE `attendance` (
 # Dump of table currency
 # ------------------------------------------------------------
 
+DROP TABLE IF EXISTS `currency`;
+
 CREATE TABLE `currency` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `version` bigint(20) NOT NULL,
@@ -89,17 +92,18 @@ CREATE TABLE `currency` (
 # Dump of table document
 # ------------------------------------------------------------
 
+DROP TABLE IF EXISTS `document`;
+
 CREATE TABLE `document` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `company` varchar(255) DEFAULT NULL,
   `date` datetime NOT NULL,
   `identifier` varchar(30) DEFAULT NULL,
-  `node` tinyblob NOT NULL,
-  `thumbnail_id` bigint(20) NOT NULL,
+  `node_id` bigint(20) NOT NULL,
   `type` varchar(10) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `FK335CD11B6C467322` (`thumbnail_id`),
-  CONSTRAINT `FK335CD11B6C467322` FOREIGN KEY (`thumbnail_id`) REFERENCES `image` (`id`)
+  KEY `FK335CD11BFFD95FA2` (`node_id`),
+  CONSTRAINT `FK335CD11BFFD95FA2` FOREIGN KEY (`node_id`) REFERENCES `nodes` (`node_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
@@ -107,19 +111,26 @@ CREATE TABLE `document` (
 # Dump of table document_image
 # ------------------------------------------------------------
 
+DROP TABLE IF EXISTS `document_image`;
+
 CREATE TABLE `document_image` (
   `document_images_id` bigint(20) DEFAULT NULL,
   `image_id` bigint(20) DEFAULT NULL,
+  `document_thumbnails_id` bigint(20) DEFAULT NULL,
   KEY `FK711B5D374E4D9053` (`image_id`),
   KEY `FK711B5D3792AA1420` (`document_images_id`),
-  CONSTRAINT `FK711B5D3792AA1420` FOREIGN KEY (`document_images_id`) REFERENCES `document` (`id`),
-  CONSTRAINT `FK711B5D374E4D9053` FOREIGN KEY (`image_id`) REFERENCES `image` (`id`)
+  KEY `FK711B5D371AF3D31` (`document_thumbnails_id`),
+  CONSTRAINT `FK711B5D371AF3D31` FOREIGN KEY (`document_thumbnails_id`) REFERENCES `document` (`id`),
+  CONSTRAINT `FK711B5D374E4D9053` FOREIGN KEY (`image_id`) REFERENCES `image` (`id`),
+  CONSTRAINT `FK711B5D3792AA1420` FOREIGN KEY (`document_images_id`) REFERENCES `document` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 
 # Dump of table image
 # ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `image`;
 
 CREATE TABLE `image` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -130,8 +141,11 @@ CREATE TABLE `image` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
+
 # Dump of table line_item
 # ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `line_item`;
 
 CREATE TABLE `line_item` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -148,8 +162,11 @@ CREATE TABLE `line_item` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
+
 # Dump of table nodes
 # ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `nodes`;
 
 CREATE TABLE `nodes` (
   `node_id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -179,6 +196,7 @@ CREATE TABLE `nodes` (
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
+
 # Dump of table param_names
 # ------------------------------------------------------------
 
@@ -188,6 +206,7 @@ CREATE TABLE `param_names` (
   `param` varchar(20) NOT NULL,
   PRIMARY KEY (`param`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 
 
 # Dump of table project
@@ -204,8 +223,12 @@ CREATE TABLE `project` (
   UNIQUE KEY `project_name` (`project_name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+
+
 # Dump of table project_line_item
 # ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `project_line_item`;
 
 CREATE TABLE `project_line_item` (
   `project_line_items_id` bigint(20) DEFAULT NULL,
@@ -215,7 +238,6 @@ CREATE TABLE `project_line_item` (
   CONSTRAINT `FK7256D8EAC0028A` FOREIGN KEY (`line_item_id`) REFERENCES `line_item` (`id`),
   CONSTRAINT `FK7256D823A5491` FOREIGN KEY (`project_line_items_id`) REFERENCES `project` (`project_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
 
 
 

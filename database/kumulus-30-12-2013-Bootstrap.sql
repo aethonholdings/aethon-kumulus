@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.6.10)
 # Database: kumulus
-# Generation Time: 2014-01-16 01:56:30 +0000
+# Generation Time: 2014-01-16 06:45:01 +0000
 # ************************************************************
 
 
@@ -80,16 +80,45 @@ UNLOCK TABLES;
 # Dump of table document
 # ------------------------------------------------------------
 
+LOCK TABLES `document` WRITE;
+/*!40000 ALTER TABLE `document` DISABLE KEYS */;
+
+INSERT INTO `document` (`id`, `company`, `date`, `identifier`, `node_id`, `type`)
+VALUES
+	(1,'SmartSpace','2014-01-16 14:42:38','INV-1298',26,'INVOICE');
+
+/*!40000 ALTER TABLE `document` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table document_image
 # ------------------------------------------------------------
 
+LOCK TABLES `document_image` WRITE;
+/*!40000 ALTER TABLE `document_image` DISABLE KEYS */;
+
+INSERT INTO `document_image` (`document_images_id`, `image_id`, `document_thumbnails_id`)
+VALUES
+	(1,1,NULL),
+	(NULL,2,1);
+
+/*!40000 ALTER TABLE `document_image` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table image
 # ------------------------------------------------------------
 
+LOCK TABLES `image` WRITE;
+/*!40000 ALTER TABLE `image` DISABLE KEYS */;
+
+INSERT INTO `image` (`id`, `version`, `filename`, `path`)
+VALUES
+	(1,0,'imageFilename','imagePath'),
+	(2,0,'thumbFilename','thumbPath');
+
+/*!40000 ALTER TABLE `image` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table line_item

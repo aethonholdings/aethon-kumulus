@@ -6,10 +6,9 @@ class Document {
     String identifier
     String company
     Date date
-    Image thumbnail
     
     static belongsTo = [node: Nodes]
-    static hasMany = [images: Image]
+    static hasMany = [images: Image, thumbnails: Image]
     
     static mapping = {
         version false
