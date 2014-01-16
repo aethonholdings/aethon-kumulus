@@ -7,9 +7,10 @@ class ExtractController {
 
     def springSecurityService
     
-    @Secured(['ROLE_EXTRACT'])
+    @Secured(['ROLE_COLLECT'])
     def index() { 
-        
+        def projectList = Project.findAllByStatus("A")
+        render view:"index", layout:"home", model:[projects: projectList]
     }
     
 }
