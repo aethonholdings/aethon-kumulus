@@ -8,7 +8,7 @@ class Document {
     Date date
     Image thumbnail
     
-    static belongsTo = [node: Node]
+    static belongsTo = [node: Nodes]
     static hasMany = [images: Image]
     
     static mapping = {
