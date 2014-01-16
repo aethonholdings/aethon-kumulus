@@ -18,5 +18,6 @@ class Document {
         type nullable: false, maxSize: 10
         identifier nullable: true, maxSize: 30
         company nullable: true
+        date nullable: true
     }
 }

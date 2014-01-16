@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.6.10)
 # Database: kumulus
-# Generation Time: 2014-01-16 06:45:01 +0000
+# Generation Time: 2014-01-16 08:33:53 +0000
 # ************************************************************
 
 
@@ -124,6 +124,15 @@ UNLOCK TABLES;
 # Dump of table line_item
 # ------------------------------------------------------------
 
+LOCK TABLES `line_item` WRITE;
+/*!40000 ALTER TABLE `line_item` DISABLE KEYS */;
+
+INSERT INTO `line_item` (`id`, `version`, `amount`, `currency_id`, `date`, `description`, `price`, `quantity`, `document_id`)
+VALUES
+	(1,0,550,2,'2016-01-13 00:00:00','Rent',NULL,NULL,1);
+
+/*!40000 ALTER TABLE `line_item` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table nodes

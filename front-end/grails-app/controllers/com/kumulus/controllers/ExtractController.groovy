@@ -19,8 +19,8 @@ class ExtractController {
     def download() {
         response.contentType = grailsApplication.config.grails.mime.types['csv']
         response.setHeader("Content-disposition", "attachment; filename=extract")
-        def ledger = LineItem.findAllByProject
-        exportService.export('csv', response.outputStream,"need a list here", [:], [:])
+        def project = Project.findById(params.id)
+        exportService.export('csv', response.outputStream, project.nodes.documents.lineItems.list, [:], [:])
     }
     
 }
