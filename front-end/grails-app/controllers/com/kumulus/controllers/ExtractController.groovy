@@ -6,6 +6,8 @@ import com.kumulus.domain.*
 class ExtractController {
 
     def springSecurityService
+    def exportService
+    def grailsApplication
     
     @Secured(['ROLE_EXTRACT'])
     def index() { 
@@ -14,8 +16,11 @@ class ExtractController {
     }
     
     @Secured(['ROLE_EXTRACT'])
-    def workflow() {
-        
+    def download() {
+        response.contentType = grailsApplication.config.grails.mime.types['csv']
+        response.setHeader("Content-disposition", "attachment; filename=extract")
+        def ledger = LineItem.findAllByProject
+        exportService.export('csv', response.outputStream,"need a list here", [:], [:])
     }
     
 }

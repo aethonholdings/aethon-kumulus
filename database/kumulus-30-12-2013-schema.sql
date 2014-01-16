@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.6.10)
 # Database: kumulus
-# Generation Time: 2014-01-16 05:11:08 +0000
+# Generation Time: 2014-01-16 07:05:46 +0000
 # ************************************************************
 
 
@@ -156,8 +156,11 @@ CREATE TABLE `line_item` (
   `description` varchar(255) NOT NULL,
   `price` float DEFAULT NULL,
   `quantity` float DEFAULT NULL,
+  `document_id` bigint(20) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FK94ED5C7E172ECD01` (`currency_id`),
+  KEY `FK94ED5C7E237BB8C1` (`document_id`),
+  CONSTRAINT `FK94ED5C7E237BB8C1` FOREIGN KEY (`document_id`) REFERENCES `document` (`id`),
   CONSTRAINT `FK94ED5C7E172ECD01` FOREIGN KEY (`currency_id`) REFERENCES `currency` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 

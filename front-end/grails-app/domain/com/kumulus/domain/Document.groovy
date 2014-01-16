@@ -8,7 +8,7 @@ class Document {
     Date date
     
     static belongsTo = [node: Nodes]
-    static hasMany = [images: Image, thumbnails: Image]
+    static hasMany = [images: Image, thumbnails: Image, lineItems: LineItem]
     
     static mapping = {
         version false
