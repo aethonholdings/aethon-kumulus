@@ -9,10 +9,7 @@ class ExtractController {
     
     @Secured(['ROLE_EXTRACT'])
     def index() { 
-        def auth = springSecurityService.getAuthentication()
-        String username = auth.getPrincipal().getUsername()
-        def tasks = Task.findByUserId(username)
-        render view:"index", layout:"home", model:[user: username, tasks: tasks]
+        
     }
     
 }

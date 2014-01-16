@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.6.10)
 # Database: kumulus
-# Generation Time: 2014-01-14 13:42:19 +0000
+# Generation Time: 2014-01-16 01:56:30 +0000
 # ************************************************************
 
 
@@ -60,20 +60,41 @@ UNLOCK TABLES;
 # Dump of table attendance
 # ------------------------------------------------------------
 
-LOCK TABLES `attendance` WRITE;
-/*!40000 ALTER TABLE `attendance` DISABLE KEYS */;
 
-INSERT INTO `attendance` (`attendance_id`, `user_id`, `project_id`, `login_from_time`, `login_to_time`)
+
+# Dump of table currency
+# ------------------------------------------------------------
+
+LOCK TABLES `currency` WRITE;
+/*!40000 ALTER TABLE `currency` DISABLE KEYS */;
+
+INSERT INTO `currency` (`id`, `version`, `full_name`, `short_name`)
 VALUES
-	(1,'ADMIN',3,'2014-01-04 07:57:56','2014-01-04 07:58:02'),
-	(2,'ADMIN',3,'2014-01-04 08:11:45','2014-01-04 10:06:46'),
-	(3,'ADMIN',3,'2014-01-07 06:29:27','2014-01-07 06:41:26'),
-	(4,'ADMIN',3,'2014-01-08 02:45:13','2014-01-08 02:45:25'),
-	(5,'ADMIN',1,'2014-01-08 02:45:37','2014-01-08 08:33:59'),
-	(6,'ADMIN',1,'2014-01-08 08:33:35','2014-01-08 08:38:35');
+	(1,1,'US dollar','USD'),
+	(2,1,'Singapore dollar','SGD');
 
-/*!40000 ALTER TABLE `attendance` ENABLE KEYS */;
+/*!40000 ALTER TABLE `currency` ENABLE KEYS */;
 UNLOCK TABLES;
+
+
+# Dump of table document
+# ------------------------------------------------------------
+
+
+
+# Dump of table document_image
+# ------------------------------------------------------------
+
+
+
+# Dump of table image
+# ------------------------------------------------------------
+
+
+
+# Dump of table line_item
+# ------------------------------------------------------------
+
 
 
 # Dump of table nodes
@@ -82,11 +103,11 @@ UNLOCK TABLES;
 LOCK TABLES `nodes` WRITE;
 /*!40000 ALTER TABLE `nodes` DISABLE KEYS */;
 
-INSERT INTO `nodes` (`node_id`, `project_id`, `name`, `type`, `barcode`, `comment`, `internal_comment`, `status`, `parent_node_id`, `hierarchy`, `thumbnail_image_name`, `actual_image_name`, `creator_id`, `create_datetime`, `last_update_id`, `last_update_datetime`, `document_sequence_number`, `creatorldapuid`, `uploaded`)
+INSERT INTO `nodes` (`node_id`, `actual_image_name`, `barcode`, `comment`, `create_datetime`, `creator_id`, `creatorldapuid`, `document_sequence_number`, `hierarchy`, `internal_comment`, `last_update_datetime`, `last_update_id`, `name`, `parent_node_id`, `project_id`, `status`, `thumbnail_image_name`, `type`, `uploaded`)
 VALUES
-	(24,1,'2013 invoices','C','0001','','test','0',NULL,NULL,NULL,NULL,'kumulus','2014-01-14 16:14:00','kumulus','2014-01-14 16:14:00',NULL,NULL,NULL),
-	(25,1,NULL,'D',NULL,NULL,NULL,'0',24,NULL,NULL,NULL,'kumulus','2014-01-14 16:14:00','kumulus','2014-01-14 16:14:00',NULL,NULL,0),
-	(26,1,NULL,'D',NULL,NULL,NULL,'0',24,NULL,NULL,NULL,'kumulus','2014-01-14 16:14:00','kumulus','2014-01-14 16:14:00',NULL,NULL,0);
+	(24,NULL,'0001','','2014-01-14 16:14:00','kumulus',NULL,NULL,NULL,'test','2014-01-14 16:14:00','kumulus','2013 invoices',NULL,1,'0',NULL,'C',NULL),
+	(25,NULL,NULL,NULL,'2014-01-14 16:14:00','kumulus',NULL,NULL,NULL,NULL,'2014-01-14 16:14:00','kumulus',NULL,24,1,'0',NULL,'D',0),
+	(26,NULL,NULL,NULL,'2014-01-14 16:14:00','kumulus',NULL,NULL,NULL,NULL,'2014-01-14 16:14:00','kumulus',NULL,24,1,'0',NULL,'D',0);
 
 /*!40000 ALTER TABLE `nodes` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -114,13 +135,17 @@ UNLOCK TABLES;
 LOCK TABLES `project` WRITE;
 /*!40000 ALTER TABLE `project` DISABLE KEYS */;
 
-INSERT INTO `project` (`project_id`, `project_name`, `status`, `clientldapid`)
+INSERT INTO `project` (`project_id`, `clientldapid`, `project_name`, `status`)
 VALUES
-	(1,'test project','A','Kumulus Pte Ltd'),
-	(3,'scannerapp','A','A');
+	(1,'Kumulus Pte Ltd','test project','A');
 
 /*!40000 ALTER TABLE `project` ENABLE KEYS */;
 UNLOCK TABLES;
+
+
+# Dump of table project_line_item
+# ------------------------------------------------------------
+
 
 
 # Dump of table role
