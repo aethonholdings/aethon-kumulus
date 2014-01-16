@@ -3,7 +3,7 @@
         <title>Extract | Kumulus</title>
     </head>
     <body>
-        <p>Pending data extraction tasks</p>
+        <p>Pending data review tasks</p>
         <table class="pure-table" width="100%">
             <thead>
                 <tr>

@@ -4,6 +4,7 @@
     </head>
     <body>
         <p>Prepare documents for import</p>
+        <p>Select a project</p>
         <table class="pure-table" width="100%">
             <thead>
                 <tr>
@@ -22,6 +23,5 @@
                 </g:each>
             </tbody>
         </table>
-        <p><a class="pure-button pure-button-primary" href="#">Add new</a></p>
     </body>
 </html>
