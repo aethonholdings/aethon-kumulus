@@ -18,6 +18,7 @@
                     <a class="pure-menu-heading" href="">kumulus</a>
                     <ul>
                         <li><g:link controller="home" action="index">Home</g:link></li>
+                        <li><a href="">Order materials</a></li>
                         <li><a href="">Manage projects</a></li>
                         <li><g:link controller="collect" action="index">Collect documents</g:link></li>
                         <li><a href="">Import documents</a></li>
@@ -25,7 +26,6 @@
                         <li><g:link controller="extract" action="index">Download ledger</g:link></li>
                         <li><a href="">Schedule pickup</a></li>
                         <li><g:link controller="access" action="index">Access archive</g:link></li>
-                        <li><a href="">Order materials</a></li>
                         <li><a href="">Manage account</a></li>
                     </ul>
                 </div>
