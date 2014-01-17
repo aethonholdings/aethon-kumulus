@@ -25,13 +25,42 @@ class ExtractController {
             def nodes = Nodes?.findAllByProjectAndType(project, "D")
             nodes.each {node ->
                 node.documents.each {document ->
-                    document.lineItems.each {
-                        ledger.add it
+                    document.lineItems.each { lineItem ->
+                        def extract = [
+                            id: lineItem?.id,
+                            documentId: document.id,
+                            date: lineItem?.date,
+                            description: lineItem?.description, 
+                            currency: lineItem?.currency?.shortName,
+                            quantity: lineItem?.quantity,
+                            price: lineItem?.price, 
+                            amount: lineItem?.amount
+                        ]
+                        ledger.add extract
                     }
                 }
             }
-            println(ledger)
-            exportService.export('csv', response.outputStream, ledger, [:], [:])
+            List fields = [
+                "id", 
+                "documentId",
+                "date",
+                "description",
+                "currency",
+                "quantity",
+                "price",
+                "amount"
+            ]
+            Map labels = [
+                id: "ID",
+                documentId: "Document ID",
+                date: "Date",
+                description: "Description",
+                currency: "Currency",
+                quantity: "Quantity",
+                price: "Unit price",
+                amount: "Amount"
+            ]
+            exportService.export('csv', response.outputStream, ledger, fields, labels, [:], [:])
         }
     }
     
