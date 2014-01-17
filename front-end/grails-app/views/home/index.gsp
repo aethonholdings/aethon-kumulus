@@ -11,6 +11,6 @@
     <title>Home | Kumulus</title>
   </head>
   <body>
-    <h1>Welcome <sec:loggedInUserInfo field="username"/></h1>
+    
   </body>
 </html>

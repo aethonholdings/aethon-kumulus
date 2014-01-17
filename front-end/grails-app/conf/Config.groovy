@@ -131,6 +131,7 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/**/favicon.ico':                ['permitAll']
 ]
 grails.plugin.springsecurity.providerNames = ['ldapAuthProvider', 'anonymousAuthenticationProvider', 'rememberMeAuthenticationProvider']
+grails.plugin.springsecurity.logout.postOnly = false
 
 // LDAP configuration ----------------------------
 
