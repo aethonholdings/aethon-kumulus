@@ -14,4 +14,9 @@ class ReviewController {
         def tasks = Task.findByUserId(username)
         render view:"index", layout:"home", model:[user: username, tasks: tasks]
     }
+    
+    @Secured(['ROLE_EXTRACT'])
+    def tasks() {
+        
+    }
 }

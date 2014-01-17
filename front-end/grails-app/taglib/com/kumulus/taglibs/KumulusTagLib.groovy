@@ -4,6 +4,8 @@ class KumulusTagLib {
     static defaultEncodeAs = 'text'
     //static encodeAsForTags = [tagName: 'raw']
     
+    def userService
+    
     def projectTable = { attrs, body ->
         out << "<table class='${attrs?.class}' width='${attrs?.width}'>\n"
         out << "    <thead>\n"
@@ -30,4 +32,12 @@ class KumulusTagLib {
         out << "    </tbody>\n"
         out << "</table>\n"
     }
+    
+    def userCompany = { attrs, body ->
+        String company = userService.company
+        if(company) {
+            out << company
+        }
+    }
+    
 }
