@@ -10,18 +10,11 @@ class CollectController {
     def springSecurityService
     
     @Secured(['ROLE_COLLECT'])
-    def index() { 
-        def projectList = Project.findAllByStatus("A")
-        render view:"index", layout:"home", model:[projects: projectList]
-    }
-    
-    @Secured(['ROLE_COLLECT'])
     def workflow() {
-        // this is not secured at user permission level yet
         def project = Project.findById(params.id)
         render view:"workflow", layout:"home", model:[project: project]
     }
-            
+    
     @Secured(['ROLE_COLLECT'])
     def update() {
         // this is not secured at user permission level yet

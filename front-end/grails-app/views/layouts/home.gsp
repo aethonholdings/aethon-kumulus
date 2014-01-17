@@ -19,13 +19,13 @@
           <ul>
             <li><g:link controller='home' action='index'>Home</g:link></li>
             <li><a href=''>Order materials</a></li>
-            <li><g:link controller='project' action='index'>Manage projects</g:link></li>
-            <li><g:link controller='collect' action='index'>Collect documents</g:link></li>
+            <li><g:link controller='home' action='manage'>Manage projects</g:link></li>
+            <li><g:link controller='home' action='collect'>Collect documents</g:link></li>
             <li><a href=''>Import documents</a></li>
-            <li><g:link controller='review' action='index'>Review data</g:link></li>
-            <li><g:link controller='extract' action='index'>Download ledger</g:link></li>
+            <li><g:link controller='home' action='review'>Review data</g:link></li>
+            <li><g:link controller='home' action='extract'>Download ledger</g:link></li>
             <li><a href=''>Schedule pickup</a></li>
-            <li><g:link controller='access' action='index'>Access archive</g:link></li>
+            <li><g:link controller='home' action='access'>Access archive</g:link></li>
             <li class='menu-item-divided'><a href=''>Manage account</a></li>
           </ul>
         </div>
