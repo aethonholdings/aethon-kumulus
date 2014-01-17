@@ -175,7 +175,7 @@ LOCK TABLES `project` WRITE;
 
 INSERT INTO `project` (`project_id`, `clientldapid`, `project_name`, `status`)
 VALUES
-	(1,'Kumulus Pte Ltd','test project','A');
+	(1,'KUMULUS PTE LTD','test project','A');
 
 /*!40000 ALTER TABLE `project` ENABLE KEYS */;
 UNLOCK TABLES;
