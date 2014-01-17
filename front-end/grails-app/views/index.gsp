@@ -5,7 +5,7 @@
     <title>Welcome | Kumulus</title>
   </head>
   <body>
-    <h2>Welcome to Kumulus</h2>
+    <h2>Welcome to Kumulus Test</h2>
     <p><g:link controller="login">Log in</g:link></p>
   </body>
 </html>

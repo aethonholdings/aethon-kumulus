@@ -3,7 +3,6 @@
         <title>Access | Kumulus</title>
     </head>
     <body>
-        <p>Access archive</p>
         <form class="pure-form">
           <legend>Search your archive</legend>
           <div id="search" class="grid-element">

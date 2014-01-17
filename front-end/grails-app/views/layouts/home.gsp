@@ -37,6 +37,7 @@
             <div class='pure-u-1-2'>
               <div id='kumulus-session-management'>
                 Welcome <b><sec:loggedInUserInfo field='username'/></b> |
+                Company |
                 <g:link controller='logout'>Logout</g:link>
               </div>
             </div>

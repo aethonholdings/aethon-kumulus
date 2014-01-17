@@ -7,7 +7,7 @@
     </head>
     <body>
       <div class='layout'>
-        <div id='kumulus-header' class='kumulus-gradient-blue  kumulus-padding'>
+        <div id='kumulus-header' class='kumulus-gradient-blue kumulus-padding'>
           <div class='pure-g'>
             <div class='pure-u-1-2'></div>
             <div class='pure-u-1-2'></div>
