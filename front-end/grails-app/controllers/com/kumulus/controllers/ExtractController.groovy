@@ -29,6 +29,7 @@ class ExtractController {
                         def extract = [
                             id: lineItem?.id,
                             documentId: document.id,
+                            company: lineItem?.document.company,
                             date: lineItem?.date,
                             description: lineItem?.description, 
                             currency: lineItem?.currency?.shortName,
@@ -43,6 +44,7 @@ class ExtractController {
             List fields = [
                 "id", 
                 "documentId",
+                "company",
                 "date",
                 "description",
                 "currency",
@@ -53,6 +55,7 @@ class ExtractController {
             Map labels = [
                 id: "ID",
                 documentId: "Document ID",
+                company: "Company name",
                 date: "Date",
                 description: "Description",
                 currency: "Currency",
