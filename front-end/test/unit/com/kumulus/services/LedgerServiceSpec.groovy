@@ -6,8 +6,8 @@ import spock.lang.Specification
 /**
  * See the API for {@link grails.test.mixin.services.ServiceUnitTestMixin} for usage instructions
  */
-@TestFor(TreeRenderService)
-class TreeRenderServiceSpec extends Specification {
+@TestFor(LedgerService)
+class LedgerServiceSpec extends Specification {
 
     def setup() {
     }

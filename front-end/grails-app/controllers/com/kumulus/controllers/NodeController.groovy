@@ -4,15 +4,32 @@ import grails.plugin.springsecurity.annotation.Secured
 import com.kumulus.domain.*
 import grails.converters.*
 
-class CollectController {
+class NodeController {
 
     def nodeService
     def springSecurityService
-    
+
     @Secured(['ROLE_COLLECT'])
-    def workflow() {
+    def collect() {
         def project = Project.findById(params.id)
-        render view:"workflow", layout:"home", model:[project: project]
+        render view:"collect", layout:"home", model:[project: project]
+    }
+        
+    @Secured(['ROLE_COLLECT', 'ROLE_ACCESS'])
+    def getRoot() {
+        def rootNode = nodeService.renderRoot(Project?.findById(params?.id))    
+        render rootNode as JSON  
+    }    
+    
+    @Secured(['ROLE_COLLECT', 'ROLE_ACCESS'])
+    def getChildren() {
+        def treeNodes = []
+        def node = Nodes.findById(params?.id)         // should check permissions first
+        if (node) {
+            def children = Nodes.findAllByParent(node)
+            children.each { if(it?.type!='D') treeNodes.add(nodeService.renderNode(it)) }
+        }
+        render treeNodes as JSON  
     }
     
     @Secured(['ROLE_COLLECT'])
@@ -24,11 +41,12 @@ class CollectController {
         render node as JSON
     }
     
+    // need to move a lot of this code into service
     @Secured(['ROLE_COLLECT'])
     def insert() {
         // this is not secured at user permission level yet
-        def response = [done: false, message: "Error"]
         def data = request.JSON
+        def response = [done: false, message: "Error"]
         if(data?.parentID!="ROOT") def parent = Nodes.findById(data.parentID) else def parent = null
         def project = Project.findById(data?.project)
         def node = new Nodes()
@@ -66,4 +84,5 @@ class CollectController {
         }
         render response as JSON
     }
+
 }

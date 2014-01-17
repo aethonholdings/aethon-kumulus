@@ -6,7 +6,7 @@
     <title>Prepare scans | Kumulus</title>
   </head>
   <body>
-    <p><g:link action='index'>Prepare documents for import</g:link> > <span id="project" projectID="${project.id}">${project.projectName}</span></p>
+    <span id="project" projectID="${project.id}"/>
     <div class="pure-g">
       <div class="pure-u-1-3">
         <div class="grid-element"><h3>Archive structure</h3></div>

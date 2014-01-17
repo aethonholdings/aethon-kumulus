@@ -33,7 +33,7 @@
       <div class='content'>
         <div id='kumulus-header'>
           <div class='pure-g'>
-            <div class='pure-u-1-2'></div>
+            <div class='pure-u-1-2'><g:pageTitle text='${pageTitle}'/></div>
             <div class='pure-u-1-2'>
               <div id='kumulus-session-management'>
                 <g:userCompany/> |

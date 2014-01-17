@@ -40,4 +40,10 @@ class KumulusTagLib {
         }
     }
     
+    def pageTitle = { attrs, body ->
+        if(attrs.text) {
+            out << attrs.text
+        }
+    }
+    
 }

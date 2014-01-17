@@ -3,7 +3,6 @@
         <title>Prepare scans | Kumulus</title>
     </head>
     <body>
-        <p>Prepare documents for import</p>
-        <g:projectTable class="pure-table" width="100%" projects="${projects}" controller="collect" action="workflow" actionText="Collect documents"/>
+        <g:projectTable class="pure-table" width="100%" projects="${projects}" controller="node" action="collect" actionText="Collect documents"/>
     </body>
 </html>

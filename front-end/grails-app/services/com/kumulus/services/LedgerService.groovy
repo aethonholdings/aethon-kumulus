@@ -1,21 +1,15 @@
-package com.kumulus.controllers
+package com.kumulus.services
 
-import grails.plugin.springsecurity.annotation.Secured
+import grails.transaction.Transactional
 import com.kumulus.domain.*
 
-class ExtractController {
-
-    def springSecurityService
-    def exportService
-    def grailsApplication
+@Transactional
+class LedgerService {
     
-    @Secured(['ROLE_EXTRACT'])
-    def download() {
-        response.contentType = grailsApplication.config.grails.mime.types['csv']
-        response.setHeader("Content-disposition", "attachment; filename=extract")
-        def project = Project.findById(params.id)
-        def ledger = new ArrayList()
+    def getCSV(project) {
+        
         if (project) {
+            def ledger = new ArrayList()
             def nodes = Nodes?.findAllByProjectAndType(project, "D")
             nodes.each {node ->
                 node.documents.each {document ->
@@ -57,8 +51,12 @@ class ExtractController {
                 price: "Unit price",
                 amount: "Amount"
             ]
-            exportService.export('csv', response.outputStream, ledger, fields, labels, [:], [:])
+            def output = [
+                ledger: ledger,
+                fields: fields,
+                labels: labels
+            ]
+            return(output)
         }
     }
-    
 }

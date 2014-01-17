@@ -3,7 +3,6 @@
         <title>Review | Kumulus</title>
     </head>
     <body>
-        <p>Pending data review tasks</p>
         <table class="pure-table" width="100%">
             <thead>
                 <tr>
