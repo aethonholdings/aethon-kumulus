@@ -31,7 +31,11 @@
                 </div>
             </div>
             <div class="content">
-                <g:layoutBody/>
+              <div id="kumulus-session-management" class="">Welcome 
+                <b><sec:loggedInUserInfo field="username"/></b> |
+                Logout
+              </div>
+              <g:layoutBody/>
             </div>
         </div>
     </body>
