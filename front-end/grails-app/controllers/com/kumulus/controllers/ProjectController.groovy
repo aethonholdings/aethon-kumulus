@@ -23,7 +23,8 @@ class ProjectController {
     def update() {
         def project = Project.findById(params?.id)
         if(userService.checkPermisions(project)) {
-            
+            project.properties = params
+            project.save()
         }        
         redirect action:"list"
     }

@@ -36,7 +36,6 @@ class UserService {
     
     def checkPermisions(object) {
         boolean permission = false
-        
         switch(object?.class) {
             case Project:
                 if(object.company == getCompany()) permission = true
