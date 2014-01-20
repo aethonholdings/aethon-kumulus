@@ -47,7 +47,8 @@ class NodeController {
         // this is not secured at user permission level yet
         def data = request.JSON
         def response = [done: false, message: "Error"]
-        if(data?.parentID!="ROOT") def parent = Nodes.findById(data.parentID) else def parent = null
+        def parent = null
+        if(data?.parentID!="ROOT") parent = Nodes.findById(data.parentID)
         def project = Project.findById(data?.project)
         def node = new Nodes()
         if(node && data?.barcode && data?.name && data?.type && project) {

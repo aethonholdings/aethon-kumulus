@@ -63,7 +63,7 @@ function delete_node() {
         if(confirm("Please confirm that you would like to delete this archive item")) {
             var data = { id: selectedNode.data.id }
             $.ajax({
-                url: "/front-end/collect/delete/",
+                url: "/front-end/node/delete/",
                 type: 'POST',
                 data: JSON.stringify(data),
                 contentType: 'application/json; charset=utf-8',
@@ -152,7 +152,7 @@ function save() {
                     name: $("#name").val(),
                     comment: $("#comment").val()
                 };
-                target = "/front-end/collect/update/";
+                target = "/front-end/node/update/";
                 break;
 
             case "INSERT":
@@ -164,7 +164,7 @@ function save() {
                     name: $("#name").val(),
                     comment: $("#comment").val()
                 };
-                target = "/front-end/collect/insert/";
+                target = "/front-end/node/insert/";
                 break;
                 
         }
