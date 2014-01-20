@@ -1,6 +1,7 @@
 package com.kumulus.services
 
 import grails.transaction.Transactional
+import com.kumulus.domain.*
 
 @Transactional
 class UserService {
@@ -8,7 +9,6 @@ class UserService {
     def springSecurityService
     
     def getCompany() {
-        def authorities = springSecurityService?.authentication?.authorities
         String company
         authorities.each { authority ->
             if(authority!="ROLE_CLASSIFY" && authority!="ROLE_ACCESS" && authority!="ROLE_EXTRACT" && authority!="ROLE_COLLECT" && authority!="ROLE_VALIDATE") {
@@ -17,4 +17,14 @@ class UserService {
         }
         return(company)
     }
+    
+    def getProjects() {
+        
+    }
+    
+    def getAuthorities() {
+        def authorities = springSecurityService?.authentication?.authorities
+        
+    }
+    
 }
