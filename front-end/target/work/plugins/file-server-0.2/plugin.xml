@@ -1,0 +1,31 @@
+<plugin name='file-server' version='0.2' grailsVersion='2.0 &gt; *'>
+  <author>Piotr Dorobisz</author>
+  <authorEmail>pdorobisz@gmail.com</authorEmail>
+  <title>File Server Plugin</title>
+  <description>This plugin provides controller that allows you to serve files from any directory on disk. You can specify multiple
+"root" directories which contain files that should be served. In request you have to specify root directory you want to
+get file from and path to file (relative to root).
+</description>
+  <documentation>https://github.com/pdorobisz/grails-file-server/wiki</documentation>
+  <type>FileServerGrailsPlugin</type>
+  <resources>
+    <resource>org.grails.plugins.fileserver.FileController</resource>
+    <resource>org.grails.plugins.fileserver.FileService</resource>
+  </resources>
+  <repositories>
+    <repository name='grailsCentral' url='http://grails.org/plugins' />
+    <repository name='mavenCentral' url='http://repo1.maven.org/maven2/' />
+  </repositories>
+  <dependencies>
+    <test>
+      <dependency group='org.spockframework' name='spock-grails-support' version='0.7-groovy-2.0' />
+    </test>
+  </dependencies>
+  <plugins>
+    <build>
+      <plugin group='org.grails.plugins' name='tomcat' version='2.2.1' />
+    </build>
+  </plugins>
+  <runtimePluginRequirements />
+  <behavior />
+</plugin>
