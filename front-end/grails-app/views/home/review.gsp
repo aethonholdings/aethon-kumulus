@@ -21,7 +21,7 @@
                 <g:if test="${taskInstance.status==4}">Review</g:if>
               </td>
               <td>${taskInstance.created.format("dd/MM/yyyy - HH:mm:ss")}</td>
-              <td><g:link controller="document" action="review">To do</g:link></td>
+              <td><g:link controller="document" action="review" id="${taskInstance.id}">To do</g:link></td>
             </tr>
         </g:each>
       </tbody>
