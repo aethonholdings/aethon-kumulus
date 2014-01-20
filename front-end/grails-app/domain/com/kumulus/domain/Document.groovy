@@ -6,6 +6,7 @@ class Document {
     String identifier
     Company company
     Date date
+    String folderName
     
     static belongsTo = [node: Nodes]
     static hasMany = [images: Image, thumbnails: Image, lineItems: LineItem]

@@ -7,6 +7,7 @@ class Project {
     String projectName
     String status
     String comment
+    String folderName
 
     static hasMany = [nodes: Nodes, lineItems: LineItem]
 
