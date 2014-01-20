@@ -149,4 +149,7 @@ grails.plugin.springsecurity.ldap.search.searchSubtree = true
 grails.plugin.springsecurity.ldap.authorities.groupRoleAttribute = 'cn'
 grails.plugin.springsecurity.ldap.authorities.groupSearchBase = 'ou=groups,dc=ephesoft,dc=com'
 
-
+// Fileserver configuration ----------------------------
+grails.plugins.fileserver.paths=[
+        "root": "/Users/cocodinos/Documents/Work/11-Aethon/00-Aethon Holdings/01-Projects/01-Bucephalus/05-Software/kumulus/data/filesystem"
+]
