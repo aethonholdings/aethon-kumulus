@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.6.10)
 # Database: kumulus
-# Generation Time: 2014-01-20 07:51:01 +0000
+# Generation Time: 2014-01-20 15:35:59 +0000
 # ************************************************************
 
 
@@ -62,6 +62,21 @@ UNLOCK TABLES;
 
 
 
+# Dump of table company
+# ------------------------------------------------------------
+
+LOCK TABLES `company` WRITE;
+/*!40000 ALTER TABLE `company` DISABLE KEYS */;
+
+INSERT INTO `company` (`id`, `version`, `name`)
+VALUES
+	(1,0,'SmartSpace Pte Ltd'),
+	(2,0,'TestCo Pte Ltd');
+
+/*!40000 ALTER TABLE `company` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
 # Dump of table currency
 # ------------------------------------------------------------
 
@@ -83,26 +98,31 @@ UNLOCK TABLES;
 LOCK TABLES `document` WRITE;
 /*!40000 ALTER TABLE `document` DISABLE KEYS */;
 
-INSERT INTO `document` (`id`, `company`, `date`, `identifier`, `node_id`, `type`)
+INSERT INTO `document` (`id`, `date`, `identifier`, `node_id`, `type`, `company_id`, `file_id`, `literal`)
 VALUES
-	(1,'SmartSpace','2014-01-16 14:42:38','INV-1298',26,'INVOICE');
+	(1,'2013-09-19 00:00:00','INV-1821',25,'Invoice',1,1,'201401120200912ACDEF');
 
 /*!40000 ALTER TABLE `document` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
-# Dump of table document_image
+# Dump of table file
 # ------------------------------------------------------------
 
-LOCK TABLES `document_image` WRITE;
-/*!40000 ALTER TABLE `document_image` DISABLE KEYS */;
+LOCK TABLES `file` WRITE;
+/*!40000 ALTER TABLE `file` DISABLE KEYS */;
 
-INSERT INTO `document_image` (`document_images_id`, `image_id`, `document_thumbnails_id`)
+INSERT INTO `file` (`id`, `version`, `name`, `path`, `type`)
 VALUES
-	(1,1,NULL),
-	(NULL,2,1);
+	(1,0,'ACDEF.pdf','/20140120200910ABCDE/201401120200912ACDEF','pdf'),
+	(2,0,'1.jpg','/20140120200910ABCDE/201401120200912ACDEF/jpg','jpg'),
+	(3,0,'2.jpg','/20140120200910ABCDE/201401120200912ACDEF/jpg','jpg'),
+	(4,0,'1.jpg','/20140120200910ABCDE/201401120200912ACDEF/thumbs','jpg'),
+	(5,0,'2.jpg','/20140120200910ABCDE/201401120200912ACDEF/thumbs','jpg'),
+	(6,0,'1.tiff','/20140120200910ABCDE/201401120200912ACDEF/tiff','tif'),
+	(7,0,'2.tiff','/20140120200910ABCDE/201401120200912ACDEF/tiff','tif');
 
-/*!40000 ALTER TABLE `document_image` ENABLE KEYS */;
+/*!40000 ALTER TABLE `file` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
@@ -112,10 +132,14 @@ UNLOCK TABLES;
 LOCK TABLES `image` WRITE;
 /*!40000 ALTER TABLE `image` DISABLE KEYS */;
 
-INSERT INTO `image` (`id`, `version`, `filename`, `path`)
+INSERT INTO `image` (`id`, `version`, `file_id`, `height`, `width`, `thumbnail`, `compressed`)
 VALUES
-	(1,0,'imageFilename','imagePath'),
-	(2,0,'thumbFilename','thumbPath');
+	(1,0,4,472,328,1,0),
+	(2,0,5,468,334,1,0),
+	(3,0,6,2338,1652,0,0),
+	(4,0,7,2338,1652,0,0),
+	(5,0,8,2338,1652,0,1),
+	(6,0,9,2338,1652,0,1);
 
 /*!40000 ALTER TABLE `image` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -127,9 +151,9 @@ UNLOCK TABLES;
 LOCK TABLES `line_item` WRITE;
 /*!40000 ALTER TABLE `line_item` DISABLE KEYS */;
 
-INSERT INTO `line_item` (`id`, `version`, `amount`, `currency_id`, `date`, `description`, `price`, `quantity`, `document_id`)
+INSERT INTO `line_item` (`id`, `version`, `amount`, `currency_id`, `date`, `description`, `price`, `quantity`, `document_id`, `page_id`)
 VALUES
-	(1,0,550,2,'2016-01-13 00:00:00','Rent',NULL,NULL,1);
+	(1,0,550,2,'2016-01-13 00:00:00','Rent',NULL,NULL,1,0);
 
 /*!40000 ALTER TABLE `line_item` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -148,6 +172,21 @@ VALUES
 	(26,NULL,NULL,NULL,'2014-01-14 16:14:00','kumulus',NULL,NULL,NULL,NULL,'2014-01-14 16:14:00','kumulus',NULL,24,1,'0',NULL,'D',0);
 
 /*!40000 ALTER TABLE `nodes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table page
+# ------------------------------------------------------------
+
+LOCK TABLES `page` WRITE;
+/*!40000 ALTER TABLE `page` DISABLE KEYS */;
+
+INSERT INTO `page` (`id`, `version`, `document_id`, `first`, `last`, `number`, `scan_image_id`, `thumbnail_image_id`, `view_image_id`)
+VALUES
+	(1,0,1,1,0,1,3,1,5),
+	(2,0,1,0,1,2,4,2,6);
+
+/*!40000 ALTER TABLE `page` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
@@ -173,9 +212,9 @@ UNLOCK TABLES;
 LOCK TABLES `project` WRITE;
 /*!40000 ALTER TABLE `project` DISABLE KEYS */;
 
-INSERT INTO `project` (`project_id`, `project_name`, `status`, `comment`, `company`, `client`)
+INSERT INTO `project` (`project_id`, `project_name`, `status`, `comment`, `company`, `client_id`, `literal`)
 VALUES
-	(1,'test project','A','here is some comment','KUMULUS PTE LTD','test client co');
+	(1,'test project','A','here is some comment','KUMULUS PTE LTD',2,'20140120200910ABCDE');
 
 /*!40000 ALTER TABLE `project` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -184,6 +223,15 @@ UNLOCK TABLES;
 # Dump of table project_line_item
 # ------------------------------------------------------------
 
+LOCK TABLES `project_line_item` WRITE;
+/*!40000 ALTER TABLE `project_line_item` DISABLE KEYS */;
+
+INSERT INTO `project_line_item` (`project_line_items_id`, `line_item_id`)
+VALUES
+	(1,1);
+
+/*!40000 ALTER TABLE `project_line_item` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table role
@@ -199,8 +247,7 @@ LOCK TABLES `task` WRITE;
 
 INSERT INTO `task` (`id`, `created`, `last_updated`, `status`, `batch_instance_id`, `user_id`, `reported`, `project_id`, `last_batch_instance_id`, `type`, `version`, `batch_instance_url_id`, `batch_instanceid`)
 VALUES
-	(1,'2014-01-14 16:14:00','2014-01-14 16:14:00',5,NULL,'kumulus',0,1,NULL,'',0,'BI2D',''),
-	(2,'2014-01-14 21:33:00','2014-01-14 21:33:00',5,NULL,'kumulus',0,1,NULL,'',0,'BI2C','');
+	(1,'2014-01-14 16:14:00','2014-01-14 16:14:00',5,NULL,'kumulus',0,1,NULL,'',0,'BI2D','');
 
 /*!40000 ALTER TABLE `task` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -237,8 +284,7 @@ LOCK TABLES `task_nodes` WRITE;
 
 INSERT INTO `task_nodes` (`task_nodes_id`, `nodes_id`, `task_id`)
 VALUES
-	(1,25,1),
-	(2,26,2);
+	(1,25,1);
 
 /*!40000 ALTER TABLE `task_nodes` ENABLE KEYS */;
 UNLOCK TABLES;

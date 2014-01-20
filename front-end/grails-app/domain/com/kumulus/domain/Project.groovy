@@ -3,11 +3,11 @@ package com.kumulus.domain
 class Project {
 
     String company
-    String client
+    Company client
     String projectName
     String status
     String comment
-    String folderName
+    String literal
 
     static hasMany = [nodes: Nodes, lineItems: LineItem]
 
@@ -20,6 +20,7 @@ class Project {
         projectName nullable: true, maxSize: 50, unique: true
         status nullable: true, maxSize: 10
         company nullable: false, maxSize: 50
+        literal nullable: false
     }
         
 }

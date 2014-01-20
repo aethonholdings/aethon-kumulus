@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.6.10)
 # Database: kumulus
-# Generation Time: 2014-01-20 07:49:36 +0000
+# Generation Time: 2014-01-20 15:34:51 +0000
 # ************************************************************
 
 
@@ -74,6 +74,20 @@ CREATE TABLE `attendance` (
 
 
 
+# Dump of table company
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `company`;
+
+CREATE TABLE `company` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `version` bigint(20) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
 # Dump of table currency
 # ------------------------------------------------------------
 
@@ -96,33 +110,36 @@ DROP TABLE IF EXISTS `document`;
 
 CREATE TABLE `document` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `company` varchar(255) DEFAULT NULL,
   `date` datetime NOT NULL,
   `identifier` varchar(30) DEFAULT NULL,
   `node_id` bigint(20) NOT NULL,
   `type` varchar(10) NOT NULL,
+  `company_id` bigint(20) DEFAULT NULL,
+  `file_id` bigint(20) NOT NULL,
+  `literal` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FK335CD11BFFD95FA2` (`node_id`),
+  KEY `FK335CD11BB86FDCA1` (`file_id`),
+  KEY `FK335CD11BDB59EAD3` (`company_id`),
+  CONSTRAINT `FK335CD11BB86FDCA1` FOREIGN KEY (`file_id`) REFERENCES `file` (`id`),
+  CONSTRAINT `FK335CD11BDB59EAD3` FOREIGN KEY (`company_id`) REFERENCES `company` (`id`),
   CONSTRAINT `FK335CD11BFFD95FA2` FOREIGN KEY (`node_id`) REFERENCES `nodes` (`node_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 
-# Dump of table document_image
+# Dump of table file
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `document_image`;
+DROP TABLE IF EXISTS `file`;
 
-CREATE TABLE `document_image` (
-  `document_images_id` bigint(20) DEFAULT NULL,
-  `image_id` bigint(20) DEFAULT NULL,
-  `document_thumbnails_id` bigint(20) DEFAULT NULL,
-  KEY `FK711B5D374E4D9053` (`image_id`),
-  KEY `FK711B5D3792AA1420` (`document_images_id`),
-  KEY `FK711B5D371AF3D31` (`document_thumbnails_id`),
-  CONSTRAINT `FK711B5D371AF3D31` FOREIGN KEY (`document_thumbnails_id`) REFERENCES `document` (`id`),
-  CONSTRAINT `FK711B5D374E4D9053` FOREIGN KEY (`image_id`) REFERENCES `image` (`id`),
-  CONSTRAINT `FK711B5D3792AA1420` FOREIGN KEY (`document_images_id`) REFERENCES `document` (`id`)
+CREATE TABLE `file` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `version` bigint(20) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `path` varchar(255) NOT NULL,
+  `type` varchar(3) NOT NULL,
+  PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
@@ -135,9 +152,14 @@ DROP TABLE IF EXISTS `image`;
 CREATE TABLE `image` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `version` bigint(20) NOT NULL,
-  `filename` varchar(255) NOT NULL,
-  `path` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
+  `file_id` bigint(20) NOT NULL,
+  `height` bigint(20) NOT NULL,
+  `width` bigint(20) NOT NULL,
+  `thumbnail` bit(1) NOT NULL,
+  `compressed` bit(1) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK5FAA95BB86FDCA1` (`file_id`),
+  CONSTRAINT `FK5FAA95BB86FDCA1` FOREIGN KEY (`file_id`) REFERENCES `file` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
@@ -157,11 +179,14 @@ CREATE TABLE `line_item` (
   `price` float DEFAULT NULL,
   `quantity` float DEFAULT NULL,
   `document_id` bigint(20) NOT NULL,
+  `page_id` bigint(20) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FK94ED5C7E172ECD01` (`currency_id`),
   KEY `FK94ED5C7E237BB8C1` (`document_id`),
-  CONSTRAINT `FK94ED5C7E237BB8C1` FOREIGN KEY (`document_id`) REFERENCES `document` (`id`),
-  CONSTRAINT `FK94ED5C7E172ECD01` FOREIGN KEY (`currency_id`) REFERENCES `currency` (`id`)
+  KEY `FK94ED5C7EBB855FC1` (`page_id`),
+  CONSTRAINT `FK94ED5C7EBB855FC1` FOREIGN KEY (`page_id`) REFERENCES `page` (`id`),
+  CONSTRAINT `FK94ED5C7E172ECD01` FOREIGN KEY (`currency_id`) REFERENCES `currency` (`id`),
+  CONSTRAINT `FK94ED5C7E237BB8C1` FOREIGN KEY (`document_id`) REFERENCES `document` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
@@ -200,6 +225,34 @@ CREATE TABLE `nodes` (
 
 
 
+# Dump of table page
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `page`;
+
+CREATE TABLE `page` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `version` bigint(20) NOT NULL,
+  `document_id` bigint(20) NOT NULL,
+  `first` bit(1) NOT NULL,
+  `last` bit(1) NOT NULL,
+  `number` bigint(20) NOT NULL,
+  `scan_image_id` bigint(20) NOT NULL,
+  `thumbnail_image_id` bigint(20) NOT NULL,
+  `view_image_id` bigint(20) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `FK34628F237BB8C1` (`document_id`),
+  KEY `FK34628F8332BA46` (`thumbnail_image_id`),
+  KEY `FK34628FD477F7D5` (`scan_image_id`),
+  KEY `FK34628FB852B0AD` (`view_image_id`),
+  CONSTRAINT `FK34628F237BB8C1` FOREIGN KEY (`document_id`) REFERENCES `document` (`id`),
+  CONSTRAINT `FK34628F8332BA46` FOREIGN KEY (`thumbnail_image_id`) REFERENCES `image` (`id`),
+  CONSTRAINT `FK34628FB852B0AD` FOREIGN KEY (`view_image_id`) REFERENCES `image` (`id`),
+  CONSTRAINT `FK34628FD477F7D5` FOREIGN KEY (`scan_image_id`) REFERENCES `image` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
 # Dump of table param_names
 # ------------------------------------------------------------
 
@@ -223,9 +276,12 @@ CREATE TABLE `project` (
   `status` varchar(10) DEFAULT NULL,
   `comment` varchar(255) NOT NULL DEFAULT '',
   `company` varchar(255) NOT NULL,
-  `client` varchar(255) NOT NULL,
+  `client_id` bigint(20) NOT NULL,
+  `literal` varchar(255) NOT NULL,
   PRIMARY KEY (`project_id`),
-  UNIQUE KEY `project_name` (`project_name`)
+  UNIQUE KEY `project_name` (`project_name`),
+  KEY `FKED904B199C6248C5` (`client_id`),
+  CONSTRAINT `FKED904B199C6248C5` FOREIGN KEY (`client_id`) REFERENCES `company` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 

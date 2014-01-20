@@ -3,14 +3,14 @@ package com.kumulus.domain
 class Document {
 
     String type
-    String identifier
     Company company
     Date date
-    String folderName
-    String fileName
+    File file
+    String literal
+    String identifier
     
     static belongsTo = [node: Nodes]
-    static hasMany = [images: Image, thumbnails: Image, lineItems: LineItem]
+    static hasMany = [pages: Page]
     
     static mapping = {
         version false
@@ -21,5 +21,6 @@ class Document {
         identifier nullable: true, maxSize: 30
         company nullable: true
         date nullable: true
+        literal nullable: false
     }
 }

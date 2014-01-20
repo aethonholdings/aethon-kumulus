@@ -9,7 +9,7 @@ class LineItem {
     Float price
     Float amount
     
-    static belongsTo = [document: Document]
+    static belongsTo = [page: Page]
     
     static constraints = {
         date nullable: true
