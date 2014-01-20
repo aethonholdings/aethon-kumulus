@@ -9,8 +9,8 @@ class Document {
     String literal
     String identifier
     
-    static belongsTo = [node: Nodes]
-    static hasMany = [pages: Page]
+    static belongsTo= [node: Nodes]
+    static hasMany= [pages: Page]
     
     static mapping = {
         version false
