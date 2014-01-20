@@ -19,11 +19,22 @@ class KumulusTagLib {
         out << "    </thead>\n"
         out << "    <tbody>\n"
         attrs?.projects.each {
+            def status
+            switch(it.status) {
+                case "A":
+                    status = "In progress"
+                    break
+            
+                case "D":
+                    status = "Closed"
+                    break
+            }
+            
             out << "            <tr>\n"
             out << "                <td>${it.id}</td>\n"
             out << "                <td>${it.projectName}</td>\n"
             out << "                <td>${it.clientLDAPId}</td>\n"
-            out << "                <td>${it.status}</td>\n"
+            out << "                <td>${status}</td>\n"
             out << "                <td>"
             out << g.link(action:"${attrs?.action}", controller:"${attrs?.controller}", id:"${it.id}", "${attrs?.actionText}")
             out << "</td>\n"
