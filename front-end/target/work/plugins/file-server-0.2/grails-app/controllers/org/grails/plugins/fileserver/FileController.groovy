@@ -1,5 +1,8 @@
 package org.grails.plugins.fileserver
 
+import grails.plugin.springsecurity.annotation.Secured
+
+@Secured(['ROLE_ACCESS'])
 class FileController {
 
     def fileService
