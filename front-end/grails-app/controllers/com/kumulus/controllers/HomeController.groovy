@@ -21,7 +21,7 @@ class HomeController {
     }
     
     @Secured(['ROLE_COLLECT'])
-    def collect() { 
+    def collect() {
         def projectList = userService.getProjects([status: "A"])
         render view:"collect", layout:"home", model:[pageTitle: "Collect archive documents", projects: projectList]
     }

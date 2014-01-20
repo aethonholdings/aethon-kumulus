@@ -20,4 +20,5 @@ class Project {
         status nullable: true, maxSize: 10
         company nullable: false, maxSize: 50
     }
+        
 }

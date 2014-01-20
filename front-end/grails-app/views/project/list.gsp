@@ -19,8 +19,10 @@
               <td>${it.client}</td>
               <td>${it.status}</td>
               <td><g:link controller="project" action="edit" id="${it.id}">Edit</g:link></td>
-              <td>Delete</td>
-              <td>Close</td>
+              <td><g:link controller="project" action="delete" id="${it.id}">Delete</g:link></td>
+              <td>
+                <g:if test="${it.status=="A"}"><g:link controller="project" action="close" id="${it.id}">Close</g:link></g:if>
+              </td>
             </tr>
           </g:each>
         </tbody>

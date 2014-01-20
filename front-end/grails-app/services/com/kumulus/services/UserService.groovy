@@ -34,15 +34,15 @@ class UserService {
         String username = auth.getPrincipal().getUsername()        
     }
     
-    def checkPermisions(object) {
+    def checkPermisions(check) { 
         boolean permission = false
-        switch(object?.class) {
+        switch(check?.class) {
             case Project:
-                if(object.company == getCompany()) permission = true
+                if(check.company == getCompany()) permission = true
                 break
             
             case Node:
-                if(object.project.company == getCompany()) permission = true
+                if(check.project.company == getCompany()) permission = true
                 break
         }
         return(permission)

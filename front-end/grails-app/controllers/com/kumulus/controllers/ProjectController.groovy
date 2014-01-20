@@ -1,7 +1,8 @@
 package com.kumulus.controllers
 
-import com.kumulus.domain.*
 import grails.plugin.springsecurity.annotation.Secured
+import com.kumulus.domain.*
+import com.kumulus.services.*
 
 @Secured(['ROLE_MANAGE'])    
 class ProjectController {
@@ -32,6 +33,21 @@ class ProjectController {
     
     def create() {
         render view:"edit", layout: "home", model:[project: new Project()]
+    }
+    
+    def delete() {
+        def project = Project.findById(params?.id)
+        if(userService.checkPermisions(project)) project.delete()
+        redirect action:"list"
+    }
+    
+    def close() {
+        def project = Project.findById(params?.id)
+        if(userService.checkPermisions(project)) {
+            project.status = "D"
+            project.save()
+        }
+        redirect action:"list"
     }
 
 }

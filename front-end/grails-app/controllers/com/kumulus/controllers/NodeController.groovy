@@ -4,82 +4,86 @@ import grails.plugin.springsecurity.annotation.Secured
 import com.kumulus.domain.*
 import grails.converters.*
 
+@Secured(['ROLE_COLLECT'])
 class NodeController {
 
     def nodeService
     def springSecurityService
+    def userService
 
-    @Secured(['ROLE_COLLECT'])
     def collect() {
-        def project = Project.findById(params.id)
-        render view:"collect", layout:"home", model:[project: project]
+        def project = Project.findById(params?.id)
+        if(project.company == userService.getCompany()) render view:"collect", layout:"home", model:[project: project]    
     }
         
-    @Secured(['ROLE_COLLECT', 'ROLE_ACCESS'])
     def getRoot() {
-        def rootNode = nodeService.renderRoot(Project?.findById(params?.id))    
-        render rootNode as JSON  
+        def rootNode
+        if(Project.findById(params?.id).company == userService.getCompany()) {
+            rootNode = nodeService.renderRoot(Project?.findById(params?.id))   
+            render rootNode as JSON  
+        }
     }    
     
-    @Secured(['ROLE_COLLECT', 'ROLE_ACCESS'])
     def getChildren() {
         def treeNodes = []
         def node = Nodes.findById(params?.id)         // should check permissions first
-        if (node) {
+        if (node?.project.company == userService.getCompany()) {
             def children = Nodes.findAllByParent(node)
             children.each { if(it?.type!='D') treeNodes.add(nodeService.renderNode(it)) }
         }
         render treeNodes as JSON  
     }
     
-    @Secured(['ROLE_COLLECT'])
     def update() {
         // this is not secured at user permission level yet
         def data = request.JSON
         def node = Nodes.findById(data?.id)
-        if(node) nodeService.saveNode(node, data?.barcode, data?.name, data?.comment, data?.type, 0)
-        render node as JSON
+        if (node?.project.company == userService.getCompany()) {
+            nodeService.saveNode(node, data?.barcode, data?.name, data?.comment, data?.type, 0)
+            render node as JSON
+        }
     }
     
     // need to move a lot of this code into service
-    @Secured(['ROLE_COLLECT'])
     def insert() {
         // this is not secured at user permission level yet
         def data = request.JSON
         def response = [done: false, message: "Error"]
-        def parent = null
-        if(data?.parentID!="ROOT") parent = Nodes.findById(data.parentID)
         def project = Project.findById(data?.project)
-        def node = new Nodes()
-        if(node && data?.barcode && data?.name && data?.type && project) {
-            def map = [
-                project: project,
-                parent: parent,
-                status: 0,
-                hierarchy: null,
-                thumbnailImageName: null, 
-                actualImageName: null,
-                creatorId: springSecurityService.principal.username,
-                createDatetime: new Date(),
-                lastUpdateId: springSecurityService.principal.username,
-                lastUpdateDatetime: new Date(),
-                documentSequenceNumber: null,
-                creatorldapuid: springSecurityService.principal.username,
-                uploaded: false
-            ]
-            bindData(node, map)
-            nodeService.saveNode(node, data?.barcode, data?.name, data?.comment, data?.type, 0)
-            response.done = true
-            response.message = "OK"
+        if(project.company == userService.getCompany()) {
+            def parent = null
+            if(data?.parentID!="ROOT") parent = Nodes.findById(data.parentID)
+
+            def node = new Nodes()
+            if(node && data?.barcode && data?.name && data?.type && project) {
+                def map = [
+                    project: project,
+                    parent: parent,
+                    status: 0,
+                    hierarchy: null,
+                    thumbnailImageName: null, 
+                    actualImageName: null,
+                    creatorId: springSecurityService.principal.username,
+                    createDatetime: new Date(),
+                    lastUpdateId: springSecurityService.principal.username,
+                    lastUpdateDatetime: new Date(),
+                    documentSequenceNumber: null,
+                    creatorldapuid: springSecurityService.principal.username,
+                    uploaded: false
+                ]
+                bindData(node, map)
+                nodeService.saveNode(node, data?.barcode, data?.name, data?.comment, data?.type, 0)
+                response.done = true
+                response.message = "OK"
+            }
+            render response as JSON
         }
-        render response as JSON
     }
     
-    @Secured(['ROLE_COLLECT'])
     def delete() {
         def data = request.JSON
         def response = [done: false]
-        if(data?.id) {
+        if(data?.id && Nodes.findById(data?.id).project.company == userService.getCompany()) {
             nodeService.deleteNode(data.id)
             response.done = true
         }
