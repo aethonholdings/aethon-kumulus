@@ -4,7 +4,7 @@ class Document {
 
     String type
     String identifier
-    String company
+    Company company
     Date date
     
     static belongsTo = [node: Nodes]

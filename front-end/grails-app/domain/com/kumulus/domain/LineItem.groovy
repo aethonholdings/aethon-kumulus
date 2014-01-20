@@ -1,4 +1,4 @@
-    package com.kumulus.domain
+package com.kumulus.domain
 
 class LineItem {
 
