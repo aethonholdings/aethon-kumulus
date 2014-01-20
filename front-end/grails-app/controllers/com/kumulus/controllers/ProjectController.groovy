@@ -22,11 +22,16 @@ class ProjectController {
     
     def update() {
         def project = Project.findById(params?.id)
+        if(!project) project = new Project([company: userService.getCompany(), status: "A", lineItems:[], nodes:[]])
         if(userService.checkPermisions(project)) {
             project.properties = params
             project.save()
         }        
         redirect action:"list"
+    }
+    
+    def create() {
+        render view:"edit", layout: "home", model:[project: new Project()]
     }
 
 }
