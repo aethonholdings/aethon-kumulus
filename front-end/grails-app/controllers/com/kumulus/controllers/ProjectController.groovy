@@ -13,9 +13,19 @@ class ProjectController {
         render view:"list", layout: "home", model:[projectList: projectList]
     }
     
-    def create() {
-        def project = new Project()
-        render view:"edit", layout: "home", model:[project: project]
+    def edit() {
+        def project = Project.findById(params?.id)
+        if(userService.checkPermisions(project)) {
+            render view:"edit", layout: "home", model:[project: project]
+        }
+    }
+    
+    def update() {
+        def project = Project.findById(params?.id)
+        if(userService.checkPermisions(project)) {
+            
+        }        
+        redirect action:"list"
     }
 
 }

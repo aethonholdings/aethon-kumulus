@@ -10,7 +10,6 @@ class KumulusTagLib {
         out << "<table class='${attrs?.class}' width='${attrs?.width}'>\n"
         out << "    <thead>\n"
         out << "        <tr>\n"
-        out << "            <th>Id</a>\n"
         out << "            <th>Project name</th>\n"
         out << "            <th>Client</th>\n"
         out << "            <th>Status</th>\n"
@@ -31,9 +30,8 @@ class KumulusTagLib {
             }
             
             out << "            <tr>\n"
-            out << "                <td>${it.id}</td>\n"
             out << "                <td>${it.projectName}</td>\n"
-            out << "                <td>${it.clientLDAPId}</td>\n"
+            out << "                <td>${it.client}</td>\n"
             out << "                <td>${status}</td>\n"
             out << "                <td>"
             out << g.link(action:"${attrs?.action}", controller:"${attrs?.controller}", id:"${it.id}", "${attrs?.actionText}")

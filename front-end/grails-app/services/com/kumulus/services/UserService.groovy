@@ -20,7 +20,7 @@ class UserService {
     }
     
     def getProjects(params) {
-        def projectList = Project.findAllByClientLDAPId(getCompany())
+        def projectList = Project.findAllByCompany(getCompany())
         if(params?.status) projectList = projectList.findAll { it.status == params.status }
         return (projectList)
     }
@@ -32,6 +32,21 @@ class UserService {
     def getUsername() {
         def auth = springSecurityService.getAuthentication()
         String username = auth.getPrincipal().getUsername()        
+    }
+    
+    def checkPermisions(object) {
+        boolean permission = false
+        
+        switch(object?.class) {
+            case Project:
+                if(object.company == getCompany()) permission = true
+                break
+            
+            case Node:
+                if(object.project.company == getCompany()) permission = true
+                break
+        }
+        return(permission)
     }
     
 }

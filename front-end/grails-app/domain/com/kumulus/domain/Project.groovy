@@ -2,9 +2,11 @@ package com.kumulus.domain
 
 class Project {
 
-    String clientLDAPId
+    String company
+    String client
     String projectName
     String status
+    String comment
 
     static hasMany = [nodes: Nodes, lineItems: LineItem]
 
@@ -16,6 +18,6 @@ class Project {
     static constraints = {
         projectName nullable: true, maxSize: 50, unique: true
         status nullable: true, maxSize: 10
-        clientLDAPId nullable: false, maxSize: 50
+        company nullable: false, maxSize: 50
     }
 }
