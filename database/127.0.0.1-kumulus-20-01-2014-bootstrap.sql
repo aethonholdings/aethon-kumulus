@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.6.10)
 # Database: kumulus
-# Generation Time: 2014-01-16 08:33:53 +0000
+# Generation Time: 2014-01-20 07:51:01 +0000
 # ************************************************************
 
 
@@ -173,9 +173,9 @@ UNLOCK TABLES;
 LOCK TABLES `project` WRITE;
 /*!40000 ALTER TABLE `project` DISABLE KEYS */;
 
-INSERT INTO `project` (`project_id`, `clientldapid`, `project_name`, `status`)
+INSERT INTO `project` (`project_id`, `project_name`, `status`, `comment`, `company`, `client`)
 VALUES
-	(1,'KUMULUS PTE LTD','test project','A');
+	(1,'test project','A','here is some comment','KUMULUS PTE LTD','test client co');
 
 /*!40000 ALTER TABLE `project` ENABLE KEYS */;
 UNLOCK TABLES;

@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.6.10)
 # Database: kumulus
-# Generation Time: 2014-01-16 08:32:29 +0000
+# Generation Time: 2014-01-20 07:49:36 +0000
 # ************************************************************
 
 
@@ -219,9 +219,11 @@ DROP TABLE IF EXISTS `project`;
 
 CREATE TABLE `project` (
   `project_id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `clientldapid` varchar(50) NOT NULL,
   `project_name` varchar(50) DEFAULT NULL,
   `status` varchar(10) DEFAULT NULL,
+  `comment` varchar(255) NOT NULL DEFAULT '',
+  `company` varchar(255) NOT NULL,
+  `client` varchar(255) NOT NULL,
   PRIMARY KEY (`project_id`),
   UNIQUE KEY `project_name` (`project_name`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
