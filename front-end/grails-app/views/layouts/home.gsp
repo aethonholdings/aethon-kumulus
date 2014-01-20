@@ -4,11 +4,20 @@
     <link rel='stylesheet' type='text/css' href='${resource(dir: 'css/pure', file: 'pure-min.css')}'/>
     <link rel='stylesheet' type='text/css' href='${resource(dir: 'css/pure', file: 'side-menu.css')}'/>
     <link rel='stylesheet' type='text/css' href='${resource(dir: 'css/kumulus', file: 'main.css')}'/>
+    <link rel='stylesheet' type='text/css' href='${resource(dir: 'css/jquery/jbreadcrumb', file: 'BreadCrumb.css')}'/>
     <g:javascript library='jquery' />
     <r:layoutResources />             
     <g:javascript src='jquery/ui/jquery-ui.js'/>
     <g:javascript src='jquery/cookie/jquery.cookie.js'/>
-    <g:javascript src='pure/ui.js'/>   
+    <g:javascript src='pure/ui.js'/> 
+    <g:javascript src='jquery/easing/jquery.easing.1.3.js'/> 
+    <g:javascript src='jquery/jbreadcrumb/jquery.jBreadCrumb.1.1.js'/> 
+    <script>
+      jQuery(document).ready(function()
+{
+	jQuery("#breadCrumb").jBreadCrumb();
+})
+    </script>
     <g:layoutHead/>
   </head>
   <body>
@@ -33,7 +42,9 @@
       <div class='content'>
         <div id='kumulus-header'>
           <div class='pure-g'>
-            <div class='pure-u-1-2'><g:pageTitle text='${pageTitle}'/></div>
+            <div class='pure-u-1-2'>
+              <g:pageTitle text='${pageTitle}'/>
+            </div>
             <div class='pure-u-1-2'>
               <div id='kumulus-session-management'>
                 <g:userCompany/> |
