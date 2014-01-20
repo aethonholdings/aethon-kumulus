@@ -17,13 +17,7 @@ class HomeController {
     @Secured(['ROLE_MANAGE'])
     def manage() { 
         def projectList = userService.getProjects([status: "A"])
-        render view:"manage", layout:"home", model:[pageTitle: "Current active projects", projects: projectList]
-    }
-    
-    @Secured(['ROLE_MANAGE'])
-    def close() { 
-//        def projectList = userService.getProjects([status: "A"])
-//        render view:"manage", layout:"home", model:[pageTitle: "Manage projects", projects: projectList]
+        redirect controller: "project", action:"list"
     }
     
     @Secured(['ROLE_COLLECT'])

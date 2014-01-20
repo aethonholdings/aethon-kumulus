@@ -11,7 +11,7 @@ class KumulusTagLib {
         out << "    <thead>\n"
         out << "        <tr>\n"
         out << "            <th>Id</a>\n"
-        out << "            <th>Project</th>\n"
+        out << "            <th>Project name</th>\n"
         out << "            <th>Client</th>\n"
         out << "            <th>Status</th>\n"
         out << "            <th>Action</th>\n"
