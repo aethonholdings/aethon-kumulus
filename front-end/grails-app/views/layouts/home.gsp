@@ -21,7 +21,7 @@
             <li><a href=''>Order materials</a></li>
             <li><g:link controller='home' action='manage'>Manage projects</g:link></li>
             <li><g:link controller='home' action='collect'>Collect documents</g:link></li>
-            <li><a href=''>Import documents</a></li>
+            <li><g:link controller='image' action='upload'>Import documents</g:link></li>
             <li><g:link controller='home' action='review'>Process documents</g:link></li>
             <li><g:link controller='home' action='extract'>Download ledger</g:link></li>
             <li><a href=''>Schedule pickup</a></li>

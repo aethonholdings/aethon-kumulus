@@ -153,3 +153,12 @@ grails.plugin.springsecurity.ldap.authorities.groupSearchBase = 'ou=groups,dc=ep
 grails.plugins.fileserver.paths=[
         "root": "/Users/cocodinos/Documents/Work/11-Aethon/00-Aethon Holdings/01-Projects/01-Bucephalus/05-Software/kumulus/data/filesystem/"
 ]
+
+// File uploader configuration --------------------------
+fileuploader {
+	image {
+		maxSize = 1000 * 1024 * 4 //4 mbytes
+		allowedExtensions = ["tiff"]
+		path = "/Users/cocodinos/Documents/Work/11-Aethon/00-Aethon Holdings/01-Projects/01-Bucephalus/05-Software/kumulus/data/filesystem/staging/"
+	}
+}

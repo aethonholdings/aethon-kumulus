@@ -66,7 +66,7 @@ grails.project.dependency.resolution = {
         compile ":spring-security-ldap:2.0-RC2"
         compile ":export:1.5"
         compile ":file-server:0.2"
-        compile ":uploadr:0.8.1.1"
+        compile ":file-uploader:1.2.1"
 
         // plugins needed at runtime but not for compilation
         runtime ":hibernate:3.6.10.4" // or ":hibernate4:4.1.11.4"
