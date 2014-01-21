@@ -26,11 +26,10 @@ class ProjectController {
         def project = Project.findById(params?.id)
         if(!project) project = projectService.newProject(params) 
         else if(userService.checkPermisions(project))  {
-            bindData(project, params, [exclude:['client', 'clientId']])
             def client = Company.findById(params?.clientId)
             project.client = client
-            project.client.save()
-            projectService.saveProject(project)
+            bindData(project, params, [exclude:['client', 'clientId']])
+            project.save()
         }
         redirect action:"list"
     }
@@ -41,7 +40,7 @@ class ProjectController {
     
     def delete() {
         def project = Project.findById(params?.id)
-        if(userService.checkPermisions(project)) project.delete()
+        if(userService.checkPermisions(project) && project.status == "A") project.delete()
         redirect action:"list"
     }
     
