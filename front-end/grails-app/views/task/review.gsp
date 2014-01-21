@@ -8,8 +8,7 @@
       <div class="pure-u-1-3"></div>
       <div class="pure-u-1-6">
         <g:each in="${pages}">
-          <img src="${request.contextPath}/download/root/${it.thumbnailImage.file.path}/${it.thumbnailImage.file.name}">
-          <g:thumbnail image="${it.thumbnailImage}" width="40" height="60"/>
+          <g:thumbnail page="${it}" width="100" height="140"/>
         </g:each>
       </div>
       <div class="pure-u-1-2"></div>

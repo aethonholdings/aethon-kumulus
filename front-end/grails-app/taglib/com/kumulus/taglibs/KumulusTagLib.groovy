@@ -57,20 +57,29 @@ class KumulusTagLib {
     
     def thumbnail = { attrs, body ->
         
-        def imgHeight = new java.math.BigDecimal(attrs?.image.height)
-        def imgWidth = new java.math.BigDecimal(attrs?.image.width)
+        def image = attrs?.page?.thumbnailImage
+        def imgHeight = new java.math.BigDecimal(image.height)
+        def imgWidth = new java.math.BigDecimal(image.width)
         def imgRatio = imgHeight/imgWidth
         
         def height = new java.math.BigDecimal(attrs?.height)
         def width = new java.math.BigDecimal(attrs?.width)
-        def ratio = height/width
         
-        if(ratio>imgRatio) {
-            
+        def outputHeight
+        def outputWidth
+        
+        if(height/width>imgRatio) {
+            // height is the constraint
+            outputHeight = height
+            outputWidth = Math.round(height/imgRatio)
         } else {
-        
-        
+            // width is the constraint
+            outputHeight = Math.round(width*imgRatio)
+            outputWidth = width
         }
+        out << "<img id='${attrs?.page.literal}'"
+        out << "src='${request.contextPath}/download/root/${image.file.path}/${image.file.name}' "
+        out << "height='${outputHeight}' width='${outputWidth}'>"
     }
     
 }
