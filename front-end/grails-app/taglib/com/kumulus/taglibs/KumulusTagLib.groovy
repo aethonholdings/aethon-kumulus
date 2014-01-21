@@ -79,7 +79,7 @@ class KumulusTagLib {
         }
         out << "<img id='${attrs?.page.literal}'"
         out << "src='${request.contextPath}/download/root/${image.file.path}/${image.file.name}' "
-        out << "height='${outputHeight}' width='${outputWidth}'>"
+        out << "height='${outputHeight}' width='${outputWidth}' class='kumulus-thumbnail'>"
     }
     
 }
