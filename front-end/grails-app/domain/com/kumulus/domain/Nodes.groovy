@@ -20,7 +20,6 @@ class Nodes {
     Boolean uploaded
 
     static belongsTo = [project: Project, parent: Nodes]
-    static hasMany = [documents: Document]
 
     static mapping = {
         id column: "node_id"
