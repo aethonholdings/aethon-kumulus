@@ -24,13 +24,13 @@ class ProjectController {
     
     def update() {
         def project = Project.findById(params?.id)
-        if(!project) project = projectService.newProject(params) else {
-            if(userService.checkPermisions(project)) {
-                bindData(project, params, [exclude: 'client'])
-                def client = Company.findById(params?.clientId)
-                project.client = client
-                projectService.saveProject(project)
-            }
+        if(!project) project = projectService.newProject(params) 
+        else if(userService.checkPermisions(project))  {
+            bindData(project, params, [exclude:['client', 'clientId']])
+            def client = Company.findById(params?.clientId)
+            project.client = client
+            project.client.save()
+            projectService.saveProject(project)
         }
         redirect action:"list"
     }

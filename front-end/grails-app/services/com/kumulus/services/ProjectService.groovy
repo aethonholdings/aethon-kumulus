@@ -14,7 +14,7 @@ class ProjectService {
         client.save()
         println(client)
         def project = new Project([projectName: params?.projectName, comment: params?.comment, status: "A", company: userService.getCompany(), lineItems:[], nodes:[], client: client, literal: fileService.generateLiteral()])
-        project.save(failOnError:true, flush: true)
+        project.save()
         return(project)
     }
     

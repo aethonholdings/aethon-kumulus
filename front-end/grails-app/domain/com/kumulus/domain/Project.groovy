@@ -20,6 +20,7 @@ class Project {
         projectName nullable: true, maxSize: 50, unique: true
         status nullable: true, maxSize: 10
         company nullable: false, maxSize: 50
+        comment nullable: true
         literal nullable: false
     }
         
