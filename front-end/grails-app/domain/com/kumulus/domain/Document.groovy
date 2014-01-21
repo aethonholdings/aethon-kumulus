@@ -2,12 +2,16 @@ package com.kumulus.domain
 
 class Document {
 
+    static final int EDITABLE = 1
+    static final int FINAL = 2
+    
     String type
     Company company
     Date date
     File file
     String literal
     String identifier
+    Byte status
     
     static hasMany= [pages: Page]
     
