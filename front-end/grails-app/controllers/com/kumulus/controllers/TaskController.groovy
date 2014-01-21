@@ -8,7 +8,9 @@ class TaskController {
 
     // need securing based on user permissions
     def review() {
-        def pages = Task.findById(params?.id).pages
+        def pages = []   
+        def task = Task.findById(params?.id)
+        TaskItem.findAllByTask(task, [sort: "sequence", order: "asc"]).each { pages.add it.page }
         render view:"review", layout:"home", model:[pages: pages]
     }
     

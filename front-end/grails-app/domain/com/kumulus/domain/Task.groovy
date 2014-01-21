@@ -8,8 +8,8 @@ class Task {
     String batchInstanceID
     String batchInstanceUrlId
     String literal
-    
-    static hasMany= [pages: Page]
+
+    static hasMany= [taskItems: TaskItem]
     
     static constraints = {
         created nullable: false

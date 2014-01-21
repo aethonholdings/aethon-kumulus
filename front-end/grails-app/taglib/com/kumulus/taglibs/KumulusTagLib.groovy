@@ -55,4 +55,22 @@ class KumulusTagLib {
         }
     }
     
+    def thumbnail = { attrs, body ->
+        
+        def imgHeight = new java.math.BigDecimal(attrs?.image.height)
+        def imgWidth = new java.math.BigDecimal(attrs?.image.width)
+        def imgRatio = imgHeight/imgWidth
+        
+        def height = new java.math.BigDecimal(attrs?.height)
+        def width = new java.math.BigDecimal(attrs?.width)
+        def ratio = height/width
+        
+        if(ratio>imgRatio) {
+            
+        } else {
+        
+        
+        }
+    }
+    
 }
