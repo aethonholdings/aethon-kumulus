@@ -22,7 +22,7 @@
             <li><g:link controller='home' action='manage'>Manage projects</g:link></li>
             <li><g:link controller='home' action='collect'>Collect documents</g:link></li>
             <li><a href=''>Import documents</a></li>
-            <li><g:link controller='home' action='review'>Review data</g:link></li>
+            <li><g:link controller='home' action='review'>Process documents</g:link></li>
             <li><g:link controller='home' action='extract'>Download ledger</g:link></li>
             <li><a href=''>Schedule pickup</a></li>
             <li><g:link controller='home' action='access'>Access archive</g:link></li>

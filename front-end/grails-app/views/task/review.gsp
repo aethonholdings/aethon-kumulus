@@ -6,19 +6,19 @@
   </head>
   <body>
     <div class="pure-g">
-      <div class="pure-u-1-2">
+      <div class="pure-u-1-3">
         <div id="inputTable">
           
         </div>
       </div>
-      <div class="pure-u-1-12">
+      <div class="pure-u-1-6">
         <ul id="thumbnail-sortable" class="kumulus-thumbnail-sortable">
           <g:each in="${pages}">
             <li class="ui-state-default"><g:thumbnail page="${it}" width="100" height="140"/></li>
           </g:each>
         </ul>
       </div>
-      <div class="pure-u-5-12">
+      <div class="pure-u-1-2">
         <img id="page" src="">
       </div>
     </div>
