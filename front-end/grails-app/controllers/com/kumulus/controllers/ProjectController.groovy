@@ -4,17 +4,20 @@ import grails.plugin.springsecurity.annotation.Secured
 import com.kumulus.domain.*
 import com.kumulus.services.*
 
-@Secured(['ROLE_MANAGE'])    
+    
 class ProjectController {
 
     def userService
     def projectService
+    def exportService
     
+    @Secured(['ROLE_MANAGE'])
     def list() {
         def projectList = userService.getProjects()
         render view:"list", layout: "home", model:[projectList: projectList]
     }
     
+    @Secured(['ROLE_MANAGE'])
     def edit() {
         def project = Project.findById(params?.id)
         if(userService.checkPermisions(project)) {
@@ -22,6 +25,7 @@ class ProjectController {
         }
     }
     
+    @Secured(['ROLE_MANAGE'])
     def update() {
         def project = Project.findById(params?.id)
         if(!project) project = projectService.newProject(params) 
@@ -34,16 +38,19 @@ class ProjectController {
         redirect action:"list"
     }
     
+    @Secured(['ROLE_MANAGE'])
     def create() {
         render view:"edit", layout: "home", model:[project: new Project()]
     }
     
+    @Secured(['ROLE_MANAGE'])
     def delete() {
         def project = Project.findById(params?.id)
         if(userService.checkPermisions(project) && project.status == "A") project.delete()
         redirect action:"list"
     }
     
+    @Secured(['ROLE_MANAGE'])
     def close() {
         def project = Project.findById(params?.id)
         if(userService.checkPermisions(project)) {
@@ -53,4 +60,13 @@ class ProjectController {
         redirect action:"list"
     }
 
+    @Secured(['ROLE_EXTRACT'])
+    def download() {
+        def project = Project.findById(params?.id)
+        response.contentType = grailsApplication.config.grails.mime.types['csv']
+        response.setHeader("Content-disposition", "attachment; filename=extract")
+        def export = projectService.getCSV(project)
+        if(export) exportService.export('csv', response.outputStream, export.ledger, export.fields, export.labels, [:], [:])
+    }
+    
 }

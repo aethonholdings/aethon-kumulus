@@ -18,12 +18,6 @@ class ProjectService {
         return(project)
     }
     
-    def saveProject(project) {
-        if(project) {
-            project.save(failOnError:true, flush: true)
-        }
-    }
-    
     def getCSV(project) {
         
         if (project) {
@@ -31,25 +25,29 @@ class ProjectService {
             def nodes = Nodes?.findAllByProjectAndType(project, "D")
             nodes.each {node ->
                 node.documents.each {document ->
-                    document.lineItems.each { lineItem ->
-                        def extract = [
-                            id: lineItem?.id,
-                            documentId: document.id,
-                            company: lineItem?.document.company,
-                            date: lineItem?.date,
-                            description: lineItem?.description, 
-                            currency: lineItem?.currency?.shortName,
-                            quantity: lineItem?.quantity,
-                            price: lineItem?.price, 
-                            amount: lineItem?.amount
-                        ]
-                        ledger.add extract
+                    document.pages.each { page ->
+                        page.lineItems.each { lineItem ->
+                            def extract = [
+                                id: lineItem?.id,
+                                documentId: document.id,
+                                page: page.number,
+                                company: lineItem?.page.document.company?.name,
+                                date: lineItem?.date,
+                                description: lineItem?.description, 
+                                currency: lineItem?.currency?.shortName,
+                                quantity: lineItem?.quantity,
+                                price: lineItem?.price, 
+                                amount: lineItem?.amount
+                            ]
+                            ledger.add extract
+                        }
                     }
                 }
             }
             List fields = [
                 "id", 
                 "documentId",
+                "page",
                 "company",
                 "date",
                 "description",
@@ -61,6 +59,7 @@ class ProjectService {
             Map labels = [
                 id: "ID",
                 documentId: "Document ID",
+                page: "Page number",
                 company: "Company name",
                 date: "Date",
                 description: "Description",

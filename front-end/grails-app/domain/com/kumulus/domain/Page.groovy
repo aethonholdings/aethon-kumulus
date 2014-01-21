@@ -10,6 +10,7 @@ class Page {
     boolean last
     
     static belongsTo = [document: Document]
+    static hasMany = [lineItems: LineItem]
     
     static constraints = {
         

@@ -6,7 +6,6 @@ import com.kumulus.domain.*
 class HomeController {
     
     def projectService
-    def exportService
     def userService
     
     @Secured(['ROLE_CLASSIFY', 'ROLE_ADMIN', 'ROLE_VIEW', 'ROLE_COLLECT', 'ROLE_EXPORT', 'ROLE_VALIDATE', 'ROLE_IMPORT'])
@@ -41,15 +40,6 @@ class HomeController {
     @Secured(['ROLE_ACCESS'])
     def access() { 
         render view:"access", layout:"home", model:[pageTitle: "Access archive"]
-    }
-    
-    @Secured(['ROLE_EXTRACT'])
-    def download() {
-        def project = Project.findById(params?.id)
-        response.contentType = grailsApplication.config.grails.mime.types['csv']
-        response.setHeader("Content-disposition", "attachment; filename=extract")
-        def export = projectService.getCSV(project)
-        if(export) exportService.export('csv', response.outputStream, export.ledger, export.fields, export.labels, [:], [:])
     }
     
 }
