@@ -19,7 +19,7 @@
         </ul>
       </div>
       <div class="pure-u-5-12">
-        <div id="page"></div>
+        <img id="page" src="">
       </div>
     </div>
   </body>
