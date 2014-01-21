@@ -5,7 +5,7 @@ import com.kumulus.domain.*
 
 class HomeController {
     
-    def ledgerService
+    def projectService
     def exportService
     def userService
     
@@ -48,7 +48,7 @@ class HomeController {
         def project = Project.findById(params?.id)
         response.contentType = grailsApplication.config.grails.mime.types['csv']
         response.setHeader("Content-disposition", "attachment; filename=extract")
-        def export = ledgerService.getCSV(project)
+        def export = projectService.getCSV(project)
         if(export) exportService.export('csv', response.outputStream, export.ledger, export.fields, export.labels, [:], [:])
     }
     

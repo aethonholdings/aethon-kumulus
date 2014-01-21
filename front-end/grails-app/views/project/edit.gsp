@@ -10,7 +10,8 @@
       </div>
       <div class="pure-control-group">
         <label for="clientName">* Client name</label>
-        <input id="clientName" name="client" type="text" value="${project?.client}" class="pure-input-1-2"></input>
+        <input id="clientName" name="client" type="text" value="${project?.client?.name}" class="pure-input-1-2"></input>
+        <input id="clientId" name="clientId" type="hidden" value="${project?.client?.id}">
       </div>
       <div class="pure-control-group">
         <label for="comment">Comment</label>

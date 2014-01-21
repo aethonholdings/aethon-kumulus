@@ -16,7 +16,7 @@
           <g:each in="${projectList}">
             <tr>
               <td>${it.projectName}</td>
-              <td>${it.client}</td>
+              <td>${it.client.name}</td>
               <td>${it.status}</td>
               <td><g:link controller="project" action="edit" id="${it.id}">Edit</g:link></td>
               <td><g:link controller="project" action="delete" id="${it.id}">Delete</g:link></td>

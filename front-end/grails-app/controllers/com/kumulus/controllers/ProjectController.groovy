@@ -8,6 +8,7 @@ import com.kumulus.services.*
 class ProjectController {
 
     def userService
+    def projectService
     
     def list() {
         def projectList = userService.getProjects()
@@ -23,11 +24,14 @@ class ProjectController {
     
     def update() {
         def project = Project.findById(params?.id)
-        if(!project) project = new Project([company: userService.getCompany(), status: "A", lineItems:[], nodes:[]])
-        if(userService.checkPermisions(project)) {
-            project.properties = params
-            project.save()
-        }        
+        if(!project) project = projectService.newProject(params) else {
+            if(userService.checkPermisions(project)) {
+                bindData(project, params, [exclude: 'client'])
+                def client = Company.findById(params?.clientId)
+                project.client = client
+                projectService.saveProject(project)
+            }
+        }
         redirect action:"list"
     }
     
