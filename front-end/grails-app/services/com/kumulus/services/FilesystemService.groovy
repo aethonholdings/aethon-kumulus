@@ -39,7 +39,27 @@ class FilesystemService {
             imageTool.writeResult(imageFiles.viewImage.getAbsolutePath(), "JPEG")
             imageTool.thumbnail(300)
             imageTool.writeResult(imageFiles.thumbnailImage.getAbsolutePath(), "JPEG")   
-        
+            
+            def document = new Document(
+                status: Document.EDITABLE,
+                type: null,
+                company: null,
+                date: null,
+                literal: literal,
+                file: null
+                )
+            document.save()
+            
+            def page = new Page(
+                number: 1,
+                first: true,
+                last: true,
+                literal: literal,
+                lineItems: [],
+                node: node, 
+                document: document
+            )
+                                    
             // now move the image files to the main filesystem and generate the relevant images and UFiles
             def images = [:]
             targetPath.mkdir()
@@ -55,29 +75,25 @@ class FilesystemService {
                     downloads: 0
                 )
                 file.save()
-                def image = new Image()
-                images.put(key, image)                
+                imageTool.load(file.path)
+                def image = new Image(
+                    height: imageTool.getHeight(),
+                    width: imageTool.getWidth(),
+                    file: file,
+                    thumbnail: false,
+                    compressed: false
+                )
+                image.save()
+                images.put(key, image)
             }
+            page.scanImage = images.scanImage
+            page.viewImage = images.viewImage
+            page.thumbnailImage = images.thumbnailImage
+            page.save()
             
-            def page = new Page(
-                scanImage: images.scanImage,
-                viewImage: images.viewImage,
-                thumbnailImages: images.thumbnailImage,
-                number: 1,
-                first: true,
-                last: true,
-                node: node, 
-                literal: node,
-                lineItems: []
-            )
-            
-
             // clean up the staging entities
-            stagingPath.deleteDir()
-            
-            // create the images
-            
-            
+            uFile.delete()
+            stagingPath.deleteDir() 
         }
     }
 }

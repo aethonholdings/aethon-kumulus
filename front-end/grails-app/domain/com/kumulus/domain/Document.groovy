@@ -22,10 +22,12 @@ class Document {
     }
     
     static constraints = {
-        type nullable: false, maxSize: 10
+        type nullable: true, maxSize: 10
         identifier nullable: true, maxSize: 30
         company nullable: true
         date nullable: true
         literal nullable: false
+        file nullable: true
+        pages nullable: true
     }
 }
