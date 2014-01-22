@@ -158,7 +158,7 @@ grails.plugins.fileserver.paths=[
 fileuploader {
 	image {
 		maxSize = 1000 * 1024 * 4 //4 mbytes
-		allowedExtensions = ["tiff"]
+		allowedExtensions = ["tiff, pdf, tif"]
 		path = "/Users/cocodinos/Documents/Work/11-Aethon/00-Aethon Holdings/01-Projects/01-Bucephalus/05-Software/kumulus/data/filesystem/staging/"
 	}
 }

@@ -46,6 +46,13 @@
             </div>
           </fieldset>
         </form>
+        <div id="uploader">
+          <fileuploader:form	upload="image" 
+                              successAction="upload"
+                              successController="image"
+                              errorAction="error"
+                              accesskey=""errorController="test"  id="1"/>
+        </div>
       </div>
     </div>
   </body>

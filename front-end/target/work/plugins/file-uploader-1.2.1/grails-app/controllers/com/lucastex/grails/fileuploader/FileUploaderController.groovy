@@ -1,5 +1,8 @@
 package com.lucastex.grails.fileuploader
 
+import grails.plugin.springsecurity.annotation.Secured
+
+@Secured(['ROLE_IMPORT'])
 class FileUploaderController {
 	
 	//messagesource
