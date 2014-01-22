@@ -15,6 +15,6 @@ class ImageController {
     
     @Secured(['ROLE_IMPORT'])
     def process() {
-        println("hihi")
+        
     }
 }

@@ -50,11 +50,14 @@
       <div class="pure-u-1-3">
         <div class="grid-element"><h3>File upload</h3></div>
         <div id="uploader">
-          <fileuploader:form  upload="image" 
+          <fileuploader:form  name="uploader" 
+                              class="pure-form"
+                              upload="image" 
                               successAction="process"
                               successController="image"
                               errorAction="error"
-                              errorController="test"  id=""/>
+                              errorController="test"  
+                              id="wahaha"/>
         </div>
       </div>
     </div>
