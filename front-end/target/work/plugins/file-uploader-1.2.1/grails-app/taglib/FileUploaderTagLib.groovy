@@ -86,7 +86,7 @@ class FileUploaderTagLib {
 			<input type='hidden' name='errorAction' value='${errorAction}' />
 			<input type='hidden' name='errorController' value='${errorController}' />
 			<input type='hidden' name='successAction' value='${successAction}' />
-			<input type='hidden' name='successController' value='${successController}' />
+			<input type='hidden' name='successController' value='${successController}'/>
 			<input type='file' name='file' />
 			<input type='submit' name='submit' value='Submit'/>
 		"""

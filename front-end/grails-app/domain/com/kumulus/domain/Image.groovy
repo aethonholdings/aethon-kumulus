@@ -13,6 +13,7 @@ class Image {
     UFile file
     boolean thumbnail
     boolean compressed
+    int status
     
     static belongsTo = [page: Page]
     

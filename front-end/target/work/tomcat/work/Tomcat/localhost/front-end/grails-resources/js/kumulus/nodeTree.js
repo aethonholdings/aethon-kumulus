@@ -50,12 +50,21 @@ function refresh_container_information(node) {
         $('#name').val(node.data.title);
         $('#type').val(node.data.type);
         $('#comment').val(node.data.comment);
+        if ($('#uploader')) {
+            $('#uploader').attr('action', '/front-end/fileUploader/process/' + node.data.id);
+            $('#uploader').prop('disabled', false);
+        }
     } else {
         $('#barcode').val('Scan container barcode');
         $('#name').val('Enter name here');
         $('#type').val('');
         $('#comment').val('');
+        if ($('#uploader')) { 
+            $('#uploader').attr('action', '');
+            $('#uploader').prop('disabled', true); 
+        }
     }
+
 }
 
 function delete_node() {
