@@ -15,13 +15,13 @@
   <body>
     <span id="project" projectID="${project.id}"/>  
     <div class="pure-g">
-      <div class="pure-u-1-3">
+      <div class="pure-u-1-6">
         <div class="grid-element"><h3>Archive structure</h3></div>
         <div class="grid-element" style="overflow-y:auto;overflow-x:auto;">
           <div id="nodeTree" class="jstree-draggable"></div>
         </div>
       </div>
-      <div class="pure-u-2-3">
+      <div class="pure-u-1-2">
         <div class="grid-element"><h3>Container information</h3></div>
         <form name="newContainer" action="add" method="POST" class="pure-form pure-form-aligned">
           <fieldset>
@@ -46,12 +46,15 @@
             </div>
           </fieldset>
         </form>
+      </div>
+      <div class="pure-u-1-3">
+        <div class="grid-element"><h3>File upload</h3></div>
         <div id="uploader">
-          <fileuploader:form	upload="image" 
-                              successAction="upload"
+          <fileuploader:form  upload="image" 
+                              successAction="process"
                               successController="image"
                               errorAction="error"
-                              accesskey=""errorController="test"  id="1"/>
+                              errorController="test"  id=""/>
         </div>
       </div>
     </div>

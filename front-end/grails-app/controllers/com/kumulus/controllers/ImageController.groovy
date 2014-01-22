@@ -7,9 +7,14 @@ class ImageController {
 
     def userService
     
-    @Secured(['ROLE_REVIEW'])
+    @Secured(['ROLE_IMPORT'])
     def upload() {
         def project = Project.findById(params?.id)
         if(project.company == userService.getCompany()) render view:"upload", layout:"home", model:[project: project]
+    }
+    
+    @Secured(['ROLE_IMPORT'])
+    def process() {
+        println("hihi")
     }
 }
