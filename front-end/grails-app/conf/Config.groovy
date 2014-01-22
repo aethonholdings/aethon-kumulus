@@ -85,16 +85,6 @@ grails.exceptionresolver.params.exclude = ['password']
 // configure auto-caching of queries by default (if false you can cache individual queries with 'cache: true')
 grails.hibernate.cache.queries = false
 
-environments {
-    development {
-        grails.logging.jul.usebridge = true
-    }
-    production {
-        grails.logging.jul.usebridge = false
-        // TODO: grails.serverURL = "http://www.changeme.com"
-    }
-}
-
 // log4j configuration
 log4j = {
     // Example of changing the log pattern for the default console appender:
@@ -149,15 +139,39 @@ grails.plugin.springsecurity.ldap.search.searchSubtree = true
 grails.plugin.springsecurity.ldap.authorities.groupRoleAttribute = 'cn'
 grails.plugin.springsecurity.ldap.authorities.groupSearchBase = 'ou=groups,dc=ephesoft,dc=com'
 
-// Fileserver configuration ----------------------------
-grails.plugins.fileserver.paths=[
-        "root": "/Users/cocodinos/Documents/Work/11-Aethon/00-Aethon Holdings/01-Projects/01-Bucephalus/05-Software/kumulus/data/filesystem/"
-]
 
-// File uploader configuration --------------------------
-fileuploader {
-	image {
-		allowedExtensions = ["bmp", "png", "pdf", "tiff", "tif"]
-		path = "/Users/cocodinos/Documents/Work/11-Aethon/00-Aethon Holdings/01-Projects/01-Bucephalus/05-Software/kumulus/data/filesystem/staging/"
-	}
+// Kumulus configuration --------------------------
+environments {
+    development {
+        grails.logging.jul.usebridge = true
+        grails.serverURL
+        filesystem.staging = "/Users/cocodinos/Documents/Work/11-Aethon/00-Aethon Holdings/01-Projects/01-Bucephalus/05-Software/kumulus/data/filesystem/staging/"
+        filesystem.main = "/Users/cocodinos/Documents/Work/11-Aethon/00-Aethon Holdings/01-Projects/01-Bucephalus/05-Software/kumulus/data/filesystem/main/"
+        // plugins
+        grails.plugins.fileserver.paths=["root": "/Users/cocodinos/Documents/Work/11-Aethon/00-Aethon Holdings/01-Projects/01-Bucephalus/05-Software/kumulus/data/filesystem/main/"]
+        fileuploader {
+            image {
+                allowedExtensions = ["bmp", "png", "pdf", "tiff", "tif"]
+                path = "/Users/cocodinos/Documents/Work/11-Aethon/00-Aethon Holdings/01-Projects/01-Bucephalus/05-Software/kumulus/data/filesystem/staging/"
+            }
+        }
+        // grails.serverURL = "http://localhost:8080/"
+    }
+    
+    test {
+        // grails.serverURL = "http://test.llamrei.sg:8080"
+        
+    }
+    
+    production {
+        grails.logging.jul.usebridge = false
+        // TODO: grails.serverURL = "http://www.changeme.com"
+        
+    }
 }
+
+// Fileserver plugin configuration ----------------------------
+
+
+// File uploader plugin configuration --------------------------
+

@@ -4,7 +4,6 @@ import com.lucastex.grails.fileuploader.UFile
 
 class Image {
 
-    static final int STAGED = 1
     static final int IMPORTED = 2
     static final int FINAL = 3
     
