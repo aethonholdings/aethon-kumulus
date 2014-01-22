@@ -4,12 +4,11 @@ class Task {
 
     String userId
     Date created
+    Document document
     long status
     String batchInstanceID
     String batchInstanceUrlId
     String literal
-
-    static hasMany= [taskItems: TaskItem]
     
     static constraints = {
         created nullable: false
