@@ -68,7 +68,7 @@ class FileUploaderController {
 		
 		//reaches here if file.size is smaller or equal config.maxSize or if config.maxSize ain't configured (in this case
 		//plugin will accept any size of files).
-		
+
 		//sets new path
 		def currentTime = System.currentTimeMillis()
 		path = path+currentTime+"/"
