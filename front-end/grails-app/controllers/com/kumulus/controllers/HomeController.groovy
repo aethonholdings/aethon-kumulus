@@ -24,6 +24,12 @@ class HomeController {
         def projectList = userService.getProjects([status: "A"])
         render view:"collect", layout:"home", model:[pageTitle: "Collect archive documents", projects: projectList]
     }
+   
+    @Secured(['ROLE_IMPORT'])
+    def upload() {
+        def projectList = userService.getProjects([status: "A"])
+        render view:"upload", layout:"home", model:[pageTitle: "Import scan images", projects: projectList]
+    }
     
     @Secured(['ROLE_EXTRACT'])
     def extract() { 
@@ -33,7 +39,7 @@ class HomeController {
     
     @Secured(['ROLE_REVIEW'])
     def review() { 
-        def model = 
+        
         render view:"review", layout:"home", model: [pageTitle: "Pending data review tasks", tasks: userService.getTasks()]
     }
     

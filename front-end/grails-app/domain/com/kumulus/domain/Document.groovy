@@ -1,5 +1,7 @@
 package com.kumulus.domain
 
+import com.lucastex.grails.fileuploader.UFile
+
 class Document {
 
     static final int EDITABLE = 1
@@ -8,10 +10,10 @@ class Document {
     String type
     Company company
     Date date
-    File file
     String literal
     String identifier
     Byte status
+    UFile file
     
     static hasMany= [pages: Page]
     

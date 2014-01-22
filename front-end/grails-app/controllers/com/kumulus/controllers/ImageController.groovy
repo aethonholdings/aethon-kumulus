@@ -5,8 +5,11 @@ import com.kumulus.domain.*
 
 class ImageController {
 
+    def userService
+    
     @Secured(['ROLE_REVIEW'])
-    def upload() { 
-        render view:"upload", layout:"home"
+    def upload() {
+        def project = Project.findById(params?.id)
+        if(project.company == userService.getCompany()) render view:"upload", layout:"home", model:[project: project]
     }
 }

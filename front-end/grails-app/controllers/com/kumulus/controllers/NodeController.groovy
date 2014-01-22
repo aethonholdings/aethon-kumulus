@@ -35,7 +35,6 @@ class NodeController {
     }
     
     def update() {
-        // this is not secured at user permission level yet
         def data = request.JSON
         def node = Nodes.findById(data?.id)
         if (node?.project.company == userService.getCompany()) {
@@ -46,7 +45,7 @@ class NodeController {
     
     // need to move a lot of this code into service
     def insert() {
-        // this is not secured at user permission level yet
+        
         def data = request.JSON
         def response = [done: false, message: "Error"]
         def project = Project.findById(data?.project)
