@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.6.10)
 # Database: kumulus
-# Generation Time: 2014-01-22 02:01:08 +0000
+# Generation Time: 2014-01-22 10:07:34 +0000
 # ************************************************************
 
 
@@ -143,6 +143,7 @@ CREATE TABLE `image` (
   `width` bigint(20) NOT NULL,
   `thumbnail` bit(1) NOT NULL,
   `compressed` bit(1) NOT NULL,
+  `status` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FK5FAA95BB86FDCA1` (`file_id`),
   KEY `FK5FAA95BD24E14D9` (`file_id`),
@@ -342,9 +343,12 @@ CREATE TABLE `task` (
   `batch_instance_url_id` varchar(5) DEFAULT NULL,
   `batch_instanceid` varchar(255) NOT NULL,
   `literal` varchar(255) NOT NULL,
+  `document_id` bigint(20) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `batch_instance_id_UNIQUE` (`batch_instance_id`),
-  KEY `fk_4_idx` (`status`)
+  KEY `fk_4_idx` (`status`),
+  KEY `FK363585237BB8C1` (`document_id`),
+  CONSTRAINT `FK363585237BB8C1` FOREIGN KEY (`document_id`) REFERENCES `document` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
@@ -364,26 +368,6 @@ CREATE TABLE `task_history` (
   KEY `fk_1_idx` (`task_id`),
   KEY `fk_3_idx` (`task_id`),
   CONSTRAINT `fk_3` FOREIGN KEY (`task_id`) REFERENCES `task` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
-
-
-# Dump of table task_item
-# ------------------------------------------------------------
-
-DROP TABLE IF EXISTS `task_item`;
-
-CREATE TABLE `task_item` (
-  `id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `version` bigint(20) NOT NULL,
-  `page_id` bigint(20) NOT NULL,
-  `sequence` bigint(20) NOT NULL,
-  `task_id` bigint(20) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `FKAC3A98D8FCBF401` (`task_id`),
-  KEY `FKAC3A98DBB855FC1` (`page_id`),
-  CONSTRAINT `FKAC3A98DBB855FC1` FOREIGN KEY (`page_id`) REFERENCES `page` (`id`),
-  CONSTRAINT `FKAC3A98D8FCBF401` FOREIGN KEY (`task_id`) REFERENCES `task` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 

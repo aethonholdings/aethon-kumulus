@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.6.10)
 # Database: kumulus
-# Generation Time: 2014-01-22 02:06:58 +0000
+# Generation Time: 2014-01-22 10:08:13 +0000
 # ************************************************************
 
 
@@ -100,20 +100,6 @@ UNLOCK TABLES;
 # Dump of table image
 # ------------------------------------------------------------
 
-LOCK TABLES `image` WRITE;
-/*!40000 ALTER TABLE `image` DISABLE KEYS */;
-
-INSERT INTO `image` (`id`, `version`, `file_id`, `height`, `width`, `thumbnail`, `compressed`)
-VALUES
-	(1,0,4,472,328,1,0),
-	(2,0,5,468,334,1,0),
-	(3,0,6,2338,1652,0,0),
-	(4,0,7,2338,1652,0,0),
-	(5,0,8,2338,1652,0,1),
-	(6,0,9,2338,1652,0,1);
-
-/*!40000 ALTER TABLE `image` ENABLE KEYS */;
-UNLOCK TABLES;
 
 
 # Dump of table line_item
@@ -193,11 +179,6 @@ UNLOCK TABLES;
 
 
 # Dump of table task_history
-# ------------------------------------------------------------
-
-
-
-# Dump of table task_item
 # ------------------------------------------------------------
 
 
