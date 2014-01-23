@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.6.10)
 # Database: kumulus
-# Generation Time: 2014-01-23 05:51:11 +0000
+# Generation Time: 2014-01-23 06:03:50 +0000
 # ************************************************************
 
 
@@ -22,6 +22,8 @@
 
 # Dump of table application_parameter
 # ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `application_parameter`;
 
 CREATE TABLE `application_parameter` (
   `param_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -39,6 +41,8 @@ CREATE TABLE `application_parameter` (
 # Dump of table application_tot
 # ------------------------------------------------------------
 
+DROP TABLE IF EXISTS `application_tot`;
+
 CREATE TABLE `application_tot` (
   `object_type` varchar(45) DEFAULT NULL,
   `object_name` varchar(45) DEFAULT NULL,
@@ -49,6 +53,8 @@ CREATE TABLE `application_tot` (
 
 # Dump of table attendance
 # ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `attendance`;
 
 CREATE TABLE `attendance` (
   `attendance_id` int(11) NOT NULL AUTO_INCREMENT,
@@ -71,6 +77,8 @@ CREATE TABLE `attendance` (
 # Dump of table company
 # ------------------------------------------------------------
 
+DROP TABLE IF EXISTS `company`;
+
 CREATE TABLE `company` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `version` bigint(20) NOT NULL,
@@ -82,6 +90,8 @@ CREATE TABLE `company` (
 
 # Dump of table currency
 # ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `currency`;
 
 CREATE TABLE `currency` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -95,6 +105,8 @@ CREATE TABLE `currency` (
 
 # Dump of table document
 # ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `document`;
 
 CREATE TABLE `document` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -117,6 +129,8 @@ CREATE TABLE `document` (
 # Dump of table image
 # ------------------------------------------------------------
 
+DROP TABLE IF EXISTS `image`;
+
 CREATE TABLE `image` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `version` bigint(20) NOT NULL,
@@ -125,7 +139,6 @@ CREATE TABLE `image` (
   `height` bigint(20) NOT NULL,
   `thumbnail` bit(1) NOT NULL,
   `width` bigint(20) NOT NULL,
-  `scan_batch_id` bigint(20) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `FK5FAA95BD24E14D9` (`file_id`),
   CONSTRAINT `FK5FAA95BD24E14D9` FOREIGN KEY (`file_id`) REFERENCES `ufile` (`id`)
@@ -135,6 +148,8 @@ CREATE TABLE `image` (
 
 # Dump of table line_item
 # ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `line_item`;
 
 CREATE TABLE `line_item` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -157,6 +172,8 @@ CREATE TABLE `line_item` (
 
 # Dump of table nodes
 # ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `nodes`;
 
 CREATE TABLE `nodes` (
   `node_id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -184,6 +201,8 @@ CREATE TABLE `nodes` (
 # Dump of table page
 # ------------------------------------------------------------
 
+DROP TABLE IF EXISTS `page`;
+
 CREATE TABLE `page` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `version` bigint(20) NOT NULL,
@@ -193,28 +212,34 @@ CREATE TABLE `page` (
   `literal` varchar(255) NOT NULL,
   `node_id` bigint(20) NOT NULL,
   `number` bigint(20) NOT NULL,
-  `scan_image_id` bigint(20) DEFAULT NULL,
-  `thumbnail_image_id` bigint(20) DEFAULT NULL,
-  `view_image_id` bigint(20) DEFAULT NULL,
+  `scan_batch_id` bigint(20) NOT NULL,
+  `scan_image_id` bigint(20) NOT NULL,
+  `thumbnail_image_id` bigint(20) NOT NULL,
+  `view_image_id` bigint(20) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `scan_image_id` (`scan_image_id`),
   UNIQUE KEY `thumbnail_image_id` (`thumbnail_image_id`),
   UNIQUE KEY `view_image_id` (`view_image_id`),
   KEY `FK34628FFFD95FA2` (`node_id`),
   KEY `FK34628F237BB8C1` (`document_id`),
+  KEY `FK34628F1E4C2278` (`scan_batch_id`),
   KEY `FK34628F8332BA46` (`thumbnail_image_id`),
   KEY `FK34628FD477F7D5` (`scan_image_id`),
   KEY `FK34628FB852B0AD` (`view_image_id`),
   CONSTRAINT `FK34628FB852B0AD` FOREIGN KEY (`view_image_id`) REFERENCES `image` (`id`),
+  CONSTRAINT `FK34628F1E4C2278` FOREIGN KEY (`scan_batch_id`) REFERENCES `scan_batch` (`id`),
   CONSTRAINT `FK34628F237BB8C1` FOREIGN KEY (`document_id`) REFERENCES `document` (`id`),
   CONSTRAINT `FK34628F8332BA46` FOREIGN KEY (`thumbnail_image_id`) REFERENCES `image` (`id`),
-  CONSTRAINT `FK34628FD477F7D5` FOREIGN KEY (`scan_image_id`) REFERENCES `image` (`id`)
+  CONSTRAINT `FK34628FD477F7D5` FOREIGN KEY (`scan_image_id`) REFERENCES `image` (`id`),
+  CONSTRAINT `FK34628FFFD95FA2` FOREIGN KEY (`node_id`) REFERENCES `nodes` (`node_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
 
 # Dump of table param_names
 # ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `param_names`;
 
 CREATE TABLE `param_names` (
   `param` varchar(20) NOT NULL,
@@ -225,6 +250,8 @@ CREATE TABLE `param_names` (
 
 # Dump of table project
 # ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `project`;
 
 CREATE TABLE `project` (
   `project_id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -246,6 +273,8 @@ CREATE TABLE `project` (
 # Dump of table project_line_item
 # ------------------------------------------------------------
 
+DROP TABLE IF EXISTS `project_line_item`;
+
 CREATE TABLE `project_line_item` (
   `project_line_items_id` bigint(20) DEFAULT NULL,
   `line_item_id` bigint(20) DEFAULT NULL,
@@ -260,6 +289,8 @@ CREATE TABLE `project_line_item` (
 # Dump of table role
 # ------------------------------------------------------------
 
+DROP TABLE IF EXISTS `role`;
+
 CREATE TABLE `role` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `version` bigint(20) NOT NULL,
@@ -273,6 +304,8 @@ CREATE TABLE `role` (
 # Dump of table scan_batch
 # ------------------------------------------------------------
 
+DROP TABLE IF EXISTS `scan_batch`;
+
 CREATE TABLE `scan_batch` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `version` bigint(20) NOT NULL,
@@ -285,6 +318,8 @@ CREATE TABLE `scan_batch` (
 
 # Dump of table task
 # ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `task`;
 
 CREATE TABLE `task` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -306,6 +341,8 @@ CREATE TABLE `task` (
 # Dump of table ufile
 # ------------------------------------------------------------
 
+DROP TABLE IF EXISTS `ufile`;
+
 CREATE TABLE `ufile` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
   `version` bigint(20) NOT NULL,
@@ -322,6 +359,8 @@ CREATE TABLE `ufile` (
 
 # Dump of table user
 # ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `user`;
 
 CREATE TABLE `user` (
   `id` bigint(20) NOT NULL AUTO_INCREMENT,
@@ -350,6 +389,8 @@ CREATE TABLE `user` (
 
 # Dump of table user_role
 # ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `user_role`;
 
 CREATE TABLE `user_role` (
   `role_id` bigint(20) NOT NULL,

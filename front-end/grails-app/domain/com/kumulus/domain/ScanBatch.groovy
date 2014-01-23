@@ -6,5 +6,6 @@ class ScanBatch {
     Date timestamp
     
     static constraints = {
+        
     }
 }

@@ -10,7 +10,7 @@ class Page {
     Image viewImage
     Image thumbnailImage
     
-    static belongsTo = [node: Nodes, document: Document]
+    static belongsTo = [node: Nodes, document: Document, scanBatch: ScanBatch]
     static hasMany = [lineItems: LineItem]
     
     static constraints = {

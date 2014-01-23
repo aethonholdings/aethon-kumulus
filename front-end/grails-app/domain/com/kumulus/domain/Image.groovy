@@ -10,7 +10,7 @@ class Image {
     boolean thumbnail
     boolean compressed
     
-    static belongsTo = [page: Page, scanBatch: ScanBatch]
+    static belongsTo = [page: Page]
     
     static constraints = {
         
