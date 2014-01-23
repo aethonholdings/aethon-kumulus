@@ -79,10 +79,15 @@ class KumulusTagLib {
             outputHeight = Math.round(width*imgRatio)
             outputWidth = width
         }
-        out << "<img id='${attrs?.page.literal}'"
-        out << "src='${request.contextPath}/download/root/${image.file.path}/${image.file.name}' "
-        out << "height='${outputHeight}' width='${outputWidth}' class='kumulus-thumbnail'"
-        out << "onClick='selectPage(this);'>"
+        kimage(attrs?.page.literal, image, outputHeight, outputWidth, attrs?.class)
+    }
+    
+    def kimage = { id, image, height, width, classString ->
+        out << "<img id='${id}'"
+        out << "src='${request.contextPath}/image/get/${image.id}' "
+        out << "height='${height}' width='${width}' "
+        if(classString) out << "class='${classString}' "
+        out << "onClick='selectPage(this);'>"                
     }
     
     def taskDescription = { attrs, body ->

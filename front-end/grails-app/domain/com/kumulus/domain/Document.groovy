@@ -15,10 +15,11 @@ class Document {
     Byte status
     UFile file
     
-    static hasMany= [pages: Page]
+    static hasMany = [pages: Page]
+    static belongsTo = [project: Project]
     
     static mapping = {
-        version false
+
     }
     
     static constraints = {

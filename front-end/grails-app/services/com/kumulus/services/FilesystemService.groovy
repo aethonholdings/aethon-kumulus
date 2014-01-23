@@ -48,7 +48,8 @@ class FilesystemService {
                 company: null,
                 date: null,
                 literal: literal,
-                file: null
+                file: null,
+                project: parentNode.project
                 )
             document.save()
             

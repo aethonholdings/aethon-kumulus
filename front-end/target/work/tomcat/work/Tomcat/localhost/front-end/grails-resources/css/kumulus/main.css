@@ -47,7 +47,33 @@
     bottom: 0px;
 }
 
-/* controls */
+/* document builder */
 .kumulus-thumbnail-sortable {
-    list-style-type: none; 
+    border:1px solid #021a40;
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+#kumulus-document-builder-filmstrip {
+    border:1px solid #021a40;
+    margin-right: 10px;
+    height: 600px;
+    overflow-y: auto;
+}
+
+#kumulus-document-build-pane {
+    border:1px solid #021a40;
+    margin-left: 10px;
+    height: 600px;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+
+.kumulus-filmstrip {
+    list-style-type:none;
+    padding: 0;
+    text-align: center;
+    display: block;
 }
