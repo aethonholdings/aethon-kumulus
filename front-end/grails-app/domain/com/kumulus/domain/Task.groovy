@@ -3,8 +3,8 @@ package com.kumulus.domain
 class Task {
 
     // type enum constants
-    static final byte CREATE_DOCUMENT = 1
-    static final byte PROCESS_DOCUMENT = 2
+    static final byte BUILD_DOCUMENT = 1
+    static final byte OCR_DOCUMENT = 2
     static final byte REVIEW_DOCUMENT = 3
     
     // status enum constants

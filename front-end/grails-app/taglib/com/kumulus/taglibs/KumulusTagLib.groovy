@@ -1,5 +1,7 @@
 package com.kumulus.taglibs
 
+import com.kumulus.domain.*
+
 class KumulusTagLib {
     static defaultEncodeAs = 'text'
     //static encodeAsForTags = [tagName: 'raw']
@@ -81,6 +83,20 @@ class KumulusTagLib {
         out << "src='${request.contextPath}/download/root/${image.file.path}/${image.file.name}' "
         out << "height='${outputHeight}' width='${outputWidth}' class='kumulus-thumbnail'"
         out << "onClick='selectPage(this);'>"
+    }
+    
+    def taskDescription = { attrs, body ->
+        switch(attrs?.task.type) {
+            case(Task.BUILD_DOCUMENT):
+                out << "Build document"
+                break
+            case(Task.OCR_DOCUMENT):
+                out << "OCR document"
+                break
+            case(Task.REVIEW_DOCUMENT):
+                out << "Review document"
+                break
+        }
     }
     
 }

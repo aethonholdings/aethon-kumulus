@@ -14,11 +14,26 @@ class HomeController {
     }
 
     @Secured(['ROLE_MANAGE'])
+    def order() { 
+
+    }
+    
+    @Secured(['ROLE_MANAGE'])
     def manage() { 
         def projectList = userService.getProjects([status: "A"])
         redirect controller: "project", action:"list"
     }
+
+    @Secured(['ROLE_MANAGE'])
+    def download() { 
+        
+    }
     
+    @Secured(['ROLE_ACCESS'])
+    def access() { 
+        render view:"access", layout:"home", model:[pageTitle: "Access archive"]
+    }
+
     @Secured(['ROLE_COLLECT'])
     def collect() {
         def projectList = userService.getProjects([status: "A"])
@@ -32,26 +47,25 @@ class HomeController {
     }
     
     @Secured(['ROLE_IMPORT'])
-    def create() {
-        
+    def build() {
+        redirect controller:"document", action:"build"
+    }
+    
+    @Secured(['ROLE_IMPORT'])
+    def pickup() {
         
     }
     
     @Secured(['ROLE_EXTRACT'])
     def process() { 
-        def projectList = userService.getProjects([status: "A"])
-        render view:"extract", layout:"home", model:[pageTitle: "Extract ledger", projects: projectList]
+        redirect controller:"task", action:"list", params:[type:"ocr", title:"Process documents"]
     }
     
     @Secured(['ROLE_REVIEW'])
     def review() { 
-        
-        render view:"review", layout:"home", model: [pageTitle: "Pending data review tasks", tasks: userService.getTasks()]
+        redirect controller:"task", action:"list", params:[type:"review", title:"Review documents"]
     }
     
-    @Secured(['ROLE_ACCESS'])
-    def access() { 
-        render view:"access", layout:"home", model:[pageTitle: "Access archive"]
-    }
+
     
 }
