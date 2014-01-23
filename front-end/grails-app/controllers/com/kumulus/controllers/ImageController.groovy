@@ -19,7 +19,9 @@ class ImageController {
     
     @Secured(['ROLE_IMPORT'])
     def process() {
-        filesystemService.processUploadFile(Nodes.findById(params?.id), UFile.findById(params?.ufileId))
+        def scanBatch = new ScanBatch(userId: userService.getUsername(), timestamp: new Date())
+        scanBatch.save()
+        filesystemService.processUploadFile(Nodes.findById(params?.id), UFile.findById(params?.ufileId), scanBatch)
         redirect action:"upload", params:[id: 1]        
     }
 }

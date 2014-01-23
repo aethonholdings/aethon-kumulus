@@ -18,8 +18,8 @@ class FilesystemService {
         return(literal)
     }
     
-    def processUploadFile(parentNode, uFile) {
-        if(parentNode && uFile) {
+    def processUploadFile(parentNode, uFile, scanBatch) {
+        if(parentNode && uFile && scanBatch) {
             
             // define the necessary paths and files
             def literal = generateLiteral()
@@ -56,7 +56,7 @@ class FilesystemService {
                 userId: userId,
                 created: timestamp,
                 document: document,
-                type: Task.CREATE_DOCUMENT,
+                type: Task.BUILD_DOCUMENT,
                 status: 0
             )
             task.save()
@@ -81,7 +81,8 @@ class FilesystemService {
                 literal: literal,
                 lineItems: [],
                 node: node, 
-                document: document
+                document: document,
+                scanBatch: scanBatch
             )
                                     
             // now move the image files to the main filesystem and generate the relevant images and UFiles
