@@ -57,37 +57,37 @@ class KumulusTagLib {
         }
     }
     
-    def thumbnail = { attrs, body ->
+    def kumulusImg = { attrs ->
         
-        def image = attrs?.page?.thumbnailImage
-        def imgHeight = new java.math.BigDecimal(image.height)
-        def imgWidth = new java.math.BigDecimal(image.width)
-        def imgRatio = imgHeight/imgWidth
-        
-        def height = new java.math.BigDecimal(attrs?.height)
-        def width = new java.math.BigDecimal(attrs?.width)
-        
-        def outputHeight
-        def outputWidth
-        
-        if(height/width>imgRatio) {
-            // height is the constraint
-            outputHeight = height
-            outputWidth = Math.round(height/imgRatio)
-        } else {
-            // width is the constraint
-            outputHeight = Math.round(width*imgRatio)
-            outputWidth = width
+        if(attrs.image) {
+            
+            def imgHeight = new java.math.BigDecimal(attrs.image.height)
+            def imgWidth = new java.math.BigDecimal(attrs.image.width)
+            def imgRatio = imgHeight/imgWidth
+
+            def height = new java.math.BigDecimal(attrs?.height)
+            def width = new java.math.BigDecimal(attrs?.width)
+
+            def outputHeight
+            def outputWidth
+
+            if(height/width>imgRatio) {
+                // height is the constraint
+                outputHeight = height
+                outputWidth = Math.round(height/imgRatio)
+            } else {
+                // width is the constraint
+                outputHeight = Math.round(width*imgRatio)
+                outputWidth = width
+            }
+
+            out << "<img "
+            attrs.each { key, value ->
+                if(key!="image") out << key << "='${value}' "
+            }
+            out << "src='${request.contextPath}/image/get/${attrs.image.id}' "
+            out << "/>"
         }
-        kimage(attrs?.page.literal, image, outputHeight, outputWidth, attrs?.class)
-    }
-    
-    def kimage = { id, image, height, width, classString ->
-        out << "<img id='${id}'"
-        out << "src='${request.contextPath}/image/get/${image.id}' "
-        out << "height='${height}' width='${width}' "
-        if(classString) out << "class='${classString}' "
-        out << "onClick='selectPage(this);'>"                
     }
     
     def taskDescription = { attrs, body ->
