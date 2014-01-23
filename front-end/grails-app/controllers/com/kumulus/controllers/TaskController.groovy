@@ -10,8 +10,11 @@ class TaskController {
     def review() {
         def pages = []   
         def task = Task.findById(params?.id)
-        TaskItem.findAllByTask(task, [sort: "sequence", order: "asc"]).each { pages.add it.page }
         render view:"review", layout:"home", model:[pages: pages]
+    }
+    
+    def list() {
+        
     }
     
     

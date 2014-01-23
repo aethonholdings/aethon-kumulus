@@ -20,10 +20,12 @@
             <li><g:link controller='home' action='index'>Home</g:link></li>
             <li><a href=''>Order materials</a></li>
             <li><g:link controller='home' action='manage'>Manage projects</g:link></li>
-            <li><g:link controller='home' action='collect'>Collect documents</g:link></li>
-            <li><g:link controller='home' action='upload'>Upload documents</g:link></li>
-            <li><g:link controller='home' action='review'>Process documents</g:link></li>
-            <li><g:link controller='home' action='extract'>Download ledger</g:link></li>
+            <li><g:link controller='home' action='collect'>Collect paperwork</g:link></li>
+            <li><g:link controller='home' action='upload'>Upload scans</g:link></li>
+            <li><g:link controller='home' action='create'>Create documents</g:link></li>
+            <li class='menu-item-divided'><g:link controller='home' action='process'>Process documents</g:link></li>
+            <li class='menu-item-divided'><g:link controller='home' action='review'>Review documents</g:link></li>
+            <li><g:link controller='home' action='extract'>Download transactions</g:link></li>
             <li><a href=''>Schedule pickup</a></li>
             <li><g:link controller='home' action='access'>Access archive</g:link></li>
             <li class='menu-item-divided'><a href=''>Manage account</a></li>

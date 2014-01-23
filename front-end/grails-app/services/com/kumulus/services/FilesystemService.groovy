@@ -51,6 +51,15 @@ class FilesystemService {
                 file: null
                 )
             document.save()
+            
+            def task = new Task(
+                userId: userId,
+                created: timestamp,
+                document: document,
+                type: Task.CREATE_DOCUMENT,
+                status: 0
+            )
+            task.save()
 
             def node = new Nodes(
                 name: literal,
