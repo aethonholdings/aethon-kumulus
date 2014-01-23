@@ -10,6 +10,7 @@ import com.lucastex.grails.fileuploader.UFile
 class FilesystemService {
     
     def grailsApplication
+    def userService  // push this to controllers
     
     def generateLiteral() {
         String literal = System.currentTimeMillis()
@@ -17,14 +18,15 @@ class FilesystemService {
         return(literal)
     }
     
-    def processUploadFile(node, uFile) {
-        if(node && uFile) {
+    def processUploadFile(parentNode, uFile) {
+        if(parentNode && uFile) {
             
             // define the necessary paths and files
             def literal = generateLiteral()
+            def userId = userService.getUsername()
             Date timestamp = new Date()
             File stagingPath = new File(uFile.path.replace(uFile.name, ""))
-            File targetPath = new File(grailsApplication.config.filesystem.main + "/" + node.project.literal + "/pages/" + literal + "/")
+            File targetPath = new File(grailsApplication.config.filesystem.main + "/" + parentNode.project.literal + "/pages/" + literal + "/")
             String tmpName = stagingPath.canonicalPath + "/" + literal
             def imageFiles = [
                 scanImage: new File(tmpName + "-S.tiff"), 
@@ -49,6 +51,19 @@ class FilesystemService {
                 file: null
                 )
             document.save()
+
+            def node = new Nodes(
+                name: literal,
+                type: "P",
+                parent: parentNode,
+                project: parentNode.project,
+                creatorId: userId,
+                lastUpdateId: userId,
+                createDatetime: timestamp,
+                lastUpdateDatetime: timestamp,
+                status: "0"
+                )
+            node.save()
             
             def page = new Page(
                 number: 1,
@@ -67,7 +82,7 @@ class FilesystemService {
                 def targetFile = new File(targetPath.getAbsolutePath() + "/" + value.name)
                 value.renameTo(targetFile)
                 def file = new UFile(
-                    size: value?.length(),
+                    size: targetFile.size(),
                     path: targetFile.getAbsolutePath(),
                     name: targetFile.name,
                     extension: value.name.tokenize('.')?.last(),
@@ -92,8 +107,30 @@ class FilesystemService {
             page.save()
             
             // clean up the staging entities
-            uFile.delete()
+            uFile.delete(flush:true)
             stagingPath.deleteDir() 
         }
     }
+    
+    def newProject(params) {
+        def literal = generateLiteral()
+        
+        
+        // create the necessary directories
+        String path = grailsApplication.config.filesystem.main + literal + "/"
+        File targetPath = new File(path)
+        targetPath.mkdir()
+        targetPath = new File(path + "docs/")
+        targetPath.mkdir()
+        targetPath = new File(path + "pages/")
+        targetPath.mkdir()
+        
+        // create the database instances
+        def client = new Company([name: params?.client])         // NEED TO CHECK THE PREEXISTENCE OF THE COMPANY
+        client.save()
+        def project = new Project([projectName: params?.projectName, comment: params?.comment, status: "A", company: userService.getCompany(), lineItems:[], nodes:[], client: client, literal: literal, path: path])
+        project.save()
+        return(project)
+    }
+   
 }

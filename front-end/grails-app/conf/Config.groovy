@@ -171,8 +171,3 @@ environments {
     }
 }
 
-// Fileserver plugin configuration ----------------------------
-
-
-// File uploader plugin configuration --------------------------
-

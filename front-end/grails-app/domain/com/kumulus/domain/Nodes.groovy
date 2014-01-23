@@ -8,16 +8,10 @@ class Nodes {
     String comment
     String internalComment
     String status
-    String hierarchy
-    String thumbnailImageName
-    String actualImageName
-    String creatorLDAPUid
     String creatorId
     String lastUpdateId
     Date createDatetime
     Date lastUpdateDatetime
-    Integer documentSequenceNumber
-    Boolean uploaded
 
     static belongsTo = [project: Project, parent: Nodes]
 
@@ -34,13 +28,7 @@ class Nodes {
         comment nullable: true, maxSize: 200
         internalComment nullable: true, maxSize: 200
         status nullable: true, maxSize: 10
-        hierarchy nullable: true, maxSize: 200
-        thumbnailImageName nullable: true, maxSize: 1000
-        actualImageName nullable: true, maxSize: 1000
-        creatorLDAPUid nullable: true, maxSize: 45
         createDatetime nullable: true
         lastUpdateDatetime nullable: true
-        documentSequenceNumber nullable: true
-        uploaded nullable: true
     }
 }

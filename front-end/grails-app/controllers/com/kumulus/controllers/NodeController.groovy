@@ -58,17 +58,11 @@ class NodeController {
                 def map = [
                     project: project,
                     parent: parent,
-                    status: 0,
-                    hierarchy: null,
-                    thumbnailImageName: null, 
-                    actualImageName: null,
+                    status: "0",
                     creatorId: springSecurityService.principal.username,
                     createDatetime: new Date(),
                     lastUpdateId: springSecurityService.principal.username,
                     lastUpdateDatetime: new Date(),
-                    documentSequenceNumber: null,
-                    creatorldapuid: springSecurityService.principal.username,
-                    uploaded: false
                 ]
                 bindData(node, map)
                 nodeService.saveNode(node, data?.barcode, data?.name, data?.comment, data?.type, 0)

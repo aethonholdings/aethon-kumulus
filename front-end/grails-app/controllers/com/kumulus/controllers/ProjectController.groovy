@@ -9,6 +9,7 @@ class ProjectController {
 
     def userService
     def projectService
+    def filesystemService
     def exportService
     
     @Secured(['ROLE_MANAGE'])
@@ -28,7 +29,7 @@ class ProjectController {
     @Secured(['ROLE_MANAGE'])
     def update() {
         def project = Project.findById(params?.id)
-        if(!project) project = projectService.newProject(params) 
+        if(!project) project = filesystemService.newProject(params) 
         else if(userService.checkPermisions(project))  {
             def client = Company.findById(params?.clientId)
             project.client = client

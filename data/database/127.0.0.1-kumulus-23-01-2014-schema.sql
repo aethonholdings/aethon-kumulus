@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.6.10)
 # Database: kumulus
-# Generation Time: 2014-01-22 16:30:55 +0000
+# Generation Time: 2014-01-23 02:35:00 +0000
 # ************************************************************
 
 
@@ -177,29 +177,24 @@ DROP TABLE IF EXISTS `nodes`;
 
 CREATE TABLE `nodes` (
   `node_id` bigint(20) NOT NULL AUTO_INCREMENT,
-  `project_id` bigint(20) NOT NULL,
-  `actual_image_name` longtext,
   `barcode` varchar(45) DEFAULT NULL,
   `comment` varchar(200) DEFAULT NULL,
   `create_datetime` datetime DEFAULT NULL,
   `creator_id` varchar(255) NOT NULL,
-  `creatorldapuid` varchar(45) DEFAULT NULL,
-  `document_sequence_number` int(11) DEFAULT NULL,
-  `hierarchy` varchar(200) DEFAULT NULL,
   `internal_comment` varchar(200) DEFAULT NULL,
   `last_update_datetime` datetime DEFAULT NULL,
   `last_update_id` varchar(255) NOT NULL,
   `name` varchar(45) DEFAULT NULL,
   `parent_node_id` bigint(20) DEFAULT NULL,
+  `project_id` bigint(20) NOT NULL,
   `status` varchar(10) DEFAULT NULL,
-  `thumbnail_image_name` longtext,
   `type` varchar(45) DEFAULT NULL,
   `uploaded` bit(1) DEFAULT NULL,
   PRIMARY KEY (`node_id`),
   KEY `FK64212B14D5E1553` (`project_id`),
   KEY `FK64212B1EFDC50D` (`parent_node_id`),
-  CONSTRAINT `FK64212B14D5E1553` FOREIGN KEY (`project_id`) REFERENCES `project` (`project_id`),
-  CONSTRAINT `FK64212B1EFDC50D` FOREIGN KEY (`parent_node_id`) REFERENCES `nodes` (`node_id`)
+  CONSTRAINT `FK64212B1EFDC50D` FOREIGN KEY (`parent_node_id`) REFERENCES `nodes` (`node_id`),
+  CONSTRAINT `FK64212B14D5E1553` FOREIGN KEY (`project_id`) REFERENCES `project` (`project_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
@@ -233,8 +228,7 @@ CREATE TABLE `page` (
   CONSTRAINT `FK34628FB852B0AD` FOREIGN KEY (`view_image_id`) REFERENCES `image` (`id`),
   CONSTRAINT `FK34628F237BB8C1` FOREIGN KEY (`document_id`) REFERENCES `document` (`id`),
   CONSTRAINT `FK34628F8332BA46` FOREIGN KEY (`thumbnail_image_id`) REFERENCES `image` (`id`),
-  CONSTRAINT `FK34628FD477F7D5` FOREIGN KEY (`scan_image_id`) REFERENCES `image` (`id`),
-  CONSTRAINT `FK34628FFFD95FA2` FOREIGN KEY (`node_id`) REFERENCES `nodes` (`node_id`)
+  CONSTRAINT `FK34628FD477F7D5` FOREIGN KEY (`scan_image_id`) REFERENCES `image` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
@@ -264,6 +258,7 @@ CREATE TABLE `project` (
   `company` varchar(255) NOT NULL,
   `client_id` bigint(20) NOT NULL,
   `literal` varchar(255) NOT NULL,
+  `path` varchar(255) NOT NULL,
   PRIMARY KEY (`project_id`),
   UNIQUE KEY `project_name` (`project_name`),
   KEY `FKED904B199C6248C5` (`client_id`),
