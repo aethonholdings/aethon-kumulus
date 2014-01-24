@@ -23,16 +23,19 @@ class DocumentController {
     
     @Secured(['ROLE_IMPORT'])
     def merge() {
-            
+        
         def data = request.JSON
+        Document mergedDocument
         def documents = []
         data?.documents.each {
             // NEED PERMISSIONS CHECKS HERE, AGAINST THE TASKS
             def document = Document.findById(it)
             documents.add(document)
         }
-        documentService.merge(documents)
-        
+        mergedDocument = documentService.merge(documents)
+        if(mergedDocument) documentService.createTask(document, Task.OCR_DOCUMENT, Task.READY_FOR_BATCH_INSTANCE)
+        def response = [done: true]
+        render response as JSON
     }
 
 }
