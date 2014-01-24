@@ -6,7 +6,9 @@
   <body>
     <div id="kumulus-document-builder">
       <div class="kumulus-container">
-        <div id="preview" scanId="" class="kumulus-preview"></div>
+        <div class="kumulus-preview">
+          <img id="preview-img" scanId="" class="kumulus-element-border">
+        </div>
       </div>
       <div class="kumulus-container kumulus-element-border">
         <div id="page-strip" class="kumulus-filmstrip">
