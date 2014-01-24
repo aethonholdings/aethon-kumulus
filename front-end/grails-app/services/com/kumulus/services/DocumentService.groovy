@@ -72,7 +72,7 @@ class DocumentService {
         def task = new Task(
             document: document,
             created: new Date(),
-            userId: userService.getUsername,
+            userId: userService.getUsername(),
             type: taskType, 
             status: status
         )
