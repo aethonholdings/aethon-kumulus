@@ -2,6 +2,7 @@ package com.kumulus.controllers
 
 import grails.plugin.springsecurity.annotation.Secured
 import com.kumulus.domain.*
+import grails.converters.*
 
 class DocumentController {
 
@@ -17,6 +18,13 @@ class DocumentController {
             }
         }
         render view: "build", layout: "home", model: [documents: documentList]
+    }
+    
+    @Secured(['ROLE_IMPORT'])
+    def merge() {
+        def data = request.JSON
+        
+        
     }
 
 }

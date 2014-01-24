@@ -1,7 +1,9 @@
 $(document).ready(function(){
-    $( "#pages, #documents" ).sortable({
-        connectWith: ".connectedSortable"
-    }).disableSelection();
+    $("#pages, #documents").sortable({
+        connectWith: ".connectedSortable",
+        dropOnEmpty: true
+    })
+    $("#pages, #documents").disableSelection();
 });
 
 function selectPage(pageImage){
@@ -9,7 +11,7 @@ function selectPage(pageImage){
     var viewImageId = pageImage.getAttribute('viewId');
     var previewImage = $('#preview-img');
     previewImage.hide();
-    previewImage.attr('src', url(viewImageId));
+    previewImage.attr('src', url('image', 'get', viewImageId));
     // need to bind to DOM object in order to ensure load event binding works
     previewImage.load(function(){
         scaleImage(previewImage);
@@ -48,10 +50,33 @@ function scaleImage(image) {
 
 function zoom() {
     var image = $('#preview-img');
-    window.open(url(image.attr('alt')));
+    window.open(url('image', 'get', image.attr('alt')));
 }
 
-function url(imageId) {
-    return('/front-end/image/get/' + imageId)
+function save() {
+    var documents = $('#documents li');
+    var documentIds = [];
+    documents.each(function(i, li){
+        documentIds.push($(li).attr('documentId'));
+    });
+    if(documents.length>0) {
+        var data = {documents: documentIds};
+        $.ajax({
+            url: url('document', 'merge', ''),
+            type: 'POST',
+            data: JSON.stringify(data),
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            async: false,
+            success: function(data) {
+                alert(done);
+            }
+        });
+    }
+}
+
+function url(controller, action, parameterString){
+    var urlString = '/front-end/' + controller + '/' + action + '/' + parameterString;
+    return(urlString);
 }
     

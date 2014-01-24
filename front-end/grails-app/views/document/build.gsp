@@ -16,7 +16,7 @@
             <ul id="pages" class="connectedSortable">
               <g:each var="document" in="${documents}">
                 <g:each var="page" in="${document.pages}">
-                  <li><g:kumulusImg image="${page.thumbnailImage}" class="kumulus-thumbnail kumulus-element-border" height="140" width="100" onClick="selectPage(this);" viewId="${page.viewImage.id}" scanId="${page.scanImage.id}" documentId="${document.id}"/></li>
+                  <li documentId="${document.id}"><g:kumulusImg image="${page.thumbnailImage}" class="kumulus-thumbnail kumulus-element-border" height="140" width="100" onClick="selectPage(this);" viewId="${page.viewImage.id}" scanId="${page.scanImage.id}"/></li>
                 </g:each>
               </g:each>
             </ul>
@@ -25,13 +25,12 @@
         <div class="kumulus-container kumulus-element-border">
           <div id="document-strip" class="kumulus-filmstrip">
             <ul id="documents" class="connectedSortable">
-              <li></li>
-            </ul>
+            </ul> 
           </div>
         </div>
       </div>
       <div class="kumulus-container">
-        <p><g:link controller="document" action="save" class="pure-button">Save</g:link></p>
+        <p><button class="pure-button" onClick="save();">Save</button></p>
       </div>
     </div>
   </body>
