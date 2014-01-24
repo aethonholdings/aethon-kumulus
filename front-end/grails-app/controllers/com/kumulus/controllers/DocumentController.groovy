@@ -7,6 +7,7 @@ import grails.converters.*
 class DocumentController {
 
     def userService
+    def documentService
     
     @Secured(['ROLE_IMPORT'])
     def build() {
@@ -22,8 +23,15 @@ class DocumentController {
     
     @Secured(['ROLE_IMPORT'])
     def merge() {
+            
         def data = request.JSON
-        
+        def documents = []
+        data?.documents.each {
+            // NEED PERMISSIONS CHECKS HERE, AGAINST THE TASKS
+            def document = Document.findById(it)
+            documents.add(document)
+        }
+        documentService.merge(documents)
         
     }
 
