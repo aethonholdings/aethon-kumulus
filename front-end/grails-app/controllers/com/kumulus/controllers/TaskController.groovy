@@ -27,6 +27,25 @@ class TaskController {
         }
     }
     
+    def listGroupByProject() {
+        def tasksByProject = [:]
+        def projectList = []
+        def taskList = Task.findAllByUserIdAndType(userService.getUsername(), Task.BUILD_DOCUMENT, [sort: "created", order:"asc"])
+        taskList.each { task ->
+            def project = task.document.project
+            if(!tasksByProject.containsKey(project.id)) {
+                def taskGroup = [:]
+                projectList.add(project)
+                taskGroup.put('project', project)
+                taskGroup.put('tasks', [])
+                tasksByProject.put(project.id, taskGroup)
+            }
+            tasksByProject[project.id].tasks.add(task)
+        }
+        
+        render view:"listGroupByProject", layout: "home", model: [tasksByProject: tasksByProject, projectList: projectList, title: params?.title]
+    }
+    
     def perform() {
         if(params?.id) {
             def task = Task.findById(params.id)

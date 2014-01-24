@@ -48,7 +48,7 @@ class HomeController {
     
     @Secured(['ROLE_IMPORT'])
     def build() {
-        redirect controller:"document", action:"build"
+        redirect controller:"task", action:"listGroupByProject"
     }
     
     @Secured(['ROLE_IMPORT'])

@@ -12,10 +12,10 @@ class DocumentController {
     @Secured(['ROLE_IMPORT'])
     def build() {
         def documentList = []
-        def company = userService.getCompany()
-        Project.findAllByCompany(company).each() { project ->
-            Document.findAllByProjectAndStatus(project, Document.EDITABLE).each() { document ->
-                documentList.add document
+        def project = Project.findById(params?.id)
+        if(project) {
+            Task.findAllByUserIdAndType(userService.getUsername(), Task.BUILD_DOCUMENT).each { task ->
+                if(task.document.project==project) documentList.add task.document            
             }
         }
         render view: "build", layout: "home", model: [documents: documentList]
