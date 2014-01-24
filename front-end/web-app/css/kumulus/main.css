@@ -66,7 +66,6 @@
     width: 180px;
     height: 100%;
     margin: 0 auto;
-    
 }
 
 .kumulus-filmstrip ul {
@@ -78,7 +77,10 @@
 .kumulus-filmstrip li {
     height: 160px;
     width: 130px;
-    margin: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+    margin-top: 5px;
     background-color:#b2d1ff;
 }
 

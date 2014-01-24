@@ -1,7 +1,7 @@
 $(document).ready(function(){
-    
-    
-
+    $( "#pages, #documents" ).sortable({
+        connectWith: ".connectedSortable"
+    }).disableSelection();
 });
 
 function selectPage(pageImage){
