@@ -68,8 +68,8 @@ function save() {
             contentType: 'application/json; charset=utf-8',
             dataType: 'json',
             async: false,
-            success: function(data) {
-                alert(done);
+            success: function(response) {
+                if(response.done) $('#documents').empty();
             }
         });
     }

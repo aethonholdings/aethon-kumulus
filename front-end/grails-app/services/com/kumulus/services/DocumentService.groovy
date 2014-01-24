@@ -24,7 +24,6 @@ class DocumentService {
             }
             // should have a break here?
         }
-            
         if(validData && checkProject) {
             if(documents?.size > 1) {
                 // create a new document
@@ -56,15 +55,16 @@ class DocumentService {
 
                 // delete the old documents and tasks
                 documents.each { document ->
-                    Task.findByDocument(document)?.delete()
+                    Task.findByDocumentAndType(document, Task.BUILD_DOCUMENT)?.delete()
                     document.pages = []
                     document.delete()
                 }
+            } else if (documents?.size == 1) {
+                // no processing of the document needed
+                newDocument = documents[0]
+                Task.findByDocumentAndType(newDocument, Task.BUILD_DOCUMENT)?.delete()
             }
-        } else if (documents?.size == 1) {
-            // no processing of the document needed
-            newDocument = documents[0]
-        }
+        } 
         return(newDocument)
     }
     
