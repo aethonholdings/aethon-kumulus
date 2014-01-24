@@ -9,10 +9,11 @@ function selectPage(pageImage){
     var viewImageId = pageImage.getAttribute('viewId');
     var previewImage = $('#preview-img');
     previewImage.hide();
-    previewImage.attr('src', '/front-end/image/get/'+viewImageId);
+    previewImage.attr('src', url(viewImageId));
     // need to bind to DOM object in order to ensure load event binding works
     previewImage.load(function(){
         scaleImage(previewImage);
+        previewImage.attr('alt', viewImageId);
         previewImage.show();
     })  
 }   
@@ -36,16 +37,21 @@ function scaleImage(image) {
     if(containerAspectRatio > sourceAspectRatio) {
         width = containerWidth;
         height = sourceAspectRatio * width;
-
     } else {
         height = containerHeight;
         width = height / sourceAspectRatio;
-
     }
     
     image.height(height);
     image.width(width);
 }
 
-        
+function zoom() {
+    var image = $('#preview-img');
+    window.open(url(image.attr('alt')));
+}
+
+function url(imageId) {
+    return('/front-end/image/get/' + imageId)
+}
     
