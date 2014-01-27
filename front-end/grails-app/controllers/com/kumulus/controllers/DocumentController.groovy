@@ -45,6 +45,8 @@ class DocumentController {
     
     @Secured(['ROLE_PROCESS'])
     def ocr() {
-        render view: "ocr", layout: "home"   
+        def task = Task.findById(params?.id)
+        def document = task.document
+        render view: "ocr", layout: "home", model:[document: document]
     }
 }
