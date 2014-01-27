@@ -46,7 +46,9 @@
             </tr>
           </g:each>
         </tbody>
-      </table>     
-      <p><g:link controller="project" action="create" class="pure-button">Create new</g:link></p>
+      </table>
+      <g:if test="${actions.containsAll("Create")}">
+        <p><g:link controller="project" action="create" class="pure-button">Create new</g:link></p>
+      </g:if>
     </body>
 </html>

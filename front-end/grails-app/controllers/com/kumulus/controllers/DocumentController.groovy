@@ -47,6 +47,7 @@ class DocumentController {
     def ocr() {
         def task = Task.findById(params?.id)
         def document = task.document
+        // SORT BY PAGE NUMBER!
         render view: "ocr", layout: "home", model:[document: document]
     }
 }

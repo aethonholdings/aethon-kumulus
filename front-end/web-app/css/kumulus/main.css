@@ -43,9 +43,7 @@
 
 .kumulus-container {
     height: 550px;
-    margin-left: 5px;
-    margin-right: 5px;
-    text-align:center;
+    margin: 3px;
 }
 
 .kumulus-element-border {
@@ -58,35 +56,30 @@
 
 .kumulus-preview {
     height: 95%;
+    width: 95%;
+    padding: 10px;
+    text-align:center;
+    overflow-y: auto;
 }
 
 .kumulus-filmstrip {
+    background: #eee; 
+    text-align: center;
     overflow-y: auto;
-    width: 150px;
-    height: 100%;
-    margin: 0 auto;
 }
 
 .kumulus-filmstrip ul {
     list-style-type: none;
-    padding: 0;
+    padding: 5px;
     display: block;
     background: #eee; 
-    padding: 5px;
 }
 
 .kumulus-filmstrip li {
-    height: 160px;
-    width: 130px;
-    margin-left: auto;
-    margin-right: auto;
-    margin-bottom: 5px;
-    margin-top: 5px;
-    background-color:#b2d1ff;
+    text-align:center;
 }
 
 .kumulus-thumbnail {
-    display: block;
-    margin: 0 auto;
+    margin: auto;
 }
 

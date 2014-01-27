@@ -19,7 +19,7 @@ class ProjectController {
         switch(params?.type) {
             case "manage":
                 projectList = userService.getProjects()
-                actions = ["Edit", "Delete", "Close"]
+                actions = ["Edit", "Delete", "Close", "Create"]
                 break
             case "download":
                 projectList = userService.getProjects()

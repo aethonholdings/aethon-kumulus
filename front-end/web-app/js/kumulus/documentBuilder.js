@@ -1,8 +1,13 @@
 $(document).ready(function(){
-    $("#pages, #documents").sortable({
-        connectWith: ".connectedSortable",
+    $("#pages").sortable({
+        connectWith: "ul",
         dropOnEmpty: true
-    })
+    });
+    $("#documents").sortable({
+        connectWith: "ul",
+        dropOnEmpty: true
+    });
+    
     $("#pages, #documents").disableSelection();
 });
 
