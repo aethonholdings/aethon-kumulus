@@ -18,7 +18,7 @@
         <textarea id="comment" name="comment" type="text" class="pure-input-1-2" rows="5">${project?.comment}</textarea>
       </div>
       <p>
-        <g:link controller="project" action="list" class="pure-button">Cancel</g:link>
+        <g:link controller="project" action="list" params="[type: 'manage']" class="pure-button">Cancel</g:link>
         <input type="submit" value="Update" class="pure-button pure-button-primary">
       </p>
     </g:form>

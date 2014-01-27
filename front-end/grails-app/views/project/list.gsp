@@ -1,6 +1,6 @@
 <html>
     <head>
-        <title>Manage projects | Kumulus</title>
+        <title>Projects | Kumulus</title>
     </head>
     <body>
       <table class='pure-table' width='100%'>

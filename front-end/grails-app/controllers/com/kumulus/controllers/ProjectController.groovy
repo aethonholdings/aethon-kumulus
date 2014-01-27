@@ -59,7 +59,7 @@ class ProjectController {
             bindData(project, params, [exclude:['client', 'clientId']])
             project.save()
         }
-        redirect action:"list"
+        redirect action:"list", params:[type:"manage"]
     }
     
     @Secured(['ROLE_SUPERVISE'])
@@ -71,7 +71,7 @@ class ProjectController {
     def delete() {
         def project = Project.findById(params?.id)
         if(userService.checkPermisions(project) && project.status == "A") project.delete()
-        redirect action:"list"
+        redirect action:"list", params:[type:"manage"]
     }
     
     @Secured(['ROLE_SUPERVISE'])
@@ -81,7 +81,7 @@ class ProjectController {
             project.status = "D"
             project.save()
         }
-        redirect action:"list"
+        redirect action:"list", params:[type:"manage"]
     }
 
     @Secured(['ROLE_VIEW'])

@@ -4,8 +4,8 @@
     <g:javascript src='kumulus/documentBuilder.js'/>
   </head>
   <body>
-    <div id="kumulus-document-builder">
-      <div class="kumulus-container">
+    <div class="kumulus-work-area">
+      <div class="kumulus-container kumulus-element-border">
         <div class="kumulus-preview">
           <img id="preview-img" class="kumulus-element-border" onClick="zoom();">
         </div>

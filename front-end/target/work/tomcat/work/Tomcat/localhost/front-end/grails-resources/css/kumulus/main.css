@@ -16,7 +16,6 @@
     a: "color: white;";
 }
 
-/*Session management section*/
 #kumulus-session-management{
     float: right;
 }
@@ -36,9 +35,10 @@
     margin-right: auto;
 }
 
-/* layout elements */
-#kumulus-document-builder {
-    height: 600px;
+/* work area layout elements */
+
+.kumulus-work-area {
+    height: 500px;
 }
 
 .kumulus-container {
@@ -56,9 +56,11 @@
     border-color: #dfdfdf;
 }
 
+/*Filmstrip and image preview elements*/
+
 .kumulus-preview {
     width: 600px;
-    height: 100%;
+    height: 95%;
 }
 
 .kumulus-filmstrip {
@@ -90,5 +92,4 @@
     display: block;
     margin: 0 auto;
 }
-
 
