@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.6.10)
 # Database: kumulus
-# Generation Time: 2014-01-24 10:59:01 +0000
+# Generation Time: 2014-01-27 02:41:21 +0000
 # ************************************************************
 
 
@@ -114,19 +114,19 @@ UNLOCK TABLES;
 
 
 
-# Dump of table nodes
+# Dump of table node
 # ------------------------------------------------------------
 
-LOCK TABLES `nodes` WRITE;
-/*!40000 ALTER TABLE `nodes` DISABLE KEYS */;
+LOCK TABLES `node` WRITE;
+/*!40000 ALTER TABLE `node` DISABLE KEYS */;
 
-INSERT INTO `nodes` (`node_id`, `parent_node_id`, `project_id`, `name`, `type`, `barcode`, `comment`, `create_datetime`, `creator_id`, `internal_comment`, `last_update_datetime`, `last_update_id`, `status`)
+INSERT INTO `node` (`node_id`, `parent_node_id`, `project_id`, `name`, `type`, `barcode`, `comment`, `create_datetime`, `creator_id`, `internal_comment`, `last_update_datetime`, `last_update_id`, `status`)
 VALUES
 	(24,NULL,1,'2013 invoices','C','0001','','2014-01-14 16:14:00','kumulus','test','2014-01-14 16:14:00','kumulus','0'),
 	(29,24,1,'Child 1','C','25031821ZHTW','','2014-01-21 15:38:22','kumulus',NULL,'2014-01-21 15:38:22','kumulus','0'),
 	(30,24,1,'Child 2','C','18101940ZHTW','','2014-01-21 15:38:31','kumulus',NULL,'2014-01-21 15:38:31','kumulus','0');
 
-/*!40000 ALTER TABLE `nodes` ENABLE KEYS */;
+/*!40000 ALTER TABLE `node` ENABLE KEYS */;
 UNLOCK TABLES;
 
 

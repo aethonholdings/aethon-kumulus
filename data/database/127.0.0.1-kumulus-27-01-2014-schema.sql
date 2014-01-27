@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.6.10)
 # Database: kumulus
-# Generation Time: 2014-01-24 10:58:29 +0000
+# Generation Time: 2014-01-27 02:40:38 +0000
 # ************************************************************
 
 
@@ -174,12 +174,12 @@ CREATE TABLE `line_item` (
 
 
 
-# Dump of table nodes
+# Dump of table node
 # ------------------------------------------------------------
 
-DROP TABLE IF EXISTS `nodes`;
+DROP TABLE IF EXISTS `node`;
 
-CREATE TABLE `nodes` (
+CREATE TABLE `node` (
   `node_id` bigint(20) NOT NULL AUTO_INCREMENT,
   `parent_node_id` bigint(20) DEFAULT NULL,
   `project_id` bigint(20) NOT NULL,
@@ -197,7 +197,7 @@ CREATE TABLE `nodes` (
   KEY `FK64212B14D5E1553` (`project_id`),
   KEY `FK64212B1EFDC50D` (`parent_node_id`),
   CONSTRAINT `FK64212B14D5E1553` FOREIGN KEY (`project_id`) REFERENCES `project` (`project_id`),
-  CONSTRAINT `FK64212B1EFDC50D` FOREIGN KEY (`parent_node_id`) REFERENCES `nodes` (`node_id`)
+  CONSTRAINT `FK64212B1EFDC50D` FOREIGN KEY (`parent_node_id`) REFERENCES `node` (`node_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
@@ -235,7 +235,7 @@ CREATE TABLE `page` (
   CONSTRAINT `FK34628F8332BA46` FOREIGN KEY (`thumbnail_image_id`) REFERENCES `image` (`id`),
   CONSTRAINT `FK34628FB852B0AD` FOREIGN KEY (`view_image_id`) REFERENCES `image` (`id`),
   CONSTRAINT `FK34628FD477F7D5` FOREIGN KEY (`scan_image_id`) REFERENCES `image` (`id`),
-  CONSTRAINT `FK34628FFFD95FA2` FOREIGN KEY (`node_id`) REFERENCES `nodes` (`node_id`)
+  CONSTRAINT `FK34628FFFD95FA2` FOREIGN KEY (`node_id`) REFERENCES `node` (`node_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
