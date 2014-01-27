@@ -50,7 +50,8 @@ function scaleImage(image) {
 
 function zoom() {
     var image = $('#preview-img');
-    window.open(url('image', 'get', image.attr('alt')));
+    var zoomWindow = window.open('', 'newwindow');
+    zoomWindow.document.write('<img src="' + url('image', 'get', image.attr('alt')) + '">')
 }
 
 function save() {

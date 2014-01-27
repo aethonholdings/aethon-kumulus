@@ -38,13 +38,11 @@
 /* work area layout elements */
 
 .kumulus-work-area {
-    height: 500px;
+    
 }
 
 .kumulus-container {
-    height: 100%;
-    display: inline;
-    float: left;
+    height: 550px;
     margin-left: 5px;
     margin-right: 5px;
     text-align:center;
@@ -59,13 +57,12 @@
 /*Filmstrip and image preview elements*/
 
 .kumulus-preview {
-    width: 600px;
     height: 95%;
 }
 
 .kumulus-filmstrip {
     overflow-y: auto;
-    width: 180px;
+    width: 150px;
     height: 100%;
     margin: 0 auto;
 }
