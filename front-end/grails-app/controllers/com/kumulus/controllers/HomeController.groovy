@@ -10,45 +10,51 @@ class HomeController {
     
     @Secured(['ROLE_ADMIN', 'ROLE_PROCESS', 'ROLE_IMPORT', 'ROLE_REVIEW', 'ROLE_SUPERVISE', 'ROLE_VIEW'])
     def index() { 
-        render view:"index", layout:"home", model:[pageTitle: "Home"]
+        render(view:"index", layout:"home", model:[pageTitle: "Home"])
     }
 
-    @Secured(['ROLE_SUPERVISE'])
-    def order() { 
-
-    }
-    
+    // SUPERVISOR USER CONTROLLER ACTIONS
     @Secured(['ROLE_SUPERVISE'])
     def manage() { 
         def projectList = userService.getProjects([status: "A"])
-        redirect controller: "project", action:"list"
+        redirect(controller: "project", action:"list", params:[type: "manage"])
     }
-
+    
+    @Secured(['ROLE_SUPERVISE'])
+    def review() { 
+        redirect(controller:"task", action:"list", params:[type:"review", title:"Review documents"])
+    }
+     
+    @Secured(['ROLE_SUPERVISE'])
+    def order() { 
+        
+    }
+    
+    // VIEWER USER CONTROLLER ACTIONS
     @Secured(['ROLE_VIEW'])
     def download() { 
-        
+        redirect(controller: "project", action: "list", params:[type: "download"])
     }
     
     @Secured(['ROLE_VIEW'])
     def access() { 
-        render view:"access", layout:"home", model:[pageTitle: "Access archive"]
+        redirect(controller: "project", action: "list", params:[type: "access"])
     }
 
+    // IMPORT USER CONTROLLER ACTIONS
     @Secured(['ROLE_IMPORT'])
     def collect() {
-        def projectList = userService.getProjects([status: "A"])
-        render view:"collect", layout:"home", model:[pageTitle: "Collect archive documents", projects: projectList]
+        redirect(controller: "project", action: "list", params:[type: "collect"])
     }
     
     @Secured(['ROLE_IMPORT'])
     def upload() {
-        def projectList = userService.getProjects([status: "A"])
-        render view:"upload", layout:"home", model:[pageTitle: "Import scan images", projects: projectList]
+        redirect(controller: "project", action: "list", params:[type: "upload"])    
     }
     
     @Secured(['ROLE_IMPORT'])
     def build() {
-        redirect controller:"task", action:"listGroupByProject"
+        redirect(controller:"task", action:"listGroupByProject")
     }
     
     @Secured(['ROLE_IMPORT'])
@@ -56,16 +62,10 @@ class HomeController {
         
     }
     
+    // PROCESS USER CONTROLLER ACTIONS
     @Secured(['ROLE_PROCESS'])
     def process() { 
-        redirect controller:"task", action:"list", params:[type:"ocr", title:"Process documents"]
+        redirect(controller:"task", action:"list", params:[type:"ocr", title:"Process documents"])
     }
-    
-    @Secured(['ROLE_SUPERVISE'])
-    def review() { 
-        redirect controller:"task", action:"list", params:[type:"review", title:"Review documents"]
-    }
-    
-
     
 }
