@@ -7,6 +7,7 @@ import com.kumulus.domain.*
 class TaskController {
 
     def userService
+    def taskService
     
     // need securing based on user permissions
     def review() {
@@ -16,21 +17,14 @@ class TaskController {
     }
     
     def list() {
-        def taskList
-        if(params?.type) {
-            switch(params.type.toUpperCase()) {
-                case("BUILD"):
-                    taskList = Task.findAllByUserIdAndType(userService.getUsername(), Task.BUILD_DOCUMENT, [sort: "created", order:"asc"])
-                    break
-            }
-            render view:"list", layout: "home", model: [tasks: taskList, title: params?.title]
-        }
+        def taskList = Task.findAllByUserIdAndType(userService.getUsername(), params?.type, [sort: "created", order:"asc"])
+        render view:"list", layout: "home", model: [tasks: taskList, title: params?.title]
     }
     
     def listGroupByProject() {
         def tasksByProject = [:]
         def projectList = []
-        def taskList = Task.findAllByUserIdAndType(userService.getUsername(), Task.BUILD_DOCUMENT, [sort: "created", order:"asc"])
+        def taskList = Task.findAllByUserIdAndType(userService.getUsername(), params?.type, [sort: "created", order:"asc"])
         taskList.each { task ->
             def project = task.document.project
             if(!tasksByProject.containsKey(project.id)) {

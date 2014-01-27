@@ -43,4 +43,8 @@ class DocumentController {
         render view: "access", layout: "home"
     }
     
+    @Secured(['ROLE_PROCESS'])
+    def ocr() {
+        render view: "ocr", layout: "home"   
+    }
 }

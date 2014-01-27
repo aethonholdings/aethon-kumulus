@@ -16,7 +16,7 @@
             <tr>
               <td>${it?.created}</td>
               <td><g:taskDescription task="${it}"/></td>
-              <td><g:link controller="task" action="action" id="${it.id}">Perform</g:link></td>
+              <td><g:link controller="document" action="ocr" id="${it.id}">Complete</g:link></td>
             </tr>
           </g:each>
         </tbody>

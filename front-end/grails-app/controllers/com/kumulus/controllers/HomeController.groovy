@@ -22,7 +22,7 @@ class HomeController {
     
     @Secured(['ROLE_SUPERVISE'])
     def review() { 
-        redirect(controller:"task", action:"list", params:[type:"review", title:"Review documents"])
+        redirect(controller:"task", action:"list", params:[type: "review", title: "Review documents"])
     }
      
     @Secured(['ROLE_SUPERVISE'])
@@ -54,7 +54,7 @@ class HomeController {
     
     @Secured(['ROLE_IMPORT'])
     def build() {
-        redirect(controller:"task", action:"listGroupByProject")
+        redirect(controller:"task", action:"listGroupByProject", params:[type: Task.BUILD_DOCUMENT])
     }
     
     @Secured(['ROLE_IMPORT'])
@@ -65,7 +65,7 @@ class HomeController {
     // PROCESS USER CONTROLLER ACTIONS
     @Secured(['ROLE_PROCESS'])
     def process() { 
-        redirect(controller:"task", action:"list", params:[type:"ocr", title:"Process documents"])
+        redirect(controller:"task", action:"list", params:[type: Task.OCR_DOCUMENT])
     }
     
 }
