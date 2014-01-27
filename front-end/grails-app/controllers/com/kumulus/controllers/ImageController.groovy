@@ -2,8 +2,7 @@ package com.kumulus.controllers
 
 import grails.plugin.springsecurity.annotation.Secured
 import com.kumulus.domain.*
-import com.lucastex.grails.fileuploader.UFile
-import com.lucastex.grails.fileuploader.DownloadController
+import com.lucastex.grails.fileuploader.*
 
 class ImageController {
 
@@ -18,14 +17,14 @@ class ImageController {
     
     @Secured(['ROLE_IMPORT'])
     def process() {
-        def node = Nodes.findById(params?.id)
+        def node = Node.findById(params?.id)
         def scanBatch = new ScanBatch(userId: userService.getUsername(), timestamp: new Date(), project: node.project)
         scanBatch.save()
         filesystemService.processUploadFile(node, UFile.findById(params?.ufileId), scanBatch)
         redirect action: "upload", params:[id: 1]        
     }
 
-    @Secured(['ROLE_CLASSIFY', 'ROLE_ADMIN', 'ROLE_VIEW', 'ROLE_COLLECT', 'ROLE_EXPORT', 'ROLE_VALIDATE', 'ROLE_IMPORT'])    
+    @Secured(['ROLE_ADMIN', 'ROLE_PROCESS', 'ROLE_IMPORT', 'ROLE_REVIEW', 'ROLE_SUPERVISE', 'ROLE_VIEW'])    
     def get() {
         def image = Image.findById(params?.id)
         if(image) redirect controller: "download", action: "index", id: image.file.id

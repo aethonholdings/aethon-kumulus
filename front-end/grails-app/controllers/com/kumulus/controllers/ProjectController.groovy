@@ -12,13 +12,13 @@ class ProjectController {
     def filesystemService
     def exportService
     
-    @Secured(['ROLE_MANAGE'])
+    @Secured(['ROLE_SUPERVISE'])
     def list() {
         def projectList = userService.getProjects()
         render view:"list", layout: "home", model:[projectList: projectList]
     }
     
-    @Secured(['ROLE_MANAGE'])
+    @Secured(['ROLE_SUPERVISE'])
     def edit() {
         def project = Project.findById(params?.id)
         if(userService.checkPermisions(project)) {
@@ -26,7 +26,7 @@ class ProjectController {
         }
     }
     
-    @Secured(['ROLE_MANAGE'])
+    @Secured(['ROLE_SUPERVISE'])
     def update() {
         def project = Project.findById(params?.id)
         if(!project) project = filesystemService.newProject(params) 
@@ -39,19 +39,19 @@ class ProjectController {
         redirect action:"list"
     }
     
-    @Secured(['ROLE_MANAGE'])
+    @Secured(['ROLE_SUPERVISE'])
     def create() {
         render view:"edit", layout: "home", model:[project: new Project()]
     }
     
-    @Secured(['ROLE_MANAGE'])
+    @Secured(['ROLE_SUPERVISE'])
     def delete() {
         def project = Project.findById(params?.id)
         if(userService.checkPermisions(project) && project.status == "A") project.delete()
         redirect action:"list"
     }
     
-    @Secured(['ROLE_MANAGE'])
+    @Secured(['ROLE_SUPERVISE'])
     def close() {
         def project = Project.findById(params?.id)
         if(userService.checkPermisions(project)) {
@@ -61,7 +61,7 @@ class ProjectController {
         redirect action:"list"
     }
 
-    @Secured(['ROLE_EXTRACT'])
+    @Secured(['ROLE_VIEW'])
     def download() {
         def project = Project.findById(params?.id)
         response.contentType = grailsApplication.config.grails.mime.types['csv']

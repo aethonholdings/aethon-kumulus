@@ -8,33 +8,33 @@ class HomeController {
     def projectService
     def userService
     
-    @Secured(['ROLE_CLASSIFY', 'ROLE_ADMIN', 'ROLE_VIEW', 'ROLE_COLLECT', 'ROLE_EXPORT', 'ROLE_VALIDATE', 'ROLE_IMPORT'])
+    @Secured(['ROLE_ADMIN', 'ROLE_PROCESS', 'ROLE_IMPORT', 'ROLE_REVIEW', 'ROLE_SUPERVISE', 'ROLE_VIEW'])
     def index() { 
         render view:"index", layout:"home", model:[pageTitle: "Home"]
     }
 
-    @Secured(['ROLE_MANAGE'])
+    @Secured(['ROLE_SUPERVISE'])
     def order() { 
 
     }
     
-    @Secured(['ROLE_MANAGE'])
+    @Secured(['ROLE_SUPERVISE'])
     def manage() { 
         def projectList = userService.getProjects([status: "A"])
         redirect controller: "project", action:"list"
     }
 
-    @Secured(['ROLE_MANAGE'])
+    @Secured(['ROLE_VIEW'])
     def download() { 
         
     }
     
-    @Secured(['ROLE_ACCESS'])
+    @Secured(['ROLE_VIEW'])
     def access() { 
         render view:"access", layout:"home", model:[pageTitle: "Access archive"]
     }
 
-    @Secured(['ROLE_COLLECT'])
+    @Secured(['ROLE_IMPORT'])
     def collect() {
         def projectList = userService.getProjects([status: "A"])
         render view:"collect", layout:"home", model:[pageTitle: "Collect archive documents", projects: projectList]
@@ -56,12 +56,12 @@ class HomeController {
         
     }
     
-    @Secured(['ROLE_EXTRACT'])
+    @Secured(['ROLE_PROCESS'])
     def process() { 
         redirect controller:"task", action:"list", params:[type:"ocr", title:"Process documents"]
     }
     
-    @Secured(['ROLE_REVIEW'])
+    @Secured(['ROLE_SUPERVISE'])
     def review() { 
         redirect controller:"task", action:"list", params:[type:"review", title:"Review documents"]
     }

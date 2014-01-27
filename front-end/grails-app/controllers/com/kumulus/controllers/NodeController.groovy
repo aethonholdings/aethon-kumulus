@@ -4,7 +4,7 @@ import grails.plugin.springsecurity.annotation.Secured
 import com.kumulus.domain.*
 import grails.converters.*
 
-@Secured(['ROLE_COLLECT'])
+@Secured(['ROLE_IMPORT'])
 class NodeController {
 
     def nodeService

@@ -3,7 +3,7 @@ package com.kumulus.controllers
 import grails.plugin.springsecurity.annotation.Secured
 import com.kumulus.domain.*
 
-@Secured(['ROLE_REVIEW'])
+@Secured(['ROLE_REVIEW', 'ROLE_PROCESS'])
 class TaskController {
 
     def userService
