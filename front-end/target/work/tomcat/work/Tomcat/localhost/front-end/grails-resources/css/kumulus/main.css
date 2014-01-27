@@ -1,3 +1,7 @@
+table {
+    width: 100%;
+}
+
 /* header */
 #kumulus-header{
     height: 70px;
@@ -52,7 +56,7 @@
     border-color: #dfdfdf;
 }
 
-/*Filmstrip and image preview elements*/
+/* Work area elements*/
 
 .kumulus-preview {
     height: 95%;
@@ -81,5 +85,14 @@
 
 .kumulus-thumbnail {
     margin: auto;
+}
+
+.kumulus-data-entry {
+    padding: 10px;
+    font-size: small;
+}
+
+.kumulus-data-entry label {
+    
 }
 

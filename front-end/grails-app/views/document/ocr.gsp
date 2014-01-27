@@ -25,14 +25,53 @@
       </div>
       <div class="pure-u-1-2">
         <div class="kumulus-container kumulus-element-border">
-          <g:form name="document" action="update" id="${document.id}" class="pure-form pure-g">
-            <div class="pure-u-1-3"><label for="documentType">* Type</label></div>
-            <div class="pure-u-2-3"><input id="documentType" name="documentType" type="text" value="${document.type}"></input></div>
-            <g:each var="${page}" in="${document.pages}">
-              <g:each var="${lineItem}" in="${page.lineItems}">
-              </g:each>
-            </g:each>
-          </g:form>
+          <div class="kumulus-data-entry">
+            <g:form name="document" action="update" id="${document.id}" class="pure-form pure-form-aligned">
+              <fieldset>
+                <div class="pure-control-group">
+                  <label for="documentType">* Document type</label>
+                  <input id="documentType" name="documentType" type="text" value="${document.type}" class="pure-input-2-3"></input>
+                </div>
+                <div class="pure-control-group">
+                  <label for="company">* Issuing company</label>              
+                  <input id="company" name="company" type="text" value="${document.company?.name}" class="pure-input-2-3"></input>
+                </div>
+                <div class="pure-control-group">
+                  <label for="date">* Date</label>                
+                  <input id="date" name="date" type="date" value="${document.date}" class="pure-input-2-3"></input>
+                </div>
+                <div class="pure-control-group">
+                  <label for="documentId">* Identifier</label>
+                  <input id="documentId" name="documentId" type="text" value="${document.identifier}" class="pure-input-2-3"></input>
+                </div>
+              </fieldset>
+              
+              <table class="pure-table pure-table-horizontal">
+                <thead>
+                  <th> </th>
+                  <th>Date</th>
+                  <th>Description</th>
+                  <th>Currency</th>
+                  <th>Quantity</th>
+                  <th>Price</th>
+                  <th>Amount</th>
+                </thead>
+                <g:each var="${page}" in="${document.pages}">
+                  <g:each var="${lineItem}" in="${page.lineItems}">
+                  </g:each>
+                </g:each>
+                <tr>
+                  <td></td>
+                  <td><input id="date" name="date" type="date" class="kumulus-data-entry-input"></input></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                  <td></td>
+                </tr>
+              </table>
+            </g:form>
+          </div>
         </div>
       </div>
     </div>

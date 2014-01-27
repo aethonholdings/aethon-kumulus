@@ -28,9 +28,7 @@
             </div>
             <div class="pure-u-1-2">
               <div id="document-strip" class="kumulus-filmstrip">
-                <ul id="documents" class="connectedSortable">
-                  
-                </ul> 
+                <ul id="documents" class="connectedSortable"></ul> 
               </div>
             </div>
           </div>

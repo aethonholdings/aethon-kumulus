@@ -3,7 +3,7 @@
         <title>Projects | Kumulus</title>
     </head>
     <body>
-      <table class='pure-table' width='100%'>
+      <table class='pure-table  pure-table-horizontal' width='100%'>
         <thead>
           <tr>
             <th>Project name</th>
