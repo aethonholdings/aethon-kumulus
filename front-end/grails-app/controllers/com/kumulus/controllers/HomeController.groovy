@@ -38,7 +38,7 @@ class HomeController {
     
     @Secured(['ROLE_VIEW'])
     def access() { 
-        redirect(controller: "project", action: "list", params:[type: "access"])
+        redirect(controller: "document", action: "access")
     }
 
     // IMPORT USER CONTROLLER ACTIONS

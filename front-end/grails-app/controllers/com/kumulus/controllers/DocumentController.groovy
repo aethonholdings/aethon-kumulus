@@ -38,4 +38,9 @@ class DocumentController {
         render response as JSON
     }
 
+    @Secured(['ROLE_VIEW'])
+    def access() {
+        render view: "access", layout: "home"
+    }
+    
 }

@@ -20,24 +20,25 @@ class ProjectController {
             case "manage":
                 projectList = userService.getProjects()
                 actions = ["Edit", "Delete", "Close"]
-                render view:"list", layout: "home", model:[projectList:projectList , title: "Manage projects", actions: actions]
+                break
             case "download":
                 projectList = userService.getProjects()
                 actions = ["Download"]
-                render view:"list", layout: "home", model:[projectList:projectList , title: "", actions: actions]
+                break
             case "access":
                 projectList = userService.getProjects()
                 actions = ["Access"]
-                render view:"list", layout: "home", model:[projectList:projectList , title: "", actions: actions]
+                break
             case "collect":
                 projectList = userService.getProjects([status: "A"])
-                actions = ["Collect"]                
-                render view:"list", layout: "home", model:[projectList:projectList , title: "", actions: actions]
+                actions = ["Collect"]
+                break
             case "upload":
                 projectList = userService.getProjects([status: "A"])
                 actions = ["Upload"]                
-                render view:"list", layout: "home", model:[projectList:projectList , title: "", actions: actions]
+                break
         }
+        render view:"list", layout: "home", model:[projectList:projectList , title: "", actions: actions]
     }
     
     @Secured(['ROLE_SUPERVISE'])
