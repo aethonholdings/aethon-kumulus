@@ -1,6 +1,6 @@
 package com.kumulus.domain
 
-class Nodes {
+class Node {
 
     String name
     String type
@@ -13,7 +13,7 @@ class Nodes {
     Date createDatetime
     Date lastUpdateDatetime
 
-    static belongsTo = [project: Project, parent: Nodes]
+    static belongsTo = [project: Project, parent: Node]
 
     static mapping = {
         id column: "node_id"

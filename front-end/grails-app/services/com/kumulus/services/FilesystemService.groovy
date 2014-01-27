@@ -62,7 +62,7 @@ class FilesystemService {
             )
             task.save()
 
-            def node = new Nodes(
+            def node = new Node(
                 name: literal,
                 type: "P",
                 parent: parentNode,

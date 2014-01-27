@@ -26,9 +26,9 @@ class NodeController {
     
     def getChildren() {
         def treeNodes = []
-        def node = Nodes.findById(params?.id)         // should check permissions first
+        def node = Node.findById(params?.id)         // should check permissions first
         if (node?.project.company == userService.getCompany()) {
-            def children = Nodes.findAllByParent(node)
+            def children = Node.findAllByParent(node)
             children.each { if(it?.type!='D') treeNodes.add(nodeService.renderNode(it)) }
         }
         render treeNodes as JSON  
@@ -36,7 +36,7 @@ class NodeController {
     
     def update() {
         def data = request.JSON
-        def node = Nodes.findById(data?.id)
+        def node = Node.findById(data?.id)
         if (node?.project.company == userService.getCompany()) {
             nodeService.saveNode(node, data?.barcode, data?.name, data?.comment, data?.type, 0)
             render node as JSON
@@ -51,9 +51,9 @@ class NodeController {
         def project = Project.findById(data?.project)
         if(project.company == userService.getCompany()) {
             def parent = null
-            if(data?.parentID!="ROOT") parent = Nodes.findById(data.parentID)
+            if(data?.parentID!="ROOT") parent = Node.findById(data.parentID)
 
-            def node = new Nodes()
+            def node = new Node()
             if(node && data?.barcode && data?.name && data?.type && project) {
                 def map = [
                     project: project,
@@ -76,7 +76,7 @@ class NodeController {
     def delete() {
         def data = request.JSON
         def response = [done: false]
-        if(data?.id && Nodes.findById(data?.id).project.company == userService.getCompany()) {
+        if(data?.id && Node.findById(data?.id).project.company == userService.getCompany()) {
             nodeService.deleteNode(data.id)
             response.done = true
         }

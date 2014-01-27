@@ -10,7 +10,7 @@ class Project {
     String literal
     String path
 
-    static hasMany = [nodes: Nodes, lineItems: LineItem]
+    static hasMany = [nodes: Node, lineItems: LineItem]
 
     static mapping = {
         id column: "project_id"

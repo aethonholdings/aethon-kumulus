@@ -10,7 +10,7 @@ class BootStrap {
 //        def node, literal, page, document, taskItem, scanImage, thumbnailImage, viewImage
 //        (0..9).each {
 //            literal = filesystemService.generateLiteral()
-//            node = new Nodes([type: 'P', status: 0, project: project, parent: container, creatorId: 'kumulus', lastUpdateId: 'kumulus'])
+//            node = new Node([type: 'P', status: 0, project: project, parent: container, creatorId: 'kumulus', lastUpdateId: 'kumulus'])
 //            node.save()
 //            page = new Page([])
 //        }

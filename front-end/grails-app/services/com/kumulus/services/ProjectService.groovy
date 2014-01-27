@@ -10,7 +10,7 @@ class ProjectService {
         
         if (project) {
             def ledger = new ArrayList()
-            def nodes = Nodes?.findAllByProjectAndType(project, "D")
+            def nodes = Node?.findAllByProjectAndType(project, "D")
             nodes.each {node ->
                 node.documents.each {document ->
                     document.pages.each { page ->

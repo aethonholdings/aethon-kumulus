@@ -1,15 +1,15 @@
 package com.kumulus.services
 
-import com.kumulus.domain.Nodes
+import com.kumulus.domain.Node
 import grails.transaction.Transactional
 
 @Transactional
 class NodeService {
 
     def deleteNode(nodeID) {
-        def node = Nodes.findById(nodeID)
+        def node = Node.findById(nodeID)
         if(node) {
-            def children = Nodes.findAllByParent(node)
+            def children = Node.findAllByParent(node)
             for (child in children) {
                 deleteNode(child.id)
             }
@@ -98,7 +98,7 @@ class NodeService {
         ]
         
         // get the top-level nodes
-        def nodeList = Nodes.findAllByProjectAndParent(project, null)  // temporary solution, should be filtering out documents here
+        def nodeList = Node.findAllByProjectAndParent(project, null)  // temporary solution, should be filtering out documents here
         nodeList.each { root.children.add renderNode(it) }
         return(root)
     }
