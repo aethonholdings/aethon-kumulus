@@ -160,6 +160,17 @@ environments {
     
     test {
         // grails.serverURL = "http://test.llamrei.sg:8080"
+        grails.logging.jul.usebridge = true
+        grails.serverURL
+        filesystem.staging = "/home/tomcat/kumulus/staging/"
+        filesystem.main = "/home/tomcat/kumulus/main/"
+        // plugins
+        fileuploader {
+            image {
+                allowedExtensions = ["bmp", "png", "pdf", "tiff", "tif"]
+                path = "/home/tomcat/kumulus/staging/"
+            }
+        }
         
     }
     
