@@ -42,7 +42,7 @@ class FilesystemService {
             imageTool.thumbnail(300)
             imageTool.writeResult(imageFiles.thumbnailImage.getAbsolutePath(), "JPEG")   
             
-            def documentType = DocumentType.findById(4)
+            def documentType = DocumentType.findById(4)  // set the document type as unknown
             def document = new Document(
                 status: Document.EDITABLE,
                 type: documentType,

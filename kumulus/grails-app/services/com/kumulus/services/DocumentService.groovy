@@ -27,10 +27,12 @@ class DocumentService {
         if(validData && checkProject) {
             if(documents?.size > 1) {
                 // create a new document
+                def documentType = DocumentType.findById(4)
                 newDocument = new Document(
                     literal: filesystemService.generateLiteral(),
                     status: Document.EDITABLE,
-                    project: checkProject
+                    project: checkProject,
+                    type: documentType
                 )
                 newDocument.save()
 
