@@ -19,15 +19,15 @@
           <ul>
             <li><g:link controller='home' action='index'>Home</g:link></li>
             <li class='menu-item-divided'><g:link controller='home' action='manage'>Manage projects</g:link></li>
-            <li><g:link controller='home' action='review'>Review and approve</g:link></li>
+            <li><a href="#">Review and approve</a></li>
             <li class='menu-item-divided'><g:link controller='home' action='download'>Download transactions</g:link></li>
             <li><g:link controller='home' action='access'>Access archive</g:link></li>
             <li class='menu-item-divided'><g:link controller='home' action='collect'>Collect paperwork</g:link></li>
             <li><g:link controller='home' action='upload'>Upload scans</g:link></li>
             <li><g:link controller='home' action='build'>Build documents</g:link></li>
-            <li><g:link controller='home' action='pickup'>Request pickup</g:link></li>
-            <li class='menu-item-divided'><g:link controller='home' action='order'>Order materials</g:link></li>
-            <li><g:link controller='home' action='account'>Manage account</g:link></li>
+            <li><a href="#">Request pickup</a></li>
+            <li class='menu-item-divided'><a href="#">Order materials</a></li>
+            <li><a href="#">Manage account</a></li>
             <li class='menu-item-divided'><g:link controller='home' action='process'>Process documents</g:link></li>
           </ul>
         </div>

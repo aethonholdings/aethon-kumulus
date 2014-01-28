@@ -7,7 +7,6 @@ class Document {
     static final int EDITABLE = 1
     static final int FINAL = 2
     
-    String type
     Company company
     Date date
     String literal
@@ -16,14 +15,13 @@ class Document {
     UFile file
     
     static hasMany = [pages: Page, task: Task]
-    static belongsTo = [project: Project]
+    static belongsTo = [project: Project, type: DocumentType]
     
     static mapping = {
 
     }
     
-    static constraints = {
-        type nullable: true, maxSize: 10
+    static constraints = {  
         identifier nullable: true, maxSize: 30
         company nullable: true
         date nullable: true

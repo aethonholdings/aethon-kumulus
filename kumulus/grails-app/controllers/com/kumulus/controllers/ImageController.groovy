@@ -17,7 +17,6 @@ class ImageController {
     
     @Secured(['ROLE_IMPORT'])
     def process() {
-        println(params)
         def node = Node.findById(params?.nodeId)
         def scanBatch = new ScanBatch(userId: userService.getUsername(), timestamp: new Date(), project: node.project)
         scanBatch.save()

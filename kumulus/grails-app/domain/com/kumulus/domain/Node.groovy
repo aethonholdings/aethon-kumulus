@@ -2,6 +2,10 @@ package com.kumulus.domain
 
 class Node {
 
+    static final String CONTAINER = "C"
+    static final String PAGE = "P"
+    static final String ROOT = "R"
+    
     String name
     String type
     String barcode

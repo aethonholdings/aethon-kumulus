@@ -42,15 +42,16 @@ class FilesystemService {
             imageTool.thumbnail(300)
             imageTool.writeResult(imageFiles.thumbnailImage.getAbsolutePath(), "JPEG")   
             
+            def documentType = DocumentType.findById(4)
             def document = new Document(
                 status: Document.EDITABLE,
-                type: null,
+                type: documentType,
                 company: null,
                 date: null,
                 literal: literal,
                 file: null,
                 project: parentNode.project
-                )
+            )
             document.save()
             
             def task = new Task(
