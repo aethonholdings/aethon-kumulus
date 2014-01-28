@@ -4,11 +4,13 @@
     <link rel='stylesheet' type='text/css' href='${resource(dir: 'css/pure', file: 'pure-min.css')}'/>
     <link rel='stylesheet' type='text/css' href='${resource(dir: 'css/pure', file: 'side-menu.css')}'/>
     <link rel='stylesheet' type='text/css' href='${resource(dir: 'css/kumulus', file: 'main.css')}'/>
+    <link rel='stylesheet' type='text/css' href='${resource(dir: 'css/jquery/ui/base', file: 'jquery-ui.css')}'/>
     <g:javascript library='jquery' />
     <r:layoutResources />             
     <g:javascript src='jquery/ui/jquery-ui.js'/>
     <g:javascript src='jquery/cookie/jquery.cookie.js'/>
     <g:javascript src='pure/ui.js'/> 
+    <g:javascript src='kumulus/base.js'/>
     <g:layoutHead/>
   </head>
   <body>

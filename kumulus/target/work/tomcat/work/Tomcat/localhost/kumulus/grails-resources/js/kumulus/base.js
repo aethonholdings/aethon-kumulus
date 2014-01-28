@@ -1,0 +1,32 @@
+function url(controller, action, parameterString){
+    var urlString = '/kumulus/' + controller + '/' + action + '/' + parameterString;
+    return(urlString);
+}
+    
+// rescales an image to fit parent container, maintaining aspect ratio
+function scaleImage(image) {
+    
+    var height;
+    var width;
+    
+    // determine the target dimensions
+    var containerWidth = image.parent().width();
+    var containerHeight = image.parent().height();
+    var containerAspectRatio = containerHeight / containerWidth;
+    
+    // determine the source dimensions
+    var sourceWidth = image.width();
+    var sourceHeight = image.height();
+    var sourceAspectRatio = sourceHeight / sourceWidth;
+    
+    if(containerAspectRatio > sourceAspectRatio) {
+        width = containerWidth;
+        height = sourceAspectRatio * width;
+    } else {
+        height = containerHeight;
+        width = height / sourceAspectRatio;
+    }
+    
+    image.height(height);
+    image.width(width);
+}

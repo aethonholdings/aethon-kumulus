@@ -2,6 +2,7 @@
   <head>
     <title>OCR data entry | Kumulus</title>
     <g:javascript src='kumulus/documentBuilder.js'/>
+    <g:javascript src='kumulus/autocomplete.js'/>
   </head>
   <body>
     <div class="kumulus-work-area pure-g">
@@ -32,13 +33,14 @@
                 <div class="pure-control-group">
                   <label for="documentType">* Document type</label>
                   <select id="documentType" name="documentType" value="${document.type}" class="pure-input-2-3">
-
+                    <g:each var="documentType" in='${documentTypes}'>
+                      <option value="${documentType.id}" <g:if test="${documentType.id==4}">selected</g:if>>${documentType.name}</option>
+                    </g:each>
                   </select>
                 </div>
                 <div class="pure-control-group">
-                  <label for="company">* Issuing company</label>              
-                  <input id="company" name="company" type="text" value="${document.company?.name}" class="pure-input-2-3"></input>
-                </div>
+                  <label for="company">* Issuing company</label>
+                  <input id="company" name="company" type="text" value="${document.company?.name}" class="pure-input-2-3 ui-widget"></input>
                 <div class="pure-control-group">
                   <label for="date">* Date</label>                
                   <input id="date" name="date" type="date" value="${document.date}" class="pure-input-2-3"></input>

@@ -27,8 +27,7 @@ class DocumentController {
         Document mergedDocument
         def documents = []
         data?.documents.each {
-            // NEED PERMISSIONS CHECKS HERE AGAINST THE TASKS
-            def document = Document.findById(it)
+            def document = Document.findById(it)  // NEED PERMISSIONS CHECKS HERE AGAINST THE TASKS
             documents.add(document)
         }
         mergedDocument = documentService.merge(documents)
@@ -41,12 +40,12 @@ class DocumentController {
     def access() {
         render view: "access", layout: "home"
     }
-    
+        
     @Secured(['ROLE_PROCESS'])
     def ocr() {
         def task = Task.findById(params?.id)
         def currencies = Currency.listOrderByFullName()
-        def documentTypes = ["Invoice", "Receipt", "Account statement", "Other"]
+        def documentTypes = DocumentType.listOrderByName()
         def document = task.document
         // SORT BY PAGE NUMBER!
         render view: "ocr", layout: "home", model:[document: document, currencies: currencies, documentTypes: documentTypes]
