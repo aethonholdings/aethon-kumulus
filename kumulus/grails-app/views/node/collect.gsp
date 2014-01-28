@@ -14,9 +14,11 @@
             <div id="nodeTree" class="jstree-draggable"></div>
           </div>
         </div>
-        <a id="button-add" class="pure-button" onclick="add_node();">Add</a>
-        <a id="button-edit" class="pure-button" onclick="update_node();">Edit</a>
-        <a id="button-delete" class="pure-button" onclick="delete_node();">Delete</a>
+        <div class="kumulus-button-bank">
+          <a id="button-add" class="pure-button" onclick="add_node();">Add</a>
+          <a id="button-edit" class="pure-button" onclick="update_node();">Edit</a>
+          <a id="button-delete" class="pure-button" onclick="delete_node();">Delete</a>
+        </div>
       </div>
       <div class="pure-u-2-3">
         <div class="kumulus-container kumulus-element-border">
@@ -46,7 +48,7 @@
             </form>
           </div>
         </div>
-        <div class="grid-element grid-footer">
+        <div class="kumulus-button-bank">
           <a id="button-save" class="pure-button pure-button-primary" onclick="save();">Save</a>
           <a id="button-cancel" class="pure-button" onclick="cancel();">Cancel</a>
         </div>

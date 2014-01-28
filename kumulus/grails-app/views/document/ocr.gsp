@@ -32,9 +32,7 @@
                 <div class="pure-control-group">
                   <label for="documentType">* Document type</label>
                   <select id="documentType" name="documentType" value="${document.type}" class="pure-input-2-3">
-                    <g:each var="currency" in="${currencies}">
-                      <option value="${currency.fullName}">${currency.fullName}</option>
-                    </g:each>
+
                   </select>
                 </div>
                 <div class="pure-control-group">
@@ -68,7 +66,9 @@
                 <div class="pure-control-group">
                   <label for="lineItemCurrency">Currency</label>
                   <select id="lineItemCurrency" name="lineItemCurrency" class="pure-input-2-3">
-                    <option value="test">Test<option>
+                    <g:each var="currency" in="${currencies}">
+                      <option value="${currency.fullName}" <g:if test="${currency.shortName=='SGD'}">selected</g:if>>${currency.fullName}</option>
+                    </g:each>
                   </select>
                 </div>
                 <div class="pure-control-group">
@@ -79,12 +79,17 @@
                   <label for="lineItemAmount">*Amount</label>
                   <input id="lineItemAmount" name="lineItemAmount" type="text" class="pure-input-2-3"></input>
                 </div>
-                <a class="pure-button" href="#">New</a>
-                <a class="pure-button" href="#">Delete</a>
-                <a class="pure-button" href="#">Save</a>
+                <div class="kumulus-button-bank">
+                  <a class="pure-button" href="#">Delete</a>
+                  <a class="pure-button" href="#">Add</a>
+                  <a class="pure-button" href="#">Update</a>
+                </div>
               </fieldset>
             </g:form>
           </div>
+        </div>
+        <div class="kumulus-button-bank">
+          <a class="pure-button" href="#">Save</a>
         </div>
       </div>
     </div>

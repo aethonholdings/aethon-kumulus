@@ -87,7 +87,7 @@ class FileUploaderTagLib {
 			<input type='hidden' name='errorController' class='kumulus-uploader' value='${errorController}' ${if(attrs?.disabled=="true") "disabled"}/>
 			<input type='hidden' name='successAction' class='kumulus-uploader' value='${successAction}' ${if(attrs?.disabled=="true") "disabled"}/>
 			<input type='hidden' name='successController' class='kumulus-uploader' value='${successController}' ${if(attrs?.disabled=="true") "disabled"}/>
-                        <input type='hidden' name='nodeId' id='nodeId' class='kumulus-uploader' value='${attrs?.nodeId}' ${if(attrs?.disabled=="true") "disabled"}/>'
+                        <input type='hidden' name='nodeId' id='nodeId' class='kumulus-uploader' value='${attrs?.nodeId}' ${if(attrs?.disabled=="true") "disabled"}/>
 			<input type='file'  name='file' class='kumulus-uploader  ${attrs?.class}' ${if(attrs?.disabled=="true") "disabled"}/>
 			<input type='submit' name='submit' class='kumulus-uploader ${attrs?.class}' value='Submit' ${if(attrs?.disabled=="true") "disabled"}/>
 		"""

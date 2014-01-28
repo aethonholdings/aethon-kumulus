@@ -45,10 +45,6 @@ table{
 
 /* work area layout elements */
 
-.kumulus-work-area{
-    
-}
-
 .kumulus-container{
     height: 550px;
     margin: 3px;
@@ -58,6 +54,13 @@ table{
     border:1px;
     border-style: solid;
     border-color: #dfdfdf;
+}
+
+.kumulus-button-bank {
+    text-align: right;
+    margin-right: 3px;
+    margin-left: 3px;
+    margin-top: 10px;
 }
 
 /* Work area elements*/
@@ -101,6 +104,3 @@ table{
     overflow-y: auto;
 }
 
-.kumulus-small-font{
-    font-size: small;
-}
