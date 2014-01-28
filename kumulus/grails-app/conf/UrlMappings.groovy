@@ -6,7 +6,6 @@ class UrlMappings {
                 // apply constraints here
             }
         }
-        "/download/$root/$path**"(controller: "file")
         "/"(view:"/index")
         "500"(view:'/error')
 	}

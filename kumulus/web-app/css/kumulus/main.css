@@ -1,4 +1,8 @@
-table {
+html{
+    font-size: small;
+}
+
+table{
     width: 100%;
 }
 
@@ -25,15 +29,15 @@ table {
 }
 
 /* layout body */
-#kumulus-body {
+#kumulus-body{
 
 }
 
-#advancedSearch {
+#advancedSearch{
     text-align:center;
 }
 
-#search {
+#search{
     width: 80%;
     margin-left: auto;
     margin-right: auto;
@@ -41,16 +45,16 @@ table {
 
 /* work area layout elements */
 
-.kumulus-work-area {
+.kumulus-work-area{
     
 }
 
-.kumulus-container {
+.kumulus-container{
     height: 550px;
     margin: 3px;
 }
 
-.kumulus-element-border {
+.kumulus-element-border{
     border:1px;
     border-style: solid;
     border-color: #dfdfdf;
@@ -58,7 +62,7 @@ table {
 
 /* Work area elements*/
 
-.kumulus-preview {
+.kumulus-preview{
     height: 95%;
     width: 95%;
     padding: 10px;
@@ -66,33 +70,37 @@ table {
     overflow-y: auto;
 }
 
-.kumulus-filmstrip {
+.kumulus-filmstrip{
     background: #eee; 
     text-align: center;
     overflow-y: auto;
 }
 
-.kumulus-filmstrip ul {
+.kumulus-filmstrip ul{
     list-style-type: none;
     padding: 5px;
     display: block;
     background: #eee; 
 }
 
-.kumulus-filmstrip li {
+.kumulus-filmstrip li{
     text-align:center;
 }
 
-.kumulus-thumbnail {
+.kumulus-thumbnail{
     margin: auto;
 }
 
-.kumulus-data-entry {
+.kumulus-data-entry{
     padding: 10px;
+}
+
+.kumulus-node-tree{
+    padding: 10px;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+.kumulus-small-font{
     font-size: small;
 }
-
-.kumulus-data-entry label {
-    
-}
-

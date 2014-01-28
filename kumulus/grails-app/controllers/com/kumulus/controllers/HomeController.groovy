@@ -22,7 +22,7 @@ class HomeController {
     
     @Secured(['ROLE_SUPERVISE'])
     def review() { 
-        redirect(controller:"task", action:"list", params:[type: "review", title: "Review documents"])
+        redirect(controller:"task", action:"list", params:[type: Task.REVIEW_DOCUMENT])
     }
      
     @Secured(['ROLE_SUPERVISE'])

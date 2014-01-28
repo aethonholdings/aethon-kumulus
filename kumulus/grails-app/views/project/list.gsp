@@ -9,7 +9,7 @@
             <th>Project name</th>
             <th>Client</th>
             <th>Status</th>
-            <th colspan="${actions.size()}">Action</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>
@@ -18,8 +18,8 @@
               <td>${it.projectName}</td>
               <td>${it.client.name}</td>
               <td>${it.status}</td>
-              <g:each var="action" in="${actions}">
-                <td>
+              <td>
+                <g:each var="action" in="${actions}">
                   <g:if test="${action=="Edit" && it.status=="A"}">
                     <g:link controller="project" action="edit" id="${it.id}">Edit</g:link>
                   </g:if>
@@ -40,9 +40,9 @@
                   </g:if>
                   <g:if test="${action=="Upload"}">
                     <g:link controller="image" action="upload" id="${it.id}">Upload</g:link>
-                  </g:if>
-                </td>
-              </g:each>
+                  </g:if>  
+                </g:each>
+              </td>
             </tr>
           </g:each>
         </tbody>

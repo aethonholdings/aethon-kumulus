@@ -23,7 +23,6 @@ class DocumentController {
     
     @Secured(['ROLE_IMPORT'])
     def merge() {
-        
         def data = request.JSON
         Document mergedDocument
         def documents = []
@@ -46,8 +45,10 @@ class DocumentController {
     @Secured(['ROLE_PROCESS'])
     def ocr() {
         def task = Task.findById(params?.id)
+        def currencies = Currency.listOrderByFullName()
+        def documentTypes = ["Invoice", "Receipt", "Account statement", "Other"]
         def document = task.document
         // SORT BY PAGE NUMBER!
-        render view: "ocr", layout: "home", model:[document: document]
+        render view: "ocr", layout: "home", model:[document: document, currencies: currencies, documentTypes: documentTypes]
     }
 }

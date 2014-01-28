@@ -149,7 +149,6 @@ environments {
         filesystem.staging = "/Users/cocodinos/Documents/Work/11-Aethon/00-Aethon Holdings/01-Projects/01-Bucephalus/05-Software/kumulus/data/filesystem/staging/"
         filesystem.main = "/Users/cocodinos/Documents/Work/11-Aethon/00-Aethon Holdings/01-Projects/01-Bucephalus/05-Software/kumulus/data/filesystem/main/"
         // plugins
-        grails.plugins.fileserver.paths=["root": "/Users/cocodinos/Documents/Work/11-Aethon/00-Aethon Holdings/01-Projects/01-Bucephalus/05-Software/kumulus/data/filesystem/main/"]
         fileuploader {
             image {
                 allowedExtensions = ["bmp", "png", "pdf", "tiff", "tif"]

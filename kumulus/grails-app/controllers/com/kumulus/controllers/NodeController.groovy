@@ -29,7 +29,7 @@ class NodeController {
         def node = Node.findById(params?.id)         // should check permissions first
         if (node?.project.company == userService.getCompany()) {
             def children = Node.findAllByParent(node)
-            children.each { if(it?.type!='D') treeNodes.add(nodeService.renderNode(it)) }
+            children.each { if(it?.type!='P') treeNodes.add(nodeService.renderNode(it)) }
         }
         render treeNodes as JSON  
     }

@@ -2,7 +2,6 @@ package com.lucastex.grails.fileuploader
 
 import grails.plugin.springsecurity.annotation.Secured
 
-@Secured(['ROLE_IMPORT'])
 class FileUploaderController {
 	
 	//messagesource
@@ -11,7 +10,8 @@ class FileUploaderController {
 	//defaultaction
 	def defaultAction = "process"
 
-	def process = {
+        @Secured(['ROLE_IMPORT'])
+	def process() {
 
 		//upload group
 		def upload = params.upload
@@ -68,7 +68,7 @@ class FileUploaderController {
 		
 		//reaches here if file.size is smaller or equal config.maxSize or if config.maxSize ain't configured (in this case
 		//plugin will accept any size of files).
-
+		
 		//sets new path
 		def currentTime = System.currentTimeMillis()
 		path = path+currentTime+"/"
@@ -89,11 +89,11 @@ class FileUploaderController {
 		ufile.path = path
 		ufile.downloads = 0
 		ufile.save()
-		
-		redirect controller: params.successController, action: params.successAction, params:[ufileId:ufile.id, id: params.id]
+	
+		redirect controller: params.successController, action: params.successAction, params:[ufileId:ufile.id, id: params.id, nodeId: params.nodeId]
 	}
     
-    def show={
+    def show() {
 			def ufile = UFile.get(params.int("id"))
             println "aaa--------------------------------------------------------"+ufile
 	        if (!ufile) {

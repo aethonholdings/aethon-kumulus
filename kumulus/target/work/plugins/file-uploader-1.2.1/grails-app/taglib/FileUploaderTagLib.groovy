@@ -82,18 +82,19 @@ class FileUploaderTagLib {
 		def errorController = attrs.errorController
 		
 		def tagBody = """
-			<input type='hidden' name='upload' value='${upload}' />
-			<input type='hidden' name='errorAction' value='${errorAction}' />
-			<input type='hidden' name='errorController' value='${errorController}' />
-			<input type='hidden' name='successAction' value='${successAction}' />
-			<input type='hidden' name='successController' value='${successController}'/>
-			<input type='file' name='file' />
-			<input type='submit' name='submit' value='Submit'/>
+			<input type='hidden' name='upload' class='kumulus-uploader' value='${upload}' ${if(attrs?.disabled=="true") "disabled"} />
+			<input type='hidden' name='errorAction' class='kumulus-uploader' value='${errorAction}' ${if(attrs?.disabled=="true") "disabled"}/>
+			<input type='hidden' name='errorController' class='kumulus-uploader' value='${errorController}' ${if(attrs?.disabled=="true") "disabled"}/>
+			<input type='hidden' name='successAction' class='kumulus-uploader' value='${successAction}' ${if(attrs?.disabled=="true") "disabled"}/>
+			<input type='hidden' name='successController' class='kumulus-uploader' value='${successController}' ${if(attrs?.disabled=="true") "disabled"}/>
+                        <input type='hidden' name='nodeId' id='nodeId' class='kumulus-uploader' value='${attrs?.nodeId}' ${if(attrs?.disabled=="true") "disabled"}/>'
+			<input type='file'  name='file' class='kumulus-uploader  ${attrs?.class}' ${if(attrs?.disabled=="true") "disabled"}/>
+			<input type='submit' name='submit' class='kumulus-uploader ${attrs?.class}' value='Submit' ${if(attrs?.disabled=="true") "disabled"}/>
 		"""
 		
 		//form build
 		StringBuilder sb = new StringBuilder()
-		sb.append g.uploadForm([controller: 'fileUploader', action: 'process', id:attrs.id, name: attrs?.name, class: attrs?.class], tagBody)
+		sb.append g.uploadForm([controller: 'fileUploader', action: 'process', id:attrs.id], tagBody)
 		
 		out << sb.toString()
 	}
