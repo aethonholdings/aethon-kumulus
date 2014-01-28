@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.6.10)
 # Database: kumulus
-# Generation Time: 2014-01-28 12:11:16 +0000
+# Generation Time: 2014-01-28 12:15:49 +0000
 # ************************************************************
 
 
@@ -29,7 +29,11 @@ LOCK TABLES `company` WRITE;
 INSERT INTO `company` (`id`, `version`, `name`)
 VALUES
 	(1,0,'SmartSpace Pte Ltd'),
-	(2,0,'TestCo Pte Ltd');
+	(2,0,'TestCo Pte Ltd'),
+	(12,0,'dwse'),
+	(14,0,'test'),
+	(15,0,'asdfaf'),
+	(16,0,'asdfdsf');
 
 /*!40000 ALTER TABLE `company` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -254,9 +258,7 @@ INSERT INTO `node` (`node_id`, `barcode`, `comment`, `create_datetime`, `creator
 VALUES
 	(24,'0001','','2014-01-14 16:14:00','kumulus','test','2014-01-14 16:14:00','kumulus','2013 invoices',NULL,1,'0','C'),
 	(29,'25031821ZHTW','','2014-01-21 15:38:22','kumulus',NULL,'2014-01-21 15:38:22','kumulus','Child 1',24,1,'0','C'),
-	(30,'18101940ZHTW','','2014-01-21 15:38:31','kumulus',NULL,'2014-01-21 15:38:31','kumulus','Child 2',24,1,'0','C'),
-	(31,NULL,NULL,'2014-01-28 19:23:16','kumulus',NULL,'2014-01-28 19:23:16','kumulus','1390908196327RZ',29,1,'0','P'),
-	(32,NULL,NULL,'2014-01-28 20:07:23','kumulus',NULL,'2014-01-28 20:07:23','kumulus','13909108426323Q',29,1,'0','P');
+	(30,'18101940ZHTW','','2014-01-21 15:38:31','kumulus',NULL,'2014-01-21 15:38:31','kumulus','Child 2',24,1,'0','C');
 
 /*!40000 ALTER TABLE `node` ENABLE KEYS */;
 UNLOCK TABLES;
