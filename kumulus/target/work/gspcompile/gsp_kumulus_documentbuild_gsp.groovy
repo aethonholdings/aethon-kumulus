@@ -35,14 +35,14 @@ for( page in (document.pages) ) {
 printHtmlPart(6)
 expressionOut.print(document.id)
 printHtmlPart(7)
-invokeTag('kumulusImg','g',26,['image':(page.thumbnailImage),'class':("kumulus-thumbnail kumulus-element-border"),'height':("140"),'width':("100"),'onClick':("selectPage(this);"),'viewId':(page.viewImage.id),'scanId':(page.scanImage.id)],-1)
+invokeTag('kumulusImg','g',27,['image':(page.thumbnailImage),'class':("kumulus-thumbnail kumulus-element-border"),'height':("140"),'width':("100"),'onClick':("selectPage(this);"),'viewId':(page.viewImage.id),'scanId':(page.scanImage.id)],-1)
 printHtmlPart(8)
 }
 printHtmlPart(9)
 }
 printHtmlPart(10)
 })
-invokeTag('captureBody','sitemesh',46,[:],1)
+invokeTag('captureBody','sitemesh',50,[:],1)
 printHtmlPart(11)
 }
 public static final Map JSP_TAGS = new HashMap()
@@ -50,7 +50,7 @@ protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1390917381000L
+public static final long LAST_MODIFIED = 1390987537000L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'
