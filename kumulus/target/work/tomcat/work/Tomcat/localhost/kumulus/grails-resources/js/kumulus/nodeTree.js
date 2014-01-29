@@ -53,6 +53,8 @@ function refresh_container_information(node) {
         if ($('#nodeId')) {   
             $('#nodeId').attr('value', node.data.id);
             $('.kumulus-uploader').prop('disabled', false);
+            $('.kumulus-uploader').removeClass('pure-button-disabled', false);
+            $('.kumulus-uploader').addClass('pure-button-enabled', false);
         }
     } else {
         $('#barcode').val('Scan container barcode');
@@ -62,6 +64,8 @@ function refresh_container_information(node) {
         if ($('#nodeId')) {   
             $('#nodeId').attr('value', -1);
             $('.kumulus-uploader').prop('disabled', true);
+            $('.kumulus-uploader').removeClass('pure-button-enabled', false);
+            $('.kumulus-uploader').addClass('pure-button-disabled', false);
         }
     }
 

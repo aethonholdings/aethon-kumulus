@@ -1,7 +1,7 @@
 <html>
   <head>
     <title>OCR data entry | Kumulus</title>
-    <g:javascript src='kumulus/documentBuilder.js'/>
+    <g:javascript src='kumulus/preview.js'/>
     <g:javascript src='kumulus/autocomplete.js'/>
   </head>
   <body>
@@ -82,9 +82,7 @@
                   <input id="lineItemAmount" name="lineItemAmount" type="text" class="pure-input-2-3"></input>
                 </div>
                 <div class="kumulus-button-bank">
-                  <a class="pure-button" href="#">Delete</a>
-                  <a class="pure-button" href="#">Add</a>
-                  <a class="pure-button" href="#">Update</a>
+                  <a class="pure-button" href="#">Save</a>
                 </div>
               </fieldset>
             </g:form>
