@@ -27,7 +27,7 @@ function save() {
             async: false,
             success: function(response) {
                 if(response.done) $('#documents').empty();
-                previewImage.hide();
+                $('#preview-img').hide();
             }
         });
     }

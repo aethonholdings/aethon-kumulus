@@ -6,6 +6,10 @@ table{
     width: 100%;
 }
 
+.kumulus-small-font {
+    font-size: smaller;
+}
+
 /* header */
 #kumulus-header{
     height: 70px;
@@ -48,6 +52,7 @@ table{
 .kumulus-container{
     height: 550px;
     margin: 3px;
+    overflow-y: auto;
 }
 
 .kumulus-element-border{
@@ -63,7 +68,7 @@ table{
     margin-top: 10px;
 }
 
-/* Work area elements*/
+/* UI element components */
 
 .kumulus-preview{
     height: 95%;
@@ -76,7 +81,6 @@ table{
 .kumulus-filmstrip{
     background: #eee; 
     text-align: center;
-    overflow-y: auto;
 }
 
 .kumulus-filmstrip ul{
@@ -96,6 +100,7 @@ table{
 
 .kumulus-data-entry{
     padding: 10px;
+    overflow-y: auto;
 }
 
 .kumulus-node-tree{
@@ -104,3 +109,6 @@ table{
     overflow-y: auto;
 }
 
+.kumulus-data-entry {
+    
+}
