@@ -21,7 +21,7 @@
           </div>
         </div>
         <div class="pure-u-1-2">
-          <div class="kumulus-container kumulus-element-border">
+          <div class="kumulus-container kumulus-scrollable-x kumulus-scrollable-y kumulus-element-border">
             <div class="kumulus-data-entry"> 
               <form name="newContainer" action="add" method="POST" class="pure-form pure-form-aligned">
                 <fieldset>

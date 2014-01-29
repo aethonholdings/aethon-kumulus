@@ -4,7 +4,7 @@ function url(controller, action, parameterString){
 }
     
 // rescales an image to fit parent container, maintaining aspect ratio
-function scaleImage(image) {
+function scaleImage(image, fit) {
     
     var height;
     var width;
@@ -14,17 +14,27 @@ function scaleImage(image) {
     var containerHeight = image.parent().height();
     var containerAspectRatio = containerHeight / containerWidth;
     
-    // determine the source dimensions
-    var sourceWidth = image.width();
-    var sourceHeight = image.height();
-    var sourceAspectRatio = sourceHeight / sourceWidth;
-    
-    if(containerAspectRatio > sourceAspectRatio) {
-        width = containerWidth;
-        height = sourceAspectRatio * width;
+    if(fit) {
+        // determine the source dimensions
+        var sourceWidth = image.width();
+        var sourceHeight = image.height();
+        var sourceAspectRatio = sourceHeight / sourceWidth;
+
+        if(containerAspectRatio > sourceAspectRatio) {
+            width = containerWidth;
+            height = sourceAspectRatio * width;
+        } else {
+            height = containerHeight;
+            width = height / sourceAspectRatio;
+        }
     } else {
-        height = containerHeight;
-        width = height / sourceAspectRatio;
+        if(containerHeight>containerWidth) {
+            height = containerHeight;
+            width = height / sourceAspectRatio;
+        } else {
+            width = containerWidth;
+            height = sourceAspectRatio * width;
+        }
     }
     
     image.height(height);

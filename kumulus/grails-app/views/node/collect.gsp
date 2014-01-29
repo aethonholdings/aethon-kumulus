@@ -9,7 +9,7 @@
     <span id="project" projectID="${project.id}"/>  
     <div class="pure-g">
       <div class="pure-u-1-3">
-        <div class="kumulus-container kumulus-element-border">
+        <div class="kumulus-container kumulus-scrollable-y kumulus-scrollable-x kumulus-element-border">
           <div class="kumulus-node-tree">
             <div id="nodeTree" class="jstree-draggable"></div>
           </div>

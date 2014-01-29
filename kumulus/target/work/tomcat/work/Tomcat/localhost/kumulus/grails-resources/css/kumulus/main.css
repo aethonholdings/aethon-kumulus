@@ -52,7 +52,20 @@ table{
 .kumulus-container{
     height: 550px;
     margin: 3px;
+}
+
+.kumulus-container-half{
+    height: 275px;
+    margin: 3px;
+}
+
+
+.kumulus-scrollable-y{
     overflow-y: auto;
+}
+
+.kumulus-scrollable-x{
+    overflow-x: auto;
 }
 
 .kumulus-element-border{
@@ -75,7 +88,6 @@ table{
     width: 95%;
     padding: 10px;
     text-align:center;
-    overflow-y: auto;
 }
 
 .kumulus-filmstrip{
@@ -111,4 +123,13 @@ table{
 
 .kumulus-data-entry {
     
+}
+
+.kumulus-line-item-table {
+    width: 100%;
+    text-align: center;
+}
+
+.kumulus-header-row {
+    width: 50px;
 }
