@@ -38,14 +38,14 @@ class ProjectController {
                 actions = ["Upload"]                
                 break
         }
-        render view:"list", layout: "home", model:[projectList:projectList , title: "", actions: actions]
+        render view:"list", model:[projectList:projectList , title: "", actions: actions]
     }
     
     @Secured(['ROLE_SUPERVISE'])
     def edit() {
         def project = Project.findById(params?.id)
         if(userService.checkPermisions(project)) {
-            render view:"edit", layout: "home", model:[project: project]
+            render view:"edit", model:[project: project]
         }
     }
     
@@ -64,7 +64,7 @@ class ProjectController {
     
     @Secured(['ROLE_SUPERVISE'])
     def create() {
-        render view:"edit", layout: "home", model:[project: new Project()]
+        render view:"edit", model:[project: new Project()]
     }
     
     @Secured(['ROLE_SUPERVISE'])

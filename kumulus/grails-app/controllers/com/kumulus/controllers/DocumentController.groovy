@@ -18,7 +18,7 @@ class DocumentController {
                 if(task.document.project==project) documentList.add task.document            
             }
         }
-        render view: "build", layout: "home", model: [documents: documentList]
+        render view: "build", model: [documents: documentList]
     }
     
     @Secured(['ROLE_IMPORT'])
@@ -42,12 +42,21 @@ class DocumentController {
     }
         
     @Secured(['ROLE_PROCESS'])
-    def ocr() {
+    def process() {
         def task = Task.findById(params?.id)
         def currencies = Currency.listOrderByFullName()
         def documentTypes = DocumentType.listOrderByName()
         def document = task.document
         // SORT BY PAGE NUMBER!
-        render view: "ocr", layout: "home", model:[document: document, currencies: currencies, documentTypes: documentTypes]
+        render view: "process", model:[document: document, currencies: currencies, documentTypes: documentTypes]
+    }
+    
+    @Secured(['ROLE_PROCESS'])
+    def update() {  
+        def data = request.JSON
+        def response = [done: false]
+        def document = Document.findById(data?.id)
+        documentService.update(document, data)
+        render response as JSON
     }
 }

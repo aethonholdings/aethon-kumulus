@@ -2,12 +2,14 @@ package com.kumulus.services
 
 import grails.transaction.Transactional
 import com.kumulus.domain.*
+import java.text.SimpleDateFormat
 
 @Transactional
 class DocumentService {
 
     def filesystemService
     def userService
+    def grailsApplication
     
     def merge(documents) {
         
@@ -81,6 +83,32 @@ class DocumentService {
         task.save()
         return(task)
     }
+    
+    def update(document, data) {
+        def documentType = DocumentType.findByName(data?.documentType)        
+        Date date
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(grailsApplication.config.kumulus.dateFormat)
+        if(data?.date && simpleDateFormat.parse(data?.date)) date = new Date(data?.date)
+        if(document && documentType) {
+            // bind the document data
+            bindData(document, [
+                company: data?.company,
+                date: date
+            ])
+
+            // bind the line item data
+            data?.lineItems.each { it ->
+                def lineItem = LineItem.findById(it?.id)
+                if(lineItem) {
+                    
+                } else {
+                    
+                }
+            }
+        }
+    }
+    
+    
     
 }
 

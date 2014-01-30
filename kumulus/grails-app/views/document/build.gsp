@@ -24,7 +24,7 @@
                       <ul id="pages" class="connectedSortable">
                         <g:each var="document" in="${documents}">
                           <g:each var="page" in="${document.pages}">
-                            <li documentId="${document.id}"><g:kumulusImg image="${page.thumbnailImage}" class="kumulus-thumbnail kumulus-element-border" height="140" width="100" onClick="selectPage(this);" viewId="${page.viewImage.id}" scanId="${page.scanImage.id}"/></li>
+                            <li documentId="${document.id}"><g:kumulusImg image="${page.thumbnailImage}" class="kumulus-thumbnail kumulus-element-border" height="140" width="100" onmousedown="selectPage(this);" viewId="${page.viewImage.id}" scanId="${page.scanImage.id}"/></li>
                           </g:each>
                         </g:each>
                       </ul>

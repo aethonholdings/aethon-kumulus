@@ -13,12 +13,12 @@ class TaskController {
     def review() {
         def pages = []   
         def task = Task.findById(params?.id)
-        render view:"review", layout:"home", model:[pages: pages]
+        render view:"review", model:[pages: pages]
     }
     
     def list() {
         def taskList = Task.findAllByUserIdAndType(userService.getUsername(), params?.type, [sort: "created", order:"asc"])
-        render view:"list", layout: "home", model: [tasks: taskList, title: params?.title]
+        render view:"list", model: [tasks: taskList, title: params?.title]
     }
     
     def listGroupByProject() {
@@ -37,7 +37,7 @@ class TaskController {
             tasksByProject[project.id].tasks.add(task)
         }
         
-        render view:"listGroupByProject", layout: "home", model: [tasksByProject: tasksByProject, projectList: projectList, title: params?.title]
+        render view:"listGroupByProject", model: [tasksByProject: tasksByProject, projectList: projectList, title: params?.title]
     }
     
     def perform() {

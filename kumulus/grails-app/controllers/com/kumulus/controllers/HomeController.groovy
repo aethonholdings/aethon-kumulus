@@ -10,7 +10,7 @@ class HomeController {
     
     @Secured(['ROLE_ADMIN', 'ROLE_PROCESS', 'ROLE_IMPORT', 'ROLE_REVIEW', 'ROLE_SUPERVISE', 'ROLE_VIEW'])
     def index() { 
-        render(view:"index", layout:"home", model:[pageTitle: "Home"])
+        render(view:"index", model:[pageTitle: "Home"])
     }
 
     // SUPERVISOR USER CONTROLLER ACTIONS

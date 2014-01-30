@@ -12,7 +12,7 @@ class ImageController {
     @Secured(['ROLE_IMPORT'])
     def upload() {
         def project = Project.findById(params?.id)
-        if(project?.company == userService.getCompany()) render view:"upload", layout:"home", model:[project: project]
+        if(project?.company == userService.getCompany()) render view:"upload", model:[project: project]
     }
     
     @Secured(['ROLE_IMPORT'])

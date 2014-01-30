@@ -13,7 +13,7 @@ class NodeController {
 
     def collect() {
         def project = Project.findById(params?.id)
-        if(project.company == userService.getCompany()) render view:"collect", layout:"home", model:[project: project]    
+        if(project.company == userService.getCompany()) render view:"collect", model:[project: project]    
     }
         
     def getRoot() {
