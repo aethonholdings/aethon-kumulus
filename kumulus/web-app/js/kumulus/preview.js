@@ -1,13 +1,11 @@
 function preview(element, imageId) {
-    
     element.load(function () {
         scaleImage(element, false);
+        element.attr('alt', imageId);
         element.show();        
     });
     element.hide();
-    element.attr('alt', imageId);
-    element.attr('src', url('image', 'get', imageId));
-    element.load();
+    element.attr('src', url('image', 'get', imageId));   
 }
 
 function zoom() {
