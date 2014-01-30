@@ -5,13 +5,15 @@ function preview(element, imageId) {
         element.show();        
     });
     element.hide();
-    element.attr('src', url('image', 'get', imageId));   
-}
-
-function zoom() {
-    var image = $('#preview-img');
-    var zoomWindow = window.open('', 'newwindow');
-    zoomWindow.document.write('<img src="' + url('image', 'get', image.attr('alt')) + '">')
+    element.attr('src', url('image', 'get', imageId));
+    element.click(function () {        
+        var zoomWindow = window.open('', 'newwindow');
+        zoomWindow.document.write('<html>');
+        zoomWindow.document.write('<body>');
+        zoomWindow.document.write('<img src="' + url('image', 'get', imageId) + '" width="100%" height="100%">');
+        zoomWindow.document.write('</body>');
+        zoomWindow.document.write('</html>');        
+    });
 }
 
 // rescales an image to fit parent container, maintaining aspect ratio

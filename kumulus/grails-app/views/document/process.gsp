@@ -2,7 +2,6 @@
   <head>
     <title>OCR data entry | Kumulus</title>
     <g:javascript src='kumulus/preview.js'/>
-    <g:javascript src='kumulus/autocomplete.js'/>
     <g:javascript src='kumulus/process.js'/>
   </head>
   <body>
@@ -12,7 +11,7 @@
           <div id="page-strip" class="kumulus-filmstrip">
             <ul id="pages">
               <g:each var="page" in="${document.pages}">
-                <li documentId="${document.id}"><g:kumulusImg image="${page.thumbnailImage}" class="kumulus-thumbnail kumulus-element-border" height="140" width="100" viewId="${page.viewImage.id}" scanId="${page.scanImage.id}"/></li>
+                <li documentId="${document.id}"><g:kumulusImg image="${page.thumbnailImage}" class="kumulus-thumbnail kumulus-element-border" height="140" width="100" viewId="${page.viewImage.id}" scanId="${page.scanImage.id}" pageNumber="${page.number}"/></li>
               </g:each>
             </ul>
           </div>
@@ -61,47 +60,53 @@
             </div>
           </div>
           <div class="kumulus-container-half kumulus-element-border">
-            <div class="kumulus-line-item-table pure-table-horizontal">
-              <table id="lineItems" class="kumulus-small-font">
+            <div class="kumulus-line-item-table">
+              <table id="lineItems" class="pure-table-horizontal">
                 <thead>
                   <th>Id</th>
                   <th>Page</th>
+                  <th>Description</th>                  
                   <th>Date</th>
-                  <th>Description</th>
                   <th>Quantity</th>
                   <th>Currency</th>
                   <th>Price</th>
                   <th>Amount</th>
-                  <th>Action</th>
+                  <th>Actions</th>
                 </thead>
                 <tbody class="kumulus-scrollable-y">
                   <g:each var="page" in="${document.pages}">
                     <g:each var="lineItem" in="${page.lineItems}">
                       <tr>
-                        <td class="kumulus-column-id kumulus-row-${lineItem.id}"></td>
-                        <td class="kumulus-column-page kumulus-row-${lineItem.id}"></td>
-                        <td class="kumulus-column-date kumulus-row-${lineItem.id}"></td>
-                        <td class="kumulus-column-description kumulus-row-${lineItem.id}"></td>
-                        <td class="kumulus-column-quantity kumulus-row-${lineItem.id}"></td>
-                        <td class="kumulus-column-currency kumulus-row-${lineItem.id}"></td>
-                        <td class="kumulus-column-price kumulus-row-${lineItem.id}"></td>
-                        <td class="kumulus-column-amount kumulus-row-${lineItem.id}"></td>
+                        <td class="kumulus-column-id"></td>
+                        <td class="kumulus-column-page"></td>
+                        <td class="kumulus-column-description"></td>                        
+                        <td class="kumulus-column-date"></td>
+                        <td class="kumulus-column-quantity"></td>
+                        <td class="kumulus-column-currency"></td>
+                        <td class="kumulus-column-price"></td>
+                        <td class="kumulus-column-amount"></td>
                         <td></td>
                       </tr>
                     </g:each>
                   </g:each>
                 </tbody>
                 <tfoot>
-                  <tr>  
-                    <td><input size="4" type="text" value="" class="kumulus-column-id kumulus-row-new" disabled="true"></input></td>
-                    <td><input size="4" type="text" value="" class="kumulus-column-page kumulus-row-new"></input></td>
-                    <td><input size="4" type="text" value="" class="kumulus-column-date kumulus-row-new"></input></td>
-                    <td><input size="4" type="text" value="" class="kumulus-column-description kumulus-row-new"></input></td>
-                    <td><input size="4" type="text" value="" class="kumulus-column-quantity kumulus-row-new"></input></td>
-                    <td><input size="4" type="text" value="" class="kumulus-column-currency kumulus-row-new"></input></td>
-                    <td><input size="4" type="text" value="" class="kumulus-column-id kumulus-row-new"></input></td>
-                    <td><input size="4" type="text" value="" class="kumulus-column-id kumulus-row-new"></input></td>
-                    <td><input size="4" type="text" value="" class="kumulus-column-id kumulus-row-new"></input></td>
+                  <tr class="new">  
+                    <td><input size="4" type="text" value="" class="kumulus-column-id new" disabled="true"></input></td>
+                    <td><input size="2" type="text" value="" class="kumulus-column-page new" disabled="true"></input></td>
+                    <td><input id="focus" size="25" type="text" value="" class="kumulus-column-description new"></input></td>
+                    <td><input size="4" type="date" value="" class="kumulus-column-date new"></input></td>
+                    <td><input size="6" type="text" value="" class="kumulus-column-quantity new"></input></td>
+                    <td>
+                      <select>
+                        <g:each var="currency" in="${currencies}">
+                          <option value="${currency.shortName}" <g:if test="${currency.shortName=='SGD'}">selected</g:if>>${currency.shortName}</option>
+                        </g:each>
+                      </select>
+                    </td>
+                    <td><input size="6" type="text" value="" class="kumulus-column-price new"></input></td>
+                    <td><input size="6" type="text" value="" class="kumulus-column-amount new"></input></td>
+                    <td><a class="add" href="#">Add</a></td>
                   </tr>
                 </tfoot>
               </table>
