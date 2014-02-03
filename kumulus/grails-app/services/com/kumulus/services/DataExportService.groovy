@@ -6,6 +6,8 @@ import grails.transaction.Transactional
 @Transactional
 class DataExportService {
     
+    // should implement get abstract, then use helper classes to implement plugins for different export systems
+    
     def getCSV(project) {
         if (project) {
             def ledger = new ArrayList()

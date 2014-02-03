@@ -8,7 +8,7 @@ class DocumentController {
     
     def processManagementService
     def permissionsService
-    def documentService
+    def dataProcessingService
     
     @Secured(['ROLE_IMPORT'])
     def build() {
@@ -31,7 +31,7 @@ class DocumentController {
             def document = Document.findById(it)  // NEED PERMISSIONS CHECKS HERE AGAINST THE TASKS
             documents.add(document)
         }
-        mergedDocument = documentService.merge(documents)
+        mergedDocument = dataProcessingService.merge(documents)
         if(mergedDocument) processManagementService.createTask(mergedDocument, Task.OCR_DOCUMENT, Task.READY_FOR_BATCH_INSTANCE)
         def response = [done: true]
         render response as JSON
@@ -57,7 +57,7 @@ class DocumentController {
         def data = request.JSON
         def response = [done: false]
         def document = Document.findById(data?.id)
-        documentService.update(document, data)
+        dataProcessingService.update(document, data)
         render response as JSON
     }
 }

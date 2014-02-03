@@ -20,4 +20,8 @@ class ProcessManagementService {
         task.save()
         return(task)
     }
+    
+    def getTasks() {
+        return(Task.findByUserId(getUsername()))
+    }
 }

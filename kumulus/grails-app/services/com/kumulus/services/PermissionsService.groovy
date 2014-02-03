@@ -24,11 +24,7 @@ class PermissionsService {
         if(params?.status) projectList = projectList.findAll { it.status == params.status }
         return (projectList)
     }
-    
-    def getTasks() {
-        return(Task.findByUserId(getUsername()))
-    }
-    
+        
     def getUsername() {
         def auth = springSecurityService.getAuthentication()
         String username = auth.getPrincipal().getUsername()        
