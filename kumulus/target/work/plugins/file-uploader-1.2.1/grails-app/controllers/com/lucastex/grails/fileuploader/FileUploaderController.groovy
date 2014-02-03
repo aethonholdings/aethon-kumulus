@@ -90,7 +90,7 @@ class FileUploaderController {
 		ufile.downloads = 0
 		ufile.save()
 	
-		redirect controller: params.successController, action: params.successAction, params:[ufileId:ufile.id, id: params.id, nodeId: params.nodeId]
+		redirect controller: params.successController, action: params.successAction, params:[ufileId:ufile.id, id: params.id, nodeId: params?.nodeId, documentId: params?.documentId]
 	}
     
     def show() {

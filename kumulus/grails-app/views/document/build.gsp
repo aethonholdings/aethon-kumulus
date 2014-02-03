@@ -23,7 +23,7 @@
                     <div id="page-strip" class="kumulus-filmstrip">
                       <ul id="pages" class="connectedSortable">
                         <g:each var="document" in="${documents}">
-                          <g:each var="page" in="${document.pages}">
+                          <g:each var="page" in="${document.pages.sort { it.number }}">
                             <li documentId="${document.id}"><g:kumulusImg image="${page.thumbnailImage}" class="kumulus-thumbnail kumulus-element-border" height="140" width="100" viewId="${page.viewImage.id}" scanId="${page.scanImage.id}"/></li>
                           </g:each>
                         </g:each>

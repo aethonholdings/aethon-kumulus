@@ -55,7 +55,7 @@
               <fileuploader:form name="uploader" 
                   class="pure-form"
                   upload="image" 
-                  successAction="process"
+                  successAction="index"
                   successController="image"
                   errorAction="error"
                   errorController="test"  

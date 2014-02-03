@@ -3,12 +3,14 @@ package com.kumulus.controllers
 import grails.plugin.springsecurity.annotation.Secured
 import com.kumulus.domain.*
 import grails.converters.*
+import com.lucastex.grails.fileuploader.*
 
 class DocumentController {
     
     def processManagementService
     def permissionsService
     def dataProcessingService
+    def filesystemService
     
     @Secured(['ROLE_IMPORT'])
     def build() {
@@ -48,7 +50,6 @@ class DocumentController {
         def currencies = Currency.listOrderByFullName()
         def documentTypes = DocumentType.listOrderByName()
         def document = task.document
-        // SORT BY PAGE NUMBER!
         render view: "process", model:[document: document, currencies: currencies, documentTypes: documentTypes]
     }
     
@@ -60,4 +61,18 @@ class DocumentController {
         dataProcessingService.update(document, data)
         render response as JSON
     }
+    
+    @Secured(['ROLE_PROCESS'])
+    def upload() {
+        render view: "upload"
+    }
+
+    @Secured(['ROLE_PROCESS'])    
+    def index() {
+        def file = UFile?.findById(params?.ufileId)
+        def document = Document?.findById(params?.documentId)
+        filesystemService.indexDocument(document, file)
+        render "hello"
+    }
+    
 }

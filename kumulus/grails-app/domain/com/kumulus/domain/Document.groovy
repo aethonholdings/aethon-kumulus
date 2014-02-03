@@ -13,12 +13,13 @@ class Document {
     String identifier
     Byte status
     UFile file
+    String text
     
     static hasMany = [pages: Page, task: Task]
     static belongsTo = [project: Project, type: DocumentType]
     
     static mapping = {
-
+        text sqlType: "longtext"
     }
     
     static constraints = {  
@@ -28,5 +29,6 @@ class Document {
         literal nullable: false
         file nullable: true
         pages nullable: true
+        text nullable: true
     }
 }

@@ -10,7 +10,7 @@
         <div class="kumulus-container kumulus-element-border kumulus-scrollable-y">
           <div id="page-strip" class="kumulus-filmstrip">
             <ul id="pages">
-              <g:each var="page" in="${document.pages}">
+              <g:each var="page" in="${document.pages.sort { it.number }}">
                 <li documentId="${document.id}"><g:kumulusImg image="${page.thumbnailImage}" class="kumulus-thumbnail kumulus-element-border" height="140" width="100" viewId="${page.viewImage.id}" scanId="${page.scanImage.id}" pageNumber="${page.number}"/></li>
               </g:each>
             </ul>

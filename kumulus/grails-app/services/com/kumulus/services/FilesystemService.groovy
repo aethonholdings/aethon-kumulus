@@ -11,6 +11,7 @@ class FilesystemService {
     
     def grailsApplication
     def permissionsService  // push this to controllers
+    def tikaService
     
     def generateLiteral() {
         String literal = System.currentTimeMillis()
@@ -18,7 +19,7 @@ class FilesystemService {
         return(literal)
     }
     
-    def processUploadFile(parentNode, uFile, scanBatch) {
+    def indexImage(parentNode, uFile, scanBatch) {
         if(parentNode && uFile && scanBatch) {
             
             // define the necessary paths and files
@@ -122,6 +123,13 @@ class FilesystemService {
             uFile.delete(flush:true)
             stagingPath.deleteDir() 
         }
+    }
+    
+    def indexDocument(document, uFile) {
+        document.file = uFile
+        File file = new File(uFile.path)
+        document.text = tikaService.parseFile(file)
+        document.save()
     }
     
     def newProject(params) {

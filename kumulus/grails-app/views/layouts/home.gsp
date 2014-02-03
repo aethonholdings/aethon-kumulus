@@ -30,7 +30,8 @@
             <li><a href="#">Request pickup</a></li>
             <li class='menu-item-divided'><a href="#">Order materials</a></li>
             <li><a href="#">Manage account</a></li>
-            <li class='menu-item-divided'><g:link controller='home' action='process'>Process documents</g:link></li>
+            <li class='menu-item-divided'><g:link controller='document' action='upload'>Import pdf</g:link></li>
+            <li><g:link controller='home' action='process'>Process documents</g:link></li>
           </ul>
         </div>
       </div>
