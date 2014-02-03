@@ -6,19 +6,19 @@ import com.lucastex.grails.fileuploader.*
 
 class ImageController {
 
-    def userService
+    def permissionsService
     def filesystemService
     
     @Secured(['ROLE_IMPORT'])
     def upload() {
         def project = Project.findById(params?.id)
-        if(project?.company == userService.getCompany()) render view:"upload", model:[project: project]
+        if(project?.company == permissionsService.getCompany()) render view:"upload", model:[project: project]
     }
     
     @Secured(['ROLE_IMPORT'])
     def process() {
         def node = Node.findById(params?.nodeId)
-        def scanBatch = new ScanBatch(userId: userService.getUsername(), timestamp: new Date(), project: node.project)
+        def scanBatch = new ScanBatch(userId: permissionsService.getUsername(), timestamp: new Date(), project: node.project)
         scanBatch.save()
         filesystemService.processUploadFile(node, UFile.findById(params?.ufileId), scanBatch)
         redirect action: "upload", params:[id: 1]     

@@ -7,8 +7,8 @@ import com.kumulus.services.*
     
 class ProjectController {
 
-    def userService
-    def projectService
+    def permissionsService
+    def dataExportService
     def filesystemService
     def exportService
     
@@ -18,23 +18,23 @@ class ProjectController {
         def actions = []
         switch(params?.type) {
             case "manage":
-                projectList = userService.getProjects()
+                projectList = permissionsService.getProjects()
                 actions = ["Edit", "Delete", "Close", "Create"]
                 break
             case "download":
-                projectList = userService.getProjects()
+                projectList = permissionsService.getProjects()
                 actions = ["Download"]
                 break
             case "access":
-                projectList = userService.getProjects()
+                projectList = permissionsService.getProjects()
                 actions = ["Access"]
                 break
             case "collect":
-                projectList = userService.getProjects([status: "A"])
+                projectList = permissionsService.getProjects([status: "A"])
                 actions = ["Collect"]
                 break
             case "upload":
-                projectList = userService.getProjects([status: "A"])
+                projectList = permissionsService.getProjects([status: "A"])
                 actions = ["Upload"]                
                 break
         }
@@ -44,7 +44,7 @@ class ProjectController {
     @Secured(['ROLE_SUPERVISE'])
     def edit() {
         def project = Project.findById(params?.id)
-        if(userService.checkPermisions(project)) {
+        if(permissionsService.checkPermisions(project)) {
             render view:"edit", model:[project: project]
         }
     }
@@ -53,7 +53,7 @@ class ProjectController {
     def update() {
         def project = Project.findById(params?.id)
         if(!project) project = filesystemService.newProject(params) 
-        else if(userService.checkPermisions(project))  {
+        else if(permissionsService.checkPermisions(project))  {
             def client = Company.findById(params?.clientId)
             project.client = client
             bindData(project, params, [exclude:['client', 'clientId']])
@@ -70,14 +70,14 @@ class ProjectController {
     @Secured(['ROLE_SUPERVISE'])
     def delete() {
         def project = Project.findById(params?.id)
-        if(userService.checkPermisions(project) && project.status == "A") project.delete()
+        if(permissionsService.checkPermisions(project) && project.status == "A") project.delete()
         redirect action:"list", params:[type:"manage"]
     }
     
     @Secured(['ROLE_SUPERVISE'])
     def close() {
         def project = Project.findById(params?.id)
-        if(userService.checkPermisions(project)) {
+        if(permissionsService.checkPermisions(project)) {
             project.status = "D"
             project.save()
         }
@@ -89,7 +89,7 @@ class ProjectController {
         def project = Project.findById(params?.id)
         response.contentType = grailsApplication.config.grails.mime.types['csv']
         response.setHeader("Content-disposition", "attachment; filename=extract")
-        def export = projectService.getCSV(project)
+        def export = dataExportService.getCSV(project)
         if(export) exportService.export('csv', response.outputStream, export.ledger, export.fields, export.labels, [:], [:])
     }
     

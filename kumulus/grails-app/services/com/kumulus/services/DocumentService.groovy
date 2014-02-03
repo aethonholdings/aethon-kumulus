@@ -8,7 +8,7 @@ import java.text.SimpleDateFormat
 class DocumentService {
 
     def filesystemService
-    def userService
+    def permissionsService
     def grailsApplication
     
     def merge(documents) {
@@ -72,18 +72,6 @@ class DocumentService {
         return(newDocument)
     }
     
-    def createTask(document, taskType, status) {
-        def task = new Task(
-            document: document,
-            created: new Date(),
-            userId: userService.getUsername(),
-            type: taskType, 
-            status: status
-        )
-        task.save()
-        return(task)
-    }
-    
     def update(document, data) {
         def documentType = DocumentType.findByName(data?.documentType)        
         Date date
@@ -107,9 +95,6 @@ class DocumentService {
             }
         }
     }
-    
-    
-    
 }
 
 

@@ -6,7 +6,7 @@ import com.kumulus.domain.*
 class HomeController {
     
     def projectService
-    def userService
+    def permissionsService
     
     @Secured(['ROLE_ADMIN', 'ROLE_PROCESS', 'ROLE_IMPORT', 'ROLE_REVIEW', 'ROLE_SUPERVISE', 'ROLE_VIEW'])
     def index() { 
@@ -16,7 +16,7 @@ class HomeController {
     // SUPERVISOR USER CONTROLLER ACTIONS
     @Secured(['ROLE_SUPERVISE'])
     def manage() { 
-        def projectList = userService.getProjects([status: "A"])
+        def projectList = permissionsService.getProjects([status: "A"])
         redirect(controller: "project", action:"list", params:[type: "manage"])
     }
     

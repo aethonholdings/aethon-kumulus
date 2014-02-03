@@ -6,8 +6,7 @@ import com.kumulus.domain.*
 @Secured(['ROLE_REVIEW', 'ROLE_PROCESS'])
 class TaskController {
 
-    def userService
-    def taskService
+    def permissionsService
     
     // need securing based on user permissions
     def review() {
@@ -17,14 +16,14 @@ class TaskController {
     }
     
     def list() {
-        def taskList = Task.findAllByUserIdAndType(userService.getUsername(), params?.type, [sort: "created", order:"asc"])
+        def taskList = Task.findAllByUserIdAndType(permissionsService.getUsername(), params?.type, [sort: "created", order:"asc"])
         render view:"list", model: [tasks: taskList, title: params?.title]
     }
     
     def listGroupByProject() {
         def tasksByProject = [:]
         def projectList = []
-        def taskList = Task.findAllByUserIdAndType(userService.getUsername(), params?.type, [sort: "created", order:"asc"])
+        def taskList = Task.findAllByUserIdAndType(permissionsService.getUsername(), params?.type, [sort: "created", order:"asc"])
         taskList.each { task ->
             def project = task.document.project
             if(!tasksByProject.containsKey(project.id)) {
@@ -43,7 +42,7 @@ class TaskController {
     def perform() {
         if(params?.id) {
             def task = Task.findById(params.id)
-            if(task?.userId==userService.getUsername()) {
+            if(task?.userId==permissionsService.getUsername()) {
                 switch(task.type) {
                 }
             }

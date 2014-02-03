@@ -10,7 +10,7 @@ import com.lucastex.grails.fileuploader.UFile
 class FilesystemService {
     
     def grailsApplication
-    def userService  // push this to controllers
+    def permissionsService  // push this to controllers
     
     def generateLiteral() {
         String literal = System.currentTimeMillis()
@@ -23,7 +23,7 @@ class FilesystemService {
             
             // define the necessary paths and files
             def literal = generateLiteral()
-            def userId = userService.getUsername()
+            def userId = permissionsService.getUsername()
             Date timestamp = new Date()
             File stagingPath = new File(uFile.path.replace(uFile.name, ""))
             File targetPath = new File(grailsApplication.config.filesystem.main + "/" + parentNode.project.literal + "/pages/" + literal + "/")
@@ -140,7 +140,7 @@ class FilesystemService {
         // create the database instances
         def client = new Company([name: params?.client])         // NEED TO CHECK THE PREEXISTENCE OF THE COMPANY
         client.save()
-        def project = new Project([projectName: params?.projectName, comment: params?.comment, status: "A", company: userService.getCompany(), lineItems:[], nodes:[], client: client, literal: literal, path: path])
+        def project = new Project([projectName: params?.projectName, comment: params?.comment, status: "A", company: permissionsService.getCompany(), lineItems:[], nodes:[], client: client, literal: literal, path: path])
         project.save()
         return(project)
     }

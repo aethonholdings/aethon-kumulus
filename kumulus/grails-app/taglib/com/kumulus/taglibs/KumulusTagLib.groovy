@@ -6,10 +6,10 @@ class KumulusTagLib {
     static defaultEncodeAs = 'text'
     //static encodeAsForTags = [tagName: 'raw']
     
-    def userService
+    def permissionsService
         
     def userCompany = { attrs, body ->
-        String company = userService.company
+        String company = permissionsService.company
         if(company) {
             out << company
         }

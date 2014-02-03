@@ -5,8 +5,9 @@ import com.kumulus.domain.*
 import grails.converters.*
 
 class DocumentController {
-
-    def userService
+    
+    def processManagementService
+    def permissionsService
     def documentService
     
     @Secured(['ROLE_IMPORT'])
@@ -14,7 +15,7 @@ class DocumentController {
         def documentList = []
         def project = Project.findById(params?.id)
         if(project) {
-            Task.findAllByUserIdAndType(userService.getUsername(), Task.BUILD_DOCUMENT).each { task ->
+            Task.findAllByUserIdAndType(permissionsService.getUsername(), Task.BUILD_DOCUMENT).each { task ->
                 if(task.document.project==project) documentList.add task.document            
             }
         }
@@ -31,7 +32,7 @@ class DocumentController {
             documents.add(document)
         }
         mergedDocument = documentService.merge(documents)
-        if(mergedDocument) documentService.createTask(mergedDocument, Task.OCR_DOCUMENT, Task.READY_FOR_BATCH_INSTANCE)
+        if(mergedDocument) processManagementService.createTask(mergedDocument, Task.OCR_DOCUMENT, Task.READY_FOR_BATCH_INSTANCE)
         def response = [done: true]
         render response as JSON
     }

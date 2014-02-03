@@ -7,29 +7,29 @@ import grails.converters.*
 @Secured(['ROLE_IMPORT'])
 class NodeController {
 
-    def nodeService
+    def paperManagementService
     def springSecurityService
-    def userService
+    def permissionsService
 
     def collect() {
         def project = Project.findById(params?.id)
-        if(project.company == userService.getCompany()) render view:"collect", model:[project: project]    
+        if(project.company == permissionsService.getCompany()) render view:"collect", model:[project: project]    
     }
         
     def getRoot() {
         def rootNode
-        if(Project.findById(params?.id).company == userService.getCompany()) {
-            rootNode = nodeService.renderRoot(Project?.findById(params?.id))   
-            render rootNode as JSON  
+        if(Project.findById(params?.id).company == permissionsService.getCompany()) {
+            rootNode = paperManagementService.renderRoot(Project?.findById(params?.id))   
+            render rootNode as JSON
         }
     }    
     
     def getChildren() {
         def treeNodes = []
         def node = Node.findById(params?.id)         // should check permissions first
-        if (node?.project.company == userService.getCompany()) {
+        if (node?.project.company == permissionsService.getCompany()) {
             def children = Node.findAllByParent(node)
-            children.each { if(it?.type!='P') treeNodes.add(nodeService.renderNode(it)) }
+            children.each { if(it?.type!='P') treeNodes.add(paperManagementService.renderNode(it)) }
         }
         render treeNodes as JSON  
     }
@@ -37,19 +37,21 @@ class NodeController {
     def update() {
         def data = request.JSON
         def node = Node.findById(data?.id)
-        if (node?.project.company == userService.getCompany()) {
-            nodeService.saveNode(node, data?.barcode, data?.name, data?.comment, data?.type, 0)
+        if (node?.project.company == permissionsService.getCompany()) {
+            paperManagementService.saveNode(node, data?.barcode, data?.name, data?.comment, data?.type, 0)
             render node as JSON
         }
     }
     
     // need to move a lot of this code into service
     def insert() {
-        
         def data = request.JSON
         def response = [done: false, message: "Error"]
         def project = Project.findById(data?.project)
-        if(project.company == userService.getCompany()) {
+        if(project.company == permissionsService.getCompany()) {
+            
+            // BIT BELOW HERE NEEDS TO BE IN SERVICE
+            
             def parent = null
             if(data?.parentID!="ROOT") parent = Node.findById(data.parentID)
 
@@ -65,7 +67,7 @@ class NodeController {
                     lastUpdateDatetime: new Date(),
                 ]
                 bindData(node, map)
-                nodeService.saveNode(node, data?.barcode, data?.name, data?.comment, data?.type, 0)
+                paperManagementService.saveNode(node, data?.barcode, data?.name, data?.comment, data?.type, 0)
                 response.done = true
                 response.message = "OK"
             }
@@ -76,8 +78,8 @@ class NodeController {
     def delete() {
         def data = request.JSON
         def response = [done: false]
-        if(data?.id && Node.findById(data?.id).project.company == userService.getCompany()) {
-            nodeService.deleteNode(data.id)
+        if(data?.id && Node.findById(data?.id).project.company == permissionsService.getCompany()) {
+            paperManagementService.deleteNode(data.id)
             response.done = true
         }
         render response as JSON
