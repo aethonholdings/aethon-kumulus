@@ -127,19 +127,18 @@ grails.plugin.springsecurity.logout.postOnly = false
 // LDAP configuration ----------------------------
 
 // server
-grails.plugin.springsecurity.ldap.context.server = 'ldap://test.ephesoft.kumulus.sg:389'
-grails.plugin.springsecurity.ldap.context.managerDn = 'cn=Manager,dc=ephesoft,dc=com'
+grails.plugin.springsecurity.ldap.context.server = 'ldap://test.aethon.sg:389'
+grails.plugin.springsecurity.ldap.context.managerDn = 'cn=admin,dc=aethon,dc=sg'
 grails.plugin.springsecurity.ldap.context.managerPassword = 'secret'
 
 // search
-grails.plugin.springsecurity.ldap.user.base = 'ou=people,dc=ephesoft,dc=com'
-grails.plugin.springsecurity.ldap.search.base = 'dc=ephesoft,dc=com'
+grails.plugin.springsecurity.ldap.user.base = 'ou=people,dc=aethon,dc=sg'
+grails.plugin.springsecurity.ldap.search.base = 'dc=aethon,dc=sg'
 grails.plugin.springsecurity.ldap.search.searchSubtree = true
 
 // authorities
 grails.plugin.springsecurity.ldap.authorities.groupRoleAttribute = 'cn'
-grails.plugin.springsecurity.ldap.authorities.groupSearchBase = 'ou=groups,dc=ephesoft,dc=com'
-
+grails.plugin.springsecurity.ldap.authorities.groupSearchBase = 'ou=groups,dc=aethon,dc=sg'
 
 // Kumulus configuration --------------------------
 grails.sitemesh.default.layout = 'home'
