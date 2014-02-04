@@ -4,7 +4,7 @@ import com.lucastex.grails.fileuploader.UFile
 
 class Document {
 
-    static searchable = true 
+    static searchable = [only: ['date', 'company', 'identifier', 'text']]
     
     static final int EDITABLE = 1
     static final int FINAL = 2

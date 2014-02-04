@@ -2,7 +2,7 @@ package com.kumulus.domain
 
 class Node {
 
-    static searchable = true
+    static searchable = [only: ['name', 'barcode', 'comment', 'createDateTime']]
     
     static final String CONTAINER = "C"
     static final String PAGE = "P"
