@@ -1,4 +1,4 @@
-package com.kumulus.controllers
+package com.kumulus.controllers.workflow
 
 import grails.plugin.springsecurity.annotation.Secured
 import com.kumulus.domain.*
