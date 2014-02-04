@@ -15,6 +15,7 @@
  */
 package grails.plugin.searchable
 
+import grails.plugin.springsecurity.annotation.Secured
 import org.compass.core.engine.SearchEngineQueryParseException
 
 /**
@@ -22,6 +23,7 @@ import org.compass.core.engine.SearchEngineQueryParseException
  *
  * @author Maurice Nicholson
  */
+@Secured(['ROLE_IMPORT'])
 class SearchableController {
     def searchableService
 
