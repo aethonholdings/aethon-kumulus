@@ -28,8 +28,8 @@ invokeTag('captureHead','sitemesh',4,[:],1)
 printHtmlPart(3)
 createTagBody(1, {->
 printHtmlPart(4)
-for( _it1432666447 in (projectList) ) {
-changeItVariable(_it1432666447)
+for( _it1176636076 in (projectList) ) {
+changeItVariable(_it1176636076)
 printHtmlPart(5)
 expressionOut.print(it?.projectName)
 printHtmlPart(6)
@@ -38,7 +38,7 @@ printHtmlPart(6)
 expressionOut.print(tasksByProject.get(it.id)?.tasks?.size())
 printHtmlPart(6)
 createClosureForHtmlPart(7, 3)
-invokeTag('link','g',21,['controller':("document"),'action':("build"),'id':(it.id)],3)
+invokeTag('link','g',21,['controller':("capture"),'action':("build"),'id':(it.id)],3)
 printHtmlPart(8)
 }
 printHtmlPart(9)
@@ -51,7 +51,7 @@ protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1390917381000L
+public static final long LAST_MODIFIED = 1391502631000L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'
