@@ -25,8 +25,8 @@ invokeTag('captureHead','sitemesh',4,[:],1)
 printHtmlPart(3)
 createTagBody(1, {->
 printHtmlPart(4)
-for( _it270507153 in (projectList) ) {
-changeItVariable(_it270507153)
+for( _it1535323299 in (projectList) ) {
+changeItVariable(_it1535323299)
 printHtmlPart(5)
 expressionOut.print(it.projectName)
 printHtmlPart(6)
@@ -60,52 +60,52 @@ printHtmlPart(8)
 if(true && (action=="Download")) {
 printHtmlPart(9)
 createClosureForHtmlPart(13, 5)
-invokeTag('link','g',33,['controller':("project"),'action':("download"),'id':(it.id)],5)
+invokeTag('link','g',33,['controller':("access"),'action':("download"),'id':(it.id)],5)
 printHtmlPart(8)
 }
 printHtmlPart(8)
 if(true && (action=="Access")) {
 printHtmlPart(9)
-createClosureForHtmlPart(13, 5)
-invokeTag('link','g',36,['controller':("project"),'action':("access"),'id':(it.id)],5)
+createClosureForHtmlPart(14, 5)
+invokeTag('link','g',36,['controller':("access"),'action':("access"),'id':(it.id)],5)
 printHtmlPart(8)
 }
 printHtmlPart(8)
 if(true && (action=="Collect")) {
 printHtmlPart(9)
-createClosureForHtmlPart(14, 5)
-invokeTag('link','g',39,['controller':("node"),'action':("collect"),'id':(it.id)],5)
+createClosureForHtmlPart(15, 5)
+invokeTag('link','g',39,['controller':("capture"),'action':("collect"),'id':(it.id)],5)
 printHtmlPart(8)
 }
 printHtmlPart(8)
 if(true && (action=="Upload")) {
 printHtmlPart(9)
-createClosureForHtmlPart(15, 5)
-invokeTag('link','g',42,['controller':("image"),'action':("upload"),'id':(it.id)],5)
+createClosureForHtmlPart(16, 5)
+invokeTag('link','g',42,['controller':("capture"),'action':("upload"),'id':(it.id)],5)
 printHtmlPart(8)
-}
-printHtmlPart(16)
 }
 printHtmlPart(17)
 }
 printHtmlPart(18)
-if(true && (actions.containsAll("Create"))) {
+}
 printHtmlPart(19)
-createClosureForHtmlPart(20, 3)
+if(true && (actions.containsAll("Create"))) {
+printHtmlPart(20)
+createClosureForHtmlPart(21, 3)
 invokeTag('link','g',51,['controller':("project"),'action':("create"),'class':("pure-button")],3)
-printHtmlPart(21)
+printHtmlPart(22)
 }
 printHtmlPart(3)
 })
 invokeTag('captureBody','sitemesh',53,[:],1)
-printHtmlPart(22)
+printHtmlPart(23)
 }
 public static final Map JSP_TAGS = new HashMap()
 protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1390917381000L
+public static final long LAST_MODIFIED = 1391502631000L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'

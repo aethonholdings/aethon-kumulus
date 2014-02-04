@@ -5,8 +5,8 @@ import org.codehaus.groovy.grails.web.taglib.exceptions.GrailsTagException
 import org.springframework.web.util.*
 import grails.util.GrailsUtil
 
-class gsp_kumulus_nodecollect_gsp extends GroovyPage {
-public String getGroovyPageFileName() { "/WEB-INF/grails-app/views/node/collect.gsp" }
+class gsp_kumulus_accessaccess_gsp extends GroovyPage {
+public String getGroovyPageFileName() { "/WEB-INF/grails-app/views/access/access.gsp" }
 public Object run() {
 Writer out = getOut()
 Writer expressionOut = getExpressionOut()
@@ -14,27 +14,26 @@ registerSitemeshPreprocessMode()
 printHtmlPart(0)
 createTagBody(1, {->
 printHtmlPart(1)
-expressionOut.print(resource(dir: 'css/dynatree/skin', file: 'ui.dynatree.css'))
-printHtmlPart(2)
-invokeTag('javascript','g',4,['src':("dynatree/jquery.dynatree.js")],-1)
-printHtmlPart(3)
-invokeTag('javascript','g',5,['src':("kumulus/nodeTree.js")],-1)
-printHtmlPart(3)
 createTagBody(2, {->
-createClosureForHtmlPart(4, 3)
-invokeTag('captureTitle','sitemesh',6,[:],3)
+createClosureForHtmlPart(2, 3)
+invokeTag('captureTitle','sitemesh',3,[:],3)
 })
-invokeTag('wrapTitleTag','sitemesh',6,[:],2)
-printHtmlPart(5)
+invokeTag('wrapTitleTag','sitemesh',3,[:],2)
+printHtmlPart(3)
 })
-invokeTag('captureHead','sitemesh',7,[:],1)
-printHtmlPart(5)
+invokeTag('captureHead','sitemesh',4,[:],1)
+printHtmlPart(3)
 createTagBody(1, {->
+printHtmlPart(4)
+createTagBody(2, {->
+printHtmlPart(5)
+invokeTag('textField','g',9,['name':("q"),'value':(params.q),'class':("pure-input"),'placeholder':("Enter search terms"),'size':("50")],-1)
 printHtmlPart(6)
-expressionOut.print(project.id)
+})
+invokeTag('form','g',10,['url':([controller: "access", action: "search"]),'id':("searchableForm"),'name':("searchableForm"),'method':("get")],2)
 printHtmlPart(7)
 })
-invokeTag('captureBody','sitemesh',57,[:],1)
+invokeTag('captureBody','sitemesh',15,[:],1)
 printHtmlPart(8)
 }
 public static final Map JSP_TAGS = new HashMap()
@@ -42,7 +41,7 @@ protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1390987537000L
+public static final long LAST_MODIFIED = 1391502631000L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'

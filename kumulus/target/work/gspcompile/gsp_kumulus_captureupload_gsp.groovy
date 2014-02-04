@@ -5,43 +5,39 @@ import org.codehaus.groovy.grails.web.taglib.exceptions.GrailsTagException
 import org.springframework.web.util.*
 import grails.util.GrailsUtil
 
-class gsp_kumulus_tasklist_gsp extends GroovyPage {
-public String getGroovyPageFileName() { "/WEB-INF/grails-app/views/task/list.gsp" }
+class gsp_kumulus_captureupload_gsp extends GroovyPage {
+public String getGroovyPageFileName() { "/WEB-INF/grails-app/views/capture/upload.gsp" }
 public Object run() {
 Writer out = getOut()
 Writer expressionOut = getExpressionOut()
 registerSitemeshPreprocessMode()
 printHtmlPart(0)
-createTagBody(1, {->
 printHtmlPart(1)
-createTagBody(2, {->
-createTagBody(3, {->
-expressionOut.print(title)
-printHtmlPart(2)
-})
-invokeTag('captureTitle','sitemesh',3,[:],3)
-})
-invokeTag('wrapTitleTag','sitemesh',3,[:],2)
-printHtmlPart(3)
-})
-invokeTag('captureHead','sitemesh',4,[:],1)
-printHtmlPart(3)
 createTagBody(1, {->
+printHtmlPart(2)
+expressionOut.print(resource(dir: 'css/dynatree/skin', file: 'ui.dynatree.css'))
+printHtmlPart(3)
+invokeTag('javascript','g',11,['src':("dynatree/jquery.dynatree.js")],-1)
 printHtmlPart(4)
-for( _it200370316 in (tasks) ) {
-changeItVariable(_it200370316)
-printHtmlPart(5)
-expressionOut.print(it?.created)
+invokeTag('javascript','g',12,['src':("kumulus/nodeTree.js")],-1)
+printHtmlPart(4)
+createTagBody(2, {->
+createClosureForHtmlPart(5, 3)
+invokeTag('captureTitle','sitemesh',13,[:],3)
+})
+invokeTag('wrapTitleTag','sitemesh',13,[:],2)
 printHtmlPart(6)
-invokeTag('taskDescription','g',18,['task':(it)],-1)
+})
+invokeTag('captureHead','sitemesh',14,[:],1)
 printHtmlPart(6)
-createClosureForHtmlPart(7, 3)
-invokeTag('link','g',19,['controller':("structure"),'action':("process"),'id':(it.id)],3)
+createTagBody(1, {->
+printHtmlPart(7)
+expressionOut.print(project.id)
 printHtmlPart(8)
-}
+invokeTag('form','fileuploader',65,['name':("uploader"),'class':("pure-button-disabled"),'upload':("image"),'successController':("capture"),'successAction':("upload"),'errorController':("test"),'errorAction':("error"),'nodeId':("-1"),'projectId':(project.id),'disabled':("true")],-1)
 printHtmlPart(9)
 })
-invokeTag('captureBody','sitemesh',24,[:],1)
+invokeTag('captureBody','sitemesh',71,[:],1)
 printHtmlPart(10)
 }
 public static final Map JSP_TAGS = new HashMap()

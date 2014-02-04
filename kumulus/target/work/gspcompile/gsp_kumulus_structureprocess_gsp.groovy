@@ -5,8 +5,8 @@ import org.codehaus.groovy.grails.web.taglib.exceptions.GrailsTagException
 import org.springframework.web.util.*
 import grails.util.GrailsUtil
 
-class gsp_kumulus_documentprocess_gsp extends GroovyPage {
-public String getGroovyPageFileName() { "/WEB-INF/grails-app/views/document/process.gsp" }
+class gsp_kumulus_structureprocess_gsp extends GroovyPage {
+public String getGroovyPageFileName() { "/WEB-INF/grails-app/views/structure/process.gsp" }
 public Object run() {
 Writer out = getOut()
 Writer expressionOut = getExpressionOut()
@@ -29,7 +29,7 @@ invokeTag('captureHead','sitemesh',6,[:],1)
 printHtmlPart(3)
 createTagBody(1, {->
 printHtmlPart(4)
-for( page in (document.pages) ) {
+for( page in (document.pages.sort { it.number }) ) {
 printHtmlPart(5)
 expressionOut.print(document.id)
 printHtmlPart(6)
@@ -94,7 +94,7 @@ protected void init() {
 	this.jspTags = JSP_TAGS
 }
 public static final String CONTENT_TYPE = 'text/html;charset=UTF-8'
-public static final long LAST_MODIFIED = 1391075920000L
+public static final long LAST_MODIFIED = 1391502631000L
 public static final String EXPRESSION_CODEC = 'html'
 public static final String STATIC_CODEC = 'none'
 public static final String OUT_CODEC = 'html'
