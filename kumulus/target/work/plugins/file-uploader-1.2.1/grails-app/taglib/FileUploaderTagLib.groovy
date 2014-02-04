@@ -102,6 +102,12 @@ class FileUploaderTagLib {
                     """
                 }
                 
+                if(attrs?.projectId) {
+                    tagBody += """
+                        <input type='hidden' name='id' id='projectId' class='kumulus-uploader' value='${attrs?.projectId}' ${if(attrs?.disabled=="true") "disabled"}/>
+                    """
+                }
+                                
                 tagBody += """
                         <input type='submit' name='submit' class='kumulus-uploader ${attrs?.class}' value='Submit' ${if(attrs?.disabled=="true") "disabled"}/>
 		"""

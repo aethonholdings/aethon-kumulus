@@ -60,6 +60,7 @@
                   errorController="test"  
                   errorAction="error"
                   nodeId="-1"
+                  projectId="${project.id}"
                   disabled="true"
                   class="pure-button-disabled"/>      
             </div>

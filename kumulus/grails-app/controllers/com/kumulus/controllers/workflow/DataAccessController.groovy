@@ -2,6 +2,7 @@ package com.kumulus.controllers.workflow
 
 import grails.plugin.springsecurity.annotation.Secured
 import org.compass.core.engine.SearchEngineQueryParseException
+import com.kumulus.domain.*
 
 @Secured(['ROLE_VIEW'])
 class DataAccessController {
@@ -23,7 +24,8 @@ class DataAccessController {
     }
     
     def download() {
-        def project = Project.findById(params?.id)
+        println(params)
+        def project = Project?.findById(params?.id)
         response.contentType = grailsApplication.config.grails.mime.types['csv']
         response.setHeader("Content-disposition", "attachment; filename=extract")
         def export = dataExportService.getCSV(project)

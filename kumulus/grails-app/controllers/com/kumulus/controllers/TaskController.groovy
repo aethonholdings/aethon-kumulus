@@ -8,13 +8,6 @@ class TaskController {
 
     def permissionsService
     
-    // need securing based on user permissions
-    def review() {
-        def pages = []   
-        def task = Task.findById(params?.id)
-        render view:"review", model:[pages: pages]
-    }
-    
     def list() {
         def taskList = Task.findAllByUserIdAndType(permissionsService.getUsername(), params?.type, [sort: "created", order:"asc"])
         render view:"list", model: [tasks: taskList, title: params?.title]
@@ -37,16 +30,6 @@ class TaskController {
         }
         
         render view:"listGroupByProject", model: [tasksByProject: tasksByProject, projectList: projectList, title: params?.title]
-    }
-    
-    def perform() {
-        if(params?.id) {
-            def task = Task.findById(params.id)
-            if(task?.userId==permissionsService.getUsername()) {
-                switch(task.type) {
-                }
-            }
-        }
     }
         
 }
