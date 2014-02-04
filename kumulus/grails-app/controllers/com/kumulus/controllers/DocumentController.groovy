@@ -5,26 +5,14 @@ import com.kumulus.domain.*
 import grails.converters.*
 import com.lucastex.grails.fileuploader.*
 
+@Secured(['ROLE_ADMIN', 'ROLE_PROCESS', 'ROLE_IMPORT', 'ROLE_REVIEW', 'ROLE_SUPERVISE', 'ROLE_VIEW'])
 class DocumentController {
     
     def processManagementService
     def permissionsService
     def dataProcessingService
     def filesystemService
-    
-    @Secured(['ROLE_IMPORT'])
-    def build() {
-        def documentList = []
-        def project = Project.findById(params?.id)
-        if(project) {
-            Task.findAllByUserIdAndType(permissionsService.getUsername(), Task.BUILD_DOCUMENT).each { task ->
-                if(task.document.project==project) documentList.add task.document            
-            }
-        }
-        render view: "build", model: [documents: documentList]
-    }
-    
-    @Secured(['ROLE_IMPORT'])
+        
     def merge() {
         def data = request.JSON
         Document mergedDocument
@@ -38,22 +26,7 @@ class DocumentController {
         def response = [done: true]
         render response as JSON
     }
-
-    @Secured(['ROLE_VIEW'])
-    def access() {
-        render view: "access", layout: "home"
-    }
-        
-    @Secured(['ROLE_PROCESS'])
-    def process() {
-        def task = Task.findById(params?.id)
-        def currencies = Currency.listOrderByFullName()
-        def documentTypes = DocumentType.listOrderByName()
-        def document = task.document
-        render view: "process", model:[document: document, currencies: currencies, documentTypes: documentTypes]
-    }
-    
-    @Secured(['ROLE_PROCESS'])
+            
     def update() {  
         def data = request.JSON
         def response = [done: false]
@@ -62,12 +35,6 @@ class DocumentController {
         render response as JSON
     }
     
-    @Secured(['ROLE_PROCESS'])
-    def upload() {
-        render view: "upload"
-    }
-
-    @Secured(['ROLE_PROCESS'])    
     def index() {
         def file = UFile?.findById(params?.ufileId)
         def document = Document?.findById(params?.documentId)

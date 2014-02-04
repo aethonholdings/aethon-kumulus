@@ -3,67 +3,57 @@ package com.kumulus.controllers.workflow
 import grails.plugin.springsecurity.annotation.Secured
 import com.kumulus.domain.*
 
+@Secured(['ROLE_ADMIN', 'ROLE_PROCESS', 'ROLE_IMPORT', 'ROLE_REVIEW', 'ROLE_SUPERVISE', 'ROLE_VIEW'])
 class HomeController {
     
     def projectService
     def permissionsService
     
-    @Secured(['ROLE_ADMIN', 'ROLE_PROCESS', 'ROLE_IMPORT', 'ROLE_REVIEW', 'ROLE_SUPERVISE', 'ROLE_VIEW'])
     def index() { 
         render(view:"index", model:[pageTitle: "Home"])
     }
 
     // SUPERVISOR USER CONTROLLER ACTIONS
-    @Secured(['ROLE_SUPERVISE'])
     def manage() { 
         def projectList = permissionsService.getProjects([status: "A"])
         redirect(controller: "project", action:"list", params:[type: "manage"])
     }
     
-    @Secured(['ROLE_SUPERVISE'])
     def review() { 
         redirect(controller:"task", action:"list", params:[type: Task.REVIEW_DOCUMENT])
     }
      
-    @Secured(['ROLE_SUPERVISE'])
     def order() { 
         
     }
     
     // VIEWER USER CONTROLLER ACTIONS
-    @Secured(['ROLE_VIEW'])
     def download() { 
         redirect(controller: "project", action: "list", params:[type: "download"])
     }
     
-    @Secured(['ROLE_VIEW'])
     def access() { 
-        redirect(controller: "document", action: "access")
+        redirect(controller: "dataAccess", action: "access")
     }
 
     // IMPORT USER CONTROLLER ACTIONS
-    @Secured(['ROLE_IMPORT'])
     def collect() {
         redirect(controller: "project", action: "list", params:[type: "collect"])
     }
     
-    @Secured(['ROLE_IMPORT'])
     def upload() {
         redirect(controller: "project", action: "list", params:[type: "upload"])    
     }
     
-    @Secured(['ROLE_IMPORT'])
     def build() {
         redirect(controller:"task", action:"listGroupByProject", params:[type: Task.BUILD_DOCUMENT])
     }
     
-    @Secured(['ROLE_IMPORT'])
     def pickup() {
         
     }
     
     // PROCESS USER CONTROLLER ACTIONS
-    @Secured(['ROLE_PROCESS'])
     def process() { 
         redirect(controller:"task", action:"list", params:[type: Task.OCR_DOCUMENT])
     }

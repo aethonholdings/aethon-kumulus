@@ -18,7 +18,7 @@
               <td>${it?.projectName}</td>
               <td>${it?.client.name}</td>
               <td>${tasksByProject.get(it.id)?.tasks?.size()}</td>
-              <td><g:link controller="document" action="build" id="${it.id}">Complete</g:link></td>
+              <td><g:link controller="paperManagement" action="build" id="${it.id}">Complete</g:link></td>
             </tr>
           </g:each>
         </tbody>

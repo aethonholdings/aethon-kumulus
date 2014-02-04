@@ -4,18 +4,12 @@ import grails.plugin.springsecurity.annotation.Secured
 import com.kumulus.domain.*
 import com.lucastex.grails.fileuploader.*
 
+@Secured(['ROLE_ADMIN', 'ROLE_PROCESS', 'ROLE_IMPORT', 'ROLE_REVIEW', 'ROLE_SUPERVISE', 'ROLE_VIEW'])
 class ImageController {
 
     def permissionsService
     def filesystemService
-    
-    @Secured(['ROLE_IMPORT'])
-    def upload() {
-        def project = Project.findById(params?.id)
-        if(project?.company == permissionsService.getCompany()) render view:"upload", model:[project: project]
-    }
-    
-    @Secured(['ROLE_IMPORT'])
+        
     def index() {
         def node = Node.findById(params?.nodeId)
         def scanBatch = new ScanBatch(userId: permissionsService.getUsername(), timestamp: new Date(), project: node.project)
@@ -24,7 +18,6 @@ class ImageController {
         redirect action: "upload", params:[id: 1]     
     }
 
-    @Secured(['ROLE_ADMIN', 'ROLE_PROCESS', 'ROLE_IMPORT', 'ROLE_REVIEW', 'ROLE_SUPERVISE', 'ROLE_VIEW'])    
     def get() {
         // check for permissions here
         def image = Image.findById(params?.id)
