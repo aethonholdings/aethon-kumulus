@@ -30,16 +30,16 @@
                     <g:link controller="project" action="close" id="${it.id}">Close</g:link>
                   </g:if>
                   <g:if test="${action=="Download"}">
-                    <g:link controller="dataAccess" action="download" id="${it.id}">Download</g:link>
+                    <g:link controller="access" action="download" id="${it.id}">Download</g:link>
                   </g:if>
                   <g:if test="${action=="Access"}">
-                    <g:link controller="dataAccess" action="access" id="${it.id}">Access</g:link>
+                    <g:link controller="access" action="access" id="${it.id}">Access</g:link>
                   </g:if>
                   <g:if test="${action=="Collect"}">
-                    <g:link controller="paperManagement" action="collect" id="${it.id}">Collect</g:link>
+                    <g:link controller="capture" action="collect" id="${it.id}">Collect</g:link>
                   </g:if>
                   <g:if test="${action=="Upload"}">
-                    <g:link controller="paperManagement" action="upload" id="${it.id}">Upload</g:link>
+                    <g:link controller="capture" action="upload" id="${it.id}">Upload</g:link>
                   </g:if>  
                 </g:each>
               </td>

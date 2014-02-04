@@ -3,10 +3,10 @@ package com.kumulus.taglibs
 import com.kumulus.domain.*
 
 class KumulusTagLib {
-    static defaultEncodeAs = 'text'
-    //static encodeAsForTags = [tagName: 'raw']
     
     def permissionsService
+    static defaultEncodeAs = 'text'
+    //static encodeAsForTags = [tagName: 'raw']
         
     def userCompany = { attrs, body ->
         String company = permissionsService.company

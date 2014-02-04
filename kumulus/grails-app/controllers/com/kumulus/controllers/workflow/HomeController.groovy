@@ -6,7 +6,6 @@ import com.kumulus.domain.*
 @Secured(['ROLE_ADMIN', 'ROLE_PROCESS', 'ROLE_IMPORT', 'ROLE_REVIEW', 'ROLE_SUPERVISE', 'ROLE_VIEW'])
 class HomeController {
     
-    def projectService
     def permissionsService
     
     def index() { 
@@ -33,7 +32,7 @@ class HomeController {
     }
     
     def access() { 
-        redirect(controller: "dataAccess", action: "access")
+        redirect(controller: "access", action: "access")
     }
 
     // IMPORT USER CONTROLLER ACTIONS

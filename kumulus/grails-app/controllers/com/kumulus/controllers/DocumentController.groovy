@@ -8,9 +8,9 @@ import com.lucastex.grails.fileuploader.*
 @Secured(['ROLE_ADMIN', 'ROLE_PROCESS', 'ROLE_IMPORT', 'ROLE_REVIEW', 'ROLE_SUPERVISE', 'ROLE_VIEW'])
 class DocumentController {
     
-    def processManagementService
+    def taskService
     def permissionsService
-    def dataProcessingService
+    def structureService
     def filesystemService
         
     def merge() {
@@ -21,8 +21,8 @@ class DocumentController {
             def document = Document.findById(it)  // NEED PERMISSIONS CHECKS HERE AGAINST THE TASKS
             documents.add(document)
         }
-        mergedDocument = dataProcessingService.merge(documents)
-        if(mergedDocument) processManagementService.createTask(mergedDocument, Task.OCR_DOCUMENT, Task.READY_FOR_BATCH_INSTANCE)
+        mergedDocument = structureService.merge(documents)
+        if(mergedDocument) taskService.createTask(mergedDocument, Task.OCR_DOCUMENT, Task.READY_FOR_BATCH_INSTANCE)
         def response = [done: true]
         render response as JSON
     }
@@ -31,7 +31,7 @@ class DocumentController {
         def data = request.JSON
         def response = [done: false]
         def document = Document.findById(data?.id)
-        dataProcessingService.update(document, data)
+        structureService.update(document, data)
         render response as JSON
     }
     
