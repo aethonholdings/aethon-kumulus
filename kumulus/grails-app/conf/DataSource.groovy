@@ -14,17 +14,39 @@ environments {
     development {
         dataSource {
             dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
-            url = "jdbc:mysql://localhost:3306/kumulus?autoreconnect=true"
+            url = "jdbc:mysql://localhost:3306/kumulus?autoReconnect=true"
             username = "kumulus"
             password = "password"
+            properties {
+                //run the evictor every 30 minutes and evict any connections older than 30 minutes.
+                minEvictableIdleTimeMillis=1800000
+                timeBetweenEvictionRunsMillis=1800000
+                numTestsPerEvictionRun=3
+                //test the connection while its idle, before borrow and return it
+                testOnBorrow=true
+                testWhileIdle=true
+                testOnReturn=true
+                validationQuery="SELECT 1"
+            }
         }
     }
     test {
         dataSource {
             dbCreate = "update"
-            url = "jdbc:mysql://kumulus.cokd1jwuhqlu.ap-southeast-1.rds.amazonaws.com/kumulus?autoreconnect=true"
+            url = "jdbc:mysql://kumulus.cokd1jwuhqlu.ap-southeast-1.rds.amazonaws.com/kumulus?autoReconnect=true"
             username = "kumulus"
             password = "d7!8d826ddx1"
+            properties {
+                //run the evictor every 30 minutes and evict any connections older than 30 minutes.
+                minEvictableIdleTimeMillis=1800000
+                timeBetweenEvictionRunsMillis=1800000
+                numTestsPerEvictionRun=3
+                //test the connection while its idle, before borrow and return it
+                testOnBorrow=true
+                testWhileIdle=true
+                testOnReturn=true
+                validationQuery="SELECT 1"
+            }
         }
     }
     production {
