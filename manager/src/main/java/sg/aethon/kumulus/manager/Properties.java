@@ -42,6 +42,9 @@ public class Properties
     final public String eph_ssh_user;
     final public String eph_ssh_pass;
 
+    final public String abbyy_appid;
+    final public String abbyy_pass;
+    
     public class PerProjectProperties
     {
         final public String eph_dest_path;
@@ -96,7 +99,10 @@ public class Properties
         eph_ssh_port = ini.get("Ephesoft", "eph_ssh_port", Integer.class);
         eph_ssh_user = ini.get("Ephesoft", "eph_ssh_username", String.class);
         eph_ssh_pass = ini.get("Ephesoft", "eph_ssh_password", String.class);
-        
+
+        abbyy_appid = ini.get("Abbyy", "application_id", String.class);
+        abbyy_pass = ini.get("Abbyy", "password", String.class);
+
         smtp_server = ini.get("SMTP", "smtp_server", String.class);
         smtp_port = ini.get("SMTP", "smtp_port", Integer.class);
         smtp_username = ini.get("SMTP", "smtp_username", String.class);
