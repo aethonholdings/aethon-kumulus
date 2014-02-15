@@ -10,12 +10,12 @@ class ImageController {
     def permissionsService
     def filesystemService
         
-    def index() {
+    def upload() {
         def node = Node.findById(params?.nodeId)
         def scanBatch = new ScanBatch(userId: permissionsService.getUsername(), timestamp: new Date(), project: node.project)
         scanBatch.save()
         filesystemService.indexImage(node, UFile.findById(params?.ufileId), scanBatch)
-        redirect action: "upload", params:[id: 1]     
+        redirect controller: "capture", action: "upload", id: params?.projectId
     }
 
     def get() {

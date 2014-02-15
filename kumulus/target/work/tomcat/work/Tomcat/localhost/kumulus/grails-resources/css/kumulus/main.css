@@ -1,0 +1,135 @@
+html{
+    font-size: small;
+}
+
+table{
+    width: 100%;
+}
+
+.kumulus-small-font {
+    font-size: smaller;
+}
+
+/* header */
+#kumulus-header{
+    height: 70px;
+    padding-top: 15px;
+    padding-down: 15px;
+}
+
+.kumulus-padding{
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.kumulus-gradient-blue{
+    background: linear-gradient(to top,#001133,#003355);
+    color: white;
+    a: "color: white;";
+}
+
+#kumulus-session-management{
+    float: right;
+}
+
+/* layout body */
+#kumulus-body{
+
+}
+
+#advancedSearch{
+    text-align:center;
+}
+
+#search{
+    width: 80%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* work area layout elements */
+
+.kumulus-container{
+    height: 550px;
+    margin: 3px;
+}
+
+.kumulus-container-half{
+    height: 275px;
+    margin: 3px;
+}
+
+
+.kumulus-scrollable-y{
+    overflow-y: auto;
+}
+
+.kumulus-scrollable-x{
+    overflow-x: auto;
+}
+
+.kumulus-element-border{
+    border:1px;
+    border-style: solid;
+    border-color: #dfdfdf;
+}
+
+.kumulus-button-bank {
+    text-align: right;
+    margin-right: 3px;
+    margin-left: 3px;
+    margin-top: 10px;
+}
+
+/* UI element components */
+
+.kumulus-preview{
+    height: 95%;
+    width: 95%;
+    padding: 10px;
+    text-align:center;
+}
+
+.kumulus-filmstrip{
+    background: #eee; 
+    text-align: center;
+}
+
+.kumulus-filmstrip ul{
+    list-style-type: none;
+    padding: 5px;
+    display: block;
+    background: #eee; 
+}
+
+.kumulus-filmstrip li{
+    text-align:center;
+}
+
+.kumulus-thumbnail{
+    margin: auto;
+}
+
+.kumulus-data-entry{
+    padding: 10px;
+    overflow-y: auto;
+}
+
+.kumulus-node-tree{
+    padding: 10px;
+    overflow-x: auto;
+    overflow-y: auto;
+}
+
+.kumulus-data-entry {
+    
+}
+
+.kumulus-line-item-table {
+    width: 100%;
+    text-align: center;
+}
+
+.kumulus-header-row {
+    width: 50px;
+}
