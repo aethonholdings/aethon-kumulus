@@ -53,6 +53,7 @@
 
 # "temporary" build files
 /target
+kumulus/target
 
 # other
 *.iws
