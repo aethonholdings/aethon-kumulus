@@ -6,15 +6,17 @@
 
 package com.kumulus.jobs
 
+import com.abbyy.ocrsdk.Client
+
 /**
  *
  * @author theo
  */
-class MyJob {
+class ManagerJob {
   static triggers = {
-    simple name: 'mySimpleTrigger', startDelay: 60000, repeatInterval: 1000  
+    simple name: 'Manager Job', startDelay: 0, repeatInterval: 120000  
   }
-  def group = "MyGroup"
+  def group = "Manager Jobs"
   def execute(){
     print "Job run!"
   }
