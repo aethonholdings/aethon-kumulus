@@ -69,6 +69,8 @@ grails.project.dependency.resolution = {
         compile ":file-uploader:1.2.1"                // File upload and download
         compile ":tika-parser:1.3.0.1"                // Tika parser
         compile ":searchable:0.6.6"                   // Lucene search engine
+        compile ":quartz:1.0.1"                       // Schedules jobs
+        compile ":quartz-monitor:0.3-RC3"
 
         // plugins needed at runtime but not for compilation
         runtime ":hibernate:3.6.10.4" // or ":hibernate4:4.1.11.4"
