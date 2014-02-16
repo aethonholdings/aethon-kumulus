@@ -7,7 +7,7 @@
 *.class
 
 # Package Files #
-# includ *.jar for librarie dependencies
+# include *.jar for library dependencies
 *.war
 *.ear
 
@@ -56,6 +56,7 @@
 
 # other
 *.iws
-/manager/target/
-/scando/01-capture/scannerapp_client/target/
-/scando/01-capture/scannerapp_server/target/
+/manager/target
+/scando/01-capture/scannerapp_client/target
+/scando/01-capture/scannerapp_server/target
+
