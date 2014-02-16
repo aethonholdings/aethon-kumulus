@@ -16,6 +16,7 @@ class Document {
     Byte status
     UFile file
     String text
+    String ocr_task
     
     static hasMany = [pages: Page, task: Task]
     static belongsTo = [project: Project, type: DocumentType]
