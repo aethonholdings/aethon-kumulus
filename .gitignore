@@ -4,11 +4,10 @@
 *.shelve
 
 # JAVA .GITIGNORE -------------
-
 *.class
 
 # Package Files #
-*.jar
+# includ *.jar for librarie dependencies
 *.war
 *.ear
 
@@ -57,9 +56,6 @@
 
 # other
 *.iws
-
-
-
 /manager/target/
 /scando/01-capture/scannerapp_client/target/
 /scando/01-capture/scannerapp_server/target/
