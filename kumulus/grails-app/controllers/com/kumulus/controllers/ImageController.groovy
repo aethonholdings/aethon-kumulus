@@ -1,6 +1,7 @@
 package com.kumulus.controllers
 
 import com.kumulus.domain.*
+import com.lucastex.grails.fileuploader.UFile
 
 class ImageController {
 
@@ -9,7 +10,7 @@ class ImageController {
         
     def upload() {
         def node = Node.findById(params?.id)
-        if(node) {
+        if(node && params?.ufileId) {
             def scanBatch = new ScanBatch(userId: permissionsService.getUsername(), timestamp: new Date(), project: node.project)
             scanBatch.save()
             filesystemService.indexImage(node, UFile.findById(params?.ufileId), scanBatch)
