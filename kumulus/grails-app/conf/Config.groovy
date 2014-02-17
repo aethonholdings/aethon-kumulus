@@ -111,15 +111,34 @@ log4j = {
 // grails.plugin.springsecurity.userLookup.userDomainClassName = 'com.kumulus.domain.User'              // not needed because we are using LDAP
 // grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'com.kumulus.domain.UserRole'       // not needed because we are using LDAP
 // grails.plugin.springsecurity.authority.className = 'com.kumulus.domain.Role'                         // not needed because we are using LDAP
-grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/home'  // added by Konstantinos to configure login landing page
+grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/home'                                  // added by Konstantinos to configure login landing page
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
+        // public
 	'/':                              ['permitAll'],
-	'/index':                         ['permitAll'],
-	'/index.gsp':                     ['permitAll'],
 	'/**/js/**':                      ['permitAll'],
 	'/**/css/**':                     ['permitAll'],
 	'/**/images/**':                  ['permitAll'],
-	'/**/favicon.ico':                ['permitAll']
+	'/**/favicon.ico':                ['permitAll'],
+
+        // secured - workflow controllers
+        '/home/**':                       ['isAuthenticated()'],
+        '/access/**':                     ['ROLE_ADMIN', 'ROLE_VIEW'],
+        '/capture/**':                    ['ROLE_ADMIN', 'ROLE_IMPORT'],
+        '/scando/**':                     ['ROLE_ADMIN', 'ROLE_IMPORT'],
+    
+        // secured - domain controllers
+        '/company/**':                    ['isAuthenticated()'],
+        '/document/**':                   ['isAuthenticated()'],
+        '/file/**':                       ['isAuthenticated()'],
+        '/image/**':                      ['isAuthenticated()'],
+        '/node/**':                       ['isAuthenticated()'],
+        '/project/**':                    ['isAuthenticated()'],
+        '/task/**':                       ['isAuthenticated()'],
+
+        // secured - plugin controllers
+        '/fileUploader/process':          ['ROLE_ADMIN', 'ROLE_IMPORT'],
+        '/fileUploader/download':         ['isAuthenticated()']
+        
 ]
 grails.plugin.springsecurity.providerNames = ['ldapAuthProvider', 'anonymousAuthenticationProvider', 'rememberMeAuthenticationProvider']
 grails.plugin.springsecurity.logout.postOnly = false

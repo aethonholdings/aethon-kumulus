@@ -1,9 +1,7 @@
 package com.kumulus.controllers.workflow
 
-import grails.plugin.springsecurity.annotation.Secured
 import com.kumulus.domain.*
 
-@Secured(['ROLE_IMPORT'])
 class StructureController {
 
     def process() {

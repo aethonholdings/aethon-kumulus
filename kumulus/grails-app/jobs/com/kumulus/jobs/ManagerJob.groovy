@@ -36,13 +36,14 @@ class ManagerJob {
             def task = null
             for (page in Page.list(document: doc)) {
                 def file = page.scanImage.file
-                def filename = file.path + '/' + file.name + '.' + file.extension
+//              def filename = file.path + '/' + file.name + '.' + file.extension // Kons: file.path is the full pathname name including the filename
+                def filename = file.path
                 def id = (task == null) ? null : task.Id
                 def result = client.submitImage(filename, id)
                 if (result != null) { task = result }
             }
             task = client.processDocument(task.Id, settings)
-            document.ocr_task = task.Id
+            document.ocrTask = task.Id
             document.save(flush: true)
         }
     }

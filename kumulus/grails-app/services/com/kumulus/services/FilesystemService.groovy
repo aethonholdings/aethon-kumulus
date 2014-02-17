@@ -54,7 +54,6 @@ class FilesystemService {
                 project: parentNode.project
             )
             document.save()
-            
             def task = new Task(
                 userId: userId,
                 created: timestamp,

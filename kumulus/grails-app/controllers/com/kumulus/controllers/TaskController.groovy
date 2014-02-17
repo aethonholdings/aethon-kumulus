@@ -1,9 +1,7 @@
 package com.kumulus.controllers
 
-import grails.plugin.springsecurity.annotation.Secured
 import com.kumulus.domain.*
 
-@Secured(['ROLE_ADMIN', 'ROLE_PROCESS', 'ROLE_IMPORT', 'ROLE_REVIEW', 'ROLE_SUPERVISE', 'ROLE_VIEW'])
 class TaskController {
 
     def permissionsService

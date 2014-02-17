@@ -9,6 +9,8 @@
   <head>
     <link rel="stylesheet" type="text/css" href="${resource(dir: 'css/dynatree/skin', file: 'ui.dynatree.css')}"/>
     <g:javascript src='dynatree/jquery.dynatree.js'/>
+    <g:javascript src='kumulus/base.js'/>
+    <g:javascript src='kumulus/uploader.js'/>
     <g:javascript src='kumulus/nodeTree.js'/>
     <title>Upload scans | Kumulus</title>
   </head>
@@ -52,17 +54,15 @@
         <div class="pure-u-1-3">
           <div class="kumulus-container kumulus-element-border">
             <div class="kumulus-data-entry">
-              <fileuploader:form name="uploader" 
-                  class="pure-form"
-                  upload="image" 
-                  successController="image"
-                  successAction="upload"
-                  errorController="test"  
-                  errorAction="error"
-                  nodeId="-1"
-                  projectId="${project.id}"
-                  disabled="true"
-                  class="pure-button-disabled"/>      
+                <form action="/kumulus/fileUploader/process/-1" method="post" enctype="multipart/form-data" class="kumulus-uploader-form">
+                  <input type='hidden' name='upload' value='image' />
+                  <input type='hidden' name='errorAction' value='error' />
+                  <input type='hidden' name='errorController' value='test' />
+                  <input type='hidden' name='successAction' value='upload' />
+                  <input type='hidden' name='successController' value='image' />
+                  <input type='file' name='file' class='kumulus-uploader pure-button-disabled' disabled/>
+                  <input type='submit' name='submit' value='Submit' class='kumulus-uploader pure-button-disabled' disabled/>
+		</form>
             </div>
           </div>
         </div>
