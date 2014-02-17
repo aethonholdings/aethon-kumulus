@@ -1,7 +1,6 @@
 package com.kumulus.controllers
 
 import com.kumulus.domain.*
-import com.lucastex.grails.fileuploader.*
 
 class ImageController {
 

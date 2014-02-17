@@ -124,6 +124,7 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
         '/home/**':                       ['isAuthenticated()'],
         '/access/**':                     ['ROLE_ADMIN', 'ROLE_VIEW'],
         '/capture/**':                    ['ROLE_ADMIN', 'ROLE_IMPORT'],
+        '/structure/**':                  ['ROLE_ADMIN', 'ROLE_PROCESS'],
         '/scando/**':                     ['ROLE_ADMIN', 'ROLE_IMPORT'],
     
         // secured - domain controllers
@@ -136,8 +137,8 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
         '/task/**':                       ['isAuthenticated()'],
 
         // secured - plugin controllers
-        '/fileUploader/process':          ['ROLE_ADMIN', 'ROLE_IMPORT'],
-        '/fileUploader/download':         ['isAuthenticated()']
+        '/fileUploader/process/**':       ['ROLE_ADMIN', 'ROLE_IMPORT'],
+        '/download/**':                   ['isAuthenticated()']
         
 ]
 grails.plugin.springsecurity.providerNames = ['ldapAuthProvider', 'anonymousAuthenticationProvider', 'rememberMeAuthenticationProvider']
