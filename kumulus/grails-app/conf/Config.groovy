@@ -150,13 +150,14 @@ environments {
     development {
         grails.logging.jul.usebridge = true
         grails.serverURL
-        filesystem.staging = "/Users/cocodinos/Documents/Work/11-Aethon/00-Aethon Holdings/01-Projects/01-Bucephalus/05-Software/kumulus/data/filesystem/staging/"
-        filesystem.main = "/Users/cocodinos/Documents/Work/11-Aethon/00-Aethon Holdings/01-Projects/01-Bucephalus/05-Software/kumulus/data/filesystem/main/"
+        filesystem.root = "/Users/cocodinos/Documents/Work/11-Aethon/00-Aethon Holdings/01-Projects/01-Bucephalus/05-Software/kumulus/data/filesystem/"
+        filesystem.staging = "${filesystem.root}staging/"
+        filesystem.main = "${filesystem.root}main/"
         // plugins
         fileuploader {
             image {
                 allowedExtensions = ["bmp", "png", "pdf", "tiff", "tif"]
-                path = "/Users/cocodinos/Documents/Work/11-Aethon/00-Aethon Holdings/01-Projects/01-Bucephalus/05-Software/kumulus/data/filesystem/staging/"
+                path = "${filesystem.root}/staging/"
             }
         }
         // grails.serverURL = "http://localhost:8080/"
@@ -166,13 +167,14 @@ environments {
         // grails.serverURL = "http://test.llamrei.sg:8080"
         grails.logging.jul.usebridge = true
         grails.serverURL
-        filesystem.staging = "/home/tomcat/kumulus/staging/"
-        filesystem.main = "/home/tomcat/kumulus/main/"
+        filesystem.root = "/home/tomcat/kumulus/"
+        filesystem.staging = "${filesystem.root}staging/"
+        filesystem.main = "${filesystem.root}main/"
         // plugins
         fileuploader {
             image {
                 allowedExtensions = ["bmp", "png", "pdf", "tiff", "tif"]
-                path = "/home/tomcat/kumulus/staging/"
+                path = "${filesystem.root}/staging/"
             }
         }
         
