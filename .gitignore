@@ -56,6 +56,10 @@ kumulus/web-app/plugins
 # "temporary" build files
 kumulus/target
 
+# filesystem
+kumulus/data/filesystem/main/*
+kumulus/data/filesystem/staging/*
+
 # other kumulus project files
 *.iws
 /manager/target

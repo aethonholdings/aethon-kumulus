@@ -113,6 +113,7 @@ log4j = {
 // grails.plugin.springsecurity.authority.className = 'com.kumulus.domain.Role'                         // not needed because we are using LDAP
 grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/home'                                  // added by Konstantinos to configure login landing page
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
+        
         // public
 	'/':                              ['permitAll'],
 	'/**/js/**':                      ['permitAll'],
