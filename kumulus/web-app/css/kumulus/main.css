@@ -12,9 +12,20 @@ table{
 
 /* header */
 #kumulus-header{
-    height: 70px;
+    height: 80px;
     padding-top: 15px;
     padding-down: 15px;
+}
+
+
+.kumulus-hight{
+    height: 100px;  
+    
+    margin: Auto;
+    line-height: 100px;
+}
+.kumulus-magrin-bottom{
+    margin-bottom: 5px;
 }
 
 .kumulus-padding{
