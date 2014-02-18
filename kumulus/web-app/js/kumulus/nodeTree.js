@@ -108,8 +108,9 @@ function add_node() {
         $('#name').val('');
         $('#type').val('Container');
         $('#barcode').prop('disabled', false);
-        $('#type').prop('disabled', false);
-        $('#comment').prop('disabled', false);
+        $('#type').prop('disabled', true);
+        $('#name').prop('disabled', true);
+        $('#comment').prop('disabled', true);
         $('#nodeTree').prop('disabled', true);
         $('#barcode').focus();
         state = "INSERT";

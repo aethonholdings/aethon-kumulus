@@ -1,3 +1,4 @@
+
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="${resource(dir: 'css/dynatree/skin', file: 'ui.dynatree.css')}"/>
@@ -62,4 +63,3 @@
     </div>
   </body>
 </html>
-
