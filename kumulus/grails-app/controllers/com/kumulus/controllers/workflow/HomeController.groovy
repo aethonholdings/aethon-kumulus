@@ -49,7 +49,7 @@ class HomeController {
     }
     
     def pickup() {
-        
+        redirect(controller:"capture", action:"pickup") 
     }
     
     // PROCESS USER CONTROLLER ACTIONS
