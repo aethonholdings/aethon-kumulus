@@ -20,8 +20,6 @@
           <a id="button-delete" class="pure-button" onclick="delete_node();">Delete</a>
         </div>
       </div>
-      
-      
       <div class="pure-u-2-3">
         <div class="kumulus-container kumulus-element-border kumulus-hight">
           <div class="kumulus-data-entry">
