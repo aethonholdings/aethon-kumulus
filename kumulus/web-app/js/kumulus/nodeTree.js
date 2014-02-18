@@ -103,18 +103,57 @@ function add_node() {
     selectedNode.expand();
     enable(false);
     if(newNode) {
+       
         $('#barcode').val('');
         $('#name').val('');
         $('#type').val('Container');
         $('#barcode').prop('disabled', false);
-        $('#type').prop('disabled', false);
-        $('#comment').prop('disabled', false);
+        $('#type').prop('disabled', true);
+         $('#name').prop('disabled', true);
+        $('#comment').prop('disabled', true);
         $('#nodeTree').prop('disabled', true);
         $('#barcode').focus();
         state = "INSERT";
     }
 };
-
+ function disablebarcodeDiv(){
+     
+    
+      $('#barcode').val('');
+        $('#name').val('');
+        $('#type').val('Container');
+        $('#barcode').prop('disabled', true);
+        $('#type').prop('disabled', true);
+         $('#name').prop('disabled', false);
+        $('#comment').prop('disabled', true);
+      
+ }
+ 
+ function disablenameDiv(){
+    
+      $('#barcode').val('');
+        $('#name').val('');
+        $('#type').val('Container');
+        $('#barcode').prop('disabled', true);
+        $('#type').prop('disabled', false);
+         $('#name').prop('disabled', true);
+        $('#comment').prop('disabled', true);
+      
+ }
+ 
+ function disabletypeDiv(){
+      $('#barcode').val('');
+        $('#name').val('');
+        $('#type').val('Container');
+        $('#barcode').prop('disabled', true);
+        $('#type').prop('disabled', true);
+         $('#name').prop('disabled', true);
+        $('#comment').prop('disabled', false);
+ }
+ 
+ 
+ 
+ 
 // --- EDIT STATE
 
 function update_node() {

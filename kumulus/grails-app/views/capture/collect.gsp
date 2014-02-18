@@ -27,17 +27,17 @@
           <div class="kumulus-data-entry">
             <form name="newContainer" action="add" method="POST" class="pure-form pure-form-aligned">
               <fieldset>
-                <div class="pure-control-group kumulus-element-border kumulus-hight">
+                <div class="pure-control-group kumulus-element-border kumulus-hight" id="barcodeDiv">
                   <label for="barcode">* Barcode</label>
-                  <input id="barcode" type="text" placeholder="Scan container barcode" disabled>
+                  <input id="barcode" type="text" placeholder="Scan container barcode" disabled onblur="disablebarcodeDiv();">
                 </div>
-                <div class="pure-control-group kumulus-element-border kumulus-hight">
+                <div class="pure-control-group kumulus-element-border kumulus-hight" id="nameDiv">
                   <label for="name">* Name</label>
-                  <input id="name" type="text" placeholder="Enter name here" class="pure-input-1-2" disabled>
+                  <input id="name" type="text" placeholder="Enter name here" class="pure-input-1-2" disabled onblur="disablenameDiv();">
                 </div>
                 <div class="pure-control-group kumulus-element-border kumulus-hight">
                   <label for="type">* Type</label>
-                  <select id="type" class="pure-input-1-4" disabled>
+                  <select id="type" class="pure-input-1-4" disabled onblur="disabletypeDiv();">
                     <option>Container</option>  
                     <option>Box</option>
                   </select>
