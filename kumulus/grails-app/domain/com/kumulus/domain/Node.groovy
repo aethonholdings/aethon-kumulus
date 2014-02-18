@@ -33,11 +33,10 @@ class Node {
 
     static constraints = {
         name nullable: true, maxSize: 45
-        type nullable: true, maxSize: 45
         barcode nullable: true, maxSize: 45
-        comment nullable: true, maxSize: 200
-        internalComment nullable: true, maxSize: 200
-        status nullable: true, maxSize: 10
+        comment nullable: true, maxSize: 300
+        internalComment nullable: true, maxSize: 300
+        status maxSize: 1
         createDatetime nullable: true
         lastUpdateDatetime nullable: true
     }
