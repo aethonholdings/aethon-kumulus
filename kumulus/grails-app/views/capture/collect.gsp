@@ -29,15 +29,15 @@
               <fieldset>
                 <div class="pure-control-group kumulus-element-border kumulus-hight" id="barcodeDiv">
                   <label for="barcode">* Barcode</label>
-                  <input id="barcode" type="text" placeholder="Scan container barcode" disabled onblur="disablebarcodeDiv();">
+                  <input id="barcode" type="text" placeholder="Scan container barcode" disabled >
                 </div>
                 <div class="pure-control-group kumulus-element-border kumulus-hight" id="nameDiv">
                   <label for="name">* Name</label>
-                  <input id="name" type="text" placeholder="Enter name here" class="pure-input-1-2" disabled onblur="disablenameDiv();">
+                  <input id="name" type="text" placeholder="Enter name here" class="pure-input-1-2" disabled >
                 </div>
                 <div class="pure-control-group kumulus-element-border kumulus-hight">
                   <label for="type">* Type</label>
-                  <select id="type" class="pure-input-1-4" disabled onblur="disabletypeDiv();">
+                  <select id="type" class="pure-input-1-4" disabled >
                     <option>Container</option>  
                     <option>Box</option>
                   </select>

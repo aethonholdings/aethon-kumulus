@@ -197,38 +197,4 @@ function save() {
     }
 }
 
-// Workflow UI
 
-function disablebarcodeDiv(){
-         
-    $('#barcode').val('');
-    $('#name').val('');
-    $('#type').val('Container');
-    $('#barcode').prop('disabled', true);
-    $('#type').prop('disabled', true);
-    $('#name').prop('disabled', false);
-    $('#comment').prop('disabled', true);
-      
- }
- 
- function disablenameDiv(){
-    
-    $('#barcode').val('');
-    $('#name').val('');
-    $('#type').val('Container');
-    $('#barcode').prop('disabled', true);
-    $('#type').prop('disabled', false);
-    $('#name').prop('disabled', true);
-    $('#comment').prop('disabled', true);
-      
- }
- 
- function disabletypeDiv(){
-    $('#barcode').val('');
-    $('#name').val('');
-    $('#type').val('Container');
-    $('#barcode').prop('disabled', true);
-    $('#type').prop('disabled', true);
-    $('#name').prop('disabled', true);
-    $('#comment').prop('disabled', false);
- }
