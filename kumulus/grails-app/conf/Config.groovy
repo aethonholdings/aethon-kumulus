@@ -143,6 +143,8 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 ]
 
 // scando controller - use basic authentication
+grails.plugin.springsecurity.useBasicAuth = true
+grails.plugin.springsecurity.basic.realmName = "kumulus"
 grails.plugin.springsecurity.filterChain.chainMap = [
         '/scando/**': 'JOINED_FILTERS,-exceptionTranslationFilter',
         '/**': 'JOINED_FILTERS,-basicAuthenticationFilter,-basicExceptionTranslationFilter'
