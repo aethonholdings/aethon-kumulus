@@ -10,17 +10,23 @@ table{
     width:90%;
     margin: auto;
 }
+#kumulus-header-layout{
+    background: linear-gradient (bottom, #0B5992, #0E3857);
+    background: -moz-linear-gradient(bottom, #0B5992, #0E3857);
+    background: -webkit-linear-gradient(bottom, #0B5992, #0E3857);
+    border-bottom-style: outset; 
+}
 .kumulus-small-font {
     font-size: smaller;
 }
 
 /* header */
 #kumulus-header{
-    margin-top:3px;
+    width:90%;
+    margin: auto;
     height: 80px;
     padding-top: 3px;
     padding-down: 3px;
-    background-color: #0B1433;
     margin-bottom: 3px;
 }
 #kumulus-logo{
@@ -71,7 +77,7 @@ kumulus-control-group{
     
 }
 .kumulus-magrin-bottom{
-    /*margin-bottom: 35px;*/
+    margin-bottom: 35px;
     display: inline-block;
 }
 
