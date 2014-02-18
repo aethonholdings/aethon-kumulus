@@ -40,6 +40,7 @@ class RetrieveDocumentJob {
                     // TODO: construct output path
                     outputPath = ''
                     client.downloadResult(task, outputPath)
+                    doc.file = outputPath
                     doc.status = Document.SEARCHABLE
                 }
                 else if (task.status == Task.TaskStatus.NotEnoughCredits) {
@@ -53,6 +54,7 @@ class RetrieveDocumentJob {
                     doc.status = Document.SUBMISSION_ERROR
                 }
                 doc.save(flush: true)
+                // TODO: handle text extraction
             }
         }
     }
