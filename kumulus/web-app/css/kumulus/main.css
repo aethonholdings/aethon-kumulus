@@ -6,26 +6,79 @@ table{
     width: 100%;
 }
 
+#layout{
+    width:90%;
+    margin: auto;
+}
+#kumulus-header-layout{
+    background: linear-gradient (bottom, #0B5992, #0E3857);
+    background: -moz-linear-gradient(bottom, #0B5992, #0E3857);
+    background: -webkit-linear-gradient(bottom, #0B5992, #0E3857);
+    border-bottom-style: outset; 
+}
 .kumulus-small-font {
     font-size: smaller;
 }
 
 /* header */
 #kumulus-header{
+    width:90%;
+    margin: auto;
     height: 80px;
-    padding-top: 15px;
-    padding-down: 15px;
+    padding-top: 3px;
+    padding-down: 3px;
+    margin-bottom: 3px;
+}
+#kumulus-logo{
+    height: 77px;
+    width: 78px;
+    line-height: 77px;
+    background-image:url(images/AethonLogo100.1.png) ;
+    background-repeat: no-repeat;
+    background-position:  center;
+    border-radius: 4px;
 }
 
-
 .kumulus-hight{
+    text-align:left;
     height: 100px;  
-    
     margin: Auto;
     line-height: 100px;
 }
+.kumulus-label{
+    line-height: 15px;
+    text-align: left;
+    margin: Auto;
+    vertical-align: middle;
+}
+.kumulus-barcode-image{
+    height: 80px;
+    width: 80px;
+    float: left;
+    margin-left: 10px;
+    margin-right:10px;
+}
+.kumulus-image{
+    height: 80%;
+    width: 80%;
+    vertical-align: middle;
+    
+}
+kumulus-control-group{
+    margin-bottom:.5em
+}
+
+.kumulus-control-group label{
+        text-align:center;
+        display:inline-block;
+        vertical-align:middle;
+        width:15em;
+        margin:0 1em 0 0 
+}
+
 .kumulus-magrin-bottom{
-    margin-bottom: 5px;
+    margin-bottom: 35px;
+    display: inline-block;
 }
 
 .kumulus-padding{
@@ -41,6 +94,8 @@ table{
 
 #kumulus-session-management{
     float: right;
+    margin-right: 7px;
+    line-height: 80px;
 }
 
 /* layout body */
@@ -59,7 +114,6 @@ table{
 }
 
 /* work area layout elements */
-
 .kumulus-container{
     height: 550px;
     margin: 3px;
@@ -69,7 +123,6 @@ table{
     height: 275px;
     margin: 3px;
 }
-
 
 .kumulus-scrollable-y{
     overflow-y: auto;
@@ -93,7 +146,6 @@ table{
 }
 
 /* UI element components */
-
 .kumulus-preview{
     height: 95%;
     width: 95%;
