@@ -3,6 +3,7 @@
     <link rel="stylesheet" type="text/css" href="${resource(dir: 'css/dynatree/skin', file: 'ui.dynatree.css')}"/>
     <g:javascript src='dynatree/jquery.dynatree.js'/>
     <g:javascript src='kumulus/nodeTree.js'/>
+    <g:javascript src='kumulus/disableDiv.js'/>
     <title>Prepare scans | Kumulus</title>
   </head>
   <body>
@@ -26,26 +27,26 @@
             <form name="newContainer" action="add" method="POST" class="pure-form pure-form-aligned">
               <fieldset>
                 <div class="kumulus-hight kumulus-control-group kumulus-element-border">
-                  <div class="kumulus-barcode-image"><img src="../../images/apple-touch-icon.png" class="kumulus-image"  alt="no image"/> </div>
+                  <div class="kumulus-barcode-image"> <img src="../../images/apple-touch-icon.png" class="kumulus-image"  alt="no image"/> </div>
                   <label for="barcode"class="kumulus-label">* Stick the Barcode sticker on the container or Box and Scan the Barcode</label>
                   <input id="barcode" type="text" placeholder="Scan container barcode" disabled>
                 </div>
                 <div class="kumulus-control-group kumulus-element-border kumulus-hight">
-                  <div class="kumulus-barcode-image"><img src="../../images/apple-touch-icon.png" class="kumulus-image"  alt="no image"/></div>
-                  <label for="name">* Please Enter your Name</label>
+                  <div class="kumulus-barcode-image"> <img src="../../images/apple-touch-icon.png" class="kumulus-image"  alt="no image"/> </div>
+                  <label for="name">* Please Enter Your Name</label>
                   <input id="name" type="text" placeholder="Enter name here" class="pure-input-1-2" disabled>
                 </div>
                 <div class="kumulus-control-group kumulus-element-border kumulus-hight">
-                  <div class="kumulus-barcode-image"><img src="../../images/apple-touch-icon.png" class="kumulus-image"  alt="no image"/></div>
-                  <label for="type">*Please Select Type</label>
+                  <div class="kumulus-barcode-image"> <img src="../../images/apple-touch-icon.png" class="kumulus-image"  alt="no image"/> </div>
+                  <label for="type">* Please Select Type</label>
                   <select id="type" class="pure-input-1-4" disabled>
-                    <option>Please Select Type</option> 
+                    <option>Please Select Type</option>
                     <option>Container</option>  
                     <option>Box</option>
                   </select>
                 </div>
                 <div class="kumulus-control-group kumulus-element-border kumulus-hight">
-                  <div class="kumulus-barcode-image"><img src="../../images/apple-touch-icon.png" class="kumulus-image"  alt="no image"/></div>
+                    <div class="kumulus-barcode-image"> <img src="../../images/apple-touch-icon.png" class="kumulus-image"  alt="no image"/> </div>
                   <label for="comment">Any Comment</label>
                   <textarea id="comment" type="text" class="pure-input-1-2" disabled rows="5"></textarea>
                 </div>
@@ -54,7 +55,7 @@
           </div>
         </div>
         <div class="kumulus-button-bank">
-          <a id="button-save" class="pure-button pure-button-primary" onclick="save();">Save</a>
+            <button type="button" id="button-save" class="pure-button pure-button-primary" onclick="save(); " disabled="disabled">Save </button>
           <a id="button-cancel" class="pure-button" onclick="cancel();">Cancel</a>
         </div>
       </div>
