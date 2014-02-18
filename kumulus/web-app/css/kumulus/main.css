@@ -73,9 +73,9 @@ kumulus-control-group{
         display:inline-block;
         vertical-align:middle;
         width:15em;
-        margin:0 1em 0 0
-    
+        margin:0 1em 0 0 
 }
+
 .kumulus-magrin-bottom{
     margin-bottom: 35px;
     display: inline-block;
@@ -114,7 +114,6 @@ kumulus-control-group{
 }
 
 /* work area layout elements */
-
 .kumulus-container{
     height: 550px;
     margin: 3px;
@@ -147,7 +146,6 @@ kumulus-control-group{
 }
 
 /* UI element components */
-
 .kumulus-preview{
     height: 95%;
     width: 95%;
