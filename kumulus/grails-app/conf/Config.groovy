@@ -126,7 +126,6 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
         '/access/**':                     ['ROLE_ADMIN', 'ROLE_VIEW'],
         '/capture/**':                    ['ROLE_ADMIN', 'ROLE_IMPORT'],
         '/structure/**':                  ['ROLE_ADMIN', 'ROLE_PROCESS'],
-        '/scando/**':                     ['ROLE_ADMIN', 'ROLE_IMPORT'],
     
         // secured - domain controllers
         '/company/**':                    ['isAuthenticated()'],
@@ -142,6 +141,15 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
         '/download/**':                   ['isAuthenticated()']
         
 ]
+
+// scando controller - use basic authentication
+grails.plugin.springsecurity.useBasicAuth = true
+grails.plugin.springsecurity.basic.realmName = "kumulus"
+grails.plugin.springsecurity.filterChain.chainMap = [
+        '/scando/**': 'JOINED_FILTERS,-exceptionTranslationFilter',
+        '/**': 'JOINED_FILTERS,-basicAuthenticationFilter,-basicExceptionTranslationFilter'
+]
+
 grails.plugin.springsecurity.providerNames = ['ldapAuthProvider', 'anonymousAuthenticationProvider', 'rememberMeAuthenticationProvider']
 grails.plugin.springsecurity.logout.postOnly = false
 
@@ -165,6 +173,14 @@ grails.plugin.springsecurity.ldap.authorities.groupSearchBase = 'ou=groups,dc=ae
 grails.sitemesh.default.layout = 'home'
 kumulus {
     dateFormat = "dd/MM/yy HH:mm:ss"
+    roles = [
+        'ROLE_ADMIN',
+        'ROLE_IMPORT',
+        'ROLE_PROCESS',
+        'ROLE_REVIEW',
+        'ROLE_SUPERVISE',
+        'ROLE_VIEW'
+    ]
 }
 
 environments {

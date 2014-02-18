@@ -7,12 +7,14 @@ import com.kumulus.domain.*
 class PermissionsService {
 
     def springSecurityService
+    def grailsApplication
     
     def getCompany() {
-        def authorities = springSecurityService?.authentication?.authorities
+        
+        def authorities = springSecurityService.authentication.authorities      // get the user authorities
         String company
         authorities.each { authority ->
-            if(authority!="ROLE_CLASSIFY" && authority!="ROLE_ACCESS" && authority!="ROLE_EXTRACT" && authority!="ROLE_COLLECT" && authority!="ROLE_VALIDATE") {
+            if(!grailsApplication.config.kumulus.roles.contains(authority)) {
                 company = authority.toString().replaceAll("ROLE_", {""}).replaceAll("_", {" "})
             }
         }
