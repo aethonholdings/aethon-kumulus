@@ -1,10 +1,8 @@
 package com.kumulus.controllers.workflow
 
-import grails.plugin.springsecurity.annotation.Secured
 import org.compass.core.engine.SearchEngineQueryParseException
 import com.kumulus.domain.*
 
-@Secured(['ROLE_VIEW'])
 class AccessController {
 
     def exportService

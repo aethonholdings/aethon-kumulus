@@ -27,7 +27,7 @@
             <li class='menu-item-divided'><g:link controller='home' action='collect'>Collect paperwork</g:link></li>
             <li><g:link controller='home' action='upload'>Upload scans</g:link></li>
             <li><g:link controller='home' action='build'>Build documents</g:link></li>
-            <li><a href="#">Request pickup</a></li>
+            <li><g:link controller='home' action='pickup'>Request pickup</g:link></li>
             <li class='menu-item-divided'><a href="#">Order materials</a></li>
             <li><a href="#">Manage account</a></li>
             <li  class='menu-item-divided'><g:link controller='home' action='process'>Process documents</g:link></li>

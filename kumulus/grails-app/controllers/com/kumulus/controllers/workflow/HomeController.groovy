@@ -1,9 +1,7 @@
 package com.kumulus.controllers.workflow
 
-import grails.plugin.springsecurity.annotation.Secured
 import com.kumulus.domain.*
 
-@Secured(['ROLE_ADMIN', 'ROLE_PROCESS', 'ROLE_IMPORT', 'ROLE_REVIEW', 'ROLE_SUPERVISE', 'ROLE_VIEW'])
 class HomeController {
     
     def permissionsService
@@ -49,7 +47,7 @@ class HomeController {
     }
     
     def pickup() {
-        
+        redirect(controller:"capture", action:"pickup") 
     }
     
     // PROCESS USER CONTROLLER ACTIONS

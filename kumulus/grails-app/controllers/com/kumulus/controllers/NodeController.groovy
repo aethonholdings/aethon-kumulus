@@ -1,10 +1,8 @@
 package com.kumulus.controllers
 
-import grails.plugin.springsecurity.annotation.Secured
 import com.kumulus.domain.*
 import grails.converters.*
 
-@Secured(['ROLE_ADMIN', 'ROLE_PROCESS', 'ROLE_IMPORT', 'ROLE_REVIEW', 'ROLE_SUPERVISE', 'ROLE_VIEW'])
 class NodeController {
 
     def captureService
@@ -78,6 +76,12 @@ class NodeController {
             response.done = true
         }
         render response as JSON
+    }
+    
+    def pickupNode(){
+        println("dddddddddddddddd")
+        
+        
     }
 
 }

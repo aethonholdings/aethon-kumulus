@@ -21,7 +21,6 @@ class FilesystemService {
     
     def indexImage(parentNode, uFile, scanBatch) {
         if(parentNode && uFile && scanBatch) {
-            
             // define the necessary paths and files
             def literal = generateLiteral()
             def userId = permissionsService.getUsername()
@@ -51,7 +50,8 @@ class FilesystemService {
                 date: null,
                 literal: literal,
                 file: null,
-                project: parentNode.project
+                project: parentNode.project,
+                ocrTask: null
             )
             document.save()
             

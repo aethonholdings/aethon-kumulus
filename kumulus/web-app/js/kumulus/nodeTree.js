@@ -4,12 +4,12 @@ var selectedNode;
 var newNode;
 
 $(document).ready(function(){
-    
+
     // create the node tree
     $('#nodeTree').dynatree({
         initAjax: {
             title: 'Archive structure',
-            url: '/kumulus/node/getRoot/'+$('#project').attr('projectID'),
+            url: url('node', 'getRoot', $('#project').attr('projectID')),
             minExpandLevel: 0,
             autoFocus: true,
             persist: true,
@@ -26,7 +26,7 @@ $(document).ready(function(){
         }, 
         onLazyRead: function(node) {
             node.appendAjax({
-                url: '/kumulus/node/getChildren/', 
+                url: url('node', 'getChildren', ''), 
                 data : {
                     "id": node.data.key
                 }
@@ -50,8 +50,9 @@ function refresh_container_information(node) {
         $('#name').val(node.data.title);
         $('#type').val(node.data.type);
         $('#comment').val(node.data.comment);
-        if ($('#nodeId')) {   
+        if ($('#nodeId')) {
             $('#nodeId').attr('value', node.data.id);
+            $('.kumulus-uploader-form').attr('action', url('fileUploader', 'process', node.data.id));
             $('.kumulus-uploader').prop('disabled', false);
             $('.kumulus-uploader').removeClass('pure-button-disabled', false);
             $('.kumulus-uploader').addClass('pure-button-enabled', false);
@@ -62,13 +63,13 @@ function refresh_container_information(node) {
         $('#type').val('');
         $('#comment').val('');
         if ($('#nodeId')) {   
-            $('#nodeId').attr('value', -1);
+            $('#nodeId').attr('value', '');
+            $('.kumulus-uploader-form').attr('action', url('fileUploader', 'process', ''));
             $('.kumulus-uploader').prop('disabled', true);
             $('.kumulus-uploader').removeClass('pure-button-enabled', false);
             $('.kumulus-uploader').addClass('pure-button-disabled', false);
         }
     }
-
 }
 
 function delete_node() {
@@ -76,7 +77,7 @@ function delete_node() {
         if(confirm("Please confirm that you would like to delete this archive item")) {
             var data = { id: selectedNode.data.id }
             $.ajax({
-                url: "/kumulus/node/delete/",
+                url: url('node', 'delete', ''),
                 type: 'POST',
                 data: JSON.stringify(data),
                 contentType: 'application/json; charset=utf-8',
@@ -103,57 +104,18 @@ function add_node() {
     selectedNode.expand();
     enable(false);
     if(newNode) {
-       
         $('#barcode').val('');
         $('#name').val('');
         $('#type').val('Container');
         $('#barcode').prop('disabled', false);
-        $('#type').prop('disabled', true);
-         $('#name').prop('disabled', true);
-        $('#comment').prop('disabled', true);
+        $('#type').prop('disabled', false);
+        $('#comment').prop('disabled', false);
         $('#nodeTree').prop('disabled', true);
         $('#barcode').focus();
         state = "INSERT";
     }
 };
- function disablebarcodeDiv(){
-     
-    
-      $('#barcode').val('');
-        $('#name').val('');
-        $('#type').val('Container');
-        $('#barcode').prop('disabled', true);
-        $('#type').prop('disabled', true);
-         $('#name').prop('disabled', false);
-        $('#comment').prop('disabled', true);
-      
- }
- 
- function disablenameDiv(){
-    
-      $('#barcode').val('');
-        $('#name').val('');
-        $('#type').val('Container');
-        $('#barcode').prop('disabled', true);
-        $('#type').prop('disabled', false);
-         $('#name').prop('disabled', true);
-        $('#comment').prop('disabled', true);
-      
- }
- 
- function disabletypeDiv(){
-      $('#barcode').val('');
-        $('#name').val('');
-        $('#type').val('Container');
-        $('#barcode').prop('disabled', true);
-        $('#type').prop('disabled', true);
-         $('#name').prop('disabled', true);
-        $('#comment').prop('disabled', false);
- }
- 
- 
- 
- 
+
 // --- EDIT STATE
 
 function update_node() {
@@ -204,7 +166,7 @@ function save() {
                     name: $("#name").val(),
                     comment: $("#comment").val()
                 };
-                target = "/kumulus/node/update/";
+                target = url('node', 'update', '');
                 break;
 
             case "INSERT":
@@ -216,7 +178,7 @@ function save() {
                     name: $("#name").val(),
                     comment: $("#comment").val()
                 };
-                target = "/kumulus/node/insert/";
+                target = url('node', 'insert', '');
                 break;
                 
         }
@@ -235,4 +197,38 @@ function save() {
     }
 }
 
+// Workflow UI
 
+function disablebarcodeDiv(){
+         
+    $('#barcode').val('');
+    $('#name').val('');
+    $('#type').val('Container');
+    $('#barcode').prop('disabled', true);
+    $('#type').prop('disabled', true);
+    $('#name').prop('disabled', false);
+    $('#comment').prop('disabled', true);
+      
+ }
+ 
+ function disablenameDiv(){
+    
+    $('#barcode').val('');
+    $('#name').val('');
+    $('#type').val('Container');
+    $('#barcode').prop('disabled', true);
+    $('#type').prop('disabled', false);
+    $('#name').prop('disabled', true);
+    $('#comment').prop('disabled', true);
+      
+ }
+ 
+ function disabletypeDiv(){
+    $('#barcode').val('');
+    $('#name').val('');
+    $('#type').val('Container');
+    $('#barcode').prop('disabled', true);
+    $('#type').prop('disabled', true);
+    $('#name').prop('disabled', true);
+    $('#comment').prop('disabled', false);
+ }

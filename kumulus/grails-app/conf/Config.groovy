@@ -111,15 +111,36 @@ log4j = {
 // grails.plugin.springsecurity.userLookup.userDomainClassName = 'com.kumulus.domain.User'              // not needed because we are using LDAP
 // grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'com.kumulus.domain.UserRole'       // not needed because we are using LDAP
 // grails.plugin.springsecurity.authority.className = 'com.kumulus.domain.Role'                         // not needed because we are using LDAP
-grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/home'  // added by Konstantinos to configure login landing page
+grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/home'                                  // added by Konstantinos to configure login landing page
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
+        
+        // public
 	'/':                              ['permitAll'],
-	'/index':                         ['permitAll'],
-	'/index.gsp':                     ['permitAll'],
 	'/**/js/**':                      ['permitAll'],
 	'/**/css/**':                     ['permitAll'],
 	'/**/images/**':                  ['permitAll'],
-	'/**/favicon.ico':                ['permitAll']
+	'/**/favicon.ico':                ['permitAll'],
+
+        // secured - workflow controllers
+        '/home/**':                       ['isAuthenticated()'],
+        '/access/**':                     ['ROLE_ADMIN', 'ROLE_VIEW'],
+        '/capture/**':                    ['ROLE_ADMIN', 'ROLE_IMPORT'],
+        '/structure/**':                  ['ROLE_ADMIN', 'ROLE_PROCESS'],
+        '/scando/**':                     ['ROLE_ADMIN', 'ROLE_IMPORT'],
+    
+        // secured - domain controllers
+        '/company/**':                    ['isAuthenticated()'],
+        '/document/**':                   ['isAuthenticated()'],
+        '/file/**':                       ['isAuthenticated()'],
+        '/image/**':                      ['isAuthenticated()'],
+        '/node/**':                       ['isAuthenticated()'],
+        '/project/**':                    ['isAuthenticated()'],
+        '/task/**':                       ['isAuthenticated()'],
+
+        // secured - plugin controllers
+        '/fileUploader/process/**':       ['ROLE_ADMIN', 'ROLE_IMPORT'],
+        '/download/**':                   ['isAuthenticated()']
+        
 ]
 grails.plugin.springsecurity.providerNames = ['ldapAuthProvider', 'anonymousAuthenticationProvider', 'rememberMeAuthenticationProvider']
 grails.plugin.springsecurity.logout.postOnly = false
@@ -150,9 +171,9 @@ environments {
     development {
         grails.logging.jul.usebridge = true
         grails.serverURL
-        filesystem.root = "/Users/cocodinos/Documents/Work/11-Aethon/00-Aethon Holdings/01-Projects/01-Bucephalus/05-Software/kumulus/data/filesystem/"
-        filesystem.staging = "${filesystem.root}staging/"
-        filesystem.main = "${filesystem.root}main/"
+        filesystem.root = "/Users/cocodinos/Documents/Work/11-Aethon/00-Aethon Holdings/01-Projects/01-Bucephalus/05-Software/kumulus/data/filesystem"
+        filesystem.staging = "${filesystem.root}/staging/"
+        filesystem.main = "${filesystem.root}/main/"
         // plugins
         fileuploader {
             image {
@@ -167,9 +188,9 @@ environments {
         // grails.serverURL = "http://test.llamrei.sg:8080"
         grails.logging.jul.usebridge = true
         grails.serverURL
-        filesystem.root = "/home/tomcat/kumulus/"
-        filesystem.staging = "${filesystem.root}staging/"
-        filesystem.main = "${filesystem.root}main/"
+        filesystem.root = "/home/tomcat/kumulus"
+        filesystem.staging = "${filesystem.root}/staging/"
+        filesystem.main = "${filesystem.root}/main/"
         // plugins
         fileuploader {
             image {

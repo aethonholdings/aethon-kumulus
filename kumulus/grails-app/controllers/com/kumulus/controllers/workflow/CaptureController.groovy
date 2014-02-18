@@ -1,9 +1,7 @@
 package com.kumulus.controllers.workflow
 
-import grails.plugin.springsecurity.annotation.Secured
 import com.kumulus.domain.*
 
-@Secured(['ROLE_IMPORT'])
 class CaptureController {
 
     def permissionsService
@@ -27,5 +25,9 @@ class CaptureController {
         }
     }
     render view: "build", model: [documents: documentList]
+    }
+    
+    def pickup (){
+        
     }
 }
