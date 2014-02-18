@@ -29,7 +29,7 @@ LOCK TABLES `company` WRITE;
 INSERT INTO `company` (`id`, `version`, `name`)
 VALUES
 	(1,0,'SmartSpace Pte Ltd'),
-	(2,0,'TestCo Pte Ltd’);
+	(2,0,'TestCo Pte Ltd');
 
 /*!40000 ALTER TABLE `company` ENABLE KEYS */;
 UNLOCK TABLES;
