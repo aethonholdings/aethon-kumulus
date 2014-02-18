@@ -77,5 +77,11 @@ class NodeController {
         }
         render response as JSON
     }
+    
+    def pickupNode(){
+        println("dddddddddddddddd")
+        
+        
+    }
 
 }
