@@ -6,26 +6,42 @@ table{
     width: 100%;
 }
 
+#layout{
+    width:90%;
+    margin: auto;
+}
 .kumulus-small-font {
     font-size: smaller;
 }
 
 /* header */
 #kumulus-header{
+    margin-top:3px;
     height: 80px;
-    padding-top: 15px;
-    padding-down: 15px;
+    padding-top: 3px;
+    padding-down: 3px;
+    background-color: #0B1433;
+    margin-bottom: 3px;
 }
-
+#kumulus-logo{
+    height: 77px;
+    width: 78px;
+    line-height: 77px;
+    background-image:url(images/AethonLogo100.1.png) ;
+    background-repeat: no-repeat;
+    background-position:  center;
+    border-radius: 4px;
+}
 
 .kumulus-hight{
     height: 100px;  
-    
     margin: Auto;
     line-height: 100px;
 }
+
 .kumulus-magrin-bottom{
-    margin-bottom: 5px;
+    /*margin-bottom: 35px;*/
+    display: inline-block;
 }
 
 .kumulus-padding{
@@ -41,6 +57,8 @@ table{
 
 #kumulus-session-management{
     float: right;
+    margin-right: 7px;
+    line-height: 80px;
 }
 
 /* layout body */
@@ -69,7 +87,6 @@ table{
     height: 275px;
     margin: 3px;
 }
-
 
 .kumulus-scrollable-y{
     overflow-y: auto;
