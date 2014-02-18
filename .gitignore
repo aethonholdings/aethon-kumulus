@@ -56,8 +56,8 @@ kumulus/web-app/plugins
 kumulus/target
 
 # filesystem
-/data/filesystem/main/*
-/data/filesystem/staging/*
+data/filesystem/main/*
+data/filesystem/staging/*
 
 # other kumulus project files
 *.iws
