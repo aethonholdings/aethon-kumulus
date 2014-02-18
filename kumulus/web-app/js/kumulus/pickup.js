@@ -3,9 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
+var selectedDate;
 $(document).ready(function(){
 
+  $("#divCalendar").datepicker({
+       minDate: new Date(),
+                onSelect: function (selectedDate) { 
+                   selectedDate=selectedDate.toString(); 
+                } 
+            }); 
   getNodeList();  
 });
 
@@ -24,6 +30,7 @@ function getNodeList(){
             success: function(response) {
                 if(response.done) $('#documents').empty();
                 $('#preview-img').hide();
+                alert("<<<<"+ selectedDate)
             }
         });
            

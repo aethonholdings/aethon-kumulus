@@ -16,5 +16,7 @@
         <div>
             <table id="nodeTable"></table>
         </div>
+        
+        <div id="divCalendar"></div>
     </body>
 </html>
