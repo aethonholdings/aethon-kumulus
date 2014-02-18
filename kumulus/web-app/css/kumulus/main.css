@@ -5,30 +5,20 @@ html{
 table{
     width: 100%;
 }
-
-#layout{
-    width:90%;
-    margin: auto;
-}
+/*header*/
 #kumulus-header-layout{
-    background: linear-gradient (bottom, #0B5992, #0E3857);
-    background: -moz-linear-gradient(bottom, #0B5992, #0E3857);
-    background: -webkit-linear-gradient(bottom, #0B5992, #0E3857);
-    border-bottom-style: outset; 
-}
-.kumulus-small-font {
-    font-size: smaller;
+    background: linear-gradient (bottom, #0B5992 10%, #0E3857 80%);
+    background: -moz-linear-gradient(bottom, #0B5992 10%, #0E3857 80%);
+    background: -webkit-linear-gradient(bottom, #0B5992 10%, #0E3857 80%);
+    margin-bottom: 3px;
 }
 
-/* header */
 #kumulus-header{
     width:90%;
     margin: auto;
     height: 80px;
-    padding-top: 3px;
-    padding-down: 3px;
-    margin-bottom: 3px;
 }
+
 #kumulus-logo{
     height: 77px;
     width: 78px;
@@ -37,6 +27,34 @@ table{
     background-repeat: no-repeat;
     background-position:  center;
     border-radius: 4px;
+}
+
+/*mainlayout*/
+#layout{
+    width:90%;
+    margin: auto;
+}
+
+pure-menu .pure-menu-open{
+    background-color: darkblue;
+}
+
+.pure-menu ul{
+    background-color: darkblue;
+    padding: 2px;
+    
+}
+.pure-menu li a{ 
+    color:#fff;
+    border-radius: 5px;
+}
+
+.pure-menu li a:hover{
+    color: darkblue;
+}
+
+.kumulus-small-font {
+    font-size: smaller;
 }
 
 .kumulus-hight{
@@ -51,6 +69,7 @@ table{
     margin: Auto;
     vertical-align: middle;
 }
+
 .kumulus-barcode-image{
     height: 80px;
     width: 80px;
@@ -77,8 +96,9 @@ kumulus-control-group{
 }
 
 .kumulus-magrin-bottom{
-    margin-bottom: 35px;
-    display: inline-block;
+    overflow: hidden;
+    background-color: darkblue;
+    margin-bottom: 3px;
 }
 
 .kumulus-padding{
@@ -87,17 +107,24 @@ kumulus-control-group{
 }
 
 .kumulus-gradient-blue{
-    background: linear-gradient(to top,#001133,#003355);
+    background: linear-gradient(top,#001133,#003355);
     color: white;
     a: "color: white;";
 }
 
 #kumulus-session-management{
     float: right;
+    color: #fff;
     margin-right: 7px;
     line-height: 80px;
 }
 
+#kumulus-session-management a{
+    color: #91ABAB;
+}
+#kumulus-session-management a:hover{
+    color: #ABA144;
+}
 /* layout body */
 #kumulus-body{
 

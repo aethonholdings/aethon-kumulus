@@ -30,10 +30,10 @@
                </div>
             </div>
          </div>
-      </div>
-        <div id='layout'>
-           <div class='pure-menu pure-menu-open pure-menu-horizontal kumulus-magrin-bottom'>
-             <!--<a class='pure-menu-heading' href=''>kumulus</a>-->
+        </div>
+       <div id='layout'>
+        <div class='pure-menu pure-menu-open pure-menu-horizontal kumulus-magrin-bottom'>
+         <!--<a class='pure-menu-heading' href=''>kumulus</a>-->
              <ul>
                <li><g:link controller='home' action='index'>Home</g:link></li>
                <li class='menu-item-divided'><g:link controller='home' action='manage'>Manage projects</g:link></li>
@@ -48,7 +48,7 @@
                <li><a href="#">Manage account</a></li>
                <li  class='menu-item-divided'><g:link controller='home' action='process'>Process documents</g:link></li>
              </ul>
-           </div>
+         </div>
          <div class='content'>
            <div id='kumulus-body'>
              <g:layoutBody/>
