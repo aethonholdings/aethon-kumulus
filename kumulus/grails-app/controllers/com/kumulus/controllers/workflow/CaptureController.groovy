@@ -26,4 +26,8 @@ class CaptureController {
     }
     render view: "build", model: [documents: documentList]
     }
+    
+    def pickup (){
+        
+    }
 }
