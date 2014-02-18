@@ -42,4 +42,8 @@ class Node {
         lastUpdateDatetime nullable: true
     }
     
+    String owner() {
+        return(project.company)
+    }
+    
 }

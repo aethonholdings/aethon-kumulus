@@ -39,5 +39,9 @@ class Project {
             log.error exp
         }
     }
+    
+    String owner() {
+        return(company)
+    }
         
 }

@@ -36,7 +36,7 @@ class DocumentController {
         def file = UFile?.findById(params?.ufileId)
         def document = Document?.findById(params?.documentId)
         filesystemService.indexDocument(document, file)
-        render "hello"
+        render "document indexed"
     }
     
 }

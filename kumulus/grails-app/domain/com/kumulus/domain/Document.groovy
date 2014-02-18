@@ -35,4 +35,9 @@ class Document {
         text nullable: true
         ocrTask nullable: true
     }
+    
+    String owner() {
+        return(project.company)
+    }
+    
 }

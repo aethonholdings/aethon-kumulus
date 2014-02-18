@@ -11,4 +11,8 @@ class ScanBatch {
     static constraints = {
         
     }
+    
+    String owner() {
+        return(project.company)
+    }
 }

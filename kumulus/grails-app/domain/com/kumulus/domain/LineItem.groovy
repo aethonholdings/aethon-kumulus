@@ -19,4 +19,8 @@ class LineItem {
         currency nullable: false
         amount nullable: false
     }
+    
+    String owner() {
+        return(page.owner())
+    }
 }

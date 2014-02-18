@@ -66,15 +66,15 @@ class FilesystemService {
 
             def node = new Node(
                 name: literal,
-                type: "P",
+                type: Node.PAGE,
                 parent: parentNode,
                 project: parentNode.project,
                 creatorId: userId,
                 lastUpdateId: userId,
                 createDatetime: timestamp,
                 lastUpdateDatetime: timestamp,
-                status: "0"
-                )
+                status: Node.STATUS_CLOSED
+            )
             node.save()
             
             def page = new Page(
@@ -109,7 +109,8 @@ class FilesystemService {
                     width: imageTool.getWidth(),
                     file: file,
                     thumbnail: false,
-                    compressed: false
+                    compressed: false,
+                    page: page
                 )
                 image.save()
                 images.put(key, image)
