@@ -24,6 +24,7 @@ class ManagerJob {
     def group = "Manager Jobs"
 
     def execute() {
+/*
         def client = new Client()
         client.applicationId = ""
         client.password = ""
@@ -46,5 +47,6 @@ class ManagerJob {
             document.ocrTask = task.Id
             document.save(flush: true)
         }
+*/        
     }
 }
