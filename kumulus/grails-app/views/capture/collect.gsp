@@ -3,6 +3,7 @@
     <link rel="stylesheet" type="text/css" href="${resource(dir: 'css/dynatree/skin', file: 'ui.dynatree.css')}"/>
     <g:javascript src='dynatree/jquery.dynatree.js'/>
     <g:javascript src='kumulus/nodeTree.js'/>
+      <g:javascript src='kumulus/disableDiv.js'/>
     <title>Prepare scans | Kumulus</title>
   </head>
   <body>
