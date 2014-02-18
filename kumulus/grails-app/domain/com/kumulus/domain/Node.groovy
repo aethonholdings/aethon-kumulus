@@ -5,8 +5,12 @@ class Node {
     static searchable = [only: ['name', 'barcode', 'comment', 'createDateTime']]
     
     static final String CONTAINER = "C"
+    static final String BOX = "B"
     static final String PAGE = "P"
     static final String ROOT = "R"
+    
+    static final String STATUS_OPEN = "0"
+    static final String STATUS_CLOSED = "1"
     
     String name
     String type
@@ -37,4 +41,5 @@ class Node {
         createDatetime nullable: true
         lastUpdateDatetime nullable: true
     }
+    
 }

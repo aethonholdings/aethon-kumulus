@@ -173,6 +173,14 @@ grails.plugin.springsecurity.ldap.authorities.groupSearchBase = 'ou=groups,dc=ae
 grails.sitemesh.default.layout = 'home'
 kumulus {
     dateFormat = "dd/MM/yy HH:mm:ss"
+    roles = [
+        'ROLE_ADMIN',
+        'ROLE_IMPORT',
+        'ROLE_PROCESS',
+        'ROLE_REVIEW',
+        'ROLE_SUPERVISE',
+        'ROLE_VIEW'
+    ]
 }
 
 environments {
