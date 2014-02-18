@@ -224,3 +224,6 @@ environments {
     }
 }
 
+quartz {
+    autoStartup = false
+}
