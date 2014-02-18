@@ -43,17 +43,18 @@ grails.project.dependency.resolution = {
         mavenCentral()
         
         // uncomment these (or add new ones) to enable remote dependency resolution from public Maven repositories
-        // mavenRepo "https://maven.alfresco.com/nexus/content/groups/public/" // activiti
-        // mavenRepo "http://repo.spring.io/milestone/"                        // Spring Security
+        mavenRepo "https://maven.alfresco.com/nexus/content/groups/public/" // activiti
+        mavenRepo "http://repo.spring.io/milestone/"                        // Spring Security
         mavenRepo "http://repository.codehaus.org"
-        // mavenRepo "http://download.java.net/maven/2/"
-        // mavenRepo "http://repository.jboss.com/maven2/"
+        mavenRepo "http://download.java.net/maven/2/"
+        mavenRepo "http://repository.jboss.com/maven2/"
         mavenRepo "http://repo.grails.org/grails/core"
     }
 
     dependencies {
         // specify dependencies here under either 'build', 'compile', 'runtime', 'test' or 'provided' scopes e.g.
         runtime 'mysql:mysql-connector-java:5.1.24'
+        runtime "javax.mail:javax.mail-api:1.5.1"
     }
 
     plugins {
