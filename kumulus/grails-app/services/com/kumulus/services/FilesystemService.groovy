@@ -136,7 +136,6 @@ class FilesystemService {
     def newProject(params) {
         def literal = generateLiteral()
         
-        
         // create the necessary directories
         String path = grailsApplication.config.filesystem.main + literal + "/"
         File targetPath = new File(path)
