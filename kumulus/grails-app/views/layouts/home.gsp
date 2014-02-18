@@ -2,7 +2,7 @@
 <html lang='en'>
   <head>
     <link rel='stylesheet' type='text/css' href='${resource(dir: 'css/pure', file: 'pure-min.css')}'/>
-    <link rel='stylesheet' type='text/css' href='${resource(dir: 'css/pure', file: 'side-menu.css')}'/>
+    <!--<link rel='stylesheet' type='text/css' href='${resource(dir: 'css/pure', file: 'side-menu.css')}'/>-->
     <link rel='stylesheet' type='text/css' href='${resource(dir: 'css/kumulus', file: 'main.css')}'/>
     <link rel='stylesheet' type='text/css' href='${resource(dir: 'css/jquery/ui/base', file: 'jquery-ui.css')}'/>
     <g:javascript library='jquery' />
@@ -14,10 +14,24 @@
     <g:layoutHead/>
   </head>
   <body>
-    <div id='layout'>
-      <div id='menu'>
-        <div class='pure-menu pure-menu-open'>
-          <a class='pure-menu-heading' href=''>kumulus</a>
+    <div id='kumulus-header'>
+       <div class='pure-g'>
+           <div class='pure-u-1-2'>
+             <div id='kumulus-logo'></div>
+             <!-- <g:pageTitle text='${pageTitle}'/>-->
+           </div>
+           <div class='pure-u-1-2'>
+             <div id='kumulus-session-management'>
+               <g:userCompany/> |
+               <b><sec:loggedInUserInfo field='username'/></b> |  
+               <g:link controller='logout'> Logout</g:link>
+             </div>
+           </div>
+        </div>
+     </div>
+     <div id='layout'>
+        <div class='pure-menu pure-menu-open pure-menu-horizontal kumulus-magrin-bottom'>
+          <!--<a class='pure-menu-heading' href=''>kumulus</a>-->
           <ul>
             <li><g:link controller='home' action='index'>Home</g:link></li>
             <li class='menu-item-divided'><g:link controller='home' action='manage'>Manage projects</g:link></li>
@@ -33,22 +47,7 @@
             <li  class='menu-item-divided'><g:link controller='home' action='process'>Process documents</g:link></li>
           </ul>
         </div>
-      </div>
       <div class='content'>
-        <div id='kumulus-header'>
-          <div class='pure-g'>
-            <div class='pure-u-1-2'>
-              <g:pageTitle text='${pageTitle}'/>
-            </div>
-            <div class='pure-u-1-2'>
-              <div id='kumulus-session-management'>
-                <g:userCompany/> |
-                <b><sec:loggedInUserInfo field='username'/></b> |  
-                <g:link controller='logout'> Logout</g:link>
-              </div>
-            </div>
-          </div>
-        </div>
         <div id='kumulus-body'>
           <g:layoutBody/>
         </div>

@@ -53,7 +53,7 @@ class NodeController {
                 def map = [
                     project: project,
                     parent: parent,
-                    status: "0",
+                    status: Node.STATUS_OPEN,
                     creatorId: springSecurityService.principal.username,
                     createDatetime: new Date(),
                     lastUpdateId: springSecurityService.principal.username,
@@ -78,10 +78,13 @@ class NodeController {
         render response as JSON
     }
     
-    def pickupNode(){
-        println("dddddddddddddddd")
+    def list(){
         
-        
+        def query = Node.where {
+            (project.company == permissionsService.getCompany() && type == Node.BOX && status == Node.STATUS_CLOSED)
+        }
+        def nodes = query.find()
+        render nodes as JSON
     }
 
 }
