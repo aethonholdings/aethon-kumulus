@@ -6,7 +6,6 @@ import grails.converters.*
 class NodeController {
 
     def captureService
-    def springSecurityService
     def permissionsService
         
     def getRoot() {
@@ -21,8 +20,10 @@ class NodeController {
         def treeNodes = []
         def node = Node.findById(params?.id)   
         if (permissionsService.checkPermissions(node)) {
-            def children = Node.findAllByParent(node)
-            children.each { if(it?.type!=Node.PAGE) treeNodes.add(captureService.renderNode(it)) }   
+            def children = Node.findAll {
+                (parent == node && type.isContainer == true)               // get all the non-page children nodes
+            }
+            children.each { treeNodes.add(captureService.renderNode(it)) }   
         }
         render treeNodes as JSON
     }
@@ -31,39 +32,20 @@ class NodeController {
         def data = request.JSON
         def node = Node.findById(data?.id)
         if (permissionsService.checkPermissions(node)) {
-            captureService.saveNode(node, data?.barcode, data?.name, data?.comment, data?.type, 0)
+            captureService.updateNode(node, data?.barcode, data?.name, data?.comment, data?.type, Node.STATUS_OPEN)
             render node as JSON
         }
     }
     
-    // need to move a lot of this code into service
     def insert() {
         def data = request.JSON
         def response = [done: false, message: "Error"]
         def project = Project.findById(data?.project)
-        if(permissionsService.checkPermissions(project)) {
-            
-            // BIT BELOW HERE NEEDS TO BE IN SERVICE
-            
-            def parent = null
-            if(data?.parentID!="ROOT") parent = Node.findById(data.parentID)
-
-            def node = new Node()
-            if(node && data?.barcode && data?.name && data?.type && project) {
-                def map = [
-                    project: project,
-                    parent: parent,
-                    status: Node.STATUS_OPEN,
-                    creatorId: springSecurityService.principal.username,
-                    createDatetime: new Date(),
-                    lastUpdateId: springSecurityService.principal.username,
-                    lastUpdateDatetime: new Date(),
-                ]
-                bindData(node, map)
-                captureService.saveNode(node, data?.barcode, data?.name, data?.comment, data?.type, 0)
-                response.done = true
-                response.message = "OK"
-            }
+        def parent
+        if(data?.parentID && data.parentID != "ROOT") parent = Node.findById(data?.parentID) else parent = null
+        if(project && permissionsService.checkPermissions(project) && captureService.insertNode(parent, project, data?.barcode, data?.name, data?.comment, data?.type)) {
+            response.done = true
+            response.message = "Success"
         }
         render response as JSON
     }

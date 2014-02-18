@@ -66,7 +66,7 @@ class FilesystemService {
 
             def node = new Node(
                 name: literal,
-                type: Node.PAGE,
+                type: NodeType.findById(3),                                     // node type is page
                 parent: parentNode,
                 project: parentNode.project,
                 creatorId: userId,
