@@ -13,6 +13,7 @@ $(document).ready(function(){
            else {  
                $('#name').prop('disabled', false);
                $('#barcode').prop('disabled', true);
+               $('#name').focus();
                
           }
   }); 
@@ -23,7 +24,8 @@ $(document).ready(function(){
            else {
                $('#type').prop('disabled', false);
                $('#barcode').prop('disabled', true); 
-               $('#name').prop('disabled', true);
+               $('#name').prop('disabled', false);
+               $('#type').focus();
               
           }  
     });
@@ -38,9 +40,10 @@ $(document).ready(function(){
            else {
                $('#comment').prop('disabled', false);
                $('#barcode').prop('disabled', true);
-               $('#type').prop('disabled', true);
+               $('#type').prop('disabled', false);
                $('#name').prop('disabled', false);
               $('#button-save').prop('disabled', false); 
+              $('#comment').focus();
           }  
     });
     
