@@ -9,14 +9,14 @@ class CaptureController {
     def collect() { 
         def project = Project.findById(params?.id)
         if(permissionsService.checkPermissions(project)) {
-            def nodeTypes = NodeType.findAll {
+            def nodeTypes = NodeType.findAll([sort:"name"]) {
                 isContainer==true
             }
-            render view:"collect", model:[project: project, nodeTypes: nodeTypes]
+            render view:"collect", model:[project: project, nodeTypes: nodeTypes,]
         }
     }
     
-    def upload() {
+     def upload() {
         def project = Project.findById(params?.id)
         if(permissionsService.checkPermissions(project)) render view:"upload", model:[project: project]
     }
@@ -35,4 +35,5 @@ class CaptureController {
     def pickup (){
         
     }
-}
+    }
+

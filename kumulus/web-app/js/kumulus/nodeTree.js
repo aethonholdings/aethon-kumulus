@@ -106,12 +106,13 @@ function add_node() {
     if(newNode) {
         $('#barcode').val('');
         $('#name').val('');
-        $('#type').val('Container');
+        $('#type').val('');
         $('#barcode').prop('disabled', false);
         $('#type').prop('disabled', true);
         $('#name').prop('disabled', true);
         $('#comment').prop('disabled', true);
         $('#nodeTree').prop('disabled', true);
+        $('#button-cancel').prop('disabled', false);
         $('#barcode').focus();
         state = "INSERT";
     }
@@ -122,7 +123,10 @@ function add_node() {
 function update_node() {
     if(selectedNode && state=="READY"  && selectedNode.data.id!="ROOT") {
         enable(false);
-        $('#name').focus();
+        $('#type').focus();
+        $('#type').val('');
+        $('#button-cancel').prop('disabled', false);
+        $('#button-save').prop('disabled', false);
         state = "UPDATE";
     }
 };
