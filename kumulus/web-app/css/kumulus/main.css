@@ -41,8 +41,8 @@ table{
 }
 .pure-menu li a{ 
     color:#fff;
-    min-width: 70px;
-    margin-right: 3px;
+    min-width: 60px;
+    margin-right: 2px;
     border-radius: 5px;
     text-align: center;
     border-style:solid;
