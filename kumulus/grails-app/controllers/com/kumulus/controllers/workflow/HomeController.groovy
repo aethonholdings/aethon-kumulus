@@ -7,7 +7,12 @@ class HomeController {
     def permissionsService
     
     def index() { 
-        render(view:"index", model:[pageTitle: "Home"])
+        def projectList = Project.findAll {
+            company == permissionsService.getCompany()
+            status == Project.STATUS_ACTIVE
+        }
+        def taskList = Task.findAllByUserId(permissionsService.getUsername(), [sort: "created", order:"asc"])
+        render(view:"index", model:[pageTitle: "Home", projectList: projectList, taskList: taskList])
     }
 
     // SUPERVISOR USER CONTROLLER ACTIONS
