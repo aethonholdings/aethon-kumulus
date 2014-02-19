@@ -25,11 +25,11 @@ class ProjectController {
                 actions = ["Access"]
                 break
             case "collect":
-                projectList = permissionsService.getProjects([status: "A"])
+                projectList = permissionsService.getProjects([status: Project.STATUS_ACTIVE])
                 actions = ["Collect"]
                 break
             case "upload":
-                projectList = permissionsService.getProjects([status: "A"])
+                projectList = permissionsService.getProjects([status: Project.STATUS_ACTIVE])
                 actions = ["Upload"]                
                 break
         }
@@ -38,7 +38,7 @@ class ProjectController {
     
     def edit() {
         def project = Project.findById(params?.id)
-        if(permissionsService.checkPermisions(project)) {
+        if(permissionsService.checkPermissions(project)) {
             render view:"edit", model:[project: project]
         }
     }
@@ -46,7 +46,7 @@ class ProjectController {
     def update() {
         def project = Project.findById(params?.id)
         if(!project) project = filesystemService.newProject(params) 
-        else if(permissionsService.checkPermisions(project))  {
+        else if(permissionsService.checkPermissions(project))  {
             def client = Company.findById(params?.clientId)
             project.client = client
             bindData(project, params, [exclude:['client', 'clientId']])
@@ -61,14 +61,14 @@ class ProjectController {
     
     def delete() {
         def project = Project.findById(params?.id)
-        if(permissionsService.checkPermisions(project) && project.status == "A") project.delete()
+        if(permissionsService.checkPermissions(project) && project.status == "A") project.delete()
         redirect action:"list", params:[type:"manage"]
     }
     
     def close() {
         def project = Project.findById(params?.id)
-        if(permissionsService.checkPermisions(project)) {
-            project.status = "D"
+        if(permissionsService.checkPermissions(project)) {
+            project.status = Project.STATUS_CLOSED
             project.save()
         }
         redirect action:"list", params:[type:"manage"]
