@@ -24,7 +24,7 @@ class CaptureController {
     def build() {
         def documentList = []
         def project = Project.findById(params?.id)
-        if(project && checkPermissions(project)) {
+        if(project && permissionsService.checkPermissions(project)) {
             Task.findAllByUserIdAndType(permissionsService.getUsername(), Task.BUILD_DOCUMENT).each { task ->
                 if(task.document.project==project) documentList.add task.document            
             }
