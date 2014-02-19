@@ -8,6 +8,9 @@ class Document {
     
     static final int EDITABLE = 1
     static final int FINAL = 2
+    static final int SUBMITTED = 3
+    static final int SEARCHABLE = 4
+    static final int SUBMISSION_ERROR = -1
     
     Company company
     Date date
