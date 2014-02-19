@@ -74,6 +74,9 @@ table{
     vertical-align: middle;
 }
 
+.kumulus-float-left{
+    float:left;
+}
 .kumulus-barcode-image{
     height: 80px;
     width: 80px;
@@ -130,6 +133,14 @@ kumulus-control-group{
 /* layout body */
 #kumulus-body{
 
+}
+
+.kumulus-container h3{
+    text-align: center;
+}
+
+.kumulus-table-margin{
+    margin: 3px;
 }
 
 #advancedSearch{
