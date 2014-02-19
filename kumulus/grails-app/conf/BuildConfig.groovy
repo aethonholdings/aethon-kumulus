@@ -28,7 +28,7 @@ grails.project.dependency.resolution = {
         // specify dependency exclusions here; for example, uncomment this to disable ehcache:
         // excludes 'ehcache'
     }
-    log "error" // log level of Ivy resolver, either 'error', 'warn', 'info', 'debug' or 'verbose'
+    log "warn" // log level of Ivy resolver, either 'error', 'warn', 'info', 'debug' or 'verbose'
     checksums true // Whether to verify checksums on resolve
     legacyResolve false // whether to do a secondary resolve on plugin installation, not advised and here for backwards compatibility
 
@@ -43,12 +43,11 @@ grails.project.dependency.resolution = {
         mavenCentral()
         
         // uncomment these (or add new ones) to enable remote dependency resolution from public Maven repositories
-        // mavenRepo "https://maven.alfresco.com/nexus/content/groups/public/" // activiti
-        // mavenRepo "http://repo.spring.io/milestone/"                        // Spring Security
         mavenRepo "http://repository.codehaus.org"
+        mavenRepo "http://repo.grails.org/grails/core"
+        // mavenRepo "http://repo.spring.io/milestone/"                        
         // mavenRepo "http://download.java.net/maven/2/"
         // mavenRepo "http://repository.jboss.com/maven2/"
-        mavenRepo "http://repo.grails.org/grails/core"
     }
 
     dependencies {
@@ -66,11 +65,14 @@ grails.project.dependency.resolution = {
         compile ":spring-security-core:2.0-RC2"
         compile ":spring-security-ldap:2.0-RC2"
         compile ":export:1.5"
-        compile ":file-uploader:1.2.1"                // File upload and download
-        compile ":tika-parser:1.3.0.1"                // Tika parser
-        compile ":searchable:0.6.6"                   // Lucene search engine
-        compile ":quartz:1.0.1"                       // Schedules jobs
-        compile ":quartz-monitor:0.3-RC3"
+        compile ":file-uploader:1.2.1"                                          // File upload and download
+        compile ":tika-parser:1.3.0.1"                                          // Tika parser
+        compile ":searchable:0.6.6"                                             // Lucene search engine
+        compile ":quartz:1.0.1"                                                 // Schedules jobs
+        compile ":quartz-monitor:0.3-RC3"        
+        compile(":barcode4j:0.3") {                                             // barcode generation
+            excludes "ant"
+        }
 
         // plugins needed at runtime but not for compilation
         runtime ":hibernate:3.6.10.4" // or ":hibernate4:4.1.11.4"

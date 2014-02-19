@@ -135,6 +135,7 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
         '/node/**':                       ['isAuthenticated()'],
         '/project/**':                    ['isAuthenticated()'],
         '/task/**':                       ['isAuthenticated()'],
+        '/barcode/**':                    ['ROLE_ADMIN'],
 
         // secured - plugin controllers
         '/fileUploader/process/**':       ['ROLE_ADMIN', 'ROLE_IMPORT'],
