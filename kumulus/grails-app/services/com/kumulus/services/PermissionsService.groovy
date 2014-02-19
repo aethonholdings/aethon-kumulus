@@ -10,7 +10,6 @@ class PermissionsService {
     def grailsApplication
     
     def getCompany() {
-        
         def authorities = springSecurityService.authentication.authorities      // get the user authorities
         String company
         authorities.each { authority ->
@@ -32,17 +31,9 @@ class PermissionsService {
         String username = auth.getPrincipal().getUsername()        
     }
     
-    def checkPermisions(check) { 
+    boolean checkPermissions(instance) { 
         boolean permission = false
-        switch(check?.class) {
-            case Project:
-                if(check.company == getCompany()) permission = true
-                break
-            
-            case Node:
-                if(check.project.company == getCompany()) permission = true
-                break
-        }
+        if(instance?.owner() && getCompany() && instance?.owner() == getCompany()) permission = true
         return(permission)
     }
 }

@@ -9,10 +9,14 @@ class Image {
     UFile file
     boolean thumbnail
     boolean compressed
-    
-    static belongsTo = [page: Page]
-    
+    Page page
+        
     static constraints = {
         
     }
+    
+    String owner() {
+        return(page.owner())
+    }
+    
 }

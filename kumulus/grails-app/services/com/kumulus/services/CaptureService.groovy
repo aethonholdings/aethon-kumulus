@@ -1,11 +1,13 @@
 package com.kumulus.services
 
-import com.kumulus.domain.Node
+import com.kumulus.domain.*
 import grails.transaction.Transactional
 
 @Transactional
 class CaptureService {
 
+    def springSecurityService
+    
     def deleteNode(nodeID) {
         def node = Node.findById(nodeID)
         if(node) {
@@ -18,26 +20,36 @@ class CaptureService {
         }
     }
     
-    def saveNode(node, barcode, name, comment, type, status) {
-        if(node && !node.hasErrors()){
-            def nodeType
+    def insertNode(parent, project, barcode, name, comment, type) {
+        
+        def nodeType = NodeType.findByName(type)
+        if(project && nodeType && name) {
+            def timestamp = new Date()            
+            def node = new Node()
+            node.creatorId = springSecurityService.principal.username
+            node.lastUpdateId = springSecurityService.principal.username
+            node.project = project
+            node.status = Node.STATUS_OPEN
+            node.type = nodeType
+            node.parent = parent
+            node.barcode = barcode
+            node.name = name
+            node.comment = comment
+            node.createDatetime = timestamp
+            node.lastUpdateDatetime = timestamp
+            node.save()
+            return(node)
+        }
+        return(null)
+    }
+    
+    def updateNode(node, barcode, name, comment, type, status) {
+        def nodeType = NodeType.findByName(type)
+        if(node && !node.hasErrors() && nodeType){
             node.comment = comment
             node.barcode = barcode
             node.name = name
             node.status = status
-            switch(type) {
-                case 'Box':
-                nodeType = 'B'
-                break
-                
-                case 'Container':
-                nodeType = 'C'
-                break
-                
-                case 'Document':
-                nodeType = 'D'
-                break
-            }
             node.type = nodeType
             node.save()
         }
@@ -45,46 +57,30 @@ class CaptureService {
     
     def renderNode(node) {
         if(node) {
-            def nodeType, isFolder
-            switch(node.type) {
-                case 'B':
-                    nodeType = "Box"
-                    isFolder = true
-                    break
-
-                case 'C':
-                    nodeType = "Container"
-                    isFolder = true
-                    break
-                
-                case 'D':
-                    nodeType = "Document"
-                    isFolder = false
-                    break
-            }
             def treeNode = [
                 key: node.id,
                 title: node.name,
                 isLazy: true,
                 text: node.name, 
                 barcode: node.barcode,
-                isFolder: isFolder,
+                isFolder: node.type.isContainer,
                 comment: node.comment,
-                type: nodeType,
+                type: node.type.name,
                 id: node.id, 
                 project: node.project.id
             ]
+            return(treeNode)
         }
     }
     
     def renderRoot(project) {
-        
+
         def children = []
         def root = [
             key: "#",
             title: "Root",
             isFolder: true,
-            expand: false,
+            expand: true,
             select: true,
             isLazy: false,
             parent: null,
@@ -102,4 +98,5 @@ class CaptureService {
         nodeList.each { root.children.add renderNode(it) }
         return(root)
     }
+    
 }
