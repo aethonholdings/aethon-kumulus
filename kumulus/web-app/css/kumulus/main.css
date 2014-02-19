@@ -7,9 +7,9 @@ table{
 }
 /*header*/
 #kumulus-header-layout{
-    background: linear-gradient (bottom, #0B5992 10%, #0E3857 80%);
-    background: -moz-linear-gradient(bottom, #0B5992 10%, #0E3857 80%);
-    background: -webkit-linear-gradient(bottom, #0B5992 10%, #0E3857 80%);
+    background: linear-gradient (bottom, #0B5992 10%, #0E3857 90%);
+    background: -moz-linear-gradient(bottom, #0B5992 10%, #0E3857 90%);
+    background: -webkit-linear-gradient(bottom, #0B5992 10%, #0E3857 90%);
     margin-bottom: 3px;
 }
 
@@ -27,16 +27,13 @@ table{
     background-repeat: no-repeat;
     background-position:  center;
     border-radius: 4px;
+    background-size:60px 60px;
 }
 
 /*mainlayout*/
 #layout{
     width:90%;
     margin: auto;
-}
-
-pure-menu .pure-menu-open{
-    background-color: darkblue;
 }
 
 .pure-menu ul{
