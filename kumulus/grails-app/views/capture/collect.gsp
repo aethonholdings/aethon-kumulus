@@ -41,7 +41,7 @@
                   <div class="kumulus-barcode-image"> <img src="../../images/apple-touch-icon.png" class="kumulus-image"  alt="no image"/> </div>
                   <label for="type" class="kumulus-label">* Please select a container type</label>
                   <select id="type" class="pure-input-1-4" disabled>
-                    <option>Please Select Type</option>
+                      <option selected="true">Please Select Type</option>
                     <option>Container</option>  
                     <option>Box</option>
                   </select>

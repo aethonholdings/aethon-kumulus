@@ -31,7 +31,7 @@ table{
 }
 
 .kumulus-menu{
-    width:89%;
+    width:90%;
     margin:auto;
 }
 .pure-menu ul{
@@ -41,8 +41,8 @@ table{
 }
 .pure-menu li a{ 
     color:#fff;
-    min-width: 60px;
-    margin-right: 2px;
+    min-width: 45px;
+    margin-right: 1px;
     border-radius: 5px;
     text-align: center;
     border-style:solid;
