@@ -187,7 +187,7 @@ environments {
     development {
         grails.logging.jul.usebridge = true
         grails.serverURL
-        filesystem.root = "/Users/cocodinos/Documents/Work/11-Aethon/00-Aethon Holdings/01-Projects/01-Bucephalus/05-Software/kumulus/data/filesystem"
+        filesystem.root = "../data/filesystem"
         filesystem.staging = "${filesystem.root}/staging/"
         filesystem.main = "${filesystem.root}/main/"
         // plugins

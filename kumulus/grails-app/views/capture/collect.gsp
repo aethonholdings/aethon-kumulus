@@ -32,23 +32,23 @@
                   <label for="barcode"class="kumulus-label">* Stick the Barcode sticker on the container or Box and Scan the Barcode</label>
                   <input id="barcode" type="text" placeholder="Scan container barcode" disabled>
                 </div>
-                <div class="kumulus-control-group kumulus-element-border kumulus-hight">
+                <div class="kumulus-hight kumulus-control-group kumulus-element-border">
                   <div class="kumulus-barcode-image"> <img src="../../images/apple-touch-icon.png" class="kumulus-image"  alt="no image"/> </div>
-                  <label for="name">* Please Enter Your Name</label>
+                  <label for="name" class="kumulus-label">* Please enter the container name</label>
                   <input id="name" type="text" placeholder="Enter name here" class="pure-input-1-2" disabled>
                 </div>
-                <div class="kumulus-control-group kumulus-element-border kumulus-hight">
+                <div class="kumulus-hight kumulus-control-group kumulus-element-border">
                   <div class="kumulus-barcode-image"> <img src="../../images/apple-touch-icon.png" class="kumulus-image"  alt="no image"/> </div>
-                  <label for="type">* Please Select Type</label>
+                  <label for="type" class="kumulus-label">* Please select a container type</label>
                   <select id="type" class="pure-input-1-4" disabled>
                     <option>Please Select Type</option>
                     <option>Container</option>  
                     <option>Box</option>
                   </select>
                 </div>
-                <div class="kumulus-control-group kumulus-element-border kumulus-hight">
+                <div class="kumulus-hight kumulus-control-group kumulus-element-border">
                     <div class="kumulus-barcode-image"> <img src="../../images/apple-touch-icon.png" class="kumulus-image"  alt="no image"/> </div>
-                  <label for="comment">Any Comment</label>
+                  <label for="comment" class="kumulus-label">Comments</label>
                   <textarea id="comment" type="text" class="pure-input-1-2" disabled rows="5"></textarea>
                 </div>
               </fieldset>
