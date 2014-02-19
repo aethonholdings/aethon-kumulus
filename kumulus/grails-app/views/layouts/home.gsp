@@ -30,21 +30,24 @@
                </div>
             </div>
          </div>
-        </div>
-       <div id='layout'>
+        
         <div class='pure-menu pure-menu-open pure-menu-horizontal kumulus-magrin-bottom'>
          <!--<a class='pure-menu-heading' href=''>kumulus</a>-->
           <ul>
-            <li><g:link controller='home' action='index'>Home</g:link></li>
-            <li><g:link controller='home' action='manage'>Manage projects</g:link></li>
-            <li><g:link controller='home' action='collect'>Collect paperwork</g:link></li>
-            <li><g:link controller='home' action='upload'>Upload scans</g:link></li>
-            <li><g:link controller='home' action='build'>Build documents</g:link></li>
-            <li><g:link controller='home' action='pickup'>Request pickup</g:link></li>
-            <li><g:link controller='home' action='access'>Access archive</g:link></li>
-            <li><g:link controller='home' action='process'>Process documents</g:link></li>
+              <div class="kumulus-menu">
+                <li><g:link controller='home' action='index'>Home</g:link></li>
+                <li><g:link controller='home' action='manage'>Manage projects</g:link></li>
+                <li><g:link controller='home' action='collect'>Collect paperwork</g:link></li>
+                <li><g:link controller='home' action='upload'>Upload scans</g:link></li>
+                <li><g:link controller='home' action='build'>Build documents</g:link></li>
+                <li><g:link controller='home' action='pickup'>Request pickup</g:link></li>
+                <li><g:link controller='home' action='access'>Access archive</g:link></li>
+                <li><g:link controller='home' action='process'>Process documents</g:link></li>
+               </div>
           </ul>
          </div>
+        </div>
+       <div id='layout'>
          <div class='content'>
            <div id='kumulus-body'>
              <g:layoutBody/>

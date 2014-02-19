@@ -7,16 +7,16 @@ table{
 }
 /*header*/
 #kumulus-header-layout{
-    background: linear-gradient (bottom, #0B5992 10%, #0E3857 80%);
-    background: -moz-linear-gradient(bottom, #0B5992 10%, #0E3857 80%);
-    background: -webkit-linear-gradient(bottom, #0B5992 10%, #0E3857 80%);
-    margin-bottom: 3px;
+    background: linear-gradient (bottom, #0B5992 5%, #0E3857 95%);
+    background: -moz-linear-gradient(bottom, #0B5992 5%, #0E3857 95%);
+    background: -webkit-linear-gradient(bottom, #0B5992 5%, #0E3857 95%);
 }
 
 #kumulus-header{
     width:90%;
     margin: auto;
     height: 80px;
+    margin-bottom: 3px;
 }
 
 #kumulus-logo{
@@ -27,30 +27,34 @@ table{
     background-repeat: no-repeat;
     background-position:  center;
     border-radius: 4px;
+    background-size:60px 60px;
 }
 
-/*mainlayout*/
-#layout{
-    width:90%;
-    margin: auto;
+.kumulus-menu{
+    width:89%;
+    margin:auto;
 }
-
-pure-menu .pure-menu-open{
-    background-color: darkblue;
-}
-
 .pure-menu ul{
-    background-color: darkblue;
-    padding: 2px;
-    
+    background-color:#0B5992;
+    width: 100%;
+    margin-top: 2px;
 }
 .pure-menu li a{ 
     color:#fff;
+    min-width: 60px;
+    margin-right: 2px;
     border-radius: 5px;
+    text-align: center;
+    border-style:solid;
 }
 
 .pure-menu li a:hover{
     color: darkblue;
+}
+/*mainlayout*/
+#layout{
+    width:90%;
+    margin: auto;
 }
 
 .kumulus-small-font {
@@ -96,8 +100,6 @@ kumulus-control-group{
 }
 
 .kumulus-magrin-bottom{
-    overflow: hidden;
-    background-color: darkblue;
     margin-bottom: 3px;
 }
 
