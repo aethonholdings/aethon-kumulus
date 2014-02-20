@@ -165,7 +165,6 @@ class CaptureService {
         Document newDocument
 
         if(documents?.size > 1) {
-            
             // cycle through the pages to build the document
             def pages = []
             long pageCount = 0

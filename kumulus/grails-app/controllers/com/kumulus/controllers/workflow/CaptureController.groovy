@@ -22,14 +22,12 @@ class CaptureController {
     }
     
     def build() {
-        def documentList = []
-        def project = Project.findById(params?.id)
-        if(project && permissionsService.checkPermissions(project)) {
-            Task.findAllByUserIdAndType(permissionsService.getUsername(), Task.BUILD_DOCUMENT).each { task ->
-                if(task.document.project==project) documentList.add task.document
-            }
+        def taskList = []
+        def workItem = WorkItem.findById(params?.id)
+        if(workItem?.userId == permissionsService.getUsername()) {
+            taskList = workItem.tasks
         }
-        render view: "build", model: [documents: documentList]
+        render view: "build", model: [tasks: taskList]
     }
     
     def pickup (){

@@ -22,7 +22,7 @@ class Document {
     String text
     String ocrTask
     
-    static hasMany = [pages: Page, task: Task]
+    static hasMany = [pages: Page]
     static belongsTo = [project: Project, type: DocumentType]
     
     static mapping = {
