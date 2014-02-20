@@ -148,6 +148,9 @@ class CaptureService {
             // document.pages[0].viewImage = images.viewImage
             // document.pages[0].thumbnailImage = images.thumbnailImage
             document.save()
+            // clean up the staging entities
+            // uFile.delete(flush:true)
+            // stagingPath.deleteDir()
             return(document)
         }
     }

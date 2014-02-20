@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat
 import grails.transaction.Transactional
 
 @Transactional
-class TaskService {
+class WorkflowService {
 
     def createTask(document, taskType, userId) {
         println('here')

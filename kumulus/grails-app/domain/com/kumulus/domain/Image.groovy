@@ -10,7 +10,9 @@ class Image {
     boolean thumbnail
     boolean compressed
     Page page
-        
+    
+    
+    
     static constraints = {
         
     }

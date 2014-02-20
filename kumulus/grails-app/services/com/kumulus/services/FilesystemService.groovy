@@ -85,7 +85,6 @@ class FilesystemService {
                 downloads: 0
             )
             file.save()
-            println(file)
             
             // need to modify entry here based on whether it is a scan image or thumbnail or compressed
             imageTool.load(file.path)
@@ -99,9 +98,6 @@ class FilesystemService {
             images.put(key, image)
         }
         
-        // clean up the staging entities
-        // uFile.delete(flush:true)
-        // stagingPath.deleteDir()
         return(images)
     }
    
