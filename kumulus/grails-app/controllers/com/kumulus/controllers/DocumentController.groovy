@@ -5,22 +5,36 @@ import grails.converters.*
 
 class DocumentController {
     
-    def taskService
+    def workflowService
     def permissionsService
+    def captureService
     def structureService
-    def filesystemService
-        
+    
     def merge() {
         def data = request.JSON
-        Document mergedDocument
-        def documents = []
-        data?.documents.each {
-            def document = Document.findById(it)  // NEED PERMISSIONS CHECKS HERE AGAINST THE TASKS
-            documents.add(document)
+        def mergedDocument
+        def response = [done: false]
+        if (data?.documents) { 
+            def documents = []
+            def tasks = []
+            Boolean permission = true
+            data?.documents.each {
+                def document = Document.findById(it)
+                def task = Task.findByDocumentAndTypeAndCompleted(document, Task.BUILD_DOCUMENT, null)
+                if(permission && task) {
+                    documents.add(document)
+                    tasks.add(task)
+                } else permission = false
+            }
+            if(permission) {
+                mergedDocument = captureService.merge(documents)
+                if(mergedDocument) {
+                    tasks.each { workflowService.completeTask(it) }
+                    workflowService.createTask(mergedDocument, Task.OCR_DOCUMENT, permissionsService.getUsername())
+                    response.done = true
+                }
+            }
         }
-        mergedDocument = structureService.merge(documents)
-        if(mergedDocument) taskService.createTask(mergedDocument, Task.OCR_DOCUMENT, Task.READY_FOR_BATCH_INSTANCE)
-        def response = [done: true]
         render response as JSON
     }
             
@@ -31,12 +45,5 @@ class DocumentController {
         structureService.update(document, data)
         render response as JSON
     }
-    
-    def index() {
-        def file = UFile?.findById(params?.ufileId)
-        def document = Document?.findById(params?.documentId)
-        filesystemService.indexDocument(document, file)
-        render "document indexed"
-    }
-    
+        
 }

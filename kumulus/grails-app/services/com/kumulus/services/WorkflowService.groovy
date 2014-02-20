@@ -36,7 +36,13 @@ class WorkflowService {
         return(Task.findByUserId(getUsername()))
     }
     
-    def closeTask() {
-        
+    def completeTask(task) {
+        task?.completed = new Date()
+        task.save()
+        def workItem = task.workItem
+        if(!Task.findAllByWorkItemAndCompleted(workItem, null).count) {
+            workItem.completed = new Date()
+            workItem.save()
+        }
     }
 }

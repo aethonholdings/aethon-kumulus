@@ -160,4 +160,57 @@ class CaptureService {
         return(document)
     }
     
+    def merge(documents) {
+        
+        Document newDocument
+
+        if(documents?.size > 1) {
+            
+            // cycle through the pages to build the document
+            def pages = []
+            long pageCount = 0
+            def project = documents[0].project
+            boolean projectCheck = true                                         // check if all docs are from same project
+            documents.each { document ->
+                if(document.project == project && projectCheck) {                   
+                    document.pages.each { page ->
+                        pages.add(page)
+                        pageCount++
+                    }
+                } else projectCheck = false
+            }
+            
+            if(projectCheck) {
+                // create a new document
+                def documentType = DocumentType.findById(4)
+                newDocument = new Document(
+                    literal: filesystemService.generateLiteral(),
+                    status: Document.EDITABLE,
+                    project: project,
+                    type: documentType
+                )
+                newDocument.save()
+
+                pages.eachWithIndex { page, i ->
+                    // for each page, update the page domain class
+                    page.document = newDocument
+                    if(i==0) page.first = true else page.first = false
+                    if(i==pageCount-1) page.last = true else page.last = false
+                    page.number = i+1
+                    page.save()
+                }
+
+                // delete the old documents
+                documents.each { document ->
+                    document.pages = []
+                    document.delete()
+                }
+            }
+        } else if (documents?.size == 1) {
+            // no processing of the document needed
+            newDocument = documents[0]
+        }
+        return(newDocument)
+    }
+    
 }

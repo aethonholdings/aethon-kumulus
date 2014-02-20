@@ -18,6 +18,7 @@ class Task {
     
     String userId
     Date created
+    Date completed
     Document document
     String batchInstanceID                                                      // can be removed
     String batchInstanceUrlId                                                   // can be removed
@@ -29,5 +30,6 @@ class Task {
     static constraints = {
         batchInstanceID nullable: true
         batchInstanceUrlId nullable: true
+        completed nullable: true
     }
 }
