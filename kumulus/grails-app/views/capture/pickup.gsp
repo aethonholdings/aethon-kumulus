@@ -24,7 +24,7 @@
         
        <div id="divCalendar"></div>
 
-       <input type="submit" value="Save">
+       <input type="submit" id="sendPickupNode" value="Save">
        </g:form>
     </body>
 </html>
