@@ -13,10 +13,18 @@
      <g:javascript src='kumulus/pickup.js'/>
     </head>
     <body>
-        <div>
-            <table id="nodeTable"></table>
+          <g:form name="document" action="update">
+        <div style="width:40%">
+            <table id="nodeTable" style="border: 1px solid">
+            <th>Name</th>
+             <th>Barcode</th>
+              <th>&nbsp;</th>
+            </table>
         </div>
         
-        <div id="divCalendar"></div>
+       <div id="divCalendar"></div>
+
+       <input type="submit" value="Save">
+       </g:form>
     </body>
 </html>

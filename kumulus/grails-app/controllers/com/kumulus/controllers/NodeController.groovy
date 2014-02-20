@@ -65,10 +65,10 @@ class NodeController {
     
     def list(){
         
-        def query = Node.where {
-            (project.company == permissionsService.getCompany() && type == Node.BOX && status == Node.STATUS_CLOSED)
+        def nodes = []
+        nodes = Node.findAll {
+            (type == NodeType.findByName("Box") && status == Node.STATUS_CLOSED)
         }
-        def nodes = query.find()
         render nodes as JSON
     }
 
