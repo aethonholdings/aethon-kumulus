@@ -16,8 +16,8 @@ environments {
         dataSource {
             dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
             url = "jdbc:mysql://localhost:3306/kumulus?autoReconnect=true"
-            username = "root"
-            password = "root123"
+            username = "kumulus"
+            password = "password"
             properties {
                 //run the evictor every 30 minutes and evict any connections older than 30 minutes.
                 minEvictableIdleTimeMillis=1800000

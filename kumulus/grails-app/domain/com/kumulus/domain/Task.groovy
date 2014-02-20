@@ -19,10 +19,12 @@ class Task {
     String userId
     Date created
     Document document
-    String batchInstanceID
-    String batchInstanceUrlId
+    String batchInstanceID                                                      // can be removed
+    String batchInstanceUrlId                                                   // can be removed
     long status
     byte type
+    
+    static belongsTo = [workItem: WorkItem]
     
     static constraints = {
         batchInstanceID nullable: true
