@@ -40,11 +40,20 @@
                 <div class="kumulus-hight kumulus-control-group kumulus-element-border">
                   <div class="kumulus-barcode-image"> <img src="../../images/apple-touch-icon.png" class="kumulus-image"  alt="no image"/> </div>
                   <label for="type" class="kumulus-label">* Please select a container type</label>
-                  <select id="type" class="pure-input-1-4" disabled>
-                    <option>Please Select Type</option>
+<!--              <select id="type" class="pure-input-1-4" name="nodeName"disabled>
+                  <option value="">Please Select Type</option>
                     <option>Container</option>  
                     <option>Box</option>
-                  </select>
+                  </select>-->
+        <g:select id="type"
+               class="pure-input-1-4" 
+               name="nodeName"
+               from="${nodeTypes}" 
+               
+               optionKey="id" 
+               optionValue="name" 
+                noSelection="['':'Please Select Container Type']"
+               disabled="disabled"/>
                 </div>
                 <div class="kumulus-hight kumulus-control-group kumulus-element-border">
                     <div class="kumulus-barcode-image"> <img src="../../images/apple-touch-icon.png" class="kumulus-image"  alt="no image"/> </div>
