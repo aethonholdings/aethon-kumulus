@@ -25,7 +25,7 @@ class CaptureController {
         def taskList = []
         def workItem = WorkItem.findById(params?.id)
         if(workItem?.userId == permissionsService.getUsername()) {
-            taskList = workItem.tasks
+            taskList = workItem.tasks.findAll { it.completed == null }
         }
         render view: "build", model: [tasks: taskList]
     }

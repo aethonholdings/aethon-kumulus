@@ -31,16 +31,16 @@ class TaskController {
     }
     
     def complete() {
-        def task = Task.findById(params?.id)
-        if(task && task.status!=Task.FINISHED && permissionsService.getUsername()==task.userId) {
-            switch(task.type) {
-                case(Task.BUILD_DOCUMENT):
-//                    redirect controller: "capture", action: "build", id: task.document.pages[0].node.project.id
+        def workItem = WorkItem.findById(params?.id)
+        if(workItem && workItem.completed==null && permissionsService.getUsername()==workItem.userId) {
+            switch(workItem.type) {
+                case(workItem.BUILD_DOCUMENT):
+                    redirect controller: "capture", action: "build", id: workItem.id
                     break
-                case(Task.OCR_DOCUMENT):
-                    redirect controller: "structure", action: "process", id: params.id
+                case(workItem.OCR_DOCUMENT):
+                    redirect controller: "structure", action: "process", id: workItem.id
                     break
-                case(Task.VALIDATE):
+                case(workItem.VALIDATE):
                     break
             }
         }

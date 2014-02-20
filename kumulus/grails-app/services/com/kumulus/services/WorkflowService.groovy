@@ -44,5 +44,6 @@ class WorkflowService {
             workItem.completed = new Date()
             workItem.save()
         }
+        return(task)
     }
 }

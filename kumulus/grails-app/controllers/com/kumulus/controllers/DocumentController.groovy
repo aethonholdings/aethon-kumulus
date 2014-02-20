@@ -13,14 +13,23 @@ class DocumentController {
     def merge() {
         def data = request.JSON
         def documents = []
+        def tasks = []
         def response = [done: false]
         
         // check if the user has permission to these tasks, and if they are from the same project
         data?.tasks.each {
-            documents.add(Task.findById(it).document)
+            def task = Task.findById(it)
+            tasks.add(task)
+            documents.add(task.document)
         }
 
-        if(captureService.merge(documents)) response.done = true
+        def document = captureService.merge(documents)
+        tasks.each {
+            workflowService.completeTask(it)
+            workflowService.createTask(it.document, WorkItem.OCR_DOCUMENT, permissionsService.getUsername())
+        }
+        response.done = true
+        
         render response as JSON
     }
             
