@@ -22,7 +22,7 @@ class CaptureService {
     
     def insertNode(parent, project, barcode, name, comment, type) {
         
-        def nodeType = NodeType.findByName(type)
+        def nodeType = NodeType.findById(type)
         if(project && nodeType && name) {
             def timestamp = new Date()            
             def node = new Node()
@@ -44,7 +44,7 @@ class CaptureService {
     }
     
     def updateNode(node, barcode, name, comment, type, status) {
-        def nodeType = NodeType.findByName(type)
+        def nodeType = NodeType.findById(type)
         if(node && !node.hasErrors() && nodeType){
             node.comment = comment
             node.barcode = barcode

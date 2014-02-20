@@ -31,10 +31,36 @@ $(document).ready(function(){
                     "id": node.data.key
                 }
             });
+        },
+        
+         dnd: {
+      preventVoidMoves: true, // Prevent dropping nodes 'before self', etc.
+      onDragStart: function(node) {
+       
+        return true;
+      },
+      onDragEnter: function(node, sourceNode) {
+       
+        if(node.parent !== sourceNode.parent){
+          return false;
         }
+        // Don't allow dropping *over* a node (would create a child)
+        return ["before", "after"];
+      },
+      onDrop: function(node, sourceNode, hitMode, ui, draggable) {
+        /** This function MUST be defined to enable dropping of items on
+         *  the tree.
+         */
+        sourceNode.move(node, hitMode);
+      }
+    }
+       
     });
     tree = $('#nodeTree').dynatree("getTree");
     ready();
+    
+
+    
 });
 
 
@@ -143,6 +169,7 @@ function enable(bool) {
 
 function cancel() {
     switch(state) {
+       
         case "INSERT":
             newNode.remove();
             
@@ -150,7 +177,7 @@ function cancel() {
             refresh_container_information(selectedNode);
             ready();
             break;
-    }
+    } 
 }
 
 function save() {
@@ -172,6 +199,8 @@ function save() {
                     comment: $("#comment").val()
                 };
                 target = url('node', 'update', '');
+                
+                 
                 break;
 
             case "INSERT":
@@ -184,9 +213,9 @@ function save() {
                     comment: $("#comment").val()
                 };
                 target = url('node', 'insert', '');
-                break;
-                
-        }
+                break;         
+        } 
+       
         $.ajax({
             url: target,
             type: 'POST',
