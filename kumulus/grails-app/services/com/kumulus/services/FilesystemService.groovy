@@ -18,7 +18,7 @@ class FilesystemService {
         literal += RandomStringUtils.random(2, true, true).toUpperCase()
         return(literal)
     }
-        
+
     def indexDocument(document, uFile) {
         document.file = uFile
         File file = new File(uFile.path)

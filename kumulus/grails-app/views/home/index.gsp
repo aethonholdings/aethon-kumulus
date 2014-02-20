@@ -14,8 +14,8 @@
             <div class="pure-u-1-2">
                 <div class="kumulus-container kumulus-scrollable-y kumulus-element-border">
                     <g:set var="size" value="${0}"/>
-                    <g:each in="${taskList}"  var="list">
-                        <g:set var="size" value="${list.count}"/>
+                    <g:each in="${taskList}"  var="tlist">
+                        <g:set var="size" value="${tlist.count}"/>
                     </g:each>
                     <h3>You Have ${size} Task Outstanding.</h3>
                     <table class='pure-table pure-table-horizontal'>
@@ -27,17 +27,14 @@
                             </tr>
                         </thead>
                         <tbody>     
-                            <g:each in="${taskList}"  var="list">
+                            <g:each in="${taskList}"  var="task">
                                 <tr>   
-                                    <td><g:formatDate format="yyyy-MM-dd" date="${list.created}"/></td>
-                                    <td><g:if test="${list.type=1}">BUILD_DOCUMENT</g:if>
-                                        <g:elseif test="${list.type=2}">OCR_DOCUMENT</g:elseif>
-                                        <g:elseif test="${list.type=3}">REVIEW_DOCUMENT</g:elseif>
+                                    <td><g:formatDate format="yyyy-MM-dd HH:mm:ss" date="${task.created}"/></td>
+                                    <td><g:if test="${task.type=task.BUILD_DOCUMENT}">Build</g:if>
+                                        <g:elseif test="${task.type=task.OCR_DOCUMENT}">OCR</g:elseif>
+                                        <g:elseif test="${task.type=task.REVIEW_DOCUMENT}">Review</g:elseif>
                                     </td>
-                                    <td><g:if test="${list.type=1}"><a href="#">Complete</a></g:if>
-                                        <g:elseif test="${list.type=2}"><a href="#">Complete</a></g:elseif>
-                                        <g:elseif test="${list.type=3}"><a href="#">Complete</a></g:elseif>
-                                    </td>
+                                     <td><g:link controller="task" action="complete">Complete</g:link></td>
                                 </tr>
                             </g:each>
                         </tbody>
@@ -59,10 +56,10 @@
                                 </tr>
                             </thead>
                             <tbody>     
-                                <g:each var="plist" in="${projectList}">
+                                <g:each var="project" in="${projectList}">
                                     <tr>
-                                        <td>${plist.projectName}</td>
-                                        <td>${plist.client.name}</td>
+                                        <td>${project.projectName}</td>
+                                        <td>${project.client.name}</td>
                                     </tr>
                                 </g:each>
                             </tbody>

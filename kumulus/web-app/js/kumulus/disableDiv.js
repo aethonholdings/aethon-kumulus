@@ -13,51 +13,53 @@ $(document).ready(function(){
            else {  
                $('#name').prop('disabled', false);
                $('#barcode').prop('disabled', true);
-               $('#name').focus();
-               
+                 $('#type').prop('disabled', false);
+               $('#type').focus();
           }
   }); 
+  $('#type').change(function(){
+         if ($(this).val() == '') {      
+           $('#type').prop('disabled', true);
+           $('#button-save').prop('disabled', true);
+       }
+           else {
+               $('#comment').prop('disabled', false);
+               $('#barcode').prop('disabled', true);
+               $('#name').prop('disabled', false);           
+              $('#name').focus();
+              $('#button-save').prop('disabled', false);
+          }  
+    });
+    
          $('#name').change(function(){
          if ($(this).val() == '') {
            $('#name').prop('disabled', true);
+           
        }
-           else {
+           else {             
                $('#type').prop('disabled', false);
                $('#barcode').prop('disabled', true); 
                $('#name').prop('disabled', false);
-               $('#type').focus();
+               $('#comment').focus();
+               
               
           }  
     });
     
     
-     $('#type').change(function(){
-         if ($(this).val() == '') {      
-           $('#type').prop('disabled', true);
-            $('#button-save').prop('disabled', true);
-
-       }
-           else {
-               $('#comment').prop('disabled', false);
-               $('#barcode').prop('disabled', true);
-               $('#type').prop('disabled', false);
-               $('#name').prop('disabled', false);
-              $('#button-save').prop('disabled', false); 
-              $('#comment').focus();
-          }  
-    });
+  
     
     
-    $('#comment').change(function(){
-         if ($(this).val() == '') {
-             $('#comment').prop('disabled', true);
-       }
-           else {
-               $('#comment').prop('disabled', false);
-               $('#barcode').prop('disabled', true);
-               $('#type').prop('disabled', true);
-       }  
-    });
+//    $('#comment').change(function(){
+//         if ($(this).val() == '') {
+//             $('#comment').prop('disabled', true);
+//       }
+//           else {
+//               $('#comment').prop('disabled', false);
+//               $('#barcode').prop('disabled', true);
+//               $('#type').prop('disabled', true);
+//       }  
+//    });
     
      
 });

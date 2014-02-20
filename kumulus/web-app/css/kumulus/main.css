@@ -236,3 +236,20 @@ kumulus-control-group{
 .kumulus-header-row {
     width: 50px;
 }
+.error{
+    background-color:yellow;
+}
+label.error{
+    visibility: hidden; 
+    width:0px;
+    height: 0px;
+}
+.kumulus-vertical-align-top{
+    vertical-align: top; 
+    padding: 0px;
+}
+
+.kumulus-vertical-align-top input, select{
+    min-width: 100px;
+    height: 30px;
+}

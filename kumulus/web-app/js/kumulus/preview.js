@@ -7,13 +7,14 @@ function preview(element, imageId) {
     element.hide();
     element.attr('src', url('image', 'get', imageId));
     element.click(function () {        
-        var zoomWindow = window.open('', 'newwindow');
+        var zoomWindow = window.open('','New Window','width=800,height=600,toolbar=0,menubar=0,location=0, addressbar=0, status=1,scrollbars=1,resizable=1,left=5,top=5');
         zoomWindow.document.write('<html>');
+        zoomWindow.document.write('<head><title>Popup</title></head>');
         zoomWindow.document.write('<body>');
-        zoomWindow.document.write('<img src="' + url('image', 'get', imageId) + '" width="100%" height="100%">');
+        zoomWindow.document.write('<img src="' + url('image', 'get', imageId) + '" style="width: 100%">');
         zoomWindow.document.write('</body>');
-        zoomWindow.document.write('</html>');        
-    });
+        zoomWindow.document.write('</html>'); 
+   });
 }
 
 // rescales an image to fit parent container, maintaining aspect ratio
