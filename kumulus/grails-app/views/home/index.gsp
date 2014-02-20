@@ -34,7 +34,7 @@
                                         <g:elseif test="${task.type=task.OCR_DOCUMENT}">OCR</g:elseif>
                                         <g:elseif test="${task.type=task.REVIEW_DOCUMENT}">Review</g:elseif>
                                     </td>
-                                     <td><g:link controller="structure" action="complete">Complete</g:link></td>
+                                     <td><g:link controller="task" action="complete">Complete</g:link></td>
                                 </tr>
                             </g:each>
                         </tbody>
