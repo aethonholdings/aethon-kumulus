@@ -10,6 +10,7 @@ class Document {
     static final int FINAL = 2
     static final int SUBMITTED = 3
     static final int SEARCHABLE = 4
+    static final int EXTRACTED = 5
     static final int SUBMISSION_ERROR = -1
     
     Company company
@@ -21,11 +22,12 @@ class Document {
     String text
     String ocrTask
     
-    static hasMany = [pages: Page, task: Task]
+    static hasMany = [pages: Page]
     static belongsTo = [project: Project, type: DocumentType]
     
     static mapping = {
         text sqlType: "longtext"
+        status index: "idx_document_status"
     }
     
     static constraints = {  

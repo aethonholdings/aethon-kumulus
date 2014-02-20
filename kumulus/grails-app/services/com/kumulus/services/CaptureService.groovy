@@ -7,6 +7,7 @@ import grails.transaction.Transactional
 class CaptureService {
 
     def springSecurityService
+    def filesystemService
     
     def deleteNode(nodeID) {
         def node = Node.findById(nodeID)
@@ -22,7 +23,7 @@ class CaptureService {
     
     def insertNode(parent, project, barcode, name, comment, type) {
         
-        def nodeType = NodeType.findByName(type)
+        def nodeType = NodeType.findById(type)
         if(project && nodeType && name) {
             def timestamp = new Date()            
             def node = new Node()
@@ -44,7 +45,7 @@ class CaptureService {
     }
     
     def updateNode(node, barcode, name, comment, type, status) {
-        def nodeType = NodeType.findByName(type)
+        def nodeType = NodeType.findById(type)
         if(node && !node.hasErrors() && nodeType){
             node.comment = comment
             node.barcode = barcode
@@ -97,6 +98,118 @@ class CaptureService {
         def nodeList = Node.findAllByProjectAndParent(project, null)  // temporary solution, should be filtering out documents here
         nodeList.each { root.children.add renderNode(it) }
         return(root)
+    }
+    
+    def indexScan(parentNode, uFile, scanBatch, userId) {
+        
+        Document document
+        
+        if(parentNode && uFile && scanBatch && userId) {
+            Date timestamp = new Date()
+            def literal = filesystemService.generateLiteral()            
+
+            // start by creating a new node in the node tree
+            def node = new Node(
+                name: literal,
+                type: NodeType.findById(3),                                     // node type is page
+                parent: parentNode,
+                project: parentNode.project,
+                creatorId: userId,
+                lastUpdateId: userId,
+                createDatetime: timestamp,
+                lastUpdateDatetime: timestamp,
+                status: Node.STATUS_CLOSED
+            )
+            node.save()
+
+            // create a document to hold the page
+            document = new Document(
+                status: Document.EDITABLE,
+                type: DocumentType.findById(4),
+                company: null,
+                date: null,
+                literal: literal,
+                file: null,
+                project: parentNode.project,
+                ocrTask: null
+            )
+            document.save()
+            
+            // now create a page for the scan
+            def page = new Page(
+                number: 1,
+                first: true,
+                last: true,
+                literal: literal,
+                lineItems: [],
+                node: node, 
+                scanBatch: scanBatch,
+                document: document
+            )
+            
+            // generate the image files for the page
+            def images = filesystemService.indexImageInFilesystem(literal, page, uFile, timestamp)
+            page.scanImage = images.scanImage
+            page.viewImage = images.viewImage
+            page.thumbnailImage = images.thumbnailImage
+            page.save()
+            document.addToPages(page)
+            document.save()
+            filesystemService.stagingFlush(uFile)
+        }
+        return(document)
+    }
+    
+    def merge(documents) {
+        
+        Document newDocument
+
+        if(documents?.size > 1) {
+            // cycle through the pages to build the document
+            def pages = []
+            long pageCount = 0
+            def project = documents[0].project
+            boolean projectCheck = true                                         // check if all docs are from same project
+            documents.each { document ->
+                if(document.project == project && projectCheck) {                   
+                    document.pages.each { page ->
+                        pages.add(page)
+                        pageCount++
+                    }
+                } else projectCheck = false
+            }
+            
+            if(projectCheck) {
+                // create a new document
+                def documentType = DocumentType.findById(4)
+                newDocument = new Document(
+                    literal: filesystemService.generateLiteral(),
+                    status: Document.EDITABLE,
+                    project: project,
+                    type: documentType
+                )
+                newDocument.save()
+
+                pages.eachWithIndex { page, i ->
+                    // for each page, update the page domain class
+                    page.document = newDocument
+                    if(i==0) page.first = true else page.first = false
+                    if(i==pageCount-1) page.last = true else page.last = false
+                    page.number = i+1
+                    page.save()
+                }
+
+                // delete the old documents
+                documents.each { document ->
+                    document.pages = []
+                    document.delete()
+                }
+            }
+        } else if (documents?.size == 1) {
+            // no processing of the document needed
+            newDocument = documents[0]
+        }
+        return(newDocument)
     }
     
 }

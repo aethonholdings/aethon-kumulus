@@ -31,7 +31,7 @@ table{
 }
 
 .kumulus-menu{
-    width:89%;
+    width:90%;
     margin:auto;
 }
 .pure-menu ul{
@@ -41,8 +41,8 @@ table{
 }
 .pure-menu li a{ 
     color:#fff;
-    min-width: 60px;
-    margin-right: 2px;
+    min-width: 45px;
+    margin-right: 1px;
     border-radius: 5px;
     text-align: center;
     border-style:solid;
@@ -74,6 +74,9 @@ table{
     vertical-align: middle;
 }
 
+.kumulus-float-left{
+    float:left;
+}
 .kumulus-barcode-image{
     height: 80px;
     width: 80px;
@@ -130,6 +133,14 @@ kumulus-control-group{
 /* layout body */
 #kumulus-body{
 
+}
+
+.kumulus-container h3{
+    text-align: center;
+}
+
+.kumulus-table-margin{
+    margin: 3px;
 }
 
 #advancedSearch{
@@ -224,4 +235,21 @@ kumulus-control-group{
 
 .kumulus-header-row {
     width: 50px;
+}
+.error{
+    background-color:yellow;
+}
+label.error{
+    visibility: hidden; 
+    width:0px;
+    height: 0px;
+}
+.kumulus-vertical-align-top{
+    vertical-align: top; 
+    padding: 0px;
+}
+
+.kumulus-vertical-align-top input, select{
+    min-width: 100px;
+    height: 30px;
 }

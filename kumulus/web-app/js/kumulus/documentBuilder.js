@@ -17,12 +17,12 @@ $(document).ready(function(){
 
 function save() {
     var documents = $('#documents li');
-    var documentIds = [];
+    var taskIds = [];
     documents.each(function(i, li){
-        documentIds.push($(li).attr('documentId'));
+        taskIds.push($(li).attr('taskId'));
     });
     if(documents.length>0) {
-        var data = {documents: documentIds};
+        var data = {tasks: taskIds};
         $.ajax({
             url: url('document', 'merge', ''),
             type: 'POST',

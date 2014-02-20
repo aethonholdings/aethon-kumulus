@@ -42,10 +42,12 @@ class NodeController {
         def response = [done: false, message: "Error"]
         def project = Project.findById(data?.project)
         def parent
-        if(data?.parentID && data.parentID != "ROOT") parent = Node.findById(data?.parentID) else parent = null
-        if(project && permissionsService.checkPermissions(project) && captureService.insertNode(parent, project, data?.barcode, data?.name, data?.comment, data?.type)) {
+        if(data?.parentID && data.parentID != "ROOT") 
+        parent = Node.findById(data?.parentID) else parent = null
+        if(project && permissionsService.checkPermissions(project) && captureService.insertNode(parent, project, data?.barcode, data?.name, data?.comment, data?.type)) { 
             response.done = true
             response.message = "Success"
+             
         }
         render response as JSON
     }
@@ -63,10 +65,10 @@ class NodeController {
     
     def list(){
         
-        def query = Node.where {
-            (project.company == permissionsService.getCompany() && type == Node.BOX && status == Node.STATUS_CLOSED)
+        def nodes = []
+        nodes = Node.findAll {
+            (type == NodeType.findByName("Box") && status == Node.STATUS_CLOSED)
         }
-        def nodes = query.find()
         render nodes as JSON
     }
 

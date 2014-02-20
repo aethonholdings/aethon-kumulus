@@ -1,8 +1,11 @@
  <html>
   <head>
     <title>OCR data entry | Kumulus</title>
+    <g:javascript src='Validate/validate.js'/>
     <g:javascript src='kumulus/preview.js'/>
     <g:javascript src='kumulus/process.js'/>
+   
+</script>
   </head>
   <body>
     <div class="pure-g">
@@ -18,6 +21,7 @@
         </div>
       </div>
       <div class="pure-u-7-8">
+     <g:form name="document" action="update" id="${document.id}" class="pure-form pure-form-stacked">
         <div class="kumulus-container kumulus-element-border">
           <div class="kumulus-container-half">
             <div class="pure-g">
@@ -31,7 +35,7 @@
               <div class="pure-u-1-4">
                 <div class="kumulus-container-half kumulus-element-border">
                   <div class="kumulus-data-entry">
-                    <g:form name="document" action="update" id="${document.id}" class="pure-form pure-form-stacked">
+                
                       <fieldset>
                         <div class="pure-control-group">
                           <label for="documentType">* Document type</label>
@@ -46,14 +50,14 @@
                           <input id="company" name="company" type="text" value="${document.company?.name}" class="pure-input-1 ui-widget"></input>
                         <div class="pure-control-group">
                           <label for="date">* Date</label>                
-                          <input id="date" name="date" type="date" value="${document.date}" class="pure-input-1"></input>
+                          <input type="date" name ="date" value="${document.date}" class="pure-input-1"></input>
                         </div>
                         <div class="pure-control-group">
                           <label for="documentId">* Identifier</label>
-                          <input id="documentId" name="documentId" type="text" value="${document.identifier}" class="pure-input-1"></input>
+                          <input id="documentId"  name="identifier" type=text value="${document.identifier}" class="pure-input-1"></input>
                         </div>
                       </fieldset>
-                    </g:form>
+                  
                   </div>
                 </div>
               </div>
@@ -64,16 +68,16 @@
               <table id="lineItems" class="pure-table-horizontal">
                 <thead>
                   <th>Id</th>
-                  <th>Page</th>
-                  <th>Description</th>                  
+                  <th>*Page</th>
+                  <th>*Description</th>                  
                   <th>Date</th>
                   <th>Quantity</th>
-                  <th>Currency</th>
+                  <th>*Currency</th>
                   <th>Price</th>
-                  <th>Amount</th>
+                  <th>*Amount</th>
                   <th>Actions</th>
                 </thead>
-                <tbody class="kumulus-scrollable-y">
+<!--             <tbody class="kumulus-scrollable-y">
                   <g:each var="page" in="${document.pages}">
                     <g:each var="lineItem" in="${page.lineItems}">
                       <tr>
@@ -89,14 +93,15 @@
                       </tr>
                     </g:each>
                   </g:each>
-                </tbody>
-                <tfoot>
-                  <tr class="new">  
+                </tbody>-->
+                <!--<tfoot>-->
+               <tbody class="kumulus-vertical-align-top">
+                <tr class="new" onclick="send($(this))">  
                     <td><input size="4" type="text" value="" class="kumulus-column-id new" disabled="true"></input></td>
-                    <td><input size="2" type="text" value="" class="kumulus-column-page new" disabled="true"></input></td>
-                    <td><input id="focus" size="25" type="text" value="" class="kumulus-column-description new"></input></td>
+                    <td><input size="2" type="text" value=" " class="kumulus-column-page new" id="pageNo" disabled="true"></input></td>
+                    <td><input id="focus" name="description" size="25" type=text  value="" class="kumulus-column-description new" ></input></td>
                     <td><input size="4" type="date" value="" class="kumulus-column-date new"></input></td>
-                    <td><input size="6" type="text" value="" class="kumulus-column-quantity new"></input></td>
+                    <td><input  type=text  size="6" value="" class="kumulus-column-quantity new"></input></td>
                     <td>
                       <select>
                         <g:each var="currency" in="${currencies}">
@@ -104,20 +109,24 @@
                         </g:each>
                       </select>
                     </td>
-                    <td><input size="6" type="text" value="" class="kumulus-column-price new"></input></td>
-                    <td><input size="6" type="text" value="" class="kumulus-column-amount new"></input></td>
-                    <td><a class="add" href="#">Add</a></td>
+                    <td><input size="6" type="text" value="" class="kumulus-column-price new" onchange="total($(this))"></input></td>
+                    <td><input size="6" type="text"  name ="tamount"value="" class="kumulus-column-amount new" id="test"></input></td>
+                    <td><a class="add" href="#" >Add</a></td>
                   </tr>
-                </tfoot>
+                </tboot>
               </table>
             </div>
           </div>
-        </div>            
+        </div>   
+  
         <div class="kumulus-button-bank">
           <a class="pure-button" href="#">Next document</a>
-          <g:link class="pure-button" controller="document" action="update" id="${document.id}">Save and exit</g:link>
+         <input type="submit" value="Save" class="pure-button"></input>
+         
+          <!--<g:link class="pure-button" controller="document" action="update" id="${document.id}">Save and exit</g:link> -->
           <a class="pure-button" href="#">Exit</a>
         </div>
+  </g:form>
       </div>
     </div>
   </body>

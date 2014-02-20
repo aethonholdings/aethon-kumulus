@@ -6,15 +6,19 @@ import com.lucastex.grails.fileuploader.UFile
 class ImageController {
 
     def permissionsService
-    def filesystemService
+    def captureService
+    def workflowService
         
     def upload() {
         def node = Node.findById(params?.id)
         if(node && params?.ufileId) {
-            def scanBatch = new ScanBatch(userId: permissionsService.getUsername(), timestamp: new Date(), project: node.project)
+            def userId = permissionsService.getUsername()
+            def scanBatch = new ScanBatch(userId: userId, timestamp: new Date(), project: node.project)
             scanBatch.save()
-            filesystemService.indexImage(node, UFile.findById(params?.ufileId), scanBatch)
-            redirect controller: "capture", action: "upload", id: node.project.id
+            def document = captureService.indexScan(node, UFile.findById(params?.ufileId), scanBatch, permissionsService.getUsername())
+            if (document && workflowService.createTask(document, Task.BUILD_DOCUMENT, userId)) {
+                redirect controller: "capture", action: "upload", id: node.project.id
+            }
         }
     }
 

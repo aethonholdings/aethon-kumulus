@@ -1,5 +1,7 @@
+var pageNo;
+var currentRowObj;
 $(document).ready(function(){
-    
+validate();
     $("#company").autocomplete({
         source: url("company", "search", ""),
         minLength: 2,
@@ -7,36 +9,119 @@ $(document).ready(function(){
         }
     });
     
-    $('.kumulus-filmstrip > ul > li > img').bind('mousedown', function() {
+    $('.kumulus-filmstrip > ul > li > img').bind('mousedown', function(e) {
+      
         preview($('#preview-img'), $(this).attr('viewId'));
+        pageNo=$(this).attr('pageNumber')
+      
+       if($("#pageNo").val().trim().length==0){
+   
         $('.new.kumulus-column-page').val($(this).attr('pageNumber'));
+        }
+        $('#lineItems tr:last td #pageNo').val($(this).attr('pageNumber'));
         $('.edit.kumulus-column-page').val($(this).attr('pageNumber'));
-        $('.kumulus-column-description.new').focus();
+//        $('.kumulus-column-description.new').focus();
+        $('#documentType').focus();
+        e.preventDefault();
+             
+              
     });
     
-    $('.add').bind('click', function() {
+ $(document).on('click', '.add', function(){
         
         // FIRST VALIDATE THE ENTRIES WITH THE VALIDATION PLUGIN
         // 
         // 
         // should just copy the footer here
 
-        $('#lineItems tbody').append(
-            '<tr>' + 
-                $('tr.new').html() +
-            '</tr>'
-        );
-            
-        // clear the new row
-    });
+        var tdObjectFocus= $(currentRowObj).find("td #focus");
+        var tdObjectTest= $(currentRowObj).find("td #test");
+
+            if(tdObjectFocus.val().trim().length===0){
+                alert("Please fill mandatory fields before adding new row")
+            }
+            else if(tdObjectTest.val().trim().length===0){
+                alert("Please fill mandatory fields before adding new row")
+            }
+            else{
+                  $('#lineItems tbody').append(
+                    '<tr class="new" onclick="send($(this))">' + 
+                           $('tr.new').html() +
+                         '</tr>'
+                    );
     
-    $('#documentType').focus()
+              $('.new.kumulus-column-page').val(pageNo);
+                cloneRow();
+     }
+   
+        // clear the new row
+      
+    });
+   
+//    $('#documentType').focus();
+
+ $(document).on('click', '.remove', function(){
+ $(this).closest("tr").remove();
+ });
+ 
+ $(document).on('blur','.kumulus-column-price',function(){
+ var tdObjectPrice= $(currentRowObj).find("td .kumulus-column-price");
+ var tdObjectQuantity= $(currentRowObj).find("td .kumulus-column-quantity");
+ var  tdObjectAmount= $(currentRowObj).find("td .kumulus-column-amount");
+
+   var total=  tdObjectPrice.val()* tdObjectQuantity.val();
+   tdObjectAmount.val(total) 
+ });
    
 });
+
+function cloneRow(){
+
+ $('#lineItems tr td a').not(':last').html('Remove');
+ $('#lineItems tr td:last a').html('Add');
+ $('#lineItems tr td:last a').removeClass('remove');
+ $('#lineItems tr td:last a').addClass('add');
+ $('#lineItems tr td a').not(':last').removeClass('add');
+ $('#lineItems tr td a').not(':last').addClass('remove');
+
+}
+
+
+function send(obj){
+
+    currentRowObj=obj;
+}
 
 function save() {
     
     
     
+}
+
+
+function validate(){
+   
+ 
+    	$("#document").validate({
+             
+		rules: {
+                   
+			company: "required",
+			date: "required",
+                        identifier:"required",
+                        description:"required",
+                        tamount:"required",
+                                                     
+	
+		},
+		messages: {
+			company: "Please enter company name",
+			date: "Please select the date",
+                        identifier: "Please enter identifier",
+                        description: "Please enter description",
+                        tamount: "Please enter amount",
+	
+		}
+});
 }
 

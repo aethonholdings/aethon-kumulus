@@ -31,10 +31,36 @@ $(document).ready(function(){
                     "id": node.data.key
                 }
             });
+        },
+        
+         dnd: {
+      preventVoidMoves: true, // Prevent dropping nodes 'before self', etc.
+      onDragStart: function(node) {
+       
+        return true;
+      },
+      onDragEnter: function(node, sourceNode) {
+       
+        if(node.parent !== sourceNode.parent){
+          return false;
         }
+        // Don't allow dropping *over* a node (would create a child)
+        return ["before", "after"];
+      },
+      onDrop: function(node, sourceNode, hitMode, ui, draggable) {
+        /** This function MUST be defined to enable dropping of items on
+         *  the tree.
+         */
+        sourceNode.move(node, hitMode);
+      }
+    }
+       
     });
     tree = $('#nodeTree').dynatree("getTree");
     ready();
+    
+
+    
 });
 
 
@@ -106,12 +132,13 @@ function add_node() {
     if(newNode) {
         $('#barcode').val('');
         $('#name').val('');
-        $('#type').val('Container');
+        $('#type').val('');
         $('#barcode').prop('disabled', false);
         $('#type').prop('disabled', true);
         $('#name').prop('disabled', true);
         $('#comment').prop('disabled', true);
         $('#nodeTree').prop('disabled', true);
+        $('#button-cancel').prop('disabled', false);
         $('#barcode').focus();
         state = "INSERT";
     }
@@ -122,7 +149,10 @@ function add_node() {
 function update_node() {
     if(selectedNode && state=="READY"  && selectedNode.data.id!="ROOT") {
         enable(false);
-        $('#name').focus();
+        $('#type').focus();
+        $('#type').val('');
+        $('#button-cancel').prop('disabled', false);
+        $('#button-save').prop('disabled', false);
         state = "UPDATE";
     }
 };
@@ -139,6 +169,7 @@ function enable(bool) {
 
 function cancel() {
     switch(state) {
+       
         case "INSERT":
             newNode.remove();
             
@@ -146,7 +177,7 @@ function cancel() {
             refresh_container_information(selectedNode);
             ready();
             break;
-    }
+    } 
 }
 
 function save() {
@@ -168,6 +199,8 @@ function save() {
                     comment: $("#comment").val()
                 };
                 target = url('node', 'update', '');
+                
+                 
                 break;
 
             case "INSERT":
@@ -180,9 +213,9 @@ function save() {
                     comment: $("#comment").val()
                 };
                 target = url('node', 'insert', '');
-                break;
-                
-        }
+                break;         
+        } 
+       
         $.ajax({
             url: target,
             type: 'POST',
