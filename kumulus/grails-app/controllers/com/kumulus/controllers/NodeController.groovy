@@ -71,5 +71,17 @@ class NodeController {
         }
         render nodes as JSON
     }
-
+def move(){
+    println("hellooo")
+    def data = request.JSON
+        println("data sourcenode id"+ data?.id)
+        println("data targetnode id"+ data?.targetId)
+        def response = [done: false]
+        def node = Node.findById(data?.id)
+        if(permissionsService.checkPermissions(node)) {
+            captureService.moveNode(data.id,data.targetId)
+            response.done = true
+        }
+        render response as JSON
+}
 }
