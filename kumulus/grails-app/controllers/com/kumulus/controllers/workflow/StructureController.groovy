@@ -11,4 +11,10 @@ class StructureController {
         def document = task.document
         render view: "process", model:[document: document, currencies: currencies, documentTypes: documentTypes]
     }
+    
+    
+    def update(){
+        
+   
+    }
 }
