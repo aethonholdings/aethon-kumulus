@@ -17,7 +17,7 @@
                     <g:each in="${taskList}"  var="tlist">
                         <g:set var="size" value="${tlist.count}"/>
                     </g:each>
-                    <h3>You Have ${size} tasks outstanding.</h3>
+                    <h3>You have ${size} tasks outstanding.</h3>
                     <table class='pure-table pure-table-horizontal'>
                         <thead>
                             <tr>

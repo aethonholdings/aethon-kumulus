@@ -10,22 +10,22 @@ class WorkflowService {
     def createTask(document, taskType, userId) {
         WorkItem workItem
         
-        if(taskType==Task.BUILD_DOCUMENT){
-            workItem = WorkItem.findByUserIdAndProject(userId, document?.project)
+        if(taskType==WorkItem.BUILD_DOCUMENT){
+            workItem = WorkItem.findByUserIdAndProjectAndTypeAndCompleted(userId, document?.project, taskType, null)
         }
-        if(!workItem){            
+        
+        if(!workItem){
             workItem = new WorkItem(
                 userId: userId, 
                 project: document.project,
+                type: taskType,
                 created: new Date()
             )
-        }
+        }       
         def task = new Task(
-            document: document,
             created: new Date(),
-            userId: userId,
-            type: taskType, 
-            status: Task.CREATED,
+            document: document,
+            status: Task.CREATED
         )
         workItem.addToTasks(task)
         workItem.save()
