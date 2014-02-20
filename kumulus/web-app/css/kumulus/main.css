@@ -5,27 +5,105 @@ html{
 table{
     width: 100%;
 }
+/*header*/
+#kumulus-header-layout{
+    background: linear-gradient (bottom, #0B5992 5%, #0E3857 95%);
+    background: -moz-linear-gradient(bottom, #0B5992 5%, #0E3857 95%);
+    background: -webkit-linear-gradient(bottom, #0B5992 5%, #0E3857 95%);
+}
+
+#kumulus-header{
+    width:90%;
+    margin: auto;
+    height: 80px;
+    margin-bottom: 3px;
+}
+
+#kumulus-logo{
+    height: 77px;
+    width: 78px;
+    line-height: 77px;
+    background-image:url(images/AethonLogo100.1.png) ;
+    background-repeat: no-repeat;
+    background-position:  center;
+    border-radius: 4px;
+    background-size:60px 60px;
+}
+
+.kumulus-menu{
+    width:90%;
+    margin:auto;
+}
+.pure-menu ul{
+    background-color:#0B5992;
+    width: 100%;
+    margin-top: 2px;
+}
+.pure-menu li a{ 
+    color:#fff;
+    min-width: 45px;
+    margin-right: 1px;
+    border-radius: 5px;
+    text-align: center;
+    border-style:solid;
+}
+
+.pure-menu li a:hover{
+    color: darkblue;
+}
+/*mainlayout*/
+#layout{
+    width:90%;
+    margin: auto;
+}
 
 .kumulus-small-font {
     font-size: smaller;
 }
 
-/* header */
-#kumulus-header{
-    height: 80px;
-    padding-top: 15px;
-    padding-down: 15px;
-}
-
-
 .kumulus-hight{
+    text-align:left;
     height: 100px;  
-    
     margin: Auto;
     line-height: 100px;
 }
+.kumulus-label{
+    line-height: 15px;
+    text-align: left;
+    margin: Auto;
+    vertical-align: middle;
+}
+
+.kumulus-float-left{
+    float:left;
+}
+.kumulus-barcode-image{
+    height: 80px;
+    width: 80px;
+    float: left;
+    margin-left: 10px;
+    margin-right:10px;
+}
+.kumulus-image{
+    height: 80%;
+    width: 80%;
+    vertical-align: middle;
+    
+}
+kumulus-control-group{
+    margin-bottom:.5em
+}
+
+.kumulus-control-group label{
+        text-align:center;
+        display:inline-block;
+        vertical-align:middle;
+        width:15em;
+        margin:0 1em 0 0 
+}
+
 .kumulus-magrin-bottom{
-    margin-bottom: 5px;
+    margin-bottom: 3px;
 }
 
 .kumulus-padding{
@@ -34,18 +112,35 @@ table{
 }
 
 .kumulus-gradient-blue{
-    background: linear-gradient(to top,#001133,#003355);
+    background: linear-gradient(top,#001133,#003355);
     color: white;
     a: "color: white;";
 }
 
 #kumulus-session-management{
     float: right;
+    color: #fff;
+    margin-right: 7px;
+    line-height: 80px;
 }
 
+#kumulus-session-management a{
+    color: #91ABAB;
+}
+#kumulus-session-management a:hover{
+    color: #ABA144;
+}
 /* layout body */
 #kumulus-body{
 
+}
+
+.kumulus-container h3{
+    text-align: center;
+}
+
+.kumulus-table-margin{
+    margin: 3px;
 }
 
 #advancedSearch{
@@ -59,7 +154,6 @@ table{
 }
 
 /* work area layout elements */
-
 .kumulus-container{
     height: 550px;
     margin: 3px;
@@ -69,7 +163,6 @@ table{
     height: 275px;
     margin: 3px;
 }
-
 
 .kumulus-scrollable-y{
     overflow-y: auto;
@@ -93,7 +186,6 @@ table{
 }
 
 /* UI element components */
-
 .kumulus-preview{
     height: 95%;
     width: 95%;

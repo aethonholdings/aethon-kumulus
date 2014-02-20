@@ -13,8 +13,8 @@
 # GRAILS .GITIGNORE -----------
 
 # configuration files
-kumulus/grails-app/conf/Config.groovy
-kumulus/grails-app/conf/DataSource.groovy
+# kumulus/grails-app/conf/Config.groovy
+# kumulus/grails-app/conf/DataSource.groovy
 
 # web application files
 kumulus/web-app/WEB-INF
@@ -56,8 +56,8 @@ kumulus/web-app/plugins
 kumulus/target
 
 # filesystem
-/data/filesystem/main/*
-/data/filesystem/staging/*
+data/filesystem/main/*
+data/filesystem/staging/*
 
 # other kumulus project files
 *.iws

@@ -1,6 +1,13 @@
 package com.kumulus.controllers.workflow
 
+import grails.converters.*
+
 class ScanDoController {
+    
+    def authenticate() {
+        def response = "true"
+        render response as JSON
+    }
     
     def updateNodeProperties() { }
     

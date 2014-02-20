@@ -21,6 +21,6 @@ class ImageController {
     def get() {
         // check for permissions here
         def image = Image.findById(params?.id)
-        if(image) redirect controller: "download", action: "index", id: image.file.id
+        if(image && permissionsService.checkPermissions(image)) redirect controller: "download", action: "index", id: image.file.id
     }
 }

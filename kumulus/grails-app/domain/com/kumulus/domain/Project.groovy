@@ -2,6 +2,9 @@ package com.kumulus.domain
 
 class Project {
 
+    static final String STATUS_ACTIVE = "A"
+    static final String STATUS_CLOSED = "C"
+    
     String company
     Company client
     String projectName
@@ -38,6 +41,10 @@ class Project {
             log.error "Error deleting file: ${exp.message}"
             log.error exp
         }
+    }
+    
+    String owner() {
+        return(company)
     }
         
 }
