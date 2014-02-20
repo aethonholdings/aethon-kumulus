@@ -43,7 +43,6 @@ grails.project.dependency.resolution = {
         mavenCentral()
         
         // uncomment these (or add new ones) to enable remote dependency resolution from public Maven repositories
-        mavenRepo "https://maven.alfresco.com/nexus/content/groups/public/" // activiti
         mavenRepo "http://repo.spring.io/milestone/"                        // Spring Security
         mavenRepo "http://repository.codehaus.org"
         mavenRepo "http://download.java.net/maven/2/"
