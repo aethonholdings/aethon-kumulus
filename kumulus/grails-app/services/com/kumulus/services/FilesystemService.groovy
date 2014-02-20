@@ -1,7 +1,7 @@
 package com.kumulus.services
 
 import com.kumulus.domain.*
-import com.kumulus.classes.ImageTool
+import org.grails.plugins.imagetools.ImageTool
 import grails.transaction.Transactional
 import org.apache.commons.lang.RandomStringUtils
 import com.lucastex.grails.fileuploader.UFile

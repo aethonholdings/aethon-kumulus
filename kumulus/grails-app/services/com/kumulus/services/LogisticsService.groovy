@@ -5,7 +5,7 @@ import grails.transaction.Transactional
 @Transactional
 class LogisticsService {
 
-    def generateBarcodeSheet() {
+    def generateBarcodeSheet(company) {
         
     }
     
