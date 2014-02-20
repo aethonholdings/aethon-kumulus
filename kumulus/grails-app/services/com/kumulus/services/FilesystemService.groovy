@@ -96,17 +96,18 @@ class FilesystemService {
                 compressed: false,
                 page: page
             )
+            image.save()
             images.put(key, image)
         }
-        page.scanImage = images.scanImage
-        page.viewImage = images.viewImage
-        page.thumbnailImage = images.thumbnailImage
-        
+        return(images)
+    }
+    
+    def stagingFlush(uFile) {
         // clean up the staging entities
+        File stagingPath = new File(uFile.path.replace(uFile.name, ""))
         uFile.delete(flush:true)
         stagingPath.deleteDir()
-
-        return(page)
+        return(true)
     }
    
 }

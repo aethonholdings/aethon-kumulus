@@ -122,20 +122,6 @@ class CaptureService {
             )
             node.save()
 
-            // now create a page for the scan
-            def page = new Page(
-                number: 1,
-                first: true,
-                last: true,
-                literal: literal,
-                lineItems: [],
-                node: node, 
-                scanBatch: scanBatch
-            )
-            
-            // generate the image files for the page
-            filesystemService.indexImageInFilesystem(literal, page, uFile, timestamp)
-
             // create a document to hold the page
             document = new Document(
                 status: Document.EDITABLE,
@@ -147,10 +133,29 @@ class CaptureService {
                 project: parentNode.project,
                 ocrTask: null
             )
-            document.addToPages(page)
             document.save()
             
+            // now create a page for the scan
+            def page = new Page(
+                number: 1,
+                first: true,
+                last: true,
+                literal: literal,
+                lineItems: [],
+                node: node, 
+                scanBatch: scanBatch,
+                document: document
+            )
             
+            // generate the image files for the page
+            def images = filesystemService.indexImageInFilesystem(literal, page, uFile, timestamp)
+            page.scanImage = images.scanImage
+            page.viewImage = images.viewImage
+            page.thumbnailImage = images.thumbnailImage
+            page.save()
+            document.addToPages(page)
+            document.save()
+            filesystemService.stagingFlush(uFile)
         }
         return(document)
     }
