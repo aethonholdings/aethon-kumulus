@@ -35,7 +35,7 @@
                 <div class="kumulus-hight kumulus-control-group kumulus-element-border">
                   <div class="kumulus-barcode-image"> <img src="../../images/apple-touch-icon.png" class="kumulus-image"  alt="no image"/> </div>
                   <label for="type" class="kumulus-label">* Please select a container type</label>
-                     <select id="type" class="pure-input-1-4" disabled>
+                    <select id="type" class="pure-input-1-4" disabled>
                      <option value=""  selected="selected">Please Select Container Type</option>
                       <g:each in="${nodeTypes}" var="nodeType">
                           <option value="${nodeType?.id}">${nodeType?.name}</option>

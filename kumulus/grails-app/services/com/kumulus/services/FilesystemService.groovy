@@ -54,6 +54,8 @@ class FilesystemService {
                 ocrTask: null
             )
             document.save()
+            println(documentType)
+            println(parentNode.project)
             
             def task = new Task(
                 userId: userId,
