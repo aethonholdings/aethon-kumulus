@@ -119,8 +119,22 @@ class CaptureService {
                 status: Node.STATUS_CLOSED
             )
             node.save()
+
+            // create a page 
+            def page = new Page(
+                number: 1,
+                first: true,
+                last: true,
+                literal: literal,
+                lineItems: [],
+                node: node, 
+                scanBatch: scanBatch
+            )
             
-            // now create a document
+            // generate the image files
+            filesystemService.indexImageInFilesystem(literal, page, uFile, timestamp)
+
+            // create a document
             def document = new Document(
                 status: Document.EDITABLE,
                 type: DocumentType.findById(4),
@@ -129,25 +143,11 @@ class CaptureService {
                 literal: literal,
                 file: null,
                 project: parentNode.project,
-                ocrTask: null,
-                pages: [ new Page(
-                        number: 1,
-                        first: true,
-                        last: true,
-                        literal: literal,
-                        lineItems: [],
-                        node: node, 
-                        scanBatch: scanBatch
-                    )
-                ]
+                ocrTask: null
             )
-            
-            // generate the image files
-            def images = filesystemService.indexImageInFilesystem(literal, document.pages[0], uFile, timestamp)
-            // document.pages[0].scanImage = images.scanImage
-            // document.pages[0].viewImage = images.viewImage
-            // document.pages[0].thumbnailImage = images.thumbnailImage
+            document.addToPages(page)
             document.save()
+            
             // clean up the staging entities
             // uFile.delete(flush:true)
             // stagingPath.deleteDir()

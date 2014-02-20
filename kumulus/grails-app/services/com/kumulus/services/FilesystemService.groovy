@@ -94,11 +94,14 @@ class FilesystemService {
                 file: file,
                 thumbnail: false,
                 compressed: false,
+                page: page
             )
             images.put(key, image)
         }
-        
-        return(images)
+        page.scanImage = images.scanImage
+        page.viewImage = images.viewImage
+        page.thumbnailImage = images.thumbnailImagess
+        return(page)
     }
    
 }

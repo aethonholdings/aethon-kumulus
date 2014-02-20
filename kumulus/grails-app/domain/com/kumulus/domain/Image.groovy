@@ -9,9 +9,8 @@ class Image {
     UFile file
     boolean thumbnail
     boolean compressed
-    Page page
     
-    
+    static belongsTo = [page: Page]
     
     static constraints = {
         
