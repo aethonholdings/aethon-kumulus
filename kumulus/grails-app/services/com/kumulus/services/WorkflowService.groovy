@@ -7,15 +7,14 @@ import grails.transaction.Transactional
 @Transactional
 class TaskService {
 
-    def permissionsService
-
-    def createTask(document, taskType, status) {
+    def createTask(document, taskType, userId) {
+        println('here')
         def task = new Task(
             document: document,
             created: new Date(),
-            userId: permissionsService.getUsername(),
+            userId: userId,
             type: taskType, 
-            status: status
+            status: Task.CREATED
         )
         task.save()
         return(task)
@@ -23,5 +22,9 @@ class TaskService {
     
     def getTasks() {
         return(Task.findByUserId(getUsername()))
+    }
+    
+    def closeTask() {
+        
     }
 }

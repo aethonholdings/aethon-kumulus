@@ -7,6 +7,7 @@ import grails.transaction.Transactional
 class CaptureService {
 
     def springSecurityService
+    def filesystemService
     
     def deleteNode(nodeID) {
         def node = Node.findById(nodeID)
@@ -97,6 +98,62 @@ class CaptureService {
         def nodeList = Node.findAllByProjectAndParent(project, null)  // temporary solution, should be filtering out documents here
         nodeList.each { root.children.add renderNode(it) }
         return(root)
+    }
+    
+    def indexScan(parentNode, uFile, scanBatch, userId) {
+
+        if(parentNode && uFile && scanBatch && userId) {
+            Date timestamp = new Date()
+            def literal = filesystemService.generateLiteral()            
+
+            // start by creating a new node in the node tree
+            def node = new Node(
+                name: literal,
+                type: NodeType.findById(3),                                     // node type is page
+                parent: parentNode,
+                project: parentNode.project,
+                creatorId: userId,
+                lastUpdateId: userId,
+                createDatetime: timestamp,
+                lastUpdateDatetime: timestamp,
+                status: Node.STATUS_CLOSED
+            )
+            node.save()
+            
+            // now create a document
+            def document = new Document(
+                status: Document.EDITABLE,
+                type: DocumentType.findById(4),
+                company: null,
+                date: null,
+                literal: literal,
+                file: null,
+                project: parentNode.project,
+                ocrTask: null
+            )
+            document.save()
+
+            def page = new Page(
+                number: 1,
+                first: true,
+                last: true,
+                literal: literal,
+                lineItems: [],
+                node: node, 
+                document: document,
+                scanBatch: scanBatch
+            )
+            
+            // generate the image files
+            def images = filesystemService.indexImageInFilesystem(literal, page, uFile, timestamp)
+            page.scanImage = images.scanImage
+            page.viewImage = images.viewImage
+            page.thumbnailImage = images.thumbnailImage
+            page.save()
+            document.addToPages(page)
+            document.save()
+            return(document)
+        }
     }
     
 }
