@@ -100,7 +100,12 @@ class FilesystemService {
         }
         page.scanImage = images.scanImage
         page.viewImage = images.viewImage
-        page.thumbnailImage = images.thumbnailImagess
+        page.thumbnailImage = images.thumbnailImage
+        
+        // clean up the staging entities
+        uFile.delete(flush:true)
+        stagingPath.deleteDir()
+
         return(page)
     }
    

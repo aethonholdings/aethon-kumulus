@@ -8,13 +8,26 @@ import grails.transaction.Transactional
 class WorkflowService {
 
     def createTask(document, taskType, userId) {
-        println('here')
+
+        WorkItem workItem   
+        if(taskType==Task.BUILD_DOCUMENT){
+            workItem = WorkItem.findByUserIdAndProject(userId, document?.project)
+            if(!workItem) {
+                workItem = new WorkItem(
+                    userId: userId, 
+                    project: document.project,
+                    created: new Date()
+                )
+                workItem.save()
+            }
+        }
         def task = new Task(
             document: document,
             created: new Date(),
             userId: userId,
             type: taskType, 
-            status: Task.CREATED
+            status: Task.CREATED,
+            workItem: workItem
         )
         task.save()
         return(task)

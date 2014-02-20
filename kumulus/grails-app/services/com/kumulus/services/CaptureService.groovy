@@ -101,7 +101,9 @@ class CaptureService {
     }
     
     def indexScan(parentNode, uFile, scanBatch, userId) {
-
+        
+        Document document
+        
         if(parentNode && uFile && scanBatch && userId) {
             Date timestamp = new Date()
             def literal = filesystemService.generateLiteral()            
@@ -120,7 +122,7 @@ class CaptureService {
             )
             node.save()
 
-            // create a page 
+            // now create a page for the scan
             def page = new Page(
                 number: 1,
                 first: true,
@@ -131,11 +133,11 @@ class CaptureService {
                 scanBatch: scanBatch
             )
             
-            // generate the image files
+            // generate the image files for the page
             filesystemService.indexImageInFilesystem(literal, page, uFile, timestamp)
 
-            // create a document
-            def document = new Document(
+            // create a document to hold the page
+            document = new Document(
                 status: Document.EDITABLE,
                 type: DocumentType.findById(4),
                 company: null,
@@ -148,11 +150,9 @@ class CaptureService {
             document.addToPages(page)
             document.save()
             
-            // clean up the staging entities
-            // uFile.delete(flush:true)
-            // stagingPath.deleteDir()
-            return(document)
+            
         }
+        return(document)
     }
     
 }
