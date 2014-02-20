@@ -33,42 +33,43 @@
                                     <td><g:formatDate format="yyyy-MM-dd" date="${list.created}"/></td>
                                     <td><g:if test="${list.type=1}">BUILD_DOCUMENT</g:if>
                                         <g:elseif test="${list.type=2}">OCR_DOCUMENT</g:elseif>
-                                        <g:elseif test="${list.type=3}">REVIEW_DOCUMENT</g:elseif></td>
-                                    <td><g:if test="${list.type=1}"><a href="#">Complete</a>
-                            </g:if>
-                            <g:elseif test="${list.type=2}">
-                                  <a href="#">Complete</a>
-                            </g:elseif>
-                            <g:elseif test="${list.type=3}">
-                                   <a href="#">Complete</a>
-                            </g:elseif></td>
-                     </tr>
-                  </g:each>
-                </tbody>
-              </table>  
-           </div>
+                                        <g:elseif test="${list.type=3}">REVIEW_DOCUMENT</g:elseif>
+                                    </td>
+                                    <td><g:if test="${list.type=1}"><a href="#">Complete</a></g:if>
+                                        <g:elseif test="${list.type=2}"><a href="#">Complete</a></g:elseif>
+                                        <g:elseif test="${list.type=3}"><a href="#">Complete</a></g:elseif>
+                                    </td>
+                                </tr>
+                            </g:each>
+                        </tbody>
+                    </table>  
+                </div>
+            </div>
+            <div class="pure-u-1-2">
+                <div class="kumulus-container kumulus-scrollable-y kumulus-element-border">
+                    <g:set var="psize" value="${0}"/>
+                    <g:each in="${projectList}"  var="plist">
+                        <g:set var="psize" value="${plist.count}"/>
+                    </g:each>
+                    <h3>You are working on  ${psize} projects.</h3>
+                        <table class='pure-table pure-table-horizontal'>
+                            <thead>
+                                <tr>
+                                    <th>Project Name</th>
+                                    <th>Client</th>
+                                </tr>
+                            </thead>
+                            <tbody>     
+                                <g:each var="plist" in="${projectList}">
+                                    <tr>
+                                        <td>${plist.projectName}</td>
+                                        <td>${plist.client.name}</td>
+                                    </tr>
+                                </g:each>
+                            </tbody>
+                        </table>  
+                    </div>
+                </div>
         </div>
-        <div class="pure-u-1-2">
-          <div class="kumulus-container kumulus-scrollable-y kumulus-element-border">
-             <h3>You are working on Y projects.</h3>
-               <table class='pure-table pure-table-horizontal'>
-                  <thead>
-                     <tr>
-                        <th>Project Name</th>
-                        <th>Client</th>
-                      </tr>
-                   </thead>
-                   <tbody>     
-                  <g:each var="plist" in="${projectList}">
-                    <tr>
-                      <td>${plist.projectName}</td>
-                      <td>${plist.client.name}</td>
-                    </tr>
-                  </g:each>
-                </tbody>
-              </table>  
-          </div>
-         </div>
-     </div>
-  </body>
+    </body>
 </html>
