@@ -77,7 +77,7 @@
                   <th>*Amount</th>
                   <th>Actions</th>
                 </thead>
-<!--                <tbody class="kumulus-scrollable-y">
+<!--             <tbody class="kumulus-scrollable-y">
                   <g:each var="page" in="${document.pages}">
                     <g:each var="lineItem" in="${page.lineItems}">
                       <tr>
@@ -95,6 +95,7 @@
                   </g:each>
                 </tbody>-->
                 <!--<tfoot>-->
+               <tbody class="kumulus-vertical-align-top">
                 <tr class="new" onclick="send($(this))">  
                     <td><input size="4" type="text" value="" class="kumulus-column-id new" disabled="true"></input></td>
                     <td><input size="2" type="text" value=" " class="kumulus-column-page new" id="pageNo" disabled="true"></input></td>
@@ -112,7 +113,7 @@
                     <td><input size="6" type="text"  name ="tamount"value="" class="kumulus-column-amount new" id="test"></input></td>
                     <td><a class="add" href="#" >Add</a></td>
                   </tr>
-                <!--</tfoot>-->
+                </tboot>
               </table>
             </div>
           </div>
