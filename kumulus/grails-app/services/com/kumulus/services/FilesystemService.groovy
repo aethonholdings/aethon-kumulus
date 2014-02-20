@@ -95,10 +95,7 @@ class FilesystemService {
                 file: file,
                 thumbnail: false,
                 compressed: false,
-                page: page
             )
-            image.save()
-            println(image)
             images.put(key, image)
         }
         

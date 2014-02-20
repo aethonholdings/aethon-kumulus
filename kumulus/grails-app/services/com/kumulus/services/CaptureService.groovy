@@ -129,28 +129,24 @@ class CaptureService {
                 literal: literal,
                 file: null,
                 project: parentNode.project,
-                ocrTask: null
-            )
-            document.save()
-
-            def page = new Page(
-                number: 1,
-                first: true,
-                last: true,
-                literal: literal,
-                lineItems: [],
-                node: node, 
-                document: document,
-                scanBatch: scanBatch
+                ocrTask: null,
+                pages: [ new Page(
+                        number: 1,
+                        first: true,
+                        last: true,
+                        literal: literal,
+                        lineItems: [],
+                        node: node, 
+                        scanBatch: scanBatch
+                    )
+                ]
             )
             
             // generate the image files
-            def images = filesystemService.indexImageInFilesystem(literal, page, uFile, timestamp)
-            page.scanImage = images.scanImage
-            page.viewImage = images.viewImage
-            page.thumbnailImage = images.thumbnailImage
-            page.save()
-            document.addToPages(page)
+            def images = filesystemService.indexImageInFilesystem(literal, document.pages[0], uFile, timestamp)
+            // document.pages[0].scanImage = images.scanImage
+            // document.pages[0].viewImage = images.viewImage
+            // document.pages[0].thumbnailImage = images.thumbnailImage
             document.save()
             return(document)
         }
