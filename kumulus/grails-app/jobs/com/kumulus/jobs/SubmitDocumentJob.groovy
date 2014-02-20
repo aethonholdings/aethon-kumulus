@@ -15,38 +15,37 @@ import com.kumulus.domain.Page
  *
  * @author theo
  */
-class ManagerJob {
+class SubmitDocumentJob {
 
     static triggers = {
-        simple name: 'Manager Job', startDelay: 0, repeatInterval: 120000  
+        simple name: 'Submit Job', startDelay: 0, repeatInterval: 120000  
     }
 
-    def group = "Manager Jobs"
+    def group = "Jobs"
 
     def execute() {
-/*
         def client = new Client()
+        // TODO: get parameters
         client.applicationId = ""
         client.password = ""
-        
+
         def settings = new ProcessingSettings()
         settings.setLanguage('English')
         settings.setOutputFormat(ProcessingSettings.OutputFormat.pdfSearchable)
 
+        // Submit documents with status FINAL to ABBYY
         for (doc in Document.list(status: Document.FINAL)) {
             def task = null
             for (page in Page.list(document: doc)) {
-                def file = page.scanImage.file
-//              def filename = file.path + '/' + file.name + '.' + file.extension // Kons: file.path is the full pathname name including the filename
-                def filename = file.path
+                def filename = page.scanImage.file.path
                 def id = (task == null) ? null : task.Id
                 def result = client.submitImage(filename, id)
                 if (result != null) { task = result }
             }
             task = client.processDocument(task.Id, settings)
-            document.ocrTask = task.Id
-            document.save(flush: true)
+            doc.ocrTask = task.Id
+            doc.status = Document.SUBMITTED
+            doc.save(flush: true)
         }
-*/        
     }
 }
