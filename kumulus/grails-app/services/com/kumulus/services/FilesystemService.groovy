@@ -39,7 +39,7 @@ class FilesystemService {
         targetPath.mkdir()
         
         // create the database instances
-        def client = new Company([name: params?.client])         // NEED TO CHECK THE PREEXISTENCE OF THE COMPANY
+        def client = new Company([name: params?.ClientName])         // NEED TO CHECK THE PREEXISTENCE OF THE COMPANY
         client.save()
         def project = new Project([projectName: params?.projectName, comment: params?.comment, status: "A", company: permissionsService.getCompany(), lineItems:[], nodes:[], client: client, literal: literal, path: path])
         project.save()
