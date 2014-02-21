@@ -53,6 +53,7 @@ class NodeController {
     }
     
     def delete() {
+
         def data = request.JSON
         def response = [done: false]
         def node = Node.findById(data?.id)
@@ -65,12 +66,13 @@ class NodeController {
     
     def list(){
         
-        def query = Node.where {
-            (project.company == permissionsService.getCompany() && type == Node.BOX && status == Node.STATUS_CLOSED)
+        def nodes = []
+        nodes = Node.findAll {
+            (type == NodeType.findByName("Box") && status == Node.STATUS_CLOSED)
         }
-        def nodes = query.find()
         render nodes as JSON
     }
+
     def move() {
         println("hello");
         def data=request.JSON
@@ -80,7 +82,11 @@ class NodeController {
             captureService.moveNode(data.id)
             response.done = true
         }
-        render response as JSON
+
+    
+    def test(){
+               println("<<<<<<<<<<<<<<<"+request.JSON)
+
     }
 
 }

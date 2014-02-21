@@ -13,10 +13,32 @@
      <g:javascript src='kumulus/pickup.js'/>
     </head>
     <body>
-        <div>
-            <table id="nodeTable"></table>
+       <g:form name="document" action="update">
+        <div class="pure-g">
+            <div class="pure-u-3-4">
+                <div class="kumulus-container kumulus-scrollable-y kumulus-element-border">
+                    <table class="pure-table pure-table-horizontal" id="nodeTable">
+                      <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Barcode</th>
+                            <th>&nbsp;</th>
+                            
+                        </tr>
+                     </thead>
+                    </table>
+                        <input type="button" id="sendPickupNode" value="Send">
+                </div>
+            </div>
+            <div class="pure-u-1-4">
+                <div class="kumulus-container kumulus-scrollable-y kumulus-element-border">
+                    <div id="divCalendar" ></div>
+           
+                
+                </div>
+            </div>
         </div>
-        
-        <div id="divCalendar"></div>
+
+       </g:form>
     </body>
 </html>
