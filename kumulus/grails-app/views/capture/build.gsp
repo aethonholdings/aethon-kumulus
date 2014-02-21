@@ -6,14 +6,18 @@
   </head>
   <body>
     <div class="pure-g">
-      <div class="pure-u-1-2">
+      <div class="pure-u-1-3">
+          <div class="kumulus-container kumulus-element-border">
+          </div>
+      </div>
+      <div class="pure-u-1-3">
         <div class="kumulus-container kumulus-element-border">
           <div class="kumulus-preview">
             <img id="preview-img" class="kumulus-element-border" onClick="zoom();">
           </div>
         </div>
       </div>
-      <div class="pure-u-1-2">
+      <div class="pure-u-1-3">
         <div class="kumulus-container kumulus-element-border">
           <div class="pure-g">
             <div class="pure-u-7-8">    
