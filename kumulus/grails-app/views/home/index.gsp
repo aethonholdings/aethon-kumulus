@@ -13,28 +13,24 @@
         <div class="pure-g kumulus-small-font">
             <div class="pure-u-1-2">
                 <div class="kumulus-container kumulus-scrollable-y kumulus-element-border">
-                    <g:set var="size" value="${0}"/>
-                    <g:each in="${taskList}"  var="tlist">
-                        <g:set var="size" value="${tlist.count}"/>
-                    </g:each>
-                    <h3>You Have ${size} Task Outstanding.</h3>
+                    <h3>You have ${taskCount} tasks outstanding.</h3>
                     <table class='pure-table pure-table-horizontal'>
                         <thead>
                             <tr>
-                                <th>Created Date</th>
-                                <th>Type</th>
-                                <th>Action</th>
+                                <th>Project</th>
+                                <th>Task type</th>
+                                <th>Documents to be processed</th>
                             </tr>
                         </thead>
                         <tbody>     
-                            <g:each in="${taskList}"  var="task">
-                                <tr>   
-                                    <td><g:formatDate format="yyyy-MM-dd HH:mm:ss" date="${task.created}"/></td>
-                                    <td><g:if test="${task.type=task.BUILD_DOCUMENT}">Build</g:if>
-                                        <g:elseif test="${task.type=task.OCR_DOCUMENT}">OCR</g:elseif>
-                                        <g:elseif test="${task.type=task.REVIEW_DOCUMENT}">Review</g:elseif>
+                            <g:each in="${tasks}" var="task">
+                                <tr>
+                                    <td>${task.project.projectName}</td>
+                                    <td><g:if test="${task.taskType==1}">Build</g:if>
+                                        <g:elseif test="${task.taskType==2}">OCR</g:elseif>
+                                        <g:elseif test="${task.taskType==3}">Review</g:elseif>
                                     </td>
-                                     <td><g:link controller="task" action="complete">Complete</g:link></td>
+                                    <td><g:link controller="home" action="completeTasks" params='[projectId: "${task.project.id}", taskType: "${task.taskType}"]'>${task.taskCount}</g:link></td>
                                 </tr>
                             </g:each>
                         </tbody>
@@ -43,29 +39,25 @@
             </div>
             <div class="pure-u-1-2">
                 <div class="kumulus-container kumulus-scrollable-y kumulus-element-border">
-                    <g:set var="psize" value="${0}"/>
-                    <g:each in="${projectList}"  var="plist">
-                        <g:set var="psize" value="${plist.count}"/>
-                    </g:each>
-                    <h3>You are working on  ${psize} projects.</h3>
-                        <table class='pure-table pure-table-horizontal'>
-                            <thead>
+                    <h3>You are working on ${projectList.size} projects.</h3>
+                    <table class='pure-table pure-table-horizontal'>
+                        <thead>
+                            <tr>
+                                <th>Project Name</th>
+                                <th>Client</th>
+                            </tr>
+                        </thead>
+                        <tbody>     
+                            <g:each var="project" in="${projectList}">
                                 <tr>
-                                    <th>Project Name</th>
-                                    <th>Client</th>
+                                    <td>${project.projectName}</td>
+                                    <td>${project.client.name}</td>
                                 </tr>
-                            </thead>
-                            <tbody>     
-                                <g:each var="project" in="${projectList}">
-                                    <tr>
-                                        <td>${project.projectName}</td>
-                                        <td>${project.client.name}</td>
-                                    </tr>
-                                </g:each>
-                            </tbody>
-                        </table>  
-                    </div>
+                            </g:each>
+                        </tbody>
+                    </table>  
                 </div>
+            </div>
         </div>
     </body>
 </html>

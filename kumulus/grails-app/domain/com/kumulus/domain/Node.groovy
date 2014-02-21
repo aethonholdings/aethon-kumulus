@@ -16,8 +16,9 @@ class Node {
     String lastUpdateId
     Date createDatetime
     Date lastUpdateDatetime
-
-    static belongsTo = [project: Project, parent: Node, type: NodeType]
+    Project project
+    Node parent 
+    NodeType type
 
     static mapping = {
         id column: "node_id"
