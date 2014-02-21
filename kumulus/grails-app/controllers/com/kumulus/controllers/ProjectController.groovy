@@ -74,4 +74,21 @@ class ProjectController {
         redirect action:"list", params:[type:"manage"]
     }
     
+    def clientList(){
+        
+           def company = Company.findAllByNameLike("%${params.query}%")
+   
+        render(contentType: "text/xml") {
+            results() {
+                company.each { cmp ->
+                    result() {
+                        name(cmp.name)
+                        id(cmp.id)
+                    }
+                }  
+              }
+            }
+        
+    }
+    
 }

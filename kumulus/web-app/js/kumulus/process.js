@@ -1,7 +1,7 @@
 var pageNo;
 var currentRowObj;
 $(document).ready(function(){
-validate();
+    validate();
     $("#company").autocomplete({
         source: url("company", "search", ""),
         minLength: 2,
@@ -99,29 +99,4 @@ function save() {
 }
 
 
-function validate(){
-   
- 
-    	$("#document").validate({
-             
-		rules: {
-                   
-			company: "required",
-			date: "required",
-                        identifier:"required",
-                        description:"required",
-                        tamount:"required",
-                                                     
-	
-		},
-		messages: {
-			company: "Please enter company name",
-			date: "Please select the date",
-                        identifier: "Please enter identifier",
-                        description: "Please enter description",
-                        tamount: "Please enter amount",
-	
-		}
-});
-}
 

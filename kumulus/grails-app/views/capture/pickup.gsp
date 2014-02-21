@@ -27,14 +27,14 @@
                         </tr>
                      </thead>
                     </table>
-                        <input type="button" id="sendPickupNode" value="Send">
+                  
                 </div>
             </div>
             <div class="pure-u-1-4">
                 <div class="kumulus-container kumulus-scrollable-y kumulus-element-border">
                     <div id="divCalendar" ></div>
-           
-                
+        
+                      <input type="button" id="sendPickupNode" value="Send"  class="pure-button">
                 </div>
             </div>
         </div>
