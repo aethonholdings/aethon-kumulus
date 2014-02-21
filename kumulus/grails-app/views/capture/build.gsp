@@ -22,9 +22,9 @@
                   <div class="kumulus-container kumulus-scrollable-y">
                     <div id="page-strip" class="kumulus-filmstrip">
                       <ul id="pages" class="connectedSortable">
-                        <g:each var="document" in="${documents}">
-                          <g:each var="page" in="${document.pages.sort { it.number }}">
-                            <li documentId="${document.id}"><g:kumulusImg image="${page.thumbnailImage}" class="kumulus-thumbnail kumulus-element-border" height="140" width="100" viewId="${page.viewImage.id}" scanId="${page.scanImage.id}"/></li>
+                        <g:each var="task" in="${tasks}">
+                          <g:each var="page" in="${task.document.pages.sort { it.number }}">
+                            <li taskId ="${task.id}" documentId="${task.document.id}"><g:kumulusImg image="${page.thumbnailImage}" class="kumulus-thumbnail kumulus-element-border" height="140" width="100" viewId="${page.viewImage.id}" scanId="${page.scanImage.id}"/></li>
                           </g:each>
                         </g:each>
                       </ul>

@@ -5,22 +5,30 @@ import grails.converters.*
 
 class DocumentController {
     
-    def taskService
+    def workflowService
     def permissionsService
+    def captureService
     def structureService
-    def filesystemService
-        
+    
     def merge() {
         def data = request.JSON
-        Document mergedDocument
         def documents = []
-        data?.documents.each {
-            def document = Document.findById(it)  // NEED PERMISSIONS CHECKS HERE AGAINST THE TASKS
-            documents.add(document)
+        def tasks = []
+        def response = [done: false]
+        
+        data?.tasks.each {
+            // NEED TO CHECK PERMISSIONS HERE
+            def task = Task.findById(it)
+            tasks.add(task)
+            documents.add(task.document)
         }
-        mergedDocument = structureService.merge(documents)
-        if(mergedDocument) taskService.createTask(mergedDocument, Task.OCR_DOCUMENT, Task.READY_FOR_BATCH_INSTANCE)
-        def response = [done: true]
+        def document = captureService.merge(documents)
+        tasks.each {
+            workflowService.completeTask(it)
+            
+        }
+        workflowService.createTask(document, Task.OCR_DOCUMENT, permissionsService.getUsername())
+        response.done = true
         render response as JSON
     }
             
@@ -31,12 +39,5 @@ class DocumentController {
         structureService.update(document, data)
         render response as JSON
     }
-    
-    def index() {
-        def file = UFile?.findById(params?.ufileId)
-        def document = Document?.findById(params?.documentId)
-        filesystemService.indexDocument(document, file)
-        render "document indexed"
-    }
-    
+        
 }

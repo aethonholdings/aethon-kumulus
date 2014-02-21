@@ -1,7 +1,7 @@
 package com.kumulus.domain
 
 class Task {
-
+    
     // type enum constants
     static final byte BUILD_DOCUMENT = 1
     static final byte OCR_DOCUMENT = 2
@@ -17,15 +17,16 @@ class Task {
     static final long FINISHED = 6
     
     String userId
-    Date created
-    Document document
-    String batchInstanceID
-    String batchInstanceUrlId
-    long status
     byte type
-    
+    long status
+    Date created
+    Date completed
+    Project project
+    Document document
+        
     static constraints = {
-        batchInstanceID nullable: true
-        batchInstanceUrlId nullable: true
+        completed nullable: true
+        document nullable: true
     }
+    
 }
