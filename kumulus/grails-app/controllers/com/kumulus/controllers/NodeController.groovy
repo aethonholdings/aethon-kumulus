@@ -73,12 +73,13 @@ class NodeController {
         render nodes as JSON
     }
 
-   
-    def test(){
-               println("<<<<<<<<<<<<<<<"+request.JSON)
+    def move(){
+      
+    }
 
+    def test(){
+        println("<<<<<<<<<<<<<<<"+request.JSON)
     }
-    
-    }
+}
     
     

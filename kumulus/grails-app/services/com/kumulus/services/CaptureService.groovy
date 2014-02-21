@@ -12,6 +12,7 @@ class CaptureService {
         def node = Node.findById(nodeID)
         if(node) {
             def children = Node.findAllByParent(node)
+            println("delete" + children)
             for (child in children) {
                 deleteNode(child.id)
             }
@@ -98,6 +99,16 @@ class CaptureService {
         nodeList.each { root.children.add renderNode(it) }
         return(root)
     }
-    
-    
+//     def moveNode(targetNode,sourceNodeId){
+//        println("moving")
+//          println("targetNode is " +targetNode)
+//           def childNode= new Node()
+//            childNode.parent=targetNode
+//            childNode.id=sourceNodeId
+//            println(childNode.id)
+//             println(" parent "+ childNode.parent)
+//            childNode.save()
+//            println("child of target is" + childNode)
+     
+//     }   
 }
