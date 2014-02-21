@@ -66,16 +66,12 @@ $(document).ready(function(){
         
         logMsg("tree.onDrop(%o, %o, %s)", node, sourceNode, hitMode);
         sourceNode.expand(true);
-              alert(node);
-        alert(node.data.id); 
-        alert(sourceNode);
-        alert(sourceNode.data.id);
       
       var data = { 
-          id: selectedNode.data.id,
-          targetId: node.data.id,
+            id: selectedNode.data.id,
+            targetId: node.data.id,
             hitMode:hitMode,
-           }
+        }
       
              $.ajax({
              url: url('node', 'move', ''),
