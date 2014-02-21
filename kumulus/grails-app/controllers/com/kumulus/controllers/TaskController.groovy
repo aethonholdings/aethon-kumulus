@@ -30,20 +30,5 @@ class TaskController {
         render view:"listGroupByProject", model: [tasksByProject: tasksByProject, projectList: projectList, title: params?.title]
     }
     
-    def complete() {
-        def workItem = WorkItem.findById(params?.id)
-        if(workItem && workItem.completed==null && permissionsService.getUsername()==workItem.userId) {
-            switch(workItem.type) {
-                case(workItem.BUILD_DOCUMENT):
-                    redirect controller: "capture", action: "build", id: workItem.id
-                    break
-                case(workItem.OCR_DOCUMENT):
-                    redirect controller: "structure", action: "process", id: workItem.id
-                    break
-                case(workItem.VALIDATE):
-                    break
-            }
-        }
-    }
         
 }
