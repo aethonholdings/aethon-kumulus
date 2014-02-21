@@ -136,7 +136,6 @@ class CaptureService {
                 deleted: false
             )
             document.save()
-            println(parentNode.project)
             
             // now create a page for the scan
             def page = new Page(

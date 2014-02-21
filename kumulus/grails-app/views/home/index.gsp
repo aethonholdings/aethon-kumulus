@@ -19,7 +19,7 @@
                             <tr>
                                 <th>Project</th>
                                 <th>Task type</th>
-                                <th>Tasks outstanding</th>
+                                <th>Documents to be processed</th>
                             </tr>
                         </thead>
                         <tbody>     

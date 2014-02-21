@@ -3,9 +3,12 @@ package com.kumulus.controllers.workflow
 import com.kumulus.domain.*
 
 class StructureController {
-
+    
+    def permissionsService
+    
     def process() {
-        def task = Task.findById(params?.id)
+        // this should be from the workflow service getting the next task for the user
+        def task = Task.findByProjectAndUserIdAndTypeAndCompleted(Project.findById(params?.id), permissionsService.getUsername(), Task.OCR_DOCUMENT, null)
         def currencies = Currency.listOrderByFullName()
         def documentTypes = DocumentType.listOrderByName()
         def document = task.document
