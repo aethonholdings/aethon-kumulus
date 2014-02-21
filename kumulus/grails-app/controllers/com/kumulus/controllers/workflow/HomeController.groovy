@@ -13,7 +13,8 @@ class HomeController {
             status == Project.STATUS_ACTIVE
         }
         def tasks = workflowService.taskSummary(permissionsService.getUsername())
-        render(view:"index", model:[pageTitle: "Home", projectList: projectList, tasks: tasks])
+        def taskCount = Task.findAllByUserIdAndCompleted(permissionsService.getUsername(), null).size
+        render(view:"index", model:[pageTitle: "Home", projectList: projectList, tasks: tasks, taskCount: taskCount])
     }
 
     // SUPERVISOR USER CONTROLLER ACTIONS
@@ -62,16 +63,14 @@ class HomeController {
     }
     
     def completeTasks() {
-        def project = Project.findById(params?.id)
-        if(permissionsService.checkPermissions(project)) {
-            switch(workItem.type) {
-                case(workItem.BUILD_DOCUMENT):
+        def project = Project.findById(params?.projectId)
+        if(permissionsService.checkPermissions(project) && params?.taskType) {
+            switch(params.taskType) {
+                case Task.BUILD_DOCUMENT.toString():
                     redirect controller: "capture", action: "build", id: project.id
                     break
-                case(workItem.OCR_DOCUMENT):
+                case Task.OCR_DOCUMENT.toString():
                     redirect controller: "structure", action: "process", id: project.id
-                    break
-                case(workItem.VALIDATE):
                     break
             }
         }

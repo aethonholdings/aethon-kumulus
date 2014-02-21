@@ -16,8 +16,8 @@ class DocumentController {
         def tasks = []
         def response = [done: false]
         
-        // check if the user has permission to these tasks, and if they are from the same project
         data?.tasks.each {
+            // NEED TO CHECK PERMISSIONS HERE
             def task = Task.findById(it)
             tasks.add(task)
             documents.add(task.document)
@@ -26,7 +26,7 @@ class DocumentController {
         def document = captureService.merge(documents)
         tasks.each {
             workflowService.completeTask(it)
-            workflowService.createTask(it.document, WorkItem.OCR_DOCUMENT, permissionsService.getUsername())
+            workflowService.createTask(it.document, Task.OCR_DOCUMENT, permissionsService.getUsername())
         }
         response.done = true
         

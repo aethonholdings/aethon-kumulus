@@ -29,7 +29,7 @@ class WorkflowService {
             eq("userId", userId)
             isNull("completed")
             projections {
-                sqlGroupProjection "project_id, type, count(id) as taskCount", "project_id, type", ["project_id", "type", "taskCount"], [LONG, BYTE, LONG]
+                sqlGroupProjection "project_id, type, count(id) as taskCount", "project_id, type", ["project_id", "type", "taskCount"], [LONG, LONG, LONG]
             }
             order("project", "asc")
             order("created", "asc")
@@ -39,7 +39,7 @@ class WorkflowService {
         def tasks = []
         taskIds.each { 
             def project = Project.findById(it[0])
-            def row = [project: project, taskType: it[1], count: it[2]]
+            def row = [project: project, taskType: it[1], taskCount: it[2]]
             tasks.add(row)
         }
         return(tasks)
@@ -48,11 +48,6 @@ class WorkflowService {
     def completeTask(task) {
         task?.completed = new Date()
         task.save()
-        def workItem = task.workItem
-        if(!Task.findAllByWorkItemAndCompleted(workItem, null).count) {
-            workItem.completed = new Date()
-            workItem.save()
-        }
         return(task)
     }
     
