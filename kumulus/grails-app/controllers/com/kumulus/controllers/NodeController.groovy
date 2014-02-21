@@ -53,6 +53,7 @@ class NodeController {
     }
     
     def delete() {
+
         def data = request.JSON
         def response = [done: false]
         def node = Node.findById(data?.id)
@@ -70,6 +71,10 @@ class NodeController {
             (type == NodeType.findByName("Box") && status == Node.STATUS_CLOSED)
         }
         render nodes as JSON
+    }
+    
+    def test(){
+               println("<<<<<<<<<<<<<<<"+request.JSON)
     }
 
 }
