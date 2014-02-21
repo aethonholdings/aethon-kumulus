@@ -18,13 +18,12 @@ class Task {
     
     String userId
     byte type
-    Document document
     long status
     Date created
     Date completed
-    
-    static belongsTo = [project: Project]
-    
+    Project project
+    Document document
+        
     static constraints = {
         completed nullable: true
         document nullable: true

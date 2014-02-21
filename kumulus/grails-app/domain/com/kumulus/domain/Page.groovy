@@ -9,9 +9,11 @@ class Page {
     Image scanImage
     Image viewImage
     Image thumbnailImage
+    Node node
+    Document document 
+    ScanBatch scanBatch
     
     static mappedBy = [scanImage: 'page', viewImage: 'page', thumbnailImage: 'page']
-    static belongsTo = [node: Node, document: Document, scanBatch: ScanBatch]
     static hasMany = [lineItems: LineItem]
     
     static constraints = {

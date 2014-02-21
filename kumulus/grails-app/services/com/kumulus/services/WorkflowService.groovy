@@ -8,7 +8,7 @@ import grails.transaction.Transactional
 class WorkflowService {
 
     def createTask(document, taskType, userId) {
-        
+                
         def task = new Task(
             userId: userId,
             project: document.project,
@@ -46,7 +46,7 @@ class WorkflowService {
     }
     
     def completeTask(task) {
-        task?.completed = new Date()
+        task.completed = new Date()
         task.save()
         return(task)
     }

@@ -124,16 +124,19 @@ class CaptureService {
 
             // create a document to hold the page
             document = new Document(
-                status: Document.EDITABLE,
-                type: DocumentType.findById(4),
                 company: null,
                 date: null,
                 literal: literal,
+                status: Document.EDITABLE,
                 file: null,
                 project: parentNode.project,
-                ocrTask: null
+                type: DocumentType.findById(4),               
+                ocrTask: null,
+                pages: [],
+                deleted: false
             )
             document.save()
+            println(parentNode.project)
             
             // now create a page for the scan
             def page = new Page(
@@ -152,9 +155,8 @@ class CaptureService {
             page.scanImage = images.scanImage
             page.viewImage = images.viewImage
             page.thumbnailImage = images.thumbnailImage
-            page.save()
             document.addToPages(page)
-            document.save()
+            page.save(flush:true)
             filesystemService.stagingFlush(uFile)
         }
         return(document)
@@ -186,7 +188,8 @@ class CaptureService {
                     literal: filesystemService.generateLiteral(),
                     status: Document.EDITABLE,
                     project: project,
-                    type: documentType
+                    type: documentType, 
+                    deleted: false
                 )
                 newDocument.save()
 
@@ -202,7 +205,8 @@ class CaptureService {
                 // delete the old documents
                 documents.each { document ->
                     document.pages = []
-                    document.delete()
+                    document.deleted = true
+                    document.save()
                 }
             }
         } else if (documents?.size == 1) {
