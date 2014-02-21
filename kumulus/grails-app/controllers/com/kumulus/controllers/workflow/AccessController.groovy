@@ -22,7 +22,6 @@ class AccessController {
     }
     
     def download() {
-        println(params)
         def project = Project?.findById(params?.id)
         response.contentType = grailsApplication.config.grails.mime.types['csv']
         response.setHeader("Content-disposition", "attachment; filename=extract")
