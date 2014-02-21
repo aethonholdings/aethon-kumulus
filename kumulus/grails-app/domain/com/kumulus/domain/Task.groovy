@@ -2,6 +2,11 @@ package com.kumulus.domain
 
 class Task {
     
+    // type enum constants
+    static final byte BUILD_DOCUMENT = 1
+    static final byte OCR_DOCUMENT = 2
+    static final byte REVIEW_DOCUMENT = 3
+    
     // status enum constants
     static final long ERROR = -1
     static final long READY_FOR_UPLOAD = 1
@@ -11,15 +16,18 @@ class Task {
     static final long READY_FOR_VALIDATION = 5
     static final long FINISHED = 6
     
+    String userId
+    byte type
     Document document
     long status
     Date created
     Date completed
     
-    static belongsTo = [workItem: WorkItem]
+    static belongsTo = [project: Project]
     
     static constraints = {
         completed nullable: true
+        document nullable: true
     }
     
 }

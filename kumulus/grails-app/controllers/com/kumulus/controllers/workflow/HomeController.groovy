@@ -11,8 +11,8 @@ class HomeController {
             company == permissionsService.getCompany()
             status == Project.STATUS_ACTIVE
         }
-        def workItems = WorkItem.findAllByUserIdAndCompleted(permissionsService.getUsername(), null, [sort: "created", order:"asc"])
-        render(view:"index", model:[pageTitle: "Home", projectList: projectList, workItems: workItems])
+        def tasks = Task.findAllByUserIdAndCompleted(permissionsService.getUsername(), null, [sort: "created", order:"asc"])
+        render(view:"index", model:[pageTitle: "Home", projectList: projectList, tasks: tasks])
     }
 
     // SUPERVISOR USER CONTROLLER ACTIONS
