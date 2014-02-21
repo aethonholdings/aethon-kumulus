@@ -2,6 +2,7 @@ package com.kumulus.controllers
 
 import com.kumulus.domain.*
 import com.kumulus.services.*
+import grails.converters.*
 
 class ProjectController {
 
@@ -74,4 +75,5 @@ class ProjectController {
         redirect action:"list", params:[type:"manage"]
     }
     
+       
 }

@@ -15,19 +15,18 @@ table{
 #kumulus-header{
     width:90%;
     margin: auto;
-    height: 80px;
+    height: 60px;
     margin-bottom: 3px;
 }
 
 #kumulus-logo{
-    height: 77px;
-    width: 78px;
-    line-height: 77px;
+    height:59px;
+    width: 59px;
+    line-height: 60px;
     background-image:url(images/AethonLogo100.1.png) ;
     background-repeat: no-repeat;
     background-position:  center;
     border-radius: 4px;
-    background-size:60px 60px;
 }
 
 .kumulus-menu{
@@ -42,8 +41,6 @@ table{
 .pure-menu li a{ 
     color:#fff;
     min-width: 45px;
-    margin-right: 1px;
-    border-radius: 5px;
     text-align: center;
     border-style:solid;
 }
@@ -121,7 +118,7 @@ kumulus-control-group{
     float: right;
     color: #fff;
     margin-right: 7px;
-    line-height: 80px;
+    line-height: 60px;
 }
 
 #kumulus-session-management a{
@@ -167,7 +164,9 @@ kumulus-control-group{
 .kumulus-scrollable-y{
     overflow-y: auto;
 }
-
+.kumulus-padding{
+    padding: 3px;
+}
 .kumulus-scrollable-x{
     overflow-x: auto;
 }
