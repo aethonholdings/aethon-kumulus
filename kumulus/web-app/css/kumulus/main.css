@@ -164,7 +164,9 @@ kumulus-control-group{
 .kumulus-scrollable-y{
     overflow-y: auto;
 }
-
+.kumulus-padding{
+    padding: 3px;
+}
 .kumulus-scrollable-x{
     overflow-x: auto;
 }
