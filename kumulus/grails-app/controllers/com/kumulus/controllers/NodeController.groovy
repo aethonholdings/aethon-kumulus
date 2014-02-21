@@ -88,7 +88,11 @@ class NodeController {
     }
 
     def test(){
-        println("<<<<<<<<<<<<<<<"+request.JSON)
+        def data = request.JSON
+        def response = [done: false]
+        // handle this to send email request
+        // need to create a movement instance
+        render response as JSON
     }
 }
     
