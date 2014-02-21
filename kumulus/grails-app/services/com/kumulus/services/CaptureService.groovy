@@ -98,8 +98,6 @@ class CaptureService {
         nodeList.each { root.children.add renderNode(it) }
         return(root)
     }
-    def moveNode(nodeId) {
-        
-    }
+    
     
 }

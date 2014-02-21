@@ -32,43 +32,7 @@ $(document).ready(function(){
                 }
             });
         },
-        
-         dnd: {
-      preventVoidMoves: true, // Prevent dropping nodes 'before self', etc.
-      onDragStart: function(node) {
        
-        return true;
-      },
-      onDragEnter: function(node, sourceNode) {
-       
-        if(node.parent !== sourceNode.parent){
-          return false;
-        }
-        // Don't allow dropping *over* a node (would create a child)
-        return ["before", "after"];
-      },
-      onDrop: function(node, sourceNode, point, ui, draggable) {
-        /** This function MUST be defined to enable dropping of items on
-         *  the tree.
-         */
-        sourceNode.move(node, point);
-           
-           var targetId = $(target).dynatree('getNode', node).id;
-       
-          $.ajax({
-                   url: url('node','move',''),
-                   type: 'post',
-                   dataType: 'json',
-                     data: {
-                       id:  sourceNode.id,
-                       parentID: selectedNode.data.id,
-                       project: selectedNode.data.project,
-                       targetId: targetId,
-                       point: point
-                           }
-                 });
-
-        }
     }
        
     });
