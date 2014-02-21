@@ -2,6 +2,7 @@ package com.kumulus.controllers
 
 import com.kumulus.domain.*
 import com.kumulus.services.*
+import grails.converters.*
 
 class ProjectController {
 
@@ -74,21 +75,5 @@ class ProjectController {
         redirect action:"list", params:[type:"manage"]
     }
     
-    def clientList(){
-        
-           def company = Company.findAllByNameLike("%${params.query}%")
-   
-        render(contentType: "text/xml") {
-            results() {
-                company.each { cmp ->
-                    result() {
-                        name(cmp.name)
-                        id(cmp.id)
-                    }
-                }  
-              }
-            }
-        
-    }
-    
+       
 }

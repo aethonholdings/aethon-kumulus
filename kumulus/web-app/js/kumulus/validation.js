@@ -5,6 +5,12 @@
  */
 $(document).ready(function(){
     validate();
+    $("#ClientName").autocomplete({
+        source: url("company", "search", ""),
+        minLength: 2,
+        select: function(event, ui) {  
+        }
+    });
 
 });
 
@@ -21,7 +27,7 @@ function validate(){
                         description:"required",
                         tamount:"required",
                         projectName:"required",
-                        clientName:"required"
+                        ClientName:"required"
                                                      
 	
 		},

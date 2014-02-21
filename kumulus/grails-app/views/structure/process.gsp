@@ -4,6 +4,7 @@
     <g:javascript src='Validate/validate.js'/>
     <g:javascript src='kumulus/preview.js'/>
     <g:javascript src='kumulus/process.js'/>
+    <g:javascript src='kumulus/validation.js'/>
    
 </script>
   </head>

@@ -3,7 +3,7 @@
       <title>Edit project | Kumulus</title>
        <g:javascript src='Validate/validate.js'/>
         <g:javascript src='kumulus/validation.js'/>
-     <resource:autoComplete remote="true" />       
+      
       
   </head>
   <body>
@@ -14,8 +14,8 @@
       </div>
       <div class="pure-control-group">
         <label for="clientName">* Client name</label>
-        <richui:autoComplete  name="clientName" id='ClientName' action="${createLinkTo('dir': 'project/clientList')}" class="pure-input-1-2" />
-          
+         <input id="ClientName" name="ClientName" type="text"  class="pure-input-1 ui-widget"></input>
+             
       </div>
       <div class="pure-control-group">
         <label for="comment">Comment</label>
