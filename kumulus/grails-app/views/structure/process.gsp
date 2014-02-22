@@ -36,12 +36,14 @@
               <div class="pure-u-1-4">
                 <div class="kumulus-container-half kumulus-element-border">
                   <div class="kumulus-data-entry">
-                
+                  
                       <fieldset>
                         <div class="pure-control-group">
                           <label for="documentType">* Document type</label>
                           <select id="documentType" name="documentType" value="${document.type}" class="pure-input-1">
+                                
                             <g:each var="documentType" in='${documentTypes}'>
+                                     <g:hiddenField name="documentId" value="${documentType.id}" />
                               <option value="${documentType.id}" <g:if test="${documentType.id==4}">selected</g:if>>${documentType.name}</option>
                             </g:each>
                           </select>
@@ -59,7 +61,7 @@
                         </div>
                         <div>
                        <label for="documentId">*Currency</label>   
-                      <select class="pure-input-1">
+                      <select class="pure-input-1" name="currency">
                         <g:each var="currency" in="${currencies}">
                           <option value="${currency.shortName}" <g:if test="${currency.shortName=='SGD'}">selected</g:if>>${currency.shortName}</option>
                         </g:each>
@@ -77,7 +79,7 @@
             <div class="kumulus-line-item-table">
               <table id="lineItems" class="pure-table-horizontal">
                 <thead>
-                  <th>Id</th>
+                  <th>LineItemId</th>
                   <th>*Page</th>
                   <th>*Description</th>                  
                   <th>Date</th>
@@ -88,8 +90,8 @@
                 </thead>
                <tbody class="kumulus-vertical-align-top">
                 <tr class="new" onclick="send($(this))">  
-                    <td><input size="4" type="text" value="" class="kumulus-column-id new" disabled="true"></input></td>
-                    <td><input size="2" type="text" value=" " class="kumulus-column-page new" id="pageNo" disabled="true"></input></td>
+                    <td><input size="4" type="text" value=""  class="kumulus-column-id new" disabled="true"></input></td>
+                    <td><input size="2" type="text" value=" " class="kumulus-column-page new" id="pageNo" name="pageNo" onkeypress="CheckNumeric(event)" ></input></td>
                     <td><input id="focus" name="description" size="25" type=text  value="" class="kumulus-column-description new" ></input></td>
                     <td><input size="4" type="date" value="" class="kumulus-column-date new"></input></td>
                     <td><input  type=text  size="6" value="" class="kumulus-column-quantity new" onkeypress="CheckNumeric(event)"></input></td>

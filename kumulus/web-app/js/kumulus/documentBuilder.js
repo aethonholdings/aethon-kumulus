@@ -10,6 +10,10 @@ $(document).ready(function(){
     
     $('.kumulus-filmstrip > ul > li > img').bind('mousedown', function() {
         preview($('#preview-img'), $(this).attr('viewId'));
+        $("#barcode").val($(this).attr('barcode'))
+        $("#containername").val($(this).attr('containerName'))
+        $("#containertype").val($(this).attr('containerType'))
+        $("#comment").val($(this).attr('containerComment'))
     });
    
     $("#pages, #documents").disableSelection();
