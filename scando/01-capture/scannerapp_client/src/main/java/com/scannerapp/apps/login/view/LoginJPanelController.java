@@ -21,6 +21,7 @@ import com.scannerapp.apps.framework.view.BaseController;
 import com.scannerapp.apps.framework.view.ErrorMessage;
 import com.scannerapp.apps.utils.ConstantUtil;
 import com.scannerapp.apps.utils.SessionUtil;
+import com.scannerapp.shared.SessionData;
 
 public class LoginJPanelController extends BaseController {
 
@@ -139,15 +140,47 @@ public class LoginJPanelController extends BaseController {
 					loginCredentials.add(projecId);
 					loginCredentials.add(projectName);
 
-					if (loginHelper.authorizeLogin(loginCredentials)) {
+					//if (loginHelper.authorizeLogin(loginCredentials)) {
+                                        if (true) {
 
-						SessionUtil.setSessionData(loginHelper
-								.fetchSessionData(loginCredentials));
+						//SessionUtil.setSessionData(loginHelper
+							//	.fetchSessionData(loginCredentials));
 
-						setClientVersionInSession();
+                                            // using dummy data till kumulus does not have service    
+                                            SessionData sessionData = new SessionData();
+                                                
+                                                HashMap<String,String> statusMap= new HashMap<String, String>();
+                                                HashMap<String,String> nodeTypeMap= new HashMap<String, String>();
+                                                statusMap.put("Document","D");
+                                                statusMap.put("Box","B");
+                                                statusMap.put("Container","C");
+                                                nodeTypeMap.put("In Progress","0");
+                                                nodeTypeMap.put("Done","1");
+                                                nodeTypeMap.put("Sealed","2");
+                                                sessionData.setVersion("v1.1.3");
+                                                sessionData.setBreathInterval("5");
+                                                sessionData.setProjectId("5");
+                                                sessionData.setUserId("ADMIN");
+                                                sessionData.setCollectionRight("Y");
+                                                sessionData.setImportRight("Y");
+                                                sessionData.setLocalStoragePath(null);
+                                                sessionData.setProjectName("scannerapp");    
+                                                sessionData.setSeparationTarget("0");
+                                                sessionData.setRefreshInterval("600000");
+                                                sessionData.setTotalImagesToUploadAtOnce("21");
+                                                sessionData.setOverallTarget("5000");
+                                                sessionData.setLocalThumbnailDirPath(null);
+                                                sessionData.setNodeTypeMap(nodeTypeMap);
+                                                sessionData.setStatusMap(statusMap);
+                                                
+                                                
 
-						boolean totalUnAuthorizeParam = loginHelper
-								.isAuthorizeApplicationParam(projecId);
+						
+                                                SessionUtil.setSessionData(sessionData);
+                                                setClientVersionInSession();
+
+						//boolean totalUnAuthorizeParam = loginHelper.isAuthorizeApplicationParam(projecId);
+                                                boolean totalUnAuthorizeParam =true;
 						if (!totalUnAuthorizeParam) {
 							ErrorMessage.displayMessage('I',
 									"invalidApplicationParameterConfiguration");
@@ -213,7 +246,7 @@ public class LoginJPanelController extends BaseController {
 														.getApplicationConstant("projectLabel")
 												+ " : " + projectName);
 
-						initThreadStartToUpdateAttendanceDetail();
+						//initThreadStartToUpdateAttendanceDetail();     // commented BY Raj
 					}
 
 					else {

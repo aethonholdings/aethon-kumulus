@@ -3,27 +3,40 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-var selectedDate,nodeId;
+var selectDate="";
+var nodeId=[];
 $(document).ready(function(){
 
   $("#divCalendar").datepicker({
        minDate: new Date(),
                 onSelect: function (selectedDate) { 
-                   selectedDate=selectedDate.toString(); 
+                  
+                   selectDate=selectedDate.toString(); 
+            
                 } 
-            }); 
+            });
+            
   getNodeList();  
   
   $("#sendPickupNode").click(function(){
-      if($("input [name=node_checkbox]:checked").length!=0){
-          $("input [name=node_checkbox]:checked").each(function(i){
+//  alert($("input:checkbox:checked").length);
+      if($("input:checkbox:checked").length!=0){
+          $("input:checkbox:checked").each(function(i){
               if($(this).attr("checked",true)){
+                  
+  
                   nodeId[i]=$(this).attr("id")
                   $("#nodeId").val(nodeId)
               }
               
           });
+          
+          saveNode();
       }
+      else{
+          alert("Please select a node to send")
+      }
+   
   })
 });
 
@@ -43,14 +56,45 @@ function getNodeList(){
 //                if(response.done) $('#documents').empty();
 //                $('#preview-img').hide();
 //                alert("<<<<"+ data[0].size)
-                $.each(data,function(){
-                    alert("KKK")
-                     $("#nodeTable").append('<tr><td>'+data[0].name+'</td><td>'+data[0].barcode+'</td><td><input type="checkbox" name="node_checkbox" id="'+data[0].id+'"></td></tr>');  
+                $.each(data,function(i){
+          
+                     $("#nodeTable").append('<tr><td>'+data[i].name+'</td><td>'+data[i].barcode+'</td><td><input type="checkbox" class="checkbox" name="node_checkbox" id="'+data[i].id+'"></td></tr>');  
                 })
              
             }
         });
            
 }
+
+
+function saveNode(){
+
+      if(selectDate!=""){
+           var data = { node: nodeId,selectDate:selectDate}
+       $.ajax({
+            url: url('node', 'test', ''),
+            type: 'POST',
+            data: JSON.stringify(data),
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            async: false,
+            success: function(data) {
+
+                $.each(data,function(i){
+          
+                     $("#nodeTable").append('<tr><td>'+data[i].name+'</td><td>'+data[i].barcode+'</td><td><input type="checkbox" class="checkbox" name="node_checkbox" id="'+data[i].id+'"></td></tr>');  
+                })
+             
+            }
+        });
+    }
+    else{
+        alert("Please select date")
+    }
+    
+}
+
+
+
 
 

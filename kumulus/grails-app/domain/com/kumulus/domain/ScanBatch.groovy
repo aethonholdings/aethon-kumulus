@@ -4,8 +4,8 @@ class ScanBatch {
 
     String userId
     Date timestamp
+    Project project
     
-    static belongsTo = [project: Project]
     static hasMany = [pages: Page]
     
     static constraints = {

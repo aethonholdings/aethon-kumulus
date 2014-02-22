@@ -1,7 +1,7 @@
 var pageNo;
 var currentRowObj;
 $(document).ready(function(){
-validate();
+    validate();
     $("#company").autocomplete({
         source: url("company", "search", ""),
         minLength: 2,
@@ -33,15 +33,24 @@ validate();
         // 
         // 
         // should just copy the footer here
-
+        var tdObjectPageNo= $(currentRowObj).find("td #pageNo");
         var tdObjectFocus= $(currentRowObj).find("td #focus");
         var tdObjectTest= $(currentRowObj).find("td #test");
 
-            if(tdObjectFocus.val().trim().length===0){
-                alert("Please fill mandatory fields before adding new row")
+
+            if(tdObjectFocus.val().trim().length===0 && tdObjectTest.val().trim().length===0 && tdObjectPageNo.val().trim().length===0){
+                 $(tdObjectFocus).addClass("error")
+                 $(tdObjectTest).addClass("error")
+                 $(tdObjectPageNo).addClass("error")
+            }
+            else if(tdObjectPageNo.val().trim().length===0){
+                $(tdObjectPageNo).addClass("error")
+            }
+           else if(tdObjectFocus.val().trim().length===0){
+                $(tdObjectFocus).addClass("error")
             }
             else if(tdObjectTest.val().trim().length===0){
-                alert("Please fill mandatory fields before adding new row")
+               $(tdObjectTest).addClass("error")
             }
             else{
                   $('#lineItems tbody').append(
@@ -92,6 +101,26 @@ function send(obj){
     currentRowObj=obj;
 }
 
+function CheckNumeric(e) {
+ 
+ alert($(this).val())
+            if (window.event) // IE 
+            {
+                if ((e.keyCode < 48 || e.keyCode > 57) & e.keyCode != 8) {
+                    event.returnValue = false;
+                    return false;
+ 
+                }
+            }
+            else { // Fire Fox
+                if ((e.which < 48 || e.which > 57) & e.which != 8) {
+                    e.preventDefault();
+                    return false;
+ 
+                }
+            }
+        }
+
 function save() {
     
     
@@ -99,29 +128,4 @@ function save() {
 }
 
 
-function validate(){
-   
- 
-    	$("#document").validate({
-             
-		rules: {
-                   
-			company: "required",
-			date: "required",
-                        identifier:"required",
-                        description:"required",
-                        tamount:"required",
-                                                     
-	
-		},
-		messages: {
-			company: "Please enter company name",
-			date: "Please select the date",
-                        identifier: "Please enter identifier",
-                        description: "Please enter description",
-                        tamount: "Please enter amount",
-	
-		}
-});
-}
 

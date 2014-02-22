@@ -15,19 +15,18 @@ table{
 #kumulus-header{
     width:90%;
     margin: auto;
-    height: 80px;
+    height: 60px;
     margin-bottom: 3px;
 }
 
 #kumulus-logo{
-    height: 77px;
-    width: 78px;
-    line-height: 77px;
+    height:59px;
+    width: 59px;
+    line-height: 60px;
     background-image:url(images/AethonLogo100.1.png) ;
     background-repeat: no-repeat;
     background-position:  center;
     border-radius: 4px;
-    background-size:60px 60px;
 }
 
 .kumulus-menu{
@@ -39,11 +38,15 @@ table{
     width: 100%;
     margin-top: 2px;
 }
+.pure-menu li{
+    margin-left: 2px;
+    margin-right: 1px;
+    min-width: 16%;
+    letter-spacing:.05em
+}
 .pure-menu li a{ 
     color:#fff;
-    min-width: 45px;
-    margin-right: 1px;
-    border-radius: 5px;
+    margin-right: .5em;
     text-align: center;
     border-style:solid;
 }
@@ -66,27 +69,28 @@ table{
     height: 100px;  
     margin: Auto;
     line-height: 100px;
+    vertical-align: middle;
 }
 .kumulus-label{
     line-height: 15px;
     text-align: left;
     margin: Auto;
     vertical-align: middle;
+    font-size: 2em;
+    width:30%
 }
 
 .kumulus-float-left{
     float:left;
 }
 .kumulus-barcode-image{
-    height: 80px;
-    width: 80px;
+    height: 70%;
+    width: 10%;
     float: left;
     margin-left: 10px;
     margin-right:10px;
 }
 .kumulus-image{
-    height: 80%;
-    width: 80%;
     vertical-align: middle;
     
 }
@@ -98,7 +102,7 @@ kumulus-control-group{
         text-align:center;
         display:inline-block;
         vertical-align:middle;
-        width:15em;
+        //width:15em;
         margin:0 1em 0 0 
 }
 
@@ -121,7 +125,7 @@ kumulus-control-group{
     float: right;
     color: #fff;
     margin-right: 7px;
-    line-height: 80px;
+    line-height: 60px;
 }
 
 #kumulus-session-management a{
@@ -157,17 +161,28 @@ kumulus-control-group{
 .kumulus-container{
     height: 550px;
     margin: 3px;
+    padding: 3px;
 }
 
 .kumulus-container-half{
-    height: 275px;
-    margin: 3px;
+    height: 270px;
+    padding: 3px;
+}
+
+.kumulus-container-half h3{
+    text-align:center;
+}
+.kumulus-container-half-1{
+    height: 250px;
+    padding: 3px;
 }
 
 .kumulus-scrollable-y{
     overflow-y: auto;
 }
-
+.kumulus-padding{
+    padding: 3px;
+}
 .kumulus-scrollable-x{
     overflow-x: auto;
 }
@@ -250,6 +265,33 @@ label.error{
 }
 
 .kumulus-vertical-align-top input, select{
-    min-width: 100px;
     height: 30px;
+}
+
+.kumulus-magrin-top{
+    margin-top: 10px;
+}
+@media (max-width:767px){
+    .kumulus-hight{
+        text-align:left; 
+        margin: Auto;
+        line-height: 50%;
+    }
+    .kumulus-label
+    {
+        line-height: 15px;
+        text-align: left;
+        margin: Auto;
+        vertical-align: middle;
+        font-size: 2em;
+        width:70%
+    } 
+    .pure-menu ul{
+        width: 100%;
+    }
+}
+@media (max-width:767px){
+    .pure-menu ul{
+        width: 100%;
+    }
 }

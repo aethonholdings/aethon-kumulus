@@ -30,20 +30,5 @@ class TaskController {
         render view:"listGroupByProject", model: [tasksByProject: tasksByProject, projectList: projectList, title: params?.title]
     }
     
-    def complete() {
-        def task = Task.findById(params?.id)
-        if(task && task.status!=Task.FINISHED && permissionsService.getUsername()==task.userId) {
-            switch(task.type) {
-                case(Task.BUILD_DOCUMENT):
-//                    redirect controller: "capture", action: "build", id: task.document.pages[0].node.project.id
-                    break
-                case(Task.OCR_DOCUMENT):
-                    redirect controller: "structure", action: "process", id: params.id
-                    break
-                case(Task.VALIDATE):
-                    break
-            }
-        }
-    }
         
 }

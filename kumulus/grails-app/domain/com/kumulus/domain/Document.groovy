@@ -21,9 +21,11 @@ class Document {
     UFile file
     String text
     String ocrTask
+    Project project
+    DocumentType type
+    Boolean deleted
     
-    static hasMany = [pages: Page, task: Task]
-    static belongsTo = [project: Project, type: DocumentType]
+    static hasMany = [pages: Page]
     
     static mapping = {
         text sqlType: "longtext"

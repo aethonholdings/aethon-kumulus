@@ -1,3 +1,5 @@
+
+
 package com.kumulus.controllers
 
 import com.kumulus.domain.*
@@ -53,6 +55,7 @@ class NodeController {
     }
     
     def delete() {
+
         def data = request.JSON
         def response = [done: false]
         def node = Node.findById(data?.id)
@@ -72,4 +75,28 @@ class NodeController {
         render nodes as JSON
     }
 
+    def move(){
+        def data = request.JSON
+        def parent
+        if(data?.targetId=="ROOT") parent = null else parent = Node.findById(data?.targetId)
+        def child = Node.findById(data?.id)
+        def response = [done: false]
+        if(permissionsService.checkPermissions(parent) && permissionsService.checkPermissions(child)) {
+            if(parent) child.parent = parent else child.parent = null
+            child.save()
+            response.done = true
+        }
+        render response as JSON
+    }
+
+    def test(){
+        def data = request.JSON
+        def response = [done: false]
+        // handle this to send email request
+        // need to create a logistics shipment instance
+        render response as JSON
+    }
 }
+    
+    
+

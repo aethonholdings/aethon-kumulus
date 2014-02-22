@@ -19,12 +19,21 @@ import com.scannerapp.shared.SessionData;
 import com.sun.jersey.api.client.ClientHandlerException;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.UniformInterfaceException;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import org.codehaus.jettison.json.JSONException;
+import org.codehaus.jettison.json.JSONObject;
 
 public class LoginHelper extends ClientHelper {
 
 	private static Logger log = Logger.getLogger(LoginHelper.class);
 
 	private ObjectMapper mapper = new ObjectMapper();
+        
+        String json= null;
 
 	/**
 	 * Method to fetch the project list when the application starts.
@@ -34,15 +43,26 @@ public class LoginHelper extends ClientHelper {
 	public HashMap<String, String> getProjectList() {
 
 		HashMap<String, String> projectList = new HashMap<String, String>();
+                String projectUrl="http://localhost:8080/kumulus/scanDo/fetchProjectList";
 
 		try {
-			String projectListJson = ConnectionUtil.getWebService()
-					.path("loginServices").path("fetchProject")
-					.accept(MediaType.APPLICATION_JSON_TYPE).get(String.class);
+//			String projectListJson = ConnectionUtil.getWebService()
+//					.path("loginServices").path("fetchProject")
+//					.accept(MediaType.APPLICATION_JSON_TYPE).get(String.class);
+                        
+                        
+                      String projectListJson = this.getAuthenticatedfromServer(projectUrl);
+                        System.out.println("Project json is : "+projectListJson);
+                        
+                        System.out.println("****************************************************");
+                        
+                       
 
 			projectList = mapper.readValue(projectListJson,
 					new TypeReference<HashMap<String, String>>() {
 					});
+                        
+                         System.out.println("Project keys"+ projectList.keySet());
 
 		} 
 		catch (JsonParseException e) 
@@ -379,4 +399,65 @@ public class LoginHelper extends ClientHelper {
 		}
 
 	}
+        
+        
+        /**
+         * @auther Raj
+         * Method to make http request
+         * @param loginCredentials
+         * @return
+         * @throws IOException 
+         */
+        private String getAuthenticatedfromServer(String serverUrl) throws IOException{
+           
+               
+           try {
+ 
+		URL url = new URL(serverUrl);
+                //URL url = new URL("http://192.168.1.7:8080/kumulus/scanDo/authenticate?j_username=kumulus&j_password=password");
+		HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+                conn.setConnectTimeout(60000);
+		conn.setRequestMethod("POST");
+		conn.setRequestProperty("Accept", "application/json");
+ 
+                
+                
+                System.out.println("Input stream from server"+conn.getInputStream());
+//		if (conn.getResponseCode() != 200) {
+//			throw new RuntimeException("Failed : HTTP error code : "
+//					+ conn.getResponseCode());
+//		}
+ 
+		BufferedReader br = new BufferedReader(new InputStreamReader(
+			(conn.getInputStream())));
+ 
+		String output;
+                JSONObject jObj =null;
+                StringBuilder sb = new StringBuilder();
+		System.out.println("Output from Server .... \n");
+		while ((output = br.readLine()) != null) {
+                    sb.append(output);
+			System.out.println(output);
+		}
+                 json= sb.toString();
+//                try {
+//                   jObj = new JSONObject(json);
+//	           json= jObj.getString("results");            
+//                System.out.println("Result is "+jObj.getString("results"));
+//                } catch (JSONException e) {
+//			}
+		conn.disconnect();
+ 
+	  } catch (MalformedURLException e) {
+ 
+		e.printStackTrace();
+ 
+	  } catch (IOException e) {
+ 
+		e.printStackTrace();
+ 
+	  }
+                    
+            return json;
+       }
 }
