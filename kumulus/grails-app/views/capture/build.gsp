@@ -6,8 +6,8 @@
   </head>
   <body>
     <div class="pure-g">
-      <div class="pure-u-1-4">
-          <div class="kumulus-container-half kumulus-element-border">
+         <div class="pure-u-1-4">
+          <div class="kumulus-container kumulus-element-border pure-form">
               <div class="kumulus-data-entry">
                <fieldset>
                 <div class="pure-control-group">

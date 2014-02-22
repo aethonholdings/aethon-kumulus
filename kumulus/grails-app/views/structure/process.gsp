@@ -5,8 +5,6 @@
     <g:javascript src='kumulus/preview.js'/>
     <g:javascript src='kumulus/process.js'/>
     <g:javascript src='kumulus/validation.js'/>
-   
-</script>
   </head>
   <body>
     <div class="pure-g">
@@ -22,7 +20,7 @@
         </div>
       </div>
       <div class="pure-u-7-8">
-     <g:form name="document" action="update" id="${document.id}" class="pure-form pure-form-stacked">
+      <g:form name="document" action="update" id="${document.id}" class="pure-form pure-form-stacked">
         <div class="kumulus-container kumulus-element-border">
           <div class="kumulus-container-half">
             <div class="pure-g">
@@ -51,6 +49,8 @@
                         <div class="pure-control-group">
                           <label for="company">* Issuing company</label>
                           <input id="company" name="company" type="text" value="${document.company?.name}" class="pure-input-1 ui-widget"></input>
+                        </div>
+         
                         <div class="pure-control-group">
                           <label for="date">* Date</label>                
                           <input type="date" name ="date" value="${document.date}" class="pure-input-1"></input>
@@ -75,7 +75,7 @@
               </div>
             </div>
           </div>
-          <div class="kumulus-container-half kumulus-element-border kumulus-magrin-top kumulus-scrollable-y">
+          <div class="kumulus-container-half-1 kumulus-element-border kumulus-magrin-top kumulus-scrollable-y">
             <div class="kumulus-line-item-table">
               <table id="lineItems" class="pure-table-horizontal">
                 <thead>
@@ -108,12 +108,10 @@
   
         <div class="kumulus-button-bank">
           <a class="pure-button" href="#">Next document</a>
-         <input type="submit" value="Save" class="pure-button"></input>
-         
-          <!--<g:link class="pure-button" controller="document" action="update" id="${document.id}">Save and exit</g:link> -->
+          <input type="submit" value="Save" class="pure-button"></input>
           <a class="pure-button" href="#">Exit</a>
         </div>
-  </g:form>
+      </g:form>
       </div>
     </div>
   </body>

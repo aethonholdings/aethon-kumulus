@@ -165,8 +165,15 @@ kumulus-control-group{
 }
 
 .kumulus-container-half{
-    height: 260px;
-    margin: 3px;
+    height: 270px;
+    padding: 3px;
+}
+
+.kumulus-container-half h3{
+    text-align:center;
+}
+.kumulus-container-half-1{
+    height: 250px;
     padding: 3px;
 }
 
