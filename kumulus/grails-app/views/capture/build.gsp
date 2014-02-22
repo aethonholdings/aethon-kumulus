@@ -6,29 +6,30 @@
   </head>
   <body>
     <div class="pure-g">
-      <div class="pure-u-1-3">
-          <div class="kumulus-container kumulus-element-border">
-              <table>
-                  <tr>
-                      <td>Barcode:</td>
-                      <td><input type="textbox" readonly/></td>
-                  </tr>
-                  <tr>
-                      <td>Container Name:</td>
-                      <td><input type="textbox" readonly/></td>
-                  </tr>
-                  <tr>
-                      <td>Container Type:</td>
-                      <td><input type="textbox" readonly/></td>
-                  </tr>
-                  <tr>
-                      <td>Comment:</td>
-                      <td><input type="textbox" readonly/></td>
-                  </tr>
-              </table>
+      <div class="pure-u-1-4">
+          <div class="kumulus-container-half kumulus-element-border">
+              <div class="kumulus-data-entry">
+               <fieldset>
+                <div class="pure-control-group">
+                  <label for="barcode">Barcode:</label>
+                  <input type="textbox" name="barcode" class="pure-input-1" readonly></input>
+                </div>
+                <div class="pure-control-group">
+                  <label for="containername">Container Name:</label>
+                 <input type="textbox" name="containername" class="pure-input-1" readonly/>
+                <div class="pure-control-group">
+                  <label for="type">Container Type:</label>                
+                  <input type="textbox" name="type" class="pure-input-1" readonly></input>
+                </div>
+                <div class="pure-control-group">
+                  <label for="comment">Comment:</label>
+                  <input type="textbox" name="comment" class="pure-input-1" readonly/>
+                </div>
+              </fieldset>
+             </div>
           </div>
       </div>
-      <div class="pure-u-1-3">
+      <div class="pure-u-2-5">
         <div class="kumulus-container kumulus-element-border">
           <div class="kumulus-preview">
             <img id="preview-img" class="kumulus-element-border" onClick="zoom();">
