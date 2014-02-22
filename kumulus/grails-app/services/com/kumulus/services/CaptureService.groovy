@@ -98,8 +98,7 @@ class CaptureService {
         nodeList.each { root.children.add renderNode(it) }
         return(root)
     }
-    def moveNode(sourceNodeId,targetNodeId){
-        println("moving")
+   
         
         
         
