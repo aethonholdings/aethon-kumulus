@@ -69,27 +69,28 @@ table{
     height: 100px;  
     margin: Auto;
     line-height: 100px;
+    vertical-align: middle;
 }
 .kumulus-label{
     line-height: 15px;
     text-align: left;
     margin: Auto;
     vertical-align: middle;
+    font-size: 2em;
+    width:30%
 }
 
 .kumulus-float-left{
     float:left;
 }
 .kumulus-barcode-image{
-    height: 80px;
-    width: 80px;
+    height: 70%;
+    width: 10%;
     float: left;
     margin-left: 10px;
     margin-right:10px;
 }
 .kumulus-image{
-    height: 80%;
-    width: 80%;
     vertical-align: middle;
     
 }
@@ -101,7 +102,7 @@ kumulus-control-group{
         text-align:center;
         display:inline-block;
         vertical-align:middle;
-        width:15em;
+        //width:15em;
         margin:0 1em 0 0 
 }
 
@@ -160,11 +161,13 @@ kumulus-control-group{
 .kumulus-container{
     height: 550px;
     margin: 3px;
+    padding: 3px;
 }
 
 .kumulus-container-half{
-    height: 275px;
+    height: 260px;
     margin: 3px;
+    padding: 3px;
 }
 
 .kumulus-scrollable-y{
@@ -255,6 +258,33 @@ label.error{
 }
 
 .kumulus-vertical-align-top input, select{
-    min-width: 100px;
     height: 30px;
+}
+
+.kumulus-magrin-top{
+    margin-top: 10px;
+}
+@media (max-width:767px){
+    .kumulus-hight{
+        text-align:left; 
+        margin: Auto;
+        line-height: 50%;
+    }
+    .kumulus-label
+    {
+        line-height: 15px;
+        text-align: left;
+        margin: Auto;
+        vertical-align: middle;
+        font-size: 2em;
+        width:70%
+    } 
+    .pure-menu ul{
+        width: 100%;
+    }
+}
+@media (max-width:767px){
+    .pure-menu ul{
+        width: 100%;
+    }
 }
