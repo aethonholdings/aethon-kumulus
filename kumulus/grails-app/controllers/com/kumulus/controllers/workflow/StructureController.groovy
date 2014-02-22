@@ -16,7 +16,7 @@ class StructureController {
     }
     
     
-    def update(){
+    def updateData(){
         
    
     }
