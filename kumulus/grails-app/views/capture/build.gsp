@@ -6,24 +6,24 @@
   </head>
   <body>
     <div class="pure-g">
-      <div class="pure-u-1-4">
-          <div class="kumulus-container-half kumulus-element-border">
+         <div class="pure-u-1-4">
+          <div class="kumulus-container kumulus-element-border pure-form">
               <div class="kumulus-data-entry">
                <fieldset>
                 <div class="pure-control-group">
                   <label for="barcode">Barcode:</label>
-                  <input type="textbox" name="barcode" class="pure-input-1" readonly></input>
+                  <input id="barcode" type="textbox" name="barcode" class="pure-input-1" readonly></input>
                 </div>
                 <div class="pure-control-group">
                   <label for="containername">Container Name:</label>
-                 <input type="textbox" name="containername" class="pure-input-1" readonly/>
+                 <input id="containername" type="textbox" name="containername" class="pure-input-1" readonly/>
                 <div class="pure-control-group">
                   <label for="type">Container Type:</label>                
-                  <input type="textbox" name="type" class="pure-input-1" readonly></input>
+                  <input id="containertype" type="textbox" name="type" class="pure-input-1" readonly></input>
                 </div>
                 <div class="pure-control-group">
                   <label for="comment">Comment:</label>
-                  <input type="textbox" name="comment" class="pure-input-1" readonly/>
+                  <input id="comment" type="textbox" name="comment" class="pure-input-1" readonly/>
                 </div>
               </fieldset>
              </div>
@@ -47,7 +47,7 @@
                       <ul id="pages" class="connectedSortable">
                         <g:each var="task" in="${tasks}">
                           <g:each var="page" in="${task.document.pages.sort { it.number }}">
-                            <li barcode="${page.node.barcode}" containerName="${page.node.name}" containerType="${page.node.type.name}" containerComment="${page.node.comment}" taskId ="${task.id}" documentId="${task.document.id}"><g:kumulusImg image="${page.thumbnailImage}" class="kumulus-thumbnail kumulus-element-border" height="140" width="100" viewId="${page.viewImage.id}" scanId="${page.scanImage.id}"/></li>
+                            <li taskId ="${task.id}" documentId="${task.document.id}"><g:kumulusImg image="${page.thumbnailImage}" class="kumulus-thumbnail kumulus-element-border" height="140" width="100" viewId="${page.viewImage.id}" scanId="${page.scanImage.id}" /></li>
                           </g:each>
                         </g:each>
                       </ul>

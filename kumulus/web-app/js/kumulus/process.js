@@ -33,15 +33,24 @@ $(document).ready(function(){
         // 
         // 
         // should just copy the footer here
-
+        var tdObjectPageNo= $(currentRowObj).find("td #pageNo");
         var tdObjectFocus= $(currentRowObj).find("td #focus");
         var tdObjectTest= $(currentRowObj).find("td #test");
 
-            if(tdObjectFocus.val().trim().length===0){
-                alert("Please fill mandatory fields before adding new row")
+
+            if(tdObjectFocus.val().trim().length===0 && tdObjectTest.val().trim().length===0 && tdObjectPageNo.val().trim().length===0){
+                 $(tdObjectFocus).addClass("error")
+                 $(tdObjectTest).addClass("error")
+                 $(tdObjectPageNo).addClass("error")
+            }
+            else if(tdObjectPageNo.val().trim().length===0){
+                $(tdObjectPageNo).addClass("error")
+            }
+           else if(tdObjectFocus.val().trim().length===0){
+                $(tdObjectFocus).addClass("error")
             }
             else if(tdObjectTest.val().trim().length===0){
-                alert("Please fill mandatory fields before adding new row")
+               $(tdObjectTest).addClass("error")
             }
             else{
                   $('#lineItems tbody').append(
@@ -94,6 +103,7 @@ function send(obj){
 
 function CheckNumeric(e) {
  
+ alert($(this).val())
             if (window.event) // IE 
             {
                 if ((e.keyCode < 48 || e.keyCode > 57) & e.keyCode != 8) {
