@@ -91,7 +91,7 @@ class NodeController {
         def data = request.JSON
         def response = [done: false]
         // handle this to send email request
-        // need to create a movement instance
+        // need to create a logistics shipment instance
         render response as JSON
     }
 }
