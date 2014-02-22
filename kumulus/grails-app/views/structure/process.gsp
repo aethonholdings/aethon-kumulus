@@ -20,7 +20,7 @@
         </div>
       </div>
       <div class="pure-u-7-8">
-      <g:form name="document" action="update" id="${document.id}" class="pure-form pure-form-stacked">
+      <g:form name="structure" action="updateData" id="${document.id}" class="pure-form pure-form-stacked">
         <div class="kumulus-container kumulus-element-border">
           <div class="kumulus-container-half">
             <div class="pure-g">

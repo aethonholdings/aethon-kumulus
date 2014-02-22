@@ -17,7 +17,13 @@ class StructureController {
     
     
     def updateData(){
-        
-   
+        // not getting the currency
+        def document = Document.findById(params?.id)
+        if(document && permissionsService.checkPermissions(document)) {
+            def currency = Currency.findById(params?.currencyId)
+            def documentType = DocumentType.findById(params?.shortName)
+            def company
+            render "OK"   
+        }
     }
 }
