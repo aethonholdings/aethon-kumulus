@@ -73,7 +73,7 @@
               </div>
             </div>
           </div>
-          <div class="kumulus-container-half kumulus-element-border kumulus-magrin-top kumulus-scrollable-y">
+          <div class="kumulus-container-half-1 kumulus-element-border kumulus-magrin-top kumulus-scrollable-y">
             <div class="kumulus-line-item-table">
               <table id="lineItems" class="pure-table-horizontal">
                 <thead>

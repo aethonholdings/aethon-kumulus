@@ -12,7 +12,7 @@
     <body>
         <div class="pure-g kumulus-small-font">
             <div class="pure-u-1-2">
-                <div class="kumulus-container kumulus-scrollable-y kumulus-element-border">
+                <div class="kumulus-container-half kumulus-scrollable-y kumulus-element-border">
                     <h3>You have ${taskCount} tasks outstanding.</h3>
                     <table class='pure-table pure-table-horizontal'>
                         <thead>
@@ -33,6 +33,25 @@
                                     <td><g:link controller="home" action="completeTasks" params='[projectId: "${task.project.id}", taskType: "${task.taskType}"]'>${task.taskCount}</g:link></td>
                                 </tr>
                             </g:each>
+                        </tbody>
+                    </table>  
+                </div>
+                <div class="kumulus-container-half kumulus-scrollable-y kumulus-element-border">
+                    <h3>You have Z shipment schedule.</h3>
+                    <table class='pure-table pure-table-horizontal'>
+                        <thead>
+                            <tr>
+                                <th>Project</th>
+                                <th>Task type</th>
+                                <th>Documents to be processed</th>
+                            </tr>
+                        </thead>
+                        <tbody>     
+                           <tr>
+                                 <td></td>
+                                 <td></td>
+                                 <td></td>
+                          </tr>
                         </tbody>
                     </table>  
                 </div>
