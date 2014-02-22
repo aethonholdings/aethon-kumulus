@@ -57,6 +57,15 @@
                           <label for="documentId">* Identifier</label>
                           <input id="documentId"  name="identifier" type=text value="${document.identifier}" class="pure-input-1"></input>
                         </div>
+                        <div>
+                       <label for="documentId">*Currency</label>   
+                      <select class="pure-input-1">
+                        <g:each var="currency" in="${currencies}">
+                          <option value="${currency.shortName}" <g:if test="${currency.shortName=='SGD'}">selected</g:if>>${currency.shortName}</option>
+                        </g:each>
+                      </select>
+                    </td>
+                         </div>
                       </fieldset>
                   
                   </div>
@@ -73,45 +82,20 @@
                   <th>*Description</th>                  
                   <th>Date</th>
                   <th>Quantity</th>
-                  <th>*Currency</th>
                   <th>Price</th>
                   <th>*Amount</th>
                   <th>Actions</th>
                 </thead>
-<!--             <tbody class="kumulus-scrollable-y">
-                  <g:each var="page" in="${document.pages}">
-                    <g:each var="lineItem" in="${page.lineItems}">
-                      <tr>
-                        <td class="kumulus-column-id"></td>
-                        <td class="kumulus-column-page"></td>
-                        <td class="kumulus-column-description"></td>                        
-                        <td class="kumulus-column-date"></td>
-                        <td class="kumulus-column-quantity"></td>
-                        <td class="kumulus-column-currency"></td>
-                        <td class="kumulus-column-price"></td>
-                        <td class="kumulus-column-amount"></td>
-                        <td></td>
-                      </tr>
-                    </g:each>
-                  </g:each>
-                </tbody>-->
-                <!--<tfoot>-->
                <tbody class="kumulus-vertical-align-top">
                 <tr class="new" onclick="send($(this))">  
                     <td><input size="4" type="text" value="" class="kumulus-column-id new" disabled="true"></input></td>
                     <td><input size="2" type="text" value=" " class="kumulus-column-page new" id="pageNo" disabled="true"></input></td>
                     <td><input id="focus" name="description" size="25" type=text  value="" class="kumulus-column-description new" ></input></td>
                     <td><input size="4" type="date" value="" class="kumulus-column-date new"></input></td>
-                    <td><input  type=text  size="6" value="" class="kumulus-column-quantity new"></input></td>
-                    <td>
-                      <select>
-                        <g:each var="currency" in="${currencies}">
-                          <option value="${currency.shortName}" <g:if test="${currency.shortName=='SGD'}">selected</g:if>>${currency.shortName}</option>
-                        </g:each>
-                      </select>
-                    </td>
-                    <td><input size="6" type="text" value="" class="kumulus-column-price new" onchange="total($(this))"></input></td>
-                    <td><input size="6" type="text"  name ="tamount"value="" class="kumulus-column-amount new" id="test"></input></td>
+                    <td><input  type=text  size="6" value="" class="kumulus-column-quantity new" onkeypress="CheckNumeric(event)"></input></td>
+               
+                    <td><input size="6" type="text" value="" class="kumulus-column-price new" onkeypress="CheckNumeric(event)" onchange="total($(this))"></input></td>
+                    <td><input size="6" type="text"  name ="tamount"value="" class="kumulus-column-amount new" onkeypress="CheckNumeric(event)" id="test"></input></td>
                     <td><a class="add" href="#" >Add</a></td>
                   </tr>
                 </tboot>

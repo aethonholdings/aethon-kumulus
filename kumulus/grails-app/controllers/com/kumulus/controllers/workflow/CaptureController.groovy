@@ -26,7 +26,7 @@ class CaptureController {
         def project = Project.findById(params?.id)
         if(permissionsService.checkPermissions(project)) {
             taskList = Task.findAll(sort:"created", order: "asc") { 
-                (project == project && userId == permissionsService.getUsername() && completed == null)
+                (project == project && type == Task.BUILD_DOCUMENT && userId == permissionsService.getUsername() && completed == null)
             }
         }
         render view: "build", model: [tasks: taskList]
