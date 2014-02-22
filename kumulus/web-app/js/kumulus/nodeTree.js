@@ -31,79 +31,7 @@ $(document).ready(function(){
                     "id": node.data.key
                 }
             });
-        },
-        
-     dnd: {
-      onDragStart: function(node) {
-       
-        logMsg("tree.onDragStart(%o)", node);
-        return true;
-      },
-      onDragStop: function(node) {
-       
-        logMsg("tree.onDragStop(%o)", node);
-      },
-      autoExpandMS: 1000,
-      preventVoidMoves: true, // Prevent dropping nodes 'before self', etc.
-      onDragEnter: function(node, sourceNode) {
-       
-        logMsg("tree.onDragEnter(%o, %o)", node, sourceNode);
-        return true;
-      },
-      onDragOver: function(node, sourceNode, hitMode) {
-        
-        logMsg("tree.onDragOver(%o, %o, %o)", node, sourceNode, hitMode);
-        
-        if(node.isDescendantOf(sourceNode)){
-          return false;
         }
-        
-        if( !node.data.isFolder && hitMode === "over" ){
-          return "after";
-        }
-      },
-      onDrop: function(node, sourceNode, hitMode, ui, draggable) {
-        
-        logMsg("tree.onDrop(%o, %o, %s)", node, sourceNode, hitMode);
-//        sourceNode.move(node, hitMode);
-//        sourceNode.expand(true);
-              alert(node);
-        alert(node.data.id); 
-        alert(sourceNode);
-        alert(sourceNode.data.id);
-      
-      var data = { 
-          id: selectedNode.data.id,
-          targetId: node.data.id,
-            hitMode:hitMode,
-      }
-      
-             $.ajax({
-             url: url('node', 'move', ''),
-             type: 'post', 
-             data: JSON.stringify(data),
-             contentType: 'application/json; charset=utf-8',
-             dataType: 'json',
-             async: false,
-             success: function(data) {
-                 sourceNode.move(node, hitMode);
-                 sourceNode.expand(true);
-                 ready();
-                }
-            });
-      },
-      onDragLeave: function(node, sourceNode) {
-        
-        logMsg("tree.onDragLeave(%o, %o)", node, sourceNode);
-      }
-    }
-
-       
-    });
-    tree = $('#nodeTree').dynatree("getTree");
-    ready();
-    
-
     
 });
 
