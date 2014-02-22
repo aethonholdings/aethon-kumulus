@@ -102,6 +102,10 @@ class FilesystemService {
         return(images)
     }
     
+    def indexPdfInFilesystem(literal, document, uFile) {
+        
+    }
+    
     def stagingFlush(uFile) {
         // clean up the staging entities
         File stagingPath = new File(uFile.path.replace(uFile.name, ""))
