@@ -6,6 +6,15 @@ import com.sun.jersey.api.client.config.ClientConfig;
 import com.sun.jersey.api.client.config.DefaultClientConfig;
 import com.sun.jersey.api.json.JSONConfiguration;
 
+import com.sun.jersey.client.urlconnection.URLConnectionClientHandler;
+import com.sun.jersey.client.urlconnection.HttpURLConnectionFactory;
+
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.InetSocketAddress;
+import java.net.Proxy;
+import java.net.URL;
+ 
 /**
  * A utility class to create the connection of the client with the server.
  * 
@@ -43,7 +52,20 @@ public class ConnectionUtil {
 		config.getFeatures().put(JSONConfiguration.FEATURE_POJO_MAPPING,
 				Boolean.TRUE);
 
-		client = Client.create(config);
+		//client = Client.create(config);
+                client = new Client(new URLConnectionClientHandler(
+                        new HttpURLConnectionFactory() {
+                    Proxy p = null;
+                    @Override
+                    public HttpURLConnection getHttpURLConnection(URL url) throws IOException {
+                        if (p == null) {
+                                p = new Proxy(Proxy.Type.HTTP,
+                                        new InetSocketAddress("127.0.0.1", 8888));
+                            }
+                        return (HttpURLConnection) url.openConnection(p);
+                    }
+                }), config);
+
 
 		webService = client.resource(ConstantUtil.getApplicationConstant("webServerURL"));
 
