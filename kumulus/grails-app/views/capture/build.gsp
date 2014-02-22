@@ -8,6 +8,24 @@
     <div class="pure-g">
       <div class="pure-u-1-3">
           <div class="kumulus-container kumulus-element-border">
+              <table>
+                  <tr>
+                      <td>Barcode:</td>
+                      <td><input type="textbox" readonly/></td>
+                  </tr>
+                  <tr>
+                      <td>Container Name:</td>
+                      <td><input type="textbox" readonly/></td>
+                  </tr>
+                  <tr>
+                      <td>Container Type:</td>
+                      <td><input type="textbox" readonly/></td>
+                  </tr>
+                  <tr>
+                      <td>Comment:</td>
+                      <td><input type="textbox" readonly/></td>
+                  </tr>
+              </table>
           </div>
       </div>
       <div class="pure-u-1-3">
