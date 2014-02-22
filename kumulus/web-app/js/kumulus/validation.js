@@ -17,7 +17,7 @@ $(document).ready(function(){
 
 function validate(){
     
-    	$("#document ,#project").validate({
+    	$("#document ,#project, .add").validate({
              
 		rules: {
                    
