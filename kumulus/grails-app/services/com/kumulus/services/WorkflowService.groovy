@@ -39,7 +39,6 @@ class WorkflowService {
             }
         else {
             taskSummary = criteria.list {
-                isNull("userId")
                 isNull("completed")
                 projections {
                     sqlGroupProjection "project_id, type, count(id) as taskCount", "project_id, type", ["project_id", "type", "taskCount"], [LONG, STRING, LONG]
@@ -78,6 +77,7 @@ class WorkflowService {
             tasks.type.(it[1].toString()).total += row.taskCount
             tasks.type.(it[1].toString()).list.add(row)
         }
+        println(tasks)
         return(tasks)
     }
     
@@ -93,7 +93,11 @@ class WorkflowService {
     }
     
     def getNextTask(String taskType) {
-        return(Task.findByTypeAndCompleted(taskType, null))
+        switch(taskType) {
+            case Task.PROCESS_DOCUMENT.toString():
+                Task.findByTypeAndCompleted(taskType, null, [order: "created", type: "asc"])
+                break
+        }
     }
     
 }

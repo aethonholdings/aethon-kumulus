@@ -26,7 +26,7 @@
                                 <tr>
                                     <td>${taskType.project.projectName}</td>
                                     <td>${taskType.taskCount}</td>
-                                    <td><g:link controller="task" action="getNext" params='[projectId: "${taskType.project.id}", taskType: "BUILD"]'>Action</g:link></td>
+                                    <td><g:link controller="capture" action="build" params='[projectId: "${taskType.project.id}"]'>Action</g:link></td>
                                 </tr>
                             </g:each>
                         </table>
@@ -34,7 +34,7 @@
                     <h3>There are ${backOfficeTasks.total} tasks in kumulus's queue</h3>
                     <ul>
                       <li>${backOfficeTasks.type.OCR.total} documents to be OCRed</li>
-                      <li>${backOfficeTasks.type.PROCESS.total} documents to be processed - <g:link controller="task" action="getNext" params='[taskType: "PROCESS"]'>Action</g:link></li>
+                      <li>${backOfficeTasks.type.PROCESS.total} documents to be processed - <g:link controller="structure" action="process">Action</g:link></li>
                     </ul>
                 </div>
                 <div class="kumulus-container-half kumulus-scrollable-y kumulus-element-border">

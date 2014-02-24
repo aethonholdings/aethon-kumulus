@@ -8,15 +8,13 @@ class StructureController {
     def workflowService
     
     def process() {
-        // this should be from the workflow service getting the next task for the user
+        // NEED TO SECURE THIS BASED ON BACK OFFICE PERMISSIONS
         def task = workflowService.getNextTask(Task.PROCESS_DOCUMENT)
-        if(permissionsService.checkPermissions(task.document)) {
-            workflowService.assignTask(task, permissionsService.getUsername())
-            def currencies = Currency.listOrderByFullName()
-            def documentTypes = DocumentType.listOrderByName()
-            def document = task.document
-            render view: "process", model:[document: document, currencies: currencies, documentTypes: documentTypes]
-        }
+        workflowService.assignTask(task, permissionsService.getUsername())
+        def currencies = Currency.listOrderByFullName()
+        def documentTypes = DocumentType.listOrderByName()
+        def document = task.document
+        render view: "process", model:[document: document, currencies: currencies, documentTypes: documentTypes]
     }
     
     
@@ -30,4 +28,5 @@ class StructureController {
             render "OK"   
         }
     }
+    
 }
