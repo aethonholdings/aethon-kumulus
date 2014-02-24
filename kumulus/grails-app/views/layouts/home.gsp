@@ -31,7 +31,7 @@
             </div>
          </div>
         </div>
-        <div class='kumulus-menu-test'>
+        <div class='kumulus-menu'>
          <!--<a class='pure-menu-heading' href=''>kumulus</a>-->
           <ul>
                 <li><g:link controller='home' action='index'>Home</g:link></li>

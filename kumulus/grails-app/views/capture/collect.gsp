@@ -30,12 +30,12 @@
             <form name="newContainer" action="add" method="POST" class="pure-form pure-form-aligned">
               <fieldset>
                 <div class="kumulus-hight kumulus-control-group kumulus-element-border">
-                    <div class="kumulus-barcode-image"> <img src="../../images/apple-touch-icon.png" class="kumulus-image"  alt="no image"/> </div>
+                    <div class="kumulus-barcode-image"> <img src="../../images/barcode.png" class="kumulus-image"  alt="no image"/> </div>
                   <label for="barcode"class="kumulus-label">* Stick the Barcode sticker on the container or Box and Scan the Barcode</label>
                   <input id="barcode" type="text" placeholder="Scan container barcode" disabled>
                 </div>  
                 <div class="kumulus-hight kumulus-control-group kumulus-element-border">
-                  <div class="kumulus-barcode-image"> <img src="../../images/apple-touch-icon.png" class="kumulus-image"  alt="no image"/> </div>
+                  <div class="kumulus-barcode-image"> <img src="../../images/container-type.jpg" class="kumulus-image"  alt="no image"/> </div>
                   <label for="type" class="kumulus-label">* Please select a container type</label>
                     <select id="type" disabled>
                      <option value=""  selected="selected">Please Select Container Type</option>
@@ -45,13 +45,13 @@
                   </select>
                 </div>
                 <div class="kumulus-hight kumulus-control-group kumulus-element-border">
-                  <div class="kumulus-barcode-image"> <img src="../../images/apple-touch-icon.png" class="kumulus-image"  alt="no image"/> </div>
+                  <div class="kumulus-barcode-image"> <img src="../../images/container-name.jpg" class="kumulus-image"  alt="no image"/> </div>
                   <label for="name" class="kumulus-label">* Please enter the container name</label>
                   <input id="name" type="text" placeholder="Enter name here" disabled>
                 </div>
                 
                 <div class="kumulus-hight kumulus-control-group kumulus-element-border">
-                    <div class="kumulus-barcode-image"> <img src="../../images/apple-touch-icon.png" class="kumulus-image"  alt="no image"/> </div>
+                    <div class="kumulus-barcode-image"> <img src="../../images/comment.png" class="kumulus-image"  alt="no image"/> </div>
                   <label for="comment" class="kumulus-label">Comments</label>
                   <textarea id="comment" type="text" disabled rows="5"></textarea>
                 </div>
