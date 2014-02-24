@@ -3,7 +3,7 @@ package com.kumulus.controllers
 import com.kumulus.domain.*
 
 class TaskController {
-
+    
     def permissionsService
     
     def list() {
@@ -28,6 +28,20 @@ class TaskController {
         }
         
         render view:"listGroupByProject", model: [tasksByProject: tasksByProject, projectList: projectList, title: params?.title]
+    }
+    
+    def getNext() {
+        if(params?.taskType) {
+            switch(params.taskType) {
+                case Task.BUILD_DOCUMENT.toString():
+                    def project = Project.findById(params?.projectId)
+                    if(permissionsService.checkPermissions(project)) redirect controller: "capture", action: "build", id: project.id
+                    break
+                case Task.PROCESS_DOCUMENT.toString():
+                    redirect controller: "structure", action: "process"
+                    break
+            }
+        }
     }
     
         

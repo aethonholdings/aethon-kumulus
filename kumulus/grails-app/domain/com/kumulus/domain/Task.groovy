@@ -3,31 +3,26 @@ package com.kumulus.domain
 class Task {
     
     // type enum constants
-    static final byte BUILD_DOCUMENT= 1
-    static final byte OCR_DOCUMENT= 2
-    static final byte PROCESS_DOCUMENT= 3
-    static final byte REVIEW_DOCUMENT= 4
-    
-    // status enum constants
-    static final long ERROR = -1
-    static final long READY_FOR_UPLOAD = 1
-    static final long READY_FOR_BATCH_INSTANCE = 2
-    static final long CREATED = 3
-    static final long READY_FOR_REVIEW = 4
-    static final long READY_FOR_VALIDATION = 5
-    static final long FINISHED = 6
-    
-    String userId
-    byte type
-    long status
-    Date created
-    Date completed
+    static final String BUILD_DOCUMENT= "BUILD"
+    static final String OCR_DOCUMENT= "OCR"
+    static final String PROCESS_DOCUMENT= "PROCESS"
+    static final String REVIEW_DOCUMENT= "REVIEW"
+
     Project project
-    Document document
+    Document document    
+    String userId
+    String createdBy
+    String type
+    Date created
+    Date started
+    Date completed
         
     static constraints = {
-        completed nullable: true
         document nullable: true
+        started nullable: true
+        completed nullable: true
+        userId nullable: true
+        type maxSize: 10
     }
     
 }

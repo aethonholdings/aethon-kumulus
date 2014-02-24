@@ -196,10 +196,10 @@ function update_node() {
     }
 };
 function search_node(){
-    alert("hello");
-    alert($('#button-search').attr('id'));
-    alert($('#searchPop').attr('id'));
-    $('#searchPop').attr("style","display:block");
+    var barcode=prompt("Enter barcode","");
+//    alert($('#button-search').attr('id'));
+//    alert($('#searchPop').attr('id'));
+//    $('#searchPop').attr("style","display:block");
     
 }
 function hidePopup(){
