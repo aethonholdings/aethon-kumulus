@@ -316,9 +316,17 @@ label.error{
     vertical-align: top; 
     padding: 0px;
 }
+.kumulus-vertical-align-top tr{
+    width: 100%;
+}
+.kumulus-vertical-align-top td, th{
+    min-width: 10%
+}
 
 .kumulus-vertical-align-top input, select{
     height: 30px;
+    width: 80%;
+    margin: auto; 
 }
 
 .kumulus-magrin-top{
