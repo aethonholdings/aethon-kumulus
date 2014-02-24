@@ -31,8 +31,8 @@ $(document).ready(function(){
                     "id": node.data.key
                 }
             });
-        },
-        
+
+        },      
      dnd: {
       onDragStart: function(node) {
        
@@ -195,7 +195,18 @@ function update_node() {
         state = "UPDATE";
     }
 };
-
+function search_node(){
+    alert("hello");
+    alert($('#button-search').attr('id'));
+    alert($('#searchPop').attr('id'));
+    $('#searchPop').attr("style","display:block");
+    
+}
+function hidePopup(){
+    alert("hiding");
+    $('#searchPop').attr("style","display:none");
+    
+}
 // --- INPUT INTERFACE ACTIONS
 
 function enable(bool) {
