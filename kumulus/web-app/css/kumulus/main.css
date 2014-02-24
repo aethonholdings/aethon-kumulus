@@ -36,7 +36,7 @@ table{
 	font-size: 10pt;
 	font-family: 'PT Sans', Arial, sans-serif;
 	position: relative;
-        margin: auto;
+        margin-bottom: 3px;
 }
 .kumulus-menu ul {
         width: 92%;
@@ -104,6 +104,11 @@ table{
 .kumulus-float-left{
     float:left;
 }
+
+.kumulus-float-right{
+    float: right;
+    margin-right: 5px;
+}
 .kumulus-barcode-image{
     height: 100%;
     width: 15%;
@@ -132,6 +137,9 @@ kumulus-control-group{
     margin-bottom: 3px;
 }
 
+.kumulus-search-magrin{
+    padding: 20px 10px;
+}
 .kumulus-padding{
     padding-left: 40px;
     padding-right: 40px;
@@ -200,6 +208,15 @@ kumulus-control-group{
     margin: 3px;
     padding: 3px;
 }
+.kumulus-container-inside{
+    height: 520px;
+    margin: 1px;
+}
+
+.kumulus-container-inside-half{
+    height: 205px;
+    margin: 1px;
+}
 
 .kumulus-scrollable-y{
     overflow-y: auto;
@@ -256,7 +273,7 @@ kumulus-control-group{
     margin: auto;
 }
 
-.pure-form input, textarea, select{
+.kumulus-control-group input, textarea, select{
     width: 40%;
     margin: auto;
     margin-top: 6px;
@@ -290,13 +307,26 @@ kumulus-control-group{
     width: 0px;
     height: 0px;
 }
+label.error{
+    visibility: hidden; 
+    width: 0px;
+    height: 0px;
+}
 .kumulus-vertical-align-top{
     vertical-align: top; 
     padding: 0px;
 }
+.kumulus-vertical-align-top tr{
+    width: 99%;
+}
+.kumulus-vertical-align-top td, th{
+    min-width: 10%
+}
 
 .kumulus-vertical-align-top input, select{
     height: 30px;
+    width: 80%;
+    margin: auto; 
 }
 
 .kumulus-magrin-top{
@@ -323,14 +353,14 @@ kumulus-control-group{
         line-height: 10px;
         
     } 
-    .pure-form input, textarea, select{
+    .kumulus-control-group input, textarea, select{
         width: 70%;
         padding: 2px;
     }
     .kumulus-hight{
         line-height: 50px;
     }
-    .pure-form textarea{
+    .kumulus-control-group textarea{
         margin-top: -10px;
         height: 50px;
     }
@@ -367,7 +397,7 @@ kumulus-control-group{
         line-height: 10px;
         margin-bottom: 7px;
     } 
-    .pure-form input,textarea,select{
+    .kumulus-control-group input,textarea,select{
         width: 80%;
         padding: 3px;
         margin-left: 1em;
