@@ -4,6 +4,7 @@ import com.kumulus.domain.*
 
 class StructureController {
     
+    def structureService
     def permissionsService
     def workflowService
     
@@ -17,14 +18,18 @@ class StructureController {
         render view: "process", model:[document: document, currencies: currencies, documentTypes: documentTypes]
     }
     
-    
-    def updateData(){
-        // not getting the currency
-        def document = Document.findById(params?.id)
-        if(document && permissionsService.checkPermissions(document)) {
-            def currency = Currency.findById(params?.currencyId)
-            def documentType = DocumentType.findById(params?.shortName)
-            def company
+    def save(){
+        // must check permissions properly
+        if(params?.id) {
+            
+            // update the document
+            Date date
+            if(params?.date) date = new Date().parse("yyyy-MM-dd", params.date) else date = null
+            def document = structureService.updateDocument(params?.id, params?.documentType, date, params?.identifier)
+            
+            // update the line items
+            println(params)
+            
             render "OK"   
         }
     }

@@ -77,7 +77,6 @@ class WorkflowService {
             tasks.type.(it[1].toString()).total += row.taskCount
             tasks.type.(it[1].toString()).list.add(row)
         }
-        println(tasks)
         return(tasks)
     }
     

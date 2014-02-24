@@ -171,9 +171,12 @@ grails.plugin.springsecurity.ldap.authorities.groupRoleAttribute = 'cn'
 grails.plugin.springsecurity.ldap.authorities.groupSearchBase = 'ou=groups,dc=aethon,dc=sg'
 
 // Kumulus configuration --------------------------
-grails.sitemesh.default.layout = 'home'
+grails.databinding.dateFormats = [
+        'yyyy-MM-dd', 
+        'yyyy-MM-dd HH:mm:ss.S', 
+        "yyyy-MM-dd'T'hh:mm:ss'Z'"
+    ]
 kumulus {
-    dateFormat = "dd/MM/yy HH:mm:ss"
     roles = [
         'ROLE_ADMIN',
         'ROLE_IMPORT',
