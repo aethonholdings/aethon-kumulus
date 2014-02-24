@@ -2,6 +2,7 @@ var pageNo;
 var currentRowObj;
 $(document).ready(function(){
     validate();
+//       imagePreview()
     $("#company").autocomplete({
         source: url("company", "search", ""),
         minLength: 2,
@@ -11,20 +12,9 @@ $(document).ready(function(){
     
     $('.kumulus-filmstrip > ul > li > img').bind('mousedown', function(e) {
       
-        preview($('#preview-img'), $(this).attr('viewId'));
-        pageNo=$(this).attr('pageNumber')
-      
-       if($("#pageNo").val().trim().length==0)
-       {
-           $('.new.kumulus-column-page').val($(this).attr('pageNumber'));
-        }
-        $('#lineItems tr:last td #pageNo').val($(this).attr('pageNumber'));
-        $('.edit.kumulus-column-page').val($(this).attr('pageNumber'));
-//        $('.kumulus-column-description.new').focus();
-        $('#documentType').focus();
-        e.preventDefault();
+        imagePreview($(this))
              
-              
+        e.preventDefault();      
     });
     
    $(document).on('blur', '#pageNo', function(){
@@ -134,6 +124,23 @@ function save() {
     
     
     
+}
+
+
+function imagePreview(obj){
+    
+        preview($('#preview-img'), obj.attr('viewId'));
+        pageNo=obj.attr('pageNumber')
+      
+       if($("#pageNo").val().trim().length==0)
+       {
+           $('.new.kumulus-column-page').val(obj.attr('pageNumber'));
+        }
+        $('#lineItems tr:last td #pageNo').val(obj.attr('pageNumber'));
+        $('.edit.kumulus-column-page').val(obj.attr('pageNumber'));
+//        $('.kumulus-column-description.new').focus();
+        $('#documentType').focus();
+        
 }
 
 
