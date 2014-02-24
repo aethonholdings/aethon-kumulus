@@ -215,6 +215,7 @@ function update_node() {
     }
 };
 function search_node(){
+
 //    alert("hello");
 //    alert($('#button-search').attr('id'));
 //    alert($('#searchPop').attr('id'));

@@ -7,47 +7,96 @@ import grails.transaction.Transactional
 @Transactional
 class WorkflowService {
 
-    def createTask(document, taskType, userId) {
-                
+    def createTask(Document document, String taskType, String createdByUserId) {
         def task = new Task(
-            userId: userId,
             project: document.project,
             created: new Date(),
+            started: null,
+            completed: null,
+            createdBy: createdByUserId,
+            userId: null,
             document: document,
             type: taskType,
-            status: Task.CREATED
+            status: null
         )
         task.save()
         return(task)
     }
     
-    def taskSummary(userId) {
-        def criteria = Task.createCriteria()
-        
+    def openTaskSummary(String userId) {
+        def taskSummary
         // query to get the set of tasks summarised by the database
-        def taskIds = criteria.list {
-            eq("userId", userId)
-            isNull("completed")
-            projections {
-                sqlGroupProjection "project_id, type, count(id) as taskCount", "project_id, type", ["project_id", "type", "taskCount"], [LONG, LONG, LONG]
+        def criteria = Task.createCriteria()
+        if(userId)
+            taskSummary = criteria.list {
+                eq("userId", userId)
+                isNull("completed")
+                projections {
+                    sqlGroupProjection "project_id, type, count(id) as taskCount", "project_id, type", ["project_id", "type", "taskCount"], [LONG, STRING, LONG]
+                }
+                order("project", "asc")
+                order("created", "asc")
             }
-            order("project", "asc")
-            order("created", "asc")
+        else {
+            taskSummary = criteria.list {
+                isNull("completed")
+                projections {
+                    sqlGroupProjection "project_id, type, count(id) as taskCount", "project_id, type", ["project_id", "type", "taskCount"], [LONG, STRING, LONG]
+                }
+                order("project", "asc")
+                order("created", "asc")
+            }            
         }
         
         // package the tasks for consumption
-        def tasks = []
-        taskIds.each { 
+        def tasks = [
+            total: Task.findAllByUserIdAndCompleted(userId, null).size, 
+            type: [
+                (Task.BUILD_DOCUMENT): [
+                    total: 0,
+                    list: []
+                ], 
+                (Task.OCR_DOCUMENT): [
+                    total: 0,
+                    list: []                    
+                ], 
+                (Task.PROCESS_DOCUMENT): [
+                    total: 0,
+                    list: []                    
+                ],
+                (Task.REVIEW_DOCUMENT): [
+                    total: 0,
+                    list: []                    
+                ]
+            ]
+        ]
+        
+        taskSummary.each { 
             def project = Project.findById(it[0])
-            def row = [project: project, taskType: it[1], taskCount: it[2]]
-            tasks.add(row)
+            def row = [project: project, taskCount: it[2]]
+            tasks.type.(it[1].toString()).total += row.taskCount
+            tasks.type.(it[1].toString()).list.add(row)
         }
         return(tasks)
     }
     
-    def completeTask(task) {
+    def completeTask(Task task) {
         task.completed = new Date()
         task.save()
         return(task)
     }
+    
+    def assignTask(Task task, String userId) {
+        task.userId = userId
+        task.save()
+    }
+    
+    def getNextTask(String taskType) {
+        switch(taskType) {
+            case Task.PROCESS_DOCUMENT.toString():
+                Task.findByTypeAndCompleted(taskType, null, [order: "created", type: "asc"])
+                break
+        }
+    }
+    
 }

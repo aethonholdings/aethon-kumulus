@@ -4,20 +4,34 @@ import com.kumulus.domain.*
 
 class StructureController {
     
+    def structureService
     def permissionsService
+    def workflowService
     
     def process() {
-        // this should be from the workflow service getting the next task for the user
-        def task = Task.findByProjectAndUserIdAndTypeAndCompleted(Project.findById(params?.id), permissionsService.getUsername(), Task.OCR_DOCUMENT, null)
+        // NEED TO SECURE THIS BASED ON BACK OFFICE PERMISSIONS
+        def task = workflowService.getNextTask(Task.PROCESS_DOCUMENT)
+        workflowService.assignTask(task, permissionsService.getUsername())
         def currencies = Currency.listOrderByFullName()
         def documentTypes = DocumentType.listOrderByName()
         def document = task.document
         render view: "process", model:[document: document, currencies: currencies, documentTypes: documentTypes]
     }
     
-    
-    def updateData(){
-        
-   
+    def save(){
+        // must check permissions properly
+        if(params?.id) {
+            
+            // update the document
+            Date date
+            if(params?.date) date = new Date().parse("yyyy-MM-dd", params.date) else date = null
+            def document = structureService.updateDocument(params?.id, params?.documentType, date, params?.identifier)
+            
+            // update the line items
+            println(params)
+            
+            render "OK"   
+        }
     }
+    
 }

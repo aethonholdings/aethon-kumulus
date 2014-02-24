@@ -12,9 +12,9 @@ class HomeController {
             company == permissionsService.getCompany()
             status == Project.STATUS_ACTIVE
         }
-        def tasks = workflowService.taskSummary(permissionsService.getUsername())
-        def taskCount = Task.findAllByUserIdAndCompleted(permissionsService.getUsername(), null).size
-        render(view:"index", model:[pageTitle: "Home", projectList: projectList, tasks: tasks, taskCount: taskCount])
+        def userTasks = workflowService.openTaskSummary(permissionsService.getUsername())
+        def backOfficeTasks = workflowService.openTaskSummary(null)
+        render(view:"index", model:[pageTitle: "Home", projectList: projectList, userTasks: userTasks, backOfficeTasks: backOfficeTasks])
     }
 
     // SUPERVISOR USER CONTROLLER ACTIONS
@@ -60,20 +60,6 @@ class HomeController {
     // PROCESS USER CONTROLLER ACTIONS
     def process() { 
         redirect(controller:"task", action:"list", params:[type: Task.OCR_DOCUMENT])
-    }
-    
-    def completeTasks() {
-        def project = Project.findById(params?.projectId)
-        if(permissionsService.checkPermissions(project) && params?.taskType) {
-            switch(params.taskType) {
-                case Task.BUILD_DOCUMENT.toString():
-                    redirect controller: "capture", action: "build", id: project.id
-                    break
-                case Task.OCR_DOCUMENT.toString():
-                    redirect controller: "structure", action: "process", id: project.id
-                    break
-            }
-        }
     }
     
 }

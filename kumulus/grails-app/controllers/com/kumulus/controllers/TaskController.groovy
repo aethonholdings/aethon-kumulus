@@ -3,7 +3,7 @@ package com.kumulus.controllers
 import com.kumulus.domain.*
 
 class TaskController {
-
+    
     def permissionsService
     
     def list() {
@@ -30,5 +30,4 @@ class TaskController {
         render view:"listGroupByProject", model: [tasksByProject: tasksByProject, projectList: projectList, title: params?.title]
     }
     
-        
 }
