@@ -12,18 +12,18 @@
                <fieldset>
                 <div class="pure-control-group">
                   <label for="barcode">Barcode:</label>
-                  <input id="barcode" type="textbox" name="barcode" class="pure-input-1" readonly></input>
+                  <input id="barcode" type="text" name="barcode" class="pure-u-23-24" readonly></input>
                 </div>
                 <div class="pure-control-group">
                   <label for="containername">Container Name:</label>
-                 <input id="containername" type="textbox" name="containername" class="pure-input-1" readonly/>
+                 <input id="containername" type="text" name="containername" class="pure-u-23-24" readonly/>
                 <div class="pure-control-group">
                   <label for="type">Container Type:</label>                
-                  <input id="containertype" type="textbox" name="type" class="pure-input-1" readonly></input>
+                  <input id="containertype" type="text" name="type" class="pure-u-23-24" readonly></input>
                 </div>
                 <div class="pure-control-group">
                   <label for="comment">Comment:</label>
-                  <input id="comment" type="textbox" name="comment" class="pure-input-1" readonly/>
+                  <input id="comment" type="text" name="comment" class="pure-u-23-24" readonly/>
                 </div>
               </fieldset>
              </div>
