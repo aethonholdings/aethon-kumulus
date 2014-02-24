@@ -92,13 +92,25 @@ $(document).ready(function(){
         logMsg("tree.onDragLeave(%o, %o)", node, sourceNode);
       }
     }
-
-       
-    });
+   });
     tree = $('#nodeTree').dynatree("getTree");
     ready();
     
-
+// $("#barcodeSearch").keyup(function(node){
+//     alert("hello");
+//   var barcodeVar =$('#barcodeSearch').val();
+//   alert(barcodeVar);
+//   if(node && node.data.id!="ROOT"){
+//   var nodeBarcodeToFind=$('#barcode').val(node.data.barcode);
+//   
+//   alert(nodeBarcodeToFind);
+//   
+//   if(nodeBarcodeToFind === barcodeVar  )
+//   {
+//   alert("coming");
+//}
+//   }
+// });
     
 });
 
@@ -196,12 +208,23 @@ function update_node() {
     }
 };
 function search_node(){
-    alert("hello");
-    alert($('#button-search').attr('id'));
-    alert($('#searchPop').attr('id'));
+//    alert("hello");
+//    alert($('#button-search').attr('id'));
+//    alert($('#searchPop').attr('id'));
     $('#searchPop').attr("style","display:block");
     
 }
+
+//function search(){
+//    alert("searching");
+//   alert( $('#barcodeSearch').val()); 
+//   
+//   alert(node.data.barcode);
+//   var barcodeVar =$('#barcodeSearch').val();
+//   if(node.data.barcode == barcodeVar  )
+//   {
+//   alert("coming");
+//}
 function hidePopup(){
     alert("hiding");
     $('#searchPop').attr("style","display:none");

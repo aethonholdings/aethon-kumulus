@@ -96,7 +96,54 @@ class NodeController {
         // need to create a logistics shipment instance
         render response as JSON
     }
+    def getNodeFromTree(){
+        def nodelist = []  
+        println("barcode " +params.enterBarcode)      
+        def barcodeName = Node.findByBarcode(params?.enterBarcode)
+        println("barcode is" + barcodeName)
+
+        def children = Node.findAllByParent(barcodeName)//i.e node's child
+        println("children is" + children)
+     
+        def parentNode = barcodeName.parent//i.e node's parent
+        println("parent is " + parentNode)
+     
+        def grandParent = parentNode.parent //i.e node's grand parent
+        println("grand parent is " + grandParent)
+        def parentNodeChild = Node.findAllByParent(parentNode) //i.e sibling
+        println("parent child is " + parentNodeChild)
+         
+        def grandParentChild = Node.findAllByParent(grandParent) //i.e uncles/aunts
+        println("grandparent child is " + grandParentChild)
+        
+//     //starts another   
+//        def results = []
+//   // closure to traverse down the tree
+//    def getAllNodes = { name->
+//        if(name) {
+//            name.barcode.each { it ->
+//                results << it.name
+//            }
+//        }
+//        if (name?.parent) {
+//            name.children.each { child ->
+//                results << owner.call(child)
+//            }
+//        }
+//    }
+//
+//    // call the closure with the given node
+//    getAllNodes(barcodeName)
+//
+//    // return list with unique results
+//    return results.unique()
+//}
+////         
+        
+    }     
+
 }
+
     
     
 
