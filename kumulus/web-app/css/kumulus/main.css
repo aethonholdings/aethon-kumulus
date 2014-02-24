@@ -36,7 +36,7 @@ table{
 	font-size: 10pt;
 	font-family: 'PT Sans', Arial, sans-serif;
 	position: relative;
-        margin: auto;
+        margin-bottom: 3px;
 }
 .kumulus-menu ul {
         width: 92%;
@@ -317,7 +317,7 @@ label.error{
     padding: 0px;
 }
 .kumulus-vertical-align-top tr{
-    width: 100%;
+    width: 99%;
 }
 .kumulus-vertical-align-top td, th{
     min-width: 10%
