@@ -254,9 +254,9 @@ kumulus-control-group{
 .error{
     background-color:yellow;
 }
-label.error{
+.pure-control-group label.error{
     visibility: hidden; 
-    width:0px;
+    width: 0px;
     height: 0px;
 }
 .kumulus-vertical-align-top{
