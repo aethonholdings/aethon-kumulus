@@ -99,13 +99,13 @@ class NodeController {
     def getNodeFromTree(){
         def nodelist = []  
         println("barcode " +params.enterBarcode)      
-        def barcodeName = Node.findByBarcode(params?.enterBarcode)
-        println("barcode is" + barcodeName)
+        def barcodeNode = Node.findByBarcode(params?.enterBarcode)
+        println("barcode is" + barcodeNode)
 
-        def children = Node.findAllByParent(barcodeName)//i.e node's child
+        def children = Node.findAllByParent(barcodeNode)//i.e node's child
         println("children is" + children)
      
-        def parentNode = barcodeName.parent//i.e node's parent
+        def parentNode = barcodeNode.parent//i.e node's parent
         println("parent is " + parentNode)
      
         def grandParent = parentNode.parent //i.e node's grand parent
@@ -114,33 +114,22 @@ class NodeController {
         println("parent child is " + parentNodeChild)
          
         def grandParentChild = Node.findAllByParent(grandParent) //i.e uncles/aunts
-        println("grandparent child is " + grandParentChild)
-        
-//     //starts another   
-//        def results = []
-//   // closure to traverse down the tree
-//    def getAllNodes = { name->
-//        if(name) {
-//            name.barcode.each { it ->
-//                results << it.name
-//            }
-//        }
-//        if (name?.parent) {
-//            name.children.each { child ->
-//                results << owner.call(child)
-//            }
-//        }
-//    }
-//
-//    // call the closure with the given node
-//    getAllNodes(barcodeName)
-//
-//    // return list with unique results
-//    return results.unique()
-//}
-////         
+        println("grandparent child is " + grandParentChild)       
         
     }     
+    
+    def searchNode () {
+        def data = request.JSON
+        println "params : "+params
+        println ">>>>"+data?.barCode
+        def node=Node.findByBarcode(data?.barCode)
+        println("Found node :" + node)
+        println("Node name : " + node?.name)
+
+        def response = [nodeName : node?.name]
+        render  response as JSON
+    }
+    
 
 }
 
