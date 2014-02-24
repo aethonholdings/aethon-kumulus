@@ -23,10 +23,7 @@ class DocumentController {
             documents.add(task.document)
         }
         def document = captureService.merge(documents)
-        tasks.each {
-            workflowService.completeTask(it)
-            
-        }
+        tasks.each { workflowService.completeTask(it) }
         workflowService.createTask(document, Task.OCR_DOCUMENT, permissionsService.getUsername())
         response.done = true
         render response as JSON
@@ -39,5 +36,4 @@ class DocumentController {
         structureService.update(document, data)
         render response as JSON
     }
-        
 }

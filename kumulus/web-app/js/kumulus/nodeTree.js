@@ -31,8 +31,8 @@ $(document).ready(function(){
                     "id": node.data.key
                 }
             });
-        },
-        
+
+        },      
      dnd: {
       onDragStart: function(node) {
        
@@ -66,16 +66,12 @@ $(document).ready(function(){
         
         logMsg("tree.onDrop(%o, %o, %s)", node, sourceNode, hitMode);
         sourceNode.expand(true);
-              alert(node);
-        alert(node.data.id); 
-        alert(sourceNode);
-        alert(sourceNode.data.id);
       
       var data = { 
-          id: selectedNode.data.id,
-          targetId: node.data.id,
+            id: selectedNode.data.id,
+            targetId: node.data.id,
             hitMode:hitMode,
-           }
+        }
       
              $.ajax({
              url: url('node', 'move', ''),
@@ -199,7 +195,18 @@ function update_node() {
         state = "UPDATE";
     }
 };
-
+function search_node(){
+    alert("hello");
+    alert($('#button-search').attr('id'));
+    alert($('#searchPop').attr('id'));
+    $('#searchPop').attr("style","display:block");
+    
+}
+function hidePopup(){
+    alert("hiding");
+    $('#searchPop').attr("style","display:none");
+    
+}
 // --- INPUT INTERFACE ACTIONS
 
 function enable(bool) {

@@ -11,7 +11,7 @@ function preview(element, imageId) {
         zoomWindow.document.write('<html>');
         zoomWindow.document.write('<head><title>Popup</title></head>');
         zoomWindow.document.write('<body>');
-        zoomWindow.document.write('<img src="' + url('image', 'get', imageId) + '" style="width: 100%">');
+        zoomWindow.document.write('<img src="' + url('image', 'get', imageId) + '">');
         zoomWindow.document.write('</body>');
         zoomWindow.document.write('</html>'); 
    });
