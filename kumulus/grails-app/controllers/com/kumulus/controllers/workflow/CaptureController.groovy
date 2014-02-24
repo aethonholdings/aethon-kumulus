@@ -7,7 +7,7 @@ class CaptureController {
     def permissionsService
 
     def collect() { 
-        def project = Project.findById(params?.id)
+       def project = Project.findById(params?.id)
         if(permissionsService.checkPermissions(project)) {
             def nodeTypes = NodeType.findAll {
                 isContainer==true
