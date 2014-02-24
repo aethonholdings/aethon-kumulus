@@ -12,17 +12,17 @@
     <g:javascript src='pure/ui.js'/> 
     <g:javascript src='kumulus/base.js'/>
     <g:layoutHead/>
-  </head>
+   </head>
   <body>
       <div id='kumulus-header-layout'>
         <div id='kumulus-header'>
            <div class='pure-g'>
-               <div class='pure-u-1-2'>
+               <div class='pure-u-1-4'>
                  <div id='kumulus-logo'></div>
                  <!-- <g:pageTitle text='${pageTitle}'/>-->
                </div>
-               <div class='pure-u-1-2'>
-                 <div id='kumulus-session-management'>
+               <div class='pure-u-3-4'>
+                 <div class='kumulus-session-management'>
                    <g:userCompany/> |
                    <b><sec:loggedInUserInfo field='username'/></b> |  
                    <g:link controller='logout'> Logout</g:link>
@@ -30,21 +30,19 @@
                </div>
             </div>
          </div>
-        
-        <div class='pure-menu pure-menu-open pure-menu-horizontal kumulus-magrin-bottom'>
+        </div>
+        <div class='kumulus-menu-test'>
          <!--<a class='pure-menu-heading' href=''>kumulus</a>-->
           <ul>
-              <div class="kumulus-menu">
                 <li><g:link controller='home' action='index'>Home</g:link></li>
                 <li><g:link controller='home' action='manage'>Manage projects</g:link></li>
                 <li><g:link controller='home' action='collect'>Collect paperwork</g:link></li>
                 <li><g:link controller='home' action='upload'>Upload scans</g:link></li>
                 <li><g:link controller='home' action='pickup'>Request pickup</g:link></li>
                 <li><g:link controller='home' action='access'>Access archive</g:link></li>
-               </div>
+               
           </ul>
-         </div>
-        </div>
+       </div>
        <div id='layout'>
          <div class='content'>
            <div id='kumulus-body'>
