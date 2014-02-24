@@ -20,6 +20,8 @@
           <a id="button-add" class="pure-button" onclick="add_node();">Add</a>
           <a id="button-edit" class="pure-button" onclick="update_node();">Edit</a>
           <a id="button-delete" class="pure-button" onclick="delete_node();">Delete</a>
+          <a id="button-search" class="pure-button" onclick="search_node();">Search</a>
+          <g:render template="/layouts/serachPopup" />
         </div>
       </div>
       <div class="pure-u-2-3">
