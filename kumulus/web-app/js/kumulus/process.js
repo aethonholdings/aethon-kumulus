@@ -14,9 +14,9 @@ $(document).ready(function(){
         preview($('#preview-img'), $(this).attr('viewId'));
         pageNo=$(this).attr('pageNumber')
       
-       if($("#pageNo").val().trim().length==0){
-   
-        $('.new.kumulus-column-page').val($(this).attr('pageNumber'));
+       if($("#pageNo").val().trim().length==0)
+       {
+           $('.new.kumulus-column-page').val($(this).attr('pageNumber'));
         }
         $('#lineItems tr:last td #pageNo').val($(this).attr('pageNumber'));
         $('.edit.kumulus-column-page').val($(this).attr('pageNumber'));
@@ -26,6 +26,15 @@ $(document).ready(function(){
              
               
     });
+    
+   $(document).on('blur', '#pageNo', function(){
+      
+   
+     if($("#pageNo").val()>pageNo){
+        alert("Please enter correct page no") 
+        $("#pageNo").focus()
+     }
+   });
     
  $(document).on('click', '.add', function(){
         
@@ -103,7 +112,7 @@ function send(obj){
 
 function CheckNumeric(e) {
  
- alert($(this).val())
+
             if (window.event) // IE 
             {
                 if ((e.keyCode < 48 || e.keyCode > 57) & e.keyCode != 8) {
