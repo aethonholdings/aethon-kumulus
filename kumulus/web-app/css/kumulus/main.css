@@ -231,6 +231,10 @@ kumulus-control-group{
     padding: 10px;
     text-align:center;
 }
+.kumulus-button-bank a{
+    margin-top: 4px;
+    
+}
 
 .kumulus-filmstrip{
     background: #eee; 
@@ -298,9 +302,6 @@ label.error{
 .kumulus-magrin-top{
     margin-top: 10px;
 }
-@media (max-width:767px){
-   
-}
 @media (max-width : 700px) {
     .kumulus-menu{
         height: 100px;
@@ -332,6 +333,9 @@ label.error{
     .pure-form textarea{
         margin-top: -10px;
         height: 50px;
+    }
+    .pure-button{
+        padding: 8px 4px;
     }
 }
 
