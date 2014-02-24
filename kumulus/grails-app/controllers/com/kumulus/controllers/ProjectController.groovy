@@ -75,5 +75,9 @@ class ProjectController {
         redirect action:"list", params:[type:"manage"]
     }
     
+    def view(){
+        
+    }
+    
        
 }
