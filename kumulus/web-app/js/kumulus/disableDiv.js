@@ -50,6 +50,29 @@ $(document).ready(function(){
                $('#barcode').prop('disabled', true); 
                $('#name').prop('disabled', false);
                $('#comment').focus();
+
        }  
     });  
+
+               
+      
+  
+    
+    
+  
+    
+    
+//    $('#comment').change(function(){
+//         if ($(this).val() == '') {
+//             $('#comment').prop('disabled', true);
+//       }
+//           else {
+//               $('#comment').prop('disabled', false);
+//               $('#barcode').prop('disabled', true);
+//               $('#type').prop('disabled', true);
+//       }  
+//    });
+    
+     
+
 });
