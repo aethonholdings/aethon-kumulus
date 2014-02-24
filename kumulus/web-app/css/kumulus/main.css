@@ -37,11 +37,11 @@ table{
     background-color:#0B5992;
     width: 100%;
     margin-top: 2px;
+    display: inline;
 }
 .pure-menu li{
-    margin-left: 2px;
+    margin-left: .5em;
     margin-right: 1px;
-    min-width: 16%;
     letter-spacing:.05em
 }
 .pure-menu li a{ 
@@ -166,6 +166,7 @@ kumulus-control-group{
 
 .kumulus-container-half{
     height: 270px;
+    margin: 3px;
     padding: 3px;
 }
 
@@ -174,6 +175,7 @@ kumulus-control-group{
 }
 .kumulus-container-half-1{
     height: 250px;
+    margin: 3px;
     padding: 3px;
 }
 
