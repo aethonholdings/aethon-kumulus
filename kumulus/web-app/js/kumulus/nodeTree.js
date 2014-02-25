@@ -193,21 +193,42 @@ function update_node() {
     }
 };
 
-function search_node(){
+function search_node() {
 
     var barCode = prompt("Please scan barcode");
-    var data = {barCode:barCode}
+    var data = {barCode: barCode}
     $.ajax({
-            url: url('node', 'searchByBarcode', ''),
-            type: 'POST',
-            data: JSON.stringify(data),
-            contentType: 'application/json; charset=utf-8',
-            dataType: 'json',
-            async: false,
-                success: function(data) {
-                    alert(JSON.stringify(data));
+        url: url('node', 'searchByBarcode', ''),
+        type: 'POST',
+        data: JSON.stringify(data),
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'json',
+        async: false,
+        success: function(data) {
+            alert(JSON.stringify(data));
+
+            $('#nodeTree').dynatree('getRoot').visit(function(node) { 
+                alert("n"+node.data.title); 
+                node.expand(true);
+            }, true);
+             
+            $.each($('a.dynatree-title'), function() {
+             var match = null; 
+//          alert($(this).text()+">>"+data.title+">>"+($(this).text()==data.title));
+                if ($(this).text() == node.data.title) {
+                    $(this).focus();
+                    return false;
+                  match = node;
                 }
-        });
+                alert("Found " + match);
+//                else {
+//                    
+//                }
+
+            });
+           
+        }
+    });
 }
 
 // --- INPUT INTERFACE ACTIONS
