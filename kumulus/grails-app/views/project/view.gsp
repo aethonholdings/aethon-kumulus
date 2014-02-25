@@ -11,7 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Sample title</title>
          <link rel="stylesheet" type="text/css" href="${resource(dir: 'css/dynatree/skin', file: 'ui.dynatree.css')}"/>
-          <g:javascript src='Validate/validate.js'/>
+          <g:javascript src='jquery/validate/validate.js'/>
           <g:javascript src='kumulus/validation.js'/>
           <g:javascript src='dynatree/jquery.dynatree.js'/>
           <g:javascript src='kumulus/nodeTree.js'/>

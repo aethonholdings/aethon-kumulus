@@ -1,7 +1,7 @@
 <html>
   <head>
       <title>Edit project | Kumulus</title>
-       <g:javascript src='Validate/validate.js'/>
+       <g:javascript src='jquery/validate/validate.js'/>
         <g:javascript src='kumulus/validation.js'/>
       
       

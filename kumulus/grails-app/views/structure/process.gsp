@@ -1,7 +1,7 @@
 <html>
     <head>
         <title>OCR data entry | Kumulus</title>
-        <g:javascript src='Validate/validate.js'/>
+        <g:javascript src='jquery/validate/validate.js'/>
         <g:javascript src='kumulus/preview.js'/>
         <g:javascript src='kumulus/process.js'/>
         <g:javascript src='kumulus/validation.js'/>
@@ -14,7 +14,7 @@
                         <div id="page-strip" class="kumulus-filmstrip">
                             <ul id="pages">
                                 <g:each var="page" in="${document.pages.sort{it.number}}">
-                                    <li documentId="${document.id}"><g:kumulusImg image="${page.thumbnailImage}" class="kumulus-thumbnail kumulus-element-border" height="140" width="100" viewId="${page.viewImage.id}" scanId="${page.scanImage.id}" pageNumber="${page.number}"/></li>
+                                    <li documentId="${document.id}" pageId="${page.id}"><g:kumulusImg image="${page.thumbnailImage}" class="kumulus-thumbnail kumulus-element-border" height="140" width="100" viewId="${page.viewImage.id}" scanId="${page.scanImage.id}" pageNumber="${page.number}"/></li>
                                     </g:each>
                             </ul>
                         </div>
@@ -74,7 +74,7 @@
                             <div class="kumulus-line-item-table">
                                 <table id="lineItems" class="pure-table-horizontal">
                                     <thead>
-                                    <th>LineItemId</th>
+                                    <th>ID</th>
                                     <th>*Page</th>
                                     <th>*Description</th>                  
                                     <th>Date</th>
@@ -86,7 +86,10 @@
                                     <tbody class="kumulus-vertical-align-top">
                                         <tr class="new" onClick="send(this)">
                                             <td><input id="lineItemId" name="lineItemId" size="4" type="text" value="" class="kumulus-column-id new" readonly></input></td>
-                                            <td><input id="pageNo" name="pageNo" size="2" type="text" value="" class="kumulus-column-page new" onkeypress="CheckNumeric(event)" ></input></td>
+                                            <td>
+                                              <input id="pageNo" name="pageNo" size="2" type="text" value="" class="kumulus-column-page new" onkeypress="CheckNumeric(event)" ></input>
+                                              <input id="pageId" name="pageId" type="hidden" value=""></input>
+                                            </td>
                                             <td><input id="focus" name="description" size="25" type=text value="" class="kumulus-column-description new" ></input></td>
                                             <td><input id="lineItemDate" name="lineItemDate" size="4" type="date" value="" class="kumulus-column-date new"></input></td>
                                             <td><input id="quantity" name="quantity" type=text  size="6" value="" class="kumulus-column-quantity new" onkeypress="CheckNumeric(event)"></input></td>

@@ -20,7 +20,9 @@ class StructureController {
     
     def save(){
         // must check permissions properly
-        if(params?.id) {
+        println(params)
+        def currency = Currency.findByShortName(params?.currency)
+        if(params?.id && currency) {
             
             // update the document
             Date date
@@ -28,8 +30,10 @@ class StructureController {
             def document = structureService.updateDocument(params?.id, params?.documentType, date, params?.identifier)
             
             // update the line items
-
-            
+            for(int i=0; i<params?.amount.size(); i++) {
+                println(i)
+                // def lineItem = structureService.updateLineItem(params?.lineItemId[i], page, currency, new Date().parse("yyyy-MM-dd", params?.lineItemDate[i]), params.float(quantity[i]), params.float(price[i]), params.float(amount[i]))
+            }
             render "OK"   
         }
     }
