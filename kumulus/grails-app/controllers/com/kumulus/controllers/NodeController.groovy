@@ -130,7 +130,9 @@ class NodeController {
         render  response as JSON
     }
     
-
+    def checkBarcode() {
+        
+    }
 }
 
     
