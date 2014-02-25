@@ -33,10 +33,10 @@
          <!--<a class='pure-menu-heading' href=''>kumulus</a>-->
           <ul>
                 <li><g:link controller='home' action='index'>Home</g:link></li>
-                <li><g:link controller='home' action='upload'>Order materials</g:link></li>
-                <li><g:link controller='home' action='pickup'>Manage users</g:link></li>
-                <li><g:link controller='home' action='access'>Billing</g:link></li>
-                <li><g:link controller='home' action='access'>Manage account</g:link></li>
+                <li><a href="#">Order materials</a></li>
+                <li><a href="#">Manage users</a></li>
+                <li><a href="#">Billing</a></li>
+                <li><a href="#">Manage account</a></li>
           </ul>
        </div>
        <div id='layout'>
