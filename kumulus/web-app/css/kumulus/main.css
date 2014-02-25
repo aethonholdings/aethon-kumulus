@@ -273,7 +273,7 @@ kumulus-control-group{
     margin: auto;
 }
 
-.kumulus-control-group input, textarea, select{
+.kumulus-control-group input,textarea,select{
     width: 40%;
     margin: auto;
     margin-top: 6px;
@@ -323,9 +323,8 @@ label.error{
     min-width: 10%
 }
 
-.kumulus-vertical-align-top input, select{
+.kumulus-vertical-align-top input,select{
     height: 30px;
-    width: 80%;
     margin: auto; 
 }
 
