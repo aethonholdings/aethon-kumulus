@@ -22,7 +22,7 @@
          <div class="pure-u-2-5">
           <div class="kumulus-container-half kumulus-element-border pure-form">
               <h3>Project Details</h3>
-                <g:form name="edit" action="" id="${project?.id}" class="pure-form pure-form-aligned">
+                <g:form name="edit" action="update" id="${project?.id}" class="pure-form pure-form-aligned">
                <div class="pure-control-group">
                     <label for="projectName">* Project name</label>
                     <input id="projectName" name="projectName" disabled type="text" value="${project?.projectName}" class="pure-input-1-2">
