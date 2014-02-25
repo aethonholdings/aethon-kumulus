@@ -33,7 +33,7 @@
          <!--<a class='pure-menu-heading' href=''>kumulus</a>-->
           <ul>
                 <li><g:link controller='home' action='index'>Home</g:link></li>
-                <li><a href="#">Order materials</a></li>
+                <li><g:link controller='logistics' action='orderMaterials'>Order materials</g:link></li>
                 <li><a href="#">Manage users</a></li>
                 <li><a href="#">Billing</a></li>
                 <li><a href="#">Manage account</a></li>
