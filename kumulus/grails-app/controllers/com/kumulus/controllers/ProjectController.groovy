@@ -77,6 +77,8 @@ class ProjectController {
     
     def view(){
         
+      def project=  Project.findById(Integer.parseInt(params.id))
+      render view:"view" , model:[project:project]
     }
     
        
