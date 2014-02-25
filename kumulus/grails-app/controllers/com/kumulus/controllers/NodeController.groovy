@@ -79,10 +79,11 @@ class NodeController {
         def data = request.JSON
         def parent
         if(data?.targetId=="ROOT") parent = null else parent = Node.findById(data?.targetId)
+        println(parent)
         def child = Node.findById(data?.id)
         def response = [done: false]
-        if(permissionsService.checkPermissions(parent) && permissionsService.checkPermissions(child)) {
-            if(parent) child.parent = parent else child.parent = null
+        if(permissionsService.checkPermissions(child)) {
+            if(permissionsService.checkPermissions(parent)) child.parent = parent else child.parent = null
             child.save()
             response.done = true
         }
