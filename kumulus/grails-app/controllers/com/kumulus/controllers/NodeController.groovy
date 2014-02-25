@@ -96,24 +96,15 @@ class NodeController {
         // need to create a logistics shipment instance
         render response as JSON
     }
-    def searchNode () {
-        def data = request.JSON
-        println "params : "+params
-        println ">>>>"+data?.barCode
-        def node = Node.findByBarcode(data?.barCode)
-        
-        
-        
-        // now get the parent hierarchy for this node - in Node objects
-        // while(node.parent!=null) add into a list the parent of the node as well
-        // pass these node objects to the captureService --> captureService.renderNode(node)
-        // send the list by JSON
-        
-        println("Found node :" + node)
-        println("Node name : " + node?.name)
+    
+    def searchByBarcode() {
+        def response = []
+        def node=Node.findByBarcode(request.JSON?.barCode)
+        if(node && permissionsService.checkPermissions(node)) {            
+            response = captureService.renderNodeHierarchy(node)
+        }
+        render response as JSON
 
-        def response = [nodeName : node?.name]
-        render  response as JSON
     }
     
     def checkBarcode() {
