@@ -2,7 +2,6 @@
 <html lang='en'>
   <head>
     <link rel='stylesheet' type='text/css' href='${resource(dir: 'css/pure', file: 'pure-min.css')}'/>
-    <!--<link rel='stylesheet' type='text/css' href='${resource(dir: 'css/pure', file: 'side-menu.css')}'/>-->
     <link rel='stylesheet' type='text/css' href='${resource(dir: 'css/kumulus', file: 'main.css')}'/>
     <link rel='stylesheet' type='text/css' href='${resource(dir: 'css/jquery/ui/base', file: 'jquery-ui.css')}'/>
     <g:javascript library='jquery' />
@@ -19,7 +18,6 @@
            <div class='pure-g'>
                <div class='pure-u-1-4'>
                  <div id='kumulus-logo'></div>
-                 <!-- <g:pageTitle text='${pageTitle}'/>-->
                </div>
                <div class='pure-u-3-4'>
                  <div class='kumulus-session-management'>
@@ -35,12 +33,10 @@
          <!--<a class='pure-menu-heading' href=''>kumulus</a>-->
           <ul>
                 <li><g:link controller='home' action='index'>Home</g:link></li>
-                <li><g:link controller='home' action='manage'>Manage projects</g:link></li>
-                <li><g:link controller='home' action='collect'>Collect paperwork</g:link></li>
-                <li><g:link controller='home' action='upload'>Upload scans</g:link></li>
-                <li><g:link controller='home' action='pickup'>Request pickup</g:link></li>
-                <li><g:link controller='home' action='access'>Access archive</g:link></li>
-               
+                <li><g:link controller='home' action='upload'>Order materials</g:link></li>
+                <li><g:link controller='home' action='pickup'>Manage users</g:link></li>
+                <li><g:link controller='home' action='access'>Billing</g:link></li>
+                <li><g:link controller='home' action='access'>Manage account</g:link></li>
           </ul>
        </div>
        <div id='layout'>
