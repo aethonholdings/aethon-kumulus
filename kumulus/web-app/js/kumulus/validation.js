@@ -22,8 +22,8 @@ $(document).ready(function(){
 
 
 function validate(){
-    
-    	$("#document ,#project, .add, #edit").validate({
+ 
+    	$("#structure ,#project, .add, #edit").validate({
              
 		rules: {
                    
@@ -31,7 +31,7 @@ function validate(){
 			date: "required",
                         identifier:"required",
                         description:"required",
-                        tamount:"required",
+                        amount:"required",
                         projectName:"required",
                         ClientName:"required",
                         pageNo:"required"
