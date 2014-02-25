@@ -368,6 +368,10 @@ label.error{
 .kumulus-magrin{
     margin: 2px;
 }
+.kumulus-table-image{
+    height: 30px;
+    margin-left: 10px;
+}
 @media (max-width : 700px) {
 /*    .kumulus-menu{
         height: 100px;
