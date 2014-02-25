@@ -28,7 +28,7 @@ class StructureController {
             def document = structureService.updateDocument(params?.id, params?.documentType, date, params?.identifier)
             
             // update the line items
-            println(params)
+
             
             render "OK"   
         }
