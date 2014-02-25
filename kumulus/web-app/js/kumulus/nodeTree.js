@@ -118,6 +118,36 @@ $(document).ready(function(){
 //}
 //   }
 // });
+
+$('#barcode').change(function(){
+   
+        var data = {barcode: $('#barcode').val()}   
+        $.ajax({
+            url: url('node', 'checkBarcode', ''),
+            type: 'POST',
+            data: JSON.stringify(data),
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            async: false,
+            success: function(data) {
+
+             if(data.status=='true'){
+                alert("Barcode is already used, Please add new")
+                enable(true)
+                $('#barcode').val('')
+                $('#barcode').prop('disabled', false);
+//                $('#button-save').prop('disabled', true);
+                $('#barcode').focus();
+                return false;
+                }
+                else{
+                     enable(false)
+                    $('#button-save').prop('disabled', false);
+                }   
+            }   
+            
+        });
+    });
     
 });
 
@@ -271,11 +301,32 @@ function hidePopup(){
 // --- INPUT INTERFACE ACTIONS
 
 function enable(bool) {
+
     $('#barcode').prop('disabled', true);
     $('#type').prop('disabled', bool);
     $('#name').prop('disabled', bool); 
     $('#comment').prop('disabled', bool); 
+    
     if(bool==false) tree.disable(); else tree.enable();
+}
+
+function barCodeChange(){
+  
+        if ($(this).val() == '') {
+            $('#barcode').prop('disabled', true);
+            $('#button-save').prop('disabled', true);
+        }
+            else {  
+                $('#name').prop('disabled', false);
+                $('#barcode').prop('disabled', true);
+                $('#type').prop('disabled', false);
+                $('#button-save').prop('disabled', false);
+                $('#comment').prop('disabled', false);
+                $('#type').focus();
+          }
+          
+          enable(false);
+
 }
 
 function cancel() {

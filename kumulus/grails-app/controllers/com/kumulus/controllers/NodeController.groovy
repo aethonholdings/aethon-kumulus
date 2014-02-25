@@ -131,6 +131,18 @@ class NodeController {
     }
     
     def checkBarcode() {
+          def status=''
+          def data = request.JSON
+          def obj=Node.findByBarcode(data.barcode)
+          if(obj)
+          {
+              status='true'
+          }
+          else{
+              status='false'
+          }
+         def response = [status : status]
+        render  response as JSON
         
     }
 }

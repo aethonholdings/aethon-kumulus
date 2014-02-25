@@ -60,7 +60,7 @@
           </div>
         </div>
         <div class="kumulus-button-bank">
-            <button type="button" id="button-save" class="pure-button pure-button-primary" onclick="save(); " disabled="disabled">Save </button>
+            <button type="button" disabled id="button-save" class="pure-button pure-button-primary" onclick="save(); " >Save </button>
           <button type="button" id="button-cancel" class="pure-button" onclick="cancel();" disabled="disabled">Cancel</button>
         </div>
       </div>
