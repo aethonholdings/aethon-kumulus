@@ -12,16 +12,14 @@ $(document).ready(function()
     });
 
     $('.kumulus-filmstrip > ul > li > img').bind('mousedown', function(e) {
-
         imagePreview($(this))
-
         e.preventDefault();
     });
 
     $(document).on('blur', '#pageNo', function() {
 
         if ($("#pageNo").val() > pageNo) {
-            alert("Please enter correct page no")
+            alert("Invalid page number. You have entered a higher number than the number of pages in the document")
             $("#pageNo").focus()
         }
     });
@@ -66,8 +64,6 @@ $(document).ready(function()
         // clear the new row
 
     });
-
-//    $('#documentType').focus();
 
     $(document).on('click', '.remove', function() {
         $(this).closest("tr").remove();
@@ -131,14 +127,14 @@ function imagePreview(obj) {
 
     preview($('#preview-img'), obj.attr('viewId'));
     pageNo = obj.attr('pageNumber')
-
+    
     if ($("#pageNo").val().trim().length == 0)
     {
         $('.new.kumulus-column-page').val(obj.attr('pageNumber'));
     }
     $('#lineItems tr:last td #pageNo').val(obj.attr('pageNumber'));
+    $('#lineItems tr:last td #pageId').val(obj.attr('pageId'));
     $('.edit.kumulus-column-page').val(obj.attr('pageNumber'));
-//        $('.kumulus-column-description.new').focus();
     $('#documentType').focus();
 
 }

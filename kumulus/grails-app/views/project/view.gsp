@@ -11,7 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Sample title</title>
          <link rel="stylesheet" type="text/css" href="${resource(dir: 'css/dynatree/skin', file: 'ui.dynatree.css')}"/>
-          <g:javascript src='Validate/validate.js'/>
+          <g:javascript src='jquery/validate/validate.js'/>
           <g:javascript src='kumulus/validation.js'/>
           <g:javascript src='dynatree/jquery.dynatree.js'/>
           <g:javascript src='kumulus/nodeTree.js'/>
@@ -22,7 +22,7 @@
          <div class="pure-u-2-5">
           <div class="kumulus-container-half kumulus-element-border pure-form">
               <h3>Project Details</h3>
-                <g:form name="edit" action="" id="${project?.id}" class="pure-form pure-form-aligned">
+                <g:form name="edit" action="update" id="${project?.id}" class="pure-form pure-form-aligned">
                <div class="pure-control-group">
                     <label for="projectName">* Project name</label>
                     <input id="projectName" name="projectName" disabled type="text" value="${project?.projectName}" class="pure-input-1-2">

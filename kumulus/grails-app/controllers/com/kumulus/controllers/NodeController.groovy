@@ -88,14 +88,6 @@ class NodeController {
         }
         render response as JSON
     }
-
-    def test(){
-        def data = request.JSON
-        def response = [done: false]
-        // handle this to send email request
-        // need to create a logistics shipment instance
-        render response as JSON
-    }
     
     def searchByBarcode() {
         def response = []

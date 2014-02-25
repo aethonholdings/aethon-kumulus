@@ -8,56 +8,29 @@ class ProjectController {
 
     def permissionsService
     def filesystemService
-    
-    def list() {
-        def projectList 
-        def actions = []
-        switch(params?.type) {
-            case "manage":
-                projectList = permissionsService.getProjects()
-                actions = ["Edit", "Delete", "Close", "Create"]
-                break
-            case "download":
-                projectList = permissionsService.getProjects()
-                actions = ["Download"]
-                break
-            case "access":
-                projectList = permissionsService.getProjects()
-                actions = ["Access"]
-                break
-            case "collect":
-                projectList = permissionsService.getProjects([status: Project.STATUS_ACTIVE])
-                actions = ["Collect"]
-                break
-            case "upload":
-                projectList = permissionsService.getProjects([status: Project.STATUS_ACTIVE])
-                actions = ["Upload"]                
-                break
-        }
-        render view:"list", model:[projectList:projectList , title: "", actions: actions]
-    }
-    
-    def edit() {
-        def project = Project.findById(params?.id)
-        if(permissionsService.checkPermissions(project)) {
-            render view:"edit", model:[project: project]
-        }
-    }
-    
+        
     def update() {
-        def project = Project.findById(params?.id)
-        if(!project) project = filesystemService.newProject(params) 
-        else if(permissionsService.checkPermissions(project))  {
+        def project = Project.get(params?.id)
+        if(project && permissionsService.checkPermissions(project))  {
             def client = Company.findById(params?.clientId)
             project.client = client
             bindData(project, params, [exclude:['client', 'clientId']])
             project.save()
         }
-        redirect action:"list", params:[type:"manage"]
+        redirect action: "view", id: params?.id
     }
     
     def create() {
-        render view:"edit", model:[project: new Project()]
+        render view: "create", model:[project: new Project()]
+    }
+    
+    def save() {
+        def project = filesystemService.newProject(params) 
+        def client = Company.findById(params?.clientId)
+        project.client = client
+        bindData(project, params, [exclude:['client', 'clientId']])
+        project.save()
+        redirect controller: "home", action: "index"
     }
     
     def delete() {
@@ -80,6 +53,5 @@ class ProjectController {
       def project=  Project.findById(Integer.parseInt(params.id))
       render view:"view" , model:[project:project]
     }
-    
        
 }

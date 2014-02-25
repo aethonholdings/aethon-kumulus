@@ -20,11 +20,10 @@ class StructureService {
             document.identifier = identifier
             document.save()
         }
-        println(document)
         return(document)
     }
     
-    def addLineItem(LineItem lineItem, Document document) {
+    def updateLineItem(String lineItemId, Page page, Currency currency, Date date, String description, float quantity, float price, float amount) {
         
         
     }
