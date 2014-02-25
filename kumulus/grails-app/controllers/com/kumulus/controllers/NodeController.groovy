@@ -100,7 +100,15 @@ class NodeController {
         def data = request.JSON
         println "params : "+params
         println ">>>>"+data?.barCode
-        def node=Node.findByBarcode(data?.barCode)
+        def node = Node.findByBarcode(data?.barCode)
+        
+        
+        
+        // now get the parent hierarchy for this node - in Node objects
+        // while(node.parent!=null) add into a list the parent of the node as well
+        // pass these node objects to the captureService --> captureService.renderNode(node)
+        // send the list by JSON
+        
         println("Found node :" + node)
         println("Node name : " + node?.name)
 
