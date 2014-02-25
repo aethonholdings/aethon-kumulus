@@ -96,28 +96,6 @@ class NodeController {
         // need to create a logistics shipment instance
         render response as JSON
     }
-
-    def getNodeFromTree(){
-        def nodelist = []  
-        println("barcode " +params.enterBarcode)      
-        def barcodeNode = Node.findByBarcode(params?.enterBarcode)
-        println("barcode is" + barcodeNode)
-
-        def children = Node.findAllByParent(barcodeNode)//i.e node's child
-        println("children is" + children)
-     
-        def parentNode = barcodeNode.parent//i.e node's parent
-        println("parent is " + parentNode)
-     
-        def grandParent = parentNode.parent //i.e node's grand parent
-        println("grand parent is " + grandParent)
-        def parentNodeChild = Node.findAllByParent(parentNode) //i.e sibling
-        println("parent child is " + parentNodeChild)
-         
-        def grandParentChild = Node.findAllByParent(grandParent) //i.e uncles/aunts
-        println("grandparent child is " + grandParentChild)       
-        
-    }     
     
     def searchByBarcode() {
         def response = []
