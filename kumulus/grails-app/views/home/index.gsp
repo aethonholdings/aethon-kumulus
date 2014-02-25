@@ -12,7 +12,7 @@
     <body>
         <div class="pure-g kumulus-small-font">
             <div class="pure-u-1-2">
-                <div class="kumulus-container-half kumulus-scrollable-y kumulus-element-border">
+                <div class="kumulus-container-1-3 kumulus-scrollable-y kumulus-element-border">
                     <h3>You have ${userTasks?.total} tasks outstanding.</h3>
                     <g:if test="${userTasks.type.BUILD.total>0}">
                         ${userTasks?.type?.BUILD.total} scans to be reviewed
@@ -37,7 +37,7 @@
                       <li>${backOfficeTasks.type.PROCESS.total} documents to be processed - <g:link controller="structure" action="process">Action</g:link></li>
                     </ul>
                 </div>
-                <div class="kumulus-container-half kumulus-scrollable-y kumulus-element-border">
+                <div class="kumulus-container-1-3 kumulus-scrollable-y kumulus-element-border">
                     <h3>You have Z shipments schedule.</h3>
                     <table class='pure-table pure-table-horizontal'>
                         <thead>
@@ -56,6 +56,8 @@
                         </tbody>
                     </table>  
                 </div>
+                <div class="kumulus-container-1-3 kumulus-scrollable-y kumulus-element-border">
+                </div>
             </div>
             <div class="pure-u-1-2">
                 <div class="kumulus-container kumulus-scrollable-y kumulus-element-border">
@@ -70,7 +72,7 @@
                         <tbody>     
                             <g:each var="project" in="${projectList}">
                                 <tr>
-                                    <td>${project.projectName}</td>
+                                    <td><g:link controller="project" action="view" id="${project.id}">${project.projectName}</g:link></td>
                                     <td>${project.client.name}</td>
                                 </tr>
                             </g:each>
