@@ -30,7 +30,7 @@ table{
 }
 /*menu*/
 .kumulus-menu {
-	height: 35px;
+	height: 30px;
 	width: 100%;
         background-color: #0B5992 ;
 	font-size: 10pt;
@@ -39,10 +39,11 @@ table{
         margin-bottom: 3px;
 }
 .kumulus-menu ul {
-        width: 92%;
-        padding: 2px;
+        width: 91%;
 	margin: auto;
 	height: 30px;
+        padding: 0px;
+        -webkit-padding-start:0px;
 }
 .kumulus-menu li {
 	display: inline;
@@ -56,8 +57,7 @@ table{
 	text-align: center;
 	text-decoration: none;
 	text-shadow: 1px 1px 0px #283744;
-        line-height: 30px;;
-        margin: 0px 1px 0px 1px;
+        line-height: 30px;
 }
 
 .kumulus-menu li a {
@@ -69,7 +69,9 @@ table{
 	border-right: 0;
 }
 .kumulus-menu a:hover{
-	background-color: #8c99a4;
+	background:#fff;
+        color: darkblue;
+        text-shadow: none;
 }
 .kumulus-menu a#pull {
 	display: none;
@@ -273,7 +275,7 @@ kumulus-control-group{
     margin: auto;
 }
 
-.kumulus-control-group input, textarea, select{
+.kumulus-control-group input,textarea,select{
     width: 40%;
     margin: auto;
     margin-top: 6px;
@@ -323,9 +325,8 @@ label.error{
     min-width: 10%
 }
 
-.kumulus-vertical-align-top input, select{
+.kumulus-vertical-align-top input,select{
     height: 30px;
-    width: 80%;
     margin: auto; 
 }
 
@@ -366,6 +367,11 @@ label.error{
     }
     .pure-button{
         padding: 8px 4px;
+    }
+    
+    .pure-form .pure-input-1-2{
+        width:80%;
+        margin: auto;
     }
 }
 

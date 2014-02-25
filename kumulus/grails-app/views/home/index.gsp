@@ -70,7 +70,7 @@
                         <tbody>     
                             <g:each var="project" in="${projectList}">
                                 <tr>
-                                    <td>${project.projectName}</td>
+                                    <td><g:link controller="project" action="view" id="${project.id}">${project.projectName}</g:link></td>
                                     <td>${project.client.name}</td>
                                 </tr>
                             </g:each>
