@@ -31,6 +31,9 @@
                             </g:each>
                         </table>
                     </g:if>
+                  
+                </div>
+                <div class="kumulus-container-1-3 kumulus-scrollable-y kumulus-element-border">
                     <h3>There are ${backOfficeTasks.total} tasks in kumulus's queue</h3>
                     <ul>
                       <li>${backOfficeTasks.type.OCR.total} documents to be OCRed</li>
@@ -38,7 +41,7 @@
                     </ul>
                 </div>
                 <div class="kumulus-container-1-3 kumulus-scrollable-y kumulus-element-border">
-                    <h3>You have Z shipments schedule.</h3>
+                      <h3>You have Z shipments schedule.</h3>
                     <table class='pure-table pure-table-horizontal'>
                         <thead>
                             <tr>
@@ -55,8 +58,6 @@
                           </tr>
                         </tbody>
                     </table>  
-                </div>
-                <div class="kumulus-container-1-3 kumulus-scrollable-y kumulus-element-border">
                 </div>
             </div>
             <div class="pure-u-1-2">

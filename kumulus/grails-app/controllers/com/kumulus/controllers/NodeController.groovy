@@ -96,6 +96,7 @@ class NodeController {
         // need to create a logistics shipment instance
         render response as JSON
     }
+
     def getNodeFromTree(){
         def nodelist = []  
         println("barcode " +params.enterBarcode)      
@@ -125,6 +126,7 @@ class NodeController {
             response = captureService.renderNodeHierarchy(node)
         }
         render response as JSON
+
     }
     
     def checkBarcode() {
