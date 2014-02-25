@@ -1,3 +1,4 @@
+
 var state;
 var tree;
 var selectedNode;
@@ -310,24 +311,6 @@ function enable(bool) {
     if(bool==false) tree.disable(); else tree.enable();
 }
 
-function barCodeChange(){
-  
-        if ($(this).val() == '') {
-            $('#barcode').prop('disabled', true);
-            $('#button-save').prop('disabled', true);
-        }
-            else {  
-                $('#name').prop('disabled', false);
-                $('#barcode').prop('disabled', true);
-                $('#type').prop('disabled', false);
-                $('#button-save').prop('disabled', false);
-                $('#comment').prop('disabled', false);
-                $('#type').focus();
-          }
-          
-          enable(false);
-
-}
 
 function cancel() {
     switch(state) {
@@ -392,5 +375,4 @@ function save() {
         });
     }
 }
-
 

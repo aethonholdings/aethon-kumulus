@@ -1,3 +1,4 @@
+
 package com.kumulus.controllers.workflow
 
 import com.kumulus.domain.*
@@ -16,4 +17,9 @@ class LogisticsController {
     def barcode() {
         renderBarcodePng("code39Generator", Barcode.findById(params?.id).text)
     }
+    
+    def orderMaterials(){
+        render(view:"orderMaterials")
+    }
 }       
+
