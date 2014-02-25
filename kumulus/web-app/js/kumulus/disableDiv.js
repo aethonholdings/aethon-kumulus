@@ -53,26 +53,4 @@ $(document).ready(function(){
 
        }  
     });  
-
-               
-      
-  
-    
-    
-  
-    
-    
-//    $('#comment').change(function(){
-//         if ($(this).val() == '') {
-//             $('#comment').prop('disabled', true);
-//       }
-//           else {
-//               $('#comment').prop('disabled', false);
-//               $('#barcode').prop('disabled', true);
-//               $('#type').prop('disabled', true);
-//       }  
-//    });
-    
-     
-
 });

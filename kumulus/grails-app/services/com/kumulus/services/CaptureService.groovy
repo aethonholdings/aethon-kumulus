@@ -101,6 +101,15 @@ class CaptureService {
         nodeList.each { root.children.add renderNode(it) }
         return(root)
     }
+    
+    def renderNodeHierarchy(Node node) {
+        def nodes = [renderNode(node)]
+        while(node.parent!=null) {
+            node = node.parent
+            nodes.add(renderNode(node))
+        }
+        return(nodes)
+    }
 
     def indexScan(parentNode, uFile, scanBatch, userId) {
         
@@ -217,18 +226,5 @@ class CaptureService {
         return(newDocument)
     }
     
-//     def moveNode(targetNode,sourceNodeId){
-//        println("moving")
-//          println("targetNode is " +targetNode)
-//           def childNode= new Node()
-//            childNode.parent=targetNode
-//            childNode.id=sourceNodeId
-//            println(childNode.id)
-//             println(" parent "+ childNode.parent)
-//            childNode.save()
-//            println("child of target is" + childNode)
-     
-//     }   
-
 }
 
