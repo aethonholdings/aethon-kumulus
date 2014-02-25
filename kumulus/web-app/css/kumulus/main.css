@@ -167,8 +167,8 @@ kumulus-control-group{
     color: #ABA144;
 }
 /* layout body */
-#kumulus-body{
-
+#kumulus-full-width{
+    width: 100%;
 }
 
 .kumulus-container h3{
@@ -356,6 +356,9 @@ label.error{
 
 .kumulus-magrin-top{
     margin-top: 10px;
+}
+.kumulus-magrin-right{
+    margin-right: 15px;
 }
 
 .kumulus-magrin{

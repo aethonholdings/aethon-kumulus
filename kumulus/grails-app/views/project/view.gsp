@@ -18,7 +18,7 @@
           
     </head>
     <body>
-        <div class="pure-g">
+        <div class="pure-g kumulus-small-font">
          <div class="pure-u-2-5">
           <div class="kumulus-container-half kumulus-element-border pure-form">
               <h3>Project Details</h3>
@@ -29,7 +29,7 @@
                </div>
                <div class="pure-control-group">
                     <label for="clientName">* Client name</label>
-                    <input id="ClientName" name="ClientName" disabled type="text"  class="pure-input-1-2 ui-widget"></input>
+                    <input id="ClientName" name="ClientName" disabled type="text" value="${project.client.name}"  class="pure-input-1-2 ui-widget"></input>
                 </div>
                 <div class="pure-control-group">
                     <label for="comment">Comment</label>
@@ -46,14 +46,14 @@
            </div>
         </div>
         <div class="pure-u-1-3">
-             <span id="project" projectID=1/>
+             <span id="project" projectID="${project?.id}"/>
                   <div class="kumulus-container-2-3 kumulus-element-border">
                       <h3>Archive Structure</h3>
                        <div class="kumulus-node-tree kumulus-container-inside-2-3 kumulus-scrollable-y">
                             <div id="nodeTree" class="jstree-draggable"></div>
                        </div>
                        <div class="kumulus-button-bank">
-                           <g:link controller="capture" action="collect" params="[id: 1]" class="pure-button">Edit</g:link>
+                           <g:link controller="capture" action="collect" params="[id: "${project?.id}"]" class="pure-button">Edit</g:link>
                        </div>
                    </div>
                    <div class="kumulus-container-1-5 kumulus-element-border">
@@ -69,15 +69,16 @@
                     <div class="kumulus-container kumulus-element-border">
                         <div class="kumulus-container-inside kumulus-scrollable-y">
                         </div>
-                            <g:link controller="collect" action="upload" id="${project?.id}" class="pure-button kumulus-float-right">Upload</g:link>
+                            <g:link controller="collect" action="upload" params="[id: "${project?.id}"]" class="pure-button kumulus-float-right">Upload</g:link>
                         </div>  
                  </div>
-                  <div class="kumulus-float-right kumulus-padding">
+                  
+          </div>
+          <div class="kumulus-float-right kumulus-padding kumulus-full-width kumulus-magrin-right">
                       <input type="submit" value="Download Ledger" class="pure-button kumulus-magrin"/>
                       <input type="submit" value="Download Document" class="pure-button kumulus-magrin"/>
                       <input type="submit" value="Close" class="pure-button kumulus-magrin"/>
                       <input type="submit" value="Delete" class="pure-button kumulus-magrin"/>
-                  </div>
           </div>
     </body>
 </html>
