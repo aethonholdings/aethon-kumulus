@@ -118,16 +118,13 @@ class NodeController {
         
     }     
     
-    def searchNode () {
-        def data = request.JSON
-        println "params : "+params
-        println ">>>>"+data?.barCode
-        def node=Node.findByBarcode(data?.barCode)
-        println("Found node :" + node)
-        println("Node name : " + node?.name)
-
-        def response = [nodeName : node?.name]
-        render  response as JSON
+    def searchByBarcode() {
+        def response = []
+        def node=Node.findByBarcode(request.JSON?.barCode)
+        if(node && permissionsService.checkPermissions(node)) {            
+            response = captureService.renderNodeHierarchy(node)
+        }
+        render response as JSON
     }
     
     def checkBarcode() {
