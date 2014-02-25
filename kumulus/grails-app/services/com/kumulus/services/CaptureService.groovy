@@ -14,7 +14,6 @@ class CaptureService {
         def node = Node.findById(nodeID)
         if(node) {
             def children = Node.findAllByParent(node)
-            println("delete" + children)
             for (child in children) {
                 deleteNode(child.id)
             }

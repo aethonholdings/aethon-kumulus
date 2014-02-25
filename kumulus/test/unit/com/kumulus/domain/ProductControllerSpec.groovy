@@ -5,9 +5,9 @@ package com.kumulus.domain
 import grails.test.mixin.*
 import spock.lang.*
 
-@TestFor(BarcodeController)
-@Mock(Barcode)
-class BarcodeControllerSpec extends Specification {
+@TestFor(ProductController)
+@Mock(Product)
+class ProductControllerSpec extends Specification {
 
     def populateValidParams(params) {
         assert params != null
@@ -21,8 +21,8 @@ class BarcodeControllerSpec extends Specification {
             controller.index()
 
         then:"The model is correct"
-            !model.barcodeInstanceList
-            model.barcodeInstanceCount == 0
+            !model.productInstanceList
+            model.productInstanceCount == 0
     }
 
     void "Test the create action returns the correct model"() {
@@ -30,31 +30,31 @@ class BarcodeControllerSpec extends Specification {
             controller.create()
 
         then:"The model is correctly created"
-            model.barcodeInstance!= null
+            model.productInstance!= null
     }
 
     void "Test the save action correctly persists an instance"() {
 
         when:"The save action is executed with an invalid instance"
-            def barcode = new Barcode()
-            barcode.validate()
-            controller.save(barcode)
+            def product = new Product()
+            product.validate()
+            controller.save(product)
 
         then:"The create view is rendered again with the correct model"
-            model.barcodeInstance!= null
+            model.productInstance!= null
             view == 'create'
 
         when:"The save action is executed with a valid instance"
             response.reset()
             populateValidParams(params)
-            barcode = new Barcode(params)
+            product = new Product(params)
 
-            controller.save(barcode)
+            controller.save(product)
 
         then:"A redirect is issued to the show action"
-            response.redirectedUrl == '/barcode/show/1'
+            response.redirectedUrl == '/product/show/1'
             controller.flash.message != null
-            Barcode.count() == 1
+            Product.count() == 1
     }
 
     void "Test that the show action returns the correct model"() {
@@ -66,11 +66,11 @@ class BarcodeControllerSpec extends Specification {
 
         when:"A domain instance is passed to the show action"
             populateValidParams(params)
-            def barcode = new Barcode(params)
-            controller.show(barcode)
+            def product = new Product(params)
+            controller.show(product)
 
         then:"A model is populated containing the domain instance"
-            model.barcodeInstance == barcode
+            model.productInstance == product
     }
 
     void "Test that the edit action returns the correct model"() {
@@ -82,11 +82,11 @@ class BarcodeControllerSpec extends Specification {
 
         when:"A domain instance is passed to the edit action"
             populateValidParams(params)
-            def barcode = new Barcode(params)
-            controller.edit(barcode)
+            def product = new Product(params)
+            controller.edit(product)
 
         then:"A model is populated containing the domain instance"
-            model.barcodeInstance == barcode
+            model.productInstance == product
     }
 
     void "Test the update action performs an update on a valid domain instance"() {
@@ -94,28 +94,28 @@ class BarcodeControllerSpec extends Specification {
             controller.update(null)
 
         then:"A 404 error is returned"
-            response.redirectedUrl == '/barcode/index'
+            response.redirectedUrl == '/product/index'
             flash.message != null
 
 
         when:"An invalid domain instance is passed to the update action"
             response.reset()
-            def barcode = new Barcode()
-            barcode.validate()
-            controller.update(barcode)
+            def product = new Product()
+            product.validate()
+            controller.update(product)
 
         then:"The edit view is rendered again with the invalid instance"
             view == 'edit'
-            model.barcodeInstance == barcode
+            model.productInstance == product
 
         when:"A valid domain instance is passed to the update action"
             response.reset()
             populateValidParams(params)
-            barcode = new Barcode(params).save(flush: true)
-            controller.update(barcode)
+            product = new Product(params).save(flush: true)
+            controller.update(product)
 
         then:"A redirect is issues to the show action"
-            response.redirectedUrl == "/barcode/show/$barcode.id"
+            response.redirectedUrl == "/product/show/$product.id"
             flash.message != null
     }
 
@@ -124,23 +124,23 @@ class BarcodeControllerSpec extends Specification {
             controller.delete(null)
 
         then:"A 404 is returned"
-            response.redirectedUrl == '/barcode/index'
+            response.redirectedUrl == '/product/index'
             flash.message != null
 
         when:"A domain instance is created"
             response.reset()
             populateValidParams(params)
-            def barcode = new Barcode(params).save(flush: true)
+            def product = new Product(params).save(flush: true)
 
         then:"It exists"
-            Barcode.count() == 1
+            Product.count() == 1
 
         when:"The domain instance is passed to the delete action"
-            controller.delete(barcode)
+            controller.delete(product)
 
         then:"The instance is deleted"
-            Barcode.count() == 0
-            response.redirectedUrl == '/barcode/index'
+            Product.count() == 0
+            response.redirectedUrl == '/product/index'
             flash.message != null
     }
 }
