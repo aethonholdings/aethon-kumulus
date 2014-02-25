@@ -60,8 +60,8 @@
                         <div id="search">
                             <div class="kumulus-search-magrin"><label> Search </label>
                                 <g:textField name="q" value="${params.q}" class="pure-input" placeholder="Enter search terms" size="30"/> 
+                                <input type="submit" value="Search" class="pure-button"/>
                             </div>
-                            <div class="kumulus-float-right"><input type="submit" value="Search" class="pure-button"/></div>
                         </div>
                       </div>    
                 </div>
