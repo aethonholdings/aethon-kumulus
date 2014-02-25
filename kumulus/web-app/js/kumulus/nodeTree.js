@@ -33,6 +33,13 @@ $(document).ready(function(){
             });
 
         },      
+        
+//        onPostInit: function(isReloading,isError){
+//            var node=$('#nodeTree').dynatree("getRoot").getNodeByKey(folder);
+//                       node.visitParents(function(node){
+//                           node.toggleExpand();
+//                       },true);
+//        },
      dnd: {
       onDragStart: function(node) {
        
@@ -216,16 +223,46 @@ function search_node(){
     
 }
 
-//function search(){
-//    alert("searching");
-//   alert( $('#barcodeSearch').val()); 
-//   
-//   alert(node.data.barcode);
-//   var barcodeVar =$('#barcodeSearch').val();
-//   if(node.data.barcode == barcodeVar  )
-//   {
-//   alert("coming");
-//}
+function search(){
+    var barCode=$('#barcodeSearch').val();
+    alert("searching.. "+barCode);
+    var data = {barCode:barCode}
+    $.ajax({
+            url: url('node', 'searchNode', ''),
+            type: 'POST',
+            data: JSON.stringify(data),
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            async: false,
+                success: function(data) {
+//                    alert("To search : "+data.nodeName);
+                    
+                    $('#nodeTree').dynatree('getRoot').visit(function(node){
+                        alert("n"+node.data.title); 
+                        
+                        node.expand(true);
+                          node.visit(function(node1){
+//                            alert("n1"+node1.data.title);  
+                            node1.expand(true);
+//                             node1.visit(function(node2){
+//                                node2.expand(true);
+//                            },true);
+                          },true);   
+                         
+                      },true);
+                      
+                        
+                      
+                    $.each($('a.dynatree-title'),function(){            
+//                      alert($(this).text()+">>"+data.nodeName+">>"+($(this).text()==data.nodeName));
+                      if($(this).text()==data.nodeName){
+                          $(this).focus();
+                          return false;
+                      }
+                    });
+                }
+        });
+}
 function hidePopup(){
     alert("hiding");
     $('#searchPop').attr("style","display:none");
