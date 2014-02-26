@@ -362,19 +362,19 @@ label.error{
     margin: auto; 
 }
 
-.kumulus-magrin-top{
+.kumulus-margin-top{
     margin-top: 10px;
 }
-.kumulus-magrin-right{
+.kumulus-margin-right{
     margin-right: 15px;
 }
-.kumulus-magrin2{
+.kumulus-margin2{
     margin: 10px;
 }
 
 .kumulus-barcode-layout{
     width: 29%;
-    padding: 1px;
+    padding: 18px 2px;;
 }
 .kumulus-barcode-layout-image{
     height: 100%

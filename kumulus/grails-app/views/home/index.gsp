@@ -79,7 +79,7 @@
                             </g:each>
                         </tbody>
                     </table>  
-                    <g:link controller="project" action="create" class="pure-button kumulus-float-right kumulus-magrin-top">Create new</g:link>
+                    <g:link controller="project" action="create" class="pure-button kumulus-float-right kumulus-margin-top">Create new</g:link>
                 </div>
             </div>
         </div>
