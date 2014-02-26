@@ -177,17 +177,17 @@ public class LoginHelper extends ClientHelper {
 	 * @return
 	 */
 	public SessionData fetchSessionData(ArrayList<String> loginCredentials) {
-                         String url ="http://localhost:8080/kumulus/scanDo/fetchSessionData?username="+loginCredentials.get(0)+"&password="+loginCredentials.get(1);
 		SessionData sessionData = null;
 
 		try {
-	//		ClientResponse response = ConnectionUtil.getWebService()
-//					.path("loginServices").path("fetchSessionData")
-//					.type(MediaType.APPLICATION_JSON_TYPE)
-//					.accept(MediaType.APPLICATION_JSON_TYPE)
-//					.post(ClientResponse.class, loginCredentials);
+			ClientResponse response = ConnectionUtil.getWebService()
+					.path("scanDo").path("fetchSessionData")
+					.type(MediaType.APPLICATION_JSON_TYPE)
+					.accept(MediaType.APPLICATION_JSON_TYPE)
+					.post(ClientResponse.class, new ArrayList<String>());
                       
-                        JSONObject jsonobj = GetJsonUtil.getJsonfromServer(url);
+                        String s = response.getEntity(String.class);
+                        JSONObject jsonobj = new JSONObject(s);
                         
                         HashMap<String, String>   nodeTypeMap = mapper.readValue(jsonobj.getString("nodeTypeMap"),
 				new TypeReference<HashMap<String, String>>() {});
