@@ -16,7 +16,7 @@
                     <h3>You have ${userTasks?.total} tasks outstanding.</h3>
                     <g:if test="${userTasks.type.BUILD.total>0}">
                         ${userTasks?.type?.BUILD.total} scans to be reviewed
-                        <table>
+                            <table class="pure-table pure-table-horizontal">
                             <g:each var="taskType" in="${userTasks.type.BUILD.list}">
                                 <thead>
                                     <th>Project</th>
