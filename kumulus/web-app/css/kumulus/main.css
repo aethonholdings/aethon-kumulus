@@ -78,6 +78,7 @@ table{
 .kumulus-menu a#pull {
 	display: none;
 }
+
 /*menu test*/
 
 /*mainlayout*/
@@ -141,11 +142,21 @@ kumulus-control-group{
     margin-bottom: 3px;
 }
 
-.kumulus-search-magrin{
-    padding: 40px 6px;
+.kumulus-search-margin{
     display: inline-block;
     width: 100%;
+    margin-top: 3px; 
+    padding: 4px;
 }
+.kumulus-search-margin .pure-input{
+    margin-left: 5px;
+    width: 70%;
+}
+
+.kumulus-search-margin .pure-button{
+    float: right;
+}
+
 .kumulus-padding{
     padding-left: 40px;
     padding-right: 40px;
@@ -188,9 +199,8 @@ kumulus-control-group{
 }
 
 #search{
-    width: 90%;
-    margin-left: auto;
-    margin-right: auto;
+    width: 100%;
+    margin: 2px auto;
 }
 
 /* work area layout elements */
@@ -222,7 +232,7 @@ kumulus-control-group{
     padding: 3px;
 }
 
-.kumulus-container-2-3 h3,.kumulus-container-half h3{
+.kumulus-container-2-3 h3,.kumulus-container-half h3, .kumulus-container-1-3 h3, .kumulus-container-1-4 h3{
     text-align:center;
 }
 
@@ -232,12 +242,19 @@ kumulus-control-group{
     margin: 3px;
     padding: 3px;
 }
+.kumulus-print{
+    width: 100%;
+}
 /*container-inside-box*/
 .kumulus-container-inside{
     height: 520px;
     margin: 1px;
 }
 
+.kumulus-container-inside-11-24{
+    height: 395px;
+    margin: 4px;
+}
 .kumulus-container-inside-half{
     height: 205px;
     margin: 1px;
@@ -313,6 +330,7 @@ kumulus-control-group{
 .kumulus-data-entry{
     padding: 10px;
     overflow-y: auto;
+    text-align: left;
 }
 
 .kumulus-node-tree{
@@ -358,16 +376,32 @@ label.error{
     margin: auto; 
 }
 
-.kumulus-magrin-top{
+.kumulus-margin-top{
     margin-top: 10px;
 }
-.kumulus-magrin-right{
+.kumulus-margin-right{
     margin-right: 15px;
 }
+.kumulus-margin2{
+    margin: 10px;
+}
 
-.kumulus-magrin{
+.kumulus-barcode-layout{
+    width: 29%;
+    padding: 18px 2px;;
+}
+.kumulus-barcode-layout-image{
+    height: 100%
+}
+
+.kumulus-margin{
     margin: 2px;
 }
+.kumulus-table-image{
+    height: 30px;
+    margin-left: 10px;
+}
+
 @media (max-width : 700px) {
 /*    .kumulus-menu{
         height: 100px;
@@ -382,6 +416,11 @@ label.error{
     .kumulus-menu li a {
         border-bottom: 1px solid #576979;
     }*/
+    .kumulus-search-margin .pure-input{
+        margin-left: 0px;
+        width: 50%;
+    }
+    
      .kumulus-label
     {
         padding: 3px;
@@ -407,6 +446,12 @@ label.error{
     .pure-form .pure-input-1-2{
         width:80%;
         margin: auto;
+    }
+    .kumulus-barcode-print-layout{
+        width: 33%;
+        margin: 4px;
+        float: left;
+        overflow: hidden;
     }
 }
 @media (max-width : 600px) {
@@ -448,5 +493,12 @@ label.error{
         width: 80%;
         padding: 3px;
         margin-left: 1em;
+    }
+    .kumulus-search-margin .pure-input{
+        width: 90%;
+        margin: 2px;
+    }
+    .kumulus-container-inside-11-24{
+        height: 365px;
     }
 }

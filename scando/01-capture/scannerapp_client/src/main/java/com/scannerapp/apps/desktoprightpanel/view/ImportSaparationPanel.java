@@ -2129,9 +2129,13 @@ public class ImportSaparationPanel extends BaseJPanel implements
 	}
 
 	private void searchNodeFromBarcode() {
+            
+            DesktopMainJPanel desktopMainPanel= new DesktopMainJPanel();
+            desktopMainPanel.updatejleftPanel();
 
 		String searchBarcode = barcodeField.getText().trim();
 
+                
 		CustomMutableTreeNode projectNode = desktopMainPanel.getjLeftPanel()
 				.getProjectNode();
 

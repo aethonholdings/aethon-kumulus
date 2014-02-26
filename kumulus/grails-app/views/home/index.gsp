@@ -16,7 +16,7 @@
                     <h3>You have ${userTasks?.total} tasks outstanding.</h3>
                     <g:if test="${userTasks.type.BUILD.total>0}">
                         ${userTasks?.type?.BUILD.total} scans to be reviewed
-                        <table>
+                            <table class="pure-table pure-table-horizontal">
                             <g:each var="taskType" in="${userTasks.type.BUILD.list}">
                                 <thead>
                                     <th>Project</th>
@@ -79,7 +79,7 @@
                             </g:each>
                         </tbody>
                     </table>  
-                    <g:link controller="project" action="create" class="pure-button kumulus-float-right kumulus-magrin-top">Create new</g:link>
+                    <g:link controller="project" action="create" class="pure-button kumulus-float-right kumulus-margin-top">Create new</g:link>
                 </div>
             </div>
         </div>

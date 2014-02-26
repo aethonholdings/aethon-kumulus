@@ -35,12 +35,6 @@ $(document).ready(function(){
 
         },      
         
-//        onPostInit: function(isReloading,isError){
-//            var node=$('#nodeTree').dynatree("getRoot").getNodeByKey(folder);
-//                       node.visitParents(function(node){
-//                           node.toggleExpand();
-//                       },true);
-//        },
      dnd: {
       onDragStart: function(node) {
        
@@ -104,23 +98,7 @@ $(document).ready(function(){
     tree = $('#nodeTree').dynatree("getTree");
     ready();
     
-// $("#barcodeSearch").keyup(function(node){
-//     alert("hello");
-//   var barcodeVar =$('#barcodeSearch').val();
-//   alert(barcodeVar);
-//   if(node && node.data.id!="ROOT"){
-//   var nodeBarcodeToFind=$('#barcode').val(node.data.barcode);
-//   
-//   alert(nodeBarcodeToFind);
-//   
-//   if(nodeBarcodeToFind === barcodeVar  )
-//   {
-//   alert("coming");
-//}
-//   }
-// });
-
-$('#barcode').change(function(){
+    $('#barcode').blur(function(){
    
         var data = {barcode: $('#barcode').val()}   
         $.ajax({
@@ -245,72 +223,54 @@ function update_node() {
         state = "UPDATE";
     }
 };
-function search_node(){
 
-//    alert("hello");
-//    alert($('#button-search').attr('id'));
-//    alert($('#searchPop').attr('id'));
-    $('#searchPop').attr("style","display:block");
-    
-}
+function search_node() {
 
-function search(){
-    var barCode=$('#barcodeSearch').val();
-    alert("searching.. "+barCode);
-    var data = {barCode:barCode}
+    var barCode = prompt("Please scan barcode");
+    var data = {barCode: barCode}
     $.ajax({
-            url: url('node', 'searchNode', ''),
-            type: 'POST',
-            data: JSON.stringify(data),
-            contentType: 'application/json; charset=utf-8',
-            dataType: 'json',
-            async: false,
-                success: function(data) {
-//                    alert("To search : "+data.nodeName);
-                    
-                    $('#nodeTree').dynatree('getRoot').visit(function(node){
-                        alert("n"+node.data.title); 
-                        
-                        node.expand(true);
-                          node.visit(function(node1){
-//                            alert("n1"+node1.data.title);  
-                            node1.expand(true);
-//                             node1.visit(function(node2){
-//                                node2.expand(true);
-//                            },true);
-                          },true);   
-                         
-                      },true);
-                      
-                        
-                      
-                    $.each($('a.dynatree-title'),function(){            
-//                      alert($(this).text()+">>"+data.nodeName+">>"+($(this).text()==data.nodeName));
-                      if($(this).text()==data.nodeName){
-                          $(this).focus();
-                          return false;
-                      }
-                    });
+        url: url('node', 'searchByBarcode', ''),
+        type: 'POST',
+        data: JSON.stringify(data),
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'json',
+        async: false,
+        success: function(data) {
+            alert(JSON.stringify(data));
+
+            $('#nodeTree').dynatree('getRoot').visit(function(node) { 
+                alert("n"+node.data.title); 
+                node.expand(true);
+            }, true);
+             
+            $.each($('a.dynatree-title'), function() {
+             var match = null; 
+//          alert($(this).text()+">>"+data.title+">>"+($(this).text()==data.title));
+                if ($(this).text() == node.data.title) {
+                    $(this).focus();
+                    return false;
+                  match = node;
                 }
-        });
+                alert("Found " + match);
+//                else {
+//                    
+//                }
+
+            });
+           
+        }
+    });
 }
-function hidePopup(){
-    alert("hiding");
-    $('#searchPop').attr("style","display:none");
-    
-}
+
 // --- INPUT INTERFACE ACTIONS
 
 function enable(bool) {
-
     $('#barcode').prop('disabled', true);
     $('#type').prop('disabled', bool);
     $('#name').prop('disabled', bool); 
     $('#comment').prop('disabled', bool); 
-    
     if(bool==false) tree.disable(); else tree.enable();
 }
-
 
 function cancel() {
     switch(state) {
@@ -376,3 +336,5 @@ function save() {
     }
 }
 
+
+>>>>>>> e73d82fecc70e539a78592127a72cdbeb2c68b1d

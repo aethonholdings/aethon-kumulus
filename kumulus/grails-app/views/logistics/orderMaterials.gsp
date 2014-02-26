@@ -26,54 +26,29 @@
                 </thead>
                 <tbody>     
                     <tr>
-                        <td>
-                             
-                        </td>
-                        <td>
-                            <ul>
-                                <li> Barcode Sheets</li>
-                                <li> Boxes</li>
-                                <li> BarCode Guns</li>
-                                <li> Scanner</li>
-                            </ul>
-                        </td>
-                        <td>
-
-                            <ul>
-                                <li> 70 barcode/ sheets</li>
-                                <li> Boxe sizes</li>
-                                <li> </li>
-                                <li> </li>
-                            </ul>
-
-                        </td>
-                        <td>
-                            <ul>
-                                <li> 70 $</li>
-                                <li>100$</li>
-                                <li> 200$</li>
-                                <li> 500$</li>
-                            </ul>
-
-                        </td>
-                        <td>
-                            <ul>
-                                <li> 70 </li>
-                                <li>10</li>
-                                <li> 20</li>
-                                <li> 5</li>
-                            </ul>
-
-                        </td>
-                        <td>
-                            <ul>
-                                <li> 4900$ </li>
-                                <li>1000$</li>
-                                <li> 4000$</li>
-                                <li> 2500$</li>
-                            </ul>
-                        </td>
-                    </tr>
+                        <td><img src="#" class="kumulus-table-image"/></td>
+                        <td>Barcode Sheets</td>
+                        <td> 70 barcode/ sheets</td>
+                         <td> 70 $</td>
+                         <td> 70 </td>
+                         <td> 4900$ </td>
+                      </tr>
+                      <tr>
+                        <td><img src="#" class="kumulus-table-image"/></td>
+                        <td>Boxes</td>
+                        <td> Boxe sizes</td>
+                         <td> 100$</td>
+                         <td> 10 </td>
+                         <td> 1000$ </td>
+                      </tr>
+                        <tr>
+                        <td><img src="#" class="kumulus-table-image"/></td>
+                        <td>Scanner</td>
+                        <td> </td>
+                         <td> 100$</td>
+                         <td> 10 </td>
+                         <td> 1000$ </td>
+                      </tr>     
                 </tbody>
             </table>  
         </div>

@@ -127,12 +127,12 @@ public class LoginJPanel extends BaseJPanel implements IconRepository,
 				0.0, GridBagConstraints.WEST, GridBagConstraints.NONE,
 				new Insets(5, 5, 5, 5), 120, 0));
 
-		jpnlSecond.add(jlblProject, new GridBagConstraints(0, 4, 1, 1, 0.0,
-				0.0, GridBagConstraints.EAST, GridBagConstraints.NONE,
-				new Insets(5, 5, 5, 1), 0, 0));
-		jpnlSecond.add(jcmbProject, new GridBagConstraints(1, 4, 1, 1, 0.0,
-				0.0, GridBagConstraints.WEST, GridBagConstraints.NONE,
-				new Insets(5, 5, 5, 5), 50, 0));
+//		jpnlSecond.add(jlblProject, new GridBagConstraints(0, 4, 1, 1, 0.0,
+//				0.0, GridBagConstraints.EAST, GridBagConstraints.NONE,
+//				new Insets(5, 5, 5, 1), 0, 0));
+//		jpnlSecond.add(jcmbProject, new GridBagConstraints(1, 4, 1, 1, 0.0,
+//				0.0, GridBagConstraints.WEST, GridBagConstraints.NONE,
+//				new Insets(5, 5, 5, 5), 50, 0));
 
 		jpnlThird.add(jbtnLogon, new GridBagConstraints(0, 0, 1, 1, 1.0, 0.0,
 				GridBagConstraints.CENTER, GridBagConstraints.NONE, new Insets(
@@ -152,7 +152,7 @@ public class LoginJPanel extends BaseJPanel implements IconRepository,
 		jtxtLogin.addFocusListener((java.awt.event.FocusListener) this);
 		jpsdPassword.addActionListener((java.awt.event.ActionListener) this);
 		jbtnLogon.setRequestFocusEnabled(true);
-		jcmbProject.setUI(new SteppedComboBoxUI());
+		//jcmbProject.setUI(new SteppedComboBoxUI());
 	}
 
 	public void actionPerformed(ActionEvent e) {

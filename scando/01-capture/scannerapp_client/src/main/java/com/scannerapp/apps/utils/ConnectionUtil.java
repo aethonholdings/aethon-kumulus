@@ -60,7 +60,7 @@ public class ConnectionUtil {
                     public HttpURLConnection getHttpURLConnection(URL url) throws IOException {
                         if (p == null) {
                                 p = new Proxy(Proxy.Type.HTTP,
-                                        new InetSocketAddress("127.0.0.1", 8888));
+                                        new InetSocketAddress("192.168.1.7", 8888));
                             }
                         return (HttpURLConnection) url.openConnection(p);
                     }

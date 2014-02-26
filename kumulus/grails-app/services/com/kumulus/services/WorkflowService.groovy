@@ -80,23 +80,32 @@ class WorkflowService {
         return(tasks)
     }
     
-    def completeTask(Task task) {
-        task.completed = new Date()
-        task.save()
+    def getNextTask(String taskType) {
+        def task
+        switch(taskType) {
+            case Task.PROCESS_DOCUMENT.toString():
+                task = Task.findByTypeAndCompleted(taskType, null, [order: "created", type: "asc"])
+                break
+        }
         return(task)
     }
     
     def assignTask(Task task, String userId) {
         task.userId = userId
         task.save()
+        return(task)
     }
     
-    def getNextTask(String taskType) {
-        switch(taskType) {
-            case Task.PROCESS_DOCUMENT.toString():
-                Task.findByTypeAndCompleted(taskType, null, [order: "created", type: "asc"])
-                break
-        }
+    def startTask(Task task) {
+        task.started = new Date()
+        task.save()
+        return(task)
     }
     
+    def completeTask(Task task) {
+        task.completed = new Date()
+        task.save()
+        return(task)
+    }
+        
 }
