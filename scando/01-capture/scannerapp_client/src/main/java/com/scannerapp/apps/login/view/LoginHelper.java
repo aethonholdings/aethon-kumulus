@@ -196,9 +196,9 @@ public class LoginHelper extends ClientHelper {
                       
                         JSONObject jsonobj = GetJsonUtil.getJsonfromServer(url);
                         
-                 HashMap<String, String>   nodeTypeMap = mapper.readValue(jsonobj.getString("nodeTypeMap"),
+                        HashMap<String, String>   nodeTypeMap = mapper.readValue(jsonobj.getString("nodeTypeMap"),
 				new TypeReference<HashMap<String, String>>() {});
-                 HashMap<String, String>   statusMap = mapper.readValue(jsonobj.getString("nodeTypeMap"),
+                        HashMap<String, String>   statusMap = mapper.readValue(jsonobj.getString("nodeTypeMap"),
 				new TypeReference<HashMap<String, String>>() {});
                  
                       

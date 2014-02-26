@@ -48,12 +48,16 @@ import com.scannerapp.apps.framework.view.BaseJPanel;
 import com.scannerapp.apps.framework.view.ErrorMessage;
 import com.scannerapp.apps.utils.AsyncImageViewer;
 import com.scannerapp.apps.utils.ConstantUtil;
+import com.scannerapp.apps.utils.GetJsonUtil;
 import com.scannerapp.apps.utils.SessionUtil;
 import com.scannerapp.common.HelpPopup;
 import com.scannerapp.common.NodePropertyConstants;
 import com.scannerapp.resources.IconRepository;
 import com.scannerapp.shared.NodeProperties;
 import com.scannerapp.shared.TransactionConstant;
+import java.util.logging.Level;
+import org.codehaus.jettison.json.JSONException;
+import org.codehaus.jettison.json.JSONObject;
 
 @SuppressWarnings("serial")
 public class ImportSaparationPanel extends BaseJPanel implements
@@ -734,7 +738,11 @@ public class ImportSaparationPanel extends BaseJPanel implements
 	public void actionPerformed(ActionEvent e) {
 
 		if (e.getSource() == searchButton) {
-			searchNodeFromBarcode();
+                    try {
+                        searchNodeFromBarcode();
+                    } catch (IOException ex) {
+                        java.util.logging.Logger.getLogger(ImportSaparationPanel.class.getName()).log(Level.SEVERE, null, ex);
+                    }
 		}
 		if (e.getSource() == helpButton) {
 			HelpPopup help = new HelpPopup();
@@ -2128,14 +2136,32 @@ public class ImportSaparationPanel extends BaseJPanel implements
 		// MORENA 6 CODE ENDS...
 	}
 
-	private void searchNodeFromBarcode() {
+	private void searchNodeFromBarcode() throws IOException {
             
             DesktopMainJPanel desktopMainPanel= new DesktopMainJPanel();
-            desktopMainPanel.updatejleftPanel();
+            
 
 		String searchBarcode = barcodeField.getText().trim();
 
-                
+                String projectUrl="http://localhost:8080/kumulus/scanDo/getProjectBybarcode?barcode="+searchBarcode;
+                String jsonString;
+                JSONObject jsonObj=null;
+            try {	        
+                jsonString = GetJsonUtil.getJsonfromServertree(projectUrl);
+                jsonObj= new JSONObject(jsonString);
+            
+             
+                SessionUtil.getSessionData().setProjectId(jsonObj.getString("projectId"));
+                SessionUtil.getSessionData().setProjectName(jsonObj.getString("projectName"));
+            } catch (JSONException ex) {
+                java.util.logging.Logger.getLogger(ImportSaparationPanel.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            System.out.println("Project Id Is "+SessionUtil.getSessionData().getProjectId());
+            
+            desktopMainPanel.updatejleftPanel();
+            
+            
 		CustomMutableTreeNode projectNode = desktopMainPanel.getjLeftPanel()
 				.getProjectNode();
 
@@ -2144,30 +2170,30 @@ public class ImportSaparationPanel extends BaseJPanel implements
 			return;
 		}
 
-		String hierarchy = controller().getHierarchyFromSearchBarcode(
-				searchBarcode);
-		log.info("Search Barcode -> Search Node Hierarchy : " + hierarchy);
-		if (hierarchy == null || hierarchy.length() == 0) {
-			log.error("Search Barcode -> EMPTY Hierarchy. Error while searching node.");
-			ErrorMessage.displayMessage('I',
-					"errorWhileSearchingNodeFromBarcode");
-			return;
-		}
-
-		// To remove "[" and "]" from the hierarchy coming from DB and split
-		// hierarchy in tree node names.
-		String[] nodeNames = hierarchy.substring(1, hierarchy.length() - 1)
-				.split(", ");
-
-		if (!nodeNames[0].equals(String.valueOf(projectNode.getUserObject()))) {
-			ErrorMessage.displayMessage('I',
-					"providedSearchBarcodeBelongsToOtherProject");
-			return;
-		}
-
-		searchNodeFromhierarchy(projectNode, hierarchy);
-
-		barcodeField.setText("");
+//		String hierarchy = controller().getHierarchyFromSearchBarcode(
+//				searchBarcode);
+//		log.info("Search Barcode -> Search Node Hierarchy : " + hierarchy);
+//		if (hierarchy == null || hierarchy.length() == 0) {
+//			log.error("Search Barcode -> EMPTY Hierarchy. Error while searching node.");
+//			ErrorMessage.displayMessage('I',
+//					"errorWhileSearchingNodeFromBarcode");
+//			return;
+//		}
+//
+//		// To remove "[" and "]" from the hierarchy coming from DB and split
+//		// hierarchy in tree node names.
+//		String[] nodeNames = hierarchy.substring(1, hierarchy.length() - 1)
+//				.split(", ");
+//
+//		if (!nodeNames[0].equals(String.valueOf(projectNode.getUserObject()))) {
+//			ErrorMessage.displayMessage('I',
+//					"providedSearchBarcodeBelongsToOtherProject");
+//			return;
+//		}
+//
+//		searchNodeFromhierarchy(projectNode, hierarchy);
+//
+//		barcodeField.setText("");
 
 	}
 
@@ -2596,7 +2622,11 @@ public class ImportSaparationPanel extends BaseJPanel implements
 	public void keyPressed(KeyEvent e) {
 		if (e.getSource() == barcodeField) {
 			if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-				searchNodeFromBarcode();
+                            try {
+                                searchNodeFromBarcode();
+                            } catch (IOException ex) {
+                                java.util.logging.Logger.getLogger(ImportSaparationPanel.class.getName()).log(Level.SEVERE, null, ex);
+                            }
 			}
 		}
 	}

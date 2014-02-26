@@ -65,7 +65,7 @@ public class DesktopLeftHelper extends ClientHelper {
 					new TypeReference<ArrayList<NodeProperties>>() {
 					});
                         
-                        System.out.println("mmm"+childNodePropertiesList+"mmmmmmmmmmmmmm"+jsonobj.toString());
+                        //System.out.println("mmm"+childNodePropertiesList+"mmmmmmmmmmmmmm"+jsonobj.toString());
 
 		}
 	
@@ -121,4 +121,6 @@ public class DesktopLeftHelper extends ClientHelper {
 
 		return childNodePropertiesList;
 	}
+        
+        
 }

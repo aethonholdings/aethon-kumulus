@@ -1,6 +1,5 @@
 package com.kumulus.controllers.workflow
 
-
 import grails.converters.*
 import com.kumulus.domain.*
 class ScanDoController {
@@ -38,13 +37,14 @@ class ScanDoController {
     def updateNodeProperties() { }
     
     def fetchChildNodeList() {
-        def nodebyBarcode =Node.findByBarcode("AE9999990019Z")       
-        def nodelist = Node.findAllByProject(nodebyBarcode.project)        
-        println("number of nodes"+nodelist.size())
+              println(params)   
+              def project = Project.get(params?.projectId)
+        def nodeList = Node.findAllByProject(project)      
+        println("number of nodes"+nodeList.size())
         def responsedata =[]
         def list;        
         def renderNode =[hierarchy:'']
-        nodelist.each{node->
+        nodeList.each{node->
             list= new ArrayList()
             list.add(node.project.projectName)
             list.add(node.barcode)
@@ -75,11 +75,27 @@ class ScanDoController {
             
             renderNode.hierarchy=list.toString()	     
              responsedata.add(renderNode)            
-        } 
-        
-        render responsedata as JSON  
-    
+        }     
+        println(responsedata)
+        render responsedata as JSON 
     }
+    
+    def getProjectBybarcode() {
+         def responsedata =[
+            'projectId': null,
+            'projectName': null
+       ]
+       // def data = request.JSON
+        def node = Node.findByBarcode(params?.barcode)
+        if(node) {
+            def project = node.project
+            responsedata.projectId = project.id
+            responsedata.projectName=project.projectName            
+            println(project)
+        }
+        render responsedata as JSON  
+    }
+    
     
     def fetchSessionData() {
        println("UserId "+params.username)
@@ -97,7 +113,7 @@ class ScanDoController {
        sessiondata= [                                 
              'version': "v1.1.3",
              'userid': params.username,
-             'projectId': "2",
+             'projectId': "6",
              'collectionRight':"N",
              'breathInterval':"5",
              'importRight':"Y",

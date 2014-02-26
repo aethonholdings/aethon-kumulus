@@ -55,9 +55,7 @@ public class DesktopMainJPanel extends JPanel implements IconRepository,
 		jLeftPanel.fetchChildNodes(SessionUtil.getSessionData().getProjectId(),	null);
 	}
         
-        public void updatejleftPanel(){            
-           jLeftPanel.fetchChildNodes(SessionUtil.getSessionData().getProjectId(),null);             
-        }
+       
 
 	// Return the frame's preferred size.
 	public Dimension getPreferredSize() {
@@ -114,4 +112,8 @@ public class DesktopMainJPanel extends JPanel implements IconRepository,
 	public DesktopRightJPanel getjRightPanel() {
 		return jRightPanel;
 	}
+
+    public void updatejleftPanel() {
+       jLeftPanel.fetchChildNodes(SessionUtil.getSessionData().getProjectId(),	null); //To change body of generated methods, choose Tools | Templates.
+    }
 }

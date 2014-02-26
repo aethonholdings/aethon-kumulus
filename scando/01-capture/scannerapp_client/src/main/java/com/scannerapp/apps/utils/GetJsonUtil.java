@@ -102,7 +102,7 @@ public class GetJsonUtil {
  
                 
                 
-                System.out.println("Input stream from server"+conn.getInputStream());
+               // System.out.println("Input stream from server"+conn.getInputStream());
 //		if (conn.getResponseCode() != 200) {
 //			throw new RuntimeException("Failed : HTTP error code : "
 //					+ conn.getResponseCode());
@@ -114,12 +114,12 @@ public class GetJsonUtil {
 		String output;
                 
                 StringBuilder sb = new StringBuilder();
-		System.out.println("Output from Server .... \n");
+		//System.out.println("Output from Server .... \n");
 		while ((output = br.readLine()) != null) {
                     sb.append(output);
 			//System.out.println(output);
 		}
-                System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"+sb);
+                //System.out.println("^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^"+sb);
                  json= sb.toString();
 //                try {
 //                 jObj = new JSONObject(json);
@@ -139,7 +139,7 @@ public class GetJsonUtil {
 		e.printStackTrace();
  
 	  }
-           //   System.out.println("Json String "+json +"Json Object"+jObj);      
+            System.out.println("Json String "+json );      
             return json;
        }
     
