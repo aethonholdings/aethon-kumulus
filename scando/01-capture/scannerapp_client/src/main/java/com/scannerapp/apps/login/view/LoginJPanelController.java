@@ -47,29 +47,29 @@ public class LoginJPanelController extends BaseController {
 		 * // Default Item will be blank value.
 		 * view().getJcmbProject().addItem("");
 		 */
-		projectList = loginHelper.getProjectList();
-
-		if (projectList == null) {
-			// TODO : Show popup about error while fetch project list.
-			return;
-		}
-
-		ArrayList<String> projectIdList = new ArrayList<String>(
-				projectList.keySet());
-
-		// Checking Condition If only One Project Is Active, It is Preselected
-		if (projectIdList.size() == 1) {
-			view().getJcmbProject().addItem(
-					projectList.get(projectIdList.get(0)));
-		} else {
-			// Default Item will be blank value.
-			view().getJcmbProject().addItem("");
-
-			for (int index = 0; index < projectIdList.size(); index++) {
-				view().getJcmbProject().addItem(
-						projectList.get(projectIdList.get(index)));
-			}
-		}
+//		//projectList = loginHelper.getProjectList();
+//
+//		if (projectList == null) {
+//			// TODO : Show popup about error while fetch project list.
+//			return;
+//		}
+//
+//		ArrayList<String> projectIdList = new ArrayList<String>(
+//				projectList.keySet());
+//
+//		// Checking Condition If only One Project Is Active, It is Preselected
+//		if (projectIdList.size() == 1) {
+//			view().getJcmbProject().addItem(
+//					projectList.get(projectIdList.get(0)));
+//		} else {
+//			// Default Item will be blank value.
+//			view().getJcmbProject().addItem("");
+//
+//			for (int index = 0; index < projectIdList.size(); index++) {
+//				view().getJcmbProject().addItem(
+//						projectList.get(projectIdList.get(index)));
+//			}
+//		}
 	}
 
 	private static String byteToHex(final byte[] hash) {
@@ -104,28 +104,31 @@ public class LoginJPanelController extends BaseController {
 	public void jbtnLogon_actionPerformed() {
 
 		String username = view().getJtxtLogin().getText().trim();
+                System.out.println(username);
 		String password = view().getJpsdPassword().getText();
-		String projectName = view().getJcmbProject().getSelectedItem()
-				.toString().trim();
-		String projecId = null;
-
-		// Iterating through project list to get project id.
-		ArrayList<String> projectIdList = new ArrayList<String>(
-				projectList.keySet());
-
-		for (int index = 0; index < projectIdList.size(); index++) {
-
-			if (projectName == projectList.get(projectIdList.get(index))) {
-				projecId = projectIdList.get(index);
-				break;
-			}
-		}
+//		String projectName = view().getJcmbProject().getSelectedItem()
+//				.toString().trim();
+//		String projecId = null;
+//
+//		// Iterating through project list to get project id.
+//		ArrayList<String> projectIdList = new ArrayList<String>(
+//				projectList.keySet());
+//
+//		for (int index = 0; index < projectIdList.size(); index++) {
+//
+//			if (projectName == projectList.get(projectIdList.get(index))) {
+//				projecId = projectIdList.get(index);
+//				break;
+//			}
+//		}
 
 		// Calling to authorize login...
 		try {
 
-			if (!username.equals("") && !password.trim().equals("")
-					&& !projectName.toString().trim().equals("")) {
+//			if (!username.equals("") && !password.trim().equals("")
+//					&& !projectName.toString().trim().equals("")) {
+                    if (!username.equals("") && !password.trim().equals("")
+					) {
 
 				try {
 
@@ -137,47 +140,15 @@ public class LoginJPanelController extends BaseController {
 							+ " " + password);
 					// log.info("Encrypt : " + encryptedPassword);
 					loginCredentials.add(encryptedPassword);
-					loginCredentials.add(projecId);
-					loginCredentials.add(projectName);
+					//loginCredentials.add(projecId);
+					//loginCredentials.add(projectName);
 
-					//if (loginHelper.authorizeLogin(loginCredentials)) {
-                                        if (true) {
-
-						//SessionUtil.setSessionData(loginHelper
-							//	.fetchSessionData(loginCredentials));
-
-                                            // using dummy data till kumulus does not have service    
-                                            SessionData sessionData = new SessionData();
-                                                
-                                                HashMap<String,String> statusMap= new HashMap<String, String>();
-                                                HashMap<String,String> nodeTypeMap= new HashMap<String, String>();
-                                                statusMap.put("Document","D");
-                                                statusMap.put("Box","B");
-                                                statusMap.put("Container","C");
-                                                nodeTypeMap.put("In Progress","0");
-                                                nodeTypeMap.put("Done","1");
-                                                nodeTypeMap.put("Sealed","2");
-                                                sessionData.setVersion("v1.1.3");
-                                                sessionData.setBreathInterval("5");
-                                                sessionData.setProjectId("5");
-                                                sessionData.setUserId("ADMIN");
-                                                sessionData.setCollectionRight("Y");
-                                                sessionData.setImportRight("Y");
-                                                sessionData.setLocalStoragePath(null);
-                                                sessionData.setProjectName("scannerapp");    
-                                                sessionData.setSeparationTarget("0");
-                                                sessionData.setRefreshInterval("600000");
-                                                sessionData.setTotalImagesToUploadAtOnce("21");
-                                                sessionData.setOverallTarget("5000");
-                                                sessionData.setLocalThumbnailDirPath(null);
-                                                sessionData.setNodeTypeMap(nodeTypeMap);
-                                                sessionData.setStatusMap(statusMap);
-                                                
-                                                
-
-						
-                                                SessionUtil.setSessionData(sessionData);
-                                                setClientVersionInSession();
+					if (loginHelper.authorizeLogin(loginCredentials)) {           
+                                           
+						SessionUtil.setSessionData(loginHelper
+						.fetchSessionData(loginCredentials));
+                                         
+                                                  setClientVersionInSession();
 
 						//boolean totalUnAuthorizeParam = loginHelper.isAuthorizeApplicationParam(projecId);
                                                 boolean totalUnAuthorizeParam =true;
@@ -201,13 +172,13 @@ public class LoginJPanelController extends BaseController {
 							view().getJtxtLogin().setText("");
 							view().getJpsdPassword().setText("");
 
-							if (projectList.size() == 1) {
-								view().getJcmbProject().setSelectedItem(
-										projectList.get(projectIdList.get(0)));
-							} else {
-								// Default Item will be blank value.
-								view().getJcmbProject().setSelectedItem("");
-							}
+//							if (projectList.size() == 1) {
+//								view().getJcmbProject().setSelectedItem(
+//										projectList.get(projectIdList.get(0)));
+//							} else {
+//								// Default Item will be blank value.
+//								view().getJcmbProject().setSelectedItem("");
+//							}
 
 							return;
 						}
@@ -244,7 +215,7 @@ public class LoginJPanelController extends BaseController {
 												+ "       "
 												+ ConstantUtil
 														.getApplicationConstant("projectLabel")
-												+ " : " + projectName);
+											);
 
 						//initThreadStartToUpdateAttendanceDetail();     // commented BY Raj
 					}
@@ -266,9 +237,9 @@ public class LoginJPanelController extends BaseController {
 				ErrorMessage.displayMessage('I', "enterUsernamePassword");
 			}
 
-			else if (projectName.trim().equals("")) {
-				ErrorMessage.displayMessage('I', "selectProject");
-			}
+//			else if (projectName.trim().equals("")) {
+//				ErrorMessage.displayMessage('I', "selectProject");
+//			}
 
 			else {
 				ErrorMessage.displayMessage('I', "invalidUseridPassword");

@@ -1,5 +1,6 @@
 package com.scannerapp.apps.desktopleftpanel.view;
 
+import com.google.gson.JsonObject;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -14,10 +15,12 @@ import org.codehaus.jackson.type.TypeReference;
 import com.scannerapp.apps.framework.utils.ClientHelper;
 import com.scannerapp.apps.framework.view.ErrorMessage;
 import com.scannerapp.apps.utils.ConnectionUtil;
+import com.scannerapp.apps.utils.GetJsonUtil;
 import com.scannerapp.shared.NodeProperties;
 import com.sun.jersey.api.client.ClientHandlerException;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.UniformInterfaceException;
+import org.codehaus.jettison.json.JSONObject;
 
 public class DesktopLeftHelper extends ClientHelper {
 
@@ -41,20 +44,28 @@ public class DesktopLeftHelper extends ClientHelper {
 	public ArrayList<NodeProperties> getChildNodePropertiesList(
 			ArrayList<String> idList) {
 
+                 String projectId =idList.get(0) ;
+                 String parentnodeId=idList.get(1) ;
 		ArrayList<NodeProperties> childNodePropertiesList = null;
-
+                String projectUrl="http://localhost:8080/kumulus/scanDo/fetchChildNodeList?projectId="+projectId+"&parentnodeId="+parentnodeId;
 		try {
-			ClientResponse response = ConnectionUtil.getWebService()
-					.path("nodeServices").path("fetchChildNodeList")
-					.type(MediaType.APPLICATION_JSON_TYPE)
-					.accept(MediaType.APPLICATION_JSON_TYPE)
-					.post(ClientResponse.class, idList);
+                    
+                    
+//			ClientResponse response = ConnectionUtil.getWebService()
+//					.path("nodeServices").path("fetchChildNodeList")
+//					.type(MediaType.APPLICATION_JSON_TYPE)
+//					.accept(MediaType.APPLICATION_JSON_TYPE)
+//					.post(ClientResponse.class, idList);
 
-			String jsonString = (String) response.getEntity(String.class);
-
-			childNodePropertiesList = mapper.readValue(jsonString,
+			//String jsonString = (String) response.getEntity(String.class);
+                       String jsonobj = GetJsonUtil.getJsonfromServertree(projectUrl);
+                        System.out.println("Json is "+jsonobj);
+                       //childNodePropertiesList = new ArrayList<NodeProperties>();
+			childNodePropertiesList = mapper.readValue(jsonobj.toString(),
 					new TypeReference<ArrayList<NodeProperties>>() {
 					});
+                        
+                        System.out.println("mmm"+childNodePropertiesList+"mmmmmmmmmmmmmm"+jsonobj.toString());
 
 		}
 	
