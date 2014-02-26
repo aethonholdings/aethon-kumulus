@@ -14,7 +14,7 @@
                         <div id="page-strip" class="kumulus-filmstrip">
                             <ul id="pages">
                                 <g:each var="page" in="${document.pages.sort{it.number}}">
-                                    <li documentId="${document.id}" pageId="${page.id}"><g:kumulusImg image="${page.thumbnailImage}" class="kumulus-thumbnail kumulus-element-border" height="140" width="100" viewId="${page.viewImage.id}" scanId="${page.scanImage.id}" pageNumber="${page.number}"/></li>
+                                    <li documentId="${document.id}"><g:kumulusImg image="${page.thumbnailImage}" class="kumulus-thumbnail kumulus-element-border" height="140" width="100" viewId="${page.viewImage.id}" scanId="${page.scanImage.id}" pageId="${page.id}" pageNumber="${page.number}"/></li>
                                     </g:each>
                             </ul>
                         </div>
@@ -103,8 +103,8 @@
                         </div>
                     </div>   
                     <div class="kumulus-button-bank">
-                        <input type="submit" value="Save and next" class="pure-button"></input>
-                        <a class="pure-button" href="#">Exit</a>
+                        <input type="button" id ="save" value="Save and next" class="pure-button"></input>
+                         <a class="pure-button" href="#">Exit</a>
                     </div>
                 </div>
             </g:form>
