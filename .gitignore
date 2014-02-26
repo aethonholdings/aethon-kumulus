@@ -41,6 +41,7 @@ kumulus/stacktrace.log
 kumulus/test/reports
 kumulus/logs
 scando/01-capture/scannerapp_client/log
+scando/01-capture/scannerapp_client/Log
 
 # project release file
 kumulus/*.war
