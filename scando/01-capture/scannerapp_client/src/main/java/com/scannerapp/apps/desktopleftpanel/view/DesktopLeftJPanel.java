@@ -253,7 +253,8 @@ public class DesktopLeftJPanel extends BaseJPanel implements IconRepository,
 				new Insets(0, 0, 0, 0), 0, 0));
 	}
 
-	public void fetchChildNodes(String projectId, String parentNodeId) {
+	
+            public void fetchChildNodes(String projectId, String parentNodeId) {
 
 		ArrayList<String> idList = new ArrayList<String>();
 
@@ -285,6 +286,9 @@ public class DesktopLeftJPanel extends BaseJPanel implements IconRepository,
 			getNodeTree().expandPath(path);
 		}
 	}
+            
+            
+          
 
 	private void initNodeDetailPanel() {
 		nameLabelValue.setPreferredSize(new Dimension(180, 13));

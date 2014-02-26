@@ -80,7 +80,7 @@ public void getAndSetNodePropertyValue()
 	//NodeProperties nodeProperty=desktopLeftHelper.getNodePropertyValue(selectedElement.getNodeId());
 	
 	setNodePropertyToLeftPanel(nodeProperty);
-	setNodePropertyToRightFields(nodeProperty);
+	///setNodePropertyToRightFields(nodeProperty);
 	
 }
 
@@ -155,5 +155,7 @@ public ArrayList<NodeProperties> getChildNodePropertiesList(ArrayList<String> id
 	
 	return desktopLeftHelper.getChildNodePropertiesList(idList);
 }
+
+
 
 } //End of Class

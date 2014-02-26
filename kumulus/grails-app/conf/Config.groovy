@@ -136,6 +136,11 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
         '/node/**':                       ['isAuthenticated()'],
         '/project/**':                    ['isAuthenticated()'],
         '/task/**':                       ['isAuthenticated()'],
+
+        '/barcode/**':                    ['ROLE_ADMIN'],
+        '/scanDo/**':                    ['permitAll'],
+
+
         '/shipment/**':                   ['isAuthenticated()'],
         '/product/**':                    ['isAuthenticated()'],
         '/scando/**':                     ['isAuthenticated()'],

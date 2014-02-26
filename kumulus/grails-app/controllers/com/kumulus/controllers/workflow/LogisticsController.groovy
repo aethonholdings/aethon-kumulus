@@ -10,7 +10,7 @@ class LogisticsController {
     
     def generateBarcodeSheet() {     
         def barcodes = []
-        for(i in 0..7) { barcodes.add(logisticsService.generateBarcode()) }
+        for(i in 0..29) { barcodes.add(logisticsService.generateBarcode()) }
         render view: "generateBarcodeSheet", model: [barcodes: barcodes]
     }
     
@@ -18,8 +18,10 @@ class LogisticsController {
         renderBarcodePng("code39Generator", Barcode.findById(params?.id).text)
     }
     
-    def orderMaterials(){
-        render(view:"orderMaterials")
+     def orderMaterials(){
+        def products =  Product.getAll()
+        println(products)
+        render view: "orderMaterials", model: [products: products]
     }
 }       
 
