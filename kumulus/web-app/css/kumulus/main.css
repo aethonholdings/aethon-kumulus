@@ -250,6 +250,10 @@ kumulus-control-group{
     height: 520px;
     margin: 1px;
 }
+.kumulus-container-ordermaterial-inside{
+    height: 480px;
+    margin: 4px;
+}
 
 .kumulus-container-inside-11-24{
     height: 395px;
@@ -398,8 +402,11 @@ label.error{
     margin: 2px;
 }
 .kumulus-table-image{
-    height: 30px;
+    height: 20px;
     margin-left: 10px;
+}
+.kumulus-grand-total-margin-right{
+   margin-right: 120px;
 }
 
 @media (max-width : 700px) {

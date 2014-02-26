@@ -1,9 +1,10 @@
 var pageNo;
 var currentRowObj;
+var grandtotal=0;
 $(document).ready(function() 
 {
-    validate();
-    onLoadPreview()
+//    validate();
+//    onLoadPreview()
     $("#company").autocomplete({
         source: url("company", "search", ""),
         minLength: 2,
@@ -138,6 +139,21 @@ function imagePreview(obj) {
     $('#documentType').focus();
 
 }
+function calculateTotalAmount(price){
+    var total=(price*parseInt($(currentRowObj).find("td #quantity").val()));
+    $(currentRowObj).find("td #totalAmount").text(total);
+    calculategrandTotalAmount()
+}
 
+function calculategrandTotalAmount(){
+  
+    var gtotal=0;
+    $("#table tbody tr").each(function(j) {
+        $(this).find("#totalAmount").each(function(index) {
+            gtotal = parseInt(gtotal)  + parseInt($(this).html());
+        });
+        $('#grandtotal').text(gtotal);
+    });
+}
 
 
