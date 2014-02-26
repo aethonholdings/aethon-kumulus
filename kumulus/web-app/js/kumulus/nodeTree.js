@@ -266,8 +266,6 @@ function save() {
                     comment: $("#comment").val()
                 };
                 target = url('node', 'update', '');
-                
-                 
                 break;
 
             case "INSERT":
