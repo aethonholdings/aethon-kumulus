@@ -24,8 +24,6 @@ import java.net.URL;
  */
 public class ConnectionUtil {
 
-	private static ClientConfig config = null;
-	private static Client client = null;
 	private static WebResource webService = null;
 
 	private static boolean isObjectsInitialized = false;
@@ -33,28 +31,33 @@ public class ConnectionUtil {
 	/**
 	 * Method to get {@link WebResource} object.
 	 * 
+         * @param username
+         * @param password
 	 * @return to get {@link WebResource} object
 	 */
+	public static WebResource getWebService(String username, String password) {
+            webService = null;
+            isObjectsInitialized = false;
+            initObjects(username, password);
+            return webService;
+        }
+
 	public static WebResource getWebService() {
-
-		if (!isObjectsInitialized) {
-			initObjects();
-		}
-
-		return webService;
+            assert isObjectsInitialized == true;
+            return webService;
 	}
 
 	/**
 	 * Method to initialize objects.
 	 */
-	private static void initObjects() {
+	private static void initObjects(String username, String password) {
 
-		config = new DefaultClientConfig();
+		ClientConfig config = new DefaultClientConfig();
 		config.getFeatures().put(JSONConfiguration.FEATURE_POJO_MAPPING,
 				Boolean.TRUE);
 
 		//client = Client.create(config);
-                client = new Client(new URLConnectionClientHandler(
+                Client client = new Client(new URLConnectionClientHandler(
                         new HttpURLConnectionFactory() {
                     Proxy p = null;
                     @Override
@@ -68,7 +71,7 @@ public class ConnectionUtil {
                 }), config);
                 
                 // ADD BASIC AUTHENTICATION
-                HTTPBasicAuthFilter authenticationFilter = new HTTPBasicAuthFilter("mitsos", "mitsaras");
+                HTTPBasicAuthFilter authenticationFilter = new HTTPBasicAuthFilter(username, password);
                 client.addFilter(authenticationFilter);
 		webService = client.resource(ConstantUtil.getApplicationConstant("webServerURL"));
 		isObjectsInitialized = true;

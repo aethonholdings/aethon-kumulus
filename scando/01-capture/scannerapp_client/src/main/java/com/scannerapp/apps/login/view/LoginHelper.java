@@ -125,16 +125,16 @@ public class LoginHelper extends ClientHelper {
 	 * @param loginCredentials
 	 * @return
 	 */
-	public boolean authorizeLogin(ArrayList<String> loginCredentials) {
+	public boolean authorizeLogin(String username, String password) {
                
 		Boolean isAuthorizedLogin = false;
                 
 		try {
-                    ClientResponse response = ConnectionUtil.getWebService()
+                    ClientResponse response = ConnectionUtil.getWebService(username, password)
                                         .path("scanDo").path("authenticate")
 					.type(MediaType.APPLICATION_JSON_TYPE)
 					.accept(MediaType.APPLICATION_JSON_TYPE)
-					.post(ClientResponse.class, loginCredentials);
+					.post(ClientResponse.class, new ArrayList<String>());
                     isAuthorizedLogin = response.getClientResponseStatus() == Status.OK;
                     
 		} 		
