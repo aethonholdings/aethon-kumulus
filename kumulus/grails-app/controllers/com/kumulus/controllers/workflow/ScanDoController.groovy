@@ -37,8 +37,8 @@ class ScanDoController {
     def updateNodeProperties() { }
     
     def fetchChildNodeList() {
-              println(params)   
-              def project = Project.get(params?.projectId)
+        println(params)   
+        def project = Project.get(params?.projectId)
         def nodeList = Node.findAllByProject(project)      
         println("number of nodes"+nodeList.size())
         def responsedata =[]
@@ -48,7 +48,7 @@ class ScanDoController {
             list= new ArrayList()
             list.add(node.project.projectName)
             list.add(node.barcode)
-        renderNode =[
+            renderNode =[
               'barcode':node.barcode, 
               'name':node.name,
               'comment':node.comment,
@@ -74,14 +74,14 @@ class ScanDoController {
             ]
             
             renderNode.hierarchy=list.toString()	     
-             responsedata.add(renderNode)            
+            responsedata.add(renderNode)            
         }     
         println(responsedata)
         render responsedata as JSON 
     }
     
     def getProjectBybarcode() {
-         def responsedata =[
+        def responsedata =[
             'projectId': null,
             'projectName': null
        ]
@@ -98,27 +98,24 @@ class ScanDoController {
     
     
     def fetchSessionData() {
-       println("UserId "+params.username)
-       println("password"+params.password)
         def sessiondata=[:]
-       HashMap<String,String> statusMap= new HashMap<String, String>();
-       HashMap<String,String> nodeTypeMap= new HashMap<String, String>();
-            statusMap.put("Document","D");
-            statusMap.put("Box","B");
-            statusMap.put("Container","C");
-            nodeTypeMap.put("In Progress","0");
-            nodeTypeMap.put("Done","1");
-            nodeTypeMap.put("Sealed","2");                                         
-                                              
-       sessiondata= [                                 
+        HashMap<String,String> statusMap= new HashMap<String, String>();
+        HashMap<String,String> nodeTypeMap= new HashMap<String, String>();
+        statusMap.put("Document","D");
+        statusMap.put("Box","B");
+        statusMap.put("Container","C");
+        nodeTypeMap.put("In Progress","0");
+        nodeTypeMap.put("Done","1");
+        nodeTypeMap.put("Sealed","2");                                                                                       
+        sessiondata= [                                 
              'version': "v1.1.3",
              'userid': params.username,
-             'projectId': "6",
+             'projectId': "-1",
              'collectionRight':"N",
              'breathInterval':"5",
              'importRight':"Y",
              'LocalStoragePath':null,
-             'projectName':"New",
+             'projectName':"Scan barcodes",
              'SeparationTarget':"0",
              'refreshInterval':"600000",
              'totalImagesToUploadAtOnce':"21",
@@ -126,9 +123,8 @@ class ScanDoController {
              'localThumbnailDirPath':null,
              'nodeTypeMap':nodeTypeMap ,
              'setStatusMap':statusMap,
-          ]                                                
-                                              
-       render sessiondata as JSON     
+          ]                                                                             
+        render sessiondata as JSON     
     }
     
     def updateNodePropertiesList() { }

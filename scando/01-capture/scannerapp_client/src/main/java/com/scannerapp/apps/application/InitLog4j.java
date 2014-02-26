@@ -8,7 +8,7 @@ import org.apache.log4j.PropertyConfigurator;
 
 public class InitLog4j {
 	
-	static final String LOG_PROPERTIES_FILE = "resources\\properties\\log4j.properties";
+	static final String LOG_PROPERTIES_FILE = "resources/properties/log4j.properties";
 	
 	public static void initializeLogger() {
 	    Properties logProperties = new Properties();

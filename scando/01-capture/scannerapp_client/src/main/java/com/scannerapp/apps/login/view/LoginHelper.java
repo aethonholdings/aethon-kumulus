@@ -44,7 +44,7 @@ public class LoginHelper extends ClientHelper {
 //	public HashMap<String, String> getProjectList() {
 //
 //		HashMap<String, String> projectList = new HashMap<String, String>();
-//                String projectUrl="http://localhost:8080/kumulus/scanDo/fetchProjectList";
+//              String projectUrl="http://localhost:8080/kumulus/scanDo/fetchProjectList";
 //
 //		try {
 		//	String projectListJson = ConnectionUtil.getWebService()
