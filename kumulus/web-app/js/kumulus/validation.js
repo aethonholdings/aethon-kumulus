@@ -11,13 +11,19 @@ $(document).ready(function(){
         select: function(event, ui) {  
         }
     });
+    
+      $("#editProject").click(function(){
+ 
+        $("#edit div input,textarea").removeAttr("disabled");   
+        $(this).attr('disabled', 'disabled');
+    });
 
 });
 
 
 function validate(){
-    
-    	$("#document ,#project, .add").validate({
+ 
+    	$("#structure ,#project, .add, #edit").validate({
              
 		rules: {
                    
@@ -25,11 +31,11 @@ function validate(){
 			date: "required",
                         identifier:"required",
                         description:"required",
-                        tamount:"required",
+                        amount:"required",
                         projectName:"required",
                         ClientName:"required",
                         pageNo:"required"
-                                                     
+                                            
 	
 		},
 //		messages: {

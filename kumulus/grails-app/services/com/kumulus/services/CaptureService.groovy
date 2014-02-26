@@ -1,4 +1,3 @@
-
 package com.kumulus.services
 
 import com.kumulus.domain.*
@@ -73,6 +72,7 @@ class CaptureService {
                 project: node.project.id
             ]
             return(treeNode)
+           
         }
     }
     
@@ -100,6 +100,18 @@ class CaptureService {
         def nodeList = Node.findAllByProjectAndParent(project, null)  // temporary solution, should be filtering out documents here
         nodeList.each { root.children.add renderNode(it) }
         return(root)
+    }
+    
+    def renderNodeHierarchy(Node node) {
+        def nodes = [renderNode(node)]
+         println("render nodes" + nodes)
+        while(node.parent!=null) {
+            node = node.parent
+            println("parent is" + node)
+            nodes.add(renderNode(node))
+            println("now nodes are" + nodes)
+        }
+        return(nodes)
     }
 
     def indexScan(parentNode, uFile, scanBatch, userId) {
@@ -217,18 +229,4 @@ class CaptureService {
         return(newDocument)
     }
     
-//     def moveNode(targetNode,sourceNodeId){
-//        println("moving")
-//          println("targetNode is " +targetNode)
-//           def childNode= new Node()
-//            childNode.parent=targetNode
-//            childNode.id=sourceNodeId
-//            println(childNode.id)
-//             println(" parent "+ childNode.parent)
-//            childNode.save()
-//            println("child of target is" + childNode)
-     
-//     }   
-
 }
-

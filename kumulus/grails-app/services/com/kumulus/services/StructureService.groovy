@@ -11,28 +11,20 @@ class StructureService {
     def permissionsService
     def grailsApplication
     
-    def update(document, data) {
-        def documentType = DocumentType.findByName(data?.documentType)        
-        Date date
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(grailsApplication.config.kumulus.dateFormat)
-        if(data?.date && simpleDateFormat.parse(data?.date)) date = new Date(data?.date)
+    def updateDocument(String documentId, String documentTypeId, Date date, String identifier) {
+        def document = Document.get(documentId)
+        def documentType = DocumentType.get(documentTypeId)
         if(document && documentType) {
-            // bind the document data
-            bindData(document, [
-                company: data?.company,
-                date: date
-            ])
-
-            // bind the line item data
-            data?.lineItems.each { it ->
-                def lineItem = LineItem.findById(it?.id)
-                if(lineItem) {
-                    
-                } else {
-                    
-                }
-            }
+            document.type = documentType
+            document.date = date
+            document.identifier = identifier
+            document.save()
         }
+        return(document)
     }
-
+    
+    def updateLineItem(String lineItemId, Page page, Currency currency, Date date, String description, float quantity, float price, float amount) {
+        
+        
+    }
 }

@@ -6,60 +6,51 @@
 //workflow UI
 $(document).ready(function(){
     
-     $('#barcode').change(function(){
-         if ($(this).val() == '') {
-           $('#barcode').prop('disabled', true);
-       }
-           else {  
-               $('#name').prop('disabled', false);
-               $('#barcode').prop('disabled', true);
-                 $('#type').prop('disabled', false);
-               $('#type').focus();
+    $('#barcode').change(function(){
+        if ($(this).val() == '') {
+            $('#barcode').prop('disabled', true);
+            $('#button-save').prop('disabled', true);
+        }
+            else {  
+                $('#name').prop('disabled', false);
+                $('#barcode').prop('disabled', true);
+                $('#type').prop('disabled', false);
+                $('#button-save').prop('disabled', false);
+                $('#comment').prop('disabled', false);
+                $('#type').focus();
           }
-  }); 
-  $('#type').change(function(){
-         if ($(this).val() == '') {      
-           $('#type').prop('disabled', true);
-           $('#button-save').prop('disabled', true);
-       }
-           else {
-               $('#comment').prop('disabled', false);
-               $('#barcode').prop('disabled', true);
-               $('#name').prop('disabled', false);           
-              $('#name').focus();
-              $('#button-save').prop('disabled', false);
-          }  
+    }); 
+    $('#type').live('change', function () {
+    // Get the from and to values.
+    var from = $(this).data("from");
+    var to = $(this).val();
+
+    // Remember the from value for next time
+    $(this).data("from", to);
+
+    // Change the text for each field that corresponds with this component.
+    var textBoxes = $(this).closest('div.data-group').find('input:text');
+    textBoxes.each(function () {
+        var curValue = $(this).val();
+        $(this).val($(this).unitConvert({
+            value: curValue,
+            from: from,
+            to: to
+        }));
     });
-    
+ }); 
          $('#name').change(function(){
+             alert(hello);
          if ($(this).val() == '') {
            $('#name').prop('disabled', true);
-           
+            $('#button-save').prop('disabled', true);
        }
            else {             
                $('#type').prop('disabled', false);
                $('#barcode').prop('disabled', true); 
                $('#name').prop('disabled', false);
                $('#comment').focus();
-               
-              
-          }  
-    });
-    
-    
-  
-    
-    
-//    $('#comment').change(function(){
-//         if ($(this).val() == '') {
-//             $('#comment').prop('disabled', true);
-//       }
-//           else {
-//               $('#comment').prop('disabled', false);
-//               $('#barcode').prop('disabled', true);
-//               $('#type').prop('disabled', true);
-//       }  
-//    });
-    
-     
+
+       }  
+    });  
 });

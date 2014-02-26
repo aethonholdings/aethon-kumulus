@@ -28,32 +28,59 @@ table{
     background-position:  center;
     border-radius: 4px;
 }
+/*menu*/
+.kumulus-menu {
+	height: 30px;
+	width: 100%;
+        background-color: #0B5992 ;
+	font-size: 10pt;
+	font-family: 'PT Sans', Arial, sans-serif;
+	position: relative;
+        margin-bottom: 3px;
+}
+.kumulus-menu ul {
+        width: 90%;
+	margin: auto;
+	height: 30px;
+        padding: 0px;
+        -webkit-padding-start:0px;
+}
+.kumulus-menu li {
+	display: inline;
+	float: left;
+        margin-right: 3px;
+        min-width: 19%;
+}
+.kumulus-menu a {
+	color: #fff;
+        width: 100%;
+	display: inline-block;
+	text-align: center;
+	text-decoration: none;
+	text-shadow: 1px 1px 0px #283744;
+        line-height: 30px;
+        font-weight: bold;
+}
 
-.kumulus-menu{
-    width:90%;
-    margin:auto;
+.kumulus-menu li a {
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
 }
-.pure-menu ul{
-    background-color:#0B5992;
-    width: 100%;
-    margin-top: 2px;
+.kumulus-menu li:last-child a {
+	border-right: 0;
 }
-.pure-menu li{
-    margin-left: 2px;
-    margin-right: 1px;
-    min-width: 16%;
-    letter-spacing:.05em
+.kumulus-menu a:hover{
+	background:#fff;
+        color: darkblue;
+        text-shadow: none;
 }
-.pure-menu li a{ 
-    color:#fff;
-    margin-right: .5em;
-    text-align: center;
-    border-style:solid;
+.kumulus-menu a#pull {
+	display: none;
 }
 
-.pure-menu li a:hover{
-    color: darkblue;
-}
+/*menu test*/
+
 /*mainlayout*/
 #layout{
     width:90%;
@@ -66,15 +93,14 @@ table{
 
 .kumulus-hight{
     text-align:left;
-    height: 100px;  
+    height: 103px;  
     margin: Auto;
     line-height: 100px;
-    vertical-align: middle;
 }
+
 .kumulus-label{
     line-height: 15px;
     text-align: left;
-    margin: Auto;
     vertical-align: middle;
     font-size: 2em;
     width:30%
@@ -83,23 +109,29 @@ table{
 .kumulus-float-left{
     float:left;
 }
+
+.kumulus-float-right{
+    float: right;
+    margin-right: 5px;
+}
 .kumulus-barcode-image{
-    height: 70%;
-    width: 10%;
+    height: 100%;
+    width: 15%;
     float: left;
+    line-height: 90px;;
     margin-left: 10px;
     margin-right:10px;
 }
 .kumulus-image{
     vertical-align: middle;
-    
+    width:  70%;
 }
+
 kumulus-control-group{
     margin-bottom:.5em
 }
 
 .kumulus-control-group label{
-        text-align:center;
         display:inline-block;
         vertical-align:middle;
         //width:15em;
@@ -110,6 +142,11 @@ kumulus-control-group{
     margin-bottom: 3px;
 }
 
+.kumulus-search-magrin{
+    padding: 40px 6px;
+    display: inline-block;
+    width: 100%;
+}
 .kumulus-padding{
     padding-left: 40px;
     padding-right: 40px;
@@ -121,22 +158,22 @@ kumulus-control-group{
     a: "color: white;";
 }
 
-#kumulus-session-management{
+.kumulus-session-management{
     float: right;
     color: #fff;
     margin-right: 7px;
     line-height: 60px;
 }
 
-#kumulus-session-management a{
+.kumulus-session-management a{
     color: #91ABAB;
 }
-#kumulus-session-management a:hover{
+.kumulus-session-management a:hover{
     color: #ABA144;
 }
 /* layout body */
-#kumulus-body{
-
+#kumulus-full-width{
+    width: 100%;
 }
 
 .kumulus-container h3{
@@ -152,7 +189,7 @@ kumulus-control-group{
 }
 
 #search{
-    width: 80%;
+    width: 90%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -163,18 +200,56 @@ kumulus-control-group{
     margin: 3px;
     padding: 3px;
 }
+.kumulus-container-1-5{
+    height: 100px;
+    margin: 3px;
+    padding: 3px;
+}
+
+.kumulus-container-1-3{
+    height: 176px;
+    margin: 3px;
+    padding: 3px;
+}
+.kumulus-container-2-3{
+    height: 440px;
+    margin: 3px;
+    padding: 3px;
+}
 
 .kumulus-container-half{
     height: 270px;
+    margin: 3px;
     padding: 3px;
 }
 
-.kumulus-container-half h3{
+.kumulus-container-2-3 h3,.kumulus-container-half h3, .kumulus-container-1-3 h3, .kumulus-container-1-4 h3{
     text-align:center;
 }
+
+
 .kumulus-container-half-1{
     height: 250px;
+    margin: 3px;
     padding: 3px;
+}
+.kumulus-print{
+    width: 100%;
+}
+/*container-inside-box*/
+.kumulus-container-inside{
+    height: 520px;
+    margin: 1px;
+}
+
+.kumulus-container-inside-half{
+    height: 205px;
+    margin: 1px;
+}
+
+.kumulus-container-inside-2-3{
+    height: 320px;
+    margin: 1px;
 }
 
 .kumulus-scrollable-y{
@@ -207,6 +282,10 @@ kumulus-control-group{
     padding: 10px;
     text-align:center;
 }
+.kumulus-button-bank a{
+    margin-top: 4px;
+    
+}
 
 .kumulus-filmstrip{
     background: #eee; 
@@ -228,6 +307,13 @@ kumulus-control-group{
     margin: auto;
 }
 
+.kumulus-control-group input,textarea,select{
+    width: 40%;
+    margin: auto;
+    margin-top: 6px;
+    padding: 4px;
+}
+    
 .kumulus-data-entry{
     padding: 10px;
     overflow-y: auto;
@@ -237,10 +323,6 @@ kumulus-control-group{
     padding: 10px;
     overflow-x: auto;
     overflow-y: auto;
-}
-
-.kumulus-data-entry {
-    
 }
 
 .kumulus-line-item-table {
@@ -254,44 +336,142 @@ kumulus-control-group{
 .error{
     background-color:yellow;
 }
+.pure-control-group label.error{
+    visibility: hidden; 
+    width: 0px;
+    height: 0px;
+}
 label.error{
     visibility: hidden; 
-    width:0px;
+    width: 0px;
     height: 0px;
 }
 .kumulus-vertical-align-top{
     vertical-align: top; 
     padding: 0px;
 }
-
-.kumulus-vertical-align-top input, select{
-    height: 30px;
+.kumulus-vertical-align-top tr{
+    width: 99%;
+}
+.kumulus-vertical-align-top td, th{
+    min-width: 10%
 }
 
-.kumulus-magrin-top{
+.kumulus-vertical-align-top input,select{
+    height: 30px;
+    margin: auto; 
+}
+
+.kumulus-margin-top{
     margin-top: 10px;
 }
-@media (max-width:767px){
+.kumulus-margin-right{
+    margin-right: 15px;
+}
+.kumulus-margin2{
+    margin: 10px;
+}
+
+.kumulus-barcode-layout{
+    width: 29%;
+    padding: 18px 2px;;
+}
+.kumulus-barcode-layout-image{
+    height: 100%
+}
+
+.kumulus-magrin{
+    margin: 2px;
+}
+.kumulus-table-image{
+    height: 30px;
+    margin-left: 10px;
+}
+@media (max-width : 700px) {
+/*    .kumulus-menu{
+        height: 100px;
+        background-color: #fff; 
+    }
+    .kumulus-menu li {
+        background-color: #0B5992 ;
+        float: left;
+        width: 33%;
+        overflow: hidden;
+    }
+    .kumulus-menu li a {
+        border-bottom: 1px solid #576979;
+    }*/
+     .kumulus-label
+    {
+        padding: 3px;
+        width:64%;
+        line-height: 10px;
+        
+    } 
+    .kumulus-control-group input, textarea, select{
+        width: 70%;
+        padding: 2px;
+    }
     .kumulus-hight{
-        text-align:left; 
-        margin: Auto;
-        line-height: 50%;
+        line-height: 50px;
+    }
+    .kumulus-control-group textarea{
+        margin-top: -10px;
+        height: 50px;
+    }
+    .pure-button{
+        padding: 8px 4px;
+    }
+    
+    .pure-form .pure-input-1-2{
+        width:80%;
+        margin: auto;
+    }
+    .kumulus-barcode-print-layout{
+        width: 33%;
+        margin: 4px;
+        float: left;
+        overflow: hidden;
+    }
+}
+@media (max-width : 600px) {
+.kumulus-menu li {
+	display: inline;
+	float: left;
+        min-width: 12%;
+}
+}
+/*Smartphone*/
+@media (max-width : 450px) {
+    .kumulus-menu{
+        height: 155px;
+        background-color: #fff; 
+    }
+    .kumulus-menu li {
+        display: block;
+        background-color: #0B5992 ;
+        float: none;
+        width: 100%;
+        overflow: hidden;
+    }
+    .kumulus-menu li a {
+        border-bottom: 1px solid #576979;
+    }
+    .kumulus-barcode-image{
+        height: 0px;
+        width: 0px;
+        visibility: hidden;
     }
     .kumulus-label
     {
-        line-height: 15px;
-        text-align: left;
-        margin: Auto;
-        vertical-align: middle;
-        font-size: 2em;
-        width:70%
+        padding: 3px;
+        width:90%;
+        line-height: 10px;
+        margin-bottom: 7px;
     } 
-    .pure-menu ul{
-        width: 100%;
-    }
-}
-@media (max-width:767px){
-    .pure-menu ul{
-        width: 100%;
+    .kumulus-control-group input,textarea,select{
+        width: 80%;
+        padding: 3px;
+        margin-left: 1em;
     }
 }

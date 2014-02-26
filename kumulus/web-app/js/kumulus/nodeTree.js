@@ -33,6 +33,7 @@ $(document).ready(function(){
             });
 
         },      
+        
      dnd: {
       onDragStart: function(node) {
        
@@ -92,13 +93,9 @@ $(document).ready(function(){
         logMsg("tree.onDragLeave(%o, %o)", node, sourceNode);
       }
     }
-
-       
-    });
+   });
     tree = $('#nodeTree').dynatree("getTree");
     ready();
-    
-
     
 });
 
@@ -195,18 +192,45 @@ function update_node() {
         state = "UPDATE";
     }
 };
-function search_node(){
-    alert("hello");
-    alert($('#button-search').attr('id'));
-    alert($('#searchPop').attr('id'));
-    $('#searchPop').attr("style","display:block");
-    
+
+function search_node() {
+
+    var barCode = prompt("Please scan barcode");
+    var data = {barCode: barCode}
+    $.ajax({
+        url: url('node', 'searchByBarcode', ''),
+        type: 'POST',
+        data: JSON.stringify(data),
+        contentType: 'application/json; charset=utf-8',
+        dataType: 'json',
+        async: false,
+        success: function(data) {
+            alert(JSON.stringify(data));
+
+            $('#nodeTree').dynatree('getRoot').visit(function(node) { 
+                alert("n"+node.data.title); 
+                node.expand(true);
+            }, true);
+             
+            $.each($('a.dynatree-title'), function() {
+             var match = null; 
+//          alert($(this).text()+">>"+data.title+">>"+($(this).text()==data.title));
+                if ($(this).text() == node.data.title) {
+                    $(this).focus();
+                    return false;
+                  match = node;
+                }
+                alert("Found " + match);
+//                else {
+//                    
+//                }
+
+            });
+           
+        }
+    });
 }
-function hidePopup(){
-    alert("hiding");
-    $('#searchPop').attr("style","display:none");
-    
-}
+
 // --- INPUT INTERFACE ACTIONS
 
 function enable(bool) {
