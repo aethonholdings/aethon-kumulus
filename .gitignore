@@ -28,6 +28,7 @@ kumulus/*.launch
 kumulus/*.tmproj
 kumulus/ivy*
 kumulus/eclipse
+kumulus/scando/01-capture/scannerapp_client/log
 
 # default HSQL database files for production mode
 kumulus/prodDb.*
