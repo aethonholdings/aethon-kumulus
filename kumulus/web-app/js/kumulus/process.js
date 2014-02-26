@@ -1,10 +1,9 @@
 var pageNo;
 var currentRowObj;
-var grandtotal=0;
-$(document).ready(function() 
+$(document).ready(function()
 {
-//    validate();
-//    onLoadPreview()
+    
+    onLoadPreview()
     $("#company").autocomplete({
         source: url("company", "search", ""),
         minLength: 2,
@@ -79,6 +78,31 @@ $(document).ready(function()
         tdObjectAmount.val(total)
     });
 
+    $('#save').click(function() {
+
+        var formObj = $("#structure")
+        var json = ConvertFormToJSON(formObj)
+        validate();
+//       var data = { node: nodeId,selectDate:selectDate}
+        $.ajax({
+            url: url('structure', 'save', ''),
+            type: 'POST',
+            data: JSON.stringify(json),
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            async: false,
+            success: function(data) {
+
+                $.each(data, function(i) {
+
+                    $("#nodeTable").append('<tr><td>' + data[i].name + '</td><td>' + data[i].barcode + '</td><td><input type="checkbox" class="checkbox" name="node_checkbox" id="' + data[i].id + '"></td></tr>');
+                })
+
+            }
+        });
+
+    })
+
 });
 
 function cloneRow() {
@@ -128,7 +152,7 @@ function imagePreview(obj) {
 
     preview($('#preview-img'), obj.attr('viewId'));
     pageNo = obj.attr('pageNumber')
-    
+
     if ($("#pageNo").val().trim().length == 0)
     {
         $('.new.kumulus-column-page').val(obj.attr('pageNumber'));
@@ -154,6 +178,40 @@ function calculategrandTotalAmount(){
         });
         $('#grandtotal').text(gtotal);
     });
+}
+
+function ConvertFormToJSON(form) {
+    var array = jQuery(form).serializeArray();
+    var json = {};
+    var itemList = new Array();
+    var i = 0;
+
+    
+    jQuery.each(array, function() {
+
+        if (i < 5) {
+            json[this.name] = this.value || '';
+        }
+        else {
+
+        }
+        i++;
+    });
+
+    var subMap = {}
+    $("#lineItems tbody tr").each(function(j) {
+        $(this).find(":input").each(function(index) {
+            subMap[$(this).attr("name")] = $(this).val() || '';
+        });
+        console.log(subMap)
+        itemList.push(subMap);
+    })
+     
+    json["lineItems"] = itemList;
+   
+
+
+    return json;
 }
 
 

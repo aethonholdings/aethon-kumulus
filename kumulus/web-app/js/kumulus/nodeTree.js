@@ -1,3 +1,4 @@
+
 var state;
 var tree;
 var selectedNode;
@@ -96,6 +97,36 @@ $(document).ready(function(){
    });
     tree = $('#nodeTree').dynatree("getTree");
     ready();
+    
+    $('#barcode').blur(function(){
+   
+        var data = {barcode: $('#barcode').val()}   
+        $.ajax({
+            url: url('node', 'checkBarcode', ''),
+            type: 'POST',
+            data: JSON.stringify(data),
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            async: false,
+            success: function(data) {
+
+             if(data.status=='true'){
+                alert("Barcode is already used, Please add new")
+                enable(true)
+                $('#barcode').val('')
+                $('#barcode').prop('disabled', false);
+//                $('#button-save').prop('disabled', true);
+                $('#barcode').focus();
+                return false;
+                }
+                else{
+                     enable(false)
+                    $('#button-save').prop('disabled', false);
+                }   
+            }   
+            
+        });
+    });
     
 });
 

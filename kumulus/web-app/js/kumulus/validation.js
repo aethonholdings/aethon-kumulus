@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 $(document).ready(function(){
-    validate();
+//    validate();
     $("#ClientName").autocomplete({
         source: url("company", "search", ""),
         minLength: 2,
@@ -22,7 +22,7 @@ $(document).ready(function(){
 
 
 function validate(){
- 
+ alert("hi")
     	$("#structure ,#project, .add, #edit").validate({
              
 		rules: {
@@ -47,7 +47,7 @@ function validate(){
 //                        projectName:"Please"
 //	
 //		}
-});
+}).form();
 }
 
 
