@@ -34,69 +34,61 @@ $(document).ready(function(){
 
         },      
         
-     dnd: {
-      onDragStart: function(node) {
-       
-        logMsg("tree.onDragStart(%o)", node);
-        return true;
-      },
-      onDragStop: function(node) {
-       
-        logMsg("tree.onDragStop(%o)", node);
-      },
-      autoExpandMS: 1000,
-      preventVoidMoves: true, // Prevent dropping nodes 'before self', etc.
-      onDragEnter: function(node, sourceNode) {
-       
-        logMsg("tree.onDragEnter(%o, %o)", node, sourceNode);
-        return true;
-      },
-      onDragOver: function(node, sourceNode, hitMode) {
-        
-        logMsg("tree.onDragOver(%o, %o, %o)", node, sourceNode, hitMode);
-        
-        if(node.isDescendantOf(sourceNode)){
-          return false;
-        }
-        
-        if( !node.data.isFolder && hitMode === "over" ){
-          return "after";
-        }
-      },
-      onDrop: function(node, sourceNode, hitMode, ui, draggable) {
-        
-        logMsg("tree.onDrop(%o, %o, %s)", node, sourceNode, hitMode);
-        sourceNode.expand(true);
-      
-      var data = { 
-            id: selectedNode.data.id,
-            targetId: node.data.id,
-            hitMode:hitMode,
-        }
-      
-             $.ajax({
-             url: url('node', 'move', ''),
-             type: 'post', 
-             data: JSON.stringify(data),
-             contentType: 'application/json; charset=utf-8',
-             dataType: 'json',
-             async: false,
-             success: function(data) {
-                 sourceNode.move(node, hitMode);
-                 sourceNode.expand(true);
-                 ready();
+        dnd: {
+            onDragStart: function(node) {
+                logMsg("tree.onDragStart(%o)", node);
+                return true;
+            },
+            onDragStop: function(node) {
+                logMsg("tree.onDragStop(%o)", node);
+            },
+            autoExpandMS: 1000,
+            preventVoidMoves: true, // Prevent dropping nodes 'before self', etc.
+            onDragEnter: function(node, sourceNode) {
+                logMsg("tree.onDragEnter(%o, %o)", node, sourceNode);
+                return true;
+            },
+            onDragOver: function(node, sourceNode, hitMode) {    
+                logMsg("tree.onDragOver(%o, %o, %o)", node, sourceNode, hitMode);
+                if(node.isDescendantOf(sourceNode)){
+                    return false;
                 }
-            });
-      },
-      onDragLeave: function(node, sourceNode) {
         
-        logMsg("tree.onDragLeave(%o, %o)", node, sourceNode);
-      }
-    }
-   });
+                if( !node.data.isFolder && hitMode === "over" ){
+                    return "after";
+                }
+            },
+            onDrop: function(node, sourceNode, hitMode, ui, draggable) {
+                logMsg("tree.onDrop(%o, %o, %s)", node, sourceNode, hitMode);
+                sourceNode.expand(true);
+      
+                var data = { 
+                      id: selectedNode.data.id,
+                      targetId: node.data.id,
+                      hitMode:hitMode,
+                }
+
+                $.ajax({
+                    url: url('node', 'move', ''),
+                    type: 'post', 
+                    data: JSON.stringify(data),
+                    contentType: 'application/json; charset=utf-8',
+                    dataType: 'json',
+                    async: false,
+                    success: function(data) {
+                        sourceNode.move(node, hitMode);
+                        sourceNode.expand(true);
+                        ready();
+                    }
+                });
+            },
+            onDragLeave: function(node, sourceNode) {
+                logMsg("tree.onDragLeave(%o, %o)", node, sourceNode);
+            }
+        }
+    });
     tree = $('#nodeTree').dynatree("getTree");
     ready();
-    
 });
 
 
@@ -205,28 +197,29 @@ function search_node() {
         dataType: 'json',
         async: false,
         success: function(data) {
-            alert(JSON.stringify(data));
-
-            $('#nodeTree').dynatree('getRoot').visit(function(node) { 
-                alert("n"+node.data.title); 
-                node.expand(true);
-            }, true);
-             
-            $.each($('a.dynatree-title'), function() {
-             var match = null; 
-//          alert($(this).text()+">>"+data.title+">>"+($(this).text()==data.title));
-                if ($(this).text() == node.data.title) {
-                    $(this).focus();
-                    return false;
-                  match = node;
+            if(data!="") {
+                var keypath = "#";
+                for(var i=data.length-1; i>=0; i--) {
+                    keypath = keypath + "/" + data[i].key.toString();
                 }
-                alert("Found " + match);
-//                else {
-//                    
-//                }
-
-            });
-           
+                tree.loadKeyPath(keypath, function(node, status){
+                    if(status == "loaded") {
+                        // 'node' is a parent that was just traversed.
+                        // If we call expand() here, then all nodes will be expanded
+                        // as we go
+                        node.expand();
+                    }else if(status == "ok") {
+                        // 'node' is the end node of our path.
+                        // If we call activate() or makeVisible() here, then the
+                        // whole branch will be exoanded now
+                        node.activate();
+                    }else if(status == "notfound") {
+                        
+                    }
+                });
+            } else {
+                alert("Barcode not found in this project archive");
+            }
         }
     });
 }
