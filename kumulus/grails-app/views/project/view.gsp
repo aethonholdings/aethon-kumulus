@@ -69,7 +69,7 @@
                     <div class="kumulus-container kumulus-element-border">
                         <div class="kumulus-container-inside kumulus-scrollable-y">
                         </div>
-                            <g:link controller="collect" action="upload" params="[id: "${project?.id}"]" class="pure-button kumulus-float-right">Upload</g:link>
+                            <g:link controller="capture" action="upload" params='[id: "${project?.id}"]' class="pure-button kumulus-float-right">Upload</g:link>
                         </div>  
                  </div>
                   

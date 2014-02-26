@@ -1,4 +1,3 @@
-
 package com.kumulus.services
 
 import com.kumulus.domain.*
@@ -73,6 +72,7 @@ class CaptureService {
                 project: node.project.id
             ]
             return(treeNode)
+           
         }
     }
     
@@ -104,9 +104,12 @@ class CaptureService {
     
     def renderNodeHierarchy(Node node) {
         def nodes = [renderNode(node)]
+         println("render nodes" + nodes)
         while(node.parent!=null) {
             node = node.parent
+            println("parent is" + node)
             nodes.add(renderNode(node))
+            println("now nodes are" + nodes)
         }
         return(nodes)
     }
@@ -227,4 +230,3 @@ class CaptureService {
     }
     
 }
-

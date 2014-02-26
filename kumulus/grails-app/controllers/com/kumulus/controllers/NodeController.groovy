@@ -81,8 +81,8 @@ class NodeController {
         if(data?.targetId=="ROOT") parent = null else parent = Node.findById(data?.targetId)
         def child = Node.findById(data?.id)
         def response = [done: false]
-        if(permissionsService.checkPermissions(parent) && permissionsService.checkPermissions(child)) {
-            if(parent) child.parent = parent else child.parent = null
+        if(permissionsService.checkPermissions(child)) {
+            if(permissionsService.checkPermissions(parent)) child.parent = parent else child.parent = null
             child.save()
             response.done = true
         }
@@ -92,11 +92,12 @@ class NodeController {
     def searchByBarcode() {
         def response = []
         def node=Node.findByBarcode(request.JSON?.barCode)
+        println("node is" + node)
         if(node && permissionsService.checkPermissions(node)) {            
             response = captureService.renderNodeHierarchy(node)
         }
         render response as JSON
-
+       println("response is" +response)
     }
     
     def checkBarcode() {
