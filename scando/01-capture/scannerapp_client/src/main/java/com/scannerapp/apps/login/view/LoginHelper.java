@@ -19,6 +19,7 @@ import com.scannerapp.apps.utils.GetJsonUtil;
 import com.scannerapp.shared.SessionData;
 import com.sun.jersey.api.client.ClientHandlerException;
 import com.sun.jersey.api.client.ClientResponse;
+import com.sun.jersey.api.client.ClientResponse.Status;
 import com.sun.jersey.api.client.UniformInterfaceException;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -134,7 +135,7 @@ public class LoginHelper extends ClientHelper {
 					.type(MediaType.APPLICATION_JSON_TYPE)
 					.accept(MediaType.APPLICATION_JSON_TYPE)
 					.post(ClientResponse.class, loginCredentials);
-                    isAuthorizedLogin = true;
+                    isAuthorizedLogin = response.getClientResponseStatus() == Status.OK;
                     
 		} 		
 		catch (UniformInterfaceException e) {
