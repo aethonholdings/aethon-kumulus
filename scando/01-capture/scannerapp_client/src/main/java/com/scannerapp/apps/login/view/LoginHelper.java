@@ -173,10 +173,9 @@ public class LoginHelper extends ClientHelper {
 	 * Method to fetch the session data from the DB when the user successfully
 	 * logs into the system.
 	 * 
-	 * @param loginCredentials
 	 * @return
 	 */
-	public SessionData fetchSessionData(ArrayList<String> loginCredentials) {
+	public SessionData fetchSessionData() {
 		SessionData sessionData = null;
 
 		try {

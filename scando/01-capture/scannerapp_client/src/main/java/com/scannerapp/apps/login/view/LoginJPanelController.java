@@ -132,15 +132,10 @@ public class LoginJPanelController extends BaseController {
 
 				try {
 
-					ArrayList<String> loginCredentials = new ArrayList<String>();
-
-					loginCredentials.add(username);
-					loginCredentials.add(password);
-
 					if (loginHelper.authorizeLogin(username, password)) {           
                                            
 						SessionUtil.setSessionData(loginHelper
-						.fetchSessionData(loginCredentials));
+						.fetchSessionData());
                                          
                                                   setClientVersionInSession();
 
