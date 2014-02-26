@@ -126,24 +126,16 @@ public class LoginHelper extends ClientHelper {
 	 */
 	public boolean authorizeLogin(ArrayList<String> loginCredentials) {
                
-                String url ="http://localhost:8080/kumulus/scanDo/authenticate?username="+loginCredentials.get(0)+"&password="+loginCredentials.get(1);
 		Boolean isAuthorizedLogin = false;
                 
 		try {
-//			ClientResponse response = ConnectionUtil.getWebService()
-//					.path("loginServices").path("authorizeLogin")
-//					.type(MediaType.APPLICATION_JSON_TYPE)
-//					.accept(MediaType.APPLICATION_JSON_TYPE)
-//					.post(ClientResponse.class, loginCredentials);
-
-			//isAuthorizedLogin = (Boolean) response.getEntity(Boolean.class);
+                    ClientResponse response = ConnectionUtil.getWebService()
+                                        .path("scanDo").path("authenticate")
+					.type(MediaType.APPLICATION_JSON_TYPE)
+					.accept(MediaType.APPLICATION_JSON_TYPE)
+					.post(ClientResponse.class, loginCredentials);
+                    isAuthorizedLogin = true;
                     
-                    JSONObject jsonobj = GetJsonUtil.getJsonfromServer(url);
-                    String json = jsonobj.getString("results");
-                    if(json.equals("true"))
-                        isAuthorizedLogin=true;
-                   
-
 		} 		
 		catch (UniformInterfaceException e) {
 

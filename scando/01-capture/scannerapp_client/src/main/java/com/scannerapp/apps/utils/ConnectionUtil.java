@@ -5,6 +5,7 @@ import com.sun.jersey.api.client.WebResource;
 import com.sun.jersey.api.client.config.ClientConfig;
 import com.sun.jersey.api.client.config.DefaultClientConfig;
 import com.sun.jersey.api.json.JSONConfiguration;
+import com.sun.jersey.api.client.filter.HTTPBasicAuthFilter;
 
 import com.sun.jersey.client.urlconnection.URLConnectionClientHandler;
 import com.sun.jersey.client.urlconnection.HttpURLConnectionFactory;
@@ -60,15 +61,16 @@ public class ConnectionUtil {
                     public HttpURLConnection getHttpURLConnection(URL url) throws IOException {
                         if (p == null) {
                                 p = new Proxy(Proxy.Type.HTTP,
-                                        new InetSocketAddress("192.168.1.7", 8888));
+                                        new InetSocketAddress("127.0.0.1", 8888));
                             }
                         return (HttpURLConnection) url.openConnection(p);
                     }
                 }), config);
-
-
+                
+                // ADD BASIC AUTHENTICATION
+                HTTPBasicAuthFilter authenticationFilter = new HTTPBasicAuthFilter("mitsos", "mitsaras");
+                client.addFilter(authenticationFilter);
 		webService = client.resource(ConstantUtil.getApplicationConstant("webServerURL"));
-
 		isObjectsInitialized = true;
 	}
 }

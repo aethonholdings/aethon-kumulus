@@ -1,0 +1,67 @@
+[2014-02-26 20:42:50,489] ERROR - com.scannerapp.apps.login.view.LoginHelper.authorizeLogin(LoginHelper.java:156) - Error while checking for authorized login.
+[2014-02-26 20:42:50,493] ERROR - com.scannerapp.apps.login.view.LoginHelper.authorizeLogin(LoginHelper.java:157) - Exception : com.sun.jersey.api.client.ClientHandlerException: java.net.ConnectException: Operation timed out
+[2014-02-26 20:43:47,488] ERROR - com.scannerapp.apps.login.view.LoginHelper.authorizeLogin(LoginHelper.java:156) - Error while checking for authorized login.
+[2014-02-26 20:43:47,491] ERROR - com.scannerapp.apps.login.view.LoginHelper.authorizeLogin(LoginHelper.java:157) - Exception : com.sun.jersey.api.client.ClientHandlerException: java.net.ConnectException: Operation timed out
+[2014-02-26 20:46:25,297] ERROR - com.scannerapp.apps.login.view.LoginHelper.authorizeLogin(LoginHelper.java:156) - Error while checking for authorized login.
+[2014-02-26 20:46:25,303] ERROR - com.scannerapp.apps.login.view.LoginHelper.authorizeLogin(LoginHelper.java:157) - Exception : com.sun.jersey.api.client.ClientHandlerException: java.net.ConnectException: Operation timed out
+[2014-02-26 21:01:33,155] ERROR - com.scannerapp.apps.login.view.LoginHelper.authorizeLogin(LoginHelper.java:156) - Error while checking for authorized login.
+[2014-02-26 21:01:33,888] ERROR - com.scannerapp.apps.login.view.LoginHelper.authorizeLogin(LoginHelper.java:157) - Exception : com.sun.jersey.api.client.ClientHandlerException: java.net.ConnectException: Operation timed out
+[2014-02-26 21:11:31,122] ERROR - com.scannerapp.apps.login.view.LoginHelper.authorizeLogin(LoginHelper.java:156) - Error while checking for authorized login.
+[2014-02-26 21:11:31,125] ERROR - com.scannerapp.apps.login.view.LoginHelper.authorizeLogin(LoginHelper.java:157) - Exception : com.sun.jersey.api.client.ClientHandlerException: java.net.ConnectException: Operation timed out
+[2014-02-26 21:29:10,158] ERROR - com.scannerapp.apps.login.view.LoginHelper.authorizeLogin(LoginHelper.java:156) - Error while checking for authorized login.
+[2014-02-26 21:29:10,165] ERROR - com.scannerapp.apps.login.view.LoginHelper.authorizeLogin(LoginHelper.java:157) - Exception : com.sun.jersey.api.client.ClientHandlerException: org.codehaus.jackson.map.JsonMappingException: Can not deserialize instance of java.lang.Boolean out of START_OBJECT token
+ at [Source: sun.net.www.protocol.http.HttpURLConnection$HttpInputStream@75a473fb; line: 1, column: 1]
+[2014-02-26 21:36:18,941] ERROR - com.scannerapp.apps.login.view.LoginHelper.authorizeLogin(LoginHelper.java:155) - Error while checking for authorized login.
+[2014-02-26 21:36:18,947] ERROR - com.scannerapp.apps.login.view.LoginHelper.authorizeLogin(LoginHelper.java:156) - Exception : com.sun.jersey.api.client.ClientHandlerException: org.codehaus.jackson.map.JsonMappingException: Can not deserialize instance of java.lang.Boolean out of START_OBJECT token
+ at [Source: sun.net.www.protocol.http.HttpURLConnection$HttpInputStream@6d4f0202; line: 1, column: 1]
+[2014-02-26 21:39:45,852] ERROR - com.scannerapp.apps.login.view.LoginHelper.authorizeLogin(LoginHelper.java:155) - Error while checking for authorized login.
+[2014-02-26 21:39:45,857] ERROR - com.scannerapp.apps.login.view.LoginHelper.authorizeLogin(LoginHelper.java:156) - Exception : com.sun.jersey.api.client.ClientHandlerException: org.codehaus.jackson.map.JsonMappingException: Can not deserialize instance of java.lang.Boolean out of START_OBJECT token
+ at [Source: sun.net.www.protocol.http.HttpURLConnection$HttpInputStream@29278640; line: 1, column: 1]
+[2014-02-26 21:39:51,200] ERROR - com.scannerapp.apps.login.view.LoginHelper.authorizeLogin(LoginHelper.java:155) - Error while checking for authorized login.
+[2014-02-26 21:39:51,200] ERROR - com.scannerapp.apps.login.view.LoginHelper.authorizeLogin(LoginHelper.java:156) - Exception : com.sun.jersey.api.client.ClientHandlerException: org.codehaus.jackson.map.JsonMappingException: Can not deserialize instance of java.lang.Boolean out of START_OBJECT token
+ at [Source: sun.net.www.protocol.http.HttpURLConnection$HttpInputStream@71856b6b; line: 1, column: 1]
+[2014-02-26 21:39:59,512] ERROR - com.scannerapp.apps.login.view.LoginHelper.authorizeLogin(LoginHelper.java:155) - Error while checking for authorized login.
+[2014-02-26 21:39:59,513] ERROR - com.scannerapp.apps.login.view.LoginHelper.authorizeLogin(LoginHelper.java:156) - Exception : com.sun.jersey.api.client.ClientHandlerException: org.codehaus.jackson.map.JsonMappingException: Can not deserialize instance of java.lang.Boolean out of START_OBJECT token
+ at [Source: sun.net.www.protocol.http.HttpURLConnection$HttpInputStream@1e1c1e6c; line: 1, column: 1]
+[2014-02-26 21:40:36,236] ERROR - com.scannerapp.apps.login.view.LoginHelper.authorizeLogin(LoginHelper.java:155) - Error while checking for authorized login.
+[2014-02-26 21:40:36,236] ERROR - com.scannerapp.apps.login.view.LoginHelper.authorizeLogin(LoginHelper.java:156) - Exception : com.sun.jersey.api.client.ClientHandlerException: org.codehaus.jackson.map.JsonMappingException: Can not deserialize instance of java.lang.Boolean out of START_OBJECT token
+ at [Source: sun.net.www.protocol.http.HttpURLConnection$HttpInputStream@5bc1a591; line: 1, column: 1]
+[2014-02-26 21:43:21,027] ERROR - com.scannerapp.apps.login.view.LoginHelper.authorizeLogin(LoginHelper.java:155) - Error while checking for authorized login.
+[2014-02-26 21:43:21,027] ERROR - com.scannerapp.apps.login.view.LoginHelper.authorizeLogin(LoginHelper.java:156) - Exception : com.sun.jersey.api.client.ClientHandlerException: org.codehaus.jackson.map.JsonMappingException: Can not deserialize instance of java.lang.Boolean out of START_ARRAY token
+ at [Source: sun.net.www.protocol.http.HttpURLConnection$HttpInputStream@25170e53; line: 1, column: 1]
+[2014-02-26 21:46:23,173] ERROR - com.scannerapp.apps.login.view.LoginHelper.authorizeLogin(LoginHelper.java:149) - Error while checking for authorized login.
+[2014-02-26 21:46:23,184] ERROR - com.scannerapp.apps.login.view.LoginHelper.authorizeLogin(LoginHelper.java:150) - Exception : com.sun.jersey.api.client.ClientHandlerException: org.codehaus.jackson.JsonParseException: Unexpected character ('<' (code 60)): expected a valid value (number, String, array, object, 'true', 'false' or 'null')
+ at [Source: sun.net.www.protocol.http.HttpURLConnection$HttpInputStream@2564575; line: 1, column: 2]
+[2014-02-26 21:47:55,403] ERROR - com.scannerapp.apps.login.view.LoginHelper.authorizeLogin(LoginHelper.java:149) - Error while checking for authorized login.
+[2014-02-26 21:47:55,403] ERROR - com.scannerapp.apps.login.view.LoginHelper.authorizeLogin(LoginHelper.java:150) - Exception : com.sun.jersey.api.client.ClientHandlerException: A message body reader for Java class java.lang.Boolean, and Java type class java.lang.Boolean, and MIME media type text/html; charset=UTF-8 was not found
+[2014-02-26 21:48:40,187] ERROR - com.scannerapp.apps.login.view.LoginHelper.authorizeLogin(LoginHelper.java:149) - Error while checking for authorized login.
+[2014-02-26 21:48:40,188] ERROR - com.scannerapp.apps.login.view.LoginHelper.authorizeLogin(LoginHelper.java:150) - Exception : com.sun.jersey.api.client.ClientHandlerException: A message body reader for Java class java.lang.Boolean, and Java type class java.lang.Boolean, and MIME media type text/html; charset=UTF-8 was not found
+[2014-02-26 21:50:03,689] ERROR - com.scannerapp.apps.login.view.LoginHelper.authorizeLogin(LoginHelper.java:149) - Error while checking for authorized login.
+[2014-02-26 21:50:03,693] ERROR - com.scannerapp.apps.login.view.LoginHelper.authorizeLogin(LoginHelper.java:150) - Exception : com.sun.jersey.api.client.ClientHandlerException: A message body reader for Java class java.lang.Boolean, and Java type class java.lang.Boolean, and MIME media type text/html; charset=UTF-8 was not found
+[2014-02-26 21:50:39,111] ERROR - com.scannerapp.apps.login.view.LoginHelper.authorizeLogin(LoginHelper.java:149) - Error while checking for authorized login.
+[2014-02-26 21:50:39,111] ERROR - com.scannerapp.apps.login.view.LoginHelper.authorizeLogin(LoginHelper.java:150) - Exception : com.sun.jersey.api.client.ClientHandlerException: A message body reader for Java class java.lang.Boolean, and Java type class java.lang.Boolean, and MIME media type text/html; charset=UTF-8 was not found
+[2014-02-26 21:51:00,253] ERROR - com.scannerapp.apps.login.view.LoginHelper.authorizeLogin(LoginHelper.java:149) - Error while checking for authorized login.
+[2014-02-26 21:51:00,253] ERROR - com.scannerapp.apps.login.view.LoginHelper.authorizeLogin(LoginHelper.java:150) - Exception : com.sun.jersey.api.client.ClientHandlerException: org.codehaus.jackson.JsonParseException: Unexpected character ('<' (code 60)): expected a valid value (number, String, array, object, 'true', 'false' or 'null')
+ at [Source: sun.net.www.protocol.http.HttpURLConnection$HttpInputStream@1e1c1e6c; line: 1, column: 2]
+[2014-02-26 21:51:54,954] ERROR - com.scannerapp.apps.login.view.LoginHelper.authorizeLogin(LoginHelper.java:149) - Error while checking for authorized login.
+[2014-02-26 21:51:54,956] ERROR - com.scannerapp.apps.login.view.LoginHelper.authorizeLogin(LoginHelper.java:150) - Exception : com.sun.jersey.api.client.ClientHandlerException: org.codehaus.jackson.map.JsonMappingException: Can not deserialize instance of java.lang.Boolean out of START_ARRAY token
+ at [Source: sun.net.www.protocol.http.HttpURLConnection$HttpInputStream@2f9bdbb5; line: 1, column: 1]
+[2014-02-26 21:52:58,762] ERROR - com.scannerapp.apps.login.view.LoginHelper.authorizeLogin(LoginHelper.java:149) - Error while checking for authorized login.
+[2014-02-26 21:52:58,766] ERROR - com.scannerapp.apps.login.view.LoginHelper.authorizeLogin(LoginHelper.java:150) - Exception : com.sun.jersey.api.client.ClientHandlerException: org.codehaus.jackson.map.JsonMappingException: Can not deserialize instance of java.lang.Boolean out of START_ARRAY token
+ at [Source: sun.net.www.protocol.http.HttpURLConnection$HttpInputStream@17a41aba; line: 1, column: 1]
+[2014-02-26 21:54:36,690] ERROR - com.scannerapp.apps.login.view.LoginHelper.authorizeLogin(LoginHelper.java:149) - Error while checking for authorized login.
+[2014-02-26 21:54:36,693] ERROR - com.scannerapp.apps.login.view.LoginHelper.authorizeLogin(LoginHelper.java:150) - Exception : com.sun.jersey.api.client.ClientHandlerException: org.codehaus.jackson.map.JsonMappingException: Can not deserialize instance of java.lang.Boolean out of START_OBJECT token
+ at [Source: sun.net.www.protocol.http.HttpURLConnection$HttpInputStream@75a473fb; line: 1, column: 1]
+[2014-02-26 22:00:51,489] ERROR - com.scannerapp.apps.login.view.LoginHelper.authorizeLogin(LoginHelper.java:149) - Error while checking for authorized login.
+[2014-02-26 22:00:51,492] ERROR - com.scannerapp.apps.login.view.LoginHelper.authorizeLogin(LoginHelper.java:150) - Exception : com.sun.jersey.api.client.ClientHandlerException: java.net.ConnectException: Connection refused
+[2014-02-26 22:23:20,195] ERROR - com.scannerapp.apps.login.view.LoginHelper.authorizeLogin(LoginHelper.java:149) - Error while checking for authorized login.
+[2014-02-26 22:23:20,197] ERROR - com.scannerapp.apps.login.view.LoginHelper.authorizeLogin(LoginHelper.java:150) - Exception : com.sun.jersey.api.client.ClientHandlerException: org.codehaus.jackson.map.JsonMappingException: Can not deserialize instance of java.lang.Boolean out of START_ARRAY token
+ at [Source: sun.net.www.protocol.http.HttpURLConnection$HttpInputStream@18e72522; line: 1, column: 1]
+[2014-02-26 22:30:32,334] ERROR - com.scannerapp.apps.login.view.LoginHelper.fetchSessionData(LoginHelper.java:237) - Error while fetching session data.
+[2014-02-26 22:30:32,339] ERROR - com.scannerapp.apps.login.view.LoginHelper.fetchSessionData(LoginHelper.java:238) - Exception : java.lang.NullPointerException
+[2014-02-26 22:31:15,810] ERROR - com.scannerapp.apps.login.view.LoginHelper.fetchSessionData(LoginHelper.java:237) - Error while fetching session data.
+[2014-02-26 22:31:15,810] ERROR - com.scannerapp.apps.login.view.LoginHelper.fetchSessionData(LoginHelper.java:238) - Exception : java.lang.NullPointerException
+[2014-02-26 22:32:00,737] ERROR - com.scannerapp.apps.login.view.LoginHelper.fetchSessionData(LoginHelper.java:237) - Error while fetching session data.
+[2014-02-26 22:32:00,738] ERROR - com.scannerapp.apps.login.view.LoginHelper.fetchSessionData(LoginHelper.java:238) - Exception : java.lang.NullPointerException
+[2014-02-26 22:35:50,083] ERROR - com.scannerapp.apps.login.view.LoginHelper.fetchSessionData(LoginHelper.java:237) - Error while fetching session data.
+[2014-02-26 22:35:50,085] ERROR - com.scannerapp.apps.login.view.LoginHelper.fetchSessionData(LoginHelper.java:238) - Exception : java.lang.NullPointerException

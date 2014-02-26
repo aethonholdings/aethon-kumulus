@@ -4,19 +4,12 @@ import grails.converters.*
 import com.kumulus.domain.*
 class ScanDoController {
     
-    
     // action to handle authentication
     def authenticate() {
-       def results = "true"
-     
-       println("UserId "+params.username)
-       println("password"+params.password)
-       
-       //authentication code goes here 
-        def responseData = [
-            'results': results,
-         ]
-        render responseData as JSON  
+        def data = request.JSON
+        println(data)
+        def response = [true]
+        render response as JSON  
     }
     
     def fetchProjectList(){     
