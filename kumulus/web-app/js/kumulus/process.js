@@ -191,7 +191,7 @@ function ConvertFormToJSON(form) {
     
     jQuery.each(array, function() {
 
-        if (i < 6) {
+        if (i < 7) {
             json[this.name] = this.value || '';
         }
         else {

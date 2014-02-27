@@ -15,7 +15,20 @@ class WorkflowService {
             (Task.TYPE_VALIDATE): [create: Document.STATUS_PROCESSED, complete: Document.STATUS_FINAL, error: null]
         ]
     }
-
+    
+    def getTaskQueues(String userId) {
+        def queues = [
+            count: 0,
+            types: [:]
+        ]
+        stateMap().each {
+            def tasks = Task.findAllByUserIdAndTypeAndCompleted(userId, it.key, null, [sort:"created", order:"asc"])
+            queues.types.put(it.key, [count: tasks.size(), tasks: tasks])
+            queues.count += tasks.size().toLong()
+        }
+        return(queues)
+    }
+        
     def createTask(Document document, String taskType, String createdByUserId) {
         Task task
         
@@ -34,67 +47,6 @@ class WorkflowService {
             task.save()
         }
         return(task)
-    }
-    
-    def openTaskSummary(String userId) {
-        def taskSummary
-        // query to get the set of tasks summarised by the database
-        def criteria = Task.createCriteria()
-        if(userId)
-            taskSummary = criteria.list {
-                eq("userId", userId)
-                isNull("completed")
-                projections {
-                    sqlGroupProjection "project_id, type, count(id) as taskCount", "project_id, type", ["project_id", "type", "taskCount"], [LONG, STRING, LONG]
-                }
-                order("project", "asc")
-                order("created", "asc")
-            }
-        else {
-            taskSummary = criteria.list {
-                isNull("completed")
-                projections {
-                    sqlGroupProjection "project_id, type, count(id) as taskCount", "project_id, type", ["project_id", "type", "taskCount"], [LONG, STRING, LONG]
-                }
-                order("project", "asc")
-                order("created", "asc")
-            }            
-        }
-        
-        // package the tasks for consumption
-        def tasks = [
-            total: Task.findAllByUserIdAndCompleted(userId, null).size, 
-            type: [
-                (Task.TYPE_BUILD): [
-                    total: 0,
-                    list: []
-                ], 
-                (Task.TYPE_OCR): [
-                    total: 0,
-                    list: []                    
-                ], 
-                (Task.TYPE_PROCESS): [
-                    total: 0,
-                    list: []                    
-                ],
-                (Task.TYPE_REVIEW): [
-                    total: 0,
-                    list: []                    
-                ], 
-                (Task.TYPE_VALIDATE): [
-                    total: 0,
-                    list: []                    
-                ]
-            ]
-        ]
-        
-        taskSummary.each { 
-            def project = Project.findById(it[0])
-            def row = [project: project, taskCount: it[2]]
-            tasks.type.(it[1].toString()).total += row.taskCount
-            tasks.type.(it[1].toString()).list.add(row)
-        }
-        return(tasks)
     }
     
     def getNextTask(String taskType) {

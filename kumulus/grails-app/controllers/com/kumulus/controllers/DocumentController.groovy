@@ -24,7 +24,6 @@ class DocumentController {
         }
         def document = captureService.merge(documents)
         tasks.each { workflowService.completeTask(it) }
-        // DUMMY IMPLEMENTATION OF OCR STEP NEEDS TO BE REMOVED
         workflowService.completeTask(workflowService.createTask(document, Task.TYPE_OCR, permissionsService.getUsername()))  
         workflowService.createTask(document, Task.TYPE_PROCESS, permissionsService.getUsername())        
         response.done = true

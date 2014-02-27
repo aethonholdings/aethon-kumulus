@@ -12,8 +12,9 @@ class HomeController {
             company == permissionsService.getCompany()
             status == Project.STATUS_ACTIVE
         }
-        def userTasks = workflowService.openTaskSummary(permissionsService.getUsername())
-        def backOfficeTasks = workflowService.openTaskSummary(null)
+        
+        def userTasks = workflowService.getTaskQueues(permissionsService.getUsername())
+        def backOfficeTasks = workflowService.getTaskQueues(null)
         render(view:"index", model:[pageTitle: "Home", projectList: projectList, userTasks: userTasks, backOfficeTasks: backOfficeTasks])
     }
 
