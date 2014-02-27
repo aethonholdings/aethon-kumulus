@@ -22,7 +22,7 @@ $(document).ready(function(){
 
 
 function validate(){
- alert("hi")
+
     	$("#structure ,#project, .add, #edit").validate({
              
 		rules: {
@@ -47,6 +47,7 @@ function validate(){
 //                        projectName:"Please"
 //	
 //		}
+
 }).form();
 }
 

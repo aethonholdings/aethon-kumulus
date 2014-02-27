@@ -71,6 +71,38 @@
                  <div class="pure-u-1-3">
                     <div class="kumulus-container kumulus-element-border">
                         <div class="kumulus-container-inside kumulus-scrollable-y">
+                            <div class="pure-form">
+                                <table>
+                                    <tr>
+                                        <td> Type:</td>
+                                        <td> <input type="text" readonly=""/> </td>
+                                    </tr>
+                                    <tr>
+                                        <td> Location:</td>
+                                        <td> <input type="text" readonly=""/> </td>
+                                    </tr>
+                                    <tr>
+                                        <td> Status:</td>
+                                        <td> <input type="text" readonly=""/> </td>
+                                    </tr>
+                                </table>
+                                <div>
+                                    <input type="button"  value="Ready" class="pure-button kumulus-float-right"/>
+                                </div>
+                            </div>
+                            
+                            <div>
+                                <table>
+                                    <th>
+                                        <td> &nbsp;</td>
+                                        <td> Status</td>
+                                    </th>
+                                    <tr>
+                                        <td> &nbsp;</td>
+                                        <td> Status</td>
+                                    </tr>
+                                </table>
+                            </div>
                         </div>
                             <g:link controller="capture" action="upload" params='[id: "${project?.id}"]' class="pure-button kumulus-float-right">Upload</g:link>
                         </div>  
