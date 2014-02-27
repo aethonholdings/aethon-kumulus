@@ -143,7 +143,12 @@ kumulus-control-group{
 }
 
 .kumulus-margin-left{
-    margin-left: 3px;
+    margin-left: 12px;
+}
+
+.kumulus-bold-font{
+    font-weight: bold; 
+    font-size: 14px;
 }
 .kumulus-search-margin{
     display: inline-block;
@@ -405,13 +410,20 @@ label.error{
     margin: 2px;
 }
 .kumulus-table-image{
-    height: 20px;
+    height: 100px;
+    width: 150px;
     margin-left: 10px;
+    padding: 2px;
+    border: #97D0E8 solid 1px;
+    border-radius: 5px;
 }
 .kumulus-grand-total-margin-right{
    margin-right: 115px;
 }
 
+.kumulus-small-input-box{
+    width: 50px;
+}
 @media (max-width : 700px) {
 /*    .kumulus-menu{
         height: 100px;

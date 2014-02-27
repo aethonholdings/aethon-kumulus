@@ -163,9 +163,12 @@ function imagePreview(obj) {
     $('#documentType').focus();
 
 }
-function calculateTotalAmount(price){
+function calculateTotalAmount(price, q){
+    console.log($(currentRowObj).text());
+    console.log($(currentRowObj).find("#quantity").val());
     var total=(price*parseInt($(currentRowObj).find("td #quantity").val()));
-    $(currentRowObj).find("td #totalAmount").text(total);
+    $(currentRowObj).find("#totalAmount").text(total);
+    console.log(total);
     calculategrandTotalAmount()
 }
 
