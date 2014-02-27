@@ -35,6 +35,7 @@
                                     <div class="kumulus-container-half kumulus-element-border">
                                         <div class="kumulus-data-entry">
                                             <fieldset>
+                                                <input type="hidden" name ="documentId" value="${document.id}"/>
                                                 <div class="pure-control-group">
                                                     <label for="documentType">* Document type</label>
                                                     <select id="documentType" name="documentType" value="${document.type}" class="pure-input-1">
