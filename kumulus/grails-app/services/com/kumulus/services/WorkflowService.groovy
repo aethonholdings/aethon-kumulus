@@ -6,20 +6,33 @@ import grails.transaction.Transactional
 
 @Transactional
 class WorkflowService {
+    
+    private def stateMap = {
+        def map = [
+            (Task.TYPE_BUILD): [create: Document.STATUS_IMPORTED, complete: Document.STATUS_BUILT, error: null],
+            (Task.TYPE_OCR): [create: Document.STATUS_BUILT, complete: Document.STATUS_SEARCHABLE, error: Document.STATUS_SUBMISSION_ERROR],
+            (Task.TYPE_PROCESS): [create: Document.STATUS_SEARCHABLE, complete: Document.STATUS_PROCESSED, error: null],
+            (Task.TYPE_VALIDATE): [create: Document.STATUS_PROCESSED, complete: Document.STATUS_FINAL, error: null]
+        ]
+    }
 
     def createTask(Document document, String taskType, String createdByUserId) {
-        def task = new Task(
-            project: document.project,
-            created: new Date(),
-            started: null,
-            completed: null,
-            createdBy: createdByUserId,
-            userId: null,
-            document: document,
-            type: taskType,
-            status: null
-        )
-        task.save()
+        Task task
+        
+        if(stateMap().get(taskType)?.create==document.status) { 
+            task = new Task(
+                project: document.project,
+                created: new Date(),
+                started: null,
+                completed: null,
+                createdBy: createdByUserId,
+                userId: null,
+                document: document,
+                type: taskType,
+                status: null
+            )
+            task.save()
+        }
         return(task)
     }
     
@@ -52,19 +65,23 @@ class WorkflowService {
         def tasks = [
             total: Task.findAllByUserIdAndCompleted(userId, null).size, 
             type: [
-                (Task.BUILD_DOCUMENT): [
+                (Task.TYPE_BUILD): [
                     total: 0,
                     list: []
                 ], 
-                (Task.OCR_DOCUMENT): [
+                (Task.TYPE_OCR): [
                     total: 0,
                     list: []                    
                 ], 
-                (Task.PROCESS_DOCUMENT): [
+                (Task.TYPE_PROCESS): [
                     total: 0,
                     list: []                    
                 ],
-                (Task.REVIEW_DOCUMENT): [
+                (Task.TYPE_REVIEW): [
+                    total: 0,
+                    list: []                    
+                ], 
+                (Task.TYPE_VALIDATE): [
                     total: 0,
                     list: []                    
                 ]
@@ -83,7 +100,7 @@ class WorkflowService {
     def getNextTask(String taskType) {
         def task
         switch(taskType) {
-            case Task.PROCESS_DOCUMENT.toString():
+            case Task.TYPE_PROCESS.toString():
                 task = Task.findByTypeAndCompleted(taskType, null, [order: "created", type: "asc"])
                 break
         }
@@ -103,6 +120,8 @@ class WorkflowService {
     }
     
     def completeTask(Task task) {
+        task.document.status = stateMap().get(task.type).complete
+        task.document.save()
         task.completed = new Date()
         task.save()
         return(task)

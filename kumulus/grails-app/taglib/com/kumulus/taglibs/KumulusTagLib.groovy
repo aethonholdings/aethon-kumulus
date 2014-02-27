@@ -56,13 +56,13 @@ class KumulusTagLib {
     
     def taskDescription = { attrs, body ->
         switch(attrs?.task.type) {
-            case(Task.BUILD_DOCUMENT):
+            case(Task.TYPE_BUILD):
                 out << "Build document"
                 break
-            case(Task.OCR_DOCUMENT):
+            case(Task.TYPE_OCR):
                 out << "OCR document"
                 break
-            case(Task.REVIEW_DOCUMENT):
+            case(Task.TYPE_REVIEW):
                 out << "Review document"
                 break
         }

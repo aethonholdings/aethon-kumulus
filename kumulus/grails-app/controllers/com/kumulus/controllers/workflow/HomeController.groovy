@@ -24,7 +24,7 @@ class HomeController {
     }
     
     def review() { 
-        redirect(controller:"task", action:"list", params:[type: Task.REVIEW_DOCUMENT])
+        redirect(controller:"task", action:"list", params:[type: Task.TYPE_REVIEW])
     }
      
     def order() { 
@@ -50,7 +50,7 @@ class HomeController {
     }
     
     def build() {
-        redirect(controller:"task", action:"listGroupByProject", params:[type: Task.BUILD_DOCUMENT])
+        redirect(controller:"task", action:"listGroupByProject", params:[type: Task.TYPE_BUILD])
     }
     
     def pickup() {
@@ -59,7 +59,7 @@ class HomeController {
     
     // PROCESS USER CONTROLLER ACTIONS
     def process() { 
-        redirect(controller:"task", action:"list", params:[type: Task.OCR_DOCUMENT])
+        redirect(controller:"task", action:"list", params:[type: Task.TYPE_OCR])
     }
     
 }

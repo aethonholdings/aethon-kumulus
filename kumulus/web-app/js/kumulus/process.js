@@ -2,7 +2,7 @@ var pageNo;
 var currentRowObj;
 $(document).ready(function()
 {
-    
+
     onLoadPreview()
     $("#company").autocomplete({
         source: url("company", "search", ""),
@@ -10,6 +10,7 @@ $(document).ready(function()
         select: function(event, ui) {
         }
     });
+    
 
     $('.kumulus-filmstrip > ul > li > img').bind('mousedown', function(e) {
         imagePreview($(this))
@@ -79,11 +80,14 @@ $(document).ready(function()
     });
 
     $('#save').click(function() {
-
-        var formObj = $("#structure")
-        var json = ConvertFormToJSON(formObj)
-        validate();
-//       var data = { node: nodeId,selectDate:selectDate}
+        
+         var formObj = $("#structure")
+         validate()  
+         var status=$("#structure").valid();
+       
+         if(status){
+          var json = ConvertFormToJSON(formObj)
+          
         $.ajax({
             url: url('structure', 'save', ''),
             type: 'POST',
@@ -100,6 +104,8 @@ $(document).ready(function()
 
             }
         });
+
+         }
 
     })
 
@@ -123,23 +129,16 @@ function send(obj) {
 }
 
 function CheckNumeric(e) {
-
-
-    if (window.event) // IE 
-    {
-        if ((e.keyCode < 48 || e.keyCode > 57) & e.keyCode != 8) {
-            event.returnValue = false;
-            return false;
-
+var keyCode = e.which; 
+if (keyCode != 8 && keyCode != 9 && keyCode != 13 && keyCode != 37 && keyCode != 38 && keyCode != 39 && keyCode != 40 && keyCode != 46 && keyCode != 110 && keyCode != 190) {
+            if (keyCode < 48) {
+                e.preventDefault();
+            } else if (keyCode > 57 && keyCode < 96) {
+                e.preventDefault();
+            } else if (keyCode > 105) {
+                e.preventDefault();
+            }
         }
-    }
-    else { // Fire Fox
-        if ((e.which < 48 || e.which > 57) & e.which != 8) {
-            e.preventDefault();
-            return false;
-
-        }
-    }
 }
 
 function onLoadPreview() {
@@ -163,9 +162,12 @@ function imagePreview(obj) {
     $('#documentType').focus();
 
 }
-function calculateTotalAmount(price){
+function calculateTotalAmount(price, q){
+    console.log($(currentRowObj).text());
+    console.log($(currentRowObj).find("#quantity").val());
     var total=(price*parseInt($(currentRowObj).find("td #quantity").val()));
-    $(currentRowObj).find("td #totalAmount").text(total);
+    $(currentRowObj).find("#totalAmount").text(total);
+    console.log(total);
     calculategrandTotalAmount()
 }
 
@@ -209,7 +211,7 @@ function ConvertFormToJSON(form) {
      
     json["lineItems"] = itemList;
    
-
+console.log(json)
 
     return json;
 }

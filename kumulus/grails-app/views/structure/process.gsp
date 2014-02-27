@@ -92,9 +92,9 @@
                                             </td>
                                             <td><input id="focus" name="description" size="25" type=text value="" class="kumulus-column-description new" ></input></td>
                                             <td><input id="lineItemDate" name="lineItemDate" size="4" type="date" value="" class="kumulus-column-date new"></input></td>
-                                            <td><input id="quantity" name="quantity" type=text  size="6" value="" class="kumulus-column-quantity new" onkeypress="CheckNumeric(event)"></input></td>
-                                            <td><input id="price" name="price" size="6" type="text" value="" class="kumulus-column-price new" onkeypress="CheckNumeric(event)" onchange="total(this)"></input></td>
-                                            <td><input id="amount" name ="amount" size="6" type="text"  value="" class="kumulus-column-amount new" onkeypress="CheckNumeric(event)" id="test"></input></td>
+                                            <td><input id="quantity" name="quantity" type=text  size="6" value="" class="kumulus-column-quantity new" onkeydown="CheckNumeric(event)"></input></td>
+                                            <td><input id="price" name="price" size="6" type="text" value="" class="kumulus-column-price new" onkeydown="CheckNumeric(event)" onchange="total(this)"></input></td>
+                                            <td><input id="amount" name ="amount" size="6" type="text"  value="" class="kumulus-column-amount new" onkeydown="CheckNumeric(event)" id="test"></input></td>
                                             <td><a class="add" href="#" >Add</a></td>
                                         </tr>
                                     </tbody>
