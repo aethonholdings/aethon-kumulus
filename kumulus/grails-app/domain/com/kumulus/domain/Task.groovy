@@ -3,10 +3,11 @@ package com.kumulus.domain
 class Task {
     
     // type enum constants
-    static final String BUILD_DOCUMENT= "BUILD"
-    static final String OCR_DOCUMENT= "OCR"
-    static final String PROCESS_DOCUMENT= "PROCESS"
-    static final String REVIEW_DOCUMENT= "REVIEW"
+    static final String TYPE_BUILD= "BUILD"
+    static final String TYPE_OCR= "OCR"
+    static final String TYPE_PROCESS= "PROCESS"
+    static final String TYPE_REVIEW= "REVIEW"
+    static final String TYPE_VALIDATE= "VALIDATE"
 
     Project project
     Document document    
