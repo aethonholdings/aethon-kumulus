@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.6.10)
 # Database: kumulus
-# Generation Time: 2014-02-18 16:53:44 +0000
+# Generation Time: 2014-02-27 08:31:32 +0000
 # ************************************************************
 
 
@@ -18,6 +18,11 @@
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+
+# Dump of table barcode
+# ------------------------------------------------------------
+
 
 
 # Dump of table company
@@ -255,12 +260,12 @@ UNLOCK TABLES;
 LOCK TABLES `node_type` WRITE;
 /*!40000 ALTER TABLE `node_type` DISABLE KEYS */;
 
-INSERT INTO `node_type` (`id`, `version`, `code`, `description`, `image_path`, `name`, `is_container`)
+INSERT INTO `node_type` (`id`, `version`, `code`, `description`, `image_path`, `is_container`, `name`)
 VALUES
-	(1,0,'B','','','Box',1),
-	(2,0,'C','','','Container',1),
-	(3,0,'P','','','Page',0),
-	(4,0,'O','','','Other',1);
+	(1,0,'B','','',1,'Box'),
+	(2,0,'C','','',1,'Container'),
+	(3,0,'P','','',0,'Page'),
+	(4,0,'O','','',1,'Other');
 
 /*!40000 ALTER TABLE `node_type` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -269,6 +274,22 @@ UNLOCK TABLES;
 # Dump of table page
 # ------------------------------------------------------------
 
+
+
+# Dump of table product
+# ------------------------------------------------------------
+
+LOCK TABLES `product` WRITE;
+/*!40000 ALTER TABLE `product` DISABLE KEYS */;
+
+INSERT INTO `product` (`id`, `version`, `description`, `image_path`, `name`, `price`)
+VALUES
+	(1,0,'30 barcodes per sheet','grails_logo.png','Barcode sheet',1),
+	(2,0,'Standard Kumulus storage boxes','grails_logo.png','Packaging boxes',1),
+	(3,0,'Kumulus barcode scanner','grails_logo.png','Barcode scanner',120);
+
+/*!40000 ALTER TABLE `product` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table project
@@ -286,6 +307,21 @@ UNLOCK TABLES;
 
 
 
+# Dump of table shipment
+# ------------------------------------------------------------
+
+
+
+# Dump of table shipment_node
+# ------------------------------------------------------------
+
+
+
+# Dump of table shipment_product
+# ------------------------------------------------------------
+
+
+
 # Dump of table task
 # ------------------------------------------------------------
 
@@ -294,8 +330,6 @@ UNLOCK TABLES;
 # Dump of table ufile
 # ------------------------------------------------------------
 
-
-UNLOCK TABLES;
 
 
 

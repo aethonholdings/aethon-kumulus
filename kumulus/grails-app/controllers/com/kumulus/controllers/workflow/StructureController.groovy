@@ -10,7 +10,7 @@ class StructureController {
     
     def process() {
         // NEED TO SECURE THIS BASED ON BACK OFFICE PERMISSIONS
-        def task = workflowService.getNextTask(Task.PROCESS_DOCUMENT)
+        def task = workflowService.getNextTask(Task.TYPE_PROCESS)
         def currencies = Currency.listOrderByFullName()
         def documentTypes = DocumentType.listOrderByName()
         def document = task.document
