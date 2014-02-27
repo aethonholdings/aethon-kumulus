@@ -91,7 +91,7 @@ public class ImportSaparationPanelHelper extends ClientHelper {
 		try {
 			ClientResponse response = ConnectionUtil.getWebService()
 					.path("nodeServices").path("fetchChildNodeList")
-					.type(MediaType.APPLICATION_JSON_TYPE)
+			 		.type(MediaType.APPLICATION_JSON_TYPE)
 					.accept(MediaType.APPLICATION_JSON_TYPE)
 					.post(ClientResponse.class, idList);
 

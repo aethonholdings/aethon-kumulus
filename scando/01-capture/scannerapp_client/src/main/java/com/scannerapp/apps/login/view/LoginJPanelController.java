@@ -132,21 +132,10 @@ public class LoginJPanelController extends BaseController {
 
 				try {
 
-					ArrayList<String> loginCredentials = new ArrayList<String>();
-
-					loginCredentials.add(username);
-					// loginCredentials.add(username + "_" + password);
-					String encryptedPassword = encryptPasswordUsingSha1(username
-							+ " " + password);
-					// log.info("Encrypt : " + encryptedPassword);
-					loginCredentials.add(encryptedPassword);
-					//loginCredentials.add(projecId);
-					//loginCredentials.add(projectName);
-
-					if (loginHelper.authorizeLogin(loginCredentials)) {           
+					if (loginHelper.authorizeLogin(username, password)) {           
                                            
 						SessionUtil.setSessionData(loginHelper
-						.fetchSessionData(loginCredentials));
+						.fetchSessionData());
                                          
                                                   setClientVersionInSession();
 

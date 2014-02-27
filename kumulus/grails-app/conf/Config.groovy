@@ -143,8 +143,8 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 
         '/shipment/**':                   ['isAuthenticated()'],
         '/product/**':                    ['isAuthenticated()'],
-    
-
+        '/scando/**':                     ['isAuthenticated()'],
+   
         // secured - plugin controllers
         '/fileUploader/process/**':       ['ROLE_ADMIN', 'ROLE_IMPORT'],
         '/download/**':                   ['isAuthenticated()']

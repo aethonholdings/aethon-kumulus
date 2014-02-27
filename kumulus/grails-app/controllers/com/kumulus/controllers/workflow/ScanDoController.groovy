@@ -1,23 +1,15 @@
 package com.kumulus.controllers.workflow
 
-
 import grails.converters.*
 import com.kumulus.domain.*
 class ScanDoController {
     
-    
     // action to handle authentication
     def authenticate() {
-       def results = "true"
-     
-       println("UserId "+params.username)
-       println("password"+params.password)
-       
-       //authentication code goes here 
-        def responseData = [
-            'results': results,
-         ]
-        render responseData as JSON  
+        def data = request.JSON
+        println(data)
+        def response = [true]
+        render response as JSON  
     }
     
     def fetchProjectList(){     
@@ -38,17 +30,18 @@ class ScanDoController {
     def updateNodeProperties() { }
     
     def fetchChildNodeList() {
-        def nodebyBarcode =Node.findByBarcode("AE9999990019Z")       
-        def nodelist = Node.findAllByProject(nodebyBarcode.project)        
-        println("number of nodes"+nodelist.size())
+        println(params)   
+        def project = Project.get(params?.projectId)
+        def nodeList = Node.findAllByProject(project)      
+        println("number of nodes"+nodeList.size())
         def responsedata =[]
         def list;        
         def renderNode =[hierarchy:'']
-        nodelist.each{node->
+        nodeList.each{node->
             list= new ArrayList()
             list.add(node.project.projectName)
             list.add(node.barcode)
-        renderNode =[
+            renderNode =[
               'barcode':node.barcode, 
               'name':node.name,
               'comment':node.comment,
@@ -74,35 +67,48 @@ class ScanDoController {
             ]
             
             renderNode.hierarchy=list.toString()	     
-             responsedata.add(renderNode)            
-        } 
-        
-        render responsedata as JSON  
-    
+            responsedata.add(renderNode)            
+        }     
+        println(responsedata)
+        render responsedata as JSON 
     }
     
+    def getProjectBybarcode() {
+        def responsedata =[
+            'projectId': null,
+            'projectName': null
+       ]
+       // def data = request.JSON
+        def node = Node.findByBarcode(params?.barcode)
+        if(node) {
+            def project = node.project
+            responsedata.projectId = project.id
+            responsedata.projectName=project.projectName            
+            println(project)
+        }
+        render responsedata as JSON  
+    }
+    
+    
     def fetchSessionData() {
-       println("UserId "+params.username)
-       println("password"+params.password)
         def sessiondata=[:]
-       HashMap<String,String> statusMap= new HashMap<String, String>();
-       HashMap<String,String> nodeTypeMap= new HashMap<String, String>();
-            statusMap.put("Document","D");
-            statusMap.put("Box","B");
-            statusMap.put("Container","C");
-            nodeTypeMap.put("In Progress","0");
-            nodeTypeMap.put("Done","1");
-            nodeTypeMap.put("Sealed","2");                                         
-                                              
-       sessiondata= [                                 
+        HashMap<String,String> statusMap= new HashMap<String, String>();
+        HashMap<String,String> nodeTypeMap= new HashMap<String, String>();
+        statusMap.put("Document","D");
+        statusMap.put("Box","B");
+        statusMap.put("Container","C");
+        nodeTypeMap.put("In Progress","0");
+        nodeTypeMap.put("Done","1");
+        nodeTypeMap.put("Sealed","2");                                                                                       
+        sessiondata= [                                 
              'version': "v1.1.3",
              'userid': params.username,
-             'projectId': "2",
+             'projectId': "-1",
              'collectionRight':"N",
              'breathInterval':"5",
              'importRight':"Y",
              'LocalStoragePath':null,
-             'projectName':"New",
+             'projectName':"Scan barcodes",
              'SeparationTarget':"0",
              'refreshInterval':"600000",
              'totalImagesToUploadAtOnce':"21",
@@ -110,9 +116,8 @@ class ScanDoController {
              'localThumbnailDirPath':null,
              'nodeTypeMap':nodeTypeMap ,
              'setStatusMap':statusMap,
-          ]                                                
-                                              
-       render sessiondata as JSON     
+          ]                                                                             
+        render sessiondata as JSON     
     }
     
     def updateNodePropertiesList() { }

@@ -18,8 +18,10 @@ class LogisticsController {
         renderBarcodePng("code39Generator", Barcode.findById(params?.id).text)
     }
     
-    def orderMaterials(){
-        render(view:"orderMaterials")
+     def orderMaterials(){
+        def products =  Product.getAll()
+        println(products)
+        render view: "orderMaterials", model: [products: products]
     }
 }       
 

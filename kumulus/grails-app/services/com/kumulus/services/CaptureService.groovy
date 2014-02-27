@@ -13,7 +13,6 @@ class CaptureService {
         def node = Node.findById(nodeID)
         if(node) {
             def children = Node.findAllByParent(node)
-            println("delete" + children)
             for (child in children) {
                 deleteNode(child.id)
             }
@@ -60,10 +59,10 @@ class CaptureService {
     def renderNode(node) {
         if(node) {
             def treeNode = [
-                key: node.id,
+                key: node.id.toString(),
                 title: node.name,
                 isLazy: true,
-                text: node.name, 
+                text: node.name,
                 barcode: node.barcode,
                 isFolder: node.type.isContainer,
                 comment: node.comment,
@@ -104,12 +103,9 @@ class CaptureService {
     
     def renderNodeHierarchy(Node node) {
         def nodes = [renderNode(node)]
-         println("render nodes" + nodes)
         while(node.parent!=null) {
             node = node.parent
-            println("parent is" + node)
             nodes.add(renderNode(node))
-            println("now nodes are" + nodes)
         }
         return(nodes)
     }

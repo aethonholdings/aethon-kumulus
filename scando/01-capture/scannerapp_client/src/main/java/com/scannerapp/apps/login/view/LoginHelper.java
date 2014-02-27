@@ -19,6 +19,7 @@ import com.scannerapp.apps.utils.GetJsonUtil;
 import com.scannerapp.shared.SessionData;
 import com.sun.jersey.api.client.ClientHandlerException;
 import com.sun.jersey.api.client.ClientResponse;
+import com.sun.jersey.api.client.ClientResponse.Status;
 import com.sun.jersey.api.client.UniformInterfaceException;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -44,7 +45,7 @@ public class LoginHelper extends ClientHelper {
 //	public HashMap<String, String> getProjectList() {
 //
 //		HashMap<String, String> projectList = new HashMap<String, String>();
-//                String projectUrl="http://localhost:8080/kumulus/scanDo/fetchProjectList";
+//              String projectUrl="http://localhost:8080/kumulus/scanDo/fetchProjectList";
 //
 //		try {
 		//	String projectListJson = ConnectionUtil.getWebService()
@@ -124,26 +125,18 @@ public class LoginHelper extends ClientHelper {
 	 * @param loginCredentials
 	 * @return
 	 */
-	public boolean authorizeLogin(ArrayList<String> loginCredentials) {
+	public boolean authorizeLogin(String username, String password) {
                
-                String url ="http://localhost:8080/kumulus/scanDo/authenticate?username="+loginCredentials.get(0)+"&password="+loginCredentials.get(1);
 		Boolean isAuthorizedLogin = false;
                 
 		try {
-//			ClientResponse response = ConnectionUtil.getWebService()
-//					.path("loginServices").path("authorizeLogin")
-//					.type(MediaType.APPLICATION_JSON_TYPE)
-//					.accept(MediaType.APPLICATION_JSON_TYPE)
-//					.post(ClientResponse.class, loginCredentials);
-
-			//isAuthorizedLogin = (Boolean) response.getEntity(Boolean.class);
+                    ClientResponse response = ConnectionUtil.getWebService(username, password)
+                                        .path("scanDo").path("authenticate")
+					.type(MediaType.APPLICATION_JSON_TYPE)
+					.accept(MediaType.APPLICATION_JSON_TYPE)
+					.post(ClientResponse.class, new ArrayList<String>());
+                    isAuthorizedLogin = response.getClientResponseStatus() == Status.OK;
                     
-                    JSONObject jsonobj = GetJsonUtil.getJsonfromServer(url);
-                    String json = jsonobj.getString("results");
-                    if(json.equals("true"))
-                        isAuthorizedLogin=true;
-                   
-
 		} 		
 		catch (UniformInterfaceException e) {
 
@@ -180,25 +173,24 @@ public class LoginHelper extends ClientHelper {
 	 * Method to fetch the session data from the DB when the user successfully
 	 * logs into the system.
 	 * 
-	 * @param loginCredentials
 	 * @return
 	 */
-	public SessionData fetchSessionData(ArrayList<String> loginCredentials) {
-                         String url ="http://localhost:8080/kumulus/scanDo/fetchSessionData?username="+loginCredentials.get(0)+"&password="+loginCredentials.get(1);
+	public SessionData fetchSessionData() {
 		SessionData sessionData = null;
 
 		try {
-	//		ClientResponse response = ConnectionUtil.getWebService()
-//					.path("loginServices").path("fetchSessionData")
-//					.type(MediaType.APPLICATION_JSON_TYPE)
-//					.accept(MediaType.APPLICATION_JSON_TYPE)
-//					.post(ClientResponse.class, loginCredentials);
+			ClientResponse response = ConnectionUtil.getWebService()
+					.path("scanDo").path("fetchSessionData")
+					.type(MediaType.APPLICATION_JSON_TYPE)
+					.accept(MediaType.APPLICATION_JSON_TYPE)
+					.post(ClientResponse.class, new ArrayList<String>());
                       
-                        JSONObject jsonobj = GetJsonUtil.getJsonfromServer(url);
+                        String s = response.getEntity(String.class);
+                        JSONObject jsonobj = new JSONObject(s);
                         
-                 HashMap<String, String>   nodeTypeMap = mapper.readValue(jsonobj.getString("nodeTypeMap"),
+                        HashMap<String, String>   nodeTypeMap = mapper.readValue(jsonobj.getString("nodeTypeMap"),
 				new TypeReference<HashMap<String, String>>() {});
-                 HashMap<String, String>   statusMap = mapper.readValue(jsonobj.getString("nodeTypeMap"),
+                        HashMap<String, String>   statusMap = mapper.readValue(jsonobj.getString("nodeTypeMap"),
 				new TypeReference<HashMap<String, String>>() {});
                  
                       

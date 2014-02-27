@@ -1,4 +1,3 @@
-
 var state;
 var tree;
 var selectedNode;
@@ -236,28 +235,29 @@ function search_node() {
         dataType: 'json',
         async: false,
         success: function(data) {
-            alert(JSON.stringify(data));
-
-            $('#nodeTree').dynatree('getRoot').visit(function(node) { 
-                alert("n"+node.data.title); 
-                node.expand(true);
-            }, true);
-             
-            $.each($('a.dynatree-title'), function() {
-             var match = null; 
-//          alert($(this).text()+">>"+data.title+">>"+($(this).text()==data.title));
-                if ($(this).text() == node.data.title) {
-                    $(this).focus();
-                    return false;
-                  match = node;
+            if(data!="") {
+                var keypath = "#";
+                for(var i=data.length-1; i>=0; i--) {
+                    keypath = keypath + "/" + data[i].key.toString();
                 }
-                alert("Found " + match);
-//                else {
-//                    
-//                }
-
-            });
-           
+                tree.loadKeyPath(keypath, function(node, status){
+                    if(status == "loaded") {
+                        // 'node' is a parent that was just traversed.
+                        // If we call expand() here, then all nodes will be expanded
+                        // as we go
+                        node.expand();
+                    }else if(status == "ok") {
+                        // 'node' is the end node of our path.
+                        // If we call activate() or makeVisible() here, then the
+                        // whole branch will be exoanded now
+                        node.activate();
+                    }else if(status == "notfound") {
+                        
+                    }
+                });
+            } else {
+                alert("Barcode not found in this project archive");
+            }
         }
     });
 }
@@ -335,5 +335,3 @@ function save() {
         });
     }
 }
-
-
