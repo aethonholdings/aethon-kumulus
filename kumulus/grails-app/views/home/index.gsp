@@ -13,18 +13,13 @@
         <div class="pure-g kumulus-small-font">
             <div class="pure-u-1-2">
                 <div class="kumulus-container-1-3 kumulus-scrollable-y kumulus-element-border">
-                  <h3>You have ${userTasks.count} tasks outstanding.</h3>
-                  <g:if test="${userTasks.types.BUILD.total > 0}">
-                      ${userTasks?.types?.BUILD.count} scans to be reviewed
-                      <table class="pure-table pure-table-horizontal">
-                    </table>
-                  </g:if>
+                  <g:taskQueue userId="${userId}"/>
                 </div>
                 <div class="kumulus-container-1-3 kumulus-scrollable-y kumulus-element-border">
-                  <h3>There are ${backOfficeTasks?.count} tasks in the system queue</h3>
+                  <h3>There are ${backOfficeTasks.count} tasks in the system queue</h3>
                   <ul>
                     <li>${backOfficeTasks.types.OCR.count} documents to be OCRed</li>
-                    <li>${backOfficeTasks.types.PROCESS.count} documents to be processed - <g:link controller="structure" action="process">Action</g:link></li>
+                    <li>${backOfficeTasks.types.PROCESS.count} documents to be processed</li>
                   </ul>
                 </div>
                 <div class="kumulus-container-1-3 kumulus-scrollable-y kumulus-element-border">
