@@ -138,10 +138,13 @@ kumulus-control-group{
         margin:0 1em 0 0 
 }
 
-.kumulus-magrin-bottom{
+.kumulus-margin-bottom{
     margin-bottom: 3px;
 }
 
+.kumulus-margin-left{
+    margin-left: 3px;
+}
 .kumulus-search-margin{
     display: inline-block;
     width: 100%;
@@ -406,7 +409,7 @@ label.error{
     margin-left: 10px;
 }
 .kumulus-grand-total-margin-right{
-   margin-right: 120px;
+   margin-right: 115px;
 }
 
 @media (max-width : 700px) {
