@@ -17,6 +17,7 @@ import org.apache.log4j.Logger;
 
 import com.scannerapp.apps.desktop.view.DeskTopFrame;
 import com.scannerapp.apps.desktopmainpanel.view.DesktopMainJPanel;
+import com.scannerapp.apps.desktoprightpanel.view.ImportSaparationPanel;
 import com.scannerapp.apps.framework.view.BaseController;
 import com.scannerapp.apps.framework.view.ErrorMessage;
 import com.scannerapp.apps.utils.ConstantUtil;
@@ -175,36 +176,39 @@ public class LoginJPanelController extends BaseController {
 						// Method to create local directory to store temporary
 						// thumbnails, fullscreen images and local path to store
 						// images while import
-						createLocalDirectory();
-
-						DeskTopFrame.getInstance().getContentPane().removeAll();
-
-						mainPanel = new DesktopMainJPanel();
-
-						DeskTopFrame.getInstance().getContentPane()
-								.add(mainPanel, BorderLayout.WEST);
-						DeskTopFrame.getInstance().getContentPane().repaint();
-						DeskTopFrame.getInstance().getContentPane().validate();
-
-						DeskTopFrame
-								.getInstance()
-								.setTitle(
-								// DeskTopFrame.getInstance().getTitle()
-										ConstantUtil
-												.getApplicationConstant("applicationName")
-												+ "("
-												+ SessionUtil.getSessionData()
-														.getVersion()
-												+ ")"
-												+ "       "
-												+ ConstantUtil
-														.getApplicationConstant("loginIdLabel")
-												+ " : "
-												+ username
-												+ "       "
-												+ ConstantUtil
-														.getApplicationConstant("projectLabel")
-											);
+                                                
+                                                new ImportSaparationPanel();
+                                                
+//						createLocalDirectory();
+//
+//						DeskTopFrame.getInstance().getContentPane().removeAll();
+//
+//						mainPanel = new DesktopMainJPanel();
+//
+//						DeskTopFrame.getInstance().getContentPane()
+//								.add(mainPanel, BorderLayout.WEST);
+//						DeskTopFrame.getInstance().getContentPane().repaint();
+//						DeskTopFrame.getInstance().getContentPane().validate();
+//
+//						DeskTopFrame
+//								.getInstance()
+//								.setTitle(
+//								// DeskTopFrame.getInstance().getTitle()
+//										ConstantUtil
+//												.getApplicationConstant("applicationName")
+//												+ "("
+//												+ SessionUtil.getSessionData()
+//														.getVersion()
+//												+ ")"
+//												+ "       "
+//												+ ConstantUtil
+//														.getApplicationConstant("loginIdLabel")
+//												+ " : "
+//												+ username
+//												+ "       "
+//												+ ConstantUtil
+//														.getApplicationConstant("projectLabel")
+//											);
 
 						//initThreadStartToUpdateAttendanceDetail();     // commented BY Raj
 					}

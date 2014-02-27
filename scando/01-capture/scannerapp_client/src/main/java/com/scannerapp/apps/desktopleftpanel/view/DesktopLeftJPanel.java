@@ -216,7 +216,7 @@ public class DesktopLeftJPanel extends BaseJPanel implements IconRepository,
 
 	}
 
-	private void initTreePanel() {
+	public void initTreePanel() {
 
 		jTreePanel.setLayout(new GridBagLayout());
 
@@ -534,7 +534,7 @@ public class DesktopLeftJPanel extends BaseJPanel implements IconRepository,
 		}
 	}
 
-	private void createProjectRootNode() {
+	public void createProjectRootNode() {
 
 		String project = SessionUtil.getSessionData().getProjectName();
 

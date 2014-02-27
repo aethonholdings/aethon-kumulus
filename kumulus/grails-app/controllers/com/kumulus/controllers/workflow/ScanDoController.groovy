@@ -13,7 +13,7 @@ class ScanDoController {
     }
     
     def fetchProjectList(){     
-        def projectlist =Project.list()        
+        def projectlist =Project.list()         
         println("*******************project List"+projectlist)
          def responseData=[:]
          int i=1
@@ -30,14 +30,21 @@ class ScanDoController {
     def updateNodeProperties() { }
     
     def fetchChildNodeList() {
-        println(params)   
-        def project = Project.get(params?.projectId)
-        def nodeList = Node.findAllByProject(project)      
+        def nodeList 
+        def data = request.JSON
+        println("Project Id in fetchChildNodeList"+data)   
+        if(data?.parentId==null) {
+            def project = Project.findById(data?.projectId)
+            if(project) nodeList = project.nodes.findAll { node -> node.parent == null }
+        } else {
+            def parent = Node.findById(data?.nodeId)
+            nodeList = Node.findByParent(parent)
+        }
         println("number of nodes"+nodeList.size())
         def responsedata =[]
         def list;        
         def renderNode =[hierarchy:'']
-        nodeList.each{node->
+        nodeList.each{ node->
             list= new ArrayList()
             list.add(node.project.projectName)
             list.add(node.barcode)
@@ -74,12 +81,16 @@ class ScanDoController {
     }
     
     def getProjectBybarcode() {
+        
+        def data = request.JSON
+        println("data is "+data)
         def responsedata =[
             'projectId': null,
             'projectName': null
        ]
        // def data = request.JSON
-        def node = Node.findByBarcode(params?.barcode)
+       
+        def node = Node.findByBarcode(data?.barcode)
         if(node) {
             def project = node.project
             responsedata.projectId = project.id
@@ -91,6 +102,7 @@ class ScanDoController {
     
     
     def fetchSessionData() {
+        println("***********"+params)
         def sessiondata=[:]
         HashMap<String,String> statusMap= new HashMap<String, String>();
         HashMap<String,String> nodeTypeMap= new HashMap<String, String>();
@@ -122,7 +134,29 @@ class ScanDoController {
     
     def updateNodePropertiesList() { }
     
-    def getHierarchyFromSearchBarcode() { }
+    def getHierarchyFromSearchBarcode() {
+        String responseString = "["
+        def data = request.JSON       
+        def node = Node.findByBarcode(data?.searchBarcode)
+        String projectName = Project.findById(data?.projectId).projectName                
+        def nodes = [node.barcode]
+        // def finalhierarchy =new ArrayList<String>()
+        ArrayList<String> finalhierarchy = new ArrayList<String>()
+        while(node.parent!=null) {            
+            node = node.parent
+            nodes.add(node.barcode)
+         }
+        nodes.add(projectName)
+        
+        ListIterator nodeslist = nodes.listIterator(nodes.size());
+        while (nodeslist.hasPrevious()) {
+            // finalhierarchy.add(nodeslist.previous().toString())
+            responseString = responseString + nodeslist.previous().toString()
+            if(nodeslist.hasPrevious()) responseString = responseString + ", "
+        }
+        responseString = responseString + "]"
+        response.outputStream << responseString
+    }
     
     def saveScannedImages() { }
     
