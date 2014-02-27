@@ -39,13 +39,17 @@
                             <td> <label id="totalAmount">0</label></td>
                           </tr> 
                          </g:each>
+                          <tr>
+                              <td> <label for="Order Total "style="right: 100px">Order Total</label></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td></td>
+                              <td> <label id="grandtotal" class="">0</label></td>
+                          </tr>
                     </tbody>
-                </table>  
-               <div class="kumulus-margin-top kumulus-magrin-bottom">
-                    <label for="Order Total "style="right: 100px" >Order Total</label>
-                    <label id="grandtotal" class="kumulus-float-right kumulus-grand-total-margin-right">0</label>
-                </div>
-                 <div class="kumulus-float-right">
+                </table> 
+                 <div class="kumulus-float-right kumulus-margin-top">
                     <button type="button" id="button-SubmitOrder" class="pure-button pure-button-primary" style="float: right;" >Submit Order</button>
                     <button type="button" id="button-cancel" class="pure-button" style="float: right;">Cancel</button>
                  </div>
