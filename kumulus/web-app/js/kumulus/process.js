@@ -141,6 +141,20 @@ if (keyCode != 8 && keyCode != 9 && keyCode != 13 && keyCode != 37 && keyCode !=
         }
 }
 
+function CheckNumericWithoutDec(e) {
+  
+var keyCode = e.which; 
+if (keyCode != 8 && keyCode != 9 && keyCode != 13 && keyCode != 37 && keyCode != 38 && keyCode != 39 && keyCode != 40 && keyCode != 46) {
+            if (keyCode < 48) {
+                e.preventDefault();
+            } else if (keyCode > 57 && keyCode < 96) {
+                e.preventDefault();
+            } else if (keyCode > 105) {
+                e.preventDefault();
+            }
+        }
+}
+
 function onLoadPreview() {
     var obj = $("ul#pages li:first img")
     imagePreview(obj);
@@ -162,12 +176,9 @@ function imagePreview(obj) {
     $('#documentType').focus();
 
 }
-function calculateTotalAmount(price, q){
-    console.log($(currentRowObj).text());
-    console.log($(currentRowObj).find("#quantity").val());
-    var total=(price*parseInt($(currentRowObj).find("td #quantity").val()));
-    $(currentRowObj).find("#totalAmount").text(total);
-    console.log(total);
+function calculateTotalAmount(price){
+    var total=(parseFloat(price)*parseFloat($(currentRowObj).find("td #quantity").val()));
+    $(currentRowObj).find("#totalAmount").text(total.toFixed(2));
     calculategrandTotalAmount()
 }
 
@@ -176,9 +187,9 @@ function calculategrandTotalAmount(){
     var gtotal=0;
     $("#table tbody tr").each(function(j) {
         $(this).find("#totalAmount").each(function(index) {
-            gtotal = parseInt(gtotal)  + parseInt($(this).html());
+            gtotal = parseFloat(gtotal)  + parseFloat($(this).html());
         });
-        $('#grandtotal').text(gtotal);
+        $('#grandtotal').text(gtotal.toFixed(2));
     });
 }
 

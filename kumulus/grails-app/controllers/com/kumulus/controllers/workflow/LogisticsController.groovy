@@ -20,7 +20,6 @@ class LogisticsController {
     
      def orderMaterials(){
         def products =  Product.getAll()
-        println(products)
         render view: "orderMaterials", model: [products: products]
     }
 }       

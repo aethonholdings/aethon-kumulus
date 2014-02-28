@@ -70,9 +70,9 @@
             </div>
             <div class="pure-u-1-3">
                 <div class="kumulus-container kumulus-element-border">
-                    <div class="kumulus-container-inside kumulus-scrollable-y">
+                    <div class="kumulus-container-inside">
                         <h3>&nbsp;</h3>
-                        <div class="pure-form">
+                        <div class="pure-form kumulus-margin-bottom">
                             <table>
                                 <tr>
                                     <td> Type:</td>
@@ -91,8 +91,8 @@
                                 <input type="button"  value="Ready" class="pure-button kumulus-float-right kumulus-margin-bottom"/>
                             </div>
                         </div>
-
-                        <div class="kumulus-padding">
+                        <div class="clear-float"></div>
+                        <div class="kumulus-container-inside-for-collect kumulus-scrollable-y kumulus-element-border">
                             <table id="pageInfo" class="pure-table pure-table-horizontal kumulus-margin-top">
                                 <thead>
                                     <tr>
@@ -101,26 +101,7 @@
                                     </tr>
                                 </thead>
                                 <tbody> 
-<!--                                    <tr>
-                                        <td><img src="/home/shweta/ajay/kumulus/data/filesystem/main/1393396025198XR/pages/13934901222829F/13934901222829F-V.jpg"/></td>
-                                        <td></td>
-                                        </tr>-->
-<!--                                    <tr>
-                                        <td> <img src="../../images/130822-Surveymonkey-page1 2.png" class="kumulus-thumbnail-image"  alt="no image"/></td>
-                                        <td> Status</td>
-                                    </tr>
-                                    <tr>
-                                        <td> <img src="../../images/130822-Surveymonkey-page1 2.png" class="kumulus-thumbnail-image"  alt="no image"/></td>
-                                        <td> Status</td>
-                                    </tr>
-                                    <tr>
-                                        <td> <img src="../../images/130822-Surveymonkey-page1 2.png" class="kumulus-thumbnail-image"  alt="no image"/></td>
-                                        <td> Status</td>
-                                    </tr>
-                                    <tr>
-                                        <td> <img src="../../images/130822-Surveymonkey-page1 2.png" class="kumulus-thumbnail-image"  alt="no image"/></td>
-                                        <td> Status</td>-->
-                                    </tr>
+
                                 </tbody>
                             </table>
                         </div>
