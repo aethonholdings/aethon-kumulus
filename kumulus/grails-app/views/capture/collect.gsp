@@ -9,7 +9,7 @@
   <body>
     <span id="project" projectID="${project.id}"/>  
     <div class="pure-g">
-      <div class="pure-u-1-3">
+      <div class="pure-u-1-5">
         <div class="kumulus-container kumulus-scrollable-y kumulus-scrollable-x kumulus-element-border">
           <div class="kumulus-node-tree">
             <div id="nodeTree" class="jstree-draggable"></div>
@@ -22,16 +22,16 @@
           <a id="button-search" class="pure-button" onclick="search_node();">Search</a>
         </div>
       </div>
-      <div class="pure-u-2-3">
+      <div class="pure-u-1-2">
         <div class="kumulus-container kumulus-element-border">
           <div class="kumulus-data-entry">
             <form name="newContainer" action="add" method="POST" class="pure-form pure-form-aligned">
               <fieldset>
                 <div class="kumulus-hight kumulus-control-group kumulus-element-border">
                     <div class="kumulus-barcode-image"> <img src="../../images/barcode.png" class="kumulus-image"  alt="no image"/> </div>
-                  <label for="barcode"class="kumulus-label">* Stick the Barcode sticker on the container or Box and Scan the Barcode</label>
-                  <input id="barcode" type="text" placeholder="Scan container barcode" disabled>
-                </div>  
+                    <label for="barcode"class="kumulus-label">* Stick the Barcode sticker on the container or Box and Scan the Barcode</label>
+                    <input id="barcode" type="text" placeholder="Scan container barcode" disabled>
+                 </div>  
                 <div class="kumulus-hight kumulus-control-group kumulus-element-border">
                   <div class="kumulus-barcode-image"> <img src="../../images/container-type.jpg" class="kumulus-image"  alt="no image"/> </div>
                   <label for="type" class="kumulus-label">* Please select a container type</label>
@@ -47,7 +47,6 @@
                   <label for="name" class="kumulus-label">* Please enter the container name</label>
                   <input id="name" type="text" placeholder="Enter name here" disabled>
                 </div>
-                
                 <div class="kumulus-hight kumulus-control-group kumulus-element-border">
                     <div class="kumulus-barcode-image"> <img src="../../images/comment.png" class="kumulus-image"  alt="no image"/> </div>
                   <label for="comment" class="kumulus-label">Comments</label>
@@ -62,6 +61,11 @@
           <button type="button" id="button-cancel" class="pure-button" onclick="cancel();" disabled="disabled">Cancel</button>
         </div>
       </div>
+      <div class="pure-u-7-24">
+            <div class="kumulus-container kumulus-scrollable-y kumulus-scrollable-x kumulus-element-border">
+
+            </div>
+        </div>
     </div>
   </body>
 </html>
