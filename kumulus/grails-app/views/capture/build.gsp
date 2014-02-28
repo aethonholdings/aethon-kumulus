@@ -63,7 +63,7 @@
                 </div>
               </div>
             </div>
-            <div class="pure-u-1-12">
+            <div class="pure-u-1-8">
               <p><button class="pure-button" onClick="save();">Save</button></p>
             </div>
           </div>
