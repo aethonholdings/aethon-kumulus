@@ -64,7 +64,7 @@ class ScanDoController {
               'hierarchy':list.toString(),
               'thumbnailImageName':null,             
               'actualImageName':null,
-              'lastUpdateDateTime':lastUpdateDatetime,
+              'lastUpdateDateTime': node.lastUpdateDatetime,
               'documentSequenceNumber':null,
               'userId':null,           
               'encodeStringForImage':null,
