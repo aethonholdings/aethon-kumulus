@@ -2,6 +2,8 @@ package com.kumulus.controllers.workflow
 
 import grails.converters.*
 import com.kumulus.domain.*
+import java.text.DateFormat;
+import java.text.SimpleDateFormat
 class ScanDoController {
     
     // action to handle authentication
@@ -45,35 +47,33 @@ class ScanDoController {
         def list;        
         def renderNode =[hierarchy:'']
         nodeList.each{ node->
+         
             list= new ArrayList()
             list.add(node.project.projectName)
             list.add(node.barcode)
             renderNode =[
-              'barcode':node.barcode, 
-              'name':node.name,
+              'nodeId':""+node.id,
+              'projectId':""+node.project.id,
+              'name':""+node.name,
+              'type': ""+node.type.code,    
+              'barcode':""+node.barcode,              
               'comment':node.comment,
               'internalComment':node.internalComment,
-              'status':node.status,
-              'projectId':node.project.id,
-//            'hierarchy':[node.project.projectName,node.barcode],
-              'lastUpdateDateTime':node.lastUpdateDatetime ,
+              'status':""+node.status,
               'parentNodeId': node.parent,
-              'type': node.type.code,
-              'nodeId':node.id,
+              'hierarchy':list.toString(),
+              'thumbnailImageName':null,             
+              'actualImageName':null,
+              'lastUpdateDateTime':lastUpdateDatetime,
               'documentSequenceNumber':null,
-              'userId':null,
-              'thumbnailImageName':null,
-               'actualImageName':null,
-               'documentSequenceNumber':null,
-               'encodeStringForImage':null,
+              'userId':null,           
+              'encodeStringForImage':null,
                'encodeStringForThumbnail':null,
                'oldActualImageName':null,
                'oldThumbnailImageName':null,
                'transactionStatus':"U"            
-               
-            ]
-            
-            renderNode.hierarchy=list.toString()	     
+            ]            
+           // renderNode.hierarchy=list.toString()	     
             responsedata.add(renderNode)            
         }     
         println(responsedata)
@@ -164,6 +164,5 @@ class ScanDoController {
     
     def getChildNodeCount() { }
     
-    def getEncodedActualImageString() { }
-    
+    def getEncodedActualImageString() { }   
 }

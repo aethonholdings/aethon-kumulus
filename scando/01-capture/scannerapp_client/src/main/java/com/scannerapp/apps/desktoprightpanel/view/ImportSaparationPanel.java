@@ -47,6 +47,7 @@ import com.scannerapp.apps.desktopmainpanel.view.DesktopMainJPanel;
 import com.scannerapp.apps.desktoprightpanel.scanner6.DocumentScanner;
 import com.scannerapp.apps.framework.view.BaseJPanel;
 import com.scannerapp.apps.framework.view.ErrorMessage;
+import com.scannerapp.apps.login.view.LoginJPanelController;
 import com.scannerapp.apps.utils.AsyncImageViewer;
 import com.scannerapp.apps.utils.ConstantUtil;
 import com.scannerapp.apps.utils.GetJsonUtil;
@@ -143,13 +144,13 @@ public class ImportSaparationPanel extends BaseJPanel implements
 	private boolean isCutNodesArePasted = false;
 
 	public ImportSaparationPanel( ) {
-           initializeImportPage();  
+         //  initializeImportPage();  
 	}
 
 	public ImportSaparationPanel(DesktopMainJPanel desktopMainPanel) {
         
                 
-		//this.desktopMainPanel = desktopMainPanel;
+		this.desktopMainPanel = desktopMainPanel;
 		this.setLayout(new GridBagLayout());
 
 		setController(new ImportSaparationPanelController());
@@ -2142,12 +2143,10 @@ public class ImportSaparationPanel extends BaseJPanel implements
 
 	private void searchNodeFromBarcode() throws IOException {
             
-                DesktopMainJPanel desktopMainPanel= new DesktopMainJPanel();
-            
 		String searchBarcode = barcodeField.getText().trim();
-                
                 importSaparationPanelHelper.getProjectByBarcode(searchBarcode);           
-                //desktopMainPanel.getjLeftPanel().createProjectRootNode();
+                //desktopMainPanel.getjLeftPanel().initTreePanel();
+              
                 desktopMainPanel.updatejleftPanel();
             
 		CustomMutableTreeNode projectNode = desktopMainPanel.getjLeftPanel()

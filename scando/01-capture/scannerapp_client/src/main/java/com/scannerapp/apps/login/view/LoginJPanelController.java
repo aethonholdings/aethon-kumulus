@@ -37,6 +37,10 @@ public class LoginJPanelController extends BaseController {
 		loginHelper = new LoginHelper();
 		initializeScreen();
 	}
+        
+        public LoginJPanelController() {
+		
+	}
 
 	public void initialize() {
 		super.initialize();
@@ -177,38 +181,38 @@ public class LoginJPanelController extends BaseController {
 						// thumbnails, fullscreen images and local path to store
 						// images while import
                                                 
-                                                new ImportSaparationPanel();
+                                               // new ImportSaparationPanel();
                                                 
-//						createLocalDirectory();
-//
-//						DeskTopFrame.getInstance().getContentPane().removeAll();
-//
-//						mainPanel = new DesktopMainJPanel();
-//
-//						DeskTopFrame.getInstance().getContentPane()
-//								.add(mainPanel, BorderLayout.WEST);
-//						DeskTopFrame.getInstance().getContentPane().repaint();
-//						DeskTopFrame.getInstance().getContentPane().validate();
-//
-//						DeskTopFrame
-//								.getInstance()
-//								.setTitle(
-//								// DeskTopFrame.getInstance().getTitle()
-//										ConstantUtil
-//												.getApplicationConstant("applicationName")
-//												+ "("
-//												+ SessionUtil.getSessionData()
-//														.getVersion()
-//												+ ")"
-//												+ "       "
-//												+ ConstantUtil
-//														.getApplicationConstant("loginIdLabel")
-//												+ " : "
-//												+ username
-//												+ "       "
-//												+ ConstantUtil
-//														.getApplicationConstant("projectLabel")
-//											);
+						createLocalDirectory();
+
+						DeskTopFrame.getInstance().getContentPane().removeAll();
+
+						mainPanel = new DesktopMainJPanel();
+
+						DeskTopFrame.getInstance().getContentPane()
+								.add(mainPanel, BorderLayout.WEST);
+						DeskTopFrame.getInstance().getContentPane().repaint();
+						DeskTopFrame.getInstance().getContentPane().validate();
+
+						DeskTopFrame
+								.getInstance()
+								.setTitle(
+								// DeskTopFrame.getInstance().getTitle()
+										ConstantUtil
+												.getApplicationConstant("applicationName")
+												+ "("
+												+ SessionUtil.getSessionData()
+														.getVersion()
+												+ ")"
+												+ "       "
+												+ ConstantUtil
+														.getApplicationConstant("loginIdLabel")
+												+ " : "
+												+ username
+												+ "       "
+												+ ConstantUtil
+														.getApplicationConstant("projectLabel")
+											);
 
 						//initThreadStartToUpdateAttendanceDetail();     // commented BY Raj
 					}
@@ -262,7 +266,7 @@ public class LoginJPanelController extends BaseController {
 				+ clientVersion);
 	}
 
-	private void createLocalDirectory() throws IOException {
+	public void createLocalDirectory() throws IOException {
 		log.info("Cleaning Local Directory for Thumbnail...");
 		File localThumbnailDirectory = new File(
 				ConstantUtil.getApplicationConstant("local_thumbnail_dir_name"));
