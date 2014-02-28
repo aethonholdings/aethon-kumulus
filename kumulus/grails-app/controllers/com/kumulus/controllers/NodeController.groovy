@@ -104,19 +104,12 @@ class NodeController {
     }
     
     def checkBarcode() {
-          def status=''
-          def data = request.JSON
-          def obj=Node.findByBarcode(data.barcode)
-          if(obj)
-          {
-              status='true'
-          }
-          else{
-              status='false'
-          }
-         def response = [status : status]
+        def status=''
+        def data = request.JSON
+        def obj=Node.findByBarcode(data.barcode)
+        if(obj) status='true' else status='false'
+        def response = [status : status]
         render  response as JSON
-        
     }
     
     def nodePageInfo(){
@@ -124,10 +117,8 @@ class NodeController {
          def page=[]
          def nodeObj=Node.findAllByParent(Node.findById(data.node))
          nodeObj.each{it ->
-            page<<request.contextPath+'/image/get/'+Page.findByNode(it).thumbnailImage.id
+            page << request.contextPath + '/image/get/'+ it.page.thumbnailImage.id
          }
-         
-   
         render page as JSON
     }
 }

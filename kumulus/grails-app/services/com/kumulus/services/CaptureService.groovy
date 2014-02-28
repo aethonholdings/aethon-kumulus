@@ -41,7 +41,6 @@ class CaptureService {
             node.location = Node.LOCATION_CLIENT
             node.page = null
             node.save()
-            println(node.errors)
             return(node)
         }
         return(null)
