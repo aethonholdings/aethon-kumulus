@@ -86,7 +86,7 @@
                                     <th>Actions</th>
                                     </thead>
                                     <tbody class="kumulus-vertical-align-top">
-                                        <tr class="new" onClick="send(this)">
+                                        <tr class="new">
                                             <td><input id="lineItemId" name="lineItemId" size="4" type="text" value="" class="kumulus-column-id new" readonly></input></td>
                                             <td>
                                               <input id="pageNo" name="pageNo" size="2" type="text" value="" class="kumulus-column-page new" onkeypress="CheckNumeric(event)" ></input>
@@ -97,10 +97,13 @@
                                             <td><input id="quantity" name="quantity" type=text  size="6" value="" class="kumulus-column-quantity new" onkeydown="CheckNumeric(event)"></input></td>
                                             <td><input id="price" name="price" size="6" type="text" value="" class="kumulus-column-price new" onkeydown="CheckNumeric(event)" onchange="total(this)"></input></td>
                                             <td><input id="amount" name ="amount" size="6" type="text"  value="" class="kumulus-column-amount new" onkeydown="CheckNumeric(event)" id="test"></input></td>
-                                            <td><a class="add" href="#" >Add</a></td>
+                                            <td><a class="remove" href="#" >Remove</a></td>
                                         </tr>
                                     </tbody>
                                 </table>
+                                <div>
+                                        <input type="button" id="add" value="Add" class="pure-button kumulus-float-right"></input>
+                                </div>
                             </div>
                         </div>
                     </div>   
