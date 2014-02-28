@@ -9,7 +9,7 @@
   <body>
     <span id="project" projectID="${project.id}"/>  
     <div class="pure-g">
-      <div class="pure-u-1-4">
+      <div class="pure-u-1-5">
         <div class="kumulus-container kumulus-scrollable-y kumulus-scrollable-x kumulus-element-border">
           <div class="kumulus-node-tree">
             <div id="nodeTree" class="jstree-draggable"></div>
@@ -61,7 +61,7 @@
           <button type="button" id="button-cancel" class="pure-button" onclick="cancel();" disabled="disabled">Cancel</button>
         </div>
       </div>
-      <div class="pure-u-1-4">
+      <div class="pure-u-7-24">
             <div class="kumulus-container kumulus-scrollable-y kumulus-scrollable-x kumulus-element-border">
 
             </div>
