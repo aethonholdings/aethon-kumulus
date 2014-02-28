@@ -101,26 +101,7 @@
                                     </tr>
                                 </thead>
                                 <tbody> 
-<!--                                    <tr>
-                                        <td><img src="/home/shweta/ajay/kumulus/data/filesystem/main/1393396025198XR/pages/13934901222829F/13934901222829F-V.jpg"/></td>
-                                        <td></td>
-                                        </tr>-->
-<!--                                    <tr>
-                                        <td> <img src="../../images/130822-Surveymonkey-page1 2.png" class="kumulus-thumbnail-image"  alt="no image"/></td>
-                                        <td> Status</td>
-                                    </tr>
-                                    <tr>
-                                        <td> <img src="../../images/130822-Surveymonkey-page1 2.png" class="kumulus-thumbnail-image"  alt="no image"/></td>
-                                        <td> Status</td>
-                                    </tr>
-                                    <tr>
-                                        <td> <img src="../../images/130822-Surveymonkey-page1 2.png" class="kumulus-thumbnail-image"  alt="no image"/></td>
-                                        <td> Status</td>
-                                    </tr>
-                                    <tr>
-                                        <td> <img src="../../images/130822-Surveymonkey-page1 2.png" class="kumulus-thumbnail-image"  alt="no image"/></td>
-                                        <td> Status</td>-->
-                                    </tr>
+
                                 </tbody>
                             </table>
                         </div>
