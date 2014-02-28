@@ -70,9 +70,10 @@
           </div>
         </div>
       </div>
-      <div class="kumulus-button-bank kumulus-float-right">
-          <g:link class="pure-button" controller='home' action='index'>Home</g:link>
-          </div>
+      <div class="pure-u-1 kumulus-padding">
+          <g:link class="pure-button kumulus-float-right kumulus-margin-right" controller='home' action='index'>Home</g:link>
+          <div class="clear-float"></div>
+      </div>
     </div>
   </body>
 </html>
