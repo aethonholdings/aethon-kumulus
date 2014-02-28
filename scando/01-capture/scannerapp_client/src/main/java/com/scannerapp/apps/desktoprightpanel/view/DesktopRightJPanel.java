@@ -38,7 +38,7 @@ import com.scannerapp.common.XMLBundle;
  */
 public class DesktopRightJPanel extends BaseJPanel implements ChangeListener{
 
-	private static Logger log = Logger.getLogger(DesktopRightJPanel.class);// For Log4j
+  private static Logger log = Logger.getLogger(DesktopRightJPanel.class);// For Log4j
 	
   protected boolean logout = false;
   protected boolean flag = true;
@@ -73,6 +73,7 @@ public class DesktopRightJPanel extends BaseJPanel implements ChangeListener{
 	  this.desktopMainPanel= desktopMainJPanel;
 	  collectionPanel=new CollectionPanel(desktopMainPanel);
 	  importAndSepPanel=new ImportSaparationPanel(desktopMainPanel);	  
+           //importAndSepPanel=new ImportSaparationPanel(this);	  
 	  
 	  try 
 	  {    
