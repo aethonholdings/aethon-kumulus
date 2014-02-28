@@ -22,6 +22,7 @@ $(document).ready(function(){
             if(state=="READY") {
                 selectedNode = node;
                 refresh_container_information(node);
+                  nodeDetailInfo(node);
             }
         }, 
         onLazyRead: function(node) {
@@ -346,3 +347,35 @@ function save() {
         tree.selectKey(news.data.key, true);
     }
 }
+
+function nodeDetailInfo(node){
+  
+    $("#nodeType").val(node.data.type);
+    $("#nodeLocation").val();
+    $("#nodeStatus").val(node.data.status);
+     
+      var data = { node:node.data.id }
+      
+       if(data.node!='ROOT'){
+        $.ajax({
+            url: url('node', 'nodePageInfo', ''),
+            type: 'POST',
+            data: JSON.stringify(data),
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            async: false,
+            success: function(data) {
+
+             $("#pageInfo tbody tr").remove();
+                $.each(data, function(i) {
+                        
+                    $("#pageInfo tbody").append('<tr><td><img class="kumulus-thumbnail kumulus-element-border" height="140" width="100"  src='+data[i]+' /></td><td>'+"test"+'</td></tr>');
+                })
+
+            }
+        });
+    }
+    
+}
+
+
