@@ -162,9 +162,12 @@ function imagePreview(obj) {
     $('#documentType').focus();
 
 }
-function calculateTotalAmount(price){
+function calculateTotalAmount(price, q){
+    console.log($(currentRowObj).text());
+    console.log($(currentRowObj).find("#quantity").val());
     var total=(price*parseInt($(currentRowObj).find("td #quantity").val()));
-    $(currentRowObj).find("td #totalAmount").text(total);
+    $(currentRowObj).find("#totalAmount").text(total);
+    console.log(total);
     calculategrandTotalAmount()
 }
 
@@ -188,7 +191,7 @@ function ConvertFormToJSON(form) {
     
     jQuery.each(array, function() {
 
-        if (i < 5) {
+        if (i < 7) {
             json[this.name] = this.value || '';
         }
         else {
@@ -208,7 +211,7 @@ function ConvertFormToJSON(form) {
      
     json["lineItems"] = itemList;
    
-console.log(json)
+    console.log(json)
 
     return json;
 }

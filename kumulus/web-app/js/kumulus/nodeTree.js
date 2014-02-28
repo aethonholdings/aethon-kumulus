@@ -178,7 +178,7 @@ function delete_node() {
                 async: false,
                 success: function(data) {
                     selectedNode.remove();
-                    tree.reload();
+                   // tree.reload();
                     ready();
                 }
             });
@@ -241,7 +241,9 @@ function search_node() {
                 for(var i=data.length-1; i>=0; i--) {
                     keypath = keypath + "/" + data[i].key.toString();
                 }
+                
                 tree.loadKeyPath(keypath, function(node, status){
+                    alert(status);
                     if(status == "loaded") {
                         // 'node' is a parent that was just traversed.
                         // If we call expand() here, then all nodes will be expanded
@@ -287,41 +289,41 @@ function cancel() {
 }
 
 function save() {
-    
-    if(!$("#barcode").val() || !$("#type").val() || !$("#name").val()) {
+
+    if (!$("#barcode").val() || !$("#type").val() || !$("#name").val()) {
         alert("Please complete all required input fields")
         return(false);
     } else {
         var target, data;
         // need a case selection here
-        switch(state) {
+        switch (state) {
             case "UPDATE":
                 data = {
                     id: selectedNode.data.id,
                     project: selectedNode.data.project,
-                    barcode: $("#barcode").val(), 
+                    barcode: $("#barcode").val(),
                     type: $("#type").val(),
                     name: $("#name").val(),
                     comment: $("#comment").val()
                 };
                 target = url('node', 'update', '');
-                
-                 
+
+
                 break;
 
             case "INSERT":
                 data = {
                     parentID: selectedNode.data.id,
                     project: selectedNode.data.project,
-                    barcode: $("#barcode").val(), 
+                    barcode: $("#barcode").val(),
                     type: $("#type").val(),
                     name: $("#name").val(),
                     comment: $("#comment").val()
                 };
                 target = url('node', 'insert', '');
-                break;         
-        } 
-       
+                break;
+        }
+        var news = selectedNode;
         $.ajax({
             url: target,
             type: 'POST',
@@ -329,12 +331,21 @@ function save() {
             contentType: 'application/json; charset=utf-8',
             dataType: 'json',
             async: false,
-                success: function(data) {
-                    tree.reload();
-                    ready();
+            success: function(data) {
+                console.log(selectedNode.data.key);
+                ready();
+                if (selectedNode.data.key != '#') {
+                    selectedNode.reloadChildren(function(selectedNode, isOk) {
+                    });
                 }
+                else {
+                    tree.reload();
+                }
+            }
         });
+        tree.selectKey(news.data.key, true);
     }
+
 }
 
 function nodeDetailInfo(node){
@@ -366,3 +377,4 @@ function nodeDetailInfo(node){
     }
     
 }
+

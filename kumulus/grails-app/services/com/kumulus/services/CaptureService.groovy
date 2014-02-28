@@ -138,7 +138,7 @@ class CaptureService {
                 company: null,
                 date: null,
                 literal: literal,
-                status: Document.EDITABLE,
+                status: Document.STATUS_IMPORTED,
                 file: null,
                 project: parentNode.project,
                 type: DocumentType.findById(4),               
@@ -196,7 +196,7 @@ class CaptureService {
                 def documentType = DocumentType.findById(4)
                 newDocument = new Document(
                     literal: filesystemService.generateLiteral(),
-                    status: Document.EDITABLE,
+                    status: Document.STATUS_BUILT,
                     project: project,
                     type: documentType, 
                     deleted: false

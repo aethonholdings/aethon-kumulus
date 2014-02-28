@@ -25,22 +25,25 @@
                             <th>Description</th>
                             <th>Price</th>
                             <th>Quantity</th>
+                            <th>Currency</th>
                             <th>Amount</th>
                         </tr>
                     </thead>
                     <tbody>    
                         <g:each var="product" in="${products}">
-                        <tr onClick="send(this)">
+                            <tr onkeydown="send(this)" >
                             <td><g:img dir="images/products" file="/${product.imagePath}" class="kumulus-table-image"/></td>
-                            <td >${product.name}</td>
+                            <td>${product.name}</td>
                             <td>${product.description}</td>
                             <td>${product.price}</td>
-                            <td><input id="quantity" type="text"  onblur="calculateTotalAmount(${product.price})"></td>
-                            <td> <label id="totalAmount">0</label></td>
+                            <td><input id="quantity" type="text" value="" onblur="calculateTotalAmount(${product.price}, this)" class="kumulus-small-input-box"></td>
+                            <td>SGD</td>
+                            <td><label id="totalAmount">0</label></td>
                           </tr> 
                          </g:each>
-                          <tr>
-                              <td> <label for="Order Total "style="right: 100px">Order Total</label></td>
+                          <tr class="kumulus-bold-font" onClick="send(this)">
+                              <td> <label for="Order Total "style="right: 100px" class="kumulus-margin-left">Order Total</label></td>
+                              <td></td>
                               <td></td>
                               <td></td>
                               <td></td>

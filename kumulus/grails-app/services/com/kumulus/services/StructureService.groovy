@@ -23,8 +23,17 @@ class StructureService {
         return(document)
     }
     
-    def updateLineItem(String lineItemId, Page page, Currency currency, Date date, String description, float quantity, float price, float amount) {
-        
-        
+    def updateLineItem(String lineItemId, String pageId, Currency currency, Date date, String description, String quantity, String price, String amount) {
+        def lineItem = LineItem.get(lineItemId)
+        if(!lineItem) lineItem = new LineItem()
+        lineItem.page = Page.findById(pageId)
+        lineItem.currency = currency
+        lineItem.date = date
+        lineItem.description = description
+        if(quantity) lineItem.quantity = Float.parseFloat(quantity) else lineItem.quantity = 0
+        if(price) lineItem.price = Float.parseFloat(price) else lineItem.price = 0
+        lineItem.amount = Float.parseFloat(amount)
+        lineItem.save()
+        return(lineItem)
     }
 }

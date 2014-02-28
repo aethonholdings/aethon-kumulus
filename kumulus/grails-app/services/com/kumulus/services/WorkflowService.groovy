@@ -6,84 +6,53 @@ import grails.transaction.Transactional
 
 @Transactional
 class WorkflowService {
-
-    def createTask(Document document, String taskType, String createdByUserId) {
-        def task = new Task(
-            project: document.project,
-            created: new Date(),
-            started: null,
-            completed: null,
-            createdBy: createdByUserId,
-            userId: null,
-            document: document,
-            type: taskType,
-            status: null
-        )
-        task.save()
-        return(task)
+    
+    private def stateMap = {
+        def map = [
+            (Task.TYPE_BUILD): [create: Document.STATUS_IMPORTED, complete: Document.STATUS_BUILT, error: null],
+            (Task.TYPE_OCR): [create: Document.STATUS_BUILT, complete: Document.STATUS_SEARCHABLE, error: Document.STATUS_SUBMISSION_ERROR],
+            (Task.TYPE_PROCESS): [create: Document.STATUS_SEARCHABLE, complete: Document.STATUS_PROCESSED, error: null],
+            (Task.TYPE_VALIDATE): [create: Document.STATUS_PROCESSED, complete: Document.STATUS_FINAL, error: null]
+        ]
     }
     
-    def openTaskSummary(String userId) {
-        def taskSummary
-        // query to get the set of tasks summarised by the database
-        def criteria = Task.createCriteria()
-        if(userId)
-            taskSummary = criteria.list {
-                eq("userId", userId)
-                isNull("completed")
-                projections {
-                    sqlGroupProjection "project_id, type, count(id) as taskCount", "project_id, type", ["project_id", "type", "taskCount"], [LONG, STRING, LONG]
-                }
-                order("project", "asc")
-                order("created", "asc")
-            }
-        else {
-            taskSummary = criteria.list {
-                isNull("completed")
-                projections {
-                    sqlGroupProjection "project_id, type, count(id) as taskCount", "project_id, type", ["project_id", "type", "taskCount"], [LONG, STRING, LONG]
-                }
-                order("project", "asc")
-                order("created", "asc")
-            }            
-        }
-        
-        // package the tasks for consumption
-        def tasks = [
-            total: Task.findAllByUserIdAndCompleted(userId, null).size, 
-            type: [
-                (Task.BUILD_DOCUMENT): [
-                    total: 0,
-                    list: []
-                ], 
-                (Task.OCR_DOCUMENT): [
-                    total: 0,
-                    list: []                    
-                ], 
-                (Task.PROCESS_DOCUMENT): [
-                    total: 0,
-                    list: []                    
-                ],
-                (Task.REVIEW_DOCUMENT): [
-                    total: 0,
-                    list: []                    
-                ]
-            ]
+    def getTaskQueues(String userId) {
+        def queues = [
+            count: 0,
+            types: [:]
         ]
-        
-        taskSummary.each { 
-            def project = Project.findById(it[0])
-            def row = [project: project, taskCount: it[2]]
-            tasks.type.(it[1].toString()).total += row.taskCount
-            tasks.type.(it[1].toString()).list.add(row)
+        stateMap().each {
+            def tasks = Task.findAllByUserIdAndTypeAndCompleted(userId, it.key, null, [sort:"created", order:"asc"])
+            queues.types.put(it.key, [count: tasks.size(), tasks: tasks])
+            queues.count += tasks.size().toLong()
         }
-        return(tasks)
+        return(queues)
+    }
+        
+    def createTask(Document document, String taskType, String createdByUserId) {
+        Task task
+        
+        if(stateMap().get(taskType)?.create==document.status) { 
+            task = new Task(
+                project: document.project,
+                created: new Date(),
+                started: null,
+                completed: null,
+                createdBy: createdByUserId,
+                userId: null,
+                document: document,
+                type: taskType,
+                status: null
+            )
+            task.save()
+        }
+        return(task)
     }
     
     def getNextTask(String taskType) {
         def task
         switch(taskType) {
-            case Task.PROCESS_DOCUMENT.toString():
+            case Task.TYPE_PROCESS.toString():
                 task = Task.findByTypeAndCompleted(taskType, null, [order: "created", type: "asc"])
                 break
         }
@@ -103,6 +72,8 @@ class WorkflowService {
     }
     
     def completeTask(Task task) {
+        task.document.status = stateMap().get(task.type).complete
+        task.document.save()
         task.completed = new Date()
         task.save()
         return(task)
