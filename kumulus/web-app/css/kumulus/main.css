@@ -331,6 +331,7 @@ kumulus-control-group{
 .kumulus-filmstrip{
     background: #eee; 
     text-align: center;
+    width: 100%;
 }
 
 .kumulus-filmstrip ul{
@@ -510,6 +511,9 @@ li.kumulus-task-queue{
     padding-left: 10px;
 }
 
+.pure-u-1-12 .pure-button{
+   width: 90%;
+}
 @media (max-width : 700px) {
 /*    .kumulus-menu{
         height: 100px;

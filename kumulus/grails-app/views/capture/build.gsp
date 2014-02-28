@@ -39,7 +39,7 @@
       <div class="pure-u-1-3">
         <div class="kumulus-container kumulus-element-border">
           <div class="pure-g">
-            <div class="pure-u-7-8">    
+            <div class="pure-u-5-6">    
               <div class="pure-g">
                 <div class="pure-u-1-2">
                   <div class="kumulus-container kumulus-scrollable-y">
@@ -63,7 +63,7 @@
                 </div>
               </div>
             </div>
-            <div class="pure-u-1-8">
+            <div class="pure-u-1-12">
               <p><button class="pure-button" onClick="save();">Save</button></p>
             </div>
           </div>
