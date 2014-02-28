@@ -217,7 +217,6 @@ function update_node() {
     if(selectedNode && state=="READY"  && selectedNode.data.id!="ROOT") {
         enable(false);
         $('#type').focus();
-        $('#type').val('');
         $('#button-cancel').prop('disabled', false);
         $('#button-save').prop('disabled', false);
         state = "UPDATE";
@@ -243,7 +242,6 @@ function search_node() {
                 }
                 
                 tree.loadKeyPath(keypath, function(node, status){
-                    alert(status);
                     if(status == "loaded") {
                         // 'node' is a parent that was just traversed.
                         // If we call expand() here, then all nodes will be expanded
@@ -283,6 +281,8 @@ function cancel() {
             
         case "UPDATE":
             refresh_container_information(selectedNode);
+            $('#button-cancel').prop('disabled', true);
+            $('#button-save').prop('disabled', true);
             ready();
             break;
     } 
@@ -341,6 +341,8 @@ function save() {
                 else {
                     tree.reload();
                 }
+                $('#button-cancel').prop('disabled', true);
+                $('#button-save').prop('disabled', true);
             }
         });
         tree.selectKey(news.data.key, true);

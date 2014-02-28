@@ -66,7 +66,7 @@ class CaptureService {
                 barcode: node.barcode,
                 isFolder: node.type.isContainer,
                 comment: node.comment,
-                type: node.type.name,
+                type: node.type.id,
                 status:node.status,
                 id: node.id, 
                 project: node.project.id
