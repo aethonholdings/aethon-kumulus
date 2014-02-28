@@ -135,26 +135,28 @@ class ScanDoController {
     def updateNodePropertiesList() { }
     
     def getHierarchyFromSearchBarcode() {
-        String responseString = "["
-        def data = request.JSON       
-        def node = Node.findByBarcode(data?.searchBarcode)
-        String projectName = Project.findById(data?.projectId).projectName                
-        def nodes = [node.barcode]
-        // def finalhierarchy =new ArrayList<String>()
-        ArrayList<String> finalhierarchy = new ArrayList<String>()
-        while(node.parent!=null) {            
-            node = node.parent
-            nodes.add(node.barcode)
-         }
-        nodes.add(projectName)
         
-        ListIterator nodeslist = nodes.listIterator(nodes.size());
-        while (nodeslist.hasPrevious()) {
-            // finalhierarchy.add(nodeslist.previous().toString())
-            responseString = responseString + nodeslist.previous().toString()
-            if(nodeslist.hasPrevious()) responseString = responseString + ", "
+        def data = request.JSON       
+        String responseString 
+        if(data?.searchBarcode) {
+            responseString = "["
+            def node = Node.findByBarcode(data?.searchBarcode)
+            if(node) {
+                def projectName = node.project.projectName
+                def barcodes = [node.barcode]
+                while(node.parent!=null) {
+                    node = node.parent
+                    barcodes.add(node.barcode)
+                } 
+                barcodes.add(projectName)
+                ListIterator nodeslist = barcodes.listIterator(barcodes.size());
+                while (nodeslist.hasPrevious()) {
+                    responseString = responseString + nodeslist.previous().toString()
+                    if(nodeslist.hasPrevious()) responseString = responseString + ", "
+                }
+            }
+            responseString = responseString + "]"
         }
-        responseString = responseString + "]"
         response.outputStream << responseString
     }
     
