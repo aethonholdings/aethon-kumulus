@@ -176,11 +176,9 @@ function imagePreview(obj) {
     $('#documentType').focus();
 
 }
-function calculateTotalAmount(price, q){
-    console.log(parseFloat(price));
+function calculateTotalAmount(price){
     var total=(parseFloat(price)*parseFloat($(currentRowObj).find("td #quantity").val()));
-    $(currentRowObj).find("#totalAmount").text(parseFloat(total));
-    console.log(total);
+    $(currentRowObj).find("#totalAmount").text(total.toFixed(2));
     calculategrandTotalAmount()
 }
 
@@ -191,7 +189,7 @@ function calculategrandTotalAmount(){
         $(this).find("#totalAmount").each(function(index) {
             gtotal = parseFloat(gtotal)  + parseFloat($(this).html());
         });
-        $('#grandtotal').text(gtotal);
+        $('#grandtotal').text(gtotal.toFixed(2));
     });
 }
 
