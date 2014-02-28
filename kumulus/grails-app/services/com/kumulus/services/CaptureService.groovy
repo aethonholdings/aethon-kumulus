@@ -38,13 +38,16 @@ class CaptureService {
             node.comment = comment
             node.createDatetime = timestamp
             node.lastUpdateDatetime = timestamp
+            node.location = Node.LOCATION_CLIENT
+            node.page = null
             node.save()
+            println(node.errors)
             return(node)
         }
         return(null)
     }
     
-    def updateNode(node, barcode, name, comment, type, status) {
+    def updateNode(node, barcode, name, comment, type, status, location) {
         def nodeType = NodeType.findById(type)
         if(node && !node.hasErrors() && nodeType){
             node.comment = comment
@@ -52,8 +55,10 @@ class CaptureService {
             node.name = name
             node.status = status
             node.type = nodeType
+            node.location = location
             node.save()
         }
+        return(node)
     }
     
     def renderNode(node) {
@@ -67,7 +72,8 @@ class CaptureService {
                 isFolder: node.type.isContainer,
                 comment: node.comment,
                 type: node.type.name,
-                status:node.status,
+                status: node.status,
+                location: node.location,
                 id: node.id, 
                 project: node.project.id
             ]
@@ -90,6 +96,8 @@ class CaptureService {
             text: null, 
             barcode: null,
             comment: null,
+            status: null,
+            location: null,
             children: children,
             type: "ROOT",
             id: "ROOT",
@@ -129,7 +137,9 @@ class CaptureService {
                 lastUpdateId: userId,
                 createDatetime: timestamp,
                 lastUpdateDatetime: timestamp,
-                status: Node.STATUS_CLOSED
+                status: Node.STATUS_CLOSED,
+                location: Node.LOCATION_CLIENT,
+                page: null
             )
             node.save()
 
@@ -167,6 +177,8 @@ class CaptureService {
             page.thumbnailImage = images.thumbnailImage
             document.addToPages(page)
             page.save(flush:true)
+            node.page = page
+            node.save()
             filesystemService.stagingFlush(uFile)
         }
         return(document)

@@ -32,7 +32,7 @@ class NodeController {
         def data = request.JSON
         def node = Node.findById(data?.id)
         if (permissionsService.checkPermissions(node)) {
-            captureService.updateNode(node, data?.barcode, data?.name, data?.comment, data?.type, Node.STATUS_OPEN)
+            captureService.updateNode(node, data?.barcode, data?.name, data?.comment, data?.type, Node.STATUS_OPEN, Node.LOCATION_CLIENT)
             render node as JSON
         }
     }
@@ -47,7 +47,6 @@ class NodeController {
         if(project && permissionsService.checkPermissions(project) && captureService.insertNode(parent, project, data?.barcode, data?.name, data?.comment, data?.type)) { 
             response.done = true
             response.message = "Success"
-             
         }
         render response as JSON
     }
