@@ -80,8 +80,8 @@ class KumulusTagLib {
             userTasks.types.BUILD.tasks.groupBy({ task -> task.project }).each {
                 if(it.value.size()>0) {
                     out << "<li  class='kumulus-task-queue-project'>"
-                    out << "<div class='kumulus-task-queue-project-name'>${it.key.projectName}</div>"
-                    out << "<div class='kumulus-task-queue-project-count'>" << g.link(controller: "capture", action: "build", params: [projectId: it.key.id], "${it.value.size()}") << "</div>"
+                    out << "<span class='kumulus-task-queue-project-name'>${it.key.projectName}</span>"
+                    out << "<span class='kumulus-task-queue-project-count'>" << g.link(controller: "capture", action: "build", params: [projectId: it.key.id], "${it.value.size()}") << "</span>"
                     out << "</li>"
                 }
             }
