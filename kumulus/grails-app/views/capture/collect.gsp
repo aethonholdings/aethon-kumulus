@@ -62,7 +62,7 @@
                 </div>
             </div>
             <div class="pure-u-7-24">
-                <div class="kumulus-container kumulus-scrollable-y kumulus-scrollable-x kumulus-element-border">
+                <div class="kumulus-container kumulus-element-border">
 
                     <h3>&nbsp;</h3>
                     <div class="pure-form">
@@ -84,8 +84,8 @@
                             <input type="button"  value="Ready" class="pure-button kumulus-float-right kumulus-margin-bottom"/>
                         </div>
                     </div>
-
-                    <div class="kumulus-padding">
+                    <div class="clear-float"></div>
+                    <div class="kumulus-container-inside-for-collect kumulus-scrollable-y kumulus-element-border">
                         <table id="pageInfo" class="pure-table pure-table-horizontal kumulus-margin-top">
                             <thead>
                                 <tr>
