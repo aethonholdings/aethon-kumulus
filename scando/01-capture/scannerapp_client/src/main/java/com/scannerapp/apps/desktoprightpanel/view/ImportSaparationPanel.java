@@ -41,11 +41,13 @@ import SK.gnome.twain.TwainManager;
 import SK.gnome.twain.TwainSource;
 
 import com.scannerapp.apps.component.EdittedTextField;
+import com.scannerapp.apps.desktop.view.DeskTopFrame;
 import com.scannerapp.apps.desktopleftpanel.view.CustomMutableTreeNode;
 import com.scannerapp.apps.desktopmainpanel.view.DesktopMainJPanel;
 import com.scannerapp.apps.desktoprightpanel.scanner6.DocumentScanner;
 import com.scannerapp.apps.framework.view.BaseJPanel;
 import com.scannerapp.apps.framework.view.ErrorMessage;
+import com.scannerapp.apps.login.view.LoginJPanelController;
 import com.scannerapp.apps.utils.AsyncImageViewer;
 import com.scannerapp.apps.utils.ConstantUtil;
 import com.scannerapp.apps.utils.GetJsonUtil;
@@ -55,6 +57,7 @@ import com.scannerapp.common.NodePropertyConstants;
 import com.scannerapp.resources.IconRepository;
 import com.scannerapp.shared.NodeProperties;
 import com.scannerapp.shared.TransactionConstant;
+import java.awt.BorderLayout;
 import java.util.logging.Level;
 import org.codehaus.jettison.json.JSONException;
 import org.codehaus.jettison.json.JSONObject;
@@ -119,6 +122,7 @@ public class ImportSaparationPanel extends BaseJPanel implements
 
 	// To upload images...
 	private ImageUploader imageUploader = new ImageUploader(this);
+        private ImportSaparationPanelHelper importSaparationPanelHelper = new ImportSaparationPanelHelper();
 
 	/**
 	 * Map containing name of images with upload error in value (list). Key of
@@ -139,12 +143,13 @@ public class ImportSaparationPanel extends BaseJPanel implements
 	private JLabel uploadProgressBar;
 	private boolean isCutNodesArePasted = false;
 
-	public ImportSaparationPanel() {
-
+	public ImportSaparationPanel( ) {
+         //  initializeImportPage();  
 	}
 
 	public ImportSaparationPanel(DesktopMainJPanel desktopMainPanel) {
-
+        
+                
 		this.desktopMainPanel = desktopMainPanel;
 		this.setLayout(new GridBagLayout());
 
@@ -2138,29 +2143,11 @@ public class ImportSaparationPanel extends BaseJPanel implements
 
 	private void searchNodeFromBarcode() throws IOException {
             
-            DesktopMainJPanel desktopMainPanel= new DesktopMainJPanel();
-            
-
 		String searchBarcode = barcodeField.getText().trim();
-
-                String projectUrl="http://localhost:8080/kumulus/scanDo/getProjectBybarcode?barcode="+searchBarcode;
-                String jsonString;
-                JSONObject jsonObj=null;
-            try {	        
-                jsonString = GetJsonUtil.getJsonfromServertree(projectUrl);
-                jsonObj= new JSONObject(jsonString);
-            
-             
-                SessionUtil.getSessionData().setProjectId(jsonObj.getString("projectId"));
-                SessionUtil.getSessionData().setProjectName(jsonObj.getString("projectName"));
-            } catch (JSONException ex) {
-                java.util.logging.Logger.getLogger(ImportSaparationPanel.class.getName()).log(Level.SEVERE, null, ex);
-            }
-            
-            System.out.println("Project Id Is "+SessionUtil.getSessionData().getProjectId());
-            
-            desktopMainPanel.updatejleftPanel();
-            
+                importSaparationPanelHelper.getProjectByBarcode(searchBarcode);           
+                //desktopMainPanel.getjLeftPanel().initTreePanel();
+              
+                desktopMainPanel.updatejleftPanel();
             
 		CustomMutableTreeNode projectNode = desktopMainPanel.getjLeftPanel()
 				.getProjectNode();
@@ -2170,30 +2157,31 @@ public class ImportSaparationPanel extends BaseJPanel implements
 			return;
 		}
 
-//		String hierarchy = controller().getHierarchyFromSearchBarcode(
-//				searchBarcode);
-//		log.info("Search Barcode -> Search Node Hierarchy : " + hierarchy);
-//		if (hierarchy == null || hierarchy.length() == 0) {
-//			log.error("Search Barcode -> EMPTY Hierarchy. Error while searching node.");
-//			ErrorMessage.displayMessage('I',
-//					"errorWhileSearchingNodeFromBarcode");
-//			return;
-//		}
-//
-//		// To remove "[" and "]" from the hierarchy coming from DB and split
-//		// hierarchy in tree node names.
-//		String[] nodeNames = hierarchy.substring(1, hierarchy.length() - 1)
-//				.split(", ");
-//
-//		if (!nodeNames[0].equals(String.valueOf(projectNode.getUserObject()))) {
-//			ErrorMessage.displayMessage('I',
-//					"providedSearchBarcodeBelongsToOtherProject");
-//			return;
-//		}
-//
-//		searchNodeFromhierarchy(projectNode, hierarchy);
-//
-//		barcodeField.setText("");
+		String hierarchy = controller().getHierarchyFromSearchBarcode(
+				searchBarcode);
+		log.info("Search Barcode -> Search Node Hierarchy : " + hierarchy);
+		if (hierarchy == null || hierarchy.length() == 0) {
+			log.error("Search Barcode -> EMPTY Hierarchy. Error while searching node.");
+			ErrorMessage.displayMessage('I',
+					"errorWhileSearchingNodeFromBarcode");
+			return;
+		}
+
+		// To remove "[" and "]" from the hierarchy coming from DB and split
+		// hierarchy in tree node names.
+		String[] nodeNames = hierarchy.substring(1, hierarchy.length() - 1)
+				.split(", ");
+
+		if (!nodeNames[0].equals(String.valueOf(projectNode.getUserObject()))) {
+			ErrorMessage.displayMessage('I',
+					"providedSearchBarcodeBelongsToOtherProject");
+			return;
+		}
+
+              
+		searchNodeFromhierarchy(projectNode, hierarchy);
+
+		barcodeField.setText("");
 
 	}
 
@@ -2944,5 +2932,89 @@ public class ImportSaparationPanel extends BaseJPanel implements
 	public void setCutNodesArePasted(boolean isCutNodesArePasted) {
 		this.isCutNodesArePasted = isCutNodesArePasted;
 	}
+        
+        
+        private void initializeImportPage(){
+            try {
+                createLocalDirectory();
+            } catch (IOException ex) {
+                java.util.logging.Logger.getLogger(ImportSaparationPanel.class.getName()).log(Level.SEVERE, null, ex);
+            }
 
+              DeskTopFrame.getInstance().getContentPane().removeAll();
+	      this.mainPanel = new DesktopMainJPanel();
+	      DeskTopFrame.getInstance().getContentPane()
+		.add(mainPanel, BorderLayout.WEST);
+	      DeskTopFrame.getInstance().getContentPane().repaint();
+	      DeskTopFrame.getInstance().getContentPane().validate();
+	      DeskTopFrame
+		.getInstance()
+		.setTitle(
+		// DeskTopFrame.getInstance().getTitle()
+		ConstantUtil
+		.getApplicationConstant("applicationName")
+		+ "("
+		+ SessionUtil.getSessionData()
+		.getVersion()
+		+ ")"
+		+ "       "
+		+ ConstantUtil
+		.getApplicationConstant("loginIdLabel")
+		+ " : "
+		+ SessionUtil.getSessionData()
+		.getUserId()
+		+ "       "
+		+ ConstantUtil
+		.getApplicationConstant("projectLabel")
+		);
+
+		//initThreadStartToUpdateAttendanceDetail();     // commented BY Raj
+		}
+
+       private void createLocalDirectory() throws IOException {
+		log.info("Cleaning Local Directory for Thumbnail...");
+		File localThumbnailDirectory = new File(
+				ConstantUtil.getApplicationConstant("local_thumbnail_dir_name"));
+		String localThumbnailDirectoryPath = localThumbnailDirectory
+				.getAbsolutePath();
+
+		log.info("Local Directory Path To Store Thumbnails Images : "
+				+ localThumbnailDirectoryPath);
+		if (localThumbnailDirectory.exists()) {
+			FileUtils.cleanDirectory(localThumbnailDirectory);
+		}
+
+		log.info("Cleaning Local Directory for Storage...");
+		File localStorageDirectory = new File(
+				ConstantUtil.getApplicationConstant("local_storage_dir_name"));
+		String localStorageDirectoryPath = localStorageDirectory
+				.getAbsolutePath() + File.separator;
+		log.info("Local Directory Path for Storage: "
+				+ localStorageDirectoryPath);
+		if (localStorageDirectory.exists()) {
+			FileUtils.cleanDirectory(localStorageDirectory);
+		}
+
+		log.info("Creating Local Directory for View Thumbnail....");
+		File thumbnailDirectory = new File(localThumbnailDirectoryPath);
+		thumbnailDirectory.mkdirs();
+
+		log.info("Creating Local Directory for Storage....");
+		localStorageDirectory.mkdirs();
+
+		SessionUtil.getSessionData().setLocalThumbnailDirPath(
+				localThumbnailDirectoryPath);
+		SessionUtil.getSessionData().setLocalStoragePath(
+				localStorageDirectoryPath);
+
+		log.info("Local Thumbnail Path: "
+				+ SessionUtil.getSessionData().getLocalThumbnailDirPath());
+		log.info("Local Storage Path: "
+				+ SessionUtil.getSessionData().getLocalStoragePath());
+
+	}
 }
+
+        
+
+

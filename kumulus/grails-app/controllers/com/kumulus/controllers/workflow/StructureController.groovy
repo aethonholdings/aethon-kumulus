@@ -27,6 +27,7 @@ class StructureController {
 
         def response = [done: false]
         def data = request.JSON
+ 
         def currency = Currency.findByShortName(data?.currency)
         if(data?.documentId && data?.taskId && currency) {
 

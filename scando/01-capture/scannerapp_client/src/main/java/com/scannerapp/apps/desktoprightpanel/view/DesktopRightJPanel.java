@@ -73,6 +73,7 @@ public class DesktopRightJPanel extends BaseJPanel implements ChangeListener{
 	  this.desktopMainPanel= desktopMainJPanel;
 	  collectionPanel=new CollectionPanel(desktopMainPanel);
 	  importAndSepPanel=new ImportSaparationPanel(desktopMainPanel);	  
+           //importAndSepPanel=new ImportSaparationPanel(this);	  
 	  
 	  try 
 	  {    

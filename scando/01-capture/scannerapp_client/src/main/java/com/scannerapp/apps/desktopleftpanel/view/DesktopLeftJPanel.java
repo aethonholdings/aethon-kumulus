@@ -216,7 +216,7 @@ public class DesktopLeftJPanel extends BaseJPanel implements IconRepository,
 
 	}
 
-	private void initTreePanel() {
+	public void initTreePanel() {
 
 		jTreePanel.setLayout(new GridBagLayout());
 
@@ -275,9 +275,9 @@ public class DesktopLeftJPanel extends BaseJPanel implements IconRepository,
 				String nodeId = childNodeProperties.getNodeId();
 				String nodeName = childNodeProperties.getName();
 
-				desktopMainPanel.getjRightPanel().getCollectionPanel()
-						.controller()
-						.addNodeButton_actionPerformed(nodeId, nodeName);
+//				desktopMainPanel.getjRightPanel().getCollectionPanel()
+//						.controller()
+						//.addNodeButton_actionPerformed(nodeId, nodeName);
 
 				nodePropertiesMap.put(nodeId, childNodeProperties);
 			}
@@ -534,7 +534,7 @@ public class DesktopLeftJPanel extends BaseJPanel implements IconRepository,
 		}
 	}
 
-	private void createProjectRootNode() {
+	public void createProjectRootNode() {
 
 		String project = SessionUtil.getSessionData().getProjectName();
 

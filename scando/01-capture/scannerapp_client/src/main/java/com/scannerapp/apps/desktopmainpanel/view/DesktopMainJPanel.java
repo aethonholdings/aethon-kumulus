@@ -52,7 +52,7 @@ public class DesktopMainJPanel extends JPanel implements IconRepository,
 		this.add(splitPanel);
 
               
-		jLeftPanel.fetchChildNodes(SessionUtil.getSessionData().getProjectId(),	null);
+		//jLeftPanel.fetchChildNodes(SessionUtil.getSessionData().getProjectId(),	null);
 	}
         
        

@@ -17,6 +17,7 @@ import org.apache.log4j.Logger;
 
 import com.scannerapp.apps.desktop.view.DeskTopFrame;
 import com.scannerapp.apps.desktopmainpanel.view.DesktopMainJPanel;
+import com.scannerapp.apps.desktoprightpanel.view.ImportSaparationPanel;
 import com.scannerapp.apps.framework.view.BaseController;
 import com.scannerapp.apps.framework.view.ErrorMessage;
 import com.scannerapp.apps.utils.ConstantUtil;
@@ -35,6 +36,10 @@ public class LoginJPanelController extends BaseController {
 		super(jPanel);
 		loginHelper = new LoginHelper();
 		initializeScreen();
+	}
+        
+        public LoginJPanelController() {
+		
 	}
 
 	public void initialize() {
@@ -175,6 +180,9 @@ public class LoginJPanelController extends BaseController {
 						// Method to create local directory to store temporary
 						// thumbnails, fullscreen images and local path to store
 						// images while import
+                                                
+                                               // new ImportSaparationPanel();
+                                                
 						createLocalDirectory();
 
 						DeskTopFrame.getInstance().getContentPane().removeAll();
@@ -258,7 +266,7 @@ public class LoginJPanelController extends BaseController {
 				+ clientVersion);
 	}
 
-	private void createLocalDirectory() throws IOException {
+	public void createLocalDirectory() throws IOException {
 		log.info("Cleaning Local Directory for Thumbnail...");
 		File localThumbnailDirectory = new File(
 				ConstantUtil.getApplicationConstant("local_thumbnail_dir_name"));
