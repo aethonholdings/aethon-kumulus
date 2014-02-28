@@ -223,6 +223,8 @@ public class DesktopLeftJPanel extends BaseJPanel implements IconRepository,
                 jTreeScroll.getViewport().add(nodeTree);
                 fetchChildNodes(SessionUtil.getSessionData().getProjectId(),	null);
                 ((DefaultTreeModel) getNodeTree().getModel()).reload();
+                getNodeTree().updateUI();
+		getNodeTree().repaint();
         }
         // KONS CODE ENDS
         
@@ -285,9 +287,9 @@ public class DesktopLeftJPanel extends BaseJPanel implements IconRepository,
 				String nodeId = childNodeProperties.getNodeId();
 				String nodeName = childNodeProperties.getName();
 
-//				desktopMainPanel.getjRightPanel().getCollectionPanel()
-//						.controller()
-						//.addNodeButton_actionPerformed(nodeId, nodeName);
+				desktopMainPanel.getjRightPanel().getCollectionPanel()
+						.controller()
+						.addNodeButton_actionPerformed(nodeId, nodeName);
 
 				nodePropertiesMap.put(nodeId, childNodeProperties);
 			}

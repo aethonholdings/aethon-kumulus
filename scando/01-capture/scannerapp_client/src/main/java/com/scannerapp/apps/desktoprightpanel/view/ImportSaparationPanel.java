@@ -239,7 +239,11 @@ public class ImportSaparationPanel extends BaseJPanel implements
 		String hasImportRights = SessionUtil.getSessionData().getImportRight();
 		String hasSeparationRights = SessionUtil.getSessionData()
 				.getSeparationRight();
-
+                
+                // KONS EDIT
+                hasSeparationRights = "N"; 
+                // KONS EDIT ENDS    
+                    
 		buttonPanel = new JPanel();
 
 		buttonPanelGroup1 = new JPanel();
