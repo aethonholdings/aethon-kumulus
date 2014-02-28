@@ -36,7 +36,7 @@
                             <td>${product.name}</td>
                             <td>${product.description}</td>
                             <td>${product.price}</td>
-                            <td><input id="quantity" type="text" value="" onblur="calculateTotalAmount(${product.price}, this)" class="kumulus-small-input-box"></td>
+                            <td><input id="quantity" type="text" value="" onblur="calculateTotalAmount(${product.price}, this)" class="kumulus-small-input-box" onkeydown="CheckNumericWithoutDec(event)"></td>
                             <td>SGD</td>
                             <td><label id="totalAmount">0</label></td>
                           </tr> 

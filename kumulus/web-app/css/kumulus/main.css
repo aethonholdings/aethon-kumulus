@@ -262,7 +262,7 @@ kumulus-control-group{
 }
 /*container-inside-box*/
 .kumulus-container-inside{
-    height: 520px;
+    height: 510px;
     margin: 1px;
 }
 .kumulus-container-ordermaterial-inside{
@@ -281,6 +281,10 @@ kumulus-control-group{
 
 .kumulus-container-inside-2-3{
     height: 320px;
+    margin: 1px;
+}
+.kumulus-container-inside-for-collect{
+    height: 370px;
     margin: 1px;
 }
 
@@ -431,6 +435,10 @@ label.error{
 
 .kumulus-small-input-box{
     width: 50px;
+}
+
+.clear-float{
+    clear: both; 
 }
 @media (max-width : 700px) {
 /*    .kumulus-menu{
