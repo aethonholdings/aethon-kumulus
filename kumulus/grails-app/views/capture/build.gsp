@@ -63,12 +63,15 @@
                 </div>
               </div>
             </div>
-            <div class="pure-u-1-12">
+            <div class="pure-u-1-8">
               <p><button class="pure-button" onClick="save();">Save</button></p>
             </div>
           </div>
         </div>
       </div>
+      <div class="kumulus-button-bank kumulus-float-right">
+          <g:link class="pure-button" controller='home' action='index'>Home</g:link>
+          </div>
     </div>
   </body>
 </html>
