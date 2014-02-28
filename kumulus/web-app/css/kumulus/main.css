@@ -126,6 +126,13 @@ table{
     vertical-align: middle;
     width:  70%;
 }
+.kumulus-thumbnail-image{
+    vertical-align: middle;
+    width:  40%;
+}
+.kumulus-td-width{
+width:60%;
+}
 
 kumulus-control-group{
     margin-bottom:.5em
@@ -160,7 +167,7 @@ kumulus-control-group{
     float: right;
 }
 
-.kumulus-padding{
+.kumulus-padding-side{
     padding-left: 40px;
     padding-right: 40px;
 }
