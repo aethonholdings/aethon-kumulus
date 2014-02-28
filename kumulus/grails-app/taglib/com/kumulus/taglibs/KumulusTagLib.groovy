@@ -75,16 +75,23 @@ class KumulusTagLib {
         def userTasks = workflowService.getTaskQueues(attrs?.userId)            
         out << "<ul>"
         out << "    <li>${userTasks.types.BUILD.count} scans to be assembled into documents</li>"
-        if(userTasks.types.BUILD.count > 0) out << "        <ul>"
-        userTasks.types.BUILD.tasks.groupBy({ task -> task.project }).each {
-            out << "<li>"
-            out << it.key.projectName << " - "
-            out << g.link(controller: "capture", action: "build", params: [projectId: it.key.id], "${it.value.size()}")
-            out << "</li>"
+        if(userTasks.types.BUILD.count > 0) {
+            out << "        <ul>"
+            userTasks.types.BUILD.tasks.groupBy({ task -> task.project }).each {
+                if(it.value.size()>0) {
+                    out << "<li>"
+                    out << it.key.projectName << " - "
+                    out << g.link(controller: "capture", action: "build", params: [projectId: it.key.id], "${it.value.size()}")
+                    out << "</li>"
+                }
+            }
         }
         if(userTasks.types.BUILD.count > 0) out << "        </ul>"
-        out << "    <li>${userTasks.types.PROCESS.count} documents to be processed - "
-        out << g.link(controller: "structure", action: "process", "Perform next")
+        out << "    <li>${userTasks.types.PROCESS.count} documents to be processed"
+        if(userTasks.types.PROCESS.count > 0) {
+            out << " - "
+            out << g.link(controller: "structure", action: "process", "Perform next")
+        }
         out << "</li>"
         out << "    <li>${userTasks.types.VALIDATE.count} documents to be reviewed"
         out << "</ul>"          
