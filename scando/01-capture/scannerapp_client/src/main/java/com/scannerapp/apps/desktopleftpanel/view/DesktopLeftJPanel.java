@@ -216,6 +216,16 @@ public class DesktopLeftJPanel extends BaseJPanel implements IconRepository,
 
 	}
 
+        // KONS CODE
+        public void refreshTreePanel() {
+                jTreeScroll.getViewport().remove(nodeTree);
+                createProjectRootNode();
+                jTreeScroll.getViewport().add(nodeTree);
+                fetchChildNodes(SessionUtil.getSessionData().getProjectId(),	null);
+                ((DefaultTreeModel) getNodeTree().getModel()).reload();
+        }
+        // KONS CODE ENDS
+        
 	public void initTreePanel() {
 
 		jTreePanel.setLayout(new GridBagLayout());
@@ -542,7 +552,6 @@ public class DesktopLeftJPanel extends BaseJPanel implements IconRepository,
 		projectNode.setNodeId(SessionUtil.getSessionData().getProjectId());
 
 		nodeTree = new JTree(projectNode);
-
 		renderer = new DefaultTreeCellRenderer();
 		// renderer.setLeafIcon(IconRepository.APPLY_ICON);
 		// nodeTree.setCellRenderer(renderer);

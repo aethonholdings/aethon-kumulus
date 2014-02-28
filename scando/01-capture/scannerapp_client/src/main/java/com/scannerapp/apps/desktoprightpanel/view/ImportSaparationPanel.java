@@ -2147,9 +2147,9 @@ public class ImportSaparationPanel extends BaseJPanel implements
                 importSaparationPanelHelper.getProjectByBarcode(searchBarcode);           
 
                 // KONS EDITS BELOW
-                desktopMainPanel.getjLeftPanel().initTreePanel();
-                // desktopMainPanel.getjLeftPanel().createProjectRootNode();
-                desktopMainPanel.updatejleftPanel();
+                desktopMainPanel.getjLeftPanel().refreshTreePanel();
+                // desktopMainPanel.getjLeftPanel().initTreePanel();
+                // desktopMainPanel.updatejleftPanel();
                 
                 // KONS EDITS END
                 
