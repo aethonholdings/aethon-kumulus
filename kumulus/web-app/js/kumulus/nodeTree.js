@@ -348,6 +348,8 @@ function save() {
         });
         tree.selectKey(news.data.key, true);
     }
+}
+
     function nodeDetailInfo(node){
   
     $("#nodeType").val(node.data.type);
@@ -376,5 +378,5 @@ function save() {
         });
     }
     
-}
+
 }
