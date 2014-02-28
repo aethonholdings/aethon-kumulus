@@ -121,6 +121,7 @@ $(document).ready(function(){
                 else{
                      enable(false)
                     $('#button-save').prop('disabled', false);
+                     $('#type').focus();
                 }   
             }   
             
