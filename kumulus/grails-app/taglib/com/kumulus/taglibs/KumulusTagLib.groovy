@@ -72,29 +72,29 @@ class KumulusTagLib {
     
     def taskQueue = { attrs ->
         
-        if(attrs?.userId){
-            def userTasks = workflowService.getTaskQueues(attrs?.userId)            
-
-            out << "<h3>You have ${userTasks.count} tasks outstanding</h3>"
-            out << "<ul>"
-            out << "    <li>${userTasks.types.BUILD.count} scans to be assembled into documents</li>"
-            out << "        <ul>"
-
+        def userTasks = workflowService.getTaskQueues(attrs?.userId)            
+        out << "<ul class='kumulus-task-queue'>\n"
+        out << "    <li class='kumulus-task-queue'>${userTasks.types.BUILD.count} scans to be assembled into documents</li>\n"
+        if(userTasks.types.BUILD.count > 0) {
+            out << "        <ul>\n"
             userTasks.types.BUILD.tasks.groupBy({ task -> task.project }).each {
-                out << "<li>"
-                out << it.key.projectName << " - "
-                out << g.link(controller: "capture", action: "build", params: [projectId: it.key.id], "${it.value.size()}")
-                out << "</li>"
+                if(it.value.size()>0) {
+                    out << "<li class='kumulus-task-queue-project'>\n"
+                    out << "<span class='kumulus-task-queue-project-name'>${it.key.projectName}</span>\n"
+                    out << "<span class='kumulus-task-queue-project-count'>" << it.value.size() << "</span>\n"
+                    out << "<span class='kumulus-task-queue-action'>" << g.link(controller: "capture", action: "build", params: [projectId: it.key.id], "Action") << "</span>\n"
+                    out << "</li>\n"
+                }
             }
-            
-            out << "        </ul>"
-            out << "    <li>${userTasks.types.PROCESS.count} documents to be processed - "
-            out << g.link(controller: "structure", action: "process", "Perform next")
-            out << "</li>"
-            out << "    <li>${userTasks.types.VALIDATE.count} documents to be reviewed"
-            out << "</ul>"            
         }
-        
+        if(userTasks.types.BUILD.count > 0) out << "        </ul>"
+        out << "    <li class='kumulus-task-queue'>${userTasks.types.PROCESS.count} documents to be processed"
+        if(userTasks.types.PROCESS.count > 0) {
+            out << "<span class='kumulus-task-queue-action'>" << g.link(controller: "structure", action: "process", "Action") << "</span>"
+        }
+        out << "</li>\n"
+        out << "    <li class='kumulus-task-queue'>${userTasks.types.VALIDATE.count} documents to be reviewed"
+        out << "</ul>\n"          
     }
     
 }

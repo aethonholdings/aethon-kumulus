@@ -13,17 +13,15 @@
         <div class="pure-g kumulus-small-font">
             <div class="pure-u-1-2">
                 <div class="kumulus-container-1-3 kumulus-scrollable-y kumulus-element-border">
+                  <h3>You have ${userTasks.count} tasks outstanding</h3>
                   <g:taskQueue userId="${userId}"/>
                 </div>
                 <div class="kumulus-container-1-3 kumulus-scrollable-y kumulus-element-border">
-                  <h3>There are ${backOfficeTasks.count} tasks in the system queue</h3>
-                  <ul>
-                    <li>${backOfficeTasks.types.OCR.count} documents to be OCRed</li>
-                    <li>${backOfficeTasks.types.PROCESS.count} documents to be processed</li>
-                  </ul>
+                  <h3>There are ${backOfficeTasks.count} tasks outstanding in the Kumulus queue</h3>
+                  <g:taskQueue userId="${null}"/>
                 </div>
                 <div class="kumulus-container-1-3 kumulus-scrollable-y kumulus-element-border">
-                  <h3>You have Z shipments schedule.</h3>
+                  <h3>You have Z shipments scheduled</h3>
                   <table class='pure-table pure-table-horizontal'>
                         <thead>
                             <tr>
