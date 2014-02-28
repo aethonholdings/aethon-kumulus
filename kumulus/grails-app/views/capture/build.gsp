@@ -39,7 +39,7 @@
       <div class="pure-u-1-3">
         <div class="kumulus-container kumulus-element-border">
           <div class="pure-g">
-            <div class="pure-u-7-8">    
+            <div class="pure-u-5-6">    
               <div class="pure-g">
                 <div class="pure-u-1-2">
                   <div class="kumulus-container kumulus-scrollable-y">
@@ -47,7 +47,7 @@
                       <ul id="pages" class="connectedSortable">
                         <g:each var="task" in="${tasks}">
                           <g:each var="page" in="${task.document.pages.sort { it.number }}">
-                            <li taskId ="${task.id}" documentId="${task.document.id}"><g:kumulusImg image="${page.thumbnailImage}" class="kumulus-thumbnail kumulus-element-border" height="140" width="100" viewId="${page.viewImage.id}" scanId="${page.scanImage.id}" barcode="${page.node.parent.barcode}" containerName="${page.node.parent.name}" containerType="${page.node.parent.type.name}" containerComment="${page.node.parent.comment}"/></li>
+                               <li taskId ="${task.id}" documentId="${task.document.id}"><g:kumulusImg image="${page.thumbnailImage}" class="kumulus-thumbnail kumulus-element-border" height="140" width="100" viewId="${page.viewImage.id}" scanId="${page.scanImage.id}" barcode="${page.node.parent.barcode}" containerName="${page.node.parent.name}" containerType="${page.node.parent.type.name}" containerComment="${page.node.parent.comment}"/></li>
                           </g:each>
                         </g:each>
                       </ul>
@@ -63,7 +63,7 @@
                 </div>
               </div>
             </div>
-            <div class="pure-u-1-8">
+            <div class="pure-u-1-12">
               <p><button class="pure-button" onClick="save();">Save</button></p>
             </div>
           </div>
@@ -72,3 +72,4 @@
     </div>
   </body>
 </html>
+
