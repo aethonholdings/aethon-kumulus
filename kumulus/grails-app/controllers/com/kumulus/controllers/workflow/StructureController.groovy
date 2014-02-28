@@ -24,10 +24,12 @@ class StructureController {
     
     def save(){
         // must check permissions properly
+
         def response = [done: false]
         def data = request.JSON
         def currency = Currency.findByShortName(data?.currency)
         if(data?.documentId && data?.taskId && currency) {
+
             // update the document
             Date date
             if(data?.date) date = new Date().parse("yyyy-MM-dd", data.date) else date = null
