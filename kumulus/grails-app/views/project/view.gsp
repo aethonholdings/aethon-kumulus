@@ -70,9 +70,9 @@
             </div>
             <div class="pure-u-1-3">
                 <div class="kumulus-container kumulus-element-border">
-                    <div class="kumulus-container-inside kumulus-scrollable-y">
+                    <div class="kumulus-container-inside">
                         <h3>&nbsp;</h3>
-                        <div class="pure-form">
+                        <div class="pure-form kumulus-margin-bottom">
                             <table>
                                 <tr>
                                     <td> Type:</td>
@@ -91,8 +91,8 @@
                                 <input type="button"  value="Ready" class="pure-button kumulus-float-right kumulus-margin-bottom"/>
                             </div>
                         </div>
-
-                        <div class="kumulus-padding">
+                        <div class="clear-float"></div>
+                        <div class="kumulus-container-inside-for-collect kumulus-scrollable-y kumulus-element-border">
                             <table id="pageInfo" class="pure-table pure-table-horizontal kumulus-margin-top">
                                 <thead>
                                     <tr>
