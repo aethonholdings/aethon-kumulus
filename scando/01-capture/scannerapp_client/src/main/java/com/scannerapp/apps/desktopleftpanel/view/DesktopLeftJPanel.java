@@ -220,6 +220,8 @@ public class DesktopLeftJPanel extends BaseJPanel implements IconRepository,
         public void refreshTreePanel() {
                 jTreeScroll.getViewport().remove(nodeTree);
                 createProjectRootNode();
+                nodeTree.addTreeSelectionListener((TreeSelectionListener) this);
+		nodeTree.setCellRenderer(new NodeRender(getNodePropertiesMap()));
                 jTreeScroll.getViewport().add(nodeTree);
                 fetchChildNodes(SessionUtil.getSessionData().getProjectId(),	null);
                 ((DefaultTreeModel) getNodeTree().getModel()).reload();
