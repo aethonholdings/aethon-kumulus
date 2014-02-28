@@ -14,16 +14,17 @@ class ScanDoController {
         render response as JSON  
     }
     
-    def fetchProjectList(){     
+    def fetchProjectList(){  
+        
+        println("Json "+params)
         def projectlist =Project.list()         
         println("*******************project List"+projectlist)
          def responseData=[:]
-         int i=1
-         projectlist.each{
-         responseData = [
-          '1': it.projectName           
-        ] 
-        i++
+         def projects=[]
+         
+         projectlist.each{ project ->
+         responseData.project.id = it.projectName           
+       
          }        
        render responseData as JSON  
     }
@@ -64,7 +65,7 @@ class ScanDoController {
               'hierarchy':list.toString(),
               'thumbnailImageName':null,             
               'actualImageName':null,
-              'lastUpdateDateTime':lastUpdateDatetime,
+              'lastUpdateDateTime':node.lastUpdateDatetime,
               'documentSequenceNumber':null,
               'userId':null,           
               'encodeStringForImage':null,
@@ -163,6 +164,9 @@ class ScanDoController {
     def checkIfNodeIsUpdatedByOtherUser() { }
     
     def getChildNodeCount() { }
+    def updateAttendance() {
+      redirect(action: "authenticate")
+    }
     
     def getEncodedActualImageString() { }   
 }
