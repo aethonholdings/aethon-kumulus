@@ -23,9 +23,9 @@ class StructureController {
     
     def save(){
         // must check permissions properly
-        println(params)
+       
           def data = request.JSON
-          
+      
         def currency = Currency.findByShortName(params?.currency)
         if(params?.id && currency) {
             

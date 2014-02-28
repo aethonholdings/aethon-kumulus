@@ -7,11 +7,11 @@
 //workflow UI
 $(document).ready(function(){
     
-    $('#type').live('change', function () {
+    $('#type').on('change', function () {
     // Get the from and to values.
     var from = $(this).data("from");
     var to = $(this).val();
-
+   
     // Remember the from value for next time
     $(this).data("from", to);
 
