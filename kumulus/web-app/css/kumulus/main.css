@@ -295,8 +295,8 @@ kumulus-control-group{
 
 .kumulus-button-bank {
     text-align: right;
-    margin-right: 3px;
-    margin-left: 3px;
+    margin-right: 1px;
+    margin-left: 1px;
     margin-top: 10px;
 }
 
@@ -309,6 +309,7 @@ kumulus-control-group{
 }
 .kumulus-button-bank a{
     margin-top: 4px;
+    min-width: 20%;
     
 }
 
@@ -346,7 +347,7 @@ kumulus-control-group{
 }
 
 .kumulus-node-tree{
-    padding: 10px;
+    padding: 3px;
     overflow-x: auto;
     overflow-y: auto;
 }
