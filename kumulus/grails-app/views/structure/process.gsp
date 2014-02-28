@@ -22,7 +22,6 @@
                 </div>
                 <div class="pure-u-7-8">
                     <div class="kumulus-container kumulus-element-border">
-                        <div class="kumulus-container-half">
                             <div class="pure-g">
                                 <div class="pure-u-3-4">
                                     <div class="kumulus-container-half kumulus-element-border kumulus-scrollable-y">
@@ -71,8 +70,7 @@
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="kumulus-container-half-1 kumulus-element-border kumulus-magrin-top kumulus-scrollable-y">
+                        <div class="kumulus-container-half-1 kumulus-element-border kumulus-margin-bottom kumulus-scrollable-y">
                             <div class="kumulus-line-item-table">
                                 <table id="lineItems" class="pure-table-horizontal">
                                     <thead>

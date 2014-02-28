@@ -398,15 +398,18 @@ label.error{
     width: 99%;
 }
 .kumulus-vertical-align-top td, th{
-    min-width: 10%
+    min-width: 15%
 }
 
-.kumulus-vertical-align-top input,select{
+.kumulus-vertical-align-top input{
     height: 30px;
     margin: auto; 
-    min-width: 10%;
+    min-width: 100%;
 }
 
+.kumulus-vertical-align-top a{
+    line-height: 30px;
+}
 .kumulus-margin-top{
     margin-top: 10px;
 }
@@ -485,7 +488,7 @@ li.kumulus-task-queue{
 .kumulus-task-queue-project{
     margin-left: 10px;
     margin-right: 10px;
-    background-color: #EFEFEF;
+    background-color: #EFEFD5;
     padding: 3px 0px;
     height: 13px;
     border: #fff solid 1px;
