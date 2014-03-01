@@ -108,7 +108,7 @@
                     <div class="kumulus-button-bank">
                         <input type="button" id ="save" value="Save and next" class="pure-button"></input>
                         <input type="button" id ="only_save" value="Save" class="pure-button"></input>
-                        <button type="button" id="button-cancel" class="pure-button">Cancel</button>
+                        <g:link class="pure-button" controller='home' action='index'>Home</g:link>
                     </div>
                 </div>
             </g:form>

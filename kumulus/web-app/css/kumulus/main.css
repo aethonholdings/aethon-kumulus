@@ -34,7 +34,6 @@ table{
 	width: 100%;
         background-color: #0B5992 ;
 	font-size: 10pt;
-	font-family: 'PT Sans', Arial, sans-serif;
 	position: relative;
         margin-bottom: 3px;
 }
@@ -463,7 +462,6 @@ label.error{
 
 .kumulus-task{
 	width: 100%;
-	font-family: 'PT Sans', Arial, sans-serif;
         margin-bottom: 3px;
 }
 
