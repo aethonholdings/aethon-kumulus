@@ -56,12 +56,9 @@
                   </div>
                 </div>
                 <div class="pure-u-1-2">
-                    <div id="document-strip-header" class="kumulus-filmstrip-header kumulus-margin-right">
-                        <h4>Drag the Doc Here</h4>
-                    </div>
                   <div class="kumulus-container kumulus-scrollable-y">
-                    <div id="document-strip" class="kumulus-filmstrip">
-                      <ul id="documents" class="connectedSortable"></ul> 
+                    <div id="document-strip" class="kumulus-filmstrip-header kumulus-margin-right">
+                        <span><h4>Drag the Doc Here</h4></span>
                     </div>
                   </div>
                 </div>
