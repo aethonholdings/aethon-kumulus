@@ -67,7 +67,7 @@ class ScanDoController {
                 'internalComment': node.internalComment,
                 'status': "" + node.status,
                 'parentNodeId': node.parent,
-                'hierarchy': captureService.getScanDoNodeHierarchy(node),                                   // INJECT THE HIERARCHY HERE
+                'hierarchy': captureService.getScanDoNodeHierarchy(node),                               // INJECT THE HIERARCHY HERE
                 'thumbnailImageName': null,             
                 'actualImageName': null,
                 'lastUpdateDateTime': node.lastUpdateDatetime,
