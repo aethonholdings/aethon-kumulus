@@ -50,7 +50,6 @@ import com.scannerapp.apps.framework.view.ErrorMessage;
 import com.scannerapp.apps.login.view.LoginJPanelController;
 import com.scannerapp.apps.utils.AsyncImageViewer;
 import com.scannerapp.apps.utils.ConstantUtil;
-import com.scannerapp.apps.utils.GetJsonUtil;
 import com.scannerapp.apps.utils.SessionUtil;
 import com.scannerapp.common.HelpPopup;
 import com.scannerapp.common.NodePropertyConstants;
