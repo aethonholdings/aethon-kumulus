@@ -13,7 +13,7 @@ hibernate {
 environments {
     development {
         dataSource {
-            dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
+            dbCreate = "create-drop" // one of 'create', 'create-drop', 'update', 'validate', ''
             url = "jdbc:mysql://"+ (System.getenv('KUMULUS_DB_HOST') ?: "localhost") +":3306/kumulus?autoReconnect=true"
             username = "kumulus"
             password = "password"
