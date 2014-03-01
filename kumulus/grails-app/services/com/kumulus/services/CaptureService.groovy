@@ -237,4 +237,10 @@ class CaptureService {
         return(newDocument)
     }
     
+    String getScanDoNodeHierarchy(Node node) {
+        String hierarchy
+        
+        return(hierarchy)
+    }
+    
 }
