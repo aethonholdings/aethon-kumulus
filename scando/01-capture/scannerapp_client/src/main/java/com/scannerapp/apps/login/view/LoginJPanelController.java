@@ -142,7 +142,7 @@ public class LoginJPanelController extends BaseController {
 						SessionUtil.setSessionData(loginHelper
 						.fetchSessionData());
                                          
-                                                  setClientVersionInSession();
+                                                setClientVersionInSession();
 
 						//boolean totalUnAuthorizeParam = loginHelper.isAuthorizeApplicationParam(projecId);
                                                 boolean totalUnAuthorizeParam =true;

@@ -216,6 +216,20 @@ public class DesktopLeftJPanel extends BaseJPanel implements IconRepository,
 
 	}
 
+        // KONS CODE
+        public void refreshTreePanel() {
+                jTreeScroll.getViewport().remove(nodeTree);
+                createProjectRootNode();
+                nodeTree.addTreeSelectionListener((TreeSelectionListener) this);
+		nodeTree.setCellRenderer(new NodeRender(getNodePropertiesMap()));
+                jTreeScroll.getViewport().add(nodeTree);
+                fetchChildNodes(SessionUtil.getSessionData().getProjectId(),	null);
+                ((DefaultTreeModel) getNodeTree().getModel()).reload();
+                getNodeTree().updateUI();
+		getNodeTree().repaint();
+        }
+        // KONS CODE ENDS
+        
 	public void initTreePanel() {
 
 		jTreePanel.setLayout(new GridBagLayout());
@@ -275,9 +289,9 @@ public class DesktopLeftJPanel extends BaseJPanel implements IconRepository,
 				String nodeId = childNodeProperties.getNodeId();
 				String nodeName = childNodeProperties.getName();
 
-//				desktopMainPanel.getjRightPanel().getCollectionPanel()
-//						.controller()
-						//.addNodeButton_actionPerformed(nodeId, nodeName);
+				desktopMainPanel.getjRightPanel().getCollectionPanel()
+						.controller()
+						.addNodeButton_actionPerformed(nodeId, nodeName);
 
 				nodePropertiesMap.put(nodeId, childNodeProperties);
 			}
@@ -542,7 +556,6 @@ public class DesktopLeftJPanel extends BaseJPanel implements IconRepository,
 		projectNode.setNodeId(SessionUtil.getSessionData().getProjectId());
 
 		nodeTree = new JTree(projectNode);
-
 		renderer = new DefaultTreeCellRenderer();
 		// renderer.setLeafIcon(IconRepository.APPLY_ICON);
 		// nodeTree.setCellRenderer(renderer);

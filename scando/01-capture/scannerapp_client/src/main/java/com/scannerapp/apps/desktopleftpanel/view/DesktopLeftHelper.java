@@ -15,7 +15,6 @@ import org.codehaus.jackson.type.TypeReference;
 import com.scannerapp.apps.framework.utils.ClientHelper;
 import com.scannerapp.apps.framework.view.ErrorMessage;
 import com.scannerapp.apps.utils.ConnectionUtil;
-import com.scannerapp.apps.utils.GetJsonUtil;
 import com.scannerapp.shared.NodeProperties;
 import com.sun.jersey.api.client.ClientHandlerException;
 import com.sun.jersey.api.client.ClientResponse;
