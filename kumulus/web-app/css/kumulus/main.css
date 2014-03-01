@@ -328,6 +328,16 @@ kumulus-control-group{
     
 }
 
+.kumulus-filmstrip-header{
+    background: #333;
+    color: #fff;
+    text-align: center;
+    width: 80%;
+    height: 30px; 
+    line-height: 30px;
+    margin: auto;
+}
+
 .kumulus-filmstrip{
     background: #eee; 
     text-align: center;
