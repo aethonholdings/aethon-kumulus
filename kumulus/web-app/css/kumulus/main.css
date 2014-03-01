@@ -223,6 +223,12 @@ kumulus-control-group{
     margin: 3px;
     padding: 3px;
 }
+
+.kumulus-container-inside-full{
+    height: 540px;
+    margin: 3px;
+    padding: 3px;
+}
 .kumulus-container-1-5{
     height: 100px;
     margin: 3px;
@@ -331,10 +337,16 @@ kumulus-control-group{
     background: #333;
     color: #fff;
     text-align: center;
-    width: 80%;
-    height: 30px; 
-    line-height: 30px;
-    margin: auto;
+    width: 95%;
+    height: 20px; 
+    line-height: 20px;
+    margin: 0px auto;
+}
+
+.kumulus-filmstrip-header li{
+    background: #eee; 
+    text-align: center;
+    width: 100%;
 }
 
 .kumulus-filmstrip{
@@ -522,6 +534,7 @@ li.kumulus-task-queue{
 .pure-u-1-12 .pure-button{
    width: 90%;
 }
+
 @media (max-width : 700px) {
 /*    .kumulus-menu{
         height: 100px;

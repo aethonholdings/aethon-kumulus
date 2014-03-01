@@ -2211,6 +2211,7 @@ public class ImportSaparationPanel extends BaseJPanel implements
 			boolean nodeFound = false;
 
 			if (currentNode.getChildCount() == 0) {
+                            
 				desktopMainPanel.getjLeftPanel().fetchChildNodes(
 						SessionUtil.getSessionData().getProjectId(),
 						currentNode.getNodeId());
@@ -2229,7 +2230,7 @@ public class ImportSaparationPanel extends BaseJPanel implements
 							currentNode.getPath());
 					desktopMainPanel.getjLeftPanel().getNodeTree()
 							.setSelectionPath(searchNodePath);
-					desktopMainPanel.getjLeftPanel().getNodeTree()
+    					desktopMainPanel.getjLeftPanel().getNodeTree()
 							.expandPath(searchNodePath);
 					desktopMainPanel.getjLeftPanel().getNodeTree().updateUI();
 					desktopMainPanel.getjLeftPanel().getNodeTree().repaint();

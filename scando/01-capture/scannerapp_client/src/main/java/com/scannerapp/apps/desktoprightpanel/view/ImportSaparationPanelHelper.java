@@ -45,7 +45,6 @@ public class ImportSaparationPanelHelper extends ClientHelper {
                 MultivaluedMap requestData = new MultivaluedMapImpl();
                 requestData.add("searchBarcode", searchBarcode);
 		requestData.add("projectId",SessionUtil.getSessionData().getProjectId());
-                System.out.println("Project Id is"+SessionUtil.getSessionData().getProjectId());
 		
 		try {
 			ClientResponse response = ConnectionUtil.getWebService()
@@ -262,14 +261,19 @@ public class ImportSaparationPanelHelper extends ClientHelper {
 
 		try {
 
-			ClientResponse response = ConnectionUtil.getWebService()
-					.path("nodeServices")
-					.path("checkIfNodeIsUpdatedByOtherUser")
-					.type(MediaType.APPLICATION_JSON_TYPE)
-					.accept(MediaType.APPLICATION_JSON_TYPE)
-					.post(ClientResponse.class, nodeUpdateTimeMap);
-
-			isNodeUpdated = (Boolean) response.getEntity(Boolean.class);
+// ------ KONS COMMENT OUT
+//			ClientResponse response = ConnectionUtil.getWebService()
+//					.path("scanDo")
+//					.path("checkIfNodeIsUpdatedByOtherUser")
+//					.type(MediaType.APPLICATION_JSON_TYPE)
+//					.accept(MediaType.APPLICATION_JSON_TYPE)
+//					.post(ClientResponse.class, nodeUpdateTimeMap);
+//
+//			isNodeUpdated = (Boolean) response.getEntity(Boolean.class);
+// ------ END KONS COMMENT OUT
+                    
+                        isNodeUpdated = false;
+                        
 		}
 
 		catch (UniformInterfaceException e) {
@@ -414,7 +418,6 @@ public class ImportSaparationPanelHelper extends ClientHelper {
 
             MultivaluedMap requestData = new MultivaluedMapImpl();
             requestData.add("barcode", barcode);
-            System.out.println("Barcode is ********************"+barcode);
 		try {
 			ClientResponse response = ConnectionUtil.getWebService()
 					.path("scanDo").path("getProjectBybarcode")

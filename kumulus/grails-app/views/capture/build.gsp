@@ -43,7 +43,7 @@
             <div class="pure-u-5-6">    
               <div class="pure-g">
                 <div class="pure-u-1-2">
-                  <div class="kumulus-container kumulus-scrollable-y">
+                  <div class="kumulus-container-inside-full kumulus-scrollable-y">
                     <div id="page-strip" class="kumulus-filmstrip">
                       <ul id="pages" class="connectedSortable">
                         <g:each var="task" in="${tasks}">
@@ -56,10 +56,13 @@
                   </div>
                 </div>
                 <div class="pure-u-1-2">
-                  <div class="kumulus-container kumulus-scrollable-y">
-                    <div id="document-strip" class="kumulus-filmstrip-header kumulus-margin-right">
+                  <div class="kumulus-container-inside-full kumulus-scrollable-y">
+                      <div class="kumulus-filmstrip-header">
+                    <div id="document-strip" class="">
                         <span><h4>Drag the Doc Here</h4></span>
+                        <li id="flimstrip-first-li" class="kumulus-filmstrip kumulus-hight"></li>
                     </div>
+                      </div>
                   </div>
                 </div>
               </div>

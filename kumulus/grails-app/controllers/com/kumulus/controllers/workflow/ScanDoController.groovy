@@ -12,17 +12,15 @@ class ScanDoController {
     
     // action to handle authentication
     def authenticate() {
-        def data = request.JSON
-        println(data)
+        
         def response = [true]
         render response as JSON  
+        
     }
     
     def fetchProjectList(){  
         
-        println("Json "+params)
         def projectlist =Project.list()         
-        println("*******************project List"+projectlist)
         def responseData=[:]
         def projects=[]
         projectlist.each{ project ->
@@ -31,43 +29,39 @@ class ScanDoController {
         render responseData as JSON  
     }
     
-    
     def updateNodeProperties() { }
     
     def fetchChildNodeList() {
-        def nodeList 
+        def nodeList = []
         def data = request.JSON
-    
-        if(data?.parentnodeId==null) {
-            def project = Project.findById(data?.projectId)
-            if(project) nodeList = project.nodes.findAll { node -> 
+        if(data[1].toString()=="null") {
+            def project = Project.findById(data[0].toString())
+            if(project) nodeList = Node.findAll { node -> 
+                project == project
                 parent == null 
-                type.isContainer == true
             }
         } else {
-            def parent = Node.findById(data?.nodeId)
+            def parent = Node.findById(data[1].toString())
             if(parent) { 
                 nodeList = Node.findAll { node -> 
                     parent == parent
-                    type.isContainer == true
                 }
             }
         }
+        
         def responsedata =[]
         nodeList.each{ node ->
-            def list = new ArrayList()
-
-            renderNode = [
-                'nodeId':"" + node.id,
-                'projectId':"" + node.project.id,
-                'name':"" + node.barcode,                                       // scando requires the barcode as name
+            def renderNode = [
+                'nodeId': "" + node.id,
+                'projectId': "" + node.project.id,
+                'name': "" + node.barcode,                                       // scando requires the barcode as name
                 'type': "" + node.type.code,    
                 'barcode': "" + node.barcode,              
                 'comment': node.comment,
                 'internalComment': node.internalComment,
                 'status': "" + node.status,
-                'parentNodeId': node.parent,
-                'hierarchy': captureService.getScanDoNodeHierarchy(node),                               // INJECT THE HIERARCHY HERE
+                'parentNodeId': node.parent?.id,
+                'hierarchy': captureService.getScanDoNodeHierarchy(node),                                   // INJECT THE HIERARCHY HERE
                 'thumbnailImageName': null,             
                 'actualImageName': null,
                 'lastUpdateDateTime': node.lastUpdateDatetime,
@@ -78,11 +72,9 @@ class ScanDoController {
                 'oldActualImageName': null,
                 'oldThumbnailImageName': null,
                 'transactionStatus': "U"            
-            ]            
-            // renderNode.hierarchy=list.toString()	     
+            ]                 
             responsedata.add(renderNode)            
         }     
-        println(responsedata)
         render responsedata as JSON 
     }
     
@@ -104,10 +96,10 @@ class ScanDoController {
     
     
     def fetchSessionData() {
-        println("***********"+params)
         def sessiondata=[:]
         HashMap<String,String> statusMap= new HashMap<String, String>();
         HashMap<String,String> nodeTypeMap= new HashMap<String, String>();
+        statusMap.put("Page","P");
         statusMap.put("Document","D");
         statusMap.put("Box","B");
         statusMap.put("Container","C");
@@ -165,7 +157,12 @@ class ScanDoController {
     
     def saveScannedImages() { }
     
-    def checkIfNodeIsUpdatedByOtherUser() { }
+    def checkIfNodeIsUpdatedByOtherUser() { 
+        
+        def response = [false]
+        render response as JSON  
+        
+    }
     
     def getChildNodeCount() { }
     def updateAttendance() {
