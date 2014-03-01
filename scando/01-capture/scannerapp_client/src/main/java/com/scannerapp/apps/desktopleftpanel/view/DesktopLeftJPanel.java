@@ -220,8 +220,6 @@ public class DesktopLeftJPanel extends BaseJPanel implements IconRepository,
         public void refreshTreePanel() {
                 jTreeScroll.getViewport().remove(nodeTree);
                 createProjectRootNode();
-                nodeTree.addTreeSelectionListener((TreeSelectionListener) this);
-		nodeTree.setCellRenderer(new NodeRender(getNodePropertiesMap()));
                 jTreeScroll.getViewport().add(nodeTree);
                 fetchChildNodes(SessionUtil.getSessionData().getProjectId(),	null);
                 ((DefaultTreeModel) getNodeTree().getModel()).reload();
@@ -554,14 +552,14 @@ public class DesktopLeftJPanel extends BaseJPanel implements IconRepository,
 
 		projectNode = new CustomMutableTreeNode(project);
 		projectNode.setNodeId(SessionUtil.getSessionData().getProjectId());
-
-		nodeTree = new JTree(projectNode);
-		renderer = new DefaultTreeCellRenderer();
-		// renderer.setLeafIcon(IconRepository.APPLY_ICON);
-		// nodeTree.setCellRenderer(renderer);
-
+                
+                // INITALISE THE NDOE TRE
+    		nodeTree = new JTree(projectNode);
 		nodeTree.setExpandsSelectedPaths(true);
-		nodeTree.setSelectionPath(new TreePath(projectNode.getPath()));
+                nodeTree.setSelectionPath(new TreePath(projectNode.getPath()));
+                initHandler();                                                  // KONS EDIT, CALLING THIS TO INITIALISE THE EVENT LISTENERS PER TB CODE
+                renderer = new DefaultTreeCellRenderer();                       // no idea what this does and where renderer is needed
+                
 	}
 
 	public void setLabelCaption() {
