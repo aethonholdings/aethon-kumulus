@@ -261,14 +261,19 @@ public class ImportSaparationPanelHelper extends ClientHelper {
 
 		try {
 
-			ClientResponse response = ConnectionUtil.getWebService()
-					.path("nodeServices")
-					.path("checkIfNodeIsUpdatedByOtherUser")
-					.type(MediaType.APPLICATION_JSON_TYPE)
-					.accept(MediaType.APPLICATION_JSON_TYPE)
-					.post(ClientResponse.class, nodeUpdateTimeMap);
-
-			isNodeUpdated = (Boolean) response.getEntity(Boolean.class);
+// ------ KONS COMMENT OUT
+//			ClientResponse response = ConnectionUtil.getWebService()
+//					.path("scanDo")
+//					.path("checkIfNodeIsUpdatedByOtherUser")
+//					.type(MediaType.APPLICATION_JSON_TYPE)
+//					.accept(MediaType.APPLICATION_JSON_TYPE)
+//					.post(ClientResponse.class, nodeUpdateTimeMap);
+//
+//			isNodeUpdated = (Boolean) response.getEntity(Boolean.class);
+// ------ END KONS COMMENT OUT
+                    
+                        isNodeUpdated = false;
+                        
 		}
 
 		catch (UniformInterfaceException e) {

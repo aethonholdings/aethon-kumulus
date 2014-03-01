@@ -12,10 +12,10 @@ class ScanDoController {
     
     // action to handle authentication
     def authenticate() {
-        def data = request.JSON
-        println(data)
+        
         def response = [true]
         render response as JSON  
+        
     }
     
     def fetchProjectList(){  
@@ -157,7 +157,12 @@ class ScanDoController {
     
     def saveScannedImages() { }
     
-    def checkIfNodeIsUpdatedByOtherUser() { }
+    def checkIfNodeIsUpdatedByOtherUser() { 
+        
+        def response = [false]
+        render response as JSON  
+        
+    }
     
     def getChildNodeCount() { }
     def updateAttendance() {
