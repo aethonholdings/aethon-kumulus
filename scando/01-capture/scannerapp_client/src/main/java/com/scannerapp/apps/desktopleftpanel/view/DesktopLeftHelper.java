@@ -15,7 +15,6 @@ import org.codehaus.jackson.type.TypeReference;
 import com.scannerapp.apps.framework.utils.ClientHelper;
 import com.scannerapp.apps.framework.view.ErrorMessage;
 import com.scannerapp.apps.utils.ConnectionUtil;
-import com.scannerapp.apps.utils.GetJsonUtil;
 import com.scannerapp.shared.NodeProperties;
 import com.sun.jersey.api.client.ClientHandlerException;
 import com.sun.jersey.api.client.ClientResponse;
@@ -46,11 +45,11 @@ public class DesktopLeftHelper extends ClientHelper {
 	public ArrayList<NodeProperties> getChildNodePropertiesList(
 			ArrayList<String> idList) {
 
-                 String projectId =idList.get(0) ;
-                 String parentnodeId=idList.get(1) ;
-                 MultivaluedMap formData = new MultivaluedMapImpl();
-                 formData.add("projectId", projectId);
-                 formData.add("parentnodeId", parentnodeId);
+                String projectId =idList.get(0) ;
+                String parentnodeId=idList.get(1) ;
+                MultivaluedMap formData = new MultivaluedMapImpl();
+                formData.add("projectId", projectId);
+                formData.add("parentnodeId", parentnodeId);
 		ArrayList<NodeProperties> childNodePropertiesList = null;
                 
 		try {

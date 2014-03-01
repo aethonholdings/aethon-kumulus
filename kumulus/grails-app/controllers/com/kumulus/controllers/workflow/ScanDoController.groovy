@@ -53,26 +53,26 @@ class ScanDoController {
             list.add(node.project.projectName)
             list.add(node.barcode)
             renderNode =[
-              'nodeId':""+node.id,
-              'projectId':""+node.project.id,
-              'name':""+node.name,
-              'type': ""+node.type.code,    
-              'barcode':""+node.barcode,              
-              'comment':node.comment,
-              'internalComment':node.internalComment,
-              'status':""+node.status,
-              'parentNodeId': node.parent,
-              'hierarchy':list.toString(),
-              'thumbnailImageName':null,             
-              'actualImageName':null,
-              'lastUpdateDateTime':node.lastUpdateDatetime,
-              'documentSequenceNumber':null,
-              'userId':null,           
-              'encodeStringForImage':null,
-               'encodeStringForThumbnail':null,
-               'oldActualImageName':null,
-               'oldThumbnailImageName':null,
-               'transactionStatus':"U"            
+                'nodeId':""+node.id,
+                'projectId':""+node.project.id,
+                'name':""+node.name,
+                'type': ""+node.type.code,    
+                'barcode': ""+node.barcode,              
+                'comment': node.comment,
+                'internalComment': node.internalComment,
+                'status':""+node.status,
+                'parentNodeId': node.parent,
+                'hierarchy':list.toString(),
+                'thumbnailImageName':null,             
+                'actualImageName':null,
+                'lastUpdateDateTime': node.lastUpdateDatetime,
+                'documentSequenceNumber':null,
+                'userId':null,           
+                'encodeStringForImage':null,
+                'encodeStringForThumbnail':null,
+                'oldActualImageName':null,
+                'oldThumbnailImageName':null,
+                'transactionStatus':"U"            
             ]            
            // renderNode.hierarchy=list.toString()	     
             responsedata.add(renderNode)            
@@ -114,48 +114,51 @@ class ScanDoController {
         nodeTypeMap.put("Done","1");
         nodeTypeMap.put("Sealed","2");                                                                                       
         sessiondata= [                                 
-             'version': "v1.1.3",
-             'userid': params.username,
-             'projectId': "-1",
-             'collectionRight':"N",
-             'breathInterval':"5",
-             'importRight':"Y",
-             'LocalStoragePath':null,
-             'projectName':"Scan barcodes",
-             'SeparationTarget':"0",
-             'refreshInterval':"600000",
-             'totalImagesToUploadAtOnce':"21",
-             'setOverallTarget':"5000",
-             'localThumbnailDirPath':null,
-             'nodeTypeMap':nodeTypeMap ,
-             'setStatusMap':statusMap,
-          ]                                                                             
+            'version': "v1.1.3",
+            'userid': params.username,
+            'projectId': "-1",
+            'collectionRight':"N",
+            'breathInterval':"5",
+            'importRight':"Y",
+            'separationRight': "N",
+            'LocalStoragePath':null,
+            'projectName':"Scan barcodes",
+            'SeparationTarget':"0",
+            'refreshInterval':"600000",
+            'totalImagesToUploadAtOnce':"21",
+            'setOverallTarget':"5000",
+            'localThumbnailDirPath':null,
+            'nodeTypeMap':nodeTypeMap ,
+            'setStatusMap':statusMap,
+        ]                                                                             
         render sessiondata as JSON     
     }
     
     def updateNodePropertiesList() { }
     
     def getHierarchyFromSearchBarcode() {
-        String responseString = "["
-        def data = request.JSON       
-        def node = Node.findByBarcode(data?.searchBarcode)
-        String projectName = Project.findById(data?.projectId).projectName                
-        def nodes = [node.barcode]
-        // def finalhierarchy =new ArrayList<String>()
-        ArrayList<String> finalhierarchy = new ArrayList<String>()
-        while(node.parent!=null) {            
-            node = node.parent
-            nodes.add(node.barcode)
-         }
-        nodes.add(projectName)
         
-        ListIterator nodeslist = nodes.listIterator(nodes.size());
-        while (nodeslist.hasPrevious()) {
-            // finalhierarchy.add(nodeslist.previous().toString())
-            responseString = responseString + nodeslist.previous().toString()
-            if(nodeslist.hasPrevious()) responseString = responseString + ", "
+        def data = request.JSON       
+        String responseString 
+        if(data?.searchBarcode) {
+            responseString = "["
+            def node = Node.findByBarcode(data?.searchBarcode)
+            if(node) {
+                def projectName = node.project.projectName
+                def barcodes = [node.barcode]
+                while(node.parent!=null) {
+                    node = node.parent
+                    barcodes.add(node.barcode)
+                } 
+                barcodes.add(projectName)
+                ListIterator nodeslist = barcodes.listIterator(barcodes.size());
+                while (nodeslist.hasPrevious()) {
+                    responseString = responseString + nodeslist.previous().toString()
+                    if(nodeslist.hasPrevious()) responseString = responseString + ", "
+                }
+            }
+            responseString = responseString + "]"
         }
-        responseString = responseString + "]"
         response.outputStream << responseString
     }
     

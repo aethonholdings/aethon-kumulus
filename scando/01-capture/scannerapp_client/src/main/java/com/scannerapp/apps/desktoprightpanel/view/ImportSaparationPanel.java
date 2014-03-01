@@ -50,7 +50,6 @@ import com.scannerapp.apps.framework.view.ErrorMessage;
 import com.scannerapp.apps.login.view.LoginJPanelController;
 import com.scannerapp.apps.utils.AsyncImageViewer;
 import com.scannerapp.apps.utils.ConstantUtil;
-import com.scannerapp.apps.utils.GetJsonUtil;
 import com.scannerapp.apps.utils.SessionUtil;
 import com.scannerapp.common.HelpPopup;
 import com.scannerapp.common.NodePropertyConstants;
@@ -239,7 +238,11 @@ public class ImportSaparationPanel extends BaseJPanel implements
 		String hasImportRights = SessionUtil.getSessionData().getImportRight();
 		String hasSeparationRights = SessionUtil.getSessionData()
 				.getSeparationRight();
-
+                
+                // KONS EDIT
+                hasSeparationRights = "N"; 
+                // KONS EDIT ENDS    
+                    
 		buttonPanel = new JPanel();
 
 		buttonPanelGroup1 = new JPanel();
@@ -2145,13 +2148,17 @@ public class ImportSaparationPanel extends BaseJPanel implements
             
 		String searchBarcode = barcodeField.getText().trim();
                 importSaparationPanelHelper.getProjectByBarcode(searchBarcode);           
-                //desktopMainPanel.getjLeftPanel().initTreePanel();
-              
-                desktopMainPanel.updatejleftPanel();
-            
+
+                // KONS EDITS BELOW
+                desktopMainPanel.getjLeftPanel().refreshTreePanel();
+                // desktopMainPanel.getjLeftPanel().initTreePanel();
+                // desktopMainPanel.updatejleftPanel();
+                
+                // KONS EDITS END
+                
 		CustomMutableTreeNode projectNode = desktopMainPanel.getjLeftPanel()
 				.getProjectNode();
-
+                
 		if (searchBarcode == null || searchBarcode.length() == 0) {
 			ErrorMessage.displayMessage('I', "provideSearchBarcode");
 			return;
