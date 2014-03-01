@@ -235,6 +235,12 @@ kumulus-control-group{
     margin: 3px;
     padding: 3px;
 }
+
+.kumulus-container-4-7{
+    height: 252px;
+    margin: 3px;
+    padding: 3px;
+}
 .kumulus-container-2-3{
     height: 440px;
     margin: 3px;
@@ -247,10 +253,9 @@ kumulus-control-group{
     padding: 3px;
 }
 
-.kumulus-container-2-3 h3,.kumulus-container-half h3, .kumulus-container-1-3 h3, .kumulus-container-1-4 h3{
-    text-align:center;
+.kumulus-container-2-3 h3,.kumulus-container-half h3, .kumulus-container-1-3 h3, .kumulus-container-1-4 h3, .kumulus-container-4-7 h3{
+    margin-left: 10px;
 }
-
 
 .kumulus-container-half-1{
     height: 250px;
@@ -320,13 +325,13 @@ kumulus-control-group{
 }
 .kumulus-button-bank a{
     margin-top: 4px;
-    min-width: 20%;
     
 }
 
 .kumulus-filmstrip{
     background: #eee; 
     text-align: center;
+    width: 100%;
 }
 
 .kumulus-filmstrip ul{
@@ -368,6 +373,7 @@ kumulus-control-group{
     text-align: center;
 }
 
+
 .kumulus-header-row {
     width: 50px;
 }
@@ -392,14 +398,18 @@ label.error{
     width: 99%;
 }
 .kumulus-vertical-align-top td, th{
-    min-width: 10%
+    min-width: 15%
 }
 
-.kumulus-vertical-align-top input,select{
+.kumulus-vertical-align-top input{
     height: 30px;
     margin: auto; 
+    min-width: 100%;
 }
 
+.kumulus-vertical-align-top a{
+    line-height: 30px;
+}
 .kumulus-margin-top{
     margin-top: 10px;
 }
@@ -439,6 +449,70 @@ label.error{
 
 .clear-float{
     clear: both; 
+}
+
+.kumulus-task{
+	width: 100%;
+	font-family: 'PT Sans', Arial, sans-serif;
+        margin-bottom: 3px;
+}
+
+.kumulus-task ul, li{
+	list-style:none;
+}
+
+.kumulus-task ul{
+    width: 95%;
+    margin-left:-30px;
+}
+.kumulus-task ul li{
+    margin-left: 2px;
+    clear: both;
+}
+
+.kumulus-task ul li span a{
+    margin-right: 5%;
+    float: right
+}
+
+.kumulus-task-queue{
+    width: 100%;
+    margin-bottom: 2px;
+}
+li.kumulus-task-queue{
+    padding-right: 30px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+.kumulus-task-queue-project{
+    margin-left: 10px;
+    margin-right: 10px;
+    background-color: #EFEFD5;
+    padding: 3px 0px;
+    height: 13px;
+    border: #fff solid 1px;
+    
+}
+.kumulus-task-queue-project-name{
+    width: 45%;
+    float: left;
+    padding-left: 15px;
+}
+
+.kumulus-task-queue-project-count{
+    width: 22%;
+    float: left;
+    padding-left: 10px;
+}
+
+.kumulus-task-queue-action{
+    width: 22%;
+    padding-left: 10px;
+}
+
+.pure-u-1-12 .pure-button{
+   width: 90%;
 }
 @media (max-width : 700px) {
 /*    .kumulus-menu{

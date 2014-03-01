@@ -12,11 +12,11 @@
     <body>
         <div class="pure-g kumulus-small-font">
             <div class="pure-u-1-2">
-                <div class="kumulus-container-1-3 kumulus-scrollable-y kumulus-element-border">
+                <div class="kumulus-container-4-7 kumulus-scrollable-y kumulus-element-border">
                   <h3>You have ${userTasks.count} tasks outstanding</h3>
-                  <g:taskQueue userId="${userId}"/>
+                  <div class="kumulus-task"><g:taskQueue userId="${userId}"/></div>
                 </div>
-                <div class="kumulus-container-1-3 kumulus-scrollable-y kumulus-element-border">
+                <div class="kumulus-container-1-5 kumulus-scrollable-y kumulus-element-border">
                   <h3>There are ${backOfficeTasks.count} tasks outstanding in the Kumulus queue</h3>
                   <g:taskQueue userId="${null}"/>
                 </div>

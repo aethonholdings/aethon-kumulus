@@ -15,7 +15,6 @@ import org.codehaus.jackson.type.TypeReference;
 import com.scannerapp.apps.framework.utils.ClientHelper;
 import com.scannerapp.apps.framework.view.ErrorMessage;
 import com.scannerapp.apps.utils.ConnectionUtil;
-import com.scannerapp.apps.utils.GetJsonUtil;
 import com.scannerapp.shared.SessionData;
 import com.sun.jersey.api.client.ClientHandlerException;
 import com.sun.jersey.api.client.ClientResponse;
@@ -253,13 +252,13 @@ public class LoginHelper extends ClientHelper {
 	public boolean updateAttendance(ArrayList<String> loginCredentials) {
 
 		try {
-			ClientResponse response = ConnectionUtil.getWebService()
-					.path("loginServices").path("updateAttendance")
+			ClientResponse response = ConnectionUtil.getWebService(loginCredentials.get(0),loginCredentials.get(1))
+					.path("scanDo").path("updateAttendance")
 					.type(MediaType.APPLICATION_JSON_TYPE)
 					.accept(MediaType.APPLICATION_JSON_TYPE)
 					.post(ClientResponse.class, loginCredentials);
 
-			return (Boolean) response.getEntity(Boolean.class);
+			return response.getClientResponseStatus() == Status.OK;
 
 		} 
 		catch (UniformInterfaceException e) {

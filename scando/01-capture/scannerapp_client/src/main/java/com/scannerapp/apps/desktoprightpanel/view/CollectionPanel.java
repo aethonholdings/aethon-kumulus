@@ -121,7 +121,7 @@ public class CollectionPanel extends BaseJPanel implements ActionListener,
 			setButtonEnableDisable(false);
 		}
 
-		initCollectionPanel();
+		//initCollectionPanel();
 		initHandlers();
 
 	}

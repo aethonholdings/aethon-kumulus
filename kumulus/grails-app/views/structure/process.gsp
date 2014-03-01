@@ -24,13 +24,11 @@
                 </div>
                 <div class="pure-u-7-8">
                     <div class="kumulus-container kumulus-element-border">
-                        <div class="kumulus-container-half">
-                            <div class="pure-g">
-                                <div class="pure-u-3-4">
-                                    <div class="kumulus-container-half kumulus-element-border kumulus-scrollable-y">
-                                        <div class="kumulus-preview">
-                                            <img id="preview-img" onClick="zoom();">
-                                        </div>
+                        <div class="pure-g">
+                            <div class="pure-u-3-4">
+                                <div class="kumulus-container-half kumulus-element-border kumulus-scrollable-y">
+                                    <div class="kumulus-preview">
+                                        <img id="preview-img" onClick="zoom();">
                                     </div>
                                 </div>
                                 <div class="pure-u-1-4">
@@ -61,12 +59,13 @@
                                                     <g:select id="currency" name="currency" optionKey="id" optionValue="shortName" from="${currencies}" value="${document.pages.lineItems.currency.id[0][0]}" class="pure-input-1" />
                                                 </div>
                                             </fieldset>
-                                        </div>
+                                          </div>
+                                       </div> 
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="kumulus-container-half-1 kumulus-element-border kumulus-magrin-top kumulus-scrollable-y">
+                        <div class="kumulus-container-half-1 kumulus-element-border kumulus-margin-bottom kumulus-scrollable-y">
                             <div class="kumulus-line-item-table">
                                 <table id="lineItems" class="pure-table-horizontal">
                                     <thead>
@@ -106,7 +105,9 @@
                     </div>   
                     <div class="kumulus-button-bank">
                         <input type="button" id ="save" value="Save and next" class="pure-button"></input>
-                        <a class="pure-button" href="#">Exit</a>
+                        <input type="button" id ="only_save" value="Save" class="pure-button"></input>
+                        <button type="button" id="button-cancel" class="pure-button">Cancel</button>
+
                     </div>
                 </div>
             </g:form>
