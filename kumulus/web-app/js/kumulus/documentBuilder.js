@@ -1,22 +1,22 @@
 $(document).ready(function(){
-    
     $("#pages").sortable({
         connectWith: "div",
         dropOnEmpty: true
     });
-    $("#pages").sortable({
+    $("#document-strip").sortable({
         connectWith: "ul",
         dropOnEmpty: true
     });
-    $("#document-strip-header").sortable({
-        connectWith: "ul",
-        dropOnEmpty: true
+    $("#document-strip li").hover(
+    function () {
+        $("#document-strip").addClass("connectedSortable");
+        $("#flimstrip-first-li").removeClass("kumulus-hight");
     });
-     $("#documents").sortable({
-        connectWith: "ul",
-        dropOnEmpty: true
+    $("#document-strip span").hover(
+    function () {
+        $("#document-strip").removeClass("connectedSortable");
     });
-    
+  
     
     $('.kumulus-filmstrip > ul > li > img').bind('mousedown', function() {
         preview($('#preview-img'), $(this).attr('viewId'));

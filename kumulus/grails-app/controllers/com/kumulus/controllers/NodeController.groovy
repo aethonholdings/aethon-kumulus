@@ -32,7 +32,7 @@ class NodeController {
         def data = request.JSON
         def node = Node.findById(data?.id)
         if (permissionsService.checkPermissions(node)) {
-            captureService.updateNode(node, data?.barcode, data?.name, data?.comment, data?.type, Node.STATUS_OPEN)
+            captureService.updateNode(node, data?.barcode, data?.name, data?.comment, data?.type, Node.STATUS_OPEN, Node.LOCATION_CLIENT)
             render node as JSON
         }
     }
@@ -47,7 +47,6 @@ class NodeController {
         if(project && permissionsService.checkPermissions(project) && captureService.insertNode(parent, project, data?.barcode, data?.name, data?.comment, data?.type)) { 
             response.done = true
             response.message = "Success"
-             
         }
         render response as JSON
     }
@@ -105,19 +104,12 @@ class NodeController {
     }
     
     def checkBarcode() {
-          def status=''
-          def data = request.JSON
-          def obj=Node.findByBarcode(data.barcode)
-          if(obj)
-          {
-              status='true'
-          }
-          else{
-              status='false'
-          }
-         def response = [status : status]
+        def status=''
+        def data = request.JSON
+        def obj=Node.findByBarcode(data.barcode)
+        if(obj) status='true' else status='false'
+        def response = [status : status]
         render  response as JSON
-        
     }
     
     def nodePageInfo(){
@@ -125,10 +117,8 @@ class NodeController {
          def page=[]
          def nodeObj=Node.findAllByParent(Node.findById(data.node))
          nodeObj.each{it ->
-            page<<request.contextPath+'/image/get/'+Page.findByNode(it).thumbnailImage.id
+            page << request.contextPath + '/image/get/'+ it.page.thumbnailImage.id
          }
-         
-   
         render page as JSON
     }
 }
