@@ -47,9 +47,6 @@ public class DesktopLeftHelper extends ClientHelper {
 
                 String projectId =idList.get(0) ;
                 String parentnodeId=idList.get(1) ;
-                MultivaluedMap formData = new MultivaluedMapImpl();
-                formData.add("projectId", projectId);
-                formData.add("parentnodeId", parentnodeId);
 		ArrayList<NodeProperties> childNodePropertiesList = null;
                 
 		try {
@@ -59,7 +56,7 @@ public class DesktopLeftHelper extends ClientHelper {
 					.path("scanDo").path("fetchChildNodeList")
 					.type(MediaType.APPLICATION_JSON_TYPE)
 					.accept(MediaType.APPLICATION_JSON_TYPE)
-					.post(ClientResponse.class, formData);
+					.post(ClientResponse.class, idList);
 
 			String jsonString = (String) response.getEntity(String.class);
                      //  String jsonobj = GetJsonUtil.getJsonfromServertree(projectUrl);

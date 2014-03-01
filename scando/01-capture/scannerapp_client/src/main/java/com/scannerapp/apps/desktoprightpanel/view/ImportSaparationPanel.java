@@ -2211,6 +2211,7 @@ public class ImportSaparationPanel extends BaseJPanel implements
 			boolean nodeFound = false;
 
 			if (currentNode.getChildCount() == 0) {
+                            
 				desktopMainPanel.getjLeftPanel().fetchChildNodes(
 						SessionUtil.getSessionData().getProjectId(),
 						currentNode.getNodeId());

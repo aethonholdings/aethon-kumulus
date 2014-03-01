@@ -35,17 +35,21 @@ class ScanDoController {
     def updateNodeProperties() { }
     
     def fetchChildNodeList() {
-        def nodeList 
+        def nodeList = []
         def data = request.JSON
-    
-        if(data?.parentnodeId==null) {
-            def project = Project.findById(data?.projectId)
-            if(project) nodeList = project.nodes.findAll { node -> 
+        println(data[1].toString())
+        if(data[1].toString()) {
+            println("in project parent node")
+            def project = Project.findById(data[0])
+            if(project) nodeList = Node.findAll { node -> 
+                project == project
                 parent == null 
                 type.isContainer == true
             }
         } else {
-            def parent = Node.findById(data?.nodeId)
+            println("in child node")
+            def parent = Node.findById(data[1])
+            // println(parent)
             if(parent) { 
                 nodeList = Node.findAll { node -> 
                     parent == parent
@@ -53,20 +57,19 @@ class ScanDoController {
                 }
             }
         }
+        
         def responsedata =[]
         nodeList.each{ node ->
-            def list = new ArrayList()
-
-            renderNode = [
-                'nodeId':"" + node.id,
-                'projectId':"" + node.project.id,
-                'name':"" + node.barcode,                                       // scando requires the barcode as name
+            def renderNode = [
+                'nodeId': "" + node.id,
+                'projectId': "" + node.project.id,
+                'name': "" + node.barcode,                                       // scando requires the barcode as name
                 'type': "" + node.type.code,    
                 'barcode': "" + node.barcode,              
                 'comment': node.comment,
                 'internalComment': node.internalComment,
                 'status': "" + node.status,
-                'parentNodeId': node.parent,
+                'parentNodeId': node.parent?.id,
                 'hierarchy': captureService.getScanDoNodeHierarchy(node),                                   // INJECT THE HIERARCHY HERE
                 'thumbnailImageName': null,             
                 'actualImageName': null,
@@ -78,11 +81,9 @@ class ScanDoController {
                 'oldActualImageName': null,
                 'oldThumbnailImageName': null,
                 'transactionStatus': "U"            
-            ]            
-            // renderNode.hierarchy=list.toString()	     
+            ]                 
             responsedata.add(renderNode)            
         }     
-        println(responsedata)
         render responsedata as JSON 
     }
     

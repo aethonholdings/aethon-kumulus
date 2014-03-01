@@ -239,7 +239,22 @@ class CaptureService {
     
     String getScanDoNodeHierarchy(Node node) {
         String hierarchy
-        
+        hierarchy = "["           
+        if(node) {
+            def projectName = node.project.projectName
+            def barcodes = [node.barcode]
+            while(node.parent!=null) {
+                node = node.parent
+                barcodes.add(node.barcode)
+            } 
+            barcodes.add(projectName)
+            ListIterator nodeslist = barcodes.listIterator(barcodes.size());
+            while (nodeslist.hasPrevious()) {
+                hierarchy = hierarchy + nodeslist.previous().toString()
+                if(nodeslist.hasPrevious()) hierarchy = hierarchy + ", "
+            }
+        }
+        hierarchy = hierarchy + "]"
         return(hierarchy)
     }
     
