@@ -34,7 +34,6 @@ table{
 	width: 100%;
         background-color: #0B5992 ;
 	font-size: 10pt;
-	font-family: 'PT Sans', Arial, sans-serif;
 	position: relative;
         margin-bottom: 3px;
 }
@@ -328,6 +327,16 @@ kumulus-control-group{
     
 }
 
+.kumulus-filmstrip-header{
+    background: #333;
+    color: #fff;
+    text-align: center;
+    width: 80%;
+    height: 30px; 
+    line-height: 30px;
+    margin: auto;
+}
+
 .kumulus-filmstrip{
     background: #eee; 
     text-align: center;
@@ -453,7 +462,6 @@ label.error{
 
 .kumulus-task{
 	width: 100%;
-	font-family: 'PT Sans', Arial, sans-serif;
         margin-bottom: 3px;
 }
 

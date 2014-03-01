@@ -31,6 +31,7 @@
                                         <img id="preview-img" onClick="zoom();">
                                     </div>
                                 </div>
+                            </div>
                                 <div class="pure-u-1-4">
                                     <div class="kumulus-container-half kumulus-element-border">
                                         <div class="kumulus-data-entry">
@@ -63,8 +64,6 @@
                                        </div> 
                                     </div>
                                 </div>
-                            </div>
-                        </div>
                         <div class="kumulus-container-half-1 kumulus-element-border kumulus-margin-bottom kumulus-scrollable-y">
                             <div class="kumulus-line-item-table">
                                 <table id="lineItems" class="pure-table-horizontal">
@@ -102,12 +101,11 @@
                                 </div>
                             </div>
                         </div>
-                    </div>   
+                    </div> 
                     <div class="kumulus-button-bank">
                         <input type="button" id ="save" value="Save and next" class="pure-button"></input>
                         <input type="button" id ="only_save" value="Save" class="pure-button"></input>
-                        <button type="button" id="button-cancel" class="pure-button">Cancel</button>
-
+                        <g:link class="pure-button" controller='home' action='index'>Home</g:link>
                     </div>
                 </div>
             </g:form>
