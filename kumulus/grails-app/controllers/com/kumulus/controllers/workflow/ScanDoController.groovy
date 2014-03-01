@@ -54,14 +54,14 @@ class ScanDoController {
             def renderNode = [
                 'nodeId': "" + node.id,
                 'projectId': "" + node.project.id,
-                'name': "" + node.barcode,                                       // scando requires the barcode as name
+                'name': "" + node.barcode?.text,                                 // scando requires the barcode as name
                 'type': "" + node.type.code,    
-                'barcode': "" + node.barcode,              
+                'barcode': "" + node.barcode?.text,              
                 'comment': node.comment,
                 'internalComment': node.internalComment,
                 'status': "" + node.status,
                 'parentNodeId': node.parent?.id,
-                'hierarchy': captureService.getScanDoNodeHierarchy(node),                                   // INJECT THE HIERARCHY HERE
+                'hierarchy': captureService.getScanDoNodeHierarchy(node),       // INJECT THE HIERARCHY HERE
                 'thumbnailImageName': null,             
                 'actualImageName': null,
                 'lastUpdateDateTime': node.lastUpdateDatetime,
@@ -85,11 +85,14 @@ class ScanDoController {
             'projectId': -1,
             'projectName': "Scan barcode"
        ]
-       
-        def node = Node.findByBarcode(data?.barcode)
-        if(node) {
-            responsedata.projectId = node.project.id
-            responsedata.projectName = node.project.projectName            
+        
+        def barcode = Barcode.findByText(data?.barcode)
+        if(barcode) {
+            def node = Node.findByBarcode(barcode)
+            if(node) {
+                responsedata.projectId = node.project.id
+                responsedata.projectName = node.project.projectName            
+            }
         }
         render responsedata as JSON  
     }
@@ -100,7 +103,6 @@ class ScanDoController {
         HashMap<String,String> statusMap= new HashMap<String, String>();
         HashMap<String,String> nodeTypeMap= new HashMap<String, String>();
         statusMap.put("Page","P");
-        statusMap.put("Document","D");
         statusMap.put("Box","B");
         statusMap.put("Container","C");
         nodeTypeMap.put("In Progress","0");
@@ -135,19 +137,22 @@ class ScanDoController {
         String responseString 
         if(data?.searchBarcode) {
             responseString = "["
-            def node = Node.findByBarcode(data?.searchBarcode)
-            if(node) {
-                def projectName = node.project.projectName
-                def barcodes = [node.barcode]
-                while(node.parent!=null) {
-                    node = node.parent
-                    barcodes.add(node.barcode)
-                } 
-                barcodes.add(projectName)
-                ListIterator nodeslist = barcodes.listIterator(barcodes.size());
-                while (nodeslist.hasPrevious()) {
-                    responseString = responseString + nodeslist.previous().toString()
-                    if(nodeslist.hasPrevious()) responseString = responseString + ", "
+            def barcode = Barcode.findByText(data?.searchBarcode)
+            if(barcode) { 
+                def node = Node.findByBarcode(barcode)
+                if(node) {
+                    def projectName = node.project.projectName
+                    def barcodes = [node.barcode?.text]
+                    while(node.parent!=null) {
+                        node = node.parent
+                        barcodes.add(node.barcode?.text)
+                    } 
+                    barcodes.add(projectName)
+                    ListIterator nodeslist = barcodes.listIterator(barcodes.size());
+                    while (nodeslist.hasPrevious()) {
+                        responseString = responseString + nodeslist.previous().toString()
+                        if(nodeslist.hasPrevious()) responseString = responseString + ", "
+                    }
                 }
             }
             responseString = responseString + "]"

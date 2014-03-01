@@ -18,9 +18,11 @@ class DocumentController {
         
         data?.tasks.each {
             // NEED TO CHECK PERMISSIONS HERE
-            def task = Task.findById(it)
-            tasks.add(task)
-            documents.add(task.document)
+            if(it) {
+                def task = Task.findById(it)
+                tasks.add(task)
+                documents.add(task.document)
+            }
         }
         def document = captureService.merge(documents)
         tasks.each { workflowService.completeTask(it) }

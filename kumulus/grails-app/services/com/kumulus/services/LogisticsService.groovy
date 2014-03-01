@@ -15,7 +15,8 @@ class LogisticsService {
         literal = "AE" + literal
         def barcode = new Barcode(
             text: literal,
-            printed: false
+            printed: false,
+            used: false
         )
         barcode.save()
         return(barcode)

@@ -45,11 +45,12 @@ $(document).ready(function(){
 });
 
 function save() {
-    var documents = $('#documents li');
+    var documents = $('#document-strip li');
     var taskIds = [];
     documents.each(function(i, li){
         taskIds.push($(li).attr('taskId'));
     });
+
     if(documents.length>0) {
         var data = {tasks: taskIds};
         $.ajax({
@@ -60,7 +61,7 @@ function save() {
             dataType: 'json',
             async: false,
             success: function(response) {
-                if(response.done) $('#documents').empty();
+                if(response.done) documents.empty();
                 $('#preview-img').hide();
             }
         });
