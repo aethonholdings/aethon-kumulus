@@ -2230,7 +2230,7 @@ public class ImportSaparationPanel extends BaseJPanel implements
 							currentNode.getPath());
 					desktopMainPanel.getjLeftPanel().getNodeTree()
 							.setSelectionPath(searchNodePath);
-					desktopMainPanel.getjLeftPanel().getNodeTree()
+    					desktopMainPanel.getjLeftPanel().getNodeTree()
 							.expandPath(searchNodePath);
 					desktopMainPanel.getjLeftPanel().getNodeTree().updateUI();
 					desktopMainPanel.getjLeftPanel().getNodeTree().repaint();

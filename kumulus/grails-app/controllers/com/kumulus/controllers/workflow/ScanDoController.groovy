@@ -31,24 +31,21 @@ class ScanDoController {
         render responseData as JSON  
     }
     
-    
     def updateNodeProperties() { }
     
     def fetchChildNodeList() {
         def nodeList = []
         def data = request.JSON
         println(data[1].toString())
-        if(data[1].toString()) {
-            println("in project parent node")
-            def project = Project.findById(data[0])
+        if(data[1].toString()=="null") {
+            def project = Project.findById(data[0].toString())
             if(project) nodeList = Node.findAll { node -> 
                 project == project
                 parent == null 
                 type.isContainer == true
             }
         } else {
-            println("in child node")
-            def parent = Node.findById(data[1])
+            def parent = Node.findById(data[1].toString())
             // println(parent)
             if(parent) { 
                 nodeList = Node.findAll { node -> 
