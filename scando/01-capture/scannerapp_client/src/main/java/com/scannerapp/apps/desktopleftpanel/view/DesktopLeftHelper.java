@@ -59,15 +59,11 @@ public class DesktopLeftHelper extends ClientHelper {
 					.post(ClientResponse.class, idList);
 
 			String jsonString = (String) response.getEntity(String.class);
-                     //  String jsonobj = GetJsonUtil.getJsonfromServertree(projectUrl);
-                        System.out.println("Json is "+jsonString);
-                       //childNodePropertiesList = new ArrayList<NodeProperties>();
+                        //  String jsonobj = GetJsonUtil.getJsonfromServertree(projectUrl);
+                        //childNodePropertiesList = new ArrayList<NodeProperties>();
 			childNodePropertiesList = mapper.readValue(jsonString,
 					new TypeReference<ArrayList<NodeProperties>>() {
 					});
-                        
-                        //System.out.println("mmm"+childNodePropertiesList+"mmmmmmmmmmmmmm"+jsonobj.toString());
-
 		}
 	
 		catch (JsonParseException e) 

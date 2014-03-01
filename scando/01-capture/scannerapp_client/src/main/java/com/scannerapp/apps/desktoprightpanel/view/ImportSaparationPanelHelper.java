@@ -45,7 +45,6 @@ public class ImportSaparationPanelHelper extends ClientHelper {
                 MultivaluedMap requestData = new MultivaluedMapImpl();
                 requestData.add("searchBarcode", searchBarcode);
 		requestData.add("projectId",SessionUtil.getSessionData().getProjectId());
-                System.out.println("Project Id is"+SessionUtil.getSessionData().getProjectId());
 		
 		try {
 			ClientResponse response = ConnectionUtil.getWebService()
@@ -414,7 +413,6 @@ public class ImportSaparationPanelHelper extends ClientHelper {
 
             MultivaluedMap requestData = new MultivaluedMapImpl();
             requestData.add("barcode", barcode);
-            System.out.println("Barcode is ********************"+barcode);
 		try {
 			ClientResponse response = ConnectionUtil.getWebService()
 					.path("scanDo").path("getProjectBybarcode")

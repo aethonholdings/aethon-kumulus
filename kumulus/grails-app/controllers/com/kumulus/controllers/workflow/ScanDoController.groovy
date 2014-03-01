@@ -20,9 +20,7 @@ class ScanDoController {
     
     def fetchProjectList(){  
         
-        println("Json "+params)
         def projectlist =Project.list()         
-        println("*******************project List"+projectlist)
         def responseData=[:]
         def projects=[]
         projectlist.each{ project ->
@@ -36,21 +34,17 @@ class ScanDoController {
     def fetchChildNodeList() {
         def nodeList = []
         def data = request.JSON
-        println(data[1].toString())
         if(data[1].toString()=="null") {
             def project = Project.findById(data[0].toString())
             if(project) nodeList = Node.findAll { node -> 
                 project == project
                 parent == null 
-                type.isContainer == true
             }
         } else {
             def parent = Node.findById(data[1].toString())
-            // println(parent)
             if(parent) { 
                 nodeList = Node.findAll { node -> 
                     parent == parent
-                    type.isContainer == true
                 }
             }
         }
@@ -102,10 +96,10 @@ class ScanDoController {
     
     
     def fetchSessionData() {
-        println("***********"+params)
         def sessiondata=[:]
         HashMap<String,String> statusMap= new HashMap<String, String>();
         HashMap<String,String> nodeTypeMap= new HashMap<String, String>();
+        statusMap.put("Page","P");
         statusMap.put("Document","D");
         statusMap.put("Box","B");
         statusMap.put("Container","C");

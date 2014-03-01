@@ -549,11 +549,12 @@ public class DesktopLeftJPanel extends BaseJPanel implements IconRepository,
 	public void createProjectRootNode() {
 
 		String project = SessionUtil.getSessionData().getProjectName();
-
-		projectNode = new CustomMutableTreeNode(project);
-		projectNode.setNodeId(SessionUtil.getSessionData().getProjectId());
                 
-                // INITALISE THE NDOE TRE
+		projectNode = new CustomMutableTreeNode(project);
+		// projectNode.setNodeId(SessionUtil.getSessionData().getProjectId()); // THIS IS THE SPEC APPROACH BUT IT IS WRONG AS A PROJECT ID IS NOT A NODE ID
+                projectNode.setNodeId("#");                                     // THE KUMULUS APPROACH
+                
+                // INITALISE THE NODE TREE
     		nodeTree = new JTree(projectNode);
 		nodeTree.setExpandsSelectedPaths(true);
                 nodeTree.setSelectionPath(new TreePath(projectNode.getPath()));
@@ -707,8 +708,14 @@ public class DesktopLeftJPanel extends BaseJPanel implements IconRepository,
 					selectedElement.getNodeId());
 
 			// If Selected Node Is Project Node
-			if (selectedElement.getNodeId().equals(
-					SessionUtil.getSessionData().getProjectId())) {
+                        
+                        //  --- KONS EDIT IN SPEC CODE, THE IF STATEMENT WAS CHECKING NODE ID AGAINST PROJECT ID
+			
+                        if (selectedElement.getNodeId().equals(((CustomMutableTreeNode)
+					nodeTree.getSelectionPath().getPathComponent(0)).getNodeId())) {
+                        
+                        //  --- END KONS
+                            
 				desktopMainPanel.getjRightPanel().getCollectionPanel()
 						.nodePropertyEnableDisable(false);
 				desktopMainPanel.getjRightPanel().getCollectionPanel()
@@ -813,11 +820,17 @@ public class DesktopLeftJPanel extends BaseJPanel implements IconRepository,
 				desktopMainPanel.getjLeftPanel().getJbtnRefresh()
 						.setEnabled(false);
 			}
-
+                        
+                        // ------ KONS EDIT - SPEC IF STATEMENT WAS TESTING NODE.ID VS PROJECT.ID
+                        
 			if (!selectedElement.getNodeId().equals(
-					SessionUtil.getSessionData().getProjectId())
+					((CustomMutableTreeNode)
+					nodeTree.getSelectionPath().getPathComponent(0)).getNodeId())
 					&& selectedElement.getNodeId().length() > 0) {
-				if (lastSelectedNode == null
+                        
+                        // ------ KONS EDIT END
+			
+                            if (lastSelectedNode == null
 						|| !selectedElement.getNodeId().equals(
 								lastSelectedNode.getNodeId())) {
 					controller().getAndSetNodePropertyValue();
@@ -882,9 +895,15 @@ public class DesktopLeftJPanel extends BaseJPanel implements IconRepository,
 	public void enableDisableImportSeparationButtons(
 			NodeProperties nodeProperties) {
 		// Check If Node Is Project Node
+                
+            // ------ KONS EDIT - SPEC IF STATEMENT WAS TESTING NODE.ID VS PROJECT.ID
+            
 		if (nodeProperties == null
-				|| SessionUtil.getSessionData().getProjectId()
-						.equals(nodeProperties.getNodeId())) {
+				|| nodeProperties.getNodeId().equals(((CustomMutableTreeNode)
+					nodeTree.getSelectionPath().getPathComponent(0)).getNodeId())) {
+                    
+            // ------ END KONS EDIT 
+                    
 			desktopMainPanel.getjRightPanel().getImportAndSepPanel()
 					.setAllButtonEnableDisable(false);
 		} else {
