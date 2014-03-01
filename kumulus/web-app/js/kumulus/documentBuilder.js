@@ -7,6 +7,15 @@ $(document).ready(function(){
         connectWith: "ul",
         dropOnEmpty: true
     });
+    $("#document-strip li").hover(
+    function () {
+        $("#document-strip").addClass("connectedSortable");
+        $("#flimstrip-first-li").removeClass("kumulus-hight");
+    });
+    $("#document-strip span").hover(
+    function () {
+        $("#document-strip").removeClass("connectedSortable");
+    });
   
     
     $('.kumulus-filmstrip > ul > li > img').bind('mousedown', function() {
