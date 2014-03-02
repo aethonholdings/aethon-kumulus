@@ -34,8 +34,8 @@ class RetrieveDocumentJob {
                                                 grailsApplication.config.smtp.port,
                                                 grailsApplication.config.smtp.username,
                                                 grailsApplication.config.smtp.password,
-                                                grailsApplication.config.smtp.from, 
-                                                grailsApplication.config.smtp.error_to)
+                                                grailsApplication.config.smtp.from)
+        sns.setDefaultRecipient(grailsApplication.config.smtp.error_to)
 
         // Retrieve searchable documents from ABBYY
         for (doc in Document.list(status: Document.STATUS_SUBMITTED)) {

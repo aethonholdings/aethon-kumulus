@@ -22,21 +22,31 @@ public class SimpleNotificationService
     private final String smtp_username;
     private final String smtp_password;
     private final String smtp_from;
-    private final String smtp_to;
+    private String smtp_default_to;
     
     public SimpleNotificationService(String smtp_server, int smtp_port,
                                      String smtp_username, String smtp_password,
-                                     String smtp_from, String smtp_to)
+                                     String smtp_from)
     {
         this.smtp_server = smtp_server;
         this.smtp_port = smtp_port;
         this.smtp_username = smtp_username;
         this.smtp_password = smtp_password;
         this.smtp_from = smtp_from;
-        this.smtp_to = smtp_to;
     }
 
+    public void setDefaultRecipient(String smtp_default_to)
+    {
+        this.smtp_default_to = smtp_default_to;
+    }
+    
     public void sendEmail(String subject, String text)
+            throws Exception
+    {
+        sendEmail(smtp_default_to, subject, text);
+    }
+    
+    public void sendEmail(String to, String subject, String text)
             throws Exception
     {
         java.util.Properties props = new java.util.Properties();
@@ -49,7 +59,7 @@ public class SimpleNotificationService
         final javax.mail.Session session = javax.mail.Session.getInstance(props);
         MimeMessage message = new MimeMessage(session);
         message.setFrom(new InternetAddress(this.smtp_from));
-        message.addRecipient(Message.RecipientType.TO, new InternetAddress(this.smtp_to));
+        message.addRecipient(Message.RecipientType.TO, new InternetAddress(to));
         message.setSubject(subject);
         message.setText(text);
         
