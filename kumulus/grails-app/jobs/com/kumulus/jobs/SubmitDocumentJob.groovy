@@ -17,6 +17,8 @@ import com.kumulus.domain.Page
  */
 class SubmitDocumentJob {
 
+    def grailsApplication
+
     static triggers = {
         simple name: 'Submit Job', startDelay: 0, repeatInterval: 120000  
     }
@@ -25,16 +27,15 @@ class SubmitDocumentJob {
 
     def execute() {
         def client = new Client()
-        // TODO: get parameters
-        client.applicationId = ""
-        client.password = ""
+        client.applicationId = grailsApplication.config.abbyy.applicationId
+        client.password = grailsApplication.config.abbyy.password
 
         def settings = new ProcessingSettings()
         settings.setLanguage('English')
         settings.setOutputFormat(ProcessingSettings.OutputFormat.pdfSearchable)
 
-        // Submit documents with status FINAL to ABBYY
-        for (doc in Document.list(status: Document.FINAL)) {
+        // Submit documents with status STATUS_BUILT to ABBYY
+        for (doc in Document.list(status: Document.STATUS_BUILT)) {
             def task = null
             for (page in Page.list(document: doc)) {
                 def filename = page.scanImage.file.path
@@ -44,7 +45,7 @@ class SubmitDocumentJob {
             }
             task = client.processDocument(task.Id, settings)
             doc.ocrTask = task.Id
-            doc.status = Document.SUBMITTED
+            doc.status = Document.STATUS_SUBMITTED
             doc.save(flush: true)
         }
     }
