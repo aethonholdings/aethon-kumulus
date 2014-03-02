@@ -13,7 +13,7 @@ package com.kumulus.jobs
 import com.abbyy.ocrsdk.Client
 import com.kumulus.domain.Document
 
-import com.kumulus.aws.SimpleNotificationService
+import com.kumulus.aws.SimpleEmailService
 
 class RetrieveDocumentJob {
     
@@ -30,11 +30,11 @@ class RetrieveDocumentJob {
         client.applicationId = grailsApplication.config.abbyy.applicationId
         client.password = grailsApplication.config.abbyy.password
 
-        def sns = new SimpleNotificationService(grailsApplication.config.smtp.server,
-                                                grailsApplication.config.smtp.port,
-                                                grailsApplication.config.smtp.username,
-                                                grailsApplication.config.smtp.password,
-                                                grailsApplication.config.smtp.from)
+        def sns = new SimpleEmailService(grailsApplication.config.smtp.server,
+                                         grailsApplication.config.smtp.port,
+                                         grailsApplication.config.smtp.username,
+                                         grailsApplication.config.smtp.password,
+                                         grailsApplication.config.smtp.from)
         sns.setDefaultRecipient(grailsApplication.config.smtp.error_to)
 
         // Retrieve searchable documents from ABBYY
