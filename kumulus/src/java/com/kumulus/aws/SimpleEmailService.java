@@ -15,7 +15,7 @@ import javax.mail.internet.MimeMessage;
  *
  * @author theo
  */
-public class SimpleNotificationService
+public class SimpleEmailService
 {
     private final String smtp_server;
     private final int smtp_port;
@@ -24,9 +24,9 @@ public class SimpleNotificationService
     private final String smtp_from;
     private String smtp_default_to;
     
-    public SimpleNotificationService(String smtp_server, int smtp_port,
-                                     String smtp_username, String smtp_password,
-                                     String smtp_from)
+    public SimpleEmailService(String smtp_server, int smtp_port,
+                              String smtp_username, String smtp_password,
+                              String smtp_from)
     {
         this.smtp_server = smtp_server;
         this.smtp_port = smtp_port;
