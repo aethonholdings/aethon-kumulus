@@ -118,9 +118,10 @@ class NodeController {
         def response = []
                 
         if(data?.node) {
-            def nodes = Node.findAll { node -> 
+            def nodes = Node.findAll() { node -> 
                 parent.id == data.node.toLong()
                 page != null
+                [order: "createDatetime", sort: "asc"]
             }
             nodes.page.groupBy({page -> page.document}).each { row ->
                 def document = row.key

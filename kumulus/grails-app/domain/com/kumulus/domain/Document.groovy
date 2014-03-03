@@ -51,17 +51,17 @@ class Document {
     String status() {
         switch(status){
             case STATUS_IMPORTED:
-                return("Imported")
+                return("Scan imported")
             case STATUS_BUILT:
-                return("Built")
+                return("Document built")
             case STATUS_SUBMITTED:
-                return("Submitted")
+                return("Submitted for processing")
             case STATUS_SEARCHABLE:
-                return("Searchable")
+                return("Submitted for processing")
             case STATUS_PROCESSED:
-                return("Processed")   
+                return("Ready for review")   
             case STATUS_FINAL:
-                return("Final")          
+                return("Completed")          
         }         
     }
     
