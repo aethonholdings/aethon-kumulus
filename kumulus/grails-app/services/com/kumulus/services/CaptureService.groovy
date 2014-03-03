@@ -24,7 +24,7 @@ class CaptureService {
     def insertNode(parent, project, barcodeString, name, comment, type) {
         
         def barcode = Barcode.findByText(barcodeString)
-        def nodeType = NodeType.findById(type)
+        def nodeType = NodeType.findByName(type)
         if(project && nodeType && name && barcode) {
             def timestamp = new Date()            
             def node = new Node()
