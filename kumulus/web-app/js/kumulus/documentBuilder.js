@@ -7,14 +7,6 @@ $(document).ready(function(){
         connectWith: "ul",
         dropOnEmpty: true
     });
-    $('#pages').droppable({
-        over: function(event, ul) {
-            var count = $("#document-strip li").length; 
-            if(count==0){
-                alert("empty");
-            }
-        }
-    });
     $("#document-strip li").hover(
         function () {
             $("#document-strip").addClass("connectedSortable");
