@@ -384,30 +384,29 @@ function save() {
 function nodeDetailInfo(node){
   
     $("#nodeType").val(node.data.type);
-    $("#nodeLocation").val();
+    $("#nodeLocation").val(node.data.location);
     $("#nodeStatus").val(node.data.status);
      
     var data = { node:node.data.id }
       
     if(data.node!='ROOT'){
-     $.ajax({
-         url: url('node', 'nodePageInfo', ''),
-         type: 'POST',
-         data: JSON.stringify(data),
-         contentType: 'application/json; charset=utf-8',
-         dataType: 'json',
-         async: false,
-         success: function(data) {
-
-          $("#pageInfo tbody tr").remove();
-             $.each(data, function(i) {
-
-                 $("#pageInfo tbody").append('<tr><td><img class="kumulus-thumbnail kumulus-element-border" height="140" width="100"  src='+data[i]+' /></td><td>'+"test"+'</td></tr>');
-             })
-
-         }
-    });
-}
+        $.ajax({
+            url: url('node', 'getDocuments', ''),
+            type: 'POST',
+            data: JSON.stringify(data),
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            async: false,
+            success: function(data) {
+                $("#pageInfo tbody tr").remove();
+                $.each(data, function(i) {
+                    var imgUrl = url('image','get', data[i].thumbnailImageId);
+                    var status = data[i].status
+                    $("#pageInfo tbody").append('<tr><td><img class="kumulus-thumbnail kumulus-element-border" height="140" width="100"  src='+ imgUrl +' /></td><td>'+status+'</td></tr>');
+                })
+            }
+        });
+    }
     
 
 }

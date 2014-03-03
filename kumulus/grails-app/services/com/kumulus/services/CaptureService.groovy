@@ -81,7 +81,7 @@ class CaptureService {
                 isFolder: node.type.isContainer,
                 comment: node.comment,
                 type: node.type.name,
-                status: node.status,
+                status: node.status(),
                 location: node.location,
                 id: node.id, 
                 project: node.project.id

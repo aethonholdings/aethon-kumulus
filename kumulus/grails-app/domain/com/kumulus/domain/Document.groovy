@@ -48,4 +48,21 @@ class Document {
         return(project.company)
     }
     
+    String status() {
+        switch(status){
+            case STATUS_IMPORTED:
+                return("Scan imported")
+            case STATUS_BUILT:
+                return("Document built")
+            case STATUS_SUBMITTED:
+                return("Submitted for processing")
+            case STATUS_SEARCHABLE:
+                return("Submitted for processing")
+            case STATUS_PROCESSED:
+                return("Ready for review")   
+            case STATUS_FINAL:
+                return("Completed")          
+        }         
+    }
+    
 }

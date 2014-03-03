@@ -113,13 +113,26 @@ class NodeController {
         render response as JSON
     }
     
-    def nodePageInfo(){
-         def data = request.JSON
-         def page=[]
-         def nodeObj=Node.findAllByParent(Node.findById(data.node))
-         nodeObj.each{it ->
-            page << request.contextPath + '/image/get/'+ it.page.thumbnailImage.id
-         }
-        render page as JSON
+    def getDocuments() {
+        def data = request.JSON
+        def response = []
+                
+        if(data?.node) {
+            def nodes = Node.findAll() { node -> 
+                parent.id == data.node.toLong()
+                page != null
+                [order: "createDatetime", sort: "asc"]
+            }
+            nodes.page.groupBy({page -> page.document}).each { row ->
+                def document = row.key
+                def responseData = [
+                    id: document.id, 
+                    status: document.status(),
+                    thumbnailImageId: document.pages[0].thumbnailImage.id
+                ]
+                response.add(responseData)
+            }
+        }
+        render response as JSON
     }
 }
