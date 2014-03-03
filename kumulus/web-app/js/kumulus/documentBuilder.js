@@ -1,38 +1,30 @@
 $(document).ready(function(){ 
-    var bool=true; 
-    if(bool){
     $("#pages").sortable({
         connectWith: "div",
-        dropOnEmpty: true       
+        dropOnEmpty: true
     });
-     $("#flimstrip-first-li").addClass("kumulus-hight");
-     bool=false;
-}
-     if(bool=='false'){
-         alert(bool);
-     $("#flimstrip-first-li").removeClass("kumulus-hight");
-}
     $("#document-strip").sortable({
         connectWith: "ul",
         dropOnEmpty: true
     });
-    
-    $("#document-strip li").hover(          
-    function () {
-        if(bool=='true'){
-        $("#document-strip").addClass("connectedSortable"); 
-          bool=false;    
-          }
-         if(bool=='false'){
-            $("#flimstrip-first-li").removeClass("kumulus-hight");
+    $('#pages').droppable({
+        over: function(event, ul) {
+            var count = $("#document-strip li").length; 
+            if(count==0){
+                alert("empty");
+            }
         }
     });
+    $("#document-strip li").hover(
+        function () {
+            $("#document-strip").addClass("connectedSortable");
+        });
     $("#document-strip span").hover(
-    function () {
-        $("#document-strip").removeClass("connectedSortable");
-    });
+        function () {
+            $("#document-strip").removeClass("connectedSortable");
+        });
+
   
-    
     $('.kumulus-filmstrip > ul > li > img').bind('mousedown', function() {
         preview($('#preview-img'), $(this).attr('viewId'));
         $("#barcode").val($(this).attr('barcode'))
