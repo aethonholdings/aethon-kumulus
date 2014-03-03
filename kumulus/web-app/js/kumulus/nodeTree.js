@@ -382,14 +382,11 @@ function save() {
 }
 
 function nodeDetailInfo(node){
-  
+ var data = { node:node.data.id }
+    if(data.node!='ROOT'){
     $("#nodeType").val(node.data.type);
     $("#nodeLocation").val(node.data.location);
     $("#nodeStatus").val(node.data.status);
-     
-    var data = { node:node.data.id }
-      
-    if(data.node!='ROOT'){
         $.ajax({
             url: url('node', 'getDocuments', ''),
             type: 'POST',
