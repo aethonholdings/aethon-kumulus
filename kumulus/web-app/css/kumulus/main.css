@@ -427,7 +427,7 @@ label.error{
 .kumulus-vertical-align-top tr{
     width: 99%;
 }
-.kumulus-vertical-align-top td, th{
+.kumulus-vertical-align-top td,.kumulus-vertical-align-top th{
     min-width: 15%
 }
 
@@ -486,7 +486,7 @@ label.error{
         margin-bottom: 3px;
 }
 
-.kumulus-task ul, li{
+.kumulus-task ul, .kumulus-task li{
 	list-style:none;
         margin: 1px 0px;
 }
