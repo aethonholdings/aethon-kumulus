@@ -98,8 +98,8 @@ $(document).ready(function(){
     tree = $('#nodeTree').dynatree("getTree");
     ready();
     
-    $('#barcode').blur(function(){
-   
+    $('#barcode').change(function(){
+        console.log("helllo");
         var data = {barcode: $('#barcode').val()}   
         $.ajax({
             url: url('node', 'checkBarcode', ''),
@@ -111,7 +111,7 @@ $(document).ready(function(){
             success: function(data) {
 
              if(data.status=='true'){
-                alert("Barcode is already used, Please add new")
+                alert("Invalid Barcode")
                 enable(true)
                 $('#barcode').val('')
                 $('#barcode').prop('disabled', false);
