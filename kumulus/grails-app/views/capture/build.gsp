@@ -43,7 +43,7 @@
             <div class="pure-u-5-6">    
               <div class="pure-g">
                 <div class="pure-u-1-2">
-                  <div class="kumulus-container-inside-full kumulus-scrollable-y">
+                  <div class="kumulus-container-inside kumulus-scrollable-y kumulus-filmstrip-margin-top">
                     <div id="page-strip" class="kumulus-filmstrip">
                       <ul id="pages" class="connectedSortable">
                         <g:each var="task" in="${tasks}">
@@ -68,7 +68,7 @@
               </div>
             </div>
             <div class="pure-u-1-8">
-              <p><button class="pure-button" onClick="save();">Save</button></p>
+              <p class="kumulus-filmstrip-button-margin-top"><button class="pure-button" onClick="save();">Save</button></p>
             </div>
           </div>
         </div>

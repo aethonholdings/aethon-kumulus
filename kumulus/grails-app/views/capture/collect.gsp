@@ -16,10 +16,10 @@
                     </div>
                 </div>
                 <div class="kumulus-button-bank">
-                    <a id="button-add" class="pure-button" onclick="add_node();">Add</a>
-                    <a id="button-edit" class="pure-button" onclick="update_node();">Edit</a>
-                    <a id="button-delete" class="pure-button" onclick="delete_node();">Delete</a>
-                    <a id="button-search" class="pure-button" onclick="search_node();">Search</a>
+                    <button type="button" id="button-add" class="pure-button kumulus-margin-bottom" onclick="add_node();">Add</button>
+                    <button type="button" id="button-edit" class="pure-button kumulus-margin-bottom" onclick="update_node();">Edit</button>
+                    <button type="button" id="button-delete" class="pure-button kumulus-margin-bottom" onclick="delete_node();">Delete</button>
+                    <button type="button" id="button-search" class="pure-button kumulus-margin-bottom" onclick="search_node();">Search</button>
                 </div>
             </div>
             <div class="pure-u-1-2">
@@ -38,7 +38,7 @@
                                     <select id="type" disabled>
                                         <option value=""  selected="selected">Please Select Container Type</option>
                                         <g:each in="${nodeTypes}" var="nodeType">
-                                            <option value="${nodeType?.id}">${nodeType?.name}</option>
+                                            <option value="${nodeType?.name}">${nodeType?.name}</option>
                                         </g:each>                  
                                     </select>
                                 </div>
