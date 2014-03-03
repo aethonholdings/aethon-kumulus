@@ -67,4 +67,4 @@ data/filesystem/staging/*
 /manager/target
 /scando/01-capture/scannerapp_client/target
 /scando/01-capture/scannerapp_server/target
-
+/scando/01-capture/scannerapp_client/Log/ScannerApp.log
