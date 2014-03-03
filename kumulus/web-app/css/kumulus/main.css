@@ -486,7 +486,7 @@ label.error{
         margin-bottom: 3px;
 }
 
-.kumulus-task ul, .kumulus-task li{
+.kumulus-task ul{
 	list-style:none;
         margin: 1px 0px;
 }
