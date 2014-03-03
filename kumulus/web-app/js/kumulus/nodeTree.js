@@ -208,6 +208,9 @@ function add_node() {
         $('#nodeTree').prop('disabled', true);
         $('#button-cancel').prop('disabled', false);
         $('#button-add').prop('disabled', true);
+        $('#button-edit').prop('disabled', true);
+        $('#button-delete').prop('disabled', true);
+        $('#button-search').prop('disabled', true);
         $('#barcode').focus();
         state = "INSERT";
     }
@@ -286,6 +289,9 @@ function cancel() {
             $('#button-cancel').prop('disabled', true);
             $('#button-save').prop('disabled', true);
             $('#button-add').prop('disabled', false);
+            $('#button-edit').prop('disabled', false);
+            $('#button-delete').prop('disabled', false);
+            $('#button-search').prop('disabled', false);
             ready();
             break;
     } 
@@ -347,6 +353,9 @@ function save() {
                 $('#button-cancel').prop('disabled', true);
                 $('#button-save').prop('disabled', true);
                 $('#button-add').prop('disabled', false);
+                $('#button-edit').prop('disabled', false);
+                $('#button-delete').prop('disabled', false);
+                $('#button-search').prop('disabled', false);
             }
         });
         tree.selectKey(news.data.key, true);
