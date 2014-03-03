@@ -21,24 +21,9 @@
                   <div class="kumulus-task"><g:taskQueue userId="${null}"/></div>
                 </div>
                 <div class="kumulus-container-1-3 kumulus-scrollable-y kumulus-element-border">
-                  <h3>You have Z shipments scheduled</h3>
+                  <h3>&nbsp;</h3>
                   <div class="kumulus-task">
-                  <table class='pure-table pure-table-horizontal'>
-                        <thead>
-                            <tr>
-                                <th>Project</th>
-                                <th>Task type</th>
-                                <th>Documents to be processed</th>
-                            </tr>
-                        </thead>
-                        <tbody>     
-                           <tr>
-                                 <td></td>
-                                 <td></td>
-                                 <td></td>
-                          </tr>
-                        </tbody>
-                    </table> 
+                  <g:link controller="project" action="create" class="pure-button kumulus-float-right kumulus-margin-top">Create new</g:link>
                   </div>
                 </div>
             </div>

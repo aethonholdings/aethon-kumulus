@@ -255,8 +255,7 @@ kumulus-control-group{
 }
 
 .kumulus-container h3, .kumulus-container-2-3 h3,.kumulus-container-half h3, .kumulus-container-1-3 h3, .kumulus-container-1-4 h3, .kumulus-container-4-7 h3, .kumulus-container-1-5 h3{
-    margin: 1em 10px 2px 0px;
-    
+    margin: 1em 10px 3px 6px;
 }
 
 .kumulus-container-half-1{
@@ -278,11 +277,15 @@ kumulus-control-group{
 }
 
 .kumulus-container-inside-11-24{
-    height: 395px;
+    height: 440px;
     margin: 4px;
 }
 .kumulus-container-inside-half{
     height: 205px;
+    margin: 1px;
+}
+kumulus-container-inside-1-3{
+    height: 160px;
     margin: 1px;
 }
 
@@ -291,7 +294,7 @@ kumulus-control-group{
     margin: 1px;
 }
 .kumulus-container-inside-for-collect{
-    height: 370px;
+    height: 390px;
     margin: 1px;
 }
 
@@ -488,7 +491,7 @@ label.error{
 
 .kumulus-task ul{
 	list-style:none;
-        margin: 1px 0px;
+        margin: 0px 0px;
 }
 
 .kumulus-task ul{
@@ -504,10 +507,14 @@ label.error{
     margin-right: 7px;
     float: right
 }
+li.kumulus-task-queue.kumulus-task-queue-action-item{
+    margin-bottom: 1px;
+    background-color: #EFEFD5;
+    line-height: 21px;
+}
 
 .kumulus-task-queue{
     width: 100%;
-    margin-bottom: 2px;
 }
 
 .kumulus-task-queue-project{
@@ -516,15 +523,7 @@ label.error{
     background-color: #EFEFD5; 
     height: 21px;
     line-height: 21px;
-}
-
-
-.kumulus-task>.kumulus-task-queue>.kumulus-task-queue-action-item{
-    margin-right: 20px;
-    background-color: #EFEFD5;
-    height: 21px;
-    line-height: 21px;
-    width: 100%
+    margin-bottom: 2px;
 }
 
 .kumulus-task-queue-project-name{
