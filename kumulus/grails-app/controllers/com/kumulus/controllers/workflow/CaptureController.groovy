@@ -18,7 +18,13 @@ class CaptureController {
     
     def upload() {
         def project = Project.findById(params?.id)
-        if(permissionsService.checkPermissions(project)) render view:"upload", model:[project: project]
+        if(permissionsService.checkPermissions(project)) {
+            def nodeTypes = NodeType.findAll {
+                isContainer==true
+            }
+        
+        render view:"upload", model:[project: project, nodeTypes: nodeTypes]
+        }
     }
     
     def build() {

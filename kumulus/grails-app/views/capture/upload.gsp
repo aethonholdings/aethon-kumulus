@@ -38,8 +38,9 @@
                   <div class="pure-control-group">
                     <label for="type">* Type</label>
                     <select id="type" class="pure-input-1-4" disabled>
-                      <option>Container</option>  
-                      <option>Box</option>
+                       <g:each in="${nodeTypes}" var="nodeType">
+                            <option value="${nodeType?.id}">${nodeType?.name}</option>
+                       </g:each> 
                     </select>
                   </div>
                   <div class="pure-control-group">

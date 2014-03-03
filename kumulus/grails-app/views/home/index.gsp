@@ -18,7 +18,7 @@
                 </div>
                 <div class="kumulus-container-1-5 kumulus-scrollable-y kumulus-element-border">
                   <h3>There are ${backOfficeTasks.count} tasks outstanding in the Kumulus queue</h3>
-                  <g:taskQueue userId="${null}"/>
+                  <div class="kumulus-task"><g:taskQueue userId="${null}"/></div>
                 </div>
                 <div class="kumulus-container-1-3 kumulus-scrollable-y kumulus-element-border">
                   <h3>You have Z shipments scheduled</h3>
