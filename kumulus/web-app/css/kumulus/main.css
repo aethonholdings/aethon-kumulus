@@ -546,6 +546,13 @@ li.kumulus-task-queue{
 .pure-u-1-12 .pure-button{
    width: 90%;
 }
+.pure-table{
+    border:0px;
+}
+.pure-table-horizontal td,.pure-table-horizontal th{
+	border-width:0 0 0px;
+	border-bottom:0px;
+}
 
 @media (max-width : 700px) {
 /*    .kumulus-menu{
