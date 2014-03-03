@@ -211,25 +211,25 @@ public class ImportSaparationPanel extends BaseJPanel implements
 				0.0, GridBagConstraints.WEST, GridBagConstraints.BOTH,
 				new Insets(0, 0, 0, 0), 0, 0));
 
-		searchPanel.add(importKPI, new GridBagConstraints(3, 0, 1, 1, 0.0, 0.0,
-				GridBagConstraints.WEST, GridBagConstraints.BOTH, new Insets(0,
-						45, 0, 0), 0, 0));
+//		searchPanel.add(importKPI, new GridBagConstraints(3, 0, 1, 1, 0.0, 0.0,             //Raj hide importKPI lable
+//				GridBagConstraints.WEST, GridBagConstraints.BOTH, new Insets(0,
+//						45, 0, 0), 0, 0));
 
-		searchPanel.add(helpButton, new GridBagConstraints(4, 0, 1, 1, 0.0,
-				0.0, GridBagConstraints.WEST, GridBagConstraints.BOTH,
-				new Insets(0, 5, 0, 0), 0, 0));
+//		searchPanel.add(helpButton, new GridBagConstraints(4, 0, 1, 1, 0.0  ,               //Raj hide help button
+//				0.0, GridBagConstraints.WEST, GridBagConstraints.BOTH,
+//				new Insets(0, 5, 0, 0), 0, 0));
 
-		labelPanel.add(scannedPage, new GridBagConstraints(0, 0, 1, 1, 0.0,
-				0.0, GridBagConstraints.NORTH, GridBagConstraints.NONE,
-				new Insets(0, 0, 0, 0), 0, 0));
+//		labelPanel.add(scannedPage, new GridBagConstraints(0, 0, 1, 1, 0.0,                 //Raj hide scannedPage
+//				0.0, GridBagConstraints.NORTH, GridBagConstraints.NONE,
+//				new Insets(0, 0, 0, 0), 0, 0));
 
 		labelPanel.add(tempLabel, new GridBagConstraints(1, 0, 1, 1, 0.0, 0.0,
 				GridBagConstraints.NORTH, GridBagConstraints.BOTH, new Insets(
 						0, 0, 0, 20), 0, 0));
 
-		labelPanel.add(separationKPI, new GridBagConstraints(2, 0, 1, 1, 0.0,
-				0.0, GridBagConstraints.EAST, GridBagConstraints.NONE,
-				new Insets(0, 15, 0, 0), 0, 0));
+//		labelPanel.add(separationKPI, new GridBagConstraints(2, 0, 1, 1, 0.0,                //Raj hide separationKPI       
+//				0.0, GridBagConstraints.EAST, GridBagConstraints.NONE,
+//				new Insets(0, 15, 0, 0), 0, 0));
 
 	}
 
