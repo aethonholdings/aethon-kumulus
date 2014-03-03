@@ -167,6 +167,10 @@ function refresh_container_information(node) {
 }
 
 function delete_node() {
+   $('#button-add').prop('disabled', true);
+   $('#button-edit').prop('disabled', true);
+   $('#button-delete').prop('disabled', true);
+   $('#button-search').prop('disabled', true);
     if(selectedNode && state=="READY"  && selectedNode.data.id!="ROOT") {
         if(confirm("Please confirm that you would like to delete this archive item")) {
             var data = { id: selectedNode.data.id }
@@ -184,6 +188,10 @@ function delete_node() {
                 }
             });
         }
+            $('#button-add').prop('disabled', false);
+            $('#button-edit').prop('disabled', false);
+            $('#button-delete').prop('disabled', false);
+            $('#button-search').prop('disabled', false);
     }
 };
 
@@ -224,12 +232,19 @@ function update_node() {
         $('#type').focus();
         $('#button-cancel').prop('disabled', false);
         $('#button-save').prop('disabled', false);
+        $('#button-add').prop('disabled', true);
+        $('#button-edit').prop('disabled', true);
+        $('#button-delete').prop('disabled', true);
+        $('#button-search').prop('disabled', true);
         state = "UPDATE";
     }
 };
 
 function search_node() {
-
+   $('#button-add').prop('disabled', true);
+   $('#button-edit').prop('disabled', true);
+   $('#button-delete').prop('disabled', true);
+   $('#button-search').prop('disabled', true);
     var barCode = prompt("Please scan barcode");
     var data = {barCode: barCode}
     $.ajax({
@@ -266,6 +281,10 @@ function search_node() {
             }
         }
     });
+     $('#button-add').prop('disabled', false);
+     $('#button-edit').prop('disabled', false);
+     $('#button-delete').prop('disabled', false);
+     $('#button-search').prop('disabled', false);
 }
 
 // --- INPUT INTERFACE ACTIONS
