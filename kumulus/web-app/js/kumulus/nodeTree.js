@@ -207,6 +207,7 @@ function add_node() {
         $('#comment').prop('disabled', true);
         $('#nodeTree').prop('disabled', true);
         $('#button-cancel').prop('disabled', false);
+        $('#button-add').prop('disabled', true);
         $('#barcode').focus();
         state = "INSERT";
     }
@@ -284,6 +285,7 @@ function cancel() {
             refresh_container_information(selectedNode);
             $('#button-cancel').prop('disabled', true);
             $('#button-save').prop('disabled', true);
+            $('#button-add').prop('disabled', false);
             ready();
             break;
     } 
@@ -344,6 +346,7 @@ function save() {
                 }
                 $('#button-cancel').prop('disabled', true);
                 $('#button-save').prop('disabled', true);
+                $('#button-add').prop('disabled', false);
             }
         });
         tree.selectKey(news.data.key, true);
