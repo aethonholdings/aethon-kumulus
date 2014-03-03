@@ -50,7 +50,7 @@ class Node {
     
     String status() {
         switch(status) {
-            case STATUS_OPENED:
+            case STATUS_OPEN:
                 return("Open")
             case STATUS_CLOSED:
                 return("Closed")

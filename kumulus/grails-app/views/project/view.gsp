@@ -55,7 +55,7 @@
                         <div id="nodeTree" class="jstree-draggable"></div>
                     </div>
                     <div class="kumulus-button-bank">
-                        <g:link controller="capture" action="collect" params="[id: "${project?.id}"]" class="pure-button">Edit</g:link>
+                        <g:link controller="capture" action="collect" params='[id: "${project?.id}"]' class="pure-button">Collect paperwork</g:link>
                         </div>
 
                     <div class="kumulus-container-1-5">
@@ -88,7 +88,7 @@
                                 </tr>
                             </table>
                             <div>
-                                <input type="button"  value="Ready" class="pure-button kumulus-float-right kumulus-margin-bottom"/>
+                                <input type="button"  value="Ready for transport" class="pure-button kumulus-float-right kumulus-margin-bottom"/>
                             </div>
                         </div>
                         <div class="clear-float"></div>

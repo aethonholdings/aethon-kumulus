@@ -384,7 +384,7 @@ function save() {
 function nodeDetailInfo(node){
   
     $("#nodeType").val(node.data.type);
-    $("#nodeLocation").val();
+    $("#nodeLocation").val(node.data.location);
     $("#nodeStatus").val(node.data.status);
      
     var data = { node:node.data.id }
