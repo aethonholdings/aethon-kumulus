@@ -258,7 +258,7 @@ kumulus-control-group{
     padding: 3px;
 }
 
-.kumulus-container-2-3 h3,.kumulus-container-half h3, .kumulus-container-1-3 h3, .kumulus-container-1-4 h3, .kumulus-container-4-7 h3{
+.kumulus-container-2-3 h3,.kumulus-container-half h3, .kumulus-container-1-3 h3, .kumulus-container-1-4 h3, .kumulus-container-4-7 h3, .kumulus-container-1-5 h3{
     margin-left: 10px;
 }
 
@@ -342,6 +342,12 @@ kumulus-control-group{
     line-height: 20px;
     margin: 0px auto;
 }
+.kumulus-filmstrip-margin-top{
+    margin-top: 53px;
+}
+.kumulus-filmstrip-button-margin-top{
+    margin-top: 67px;
+}
 
 .kumulus-filmstrip-header li{
     background: #eee; 
@@ -353,6 +359,12 @@ kumulus-control-group{
     background: #eee; 
     text-align: center;
     width: 100%;
+    min-height: 20px;
+}
+
+#flimstrip-first-li{
+    position: static;
+    float:bottom;
 }
 
 .kumulus-filmstrip ul{
