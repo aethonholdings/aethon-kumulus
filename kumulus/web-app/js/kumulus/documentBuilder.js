@@ -1,30 +1,33 @@
 $(document).ready(function(){ 
-     var boolVar=true;
-    if(boolVar){
+
     $("#pages").sortable({
         connectWith: "div",
-        dropOnEmpty: true       
+        dropOnEmpty: true
     });
-     $("#flimstrip-first-li").addClass("kumulus-hight");
-     boolVar=false;
-}
+
     $("#document-strip").sortable({
         connectWith: "ul",
         dropOnEmpty: true
     });
-    $("#document-strip li").hover(          
-    function () {
-        $("#document-strip").addClass("connectedSortable");
+
+    $('#pages').droppable({
+        over: function(event, ul) {
+            var count = $("#document-strip li").length; 
+            if(count==0){
+                alert("empty");
+            }
+        }
     });
-    if(boolVar=='false'){
-         $("#flimstrip-first-li").removeClass("kumulus-hight");
-    }
+    $("#document-strip li").hover(
+        function () {
+            $("#document-strip").addClass("connectedSortable");
+        });
     $("#document-strip span").hover(
-    function () {
-        $("#document-strip").removeClass("connectedSortable");
-    });
+        function () {
+            $("#document-strip").removeClass("connectedSortable");
+        });
+
   
-    
     $('.kumulus-filmstrip > ul > li > img').bind('mousedown', function() {
         preview($('#preview-img'), $(this).attr('viewId'));
         $("#barcode").val($(this).attr('barcode'))
