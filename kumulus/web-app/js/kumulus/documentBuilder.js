@@ -1,32 +1,24 @@
 $(document).ready(function(){ 
-    var bool=true; 
-    if(bool){
+     var boolVar=true;
+    if(boolVar){
     $("#pages").sortable({
         connectWith: "div",
         dropOnEmpty: true       
     });
      $("#flimstrip-first-li").addClass("kumulus-hight");
-     bool=false;
-}
-     if(bool=='false'){
-         alert(bool);
-     $("#flimstrip-first-li").removeClass("kumulus-hight");
+     boolVar=false;
 }
     $("#document-strip").sortable({
         connectWith: "ul",
         dropOnEmpty: true
     });
-    
     $("#document-strip li").hover(          
     function () {
-        if(bool=='true'){
-        $("#document-strip").addClass("connectedSortable"); 
-          bool=false;    
-          }
-         if(bool=='false'){
-            $("#flimstrip-first-li").removeClass("kumulus-hight");
-        }
+        $("#document-strip").addClass("connectedSortable");
     });
+    if(boolVar=='false'){
+         $("#flimstrip-first-li").removeClass("kumulus-hight");
+    }
     $("#document-strip span").hover(
     function () {
         $("#document-strip").removeClass("connectedSortable");
@@ -43,7 +35,6 @@ $(document).ready(function(){
    
     $("#pages, #documents").disableSelection();
 });
-
 function save() {
     var documents = $('#documents li');
     var taskIds = [];
