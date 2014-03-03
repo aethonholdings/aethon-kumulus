@@ -30,29 +30,52 @@ class ScanDoService {
     }
     
     def renderNode(Node node) {
-        
         def render = [
-            "nodeId": node.id,
-            "projectId": node.project.id,
-            "name": node.name,
-            "type": node.type,
-            "barcode": node.barcode?.text,
-            "comment": node.comment,
-            "internalComment": node.internalComment,
-            "status": node.status,
-            "parentNodeId": node.parent?.id,
-            "hierarchy": getScanDoNodeHierarchy(node),
-            "thumbnailImageName": null,
-            "actualImageName": null,
-            "lastUpdateDateTime": node.createDatetime,
-            "documentSequenceNumber": null,
-            "userId": node.creatorId,
-            "encodeStringForImage": null,
-            "encodeStringForThumbnail": null,
-            "oldActualImageName": null,
-            "oldThumbnailImageName": null,
-            "transactionStatus": "U"
-        ]       
+            
+            'nodeId': "" + node.id,
+            'projectId': "" + node.project.id,
+            'name': "" + node.barcode?.text,                                 // scando requires the barcode as name
+            'type': "" + node.type.code,    
+            'barcode': "" + node.barcode?.text,              
+            'comment': node.comment,
+            'internalComment': node.internalComment,
+            'status': "" + node.status,
+            'parentNodeId': node.parent?.id,
+            'hierarchy': getScanDoNodeHierarchy(node),       // INJECT THE HIERARCHY HERE
+            'thumbnailImageName': null,             
+            'actualImageName': null,
+            'lastUpdateDateTime': node.lastUpdateDatetime,
+            'documentSequenceNumber': null,
+            'userId': null,           
+            'encodeStringForImage': null,
+            'encodeStringForThumbnail': null,
+            'oldActualImageName': null,
+            'oldThumbnailImageName': null,
+            'transactionStatus': "U"  
+           
+//            "nodeId": node.id,
+//            "projectId": node.project.id,
+//            "name": node.name,
+//            "type": node.type,
+//            "barcode": node.barcode?.text,
+//            "comment": node.comment,
+//            "internalComment": node.internalComment,
+//            "status": node.status,
+//            "parentNodeId": node.parent?.id,
+//            "hierarchy": getScanDoNodeHierarchy(node),
+//            "thumbnailImageName": null,
+//            "actualImageName": null,
+//            "lastUpdateDateTime": node.createDatetime,
+//            "documentSequenceNumber": null,
+//            "userId": node.creatorId,
+//            "encodeStringForImage": null,
+//            "encodeStringForThumbnail": null,
+//            "oldActualImageName": null,
+//            "oldThumbnailImageName": null,
+//            "transactionStatus": "U"
+        ]   
+        return(render)
+        
     }
     
 }

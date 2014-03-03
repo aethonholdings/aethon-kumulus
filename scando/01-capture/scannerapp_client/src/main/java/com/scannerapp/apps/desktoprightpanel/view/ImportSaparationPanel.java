@@ -2280,10 +2280,14 @@ public class ImportSaparationPanel extends BaseJPanel implements
 			return null;
 
 		// Condition to check if node is saved or newly added node.
-		if (selectedParentNode.getNodeId().equals(
-				SessionUtil.getSessionData().getProjectId())
+		
+                // KONS EDIT - spec code compares node id to project id
+                if (selectedParentNode.getNodeId().equals(
+				"#")                        
 				|| (selectedParentNode.getNodeId() != null && selectedParentNode
 						.getNodeId().trim().length() > 0)) {
+                    
+                // END KONS EDIT
 
 			if (desktopMainPanel.getjRightPanel().getCollectionPanel()
 					.isSelectedNodeIsInDoneStatus())
@@ -2372,7 +2376,9 @@ public class ImportSaparationPanel extends BaseJPanel implements
 
 		newDocumentNodeProperty.setHierarchy(hierarchy);
 
-		if (parentNodeId.equals(SessionUtil.getSessionData().getProjectId()))
+                // -- KONS EDIT -- SPEC CODE WAS COMPARING NODE ID TO PROJECT ID TO FIND ROOT
+		if (parentNodeId.equals("#"))
+                // -- END KONS EDIT -- SPEC CODE WAS COMPARING NODE ID TO PROJECT ID TO FIND ROOT
 			newDocumentNodeProperty.setParentNodeId(null);
 		else
 			newDocumentNodeProperty.setParentNodeId(parentNodeId);
