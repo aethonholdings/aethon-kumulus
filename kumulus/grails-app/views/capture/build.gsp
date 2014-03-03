@@ -59,8 +59,8 @@
                   <div class="kumulus-container-inside-full kumulus-scrollable-y">
                       <div class="kumulus-filmstrip-header">
                     <div id="document-strip" class="">
-                        <span><h4>Drag the Doc Here</h4></span>
-                        <li id="flimstrip-first-li" class="kumulus-filmstrip kumulus-hight"></li>
+                        <span><h6>Drag the Doc Here</h6></span>
+                        <li id="flimstrip-first-li" class="kumulus-filmstrip"></li>
                     </div>
                       </div>
                   </div>
