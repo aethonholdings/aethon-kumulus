@@ -1,6 +1,6 @@
 package com.kumulus.domain
 
-class Barcode {
+class  Barcode {
 
     String text
     Boolean printed
