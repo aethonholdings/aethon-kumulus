@@ -38,7 +38,7 @@
                                     <select id="type" disabled>
                                         <option value=""  selected="selected">Please Select Container Type</option>
                                         <g:each in="${nodeTypes}" var="nodeType">
-                                            <option value="${nodeType?.id}">${nodeType?.name}</option>
+                                            <option value="${nodeType?.name}">${nodeType?.name}</option>
                                         </g:each>                  
                                     </select>
                                 </div>

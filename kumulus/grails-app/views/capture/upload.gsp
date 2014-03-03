@@ -39,7 +39,7 @@
                     <label for="type">* Type</label>
                     <select id="type" class="pure-input-1-4" disabled>
                        <g:each in="${nodeTypes}" var="nodeType">
-                            <option value="${nodeType?.id}">${nodeType?.name}</option>
+                            <option value="${nodeType?.name}">${nodeType?.name}</option>
                        </g:each> 
                     </select>
                   </div>
