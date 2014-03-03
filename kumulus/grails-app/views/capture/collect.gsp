@@ -16,10 +16,10 @@
                     </div>
                 </div>
                 <div class="kumulus-button-bank">
-                    <button type="button" id="button-add" class="pure-button" onclick="add_node();">Add</button>
-                    <button type="button" id="button-edit" class="pure-button" onclick="update_node();">Edit</button>
-                    <button type="button" id="button-delete" class="pure-button" onclick="delete_node();">Delete</button>
-                    <button type="button" id="button-search" class="pure-button" onclick="search_node();">Search</button>
+                    <button type="button" id="button-add" class="pure-button kumulus-margin-bottom" onclick="add_node();">Add</button>
+                    <button type="button" id="button-edit" class="pure-button kumulus-margin-bottom" onclick="update_node();">Edit</button>
+                    <button type="button" id="button-delete" class="pure-button kumulus-margin-bottom" onclick="delete_node();">Delete</button>
+                    <button type="button" id="button-search" class="pure-button kumulus-margin-bottom" onclick="search_node();">Search</button>
                 </div>
             </div>
             <div class="pure-u-1-2">
