@@ -114,12 +114,21 @@ class NodeController {
     }
     
     def nodePageInfo(){
-         def data = request.JSON
-         def page=[]
-         def nodeObj=Node.findAllByParent(Node.findById(data.node))
-         nodeObj.each{it ->
-            page << request.contextPath + '/image/get/'+ it.page.thumbnailImage.id
-         }
-        render page as JSON
+        def data = request.JSON
+        def responseJSON = []
+        if(data?.node) {
+            def nodes = Node.findAll { node -> 
+                parent.id == data.node.toLong()
+                page != null
+            }
+            nodes.each{ node ->
+                def pageData = [
+                    "image": request.contextPath + '/image/get/'+ node.page.thumbnailImage.id
+                    // status: true
+                ]
+                responseJSON.add(page)
+            }
+        }
+        render responseJSON as JSON
     }
 }
