@@ -39,12 +39,14 @@ class ScanDoController {
             if(project) nodeList = Node.findAll { node -> 
                 project == project
                 parent == null 
+                type.isContainer == true
             }
         } else {
             def parent = Node.findById(data[1].toString())
             if(parent) { 
                 nodeList = Node.findAll { node -> 
                     parent == parent
+                    type.isContainer == true
                 }
             }
         }
