@@ -48,4 +48,15 @@ class Node {
         return(project.company)
     }
     
+    String status() {
+        switch(status) {
+            case STATUS_OPENED:
+                return("Open")
+            case STATUS_CLOSED:
+                return("Closed")
+            case STATUS_REOPENED:
+                return("Reopened")
+        }
+    }
+    
 }
