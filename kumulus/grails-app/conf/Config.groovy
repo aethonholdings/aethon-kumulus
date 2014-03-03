@@ -242,3 +242,16 @@ quartz {
     autoStartup = false
 }
 
+abbyy {
+    applicationId = "Bucephalus"
+    password = "A08p7kFT1HNA+3eurpn4Xb94"
+}
+
+smtp {
+    server = "email-smtp.us-east-1.amazonaws.com"
+    port = 587
+    username = "AKIAJX6U3KZTUQQIUH6A"
+    password = "AuUdC72aQaCsFHfM2GXHIZkmkQeXOiTxnxAp2CR7iwZg"
+    from = "theodoros.balopoulos@aethon.sg"
+    error_to = "theodoros.balopoulos@aethon.sg"
+}

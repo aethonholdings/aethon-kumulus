@@ -21,10 +21,11 @@ class CaptureService {
         }
     }
     
-    def insertNode(parent, project, barcode, name, comment, type) {
+    def insertNode(parent, project, barcodeString, name, comment, type) {
         
+        def barcode = Barcode.findByText(barcodeString)
         def nodeType = NodeType.findById(type)
-        if(project && nodeType && name) {
+        if(project && nodeType && name && barcode) {
             def timestamp = new Date()            
             def node = new Node()
             node.creatorId = springSecurityService.principal.username
@@ -41,14 +42,19 @@ class CaptureService {
             node.location = Node.LOCATION_CLIENT
             node.page = null
             node.save()
+            
+            barcode.used = true
+            barcode.save()
             return(node)
         }
         return(null)
     }
     
-    def updateNode(node, barcode, name, comment, type, status, location) {
+    def updateNode(node, barcodeString, name, comment, type, status, location) {
+        
+        def barcode = Barcode.findByText(barcodeString)
         def nodeType = NodeType.findById(type)
-        if(node && !node.hasErrors() && nodeType){
+        if(node && !node.hasErrors() && nodeType && barcode){
             node.comment = comment
             node.barcode = barcode
             node.name = name
@@ -56,8 +62,12 @@ class CaptureService {
             node.type = nodeType
             node.location = location
             node.save()
+            
+            barcode.used = true
+            barcode.save()
         }
         return(node)
+        
     }
     
     def renderNode(node) {
@@ -67,10 +77,10 @@ class CaptureService {
                 title: node.name,
                 isLazy: true,
                 text: node.name,
-                barcode: node.barcode,
+                barcode: node.barcode.text,
                 isFolder: node.type.isContainer,
                 comment: node.comment,
-                type: node.type.id,
+                type: node.type.name,
                 status: node.status,
                 location: node.location,
                 id: node.id, 
@@ -239,7 +249,22 @@ class CaptureService {
     
     String getScanDoNodeHierarchy(Node node) {
         String hierarchy
-        
+        hierarchy = "["           
+        if(node) {
+            def projectName = node.project.projectName
+            def barcodes = [node.barcode?.text]
+            while(node.parent!=null) {
+                node = node.parent
+                barcodes.add(node.barcode?.text)
+            } 
+            barcodes.add(projectName)
+            ListIterator nodeslist = barcodes.listIterator(barcodes.size());
+            while (nodeslist.hasPrevious()) {
+                hierarchy = hierarchy + nodeslist.previous().toString()
+                if(nodeslist.hasPrevious()) hierarchy = hierarchy + ", "
+            }
+        }
+        hierarchy = hierarchy + "]"
         return(hierarchy)
     }
     

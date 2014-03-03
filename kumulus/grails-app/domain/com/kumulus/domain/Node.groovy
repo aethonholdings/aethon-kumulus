@@ -12,7 +12,6 @@ class Node {
     static final String LOCATION_STORAGE = "In storage"
     
     String name
-    String barcode
     String comment
     String internalComment
     String status
@@ -21,6 +20,7 @@ class Node {
     String location
     Date createDatetime
     Date lastUpdateDatetime
+    Barcode barcode
     Project project
     Node parent 
     NodeType type

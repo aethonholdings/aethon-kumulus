@@ -29,7 +29,7 @@
                             <fieldset>
                                 <div class="kumulus-hight kumulus-control-group kumulus-element-border">
                                     <div class="kumulus-barcode-image"> <img src="../../images/barcode.png" class="kumulus-image"  alt="no image"/> </div>
-                                    <label for="barcode"class="kumulus-label">* Stick the Barcode sticker on the container or Box and Scan the Barcode</label>
+                                    <label for="barcode" class="kumulus-label">* Stick the Barcode sticker on the container or Box and Scan the Barcode</label>
                                     <input id="barcode" type="text" placeholder="Scan container barcode" disabled>
                                 </div>  
                                 <div class="kumulus-hight kumulus-control-group kumulus-element-border">

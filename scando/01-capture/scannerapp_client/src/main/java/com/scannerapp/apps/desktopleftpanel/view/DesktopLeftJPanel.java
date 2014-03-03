@@ -549,11 +549,12 @@ public class DesktopLeftJPanel extends BaseJPanel implements IconRepository,
 	public void createProjectRootNode() {
 
 		String project = SessionUtil.getSessionData().getProjectName();
-
-		projectNode = new CustomMutableTreeNode(project);
-		projectNode.setNodeId(SessionUtil.getSessionData().getProjectId());
                 
-                // INITALISE THE NDOE TRE
+		projectNode = new CustomMutableTreeNode(project);
+		// projectNode.setNodeId(SessionUtil.getSessionData().getProjectId()); // THIS IS THE SPEC APPROACH BUT IT IS WRONG AS A PROJECT ID IS NOT A NODE ID
+                projectNode.setNodeId("#");                                     // THE KUMULUS APPROACH
+                
+                // INITALISE THE NODE TREE
     		nodeTree = new JTree(projectNode);
 		nodeTree.setExpandsSelectedPaths(true);
                 nodeTree.setSelectionPath(new TreePath(projectNode.getPath()));
@@ -707,8 +708,14 @@ public class DesktopLeftJPanel extends BaseJPanel implements IconRepository,
 					selectedElement.getNodeId());
 
 			// If Selected Node Is Project Node
-			if (selectedElement.getNodeId().equals(
-					SessionUtil.getSessionData().getProjectId())) {
+                        
+                        //  --- KONS EDIT IN SPEC CODE, THE IF STATEMENT WAS CHECKING NODE ID AGAINST PROJECT ID
+			
+                        if (selectedElement.getNodeId().equals(((CustomMutableTreeNode)
+					nodeTree.getSelectionPath().getPathComponent(0)).getNodeId())) {
+                        
+                        //  --- END KONS
+                            
 				desktopMainPanel.getjRightPanel().getCollectionPanel()
 						.nodePropertyEnableDisable(false);
 				desktopMainPanel.getjRightPanel().getCollectionPanel()
@@ -813,11 +820,17 @@ public class DesktopLeftJPanel extends BaseJPanel implements IconRepository,
 				desktopMainPanel.getjLeftPanel().getJbtnRefresh()
 						.setEnabled(false);
 			}
-
+                        
+                        // ------ KONS EDIT - SPEC IF STATEMENT WAS TESTING NODE.ID VS PROJECT.ID
+                        
 			if (!selectedElement.getNodeId().equals(
-					SessionUtil.getSessionData().getProjectId())
+					((CustomMutableTreeNode)
+					nodeTree.getSelectionPath().getPathComponent(0)).getNodeId())
 					&& selectedElement.getNodeId().length() > 0) {
-				if (lastSelectedNode == null
+                        
+                        // ------ KONS EDIT END
+			
+                            if (lastSelectedNode == null
 						|| !selectedElement.getNodeId().equals(
 								lastSelectedNode.getNodeId())) {
 					controller().getAndSetNodePropertyValue();
@@ -882,9 +895,15 @@ public class DesktopLeftJPanel extends BaseJPanel implements IconRepository,
 	public void enableDisableImportSeparationButtons(
 			NodeProperties nodeProperties) {
 		// Check If Node Is Project Node
+                
+            // ------ KONS EDIT - SPEC IF STATEMENT WAS TESTING NODE.ID VS PROJECT.ID
+            
 		if (nodeProperties == null
-				|| SessionUtil.getSessionData().getProjectId()
-						.equals(nodeProperties.getNodeId())) {
+				|| nodeProperties.getNodeId().equals(((CustomMutableTreeNode)
+					nodeTree.getSelectionPath().getPathComponent(0)).getNodeId())) {
+                    
+            // ------ END KONS EDIT 
+                    
 			desktopMainPanel.getjRightPanel().getImportAndSepPanel()
 					.setAllButtonEnableDisable(false);
 		} else {
@@ -1187,64 +1206,73 @@ public class DesktopLeftJPanel extends BaseJPanel implements IconRepository,
 	 */
 	public void performCheckBeforeSelectingNode() {
 
-		CustomMutableTreeNode selectedElement = (CustomMutableTreeNode) nodeTree
-				.getSelectionPath().getLastPathComponent();
-
-		// Condition to check when New Node is Added...
-		if (desktopMainPanel.getjRightPanel().getCollectionPanel()
-				.getNewAddedNode() != null) {
-
-			CustomMutableTreeNode newAddedNode = desktopMainPanel
-					.getjRightPanel().getCollectionPanel().getNewAddedNode();
-
-			if (selectedElement.getNodeId() != null
-					&& newAddedNode.getNodeId() != null
-					&& !selectedElement.getNodeId().equals(
-							newAddedNode.getNodeId())) {
-
-				ErrorMessage.displayMessage('I',
-						"saveOrDeleteAddedNodeBeforeSelectingOther");
-
-				TreePath newNodeTreePath = new TreePath(newAddedNode.getPath());
-				getNodeTree().setSelectionPath(newNodeTreePath);
-				getNodeTree().expandPath(newNodeTreePath);
-			}
-		}
-
-		// Condition to check when Node property is Modified...
-		else if (lastSelectedNode != null
-				&& !lastSelectedNode.getNodeId().equals(
-						selectedElement.getNodeId())
-				&& nodePropertiesMap.get(lastSelectedNode.getNodeId()) != null) {
-
-			NodeProperties nodeProperties = nodePropertiesMap
-					.get(lastSelectedNode.getNodeId());
-
-			String barcode = desktopMainPanel.getjRightPanel()
-					.getCollectionPanel().getBarCodeFeild().getText().trim();
-			String comment = desktopMainPanel.getjRightPanel()
-					.getCollectionPanel().getCommentFeild().getText().trim();
-			String internalComment = desktopMainPanel.getjRightPanel()
-					.getCollectionPanel().getIntCommentFeild().getText().trim();
-			String status = getValueFromMap(SessionUtil.getSessionData()
-					.getStatusMap(), desktopMainPanel.getjRightPanel()
-					.getCollectionPanel().getStatusList().getSelectedValue()
-					.toString());
-
-			if (!barcode.equals(nodeProperties.getBarcode())
-					|| !comment.equals(nodeProperties.getComment())
-					|| !internalComment.equals(nodeProperties
-							.getInternalComment())
-					|| !status.equals(nodeProperties.getStatus())) {
-
-				ErrorMessage.displayMessage('I', "saveOrDeleteUpdatedNode");
-
-				TreePath lastSelectedNodeTreePath = new TreePath(
-						lastSelectedNode.getPath());
-				getNodeTree().setSelectionPath(lastSelectedNodeTreePath);
-				getNodeTree().expandPath(lastSelectedNodeTreePath);
-			}
-		}
+// ----------   KONS CODE - REMOVED SPEC CODE RELATED TO COLLECTION PANEL
+//
+//		CustomMutableTreeNode selectedElement = (CustomMutableTreeNode) nodeTree
+//				.getSelectionPath().getLastPathComponent();
+//
+//		// Condition to check when New Node is Added...
+//		if (desktopMainPanel.getjRightPanel().getCollectionPanel()
+//				.getNewAddedNode() != null) {
+//
+//			CustomMutableTreeNode newAddedNode = desktopMainPanel
+//					.getjRightPanel().getCollectionPanel().getNewAddedNode();
+//
+//			if (selectedElement.getNodeId() != null
+//					&& newAddedNode.getNodeId() != null
+//					&& !selectedElement.getNodeId().equals(
+//							newAddedNode.getNodeId())) {
+//
+//				ErrorMessage.displayMessage('I',
+//						"saveOrDeleteAddedNodeBeforeSelectingOther");
+//
+//				TreePath newNodeTreePath = new TreePath(newAddedNode.getPath());
+//				getNodeTree().setSelectionPath(newNodeTreePath);
+//				getNodeTree().expandPath(newNodeTreePath);
+//			}
+//		}
+//
+//                
+//
+//		// Condition to check when Node property is Modified...
+//		else if (lastSelectedNode != null
+//				&& !lastSelectedNode.getNodeId().equals(
+//						selectedElement.getNodeId())
+//				&& nodePropertiesMap.get(lastSelectedNode.getNodeId()) != null) {
+//
+//			NodeProperties nodeProperties = nodePropertiesMap
+//					.get(lastSelectedNode.getNodeId());
+//
+//                       
+//
+//			String barcode = desktopMainPanel.getjRightPanel()
+//					.getCollectionPanel().getBarCodeFeild().getText().trim();
+//			String comment = desktopMainPanel.getjRightPanel()
+//					.getCollectionPanel().getCommentFeild().getText().trim();
+//			String internalComment = desktopMainPanel.getjRightPanel()
+//					.getCollectionPanel().getIntCommentFeild().getText().trim();
+//			String status = getValueFromMap(SessionUtil.getSessionData()
+//					.getStatusMap(), desktopMainPanel.getjRightPanel()
+//					.getCollectionPanel().getStatusList().getSelectedValue()
+//					.toString());
+//			if (!barcode.equals(nodeProperties.getBarcode())
+//					|| !comment.equals(nodeProperties.getComment())
+//					|| !internalComment.equals(nodeProperties
+//							.getInternalComment())
+//					|| !status.equals(nodeProperties.getStatus())) {
+//
+//				ErrorMessage.displayMessage('I', "saveOrDeleteUpdatedNode");
+//
+//				TreePath lastSelectedNodeTreePath = new TreePath(
+//						lastSelectedNode.getPath());
+//				getNodeTree().setSelectionPath(lastSelectedNodeTreePath);
+//				getNodeTree().expandPath(lastSelectedNodeTreePath);
+//			}
+//
+//                        
+//		}
+// ----------   END KONS CODE
+            
 	}
 
 	// Methods Which Returns the Key of Passed Value

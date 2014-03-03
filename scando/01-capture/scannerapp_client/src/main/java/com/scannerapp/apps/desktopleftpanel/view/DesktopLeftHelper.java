@@ -47,9 +47,6 @@ public class DesktopLeftHelper extends ClientHelper {
 
                 String projectId =idList.get(0) ;
                 String parentnodeId=idList.get(1) ;
-                MultivaluedMap formData = new MultivaluedMapImpl();
-                formData.add("projectId", projectId);
-                formData.add("parentnodeId", parentnodeId);
 		ArrayList<NodeProperties> childNodePropertiesList = null;
                 
 		try {
@@ -59,18 +56,14 @@ public class DesktopLeftHelper extends ClientHelper {
 					.path("scanDo").path("fetchChildNodeList")
 					.type(MediaType.APPLICATION_JSON_TYPE)
 					.accept(MediaType.APPLICATION_JSON_TYPE)
-					.post(ClientResponse.class, formData);
+					.post(ClientResponse.class, idList);
 
 			String jsonString = (String) response.getEntity(String.class);
-                     //  String jsonobj = GetJsonUtil.getJsonfromServertree(projectUrl);
-                        System.out.println("Json is "+jsonString);
-                       //childNodePropertiesList = new ArrayList<NodeProperties>();
+                        //  String jsonobj = GetJsonUtil.getJsonfromServertree(projectUrl);
+                        //childNodePropertiesList = new ArrayList<NodeProperties>();
 			childNodePropertiesList = mapper.readValue(jsonString,
 					new TypeReference<ArrayList<NodeProperties>>() {
 					});
-                        
-                        //System.out.println("mmm"+childNodePropertiesList+"mmmmmmmmmmmmmm"+jsonobj.toString());
-
 		}
 	
 		catch (JsonParseException e) 
