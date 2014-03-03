@@ -18,8 +18,8 @@ class StructureController {
         if(currencies && documentTypes && document) {
             workflowService.assignTask(task, permissionsService.getUsername())
             workflowService.startTask(task)
-       
-            render view: "process", model:[task: task, document: document, currencies: currencies, documentTypes: documentTypes]
+          
+            render view: "process", model:[task: task, document: document, currencies: currencies, documentTypes: documentTypes, size:document?.pages?.size()]
         }
     }
     

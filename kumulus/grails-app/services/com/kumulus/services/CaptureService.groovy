@@ -25,7 +25,7 @@ class CaptureService {
         
         def barcode = Barcode.findByText(barcodeString)
         def nodeType = NodeType.findByName(type)
-        if(project && nodeType && name && barcode) {
+        if(parent && project && nodeType) {
             def timestamp = new Date()            
             def node = new Node()
             node.creatorId = springSecurityService.principal.username
@@ -43,8 +43,8 @@ class CaptureService {
             node.page = null
             node.save()
             
-            barcode.used = true
-            barcode.save()
+            barcode?.used = true
+            barcode?.save()
             return(node)
         }
         return(null)
@@ -245,27 +245,6 @@ class CaptureService {
             newDocument = documents[0]
         }
         return(newDocument)
-    }
-    
-    String getScanDoNodeHierarchy(Node node) {
-        String hierarchy
-        hierarchy = "["           
-        if(node) {
-            def projectName = node.project.projectName
-            def barcodes = [node.barcode?.text]
-            while(node.parent!=null) {
-                node = node.parent
-                barcodes.add(node.barcode?.text)
-            } 
-            barcodes.add(projectName)
-            ListIterator nodeslist = barcodes.listIterator(barcodes.size());
-            while (nodeslist.hasPrevious()) {
-                hierarchy = hierarchy + nodeslist.previous().toString()
-                if(nodeslist.hasPrevious()) hierarchy = hierarchy + ", "
-            }
-        }
-        hierarchy = hierarchy + "]"
-        return(hierarchy)
     }
     
 }

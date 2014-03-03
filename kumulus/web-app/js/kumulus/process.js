@@ -1,5 +1,6 @@
-var pageNo;
+var pageNo, status = false, rowCounter;
 var currentRowObj;
+
 $(document).ready(function()
 {
 
@@ -10,6 +11,12 @@ $(document).ready(function()
         select: function(event, ui) {
         }
     });
+
+
+    currentRowObj = $("#lineItems tbody tr");
+
+    datePick($("#lineItems tbody tr").length, $("#lineItemCount").val());
+
 
 
     $('.kumulus-filmstrip > ul > li > img').bind('mousedown', function(e) {
@@ -45,12 +52,7 @@ $(document).ready(function()
         if (status)
         {
 
-            $('#lineItems tbody').append(
-                    '<tr class="new">' +
-                    $('tr.new').html() +
-                    '</tr>'
-                    );
-
+            addRow();
             $('.new.kumulus-column-page').val(pageNo);
 //            cloneRow();
         }
@@ -61,13 +63,15 @@ $(document).ready(function()
 
     $(document).on('click', '.remove', function() {
         $(this).closest("tr").remove();
+        status = true;
+        rowCounter = $("#lineItems tbody tr").length;
     });
 
     $(document).on('blur', '.kumulus-column-price', function() {
+
         var tdObjectPrice = $(currentRowObj).find("td .kumulus-column-price");
         var tdObjectQuantity = $(currentRowObj).find("td .kumulus-column-quantity");
-        var tdObjectAmount = $(currentRowObj).find("td .kumulus-column-amount");
-
+        var tdObjectAmount = $(currentRowObj).find("td #amount");
         var total = tdObjectPrice.val() * tdObjectQuantity.val();
         tdObjectAmount.val(total)
     });
@@ -119,7 +123,10 @@ function cloneRow() {
 function send(obj) {
 
     currentRowObj = obj;
+
+
 }
+
 
 function CheckNumeric(e) {
     var keyCode = e.which;
@@ -172,8 +179,8 @@ function imagePreview(obj) {
 
 }
 
-function calculateTotalAmount(price){
-    var total=(parseFloat(price)*parseFloat($(currentRowObj).find("td #quantity").val()));
+function calculateTotalAmount(price) {
+    var total = (parseFloat(price) * parseFloat($(currentRowObj).find("td #quantity").val()));
     $(currentRowObj).find("#totalAmount").text(total.toFixed(2));
 
     calculategrandTotalAmount()
@@ -213,13 +220,13 @@ function ConvertFormToJSON(form) {
         $(this).find(":input").each(function(index) {
             subMap[$(this).attr("name")] = $(this).val() || '';
         });
-        console.log(subMap)
+
         itemList.push(subMap);
     })
 
     json["lineItems"] = itemList;
 
-    console.log(json)
+
 
     return json;
 }
@@ -250,7 +257,7 @@ function validateLastRow() {
         return false;
     }
     else if (tdObjectFocus.val().trim().length === 0) {
-        $(tdObjectTest).addClass("error")
+        $(tdObjectFocus).addClass("error")
         return false;
     }
     else if (tdObjectTest.val().trim().length === 0) {
@@ -262,17 +269,49 @@ function validateLastRow() {
 }
 
 function addRow() {
-    $("#lineItems tbody").append('<tr class="new">' +
+
+    var mainCount = $("#lineItemCount").val();
+    var count = $("#lineItems tbody tr").length
+
+    if (status) {
+        if (rowCounter == count) {
+            count = count + count + 3
+        }
+        else {
+            count = count + count
+        }
+    }
+
+    $("#lineItems tbody").append('<tr onkeypress="send(this)" class="new">' +
             '<td><input id="lineItemId" name="lineItemId" size="4" type="text" value="" class="kumulus-column-id new" readonly></input></td>' +
             '<td><input id="pageNo" name="pageNo" size="2" type="text" value="" class="kumulus-column-page new" onkeypress="CheckNumeric(event)" ></input>' +
             '<input id="pageId" name="pageId" type="hidden" value=""></input></td>' +
             '<td><input id="focus" name="description" size="25" type=text value="" class="kumulus-column-description new" ></input></td>' +
-            '<td><input id="lineItemDate" name="lineItemDate" size="4" type="date" value="" class="kumulus-column-date new"></input></td>' +
+            '<td><input id="lineItemDate' + mainCount + count + '" name ="lineItemDate" placeholder="Select a date" type="text"  class="pure-input-1"></td>' +
             '<td><input id="quantity" name="quantity" type=text  size="6" value="" class="kumulus-column-quantity new" onkeydown="CheckNumeric(event)"></input></td>' +
             '<td><input id="price" name="price" size="6" type="text" value="" class="kumulus-column-price new" onkeydown="CheckNumeric(event)" onchange="total(this)"></input></td>' +
             '<td><input id="amount" name ="amount" size="6" type="text"  value="" class="kumulus-column-amount new" onkeydown="CheckNumeric(event)" id="test"></input></td>' +
             '<td><a class="remove" href="#" >Remove</a></td>' +
             '</tr>')
+    datePick(count, mainCount);
 }
 
+
+function datePick(counter, mainCounter) {
+
+    for (var j = 0; j <= mainCounter; j++)
+    {
+        for (var i = 0; i <= counter; i++)
+        {
+            $("#lineItemDate" + j + i).datepicker({
+                minDate: new Date(),
+            });
+        }
+    }
+
+    $("#datePickerDate").datepicker({
+        minDate: new Date(),
+    });
+
+}
 

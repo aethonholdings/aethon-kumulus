@@ -276,7 +276,7 @@ public class ImportSaparationPanel extends BaseJPanel implements
 
 		pasteButton = new JButton();
 		pasteButton.setIcon(IconRepository.ICON_PASTE);
-
+ 
 		cancelButton = new JButton();
 		cancelButton.setIcon(IconRepository.CANCEL_ICON);
 
@@ -395,9 +395,9 @@ public class ImportSaparationPanel extends BaseJPanel implements
 					0));
 		}
 
-		buttonPanel.add(buttonPanelGroup3, new GridBagConstraints(2, 0, 1, 1,
-				1.0, 1.0, GridBagConstraints.NORTH,
-				GridBagConstraints.HORIZONTAL, new Insets(0, 20, 0, 0), 0, 0));
+//		buttonPanel.add(buttonPanelGroup3, new GridBagConstraints(2, 0, 1, 1,                    //Raj Hide the buttonPanel
+//				1.0, 1.0, GridBagConstraints.NORTH,
+//				GridBagConstraints.HORIZONTAL, new Insets(0, 20, 0, 0), 0, 0));
 
 	}
 
