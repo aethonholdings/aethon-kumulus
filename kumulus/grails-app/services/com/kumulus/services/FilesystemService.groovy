@@ -5,6 +5,11 @@ import org.grails.plugins.imagetools.ImageTool
 import grails.transaction.Transactional
 import org.apache.commons.lang.RandomStringUtils
 import com.lucastex.grails.fileuploader.UFile
+import com.lucastex.grails.fileuploader.FileUploaderService
+import com.sun.jersey.core.util.*
+import org.springframework.web.multipart.commons.CommonsMultipartFile
+import org.apache.commons.fileupload.disk.DiskFileItem
+
 
 @Transactional
 class FilesystemService {
@@ -12,6 +17,7 @@ class FilesystemService {
     def grailsApplication
     def permissionsService  // push this to controllers
     def tikaService
+    def fileUploaderService
     
     def generateLiteral() {
         String literal = System.currentTimeMillis()
@@ -113,5 +119,20 @@ class FilesystemService {
         stagingPath.deleteDir()
         return(true)
     }
+    
+    def writeStringToImageFile(String encodedImageString, String filename, Locale locale) {
+        
+        encodedImageString = encodedImageString.replaceAll(" ", "+")
+        encodedImageString = encodedImageString.replaceAll("\n", "")
+        byte[] scannedImageBytes = Base64.decode(encodedImageString)
+        // PARAMETRISE THE MAX SIZE
+        DiskFileItem imageFileItem = new DiskFileItem("file", null, false, filename, 40000000, new File(grailsApplication.config.filesystem.staging))
+        imageFileItem.getOutputStream().write(scannedImageBytes)
+        imageFileItem.getOutputStream().close()
+        CommonsMultipartFile imageFile = new CommonsMultipartFile(imageFileItem)
+        return(fileUploaderService.saveFile("image", imageFile, filename, locale))
+        
+    }
+    
    
 }

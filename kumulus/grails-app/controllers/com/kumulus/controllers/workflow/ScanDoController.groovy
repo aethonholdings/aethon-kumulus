@@ -2,7 +2,7 @@ package com.kumulus.controllers.workflow
 
 import grails.converters.*
 import com.kumulus.domain.*
-import java.text.DateFormat;
+import java.text.DateFormat
 import java.text.SimpleDateFormat
 
 class ScanDoController {
@@ -175,7 +175,16 @@ class ScanDoController {
         response.outputStream << responseString
     }
     
-    def saveScannedImages() { }
+    def saveScannedImages() {
+        
+        def data = request.JSON
+        // if(data?.encodeStringForImage && data?.parentNodeId) {
+        //     def node = Node.findById(data?.parentNodeId)
+            def node = Node.findById(6)
+            def task = scanDoService.uploadImage(scanDoService.fakeImage(), node, request.locale)
+            render task
+        // }
+    }
     
     def checkIfNodeIsUpdatedByOtherUser() { 
         
