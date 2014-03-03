@@ -32,32 +32,42 @@ class ScanDoController {
     
     def updateNodeProperties() { 
         
-         def responsedata=[:]
-         def data = request.JSON 
-         println("data  "+data)
-         responsedata = [
-                "nodeId":"10007",
-                "projectId":"2",
-                "name":"Document 2",
-                "type":"D",
-                "barcode":"",
-                "comment":"",
-                "internalComment":"",
-                "status":"0",
-                "parentNodeId":"10004",
-                "hierarchy":"[Project, AE1393691428778CG, Document 2]",
-                "thumbnailImageName":null,
-                "actualImageName":null,
-                "lastUpdateDateTime":"03-03-2014 08:27:39",
-                "documentSequenceNumber":null,
-                "userId":"ADMIN",
-                "encodeStringForImage":null,
-                "encodeStringForThumbnail":null,
-                "oldActualImageName":null,
-                "oldThumbnailImageName":null,
-                "transactionStatus":"U"        
-            ]                 
-              
+        def responsedata=[:]
+        def data = request.JSON 
+         
+        if(data?.parentNodeId && data?.userId) {
+            
+            def parent = Node.findById(data.parentNodeId)
+            def userId = permissionsService.getUsername()
+            def scanBatch = new ScanBatch(userId: userId, timestamp: new Date(), project: parent.project)
+            scanBatch.save()
+            // def document = captureService.indexScan(node, UFile.findById(params?.ufileId), scanBatch, permissionsService.getUsername())
+            def task = workflowService.createTask(document, Task.TYPE_BUILD, userId)
+            if (document && task) workflowService.assignTask(task, userId)
+
+            responsedata = [
+                    "nodeId":"10007",
+                    "projectId":"2",
+                    "name":"Document 2",
+                    "type":"D",
+                    "barcode":"",
+                    "comment":"",
+                    "internalComment":"",
+                    "status":"0",
+                    "parentNodeId":"10004",
+                    "hierarchy":"[Project, AE1393691428778CG, Document 2]",
+                    "thumbnailImageName":null,
+                    "actualImageName":null,
+                    "lastUpdateDateTime":"03-03-2014 08:27:39",
+                    "documentSequenceNumber":null,
+                    "userId":"ADMIN",
+                    "encodeStringForImage":null,
+                    "encodeStringForThumbnail":null,
+                    "oldActualImageName":null,
+                    "oldThumbnailImageName":null,
+                    "transactionStatus":"U"        
+                ]                 
+        }
         render responsedata as JSON 
     }
     
