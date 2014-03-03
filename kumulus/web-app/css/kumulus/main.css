@@ -200,10 +200,6 @@ kumulus-control-group{
     width: 100%;
 }
 
-.kumulus-container h3{
-    text-align: center;
-}
-
 .kumulus-table-margin{
     margin: 3px;
 }
@@ -220,6 +216,12 @@ kumulus-control-group{
 /* work area layout elements */
 .kumulus-container{
     height: 550px;
+    margin: 3px;
+    padding: 3px;
+}
+
+.kumulus-container-inside-full{
+    height: 540px;
     margin: 3px;
     padding: 3px;
 }
@@ -252,8 +254,9 @@ kumulus-control-group{
     padding: 3px;
 }
 
-.kumulus-container-2-3 h3,.kumulus-container-half h3, .kumulus-container-1-3 h3, .kumulus-container-1-4 h3, .kumulus-container-4-7 h3{
-    margin-left: 10px;
+.kumulus-container h3, .kumulus-container-2-3 h3,.kumulus-container-half h3, .kumulus-container-1-3 h3, .kumulus-container-1-4 h3, .kumulus-container-4-7 h3, .kumulus-container-1-5 h3{
+    margin: 1em 10px 2px 0px;
+    
 }
 
 .kumulus-container-half-1{
@@ -331,16 +334,34 @@ kumulus-control-group{
     background: #333;
     color: #fff;
     text-align: center;
-    width: 80%;
-    height: 30px; 
-    line-height: 30px;
-    margin: auto;
+    width: 95%;
+    height: 20px; 
+    line-height: 20px;
+    margin: 0px auto;
+}
+.kumulus-filmstrip-margin-top{
+    margin-top: 53px;
+}
+.kumulus-filmstrip-button-margin-top{
+    margin-top: 67px;
+}
+
+.kumulus-filmstrip-header li{
+    background: #eee; 
+    text-align: center;
+    width: 100%;
 }
 
 .kumulus-filmstrip{
     background: #eee; 
     text-align: center;
     width: 100%;
+    min-height: 20px;
+}
+
+#flimstrip-first-li{
+    position: static;
+    float:bottom;
 }
 
 .kumulus-filmstrip ul{
@@ -406,7 +427,7 @@ label.error{
 .kumulus-vertical-align-top tr{
     width: 99%;
 }
-.kumulus-vertical-align-top td, th{
+.kumulus-vertical-align-top td,.kumulus-vertical-align-top th{
     min-width: 15%
 }
 
@@ -465,21 +486,22 @@ label.error{
         margin-bottom: 3px;
 }
 
-.kumulus-task ul, li{
+.kumulus-task ul{
 	list-style:none;
+        margin: 1px 0px;
 }
 
 .kumulus-task ul{
     width: 95%;
-    margin-left:-30px;
+    padding: 0px;
 }
 .kumulus-task ul li{
-    margin-left: 2px;
+    margin-left: 8px;
     clear: both;
 }
 
 .kumulus-task ul li span a{
-    margin-right: 5%;
+    margin-right: 7px;
     float: right
 }
 
@@ -487,21 +509,24 @@ label.error{
     width: 100%;
     margin-bottom: 2px;
 }
-li.kumulus-task-queue{
-    padding-right: 30px;
-    -webkit-box-sizing: border-box;
-    -moz-box-sizing: border-box;
-    box-sizing: border-box;
-}
+
 .kumulus-task-queue-project{
     margin-left: 10px;
-    margin-right: 10px;
-    background-color: #EFEFD5;
-    padding: 3px 0px;
-    height: 13px;
-    border: #fff solid 1px;
-    
+    margin-right: -7%;
+    background-color: #EFEFD5; 
+    height: 21px;
+    line-height: 21px;
 }
+
+
+.kumulus-task>.kumulus-task-queue>.kumulus-task-queue-action-item{
+    margin-right: 20px;
+    background-color: #EFEFD5;
+    height: 21px;
+    line-height: 21px;
+    width: 100%
+}
+
 .kumulus-task-queue-project-name{
     width: 45%;
     float: left;
@@ -522,6 +547,14 @@ li.kumulus-task-queue{
 .pure-u-1-12 .pure-button{
    width: 90%;
 }
+.pure-table{
+    border:0px;
+}
+.pure-table-horizontal td,.pure-table-horizontal th{
+	border-width:0 0 0px;
+	border-bottom:0px;
+}
+
 @media (max-width : 700px) {
 /*    .kumulus-menu{
         height: 100px;

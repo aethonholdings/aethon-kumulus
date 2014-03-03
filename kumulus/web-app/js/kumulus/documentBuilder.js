@@ -1,13 +1,25 @@
-$(document).ready(function(){
+$(document).ready(function(){ 
+
     $("#pages").sortable({
+        connectWith: "div",
+        dropOnEmpty: true
+    });
+
+    $("#document-strip").sortable({
         connectWith: "ul",
         dropOnEmpty: true
     });
-    $("#documents").sortable({
-        connectWith: "ul",
-        dropOnEmpty: true
-    });
-    
+
+    $("#document-strip li").hover(
+        function () {
+            $("#document-strip").addClass("connectedSortable");
+        });
+    $("#document-strip span").hover(
+        function () {
+            $("#document-strip").removeClass("connectedSortable");
+        });
+
+  
     $('.kumulus-filmstrip > ul > li > img').bind('mousedown', function() {
         preview($('#preview-img'), $(this).attr('viewId'));
         $("#barcode").val($(this).attr('barcode'))
@@ -18,13 +30,13 @@ $(document).ready(function(){
    
     $("#pages, #documents").disableSelection();
 });
-
 function save() {
-    var documents = $('#documents li');
+    var documents = $('#document-strip li');
     var taskIds = [];
     documents.each(function(i, li){
         taskIds.push($(li).attr('taskId'));
     });
+
     if(documents.length>0) {
         var data = {tasks: taskIds};
         $.ajax({
@@ -35,7 +47,7 @@ function save() {
             dataType: 'json',
             async: false,
             success: function(response) {
-                if(response.done) $('#documents').empty();
+                if(response.done) documents.empty();
                 $('#preview-img').hide();
             }
         });

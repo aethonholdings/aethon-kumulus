@@ -98,8 +98,8 @@ $(document).ready(function(){
     tree = $('#nodeTree').dynatree("getTree");
     ready();
     
-    $('#barcode').blur(function(){
-   
+    $('#barcode').change(function(){
+        console.log("helllo");
         var data = {barcode: $('#barcode').val()}   
         $.ajax({
             url: url('node', 'checkBarcode', ''),
@@ -111,7 +111,7 @@ $(document).ready(function(){
             success: function(data) {
 
              if(data.status=='true'){
-                alert("Barcode is already used, Please add new")
+                alert("Invalid Barcode")
                 enable(true)
                 $('#barcode').val('')
                 $('#barcode').prop('disabled', false);
@@ -167,6 +167,10 @@ function refresh_container_information(node) {
 }
 
 function delete_node() {
+   $('#button-add').prop('disabled', true);
+   $('#button-edit').prop('disabled', true);
+   $('#button-delete').prop('disabled', true);
+   $('#button-search').prop('disabled', true);
     if(selectedNode && state=="READY"  && selectedNode.data.id!="ROOT") {
         if(confirm("Please confirm that you would like to delete this archive item")) {
             var data = { id: selectedNode.data.id }
@@ -184,6 +188,10 @@ function delete_node() {
                 }
             });
         }
+            $('#button-add').prop('disabled', false);
+            $('#button-edit').prop('disabled', false);
+            $('#button-delete').prop('disabled', false);
+            $('#button-search').prop('disabled', false);
     }
 };
 
@@ -207,6 +215,10 @@ function add_node() {
         $('#comment').prop('disabled', true);
         $('#nodeTree').prop('disabled', true);
         $('#button-cancel').prop('disabled', false);
+        $('#button-add').prop('disabled', true);
+        $('#button-edit').prop('disabled', true);
+        $('#button-delete').prop('disabled', true);
+        $('#button-search').prop('disabled', true);
         $('#barcode').focus();
         state = "INSERT";
     }
@@ -220,12 +232,19 @@ function update_node() {
         $('#type').focus();
         $('#button-cancel').prop('disabled', false);
         $('#button-save').prop('disabled', false);
+        $('#button-add').prop('disabled', true);
+        $('#button-edit').prop('disabled', true);
+        $('#button-delete').prop('disabled', true);
+        $('#button-search').prop('disabled', true);
         state = "UPDATE";
     }
 };
 
 function search_node() {
-
+   $('#button-add').prop('disabled', true);
+   $('#button-edit').prop('disabled', true);
+   $('#button-delete').prop('disabled', true);
+   $('#button-search').prop('disabled', true);
     var barCode = prompt("Please scan barcode");
     var data = {barCode: barCode}
     $.ajax({
@@ -262,6 +281,10 @@ function search_node() {
             }
         }
     });
+     $('#button-add').prop('disabled', false);
+     $('#button-edit').prop('disabled', false);
+     $('#button-delete').prop('disabled', false);
+     $('#button-search').prop('disabled', false);
 }
 
 // --- INPUT INTERFACE ACTIONS
@@ -284,6 +307,10 @@ function cancel() {
             refresh_container_information(selectedNode);
             $('#button-cancel').prop('disabled', true);
             $('#button-save').prop('disabled', true);
+            $('#button-add').prop('disabled', false);
+            $('#button-edit').prop('disabled', false);
+            $('#button-delete').prop('disabled', false);
+            $('#button-search').prop('disabled', false);
             ready();
             break;
     } 
@@ -344,36 +371,39 @@ function save() {
                 }
                 $('#button-cancel').prop('disabled', true);
                 $('#button-save').prop('disabled', true);
+                $('#button-add').prop('disabled', false);
+                $('#button-edit').prop('disabled', false);
+                $('#button-delete').prop('disabled', false);
+                $('#button-search').prop('disabled', false);
             }
         });
         tree.selectKey(news.data.key, true);
     }
 }
 
-    function nodeDetailInfo(node){
+function nodeDetailInfo(node){
   
     $("#nodeType").val(node.data.type);
-    $("#nodeLocation").val();
+    $("#nodeLocation").val(node.data.location);
     $("#nodeStatus").val(node.data.status);
      
-      var data = { node:node.data.id }
+    var data = { node:node.data.id }
       
-       if(data.node!='ROOT'){
+    if(data.node!='ROOT'){
         $.ajax({
-            url: url('node', 'nodePageInfo', ''),
+            url: url('node', 'getDocuments', ''),
             type: 'POST',
             data: JSON.stringify(data),
             contentType: 'application/json; charset=utf-8',
             dataType: 'json',
             async: false,
             success: function(data) {
-
-             $("#pageInfo tbody tr").remove();
+                $("#pageInfo tbody tr").remove();
                 $.each(data, function(i) {
-                        
-                    $("#pageInfo tbody").append('<tr><td><img class="kumulus-thumbnail kumulus-element-border" height="140" width="100"  src='+data[i]+' /></td><td>'+"test"+'</td></tr>');
+                    var imgUrl = url('image','get', data[i].thumbnailImageId);
+                    var status = data[i].status
+                    $("#pageInfo tbody").append('<tr><td><img class="kumulus-thumbnail kumulus-element-border" height="140" width="100"  src='+ imgUrl +' /></td><td>'+status+'</td></tr>');
                 })
-
             }
         });
     }

@@ -18,10 +18,11 @@
                 </div>
                 <div class="kumulus-container-1-5 kumulus-scrollable-y kumulus-element-border">
                   <h3>There are ${backOfficeTasks.count} tasks outstanding in the Kumulus queue</h3>
-                  <g:taskQueue userId="${null}"/>
+                  <div class="kumulus-task"><g:taskQueue userId="${null}"/></div>
                 </div>
                 <div class="kumulus-container-1-3 kumulus-scrollable-y kumulus-element-border">
                   <h3>You have Z shipments scheduled</h3>
+                  <div class="kumulus-task">
                   <table class='pure-table pure-table-horizontal'>
                         <thead>
                             <tr>
@@ -37,12 +38,14 @@
                                  <td></td>
                           </tr>
                         </tbody>
-                    </table>  
+                    </table> 
+                  </div>
                 </div>
             </div>
             <div class="pure-u-1-2">
                 <div class="kumulus-container kumulus-scrollable-y kumulus-element-border">
                     <h3>You are working on ${projectList.size} projects.</h3>
+                    <div class="kumulus-task">
                     <table class='pure-table pure-table-horizontal'>
                         <thead>
                             <tr>
@@ -59,6 +62,7 @@
                             </g:each>
                         </tbody>
                     </table>  
+                    </div>
                     <g:link controller="project" action="create" class="pure-button kumulus-float-right kumulus-margin-top">Create new</g:link>
                 </div>
             </div>

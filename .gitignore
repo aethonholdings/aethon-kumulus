@@ -42,6 +42,7 @@ kumulus/test/reports
 kumulus/logs
 scando/01-capture/scannerapp_client/log
 scando/01-capture/scannerapp_client/Log
+scando/01-capture/scannerapp_client/Log/ScannerApp.log
 
 # project release file
 kumulus/*.war
@@ -66,4 +67,4 @@ data/filesystem/staging/*
 /manager/target
 /scando/01-capture/scannerapp_client/target
 /scando/01-capture/scannerapp_server/target
-
+/scando/01-capture/scannerapp_client/Log/ScannerApp.log

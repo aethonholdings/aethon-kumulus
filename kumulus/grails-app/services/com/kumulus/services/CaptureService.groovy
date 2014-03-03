@@ -21,10 +21,11 @@ class CaptureService {
         }
     }
     
-    def insertNode(parent, project, barcode, name, comment, type) {
+    def insertNode(parent, project, barcodeString, name, comment, type) {
         
-        def nodeType = NodeType.findById(type)
-        if(project && nodeType && name) {
+        def barcode = Barcode.findByText(barcodeString)
+        def nodeType = NodeType.findByName(type)
+        if(project && nodeType && name && barcode) {
             def timestamp = new Date()            
             def node = new Node()
             node.creatorId = springSecurityService.principal.username
@@ -38,22 +39,35 @@ class CaptureService {
             node.comment = comment
             node.createDatetime = timestamp
             node.lastUpdateDatetime = timestamp
+            node.location = Node.LOCATION_CLIENT
+            node.page = null
             node.save()
+            
+            barcode.used = true
+            barcode.save()
             return(node)
         }
         return(null)
     }
     
-    def updateNode(node, barcode, name, comment, type, status) {
+    def updateNode(node, barcodeString, name, comment, type, status, location) {
+        
+        def barcode = Barcode.findByText(barcodeString)
         def nodeType = NodeType.findById(type)
-        if(node && !node.hasErrors() && nodeType){
+        if(node && !node.hasErrors() && nodeType && barcode){
             node.comment = comment
             node.barcode = barcode
             node.name = name
             node.status = status
             node.type = nodeType
+            node.location = location
             node.save()
+            
+            barcode.used = true
+            barcode.save()
         }
+        return(node)
+        
     }
     
     def renderNode(node) {
@@ -63,11 +77,12 @@ class CaptureService {
                 title: node.name,
                 isLazy: true,
                 text: node.name,
-                barcode: node.barcode,
+                barcode: node.barcode.text,
                 isFolder: node.type.isContainer,
                 comment: node.comment,
-                type: node.type.id,
-                status:node.status,
+                type: node.type.name,
+                status: node.status(),
+                location: node.location,
                 id: node.id, 
                 project: node.project.id
             ]
@@ -90,6 +105,8 @@ class CaptureService {
             text: null, 
             barcode: null,
             comment: null,
+            status: null,
+            location: null,
             children: children,
             type: "ROOT",
             id: "ROOT",
@@ -129,7 +146,9 @@ class CaptureService {
                 lastUpdateId: userId,
                 createDatetime: timestamp,
                 lastUpdateDatetime: timestamp,
-                status: Node.STATUS_CLOSED
+                status: Node.STATUS_CLOSED,
+                location: Node.LOCATION_CLIENT,
+                page: null
             )
             node.save()
 
@@ -167,6 +186,8 @@ class CaptureService {
             page.thumbnailImage = images.thumbnailImage
             document.addToPages(page)
             page.save(flush:true)
+            node.page = page
+            node.save()
             filesystemService.stagingFlush(uFile)
         }
         return(document)
@@ -224,6 +245,27 @@ class CaptureService {
             newDocument = documents[0]
         }
         return(newDocument)
+    }
+    
+    String getScanDoNodeHierarchy(Node node) {
+        String hierarchy
+        hierarchy = "["           
+        if(node) {
+            def projectName = node.project.projectName
+            def barcodes = [node.barcode?.text]
+            while(node.parent!=null) {
+                node = node.parent
+                barcodes.add(node.barcode?.text)
+            } 
+            barcodes.add(projectName)
+            ListIterator nodeslist = barcodes.listIterator(barcodes.size());
+            while (nodeslist.hasPrevious()) {
+                hierarchy = hierarchy + nodeslist.previous().toString()
+                if(nodeslist.hasPrevious()) hierarchy = hierarchy + ", "
+            }
+        }
+        hierarchy = hierarchy + "]"
+        return(hierarchy)
     }
     
 }

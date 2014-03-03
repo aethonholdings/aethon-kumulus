@@ -211,25 +211,25 @@ public class ImportSaparationPanel extends BaseJPanel implements
 				0.0, GridBagConstraints.WEST, GridBagConstraints.BOTH,
 				new Insets(0, 0, 0, 0), 0, 0));
 
-		searchPanel.add(importKPI, new GridBagConstraints(3, 0, 1, 1, 0.0, 0.0,
-				GridBagConstraints.WEST, GridBagConstraints.BOTH, new Insets(0,
-						45, 0, 0), 0, 0));
+//		searchPanel.add(importKPI, new GridBagConstraints(3, 0, 1, 1, 0.0, 0.0,             //Raj hide importKPI lable
+//				GridBagConstraints.WEST, GridBagConstraints.BOTH, new Insets(0,
+//						45, 0, 0), 0, 0));
 
-		searchPanel.add(helpButton, new GridBagConstraints(4, 0, 1, 1, 0.0,
-				0.0, GridBagConstraints.WEST, GridBagConstraints.BOTH,
-				new Insets(0, 5, 0, 0), 0, 0));
+//		searchPanel.add(helpButton, new GridBagConstraints(4, 0, 1, 1, 0.0  ,               //Raj hide help button
+//				0.0, GridBagConstraints.WEST, GridBagConstraints.BOTH,
+//				new Insets(0, 5, 0, 0), 0, 0));
 
-		labelPanel.add(scannedPage, new GridBagConstraints(0, 0, 1, 1, 0.0,
-				0.0, GridBagConstraints.NORTH, GridBagConstraints.NONE,
-				new Insets(0, 0, 0, 0), 0, 0));
+//		labelPanel.add(scannedPage, new GridBagConstraints(0, 0, 1, 1, 0.0,                 //Raj hide scannedPage
+//				0.0, GridBagConstraints.NORTH, GridBagConstraints.NONE,
+//				new Insets(0, 0, 0, 0), 0, 0));
 
 		labelPanel.add(tempLabel, new GridBagConstraints(1, 0, 1, 1, 0.0, 0.0,
 				GridBagConstraints.NORTH, GridBagConstraints.BOTH, new Insets(
 						0, 0, 0, 20), 0, 0));
 
-		labelPanel.add(separationKPI, new GridBagConstraints(2, 0, 1, 1, 0.0,
-				0.0, GridBagConstraints.EAST, GridBagConstraints.NONE,
-				new Insets(0, 15, 0, 0), 0, 0));
+//		labelPanel.add(separationKPI, new GridBagConstraints(2, 0, 1, 1, 0.0,                //Raj hide separationKPI       
+//				0.0, GridBagConstraints.EAST, GridBagConstraints.NONE,
+//				new Insets(0, 15, 0, 0), 0, 0));
 
 	}
 
@@ -276,7 +276,7 @@ public class ImportSaparationPanel extends BaseJPanel implements
 
 		pasteButton = new JButton();
 		pasteButton.setIcon(IconRepository.ICON_PASTE);
-
+ 
 		cancelButton = new JButton();
 		cancelButton.setIcon(IconRepository.CANCEL_ICON);
 
@@ -395,9 +395,9 @@ public class ImportSaparationPanel extends BaseJPanel implements
 					0));
 		}
 
-		buttonPanel.add(buttonPanelGroup3, new GridBagConstraints(2, 0, 1, 1,
-				1.0, 1.0, GridBagConstraints.NORTH,
-				GridBagConstraints.HORIZONTAL, new Insets(0, 20, 0, 0), 0, 0));
+//		buttonPanel.add(buttonPanelGroup3, new GridBagConstraints(2, 0, 1, 1,                    //Raj Hide the buttonPanel
+//				1.0, 1.0, GridBagConstraints.NORTH,
+//				GridBagConstraints.HORIZONTAL, new Insets(0, 20, 0, 0), 0, 0));
 
 	}
 
@@ -2211,6 +2211,7 @@ public class ImportSaparationPanel extends BaseJPanel implements
 			boolean nodeFound = false;
 
 			if (currentNode.getChildCount() == 0) {
+                            
 				desktopMainPanel.getjLeftPanel().fetchChildNodes(
 						SessionUtil.getSessionData().getProjectId(),
 						currentNode.getNodeId());
@@ -2229,7 +2230,7 @@ public class ImportSaparationPanel extends BaseJPanel implements
 							currentNode.getPath());
 					desktopMainPanel.getjLeftPanel().getNodeTree()
 							.setSelectionPath(searchNodePath);
-					desktopMainPanel.getjLeftPanel().getNodeTree()
+    					desktopMainPanel.getjLeftPanel().getNodeTree()
 							.expandPath(searchNodePath);
 					desktopMainPanel.getjLeftPanel().getNodeTree().updateUI();
 					desktopMainPanel.getjLeftPanel().getNodeTree().repaint();

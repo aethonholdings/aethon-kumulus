@@ -45,7 +45,7 @@ public class CollectionPanelHelper extends ClientHelper {
 
 		try {
 			ClientResponse response = ConnectionUtil.getWebService()
-					.path("nodeServices").path("updateNodeProperties")
+					.path("scanDo").path("updateNodeProperties")
 					.type(MediaType.APPLICATION_JSON_TYPE)
 					.accept(MediaType.APPLICATION_JSON_TYPE)
 					.post(ClientResponse.class, nodeToSave);
@@ -186,7 +186,7 @@ public class CollectionPanelHelper extends ClientHelper {
 		try {
 
 			ClientResponse response = ConnectionUtil.getWebService()
-					.path("nodeServices")
+					.path("scanDo")
 					.path("checkIfNodeIsUpdatedByOtherUser")
 					.type(MediaType.APPLICATION_JSON_TYPE)
 					.accept(MediaType.APPLICATION_JSON_TYPE)

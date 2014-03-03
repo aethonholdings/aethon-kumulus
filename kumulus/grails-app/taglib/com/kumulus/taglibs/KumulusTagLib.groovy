@@ -79,18 +79,20 @@ class KumulusTagLib {
             out << "        <ul>\n"
             userTasks.types.BUILD.tasks.groupBy({ task -> task.project }).each {
                 if(it.value.size()>0) {
-                    out << "<li class='kumulus-task-queue-project'>\n"
+                    out << "<li class='kumulus-task-queue-project kumulus-task-queue-action-item'>\n"
                     out << "<span class='kumulus-task-queue-project-name'>${it.key.projectName}</span>\n"
                     out << "<span class='kumulus-task-queue-project-count'>" << it.value.size() << "</span>\n"
                     out << "<span class='kumulus-task-queue-action'>" << g.link(controller: "capture", action: "build", params: [projectId: it.key.id], "Action") << "</span>\n"
                     out << "</li>\n"
                 }
             }
+            out << "        </ul>"
         }
-        if(userTasks.types.BUILD.count > 0) out << "        </ul>"
-        out << "    <li class='kumulus-task-queue'>${userTasks.types.PROCESS.count} documents to be processed"
         if(userTasks.types.PROCESS.count > 0) {
+            out << "    <li class='kumulus-task-queue kumulus-task-queue-action-item'>${userTasks.types.PROCESS.count} documents to be processed"
             out << "<span class='kumulus-task-queue-action'>" << g.link(controller: "structure", action: "process", "Action") << "</span>"
+        } else {
+            out << "    <li class='kumulus-task-queue'>${userTasks.types.PROCESS.count} documents to be processed"
         }
         out << "</li>\n"
         out << "    <li class='kumulus-task-queue'>${userTasks.types.VALIDATE.count} documents to be reviewed"

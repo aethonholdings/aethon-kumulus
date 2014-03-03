@@ -43,12 +43,12 @@
             <div class="pure-u-5-6">    
               <div class="pure-g">
                 <div class="pure-u-1-2">
-                  <div class="kumulus-container kumulus-scrollable-y">
+                  <div class="kumulus-container-inside kumulus-scrollable-y kumulus-filmstrip-margin-top">
                     <div id="page-strip" class="kumulus-filmstrip">
                       <ul id="pages" class="connectedSortable">
                         <g:each var="task" in="${tasks}">
                           <g:each var="page" in="${task.document.pages.sort { it.number }}">
-                               <li taskId ="${task.id}" documentId="${task.document.id}"><g:kumulusImg image="${page.thumbnailImage}" class="kumulus-thumbnail kumulus-element-border" height="140" width="100" viewId="${page.viewImage.id}" scanId="${page.scanImage.id}" barcode="${page.node.parent.barcode}" containerName="${page.node.parent.name}" containerType="${page.node.parent.type.name}" containerComment="${page.node.parent.comment}"/></li>
+                               <li taskId ="${task.id}" documentId="${task.document.id}"><g:kumulusImg image="${page.thumbnailImage}" class="kumulus-thumbnail kumulus-element-border" height="140" width="100" viewId="${page.viewImage.id}" scanId="${page.scanImage.id}" barcode="${page.node.parent.barcode.text}" containerName="${page.node.parent.name}" containerType="${page.node.parent.type.name}" containerComment="${page.node.parent.comment}"/></li>
                           </g:each>
                         </g:each>
                       </ul>
@@ -56,19 +56,19 @@
                   </div>
                 </div>
                 <div class="pure-u-1-2">
-                    <div id="document-strip-header" class="kumulus-filmstrip-header kumulus-margin-right">
-                        <h4>Drag the Doc Here</h4>
+                  <div class="kumulus-container-inside-full kumulus-scrollable-y">
+                      <div class="kumulus-filmstrip-header">
+                    <div id="document-strip" class="">
+                        <span><h6>Drag the Doc Here</h6></span>
+                        <li id="flimstrip-first-li" class="kumulus-filmstrip"></li>
                     </div>
-                  <div class="kumulus-container kumulus-scrollable-y">
-                    <div id="document-strip" class="kumulus-filmstrip">
-                      <ul id="documents" class="connectedSortable"></ul> 
-                    </div>
+                      </div>
                   </div>
                 </div>
               </div>
             </div>
             <div class="pure-u-1-8">
-              <p><button class="pure-button" onClick="save();">Save</button></p>
+              <p class="kumulus-filmstrip-button-margin-top"><button class="pure-button" onClick="save();">Save</button></p>
             </div>
           </div>
         </div>

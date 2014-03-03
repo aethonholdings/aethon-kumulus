@@ -4,110 +4,135 @@ import grails.converters.*
 import com.kumulus.domain.*
 import java.text.DateFormat;
 import java.text.SimpleDateFormat
+
 class ScanDoController {
+
+    def captureService
+    def permissionService
     
     // action to handle authentication
     def authenticate() {
-        def data = request.JSON
-        println(data)
+        
         def response = [true]
         render response as JSON  
+        
     }
     
     def fetchProjectList(){  
         
-        println("Json "+params)
         def projectlist =Project.list()         
-        println("*******************project List"+projectlist)
-         def responseData=[:]
-         def projects=[]
-         
-         projectlist.each{ project ->
-         responseData.project.id = it.projectName           
-       
-         }        
-       render responseData as JSON  
+        def responseData=[:]
+        def projects=[]
+        projectlist.each{ project ->
+            responseData.project.id = it.projectName           
+        }      
+        render responseData as JSON  
     }
     
     
-    def updateNodeProperties() { }
+    def updateNodeProperties() { 
+        
+         def responsedata=[:]
+         def data = request.JSON 
+         println("data  "+data)
+         responsedata = [
+                "nodeId":"10007",
+                "projectId":"2",
+                "name":"Document 2",
+                "type":"D",
+                "barcode":"",
+                "comment":"",
+                "internalComment":"",
+                "status":"0",
+                "parentNodeId":"10004",
+                "hierarchy":"[Project, AE1393691428778CG, Document 2]",
+                "thumbnailImageName":null,
+                "actualImageName":null,
+                "lastUpdateDateTime":"03-03-2014 08:27:39",
+                "documentSequenceNumber":null,
+                "userId":"ADMIN",
+                "encodeStringForImage":null,
+                "encodeStringForThumbnail":null,
+                "oldActualImageName":null,
+                "oldThumbnailImageName":null,
+                "transactionStatus":"U"        
+            ]                 
+              
+        render responsedata as JSON 
+    }
     
     def fetchChildNodeList() {
-        def nodeList 
+        def nodeList = []
         def data = request.JSON
-        println("Project Id in fetchChildNodeList"+data)   
-        if(data?.parentId==null) {
-            def project = Project.findById(data?.projectId)
-            if(project) nodeList = project.nodes.findAll { node -> node.parent == null }
+        if(data[1].toString()=="null") {
+            def project = Project.findById(data[0].toString())
+            if(project) nodeList = Node.findAll { node -> 
+                project == project
+                parent == null 
+            }
         } else {
-            def parent = Node.findById(data?.nodeId)
-            nodeList = Node.findByParent(parent)
+            def parent = Node.findById(data[1].toString())
+            if(parent) { 
+                nodeList = Node.findAll { node -> 
+                    parent == parent
+                }
+            }
         }
-        println("number of nodes"+nodeList.size())
+        
         def responsedata =[]
-        def list;        
-        def renderNode =[hierarchy:'']
-        nodeList.each{ node->
-         
-            list= new ArrayList()
-            list.add(node.project.projectName)
-            list.add(node.barcode)
-            renderNode =[
-                'nodeId':""+node.id,
-                'projectId':""+node.project.id,
-                'name':""+node.name,
-                'type': ""+node.type.code,    
-                'barcode': ""+node.barcode,              
+        nodeList.each{ node ->
+            def renderNode = [
+                'nodeId': "" + node.id,
+                'projectId': "" + node.project.id,
+                'name': "" + node.barcode?.text,                                 // scando requires the barcode as name
+                'type': "" + node.type.code,    
+                'barcode': "" + node.barcode?.text,              
                 'comment': node.comment,
                 'internalComment': node.internalComment,
-                'status':""+node.status,
-                'parentNodeId': node.parent,
-                'hierarchy':list.toString(),
-                'thumbnailImageName':null,             
-                'actualImageName':null,
+                'status': "" + node.status,
+                'parentNodeId': node.parent?.id,
+                'hierarchy': captureService.getScanDoNodeHierarchy(node),       // INJECT THE HIERARCHY HERE
+                'thumbnailImageName': null,             
+                'actualImageName': null,
                 'lastUpdateDateTime': node.lastUpdateDatetime,
-                'documentSequenceNumber':null,
-                'userId':null,           
-                'encodeStringForImage':null,
-                'encodeStringForThumbnail':null,
-                'oldActualImageName':null,
-                'oldThumbnailImageName':null,
-                'transactionStatus':"U"            
-            ]            
-           // renderNode.hierarchy=list.toString()	     
+                'documentSequenceNumber': null,
+                'userId': null,           
+                'encodeStringForImage': null,
+                'encodeStringForThumbnail': null,
+                'oldActualImageName': null,
+                'oldThumbnailImageName': null,
+                'transactionStatus': "U"            
+            ]                 
             responsedata.add(renderNode)            
         }     
-        println(responsedata)
         render responsedata as JSON 
     }
     
     def getProjectBybarcode() {
         
         def data = request.JSON
-        println("data is "+data)
         def responsedata =[
-            'projectId': null,
-            'projectName': null
+            'projectId': -1,
+            'projectName': "Scan barcode"
        ]
-       // def data = request.JSON
-       
-        def node = Node.findByBarcode(data?.barcode)
-        if(node) {
-            def project = node.project
-            responsedata.projectId = project.id
-            responsedata.projectName=project.projectName            
-            println(project)
+        
+        def barcode = Barcode.findByText(data?.barcode)
+        if(barcode) {
+            def node = Node.findByBarcode(barcode)
+            if(node) {
+                responsedata.projectId = node.project.id
+                responsedata.projectName = node.project.projectName            
+            }
         }
         render responsedata as JSON  
     }
     
     
     def fetchSessionData() {
-        println("***********"+params)
         def sessiondata=[:]
         HashMap<String,String> statusMap= new HashMap<String, String>();
         HashMap<String,String> nodeTypeMap= new HashMap<String, String>();
-        statusMap.put("Document","D");
+        statusMap.put("Page","P");
         statusMap.put("Box","B");
         statusMap.put("Container","C");
         nodeTypeMap.put("In Progress","0");
@@ -142,19 +167,22 @@ class ScanDoController {
         String responseString 
         if(data?.searchBarcode) {
             responseString = "["
-            def node = Node.findByBarcode(data?.searchBarcode)
-            if(node) {
-                def projectName = node.project.projectName
-                def barcodes = [node.barcode]
-                while(node.parent!=null) {
-                    node = node.parent
-                    barcodes.add(node.barcode)
-                } 
-                barcodes.add(projectName)
-                ListIterator nodeslist = barcodes.listIterator(barcodes.size());
-                while (nodeslist.hasPrevious()) {
-                    responseString = responseString + nodeslist.previous().toString()
-                    if(nodeslist.hasPrevious()) responseString = responseString + ", "
+            def barcode = Barcode.findByText(data?.searchBarcode)
+            if(barcode) { 
+                def node = Node.findByBarcode(barcode)
+                if(node) {
+                    def projectName = node.project.projectName
+                    def barcodes = [node.barcode?.text]
+                    while(node.parent!=null) {
+                        node = node.parent
+                        barcodes.add(node.barcode?.text)
+                    } 
+                    barcodes.add(projectName)
+                    ListIterator nodeslist = barcodes.listIterator(barcodes.size());
+                    while (nodeslist.hasPrevious()) {
+                        responseString = responseString + nodeslist.previous().toString()
+                        if(nodeslist.hasPrevious()) responseString = responseString + ", "
+                    }
                 }
             }
             responseString = responseString + "]"
@@ -164,9 +192,15 @@ class ScanDoController {
     
     def saveScannedImages() { }
     
-    def checkIfNodeIsUpdatedByOtherUser() { }
+    def checkIfNodeIsUpdatedByOtherUser() { 
+        
+        def response = [false]
+        render response as JSON  
+        
+    }
     
     def getChildNodeCount() { }
+    
     def updateAttendance() {
       redirect(action: "authenticate")
     }
