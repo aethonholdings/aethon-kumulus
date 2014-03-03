@@ -1,12 +1,15 @@
 $(document).ready(function(){ 
+
     $("#pages").sortable({
         connectWith: "div",
         dropOnEmpty: true
     });
+
     $("#document-strip").sortable({
         connectWith: "ul",
         dropOnEmpty: true
     });
+
     $("#document-strip li").hover(
         function () {
             $("#document-strip").addClass("connectedSortable");
@@ -27,7 +30,6 @@ $(document).ready(function(){
    
     $("#pages, #documents").disableSelection();
 });
-
 function save() {
     var documents = $('#document-strip li');
     var taskIds = [];
