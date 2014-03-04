@@ -4,7 +4,7 @@ var selectedNode;
 var newNode;
 
 $(document).ready(function(){
-
+        
     // create the node tree
     $('#nodeTree').dynatree({
         initAjax: {
@@ -18,12 +18,18 @@ $(document).ready(function(){
             rootVisible: true,
             keyboard: true
         },
+        onPostInit: function(isReloading, isError) {
+//        alert("reloading: "+isReloading+", error:"+isError);
+         logMsg("onPostInit(%o, %o) - %o", isReloading, isError, this);
+         // Re-fire onActivate, so the text is updated
+         this.reactivate();
+      },
         onActivate: function(node) {
             if(state=="READY") {
                 selectedNode = node;
                 refresh_container_information(node);
                  nodeDetailInfo(node);
-            }
+            }  
         }, 
         onLazyRead: function(node) {
             node.appendAjax({
@@ -94,6 +100,7 @@ $(document).ready(function(){
         logMsg("tree.onDragLeave(%o, %o)", node, sourceNode);
       }
     }
+    
    });
     tree = $('#nodeTree').dynatree("getTree");
     ready();
@@ -183,7 +190,13 @@ function delete_node() {
                 async: false,
                 success: function(data) {
                     selectedNode.remove();
-                   // tree.reload();
+                    if (selectedNode.data.key != '#') {
+                        selectedNode.reloadChildren(function(selectedNode, isOk) {
+                        });
+                    }
+                    else {
+                        tree.reload();
+                    }
                     ready();
                 }
             });
@@ -260,7 +273,6 @@ function search_node() {
                 for(var i=data.length-1; i>=0; i--) {
                     keypath = keypath + "/" + data[i].key.toString();
                 }
-                
                 tree.loadKeyPath(keypath, function(node, status){
                     if(status == "loaded") {
                         // 'node' is a parent that was just traversed.
@@ -360,7 +372,6 @@ function save() {
             dataType: 'json',
             async: false,
             success: function(data) {
-                console.log(selectedNode.data.key);
                 ready();
                 if (selectedNode.data.key != '#') {
                     selectedNode.reloadChildren(function(selectedNode, isOk) {
@@ -381,24 +392,40 @@ function save() {
     }
 }
 function containerToTransport(){
-     var data = { 
-            id: selectedNode.data.id
-        }
-        if(data.id!='ROOT'){
+    var data = { 
+        id: selectedNode.data.id
+    }
+    var newNodeKey=selectedNode.data.key;
+    if(data.id!='ROOT'){
         $.ajax({
-             url: url('node', 'containerToTransport', ''),
-             type: 'post', 
-             data: JSON.stringify(data),
-             contentType: 'application/json; charset=utf-8',
-             dataType: 'json',
-             async: false,
-             success: function(data) {
-                 tree.reload()
-                 selectedNode.reloadChildren(function(selectedNode, isOk) {
-                    });
+            url: url('node', 'containerToTransport', ''),
+            type: 'post', 
+            data: JSON.stringify(data),
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            async: false,
+            success: function(data) {
+                var pnode = selectedNode.getParent()
+                if (selectedNode.getParent().data.key != '#') {
+                    selectedNode.getParent().reloadChildren(function(pnode, isOk) { 
+                        tree.activateKey(newNodeKey);
+                    });                   
                 }
-            });
-      }
+                else {
+                    var path = "#/" + newNodeKey;
+                    tree.reload();
+//                    tree.loadKeyPath(path, function(node, status){
+//                        if(status == "loaded") {
+//                            node.expand();
+//                        } else if(status == "ok") {
+//                            node.activate();
+//                        }
+//                    });
+                    tree.activateKey(newNodeKey); 
+                }
+            }
+        });    
+    }
 }
 function nodeDetailInfo(node){
  var data = { node:node.data.id }
