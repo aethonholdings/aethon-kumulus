@@ -128,7 +128,7 @@ class ScanDoController {
     
     def saveScannedImages() {
         
-        data response = [:]
+        def response = [:]
         def data = request.JSON
         if(data?.encodeStringForImage && data?.parentNodeId) {
             def node = Node.findById(data?.parentNodeId)

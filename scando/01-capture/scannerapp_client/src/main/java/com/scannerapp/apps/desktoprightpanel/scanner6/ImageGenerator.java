@@ -151,8 +151,7 @@ public class ImageGenerator {
 				.getDesktopMainPanel().getjRightPanel().getCollectionPanel()
 				.getSelectedTreeNode();
 
-		while (presentNode.getNodeId() != SessionUtil.getSessionData()
-				.getProjectId()) {
+		while (presentNode.getNodeId() != "#") {
                         if(presentNode.getParent()==null) { 
                             path = SessionUtil.getSessionData().getProjectId() + File.separator + path;
                         } else {
