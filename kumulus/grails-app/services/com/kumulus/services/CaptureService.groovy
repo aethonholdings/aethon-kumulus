@@ -25,7 +25,7 @@ class CaptureService {
         
         def barcode = Barcode.findByText(barcodeString)
         def nodeType = NodeType.findByName(type)
-        if(parent && project && nodeType) {
+        if(project && nodeType) {
             def timestamp = new Date()            
             def node = new Node()
             node.creatorId = springSecurityService.principal.username
