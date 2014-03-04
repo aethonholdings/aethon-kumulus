@@ -9,7 +9,7 @@ import com.lucastex.grails.fileuploader.FileUploaderService
 import com.sun.jersey.core.util.*
 import org.springframework.web.multipart.commons.CommonsMultipartFile
 import org.apache.commons.fileupload.disk.DiskFileItem
-
+import org.codehaus.groovy.grails.commons.ConfigurationHolder
 
 @Transactional
 class FilesystemService {
@@ -60,7 +60,7 @@ class FilesystemService {
         File stagingPath = new File(uFile.path.replace(uFile.name, ""))
         File targetPath = new File(grailsApplication.config.filesystem.main + "/" + page.node.project.literal + "/pages/" + literal + "/")
         targetPath.mkdir()
-        
+    
         // create the necessary output files
         String tmpNameBase = stagingPath.canonicalPath + "/" + literal
         def imageFiles = [
@@ -68,17 +68,19 @@ class FilesystemService {
             viewImage: new File(tmpNameBase +"-V.jpg"),
             thumbnailImage: new File(tmpNameBase +"-T.jpg")
         ]
-        
+
         // load the imported image to buffer and generate the write to the staging area output files
         def imageTool = new ImageTool()
-        imageTool.load(uFile.path)            
+        imageTool.load(uFile.path)
         imageTool.writeResult(imageFiles.scanImage.getAbsolutePath(), "TIFF")
         imageTool.writeResult(imageFiles.viewImage.getAbsolutePath(), "JPEG")
         imageTool.thumbnail(300)
         imageTool.writeResult(imageFiles.thumbnailImage.getAbsolutePath(), "JPEG")   
         
+        
         // move the files from the staging area to the main area
         def images = [:]
+        
         imageFiles.each() { key, value ->
             def targetFile = new File(targetPath.getAbsolutePath() + "/" + value.name)
             value.renameTo(targetFile)
@@ -120,8 +122,9 @@ class FilesystemService {
         return(true)
     }
     
-    def writeStringToImageFile(String encodedImageString, String filename, Locale locale) {
+    def writeStringToImageFile(encodedImageString, filename, locale) {
         
+        // write the string data into a file object
         encodedImageString = encodedImageString.replaceAll(" ", "+")
         encodedImageString = encodedImageString.replaceAll("\n", "")
         byte[] scannedImageBytes = Base64.decode(encodedImageString)
@@ -130,7 +133,25 @@ class FilesystemService {
         imageFileItem.getOutputStream().write(scannedImageBytes)
         imageFileItem.getOutputStream().close()
         CommonsMultipartFile imageFile = new CommonsMultipartFile(imageFileItem)
-        return(fileUploaderService.saveFile("image", imageFile, filename, locale))
+        
+        // save the file to the filesystem
+        def path = ConfigurationHolder.config.fileuploader["image"].path
+        if (!path.endsWith('/')) path = path + "/"
+        path = path + generateLiteral() + "/"
+        if (!new File(path).mkdirs()) log.info "FileUploader plugin couldn't create directories: [${path}]"
+        path = path + filename
+        imageFile.transferTo(new File(path))
+        
+        //save the file on the database
+        def ufile = new UFile()
+        ufile.name = filename
+        ufile.size = imageFile.size
+        ufile.extension = filename.substring(filename.lastIndexOf('.') + 1)        
+        ufile.dateUploaded = new Date()
+        ufile.path = path
+        ufile.downloads = 0
+        ufile.save()
+        return(ufile)
         
     }
     

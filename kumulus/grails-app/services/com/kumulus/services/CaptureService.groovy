@@ -131,8 +131,9 @@ class CaptureService {
     def indexScan(parentNode, uFile, scanBatch, userId) {
         
         Document document
-        
+
         if(parentNode && uFile && scanBatch && userId) {
+            
             Date timestamp = new Date()
             def literal = filesystemService.generateLiteral()            
 
@@ -178,9 +179,11 @@ class CaptureService {
                 scanBatch: scanBatch,
                 document: document
             )
+            page.save()
             
             // generate the image files for the page
             def images = filesystemService.indexImageInFilesystem(literal, page, uFile, timestamp)
+            
             page.scanImage = images.scanImage
             page.viewImage = images.viewImage
             page.thumbnailImage = images.thumbnailImage

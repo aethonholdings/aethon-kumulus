@@ -9,8 +9,9 @@ class ScanDoController {
 
     def scanDoService
     def captureService
-    def permissionService
+    def permissionsService
     def filesystemService
+    def workflowService
     
     // action to handle authentication
     def authenticate() {
@@ -128,11 +129,20 @@ class ScanDoController {
     def saveScannedImages() {
         
         def data = request.JSON
-        if(data?.encodeStringForImage && data?.parentNodeId) {
-            def node = Node.findById(data?.parentNodeId)
-            def task = scanDoService.uploadImage(data?.encodeStringForImage, node, request.locale)
-            render task
+//        if(data?.encodeStringForImage && data?.parentNodeId) {
+//            def node = Node.findById(data?.parentNodeId)
+//            def task = scanDoService.uploadImage(data?.encodeStringForImage, node, request.locale)
+//            render ["done"] as JSON
+//        }
+        def node = Node.findById(6).parent
+        def userId = permissionsService.getUsername()
+        def document = scanDoService.uploadImage(scanDoService.fakeImage(), node, request.locale, userId)
+        println("Document -----> " + document)
+        def task = workflowService.createTask(document, Task.TYPE_BUILD, userId)
+        if (document && task) {
+            workflowService.assignTask(task, userId)
         }
+        render task
     }
     
     def checkIfNodeIsUpdatedByOtherUser() { 
