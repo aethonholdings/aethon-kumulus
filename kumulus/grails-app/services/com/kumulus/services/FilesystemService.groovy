@@ -82,6 +82,7 @@ class FilesystemService {
         
         imageFiles.each() { key, value ->
             def targetFile = new File(targetPath.getAbsolutePath() + "/" + value.name)
+            new File(targetPath.getAbsolutePath()).mkdirs()
             value.renameTo(targetFile)
             def file = new UFile(
                 size: targetFile.size(),
@@ -116,7 +117,6 @@ class FilesystemService {
     def stagingFlush(uFile) {
         // clean up the staging entities
         File stagingPath = new File(uFile.path.replace(uFile.name, ""))
-        uFile.delete(flush:true)
         stagingPath.deleteDir()
         return(true)
     }
