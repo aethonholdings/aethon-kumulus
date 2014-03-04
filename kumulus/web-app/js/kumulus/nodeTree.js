@@ -380,7 +380,26 @@ function save() {
         tree.selectKey(news.data.key, true);
     }
 }
-
+function containerToTransport(){
+     var data = { 
+            id: selectedNode.data.id
+        }
+        if(data.id!='ROOT'){
+        $.ajax({
+             url: url('node', 'containerToTransport', ''),
+             type: 'post', 
+             data: JSON.stringify(data),
+             contentType: 'application/json; charset=utf-8',
+             dataType: 'json',
+             async: false,
+             success: function(data) {
+                 tree.reload()
+                 selectedNode.reloadChildren(function(selectedNode, isOk) {
+                    });
+                }
+            });
+      }
+}
 function nodeDetailInfo(node){
  var data = { node:node.data.id }
     if(data.node!='ROOT'){
