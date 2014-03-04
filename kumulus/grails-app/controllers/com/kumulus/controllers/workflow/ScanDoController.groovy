@@ -88,35 +88,9 @@ class ScanDoController {
         render responsedata as JSON  
     }
     
-    
     def fetchSessionData() {
         def sessiondata=[:]
-        HashMap<String,String> statusMap= new HashMap<String, String>();
-        HashMap<String,String> nodeTypeMap= new HashMap<String, String>();
-        statusMap.put("Page","P");
-        statusMap.put("Box","B");
-        statusMap.put("Container","C");
-        nodeTypeMap.put("In Progress","0");
-        nodeTypeMap.put("Done","1");
-        nodeTypeMap.put("Sealed","2");                                                                                       
-        sessiondata= [                                 
-            'version': "v1.1.3",
-            'userid': params.username,
-            'projectId': "-1",
-            'collectionRight':"N",
-            'breathInterval':"5",
-            'importRight':"Y",
-            'separationRight': "N",
-            'LocalStoragePath':null,
-            'projectName':"Scan barcodes",
-            'SeparationTarget':"0",
-            'refreshInterval':"600000",
-            'totalImagesToUploadAtOnce':"21",
-            'setOverallTarget':"5000",
-            'localThumbnailDirPath':null,
-            'nodeTypeMap':nodeTypeMap ,
-            'setStatusMap':statusMap,
-        ]                                                                             
+        sessiondata = scanDoService.renderSessionData(params.username)    
         render sessiondata as JSON     
     }
     
@@ -154,12 +128,11 @@ class ScanDoController {
     def saveScannedImages() {
         
         def data = request.JSON
-        // if(data?.encodeStringForImage && data?.parentNodeId) {
-        //     def node = Node.findById(data?.parentNodeId)
-            def node = Node.findById(6)
-            def task = scanDoService.uploadImage(scanDoService.fakeImage(), node, request.locale)
+        if(data?.encodeStringForImage && data?.parentNodeId) {
+            def node = Node.findById(data?.parentNodeId)
+            def task = scanDoService.uploadImage(data?.encodeStringForImage, node, request.locale)
             render task
-        // }
+        }
     }
     
     def checkIfNodeIsUpdatedByOtherUser() { 
