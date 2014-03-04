@@ -77,7 +77,6 @@ class FilesystemService {
         imageTool.thumbnail(300)
         imageTool.writeResult(imageFiles.thumbnailImage.getAbsolutePath(), "JPEG")   
         
-        
         // move the files from the staging area to the main area
         def images = [:]
         
@@ -128,9 +127,10 @@ class FilesystemService {
         // encodedImageString = encodedImageString.replaceAll(" ", "+")
         // encodedImageString = encodedImageString.replaceAll("\n", "")
         // byte[] scannedImageBytes = Base64.decode(encodedImageString)
-        byte[] scannedImageBytes = encodedImageString.bytes.encodeBase64()
+        
         // PARAMETRISE THE MAX SIZE
         DiskFileItem imageFileItem = new DiskFileItem("file", null, false, filename, 40000000, new File(grailsApplication.config.filesystem.staging))
+        byte[] scannedImageBytes = encodedImageString.decodeBase64()
         imageFileItem.getOutputStream().write(scannedImageBytes)
         imageFileItem.getOutputStream().close()
         CommonsMultipartFile imageFile = new CommonsMultipartFile(imageFileItem)
