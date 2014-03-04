@@ -129,17 +129,15 @@ class ScanDoController {
     def saveScannedImages() {
         
         def data = request.JSON
-//        if(data?.encodeStringForImage && data?.parentNodeId) {
-//            def node = Node.findById(data?.parentNodeId)
-//            def task = scanDoService.uploadImage(data?.encodeStringForImage, node, request.locale)
-//            render ["done"] as JSON
-//        }
-        def node = Node.findById(6).parent
-        def userId = permissionsService.getUsername()
-        def document = scanDoService.uploadImage(scanDoService.fakeImage(), node, request.locale, userId)
-        def task = workflowService.createTask(document, Task.TYPE_BUILD, userId)
-        if (document && task) { workflowService.assignTask(task, userId) }
-        render task
+        if(data?.encodeStringForImage && data?.parentNodeId) {
+            def node = Node.findById(data?.parentNodeId)
+            def userId = permissionsService.getUsername()
+            def document = scanDoService.uploadImage(data?.encodeStringForImage, node, request.locale, userId)
+            def task = workflowService.createTask(document, Task.TYPE_BUILD, userId)
+            if (document && task) { workflowService.assignTask(task, userId) }
+            render ["done"] as JSON
+        }
+
     }
     
     def checkIfNodeIsUpdatedByOtherUser() { 
