@@ -168,9 +168,12 @@ function imagePreview(obj) {
     preview($('#preview-img'), obj.attr('viewId'));
     pageNo = obj.attr('pageNumber')
 
-    if ($("#pageNo").val().trim().length == 0)
+    if($('#lineItems tbody tr').length>0)
     {
+        if ($("#pageNo").val().trim().length == 0)
+        {
         $('.new.kumulus-column-page').val(obj.attr('pageNumber'));
+        }
     }
     $('#lineItems tr:last td #pageNo').val(obj.attr('pageNumber'));
     $('#lineItems tr:last td #pageId').val(obj.attr('pageId'));

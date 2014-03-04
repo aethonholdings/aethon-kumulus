@@ -10,6 +10,7 @@ class CaptureService {
     def filesystemService
     
     def deleteNode(nodeID) {
+        
         def node = Node.findById(nodeID)
         if(node) {
             def children = Node.findAllByParent(node)
@@ -67,10 +68,10 @@ class CaptureService {
             barcode.save()
         }
         return(node)
-        
     }
     
     def renderNode(node) {
+        
         if(node) {
             def treeNode = [
                 key: node.id.toString(),
@@ -87,7 +88,6 @@ class CaptureService {
                 project: node.project.id
             ]
             return(treeNode)
-           
         }
     }
     
