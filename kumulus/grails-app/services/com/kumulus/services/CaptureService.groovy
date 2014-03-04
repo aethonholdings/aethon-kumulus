@@ -246,5 +246,16 @@ class CaptureService {
         }
         return(newDocument)
     }
-    
+    def updateContainer(node,status){
+     if(node && status){
+          if(status=='0'){
+             status='1'
+             node.status=status
+             node.save()
+             println("now status is" +status)
+          }
+      }  
+        return(node)
+        println(node.status)
+    }
 }
