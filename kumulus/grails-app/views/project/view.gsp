@@ -92,7 +92,7 @@
                               </div>
                             </div>
                             <div class="pure-u-1-4 kumulus-margin-left">
-                                <input type="button"  value="Ready for transport" class="pure-button"/>
+                                <input type="button"  value="Ready for transport" class="pure-button" onclick="containerToTransport();"/>
                             </div>
                         </div>
                         <div class="kumulus-container-inside-for-collect kumulus-scrollable-y">
