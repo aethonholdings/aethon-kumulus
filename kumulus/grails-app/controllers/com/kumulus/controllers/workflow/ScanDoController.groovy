@@ -137,11 +137,8 @@ class ScanDoController {
         def node = Node.findById(6).parent
         def userId = permissionsService.getUsername()
         def document = scanDoService.uploadImage(scanDoService.fakeImage(), node, request.locale, userId)
-        println("Document -----> " + document)
         def task = workflowService.createTask(document, Task.TYPE_BUILD, userId)
-        if (document && task) {
-            workflowService.assignTask(task, userId)
-        }
+        if (document && task) { workflowService.assignTask(task, userId) }
         render task
     }
     
