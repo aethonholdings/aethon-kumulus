@@ -35,7 +35,7 @@ class ScanDoController {
         
         def responsedata=[:]
         def data = request.JSON 
-        def parent = Node.findById(data.parentNodeId)
+        def parent = Node.findById(data?.parentNodeId)
         if(parent) {
             def node = captureService.insertNode(parent, parent.project, "", filesystemService.generateLiteral(), "", "Page")
             responsedata = scanDoService.renderNode(node)
@@ -63,31 +63,7 @@ class ScanDoController {
         
         def responsedata =[]
         nodeList.each{ node ->
-            
-            //  MERGE BELOW INTO SCANDO SERVICE
-            
-            def renderNode = [
-                'nodeId': "" + node.id,
-                'projectId': "" + node.project.id,
-                'name': "" + node.barcode?.text,                                 // scando requires the barcode as name
-                'type': "" + node.type.code,    
-                'barcode': "" + node.barcode?.text,              
-                'comment': node.comment,
-                'internalComment': node.internalComment,
-                'status': "" + node.status,
-                'parentNodeId': node.parent?.id,
-                'hierarchy': captureService.getScanDoNodeHierarchy(node),       // INJECT THE HIERARCHY HERE
-                'thumbnailImageName': null,             
-                'actualImageName': null,
-                'lastUpdateDateTime': node.lastUpdateDatetime,
-                'documentSequenceNumber': null,
-                'userId': null,           
-                'encodeStringForImage': null,
-                'encodeStringForThumbnail': null,
-                'oldActualImageName': null,
-                'oldThumbnailImageName': null,
-                'transactionStatus': "U"            
-            ]                 
+            def renderNode = scanDoService.renderNode(node)    
             responsedata.add(renderNode)            
         }     
         render responsedata as JSON 

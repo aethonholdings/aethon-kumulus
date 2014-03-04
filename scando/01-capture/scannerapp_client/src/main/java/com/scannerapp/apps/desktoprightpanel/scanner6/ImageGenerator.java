@@ -153,8 +153,11 @@ public class ImageGenerator {
 
 		while (presentNode.getNodeId() != SessionUtil.getSessionData()
 				.getProjectId()) {
-
-			path = presentNode.getNodeId() + File.separator + path;
+                        if(presentNode.getParent()==null) { 
+                            path = SessionUtil.getSessionData().getProjectId() + File.separator + path;
+                        } else {
+                            path = presentNode.getNodeId() + File.separator + path;
+                        }
 
 			presentNode = (CustomMutableTreeNode) presentNode.getParent();
 		}

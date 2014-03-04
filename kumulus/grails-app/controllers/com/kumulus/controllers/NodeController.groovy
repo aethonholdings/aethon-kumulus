@@ -47,6 +47,7 @@ class NodeController {
         if(project && permissionsService.checkPermissions(project) && captureService.insertNode(parent, project, data?.barcode, data?.name, data?.comment, data?.type)) { 
             response.done = true
             response.message = "Success"
+    
         }
         render response as JSON
     }
