@@ -207,7 +207,7 @@ environments {
         // plugins
         fileuploader {
             image {
-                allowedExtensions = ["bmp", "png", "pdf", "tiff", "tif"]
+                allowedExtensions = ["bmp", "png", "pdf", "tiff", "tif", "jpg"]
                 path = "${filesystem.root}/staging/"
             }
         }
@@ -224,7 +224,7 @@ environments {
         // plugins
         fileuploader {
             image {
-                allowedExtensions = ["bmp", "png", "pdf", "tiff", "tif"]
+                allowedExtensions = ["bmp", "png", "pdf", "tiff", "tif", "jpg"]
                 path = "${filesystem.root}/staging/"
             }
         }
