@@ -125,9 +125,10 @@ class FilesystemService {
     def writeStringToImageFile(encodedImageString, filename, locale) {
         
         // write the string data into a file object
-        encodedImageString = encodedImageString.replaceAll(" ", "+")
-        encodedImageString = encodedImageString.replaceAll("\n", "")
-        byte[] scannedImageBytes = Base64.decode(encodedImageString)
+        // encodedImageString = encodedImageString.replaceAll(" ", "+")
+        // encodedImageString = encodedImageString.replaceAll("\n", "")
+        // byte[] scannedImageBytes = Base64.decode(encodedImageString)
+        byte[] scannedImageBytes = encodedImageString.bytes.encodeBase64()
         // PARAMETRISE THE MAX SIZE
         DiskFileItem imageFileItem = new DiskFileItem("file", null, false, filename, 40000000, new File(grailsApplication.config.filesystem.staging))
         imageFileItem.getOutputStream().write(scannedImageBytes)
