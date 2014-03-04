@@ -54,7 +54,7 @@ class CaptureService {
     def updateNode(node, barcodeString, name, comment, type, status, location) {
         
         def barcode = Barcode.findByText(barcodeString)
-        def nodeType = NodeType.findById(type)
+        def nodeType = NodeType.findByName(type)
         if(node && !node.hasErrors() && nodeType && barcode){
             node.comment = comment
             node.barcode = barcode
