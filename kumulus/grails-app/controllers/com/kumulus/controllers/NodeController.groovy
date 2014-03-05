@@ -146,7 +146,9 @@ class NodeController {
     }
     
     def fetchFromStorage() {
-        def data = request.JSON
-        def node = Node.findById(data?.id)
+         def response = [done: true]
+         //fetch from storage
+         render response as JSON
+         println(response)
     }
 }
