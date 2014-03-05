@@ -1,4 +1,4 @@
-var pageNo,status=false,rowCounter;
+var pageNo,pageId,status=false,rowCounter;
 var currentRowObj;
 
 $(document).ready(function()
@@ -82,6 +82,7 @@ $(document).ready(function()
         validate()
         var status = $("#structure").valid();
         var rowStatus = validateLastRow();
+ 
         if (status && rowStatus) {
             var json = ConvertFormToJSON(formObj)
 
@@ -167,7 +168,8 @@ function imagePreview(obj) {
 
     preview($('#preview-img'), obj.attr('viewId'));
     pageNo = obj.attr('pageNumber')
-
+    pageId=obj.attr('pageId')
+    
     if($('#lineItems tbody tr').length>0)
     {
         if ($("#pageNo").val().trim().length == 0)
@@ -298,6 +300,7 @@ function addRow() {
             '</tr>')
     datePick(count,mainCount);
       $('#lineItems tr:last td #pageNo').val(pageNo);
+      $('#lineItems tr:last td #pageId').val(pageId);
 }
 
 
@@ -308,7 +311,7 @@ for(var j=0;j<=mainCounter;j++)
     for ( var i = 0; i <=counter; i++ ) 
         {
             $("#lineItemDate"+j+i).datepicker({
-            minDate: new Date(),
+           
               onClose: function () {
                 this.focus();
                 }
@@ -318,7 +321,7 @@ for(var j=0;j<=mainCounter;j++)
     }
     
      $("#datePickerDate").datepicker({
-            minDate: new Date(),
+           
             onClose: function () {
                 this.focus();
                 }
