@@ -453,7 +453,8 @@ function nodeDetailInfo(node){
             $('#button-readyfortransfer').prop('disabled', true);
         }
     }
-    function fetchFromStorage(){
+  }  
+  function fetchFromStorage(){
      var data ={  id: selectedNode.data.id }
           if(data.node!='ROOT'){
            $.ajax({
@@ -468,4 +469,4 @@ function nodeDetailInfo(node){
             });
           }         
     }
-}
+

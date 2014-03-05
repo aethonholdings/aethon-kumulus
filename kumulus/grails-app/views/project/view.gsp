@@ -93,7 +93,6 @@
                     <div class="pure-u-1-4 kumulus-margin-left kumulus-margin-top">
                         <input id="button-readyfortransfer" type="button"  value="Ready for transport" class="pure-button" onclick="containerToTransport();" disabled/>
                         <input id="button-fetchFromStorage" type="button"  value="fetch From Storage" class="pure-button kumulus-margin-top" onclick="fetchFromStorage();" />
-                        
                     </div>
                 </div>
                 <div class="kumulus-container-for-collect  kumulus-element-border">
