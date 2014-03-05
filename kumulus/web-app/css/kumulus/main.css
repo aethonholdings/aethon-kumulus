@@ -649,7 +649,7 @@ li.kumulus-task-queue.kumulus-task-queue-action-item{
     .kumulus-menu li {
             display: inline;
             float: left;
-            min-width: 18%;
+            min-width: 15%;
     }
     .kumulus-table-image{
         height: 50px;
