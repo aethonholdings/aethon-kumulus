@@ -329,9 +329,11 @@ public class ImportSaparationPanel extends BaseJPanel implements
 		buttonPanelGroup1.add(viewThumbnailsButton, new GridBagConstraints(0,
 				1, 1, 1, 0.0, 0.0, GridBagConstraints.NORTH,
 				GridBagConstraints.HORIZONTAL, new Insets(2, 2, 2, 2), 0, 0));
-		buttonPanelGroup1.add(editNodePropertyButton, new GridBagConstraints(1,
-				1, 1, 1, 0.0, 0.0, GridBagConstraints.NORTH,
-				GridBagConstraints.HORIZONTAL, new Insets(2, 2, 2, 2), 0, 0));
+                //RAJ COMMENT
+//		buttonPanelGroup1.add(editNodePropertyButton, new GridBagConstraints(1,                        
+//				1, 1, 1, 0.0, 0.0, GridBagConstraints.NORTH,
+//				GridBagConstraints.HORIZONTAL, new Insets(2, 2, 2, 2), 0, 0));
+                //END RAJ COMMENT
 
 		buttonPanelGroup2.add(importButton, new GridBagConstraints(0, 0, 1, 1,
 				0.0, 0.0, GridBagConstraints.NORTH,

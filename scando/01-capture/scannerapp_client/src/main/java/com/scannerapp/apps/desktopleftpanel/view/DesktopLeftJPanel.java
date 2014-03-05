@@ -145,9 +145,9 @@ public class DesktopLeftJPanel extends BaseJPanel implements IconRepository,
 		mainPanel.add(jButtonPanel, new GridBagConstraints(0, 0, 1, 1, 1.0,
 				0.0, GridBagConstraints.NORTHWEST, GridBagConstraints.NONE,
 				new Insets(5, 5, 0, 5), 0, 0));
-		mainPanel.add(kpiLabel, new GridBagConstraints(0, 1, 0, 1, 0.0, 0.0,
-				GridBagConstraints.NORTHWEST, GridBagConstraints.NONE,
-				new Insets(0, 0, 0, 0), 0, 0));
+//		mainPanel.add(kpiLabel, new GridBagConstraints(0, 1, 0, 1, 0.0, 0.0,
+//				GridBagConstraints.NORTHWEST, GridBagConstraints.NONE,
+//				new Insets(0, 0, 0, 0), 0, 0));
 		mainPanel.add(jTreePanel, new GridBagConstraints(0, 2, 1, 1, 1.0, 1.0,
 				GridBagConstraints.NORTHWEST, GridBagConstraints.BOTH,
 				new Insets(0, 5, 0, 5), 0, 0));
@@ -202,9 +202,11 @@ public class DesktopLeftJPanel extends BaseJPanel implements IconRepository,
 		tenTLabel.setMinimumSize(new Dimension(50, 30));
 		tenTLabel.setMaximumSize(new Dimension(50, 30));
 
-		jButtonPanel.add(jbtnRefresh, new GridBagConstraints(0, 0, 1, 1, 0.0,
-				0.0, GridBagConstraints.CENTER, GridBagConstraints.NONE,
-				new Insets(0, 0, 0, 10), 0, 0));
+                //RAJ COMMENT
+//		jButtonPanel.add(jbtnRefresh, new GridBagConstraints(0, 0, 1, 1, 0.0,
+//				0.0, GridBagConstraints.CENTER, GridBagConstraints.NONE,
+//				new Insets(0, 0, 0, 10), 0, 0));
+                //END RAJ COMMENT
 
 		/*
 		 * jButtonPanel.add(jbtnCut, new GridBagConstraints(1, 0, 1, 1, 0.0,
@@ -540,7 +542,7 @@ public class DesktopLeftJPanel extends BaseJPanel implements IconRepository,
 				desktopMainPanel.getjRightPanel().getImportAndSepPanel()
 						.searchNodeFromhierarchy(getProjectNode(), hierarchy);
 			}
-		} else {
+		}else {
 			ErrorMessage.displayMessage('I',
 					"saveOrDeleteAddedNodeBeforeRefresh");
 		}

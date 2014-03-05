@@ -12,12 +12,24 @@ class ScanDoController {
     def permissionsService
     def filesystemService
     def workflowService
+
+    def updateNodePropertiesList() { }
+    
+    def getChildNodeCount() { }
+    
+    def getEncodedActualImageString() { }    
     
     // action to handle authentication
     def authenticate() {
         
         def response = [true]
         render response as JSON  
+        
+    }
+    
+    def updateAttendance() {
+    
+        redirect(action: "authenticate")
         
     }
     
@@ -38,8 +50,30 @@ class ScanDoController {
         def data = request.JSON 
         def parent = Node.findById(data?.parentNodeId)
         if(parent) {
-            def node = captureService.insertNode(parent, parent.project, "", filesystemService.generateLiteral(), "", "Page")
-            responsedata = scanDoService.renderNode(node)
+            // def node = captureService.insertNode(parent, parent.project, "", filesystemService.generateLiteral(), "", "Page")
+            responsedata = [
+                'nodeId': parent.id,
+                'projectId': "" + parent.project.id,
+                'name': "Document",                                 // scando requires the barcode as name
+                'type': "P",    
+                'barcode': "",              
+                'comment': "",
+                'internalComment': "",
+                'status': Node.STATUS_CLOSED,
+                'parentNodeId': parent.id,
+                'hierarchy': scanDoService.getScanDoNodeHierarchy(parent)[0..-2] + ", Document]",       // INJECT THE HIERARCHY HERE
+                'thumbnailImageName': null,
+                'actualImageName': null,
+                'lastUpdateDateTime': new Date(),
+                'documentSequenceNumber': null,
+                'userId': null,           
+                'encodeStringForImage': null,
+                'encodeStringForThumbnail': null,
+                'oldActualImageName': null,
+                'oldThumbnailImageName': null,
+                'transactionStatus': "U"  
+            ]   
+            // responsedata = scanDoService.renderNode(node)
         }
         render responsedata as JSON 
     }
@@ -95,8 +129,6 @@ class ScanDoController {
         render sessiondata as JSON     
     }
     
-    def updateNodePropertiesList() { }
-    
     def getHierarchyFromSearchBarcode() {
         
         def data = request.JSON       
@@ -130,14 +162,13 @@ class ScanDoController {
         
         def response = [:]
         def data = request.JSON
-        if(data?.encodeStringForImage && data?.parentNodeId) {
-            def node = Node.findById(data?.parentNodeId)
+        def parent = Node.findById(data?.parentNodeId)
+        if(data?.encodeStringForImage && parent && data?.name) {
             def userId = permissionsService.getUsername()
-           //  def document = scanDoService.uploadImage("data?.encodeStringForImage", node, request.locale, userId)
-            def scanBatch = new ScanBatch(userId: userId, timestamp: new Date(), project: node.project)
+            def scanBatch = new ScanBatch(userId: userId, timestamp: new Date(), project: parent.project)
             scanBatch.save()
-            def uFile = filesystemService.writeStringToImageFile(data?.encodeStringForImage, node.name + ".jpg", request.locale)
-            def document = captureService.indexScan(node, uFile, scanBatch, userId)
+            def uFile = filesystemService.writeStringToImageFile(data?.encodeStringForImage, filesystemService.generateLiteral(), request.locale)
+            def document = captureService.indexScan(parent, uFile, scanBatch, userId)
             def task = workflowService.createTask(document, Task.TYPE_BUILD, userId)
             if (document && task) { workflowService.assignTask(task, userId) }
             response.put(data.actualImageName, true)
@@ -152,11 +183,5 @@ class ScanDoController {
         
     }
     
-    def getChildNodeCount() { }
-    
-    def updateAttendance() {
-      redirect(action: "authenticate")
-    }
-    
-    def getEncodedActualImageString() { }   
+   
 }
