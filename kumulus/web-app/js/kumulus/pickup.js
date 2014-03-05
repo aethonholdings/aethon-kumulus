@@ -15,6 +15,19 @@ $(document).ready(function(){
             
                 } 
             });
+         
+    $("#scheduleDated").datepicker({
+       minDate: new Date()
+                
+            });  
+            $("#datePickerDate").datepicker({
+            minDate: new Date(),
+            onClose: function () {
+                this.focus();
+                }
+             
+     });
+            
             
   getNodeList();  
   

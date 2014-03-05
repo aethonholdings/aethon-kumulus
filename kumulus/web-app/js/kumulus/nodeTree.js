@@ -454,6 +454,19 @@ function nodeDetailInfo(node){
             $('#button-readyfortransfer').prop('disabled', true);
         }
     }
-    
-
+    function fetchFromStorage(){
+     var data ={  id: selectedNode.data.id }
+          if(data.node!='ROOT'){
+           $.ajax({
+                url: url('node', 'fetchFromStorage', ''),
+                type: 'POST',
+                data: JSON.stringify(data),
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                async: false,
+                success: function(data) { 
+                }
+            });
+          }         
+    }
 }

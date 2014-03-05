@@ -100,4 +100,23 @@ class ShipmentController {
             '*'{ render status: NOT_FOUND }
         }
     }
+    
+    def view() {
+        def nodeObj=[],productObj=[]
+        def shipmentObj=Shipment.findAllById(1)
+        shipmentObj.shipmentItems[0].each{ it ->
+            if(it.type==1){  
+                println(it.itemId)
+                nodeObj== Node.findByName("1393910014308CM")
+                println("LLLL"+nodeObj)
+            }
+            else{
+                productObj=Product.findById(it.itemId)
+            }
+
+        }
+        [nodeObj:nodeObj,productObj:productObj,shipmentObj:shipmentObj]
+    
+    }
+    
 }
