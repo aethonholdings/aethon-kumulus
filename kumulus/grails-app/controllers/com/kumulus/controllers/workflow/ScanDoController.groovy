@@ -161,17 +161,20 @@ class ScanDoController {
     def saveScannedImages() {
         
         def response = [:]
-        def data = request.JSON
-        def parent = Node.findById(data?.parentNodeId)
-        if(data?.encodeStringForImage && parent && data?.name) {
-            def userId = permissionsService.getUsername()
-            def scanBatch = new ScanBatch(userId: userId, timestamp: new Date(), project: parent.project)
-            scanBatch.save()
-            def uFile = filesystemService.writeStringToImageFile(data?.encodeStringForImage, filesystemService.generateLiteral(), request.locale)
-            def document = captureService.indexScan(parent, uFile, scanBatch, userId)
-            def task = workflowService.createTask(document, Task.TYPE_BUILD, userId)
-            if (document && task) { workflowService.assignTask(task, userId) }
-            response.put(data.actualImageName, true)
+        def imageData = request.JSON
+        imageData.each { data ->
+            println(data?.name)
+            def parent = Node.findById(data?.parentNodeId)
+            if(data?.encodeStringForImage && parent && data?.name) {
+                def userId = permissionsService.getUsername()
+                def scanBatch = new ScanBatch(userId: userId, timestamp: new Date(), project: parent.project)
+                scanBatch.save()
+                def uFile = filesystemService.writeStringToImageFile(data?.encodeStringForImage, filesystemService.generateLiteral(), request.locale)
+                def document = captureService.indexScan(parent, uFile, scanBatch, userId)
+                def task = workflowService.createTask(document, Task.TYPE_BUILD, userId)
+                if (document && task) { workflowService.assignTask(task, userId) }
+                response.put(data.actualImageName, true)
+            }
         }
         render response as JSON
     }
