@@ -102,20 +102,29 @@ class ShipmentController {
     }
     
     def view() {
-        def nodeObj=[],productObj=[]
+        def productList=[],nodeList=[]
         def shipmentObj=Shipment.findAllById(1)
         shipmentObj.shipmentItems[0].each{ it ->
             if(it.type==1){  
-                println(it.itemId)
-                nodeObj== Node.findByName("1393910014308CM")
-                println("LLLL"+nodeObj)
+              nodeList<<[
+                   nodeObj: Node.findById(it.itemId),
+                   quantity: it.quantity,
+                   delivery:it.delivery
+                ]
+             
             }
             else{
-                productObj=Product.findById(it.itemId)
+                productList<<[
+                   productObj: Product.findById(it.itemId),
+                   quantity: it.quantity,
+                   delivery:it.delivery
+                ]
             }
+      
 
         }
-        [nodeObj:nodeObj,productObj:productObj,shipmentObj:shipmentObj]
+
+        [nodeList:nodeList,productList:productList,shipmentObj:shipmentObj]
     
     }
     
