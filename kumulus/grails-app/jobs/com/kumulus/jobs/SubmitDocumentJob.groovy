@@ -35,9 +35,9 @@ class SubmitDocumentJob {
         settings.setOutputFormat(ProcessingSettings.OutputFormat.pdfSearchable)
 
         // Submit documents with status STATUS_BUILT to ABBYY
-        for (doc in Document.list(status: Document.STATUS_BUILT)) {
+        for (doc in Document.findAll {status == Document.STATUS_BUILT && deleted == false}) {
             def task = null
-            for (page in Page.list(document: doc)) {
+            for (page in Page.findAll {document == doc}) {
                 def filename = page.scanImage.file.path
                 def id = (task == null) ? null : task.Id
                 def result = client.submitImage(filename, id)
