@@ -82,7 +82,7 @@ $(document).ready(function()
         validate()
         var status = $("#structure").valid();
         var rowStatus = validateLastRow();
-        alert(status+"hi--"+rowStatus)
+ 
         if (status && rowStatus) {
             var json = ConvertFormToJSON(formObj)
 
