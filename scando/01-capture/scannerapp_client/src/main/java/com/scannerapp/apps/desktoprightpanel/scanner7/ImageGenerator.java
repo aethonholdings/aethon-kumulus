@@ -27,7 +27,7 @@ public class ImageGenerator implements Runnable {
 	private static final Logger logger = Logger.getLogger(ImageGenerator.class);
 
 	private static final String IMAGE_BASE_NAME = "scanned_doc ";
-	private static final String IMAGE_FILE_EXTENSION = ".jpg";
+	private static final String IMAGE_FILE_EXTENSION = ".png";
 
 	private ImportSaparationPanel importSeparationPanel;
 	private NodeProperties parentDocumentNodeProperties;
@@ -74,7 +74,7 @@ public class ImageGenerator implements Runnable {
 
 
 		// output image type.
-		String imageFormat = "jpg";
+		String imageFormat = "png";
 
 		try {
 
