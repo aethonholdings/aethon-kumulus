@@ -228,6 +228,8 @@ public class Client {
 		while ((count = reader.read(data, 0, 1024)) != -1) {
 			out.write(data, 0, count);
 		}
+                
+                out.close();
 	}
 
 	private HttpURLConnection openPostConnection(URL url) throws Exception {
