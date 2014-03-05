@@ -11,9 +11,8 @@ class StructureService {
     def permissionsService
     def grailsApplication
     
-    def updateDocument(String documentId, String documentTypeId, Date date, String identifier) {
-        def document = Document.get(documentId)
-        def documentType = DocumentType.get(documentTypeId)
+    def updateDocument(Document document, DocumentType documentType, Date date, String identifier) {
+        
         if(document && documentType) {
             document.type = documentType
             document.date = date
