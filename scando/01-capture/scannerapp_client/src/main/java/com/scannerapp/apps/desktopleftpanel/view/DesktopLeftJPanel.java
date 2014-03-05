@@ -301,9 +301,21 @@ public class DesktopLeftJPanel extends BaseJPanel implements IconRepository,
 		}
 	}
             
-            
-          
-
+        // -- KONS CODE TO REFRESH ONE TREE NODE
+        public void refreshTreeNode(CustomMutableTreeNode selectedNode) {
+            selectedNode.removeAllChildren();
+            fetchChildNodes(SessionUtil.getSessionData().getProjectId(),
+                                        selectedNode.getNodeId());
+            TreePath searchNodePath = new TreePath(
+                                        selectedNode.getPath());
+            getNodeTree().setSelectionPath(searchNodePath);
+            getNodeTree().expandPath(searchNodePath);
+            getNodeTree().updateUI();
+            getNodeTree().repaint();
+        }
+                
+        // -- END KONS CODE
+                
 	private void initNodeDetailPanel() {
 		nameLabelValue.setPreferredSize(new Dimension(180, 13));
 		barCodeLabelValue.setPreferredSize(new Dimension(180, 13));

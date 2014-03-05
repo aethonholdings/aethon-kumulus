@@ -49,19 +49,18 @@ class ScanDoController {
         def responsedata=[:]
         def data = request.JSON 
         def parent = Node.findById(data?.parentNodeId)
-        if(parent) {
-            // def node = captureService.insertNode(parent, parent.project, "", filesystemService.generateLiteral(), "", "Page")
+        if(parent && data?.name) {
             responsedata = [
                 'nodeId': parent.id,
                 'projectId': "" + parent.project.id,
-                'name': "Document",                                 // scando requires the barcode as name
-                'type': "P",    
+                'name': data.name,                                 
+                'type': "D",    
                 'barcode': "",              
                 'comment': "",
                 'internalComment': "",
-                'status': Node.STATUS_CLOSED,
+                'status': 0,
                 'parentNodeId': parent.id,
-                'hierarchy': scanDoService.getScanDoNodeHierarchy(parent)[0..-2] + ", Document]",       // INJECT THE HIERARCHY HERE
+                'hierarchy': scanDoService.getScanDoNodeHierarchy(parent)[0..-2] + ", " + data.name + "]",       // INJECT THE HIERARCHY HERE
                 'thumbnailImageName': null,
                 'actualImageName': null,
                 'lastUpdateDateTime': new Date(),
@@ -163,7 +162,6 @@ class ScanDoController {
         def response = [:]
         def imageData = request.JSON
         imageData.each { data ->
-            println(data?.name)
             def parent = Node.findById(data?.parentNodeId)
             if(data?.encodeStringForImage && parent && data?.name) {
                 def userId = permissionsService.getUsername()

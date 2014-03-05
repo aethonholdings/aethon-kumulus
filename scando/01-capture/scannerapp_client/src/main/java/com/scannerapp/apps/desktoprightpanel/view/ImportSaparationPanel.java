@@ -1956,11 +1956,11 @@ public class ImportSaparationPanel extends BaseJPanel implements
 			String imageName = uploadErrorImageNameList.get(index);
 
 			imageUploader.proceedToUpload(imageDirectoryPath, imageName,
-					nodeProperties, true);
+					nodeProperties, true, selectedNode);
 		}
 
 		// Uploading remaining images that did not reach batch size...
-		imageUploader.uploadImagesInBatch(true, true);
+		imageUploader.uploadImagesInBatch(true, true, selectedNode);
 	}
 
 	/**
@@ -2018,12 +2018,22 @@ public class ImportSaparationPanel extends BaseJPanel implements
 			return;
 		}
 
-		NodeProperties parentDocumentNodeProperties = createDummyDocument(selectedNode);
-		log.info("Import -> Import Document To Node: "
-				+ parentDocumentNodeProperties.getNodeId());
-
-		startDocumentScanning(parentDocumentNodeProperties, scanningDevice);
-	}
+                // -- KONS CODE -- CREATING THE SCAN BATCH NODE AFTER UPLOAD
+		// SPEC CODE: 
+                // NodeProperties parentDocumentNodeProperties = createDummyDocument(selectedNode);
+                //
+		// log.info("Import -> Import Document To Node: "
+		// 		+ parentDocumentNodeProperties.getNodeId());
+                //
+		// startDocumentScanning(parentDocumentNodeProperties, scanningDevice);
+                
+                log.info("Import -> Import Document To Node: "
+		 		+ selectedNodeProperty.getNodeId());
+                
+                startDocumentScanning(selectedNodeProperty, scanningDevice, selectedNode);
+                // -- END KONS CODE -- CHANGING SPEC LOGIC IN UPLOAD -- SENDING PARENT NODE TO SERVER
+                
+        }
 
 	/**
 	 * Method to get the scanning device attached with system.
@@ -2079,8 +2089,11 @@ public class ImportSaparationPanel extends BaseJPanel implements
 				+ selectedNode.getNodeId());
 
 		// Condition To check Selected Node Is Not Root Node.
-		if (selectedNode.getNodeId() == SessionUtil.getSessionData()
-				.getProjectId())
+                
+                // -- KONS CODE -- Edit spec code, the test for root was not correct
+		if (selectedNode.getNodeId() == "#")
+                // -- KONS CODE END -- Edit spec code, the test for root was not correct
+                    
 			return null;
 
 		NodeProperties nodeProperties = desktopMainPanel.getjLeftPanel()
@@ -2112,9 +2125,13 @@ public class ImportSaparationPanel extends BaseJPanel implements
 	 * 
 	 * @param parentDocumentNodeProperties
 	 */
+        
+        
+        // -- KONS EDIT -- added parameter for custom mutable tree node to refresh ui in upload thread
 	private void startDocumentScanning(
 			NodeProperties parentDocumentNodeProperties,
-			TwainSource scanningDevice) {
+			TwainSource scanningDevice, 
+                        CustomMutableTreeNode selectedNode) {
 
 		// MORENA 7 CODE STARTS...
 
@@ -2142,7 +2159,7 @@ public class ImportSaparationPanel extends BaseJPanel implements
 				.getApplicationConstant("numberOfPagesToScan");
 
 		documentScanner.scanDocument(scanningDevice,
-				Integer.parseInt(numberOfPagesToScan));
+				Integer.parseInt(numberOfPagesToScan), selectedNode);
 		// MORENA 6 CODE ENDS...
 	}
 

@@ -176,7 +176,7 @@ public class ImportSaparationPanelHelper extends ClientHelper {
 
 		try {
 
-			ClientResponse response = ConnectionUtil.getWebService()
+    			ClientResponse response = ConnectionUtil.getWebService()
 					.path("scanDo").path("saveScannedImages")
 					.type(MediaType.APPLICATION_JSON_TYPE)
 					.accept(MediaType.APPLICATION_JSON_TYPE)
