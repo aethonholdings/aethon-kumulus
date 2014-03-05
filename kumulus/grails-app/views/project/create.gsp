@@ -24,9 +24,10 @@
                     <label for="comment">Comment</label>
                     <textarea id="comment" name="comment" type="text" class="pure-input-1-2" rows="5">${project?.comment}</textarea>
                   </div>
+                  <div class="clear-float"></div>
                   <div class="pure-controls">
                     <g:link controller="home" action="index" class="pure-button">Cancel</g:link>
-                    <input type="submit" value="Save" class="pure-button pure-button-primary">
+                    <input type="submit" value="Save" class="pure-button-primary pure-button kumulus-button-align">
                   </div>
                 </g:form>
               </div>

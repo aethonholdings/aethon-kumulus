@@ -5,6 +5,7 @@ html{
 table{
     width: 100%;
 }
+
 /*header*/
 #kumulus-header-layout{
     background: linear-gradient (bottom, #0B5992 5%, #0E3857 95%);
@@ -585,6 +586,10 @@ li.kumulus-task-queue.kumulus-task-queue-action-item{
 
 .kumulus-shipment-table td{
     padding: 2px 1px 0px 0px;
+}
+
+.kumulus-button-align{
+    margin-top: -3px;
 }
 
 @media (max-width : 700px) {
