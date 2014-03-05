@@ -128,12 +128,16 @@ class ScanDoController {
     
     def saveScannedImages() {
         
-        data response = [:]
+        def response = [:]
         def data = request.JSON
         if(data?.encodeStringForImage && data?.parentNodeId) {
             def node = Node.findById(data?.parentNodeId)
             def userId = permissionsService.getUsername()
-            def document = scanDoService.uploadImage(data?.encodeStringForImage, node, request.locale, userId)
+           //  def document = scanDoService.uploadImage("data?.encodeStringForImage", node, request.locale, userId)
+            def scanBatch = new ScanBatch(userId: userId, timestamp: new Date(), project: node.project)
+            scanBatch.save()
+            def uFile = filesystemService.writeStringToImageFile(data?.encodeStringForImage, node.name + ".jpg", request.locale)
+            def document = captureService.indexScan(node, uFile, scanBatch, userId)
             def task = workflowService.createTask(document, Task.TYPE_BUILD, userId)
             if (document && task) { workflowService.assignTask(task, userId) }
             response.put(data.actualImageName, true)

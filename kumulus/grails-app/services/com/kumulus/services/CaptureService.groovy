@@ -255,10 +255,8 @@ class CaptureService {
              status='1'
              node.status=status
              node.save()
-             println("now status is" +status)
           }
       }  
         return(node)
-        println(node.status)
     }
 }

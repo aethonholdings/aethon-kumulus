@@ -139,11 +139,8 @@ class NodeController {
     def containerToTransport(){
         def data = request.JSON
         def node = Node.findById(data?.id)
-        println("node is" +node)
-        println("node status is "+ Node.STATUS_OPEN)
         if (permissionsService.checkPermissions(node)) {
             captureService.updateContainer(node, Node.STATUS_OPEN)
-            println("here")
             render node as JSON
         }
     }

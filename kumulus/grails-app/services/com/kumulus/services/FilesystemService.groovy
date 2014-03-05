@@ -77,12 +77,12 @@ class FilesystemService {
         imageTool.thumbnail(300)
         imageTool.writeResult(imageFiles.thumbnailImage.getAbsolutePath(), "JPEG")   
         
-        
         // move the files from the staging area to the main area
         def images = [:]
         
         imageFiles.each() { key, value ->
             def targetFile = new File(targetPath.getAbsolutePath() + "/" + value.name)
+            new File(targetPath.getAbsolutePath()).mkdirs()
             value.renameTo(targetFile)
             def file = new UFile(
                 size: targetFile.size(),
@@ -117,7 +117,6 @@ class FilesystemService {
     def stagingFlush(uFile) {
         // clean up the staging entities
         File stagingPath = new File(uFile.path.replace(uFile.name, ""))
-        uFile.delete(flush:true)
         stagingPath.deleteDir()
         return(true)
     }
@@ -125,11 +124,13 @@ class FilesystemService {
     def writeStringToImageFile(encodedImageString, filename, locale) {
         
         // write the string data into a file object
-        encodedImageString = encodedImageString.replaceAll(" ", "+")
-        encodedImageString = encodedImageString.replaceAll("\n", "")
-        byte[] scannedImageBytes = Base64.decode(encodedImageString)
+        // encodedImageString = encodedImageString.replaceAll(" ", "+")
+        // encodedImageString = encodedImageString.replaceAll("\n", "")
+        // byte[] scannedImageBytes = Base64.decode(encodedImageString)
+        
         // PARAMETRISE THE MAX SIZE
         DiskFileItem imageFileItem = new DiskFileItem("file", null, false, filename, 40000000, new File(grailsApplication.config.filesystem.staging))
+        byte[] scannedImageBytes = encodedImageString.decodeBase64()
         imageFileItem.getOutputStream().write(scannedImageBytes)
         imageFileItem.getOutputStream().close()
         CommonsMultipartFile imageFile = new CommonsMultipartFile(imageFileItem)
