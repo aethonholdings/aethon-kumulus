@@ -19,14 +19,9 @@ $(document).ready(function(){
     });
 
 });
-
-
 function validate(){
-
-    	$("#structure ,#project, .add, #edit").validate({
-             
-		rules: {
-                   
+ $("#structure ,#project, .add, #edit").validate({
+                   	rules: {
 			company: "required",
 			date: "required",
                         identifier:"required",
@@ -35,20 +30,17 @@ function validate(){
                         projectName:"required",
                         ClientName:"required",
                         pageNo:"required"
-                                            
-	
-		},
+                             }
 //		messages: {
 //			company: "Please enter company name",
 //			date: "Please select the date",
 //                        identifier: "Please enter identifier",
 //                        description: "Please enter description",
 //                        tamount: "Please enter amount",
-//                        projectName:"Please"
+//                      projectName:"Please"
 //	
 //		}
 
 }).form();
 }
-
 
