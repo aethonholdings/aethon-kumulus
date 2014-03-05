@@ -18,8 +18,8 @@
 <!--            <% SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy"); %> -->
         <div class="pure-g">
             <div class="pure-u-3-4">
-                <div class="kumulus-container kumulus-scrollable-y kumulus-element-border">
-                    <table class="pure-table pure-table-horizontal" id="nodeTable">
+                <div class="kumulus-container kumulus-scrollable-y kumulus-element-border kumulus-shipment">
+                    <table class="kumulus-shipment-table pure-table-horizontal" id="nodeTable">
                       <thead>
                         <tr>
                             <th>Item</th>
@@ -30,18 +30,17 @@
                      </thead>
                      <tbody>
                          <tr>
-                             <td colspan="3">Delivery</td>
-                             
+                             <td colspan="3"><div class="kumulus-shipment-subheader">Delivery</div></td>
                          </tr>
                          <tr>
-                             <td colspan="3">Containers</td>
+                             <td colspan="3"><div class="kumulus-shipment-sub-subheader">Containers</div></td>
                              
                          </tr>
                          
                              <g:each var="node"  in="${nodeList}">
                               <g:if test="${node.delivery==1}">
-                             <tr>
-                             <td>${node.nodeObj.name}</td>
+                             <tr >
+                                 <td><div class="kumulus-shipment-details">${node.nodeObj.name}</div></td>
                              <td>${node.nodeObj.type.name}</td>
                              <td>${node.quantity}</td>
                              </tr>
@@ -50,13 +49,13 @@
                         
                         
                           <tr>
-                             <td colspan="3">Products</td>
+                              <td colspan="3"><div class="kumulus-shipment-sub-subheader">Products</div></td>
                              
                          </tr>
                           <g:each var="product"  in="${productList}">
                               <g:if test="${product.delivery==1}">
                               <tr>
-                             <td>${product.productObj.name}</td>
+                             <td><div class="kumulus-shipment-details">${product.productObj.name}</td>
                              <td>${product.productObj.description}</td>
                              <td>${product.quantity}</td>
                              <td></td>
@@ -64,18 +63,18 @@
                                </g:if>
                          </g:each>  
                          <tr>
-                             <td colspan="3">Pickup</td>
+                             <td colspan="3"><div  class="kumulus-shipment-subheader">Pickup</div></td>
                              
                          </tr>
                          <tr>
-                             <td colspan="3">Containers</td>
+                             <td colspan="3"><div class="kumulus-shipment-sub-subheader">Containers</div></td>
                              
                          </tr>
                          
                              <g:each var="node"  in="${nodeList}">
                                         <g:if test="${node.delivery==2}">
                               <tr>
-                             <td>${node.nodeObj.name}</td>
+                                  <td><div  class="kumulus-shipment-details">${node.nodeObj.name}</div></td>
                              <td>${node.nodeObj.type.name}</td>
                              <td>${node.quantity}</td>
                              <td></td>
@@ -85,13 +84,13 @@
                         
                         
                           <tr>
-                             <td colspan="3">Products</td>
+                              <td colspan="3"><div class="kumulus-shipment-sub-subheader">Products</div></td>
                              
                          </tr>
                           <g:each var="product"  in="${productList}">
                                      <g:if test="${product.delivery==2}">
                               <tr>
-                             <td>${product.productObj.name}</td>
+                                  <td><div class="kumulus-shipment-details">${product.productObj.name}</div></td>
                              <td>${product.productObj.description}</td>
                              <td>${product.quantity}</td>
                              <td></td>

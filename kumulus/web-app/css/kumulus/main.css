@@ -559,6 +559,34 @@ li.kumulus-task-queue.kumulus-task-queue-action-item{
 	border-bottom:0px;
 }
 
+.kumulus-shipment-subheader{
+    padding-left: 8px;
+    background-color:#EEEEFF;
+    height: 20px;
+}
+
+.kumulus-shipment-sub-subheader{
+    padding-left: 20px;
+    background-color:#E6E6EF;
+    height: 20px; 
+}
+
+.kumulus-shipment-details{
+    padding-left: 25px;
+    height: 20px;
+}
+
+.kumulus-shipment-table thead{
+	background:#e0e0e0;
+	color:#000;
+	text-align:left;
+	vertical-align:bottom;
+}
+
+.kumulus-shipment-table td{
+    padding: 2px 1px 0px 0px;
+}
+
 @media (max-width : 700px) {
 /*    .kumulus-menu{
         height: 100px;
