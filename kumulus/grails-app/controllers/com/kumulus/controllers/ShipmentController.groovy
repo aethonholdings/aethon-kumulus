@@ -100,4 +100,32 @@ class ShipmentController {
             '*'{ render status: NOT_FOUND }
         }
     }
+    
+    def view() {
+        def productList=[],nodeList=[]
+        def shipmentObj=Shipment.findAllById(1)
+        shipmentObj.shipmentItems[0].each{ it ->
+            if(it.type==1){  
+              nodeList<<[
+                   nodeObj: Node.findById(it.itemId),
+                   quantity: it.quantity,
+                   delivery:it.delivery
+                ]
+             
+            }
+            else{
+                productList<<[
+                   productObj: Product.findById(it.itemId),
+                   quantity: it.quantity,
+                   delivery:it.delivery
+                ]
+            }
+      
+
+        }
+
+        [nodeList:nodeList,productList:productList,shipmentObj:shipmentObj]
+    
+    }
+    
 }

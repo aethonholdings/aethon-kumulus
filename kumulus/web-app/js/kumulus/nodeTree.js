@@ -188,10 +188,11 @@ function delete_node() {
                     ready();
                     if (selectedNode.getParent().data.key != '#') {
                         selectedNode.getParent().reloadChildren(function(selectedNode, isOk) {
+                            tree.activateKey(selectedNode.data.key);
                         });
                     }
                     else {
-                        tree.reload();
+                       tree.activateKey(selectedNode.getParent().data.key);
                     }
                     
                 }
@@ -409,15 +410,14 @@ function containerToTransport(){
                 }
                 else {
                     var path = "#/" + newNodeKey;
-                    tree.reload();
-//                    tree.loadKeyPath(path, function(node, status){
-//                        if(status == "loaded") {
-//                            node.expand();
-//                        } else if(status == "ok") {
-//                            node.activate();
-//                        }
-//                    });
-                    tree.activateKey(newNodeKey); 
+                    location.reload(true)
+                    tree.loadKeyPath(path, function(node, status){
+                        if(status == "loaded") {
+                            node.expand();
+                        } else if(status == "ok") {
+                            node.activate();
+                        }
+                    });
                 }
             }
         });    
@@ -427,6 +427,7 @@ function nodeDetailInfo(node){
     
     var data = { node:node.data.id }
     if(data.node!='ROOT'){
+        $("#nodeBarcode").val(node.data.barcode);
         $("#nodeType").val(node.data.type);
         $("#nodeLocation").val(node.data.location);
         $("#nodeStatus").val(node.data.status);
@@ -453,6 +454,23 @@ function nodeDetailInfo(node){
             $('#button-readyfortransfer').prop('disabled', true);
         }
     }
-    
+  }  
+  function fetchFromStorage(){
+     var data ={  id: selectedNode.data.id }
+          if(data.node!='ROOT'){
+           $.ajax({
+                url: url('node', 'fetchFromStorage', ''),
+                type: 'POST',
+                data: JSON.stringify(data),
+                contentType: 'application/json; charset=utf-8',
+                dataType: 'json',
+                async: false,
+                success: function(data) {
+                    if(data.done == true){
+                    alert("your Request has been placed");
+                           }
+                       }
+            });
+          }         
+    }
 
-}

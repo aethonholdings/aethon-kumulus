@@ -74,8 +74,12 @@
             <div class="pure-u-1-3">
                 <div class="kumulus-container-3-7 kumulus-element-border">
                     <h3>Container Details</h3>
-                    <div class="pure-u-1-2 kumulus-margin-left kumulus-margin-top">
+                    <div class="pure-u-1-2 kumulus-margin-left">
                         <div class="pure-form kumulus-margin-bottom">
+                            <div class="pure-control-group kumulus-margin-bottom">
+                                <label for="barcode" class="pure-u-1-4">Barcode:</label>
+                                <input name="barcode" type="text" id="nodeBarcode" class="pure-u-17-24" readonly=""/>
+                            </div>
                             <div class="pure-control-group kumulus-margin-bottom">
                                 <label for="type" class="pure-u-1-4">Type:</label>
                                 <input name="type" type="text" id="nodeType" class="pure-u-17-24" readonly=""/>
@@ -90,15 +94,17 @@
                             </div>
                         </div>
                     </div>
-                    <div class="pure-u-1-4 kumulus-margin-left kumulus-margin-top">
+                    <div class="pure-u-1-4 kumulus-margin-left">
                         <input id="button-readyfortransfer" type="button"  value="Ready for transport" class="pure-button" onclick="containerToTransport();" disabled/>
+                        <input id="button-fetchFromStorage" type="button"  value="fetch From Storage" class="pure-button kumulus-margin-top" onclick="fetchFromStorage();" />
+                        
                     </div>
                 </div>
                 <div class="kumulus-container-for-collect  kumulus-element-border">
                     <h3>Container Contents</h3>
                     <div class="kumulus-container-inside-for-collect kumulus-scrollable-y">
 
-                        <table id="pageInfo" class="pure-table pure-table-horizontal kumulus-margin-top">
+                        <table id="pageInfo" class="pure-table pure-table-horizontal">
                             <thead>
                                 <tr>
                                     <th class="kumulus-td-width"> &nbsp;</th>

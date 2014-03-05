@@ -90,7 +90,7 @@ class KumulusTagLib {
         }
         if(userTasks.types.PROCESS.count > 0) {
             out << "    <li class='kumulus-task-queue kumulus-task-queue-action-item'>${userTasks.types.PROCESS.count} documents to be processed"
-            out << "<span class='kumulus-task-queue-action'>" << g.link(controller: "structure", action: "process", "Action") << "</span>"
+            out << "<span class='kumulus-task-queue-action'>" << g.link(controller: "structure", action: "getNextTask", "Action") << "</span>"
         } else {
             out << "    <li class='kumulus-task-queue'>${userTasks.types.PROCESS.count} documents to be processed"
         }

@@ -1,10 +1,8 @@
 <html>
   <head>
       <title>Edit project | Kumulus</title>
-       <g:javascript src='jquery/validate/validate.js'/>
-        <g:javascript src='kumulus/validation.js'/>
-      
-      
+      <g:javascript src='jquery/validate/validate.js'/>
+      <g:javascript src='kumulus/validation.js'/>
   </head>
   <body>
       <div class="pure-g">
@@ -17,8 +15,7 @@
                   </div>
                   <div class="pure-control-group">
                     <label for="clientName">* Client name</label>
-                     <input id="ClientName" name="ClientName" type="text"  class="pure-input-1-2 ui-widget"></input>
-
+                    <input id="ClientName" name="ClientName" type="text"  class="pure-input-1-2 ui-widget"></input>
                   </div>
                   <div class="pure-control-group">
                     <label for="comment">Comment</label>
@@ -26,7 +23,7 @@
                   </div>
                   <div class="pure-controls">
                     <g:link controller="home" action="index" class="pure-button">Cancel</g:link>
-                    <input type="submit" value="Save" class="pure-button pure-button-primary">
+                    <input type="submit" id="createUser" value="Save" class="pure-button pure-button-primary kumulus-button-align" onclick="validate();"></input>
                   </div>
                 </g:form>
               </div>

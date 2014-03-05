@@ -1,4 +1,4 @@
-var pageNo,status=false,rowCounter;
+var pageNo,pageId,status=false,rowCounter;
 var currentRowObj;
 
 $(document).ready(function()
@@ -15,9 +15,7 @@ $(document).ready(function()
     
     currentRowObj= $("#lineItems tbody tr");
  
-  datePick($("#lineItems tbody tr").length,$("#lineItemCount").val());
-
-
+    datePick($("#lineItems tbody tr").length,$("#lineItemCount").val());
 
     $('.kumulus-filmstrip > ul > li > img').bind('mousedown', function(e) {
         imagePreview($(this))
@@ -32,7 +30,6 @@ $(document).ready(function()
         }
     });
 
-//    $(document).on('click', '#add', function() {
     $('#add').click(function() {
 
         // FIRST VALIDATE THE ENTRIES WITH THE VALIDATION PLUGIN
@@ -51,10 +48,7 @@ $(document).ready(function()
         }
         if (status)
         {
-   
-                addRow();
-//            $('.new.kumulus-column-page').val(pageNo);
-//            cloneRow();
+            addRow();
         }
 
         // clear the new row
@@ -77,34 +71,12 @@ $(document).ready(function()
     });
 
     $('#save').click(function() {
-
-        var formObj = $("#structure")
-        validate()
-        var status = $("#structure").valid();
-        var rowStatus = validateLastRow();
-        if (status && rowStatus) {
-            var json = ConvertFormToJSON(formObj)
-
-            $.ajax({
-                url: url('structure', 'save', ''),
-                type: 'POST',
-                data: JSON.stringify(json),
-                contentType: 'application/json; charset=utf-8',
-                dataType: 'json',
-                async: false,
-                success: function(data) {
-
-                    $.each(data, function(i) {
-
-                        $("#nodeTable").append('<tr><td>' + data[i].name + '</td><td>' + data[i].barcode + '</td><td><input type="checkbox" class="checkbox" name="node_checkbox" id="' + data[i].id + '"></td></tr>');
-                    })
-
-                }
-            });
-
-        }
-
-    })
+        save(false);
+    });
+    
+    $('#saveAndNext').click(function() {
+        save(true);
+    });
 
 });
 
@@ -124,7 +96,6 @@ function send(obj) {
 
     currentRowObj = obj;
     
-   
 }
 
 
@@ -167,7 +138,8 @@ function imagePreview(obj) {
 
     preview($('#preview-img'), obj.attr('viewId'));
     pageNo = obj.attr('pageNumber')
-
+    pageId=obj.attr('pageId')
+    
     if($('#lineItems tbody tr').length>0)
     {
         if ($("#pageNo").val().trim().length == 0)
@@ -201,6 +173,7 @@ function calculategrandTotalAmount() {
 }
 
 function ConvertFormToJSON(form) {
+    
     var array = jQuery(form).serializeArray();
     var json = {};
     var itemList = new Array();
@@ -218,19 +191,14 @@ function ConvertFormToJSON(form) {
         i++;
     });
 
-    var subMap = {}
     $("#lineItems tbody tr").each(function(j) {
+        var subMap = {}
         $(this).find(":input").each(function(index) {
             subMap[$(this).attr("name")] = $(this).val() || '';
         });
-      
         itemList.push(subMap);
     })
-
     json["lineItems"] = itemList;
-
-
-
     return json;
 }
 
@@ -298,6 +266,7 @@ function addRow() {
             '</tr>')
     datePick(count,mainCount);
       $('#lineItems tr:last td #pageNo').val(pageNo);
+      $('#lineItems tr:last td #pageId').val(pageId);
 }
 
 
@@ -308,7 +277,7 @@ for(var j=0;j<=mainCounter;j++)
     for ( var i = 0; i <=counter; i++ ) 
         {
             $("#lineItemDate"+j+i).datepicker({
-            minDate: new Date(),
+           
               onClose: function () {
                 this.focus();
                 }
@@ -318,12 +287,49 @@ for(var j=0;j<=mainCounter;j++)
     }
     
      $("#datePickerDate").datepicker({
-            minDate: new Date(),
+           
             onClose: function () {
                 this.focus();
                 }
              
      });
 
+}
+
+function save(next) {
+
+    var formObj = $("#structure");
+    validate();
+    var status = $("#structure").valid();
+    var rowStatus = validateLastRow();
+
+    if (status && rowStatus) {
+        var json = ConvertFormToJSON(formObj);
+        var submit = {
+            completeTask: next,
+            form: json
+        };
+        
+        $.ajax({
+            url: url('structure', 'save', ''),
+            type: 'POST',
+            data: JSON.stringify(submit),
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            async: false,
+            success: function(data) {
+                if(data.done) { 
+                    if(next) {
+                        location.href = url("structure", "getNextTask", "");
+                    } else {
+                        location.reload();
+                    } 
+                }
+                else {
+                    alert("Server error, unable to save data, please retry");
+                }
+            }
+        });
+    }
 }
 
