@@ -19,6 +19,8 @@ class ScanDoController {
     
     def getEncodedActualImageString() { }    
     
+    def updateNodeProperties() { }
+    
     // action to handle authentication
     def authenticate() {
         
@@ -44,38 +46,7 @@ class ScanDoController {
         render responseData as JSON  
     }
     
-    def updateNodeProperties() { 
-        
-        def responsedata=[:]
-        def data = request.JSON 
-        def parent = Node.findById(data?.parentNodeId)
-        if(parent && data?.name) {
-            responsedata = [
-                'nodeId': parent.id,
-                'projectId': "" + parent.project.id,
-                'name': data.name,                                 
-                'type': "D",    
-                'barcode': "",              
-                'comment': "",
-                'internalComment': "",
-                'status': 0,
-                'parentNodeId': parent.id,
-                'hierarchy': scanDoService.getScanDoNodeHierarchy(parent)[0..-2] + ", " + data.name + "]",       // INJECT THE HIERARCHY HERE
-                'thumbnailImageName': null,
-                'actualImageName': null,
-                'lastUpdateDateTime': new Date(),
-                'documentSequenceNumber': null,
-                'userId': null,           
-                'encodeStringForImage': null,
-                'encodeStringForThumbnail': null,
-                'oldActualImageName': null,
-                'oldThumbnailImageName': null,
-                'transactionStatus': "U"  
-            ]   
-            // responsedata = scanDoService.renderNode(node)
-        }
-        render responsedata as JSON 
-    }
+    
     
     def fetchChildNodeList() {
         def nodeList = []
