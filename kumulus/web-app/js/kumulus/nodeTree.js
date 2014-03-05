@@ -428,6 +428,7 @@ function nodeDetailInfo(node){
     
     var data = { node:node.data.id }
     if(data.node!='ROOT'){
+        $("#nodeBarcode").val(node.data.barcode);
         $("#nodeType").val(node.data.type);
         $("#nodeLocation").val(node.data.location);
         $("#nodeStatus").val(node.data.status);
