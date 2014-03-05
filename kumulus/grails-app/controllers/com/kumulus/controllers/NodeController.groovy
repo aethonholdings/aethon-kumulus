@@ -144,4 +144,9 @@ class NodeController {
             render node as JSON
         }
     }
+    
+    def fetchFromStorage() {
+        def data = request.JSON
+        def node = Node.findById(data?.id)
+    }
 }

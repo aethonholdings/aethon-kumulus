@@ -285,7 +285,7 @@ kumulus-control-group{
     margin: 1px;
 }
 .kumulus-container-3-7{
-    height: 120px;
+    height: 140px;
     margin: 3px;
     padding: 3px;
 }
@@ -295,12 +295,12 @@ kumulus-control-group{
     margin: 1px;
 }
 .kumulus-container-for-collect{
-    height: 420px;
+    height: 400px;
     margin: 3px;
     padding: 3px;
 }
 .kumulus-container-inside-for-collect{
-    height: 360px;
+    height: 340px;
 }
 
 .kumulus-scrollable-y{
