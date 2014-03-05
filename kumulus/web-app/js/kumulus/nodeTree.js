@@ -175,6 +175,7 @@ function delete_node() {
     if(selectedNode && state=="READY"  && selectedNode.data.id!="ROOT") {
         if(confirm("Please confirm that you would like to delete this archive item")) {
             var data = { id: selectedNode.data.id }
+            var news = selectedNode;
             $.ajax({
                 url: url('node', 'delete', ''),
                 type: 'POST',
@@ -188,10 +189,11 @@ function delete_node() {
                     ready();
                     if (selectedNode.getParent().data.key != '#') {
                         selectedNode.getParent().reloadChildren(function(selectedNode, isOk) {
+                            tree.activateKey(selectedNode.data.key);
                         });
                     }
                     else {
-                        tree.reload();
+                       tree.activateKey(selectedNode.getParent().data.key);
                     }
                     
                 }
@@ -409,15 +411,14 @@ function containerToTransport(){
                 }
                 else {
                     var path = "#/" + newNodeKey;
-                    tree.reload();
-//                    tree.loadKeyPath(path, function(node, status){
-//                        if(status == "loaded") {
-//                            node.expand();
-//                        } else if(status == "ok") {
-//                            node.activate();
-//                        }
-//                    });
-                    tree.activateKey(newNodeKey); 
+                    location.reload(true)
+                    tree.loadKeyPath(path, function(node, status){
+                        if(status == "loaded") {
+                            node.expand();
+                        } else if(status == "ok") {
+                            node.activate();
+                        }
+                    });
                 }
             }
         });    
@@ -427,6 +428,7 @@ function nodeDetailInfo(node){
     
     var data = { node:node.data.id }
     if(data.node!='ROOT'){
+        $("#nodeBarcode").val(node.data.barcode);
         $("#nodeType").val(node.data.type);
         $("#nodeLocation").val(node.data.location);
         $("#nodeStatus").val(node.data.status);

@@ -77,6 +77,10 @@
                     <div class="pure-u-1-2 kumulus-margin-left kumulus-margin-top">
                         <div class="pure-form kumulus-margin-bottom">
                             <div class="pure-control-group kumulus-margin-bottom">
+                                <label for="barcode" class="pure-u-1-4">Barcode:</label>
+                                <input name="barcode" type="text" id="nodeBarcode" class="pure-u-17-24" readonly=""/>
+                            </div>
+                            <div class="pure-control-group kumulus-margin-bottom">
                                 <label for="type" class="pure-u-1-4">Type:</label>
                                 <input name="type" type="text" id="nodeType" class="pure-u-17-24" readonly=""/>
                             </div>
@@ -93,6 +97,7 @@
                     <div class="pure-u-1-4 kumulus-margin-left kumulus-margin-top">
                         <input id="button-readyfortransfer" type="button"  value="Ready for transport" class="pure-button" onclick="containerToTransport();" disabled/>
                         <input id="button-fetchFromStorage" type="button"  value="fetch From Storage" class="pure-button kumulus-margin-top" onclick="fetchFromStorage();" />
+                        
                     </div>
                 </div>
                 <div class="kumulus-container-for-collect  kumulus-element-border">
