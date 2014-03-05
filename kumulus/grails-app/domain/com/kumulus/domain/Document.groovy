@@ -31,6 +31,7 @@ class Document {
     static mapping = {
         text sqlType: "longtext"
         status index: "idx_document_status"
+        deleted index: "idx_document_status"
     }
     
     static constraints = {  
