@@ -34,13 +34,13 @@
                             <g:each var="product" in="${products}">
                               <tr onkeydown="send(this)" >
                                 <input type="hidden" id="productId" value=${product.id}/>
-                                <td><g:img dir="images/products" file="/${product.imagePath}" class="kumulus-table-image"/></td>
+                                <td width="156px"><g:img dir="images/products" file="/${product.imagePath}" class="kumulus-table-image"/></td>
                                 <td>${product.name}</td>
-                                <td>${product.description}</td>
+                                <td width="40%">${product.description}</td>
                                 <td>${product.price}</td>
                                 <td><input id="quantity" type="text" value="" onblur="calculateTotalAmount(${product.price})" class="kumulus-small-input-box" onkeydown="CheckNumericWithoutDec(event)"></td>
                                 <td>SGD</td>
-                                <td><label id="totalAmount">0</label></td>
+                                <td><div  class="kumulus-ordermaterial-Amount"><label id="totalAmount">0</label></div></td>
                               </tr> 
                              </g:each>
                               <tr class="kumulus-bold-font" onClick="send(this)">
@@ -50,7 +50,7 @@
                                   <td></td>
                                   <td></td>
                                   <td></td>
-                                  <td> <label id="grandtotal" class="">0</label></td>
+                                  <td><div  class="kumulus-ordermaterial-Amount"> <label id="grandtotal" class="">0</label></div></td>
                               </tr>
                         </tbody>
                     </table> 
