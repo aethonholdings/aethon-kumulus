@@ -346,8 +346,8 @@ kumulus-control-group{
     color: #fff;
     text-align: center;
     width: 95%;
-    height: 20px; 
-    line-height: 20px;
+    height: 30px; 
+    line-height: 30px;
     margin: 0px auto;
 }
 .kumulus-filmstrip-margin-top{
@@ -361,6 +361,7 @@ kumulus-control-group{
     background: #eee; 
     text-align: center;
     width: 100%;
+    list-style: none; 
 }
 
 .kumulus-filmstrip{
@@ -373,6 +374,7 @@ kumulus-control-group{
 #flimstrip-first-li{
     position: static;
     float:bottom;
+    list-style:none;
 }
 
 .kumulus-filmstrip ul{
@@ -595,8 +597,8 @@ li.kumulus-task-queue.kumulus-task-queue-action-item{
 }
 
 .pure-table thead{
-    background-color: #e0e0ef;
-    color: #0E3857;
+    background: none;
+    border-bottom: 2px #e0e0ef solid;
 }
 .kumulus-ordermaterial-Amount{
     width: 4.38em;
