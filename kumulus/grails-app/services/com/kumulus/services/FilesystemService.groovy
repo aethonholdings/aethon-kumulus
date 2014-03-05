@@ -25,11 +25,9 @@ class FilesystemService {
         return(literal)
     }
 
-    def indexDocument(document, uFile) {
-        document.file = uFile
-        File file = new File(uFile.path)
+    def indexDocument(document) {
+        File file = new File(document.file.path)
         document.text = tikaService.parseFile(file)
-        document.save()
     }
     
     def newProject(params) {
