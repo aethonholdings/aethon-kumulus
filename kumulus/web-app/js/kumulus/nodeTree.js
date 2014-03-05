@@ -4,7 +4,7 @@ var selectedNode;
 var newNode;
 
 $(document).ready(function(){
-
+        
     // create the node tree
     $('#nodeTree').dynatree({
         initAjax: {
@@ -23,7 +23,7 @@ $(document).ready(function(){
                 selectedNode = node;
                 refresh_container_information(node);
                  nodeDetailInfo(node);
-            }
+            }  
         }, 
         onLazyRead: function(node) {
             node.appendAjax({
@@ -94,6 +94,7 @@ $(document).ready(function(){
         logMsg("tree.onDragLeave(%o, %o)", node, sourceNode);
       }
     }
+    
    });
     tree = $('#nodeTree').dynatree("getTree");
     ready();
@@ -182,9 +183,17 @@ function delete_node() {
                 dataType: 'json',
                 async: false,
                 success: function(data) {
+                    var parentnode=selectedNode.getParent()
                     selectedNode.remove();
-                   // tree.reload();
                     ready();
+                    if (selectedNode.getParent().data.key != '#') {
+                        selectedNode.getParent().reloadChildren(function(selectedNode, isOk) {
+                        });
+                    }
+                    else {
+                        tree.reload();
+                    }
+                    
                 }
             });
         }
@@ -260,7 +269,6 @@ function search_node() {
                 for(var i=data.length-1; i>=0; i--) {
                     keypath = keypath + "/" + data[i].key.toString();
                 }
-                
                 tree.loadKeyPath(keypath, function(node, status){
                     if(status == "loaded") {
                         // 'node' is a parent that was just traversed.
@@ -360,7 +368,6 @@ function save() {
             dataType: 'json',
             async: false,
             success: function(data) {
-                console.log(selectedNode.data.key);
                 ready();
                 if (selectedNode.data.key != '#') {
                     selectedNode.reloadChildren(function(selectedNode, isOk) {
@@ -380,13 +387,49 @@ function save() {
         tree.selectKey(news.data.key, true);
     }
 }
-
+function containerToTransport(){
+    var data = { 
+        id: selectedNode.data.id
+    }
+    var newNodeKey=selectedNode.data.key;
+    if(data.id!='ROOT'){
+        $.ajax({
+            url: url('node', 'containerToTransport', ''),
+            type: 'post', 
+            data: JSON.stringify(data),
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            async: false,
+            success: function(data) {
+                var pnode = selectedNode.getParent()
+                if (selectedNode.getParent().data.key != '#') {
+                    selectedNode.getParent().reloadChildren(function(pnode, isOk) { 
+                        tree.activateKey(newNodeKey);
+                    });                   
+                }
+                else {
+                    var path = "#/" + newNodeKey;
+                    tree.reload();
+//                    tree.loadKeyPath(path, function(node, status){
+//                        if(status == "loaded") {
+//                            node.expand();
+//                        } else if(status == "ok") {
+//                            node.activate();
+//                        }
+//                    });
+                    tree.activateKey(newNodeKey); 
+                }
+            }
+        });    
+    }
+}
 function nodeDetailInfo(node){
- var data = { node:node.data.id }
+    
+    var data = { node:node.data.id }
     if(data.node!='ROOT'){
-    $("#nodeType").val(node.data.type);
-    $("#nodeLocation").val(node.data.location);
-    $("#nodeStatus").val(node.data.status);
+        $("#nodeType").val(node.data.type);
+        $("#nodeLocation").val(node.data.location);
+        $("#nodeStatus").val(node.data.status);
         $.ajax({
             url: url('node', 'getDocuments', ''),
             type: 'POST',
@@ -398,11 +441,17 @@ function nodeDetailInfo(node){
                 $("#pageInfo tbody tr").remove();
                 $.each(data, function(i) {
                     var imgUrl = url('image','get', data[i].thumbnailImageId);
-                    var status = data[i].status
+                    var status = data[i].status;
                     $("#pageInfo tbody").append('<tr><td><img class="kumulus-thumbnail kumulus-element-border" height="140" width="100"  src='+ imgUrl +' /></td><td>'+status+'</td></tr>');
-                })
+                });
             }
         });
+         if(node.data.status=='Open'){
+            $('#button-readyfortransfer').prop('disabled', false);
+        }
+        else{
+            $('#button-readyfortransfer').prop('disabled', true);
+        }
     }
     
 

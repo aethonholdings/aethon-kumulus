@@ -63,7 +63,6 @@
             </div>
             <div class="pure-u-7-24">
                 <div class="kumulus-container kumulus-element-border">
-
                     <h3>&nbsp;</h3>
                     <div class="pure-form">
                         <table>
@@ -98,8 +97,8 @@
                             </tbody>
                         </table>
                     </div>
-
                 </div>
+                <div class="kumulus-button-bank"><g:link class="pure-button" controller="project" action="view" id="${project.id}">Project Home</g:link></div>
             </div>
         </div>
     </body>

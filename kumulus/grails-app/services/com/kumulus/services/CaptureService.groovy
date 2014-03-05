@@ -54,7 +54,7 @@ class CaptureService {
     def updateNode(node, barcodeString, name, comment, type, status, location) {
         
         def barcode = Barcode.findByText(barcodeString)
-        def nodeType = NodeType.findById(type)
+        def nodeType = NodeType.findByName(type)
         if(node && !node.hasErrors() && nodeType && barcode){
             node.comment = comment
             node.barcode = barcode
@@ -131,8 +131,9 @@ class CaptureService {
     def indexScan(parentNode, uFile, scanBatch, userId) {
         
         Document document
-        
+
         if(parentNode && uFile && scanBatch && userId) {
+            
             Date timestamp = new Date()
             def literal = filesystemService.generateLiteral()            
 
@@ -178,9 +179,11 @@ class CaptureService {
                 scanBatch: scanBatch,
                 document: document
             )
+            page.save()
             
             // generate the image files for the page
             def images = filesystemService.indexImageInFilesystem(literal, page, uFile, timestamp)
+            
             page.scanImage = images.scanImage
             page.viewImage = images.viewImage
             page.thumbnailImage = images.thumbnailImage
@@ -246,5 +249,14 @@ class CaptureService {
         }
         return(newDocument)
     }
-    
+    def updateContainer(node,status){
+     if(node && status){
+          if(status=='0'){
+             status='1'
+             node.status=status
+             node.save()
+          }
+      }  
+        return(node)
+    }
 }

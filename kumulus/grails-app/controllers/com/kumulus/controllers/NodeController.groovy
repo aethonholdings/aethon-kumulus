@@ -136,4 +136,12 @@ class NodeController {
         }
         render response as JSON
     }
+    def containerToTransport(){
+        def data = request.JSON
+        def node = Node.findById(data?.id)
+        if (permissionsService.checkPermissions(node)) {
+            captureService.updateContainer(node, Node.STATUS_OPEN)
+            render node as JSON
+        }
+    }
 }
