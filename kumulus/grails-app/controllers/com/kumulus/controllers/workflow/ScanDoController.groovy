@@ -155,5 +155,14 @@ class ScanDoController {
         
     }
     
-   
+    def fetchNodeThumbnails() {
+        
+        def data = request.JSON
+        def response = [done: true]
+        
+        println(data)
+        
+        render response as JSON
+    }
+    
 }

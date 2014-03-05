@@ -426,35 +426,39 @@ public class ImportSaparationPanel extends BaseJPanel implements
 		if (selectedNode == null)
 			return;
 
-		// Condition To Check That Node Has Child Node Or Not...
-		int childNodeCount = controller().getChildNodeCount(
-				selectedNode.getNodeId());
-
-		// Condition To Check If Any Error Generated On Server Side Then Return
-		if (childNodeCount < 0)
-			return;
-
-		if (childNodeCount == 0) {
-			// Condition To Check If Delete Operation is Performed And Node Has
-			// no Pages Then Remove ImageViewer View/ Thumbnail View
-			if (isNodeDeleted() == true) {
-				setNodeDeleted(false);
-				setLastSelectedPageIndexeList(null);
-				imageViewer.getThumbnailList().removeAll();
-				getMainPanel().remove(imageViewer);
-				imageViewer = null;
-				getMainPanel().revalidate();
-				getMainPanel().repaint();
-			}
-			// Flag Became False
-			// If User Cut Page And Paste On Destination Node (After Clicking On
-			// ViewThumbnail And Document Has No Pages)
-			// Then Source Node imageViewer is not removed
-			setNodeDeleted(false);
-
-			ErrorMessage.displayMessage('I', "documentHasNoPages");
-			return;
-		}
+// -- KONS CODE - FOLLOWING CODE SEGMENT IS DEPRECATED, NOT NEEDED
+//                
+//		// Condition To Check That Node Has Child Node Or Not...
+//		int childNodeCount = controller().getChildNodeCount(
+//				selectedNode.getNodeId());
+//
+//		// Condition To Check If Any Error Generated On Server Side Then Return
+//		if (childNodeCount < 0)
+//			return;
+//
+//		if (childNodeCount == 0) {
+//			// Condition To Check If Delete Operation is Performed And Node Has
+//			// no Pages Then Remove ImageViewer View/ Thumbnail View
+//			if (isNodeDeleted() == true) {
+//				setNodeDeleted(false);
+//				setLastSelectedPageIndexeList(null);
+//				imageViewer.getThumbnailList().removeAll();
+//				getMainPanel().remove(imageViewer);
+//				imageViewer = null;
+//				getMainPanel().revalidate();
+//				getMainPanel().repaint();
+//			}
+//			// Flag Became False
+//			// If User Cut Page And Paste On Destination Node (After Clicking On
+//			// ViewThumbnail And Document Has No Pages)
+//			// Then Source Node imageViewer is not removed
+//			setNodeDeleted(false);
+//
+//			ErrorMessage.displayMessage('I', "documentHasNoPages");
+//			return;
+//		}
+//                
+// -- END KONS CODE - 
 
 		// Create Local Directory To Store Image/Thumbnail At Local System
 		NodeProperties selectedNodeProperty = desktopMainPanel.getjLeftPanel()
