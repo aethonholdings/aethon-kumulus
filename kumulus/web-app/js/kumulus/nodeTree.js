@@ -175,7 +175,6 @@ function delete_node() {
     if(selectedNode && state=="READY"  && selectedNode.data.id!="ROOT") {
         if(confirm("Please confirm that you would like to delete this archive item")) {
             var data = { id: selectedNode.data.id }
-            var news = selectedNode;
             $.ajax({
                 url: url('node', 'delete', ''),
                 type: 'POST',
@@ -455,7 +454,8 @@ function nodeDetailInfo(node){
             $('#button-readyfortransfer').prop('disabled', true);
         }
     }
-    function fetchFromStorage(){
+  }  
+  function fetchFromStorage(){
      var data ={  id: selectedNode.data.id }
           if(data.node!='ROOT'){
            $.ajax({
@@ -465,9 +465,12 @@ function nodeDetailInfo(node){
                 contentType: 'application/json; charset=utf-8',
                 dataType: 'json',
                 async: false,
-                success: function(data) { 
-                }
+                success: function(data) {
+                    if(data.done == true){
+                    alert("your Request has been placed");
+                           }
+                       }
             });
           }         
     }
-}
+
