@@ -26,7 +26,7 @@
                   </div>
                   <div class="pure-controls">
                     <g:link controller="home" action="index" class="pure-button">Cancel</g:link>
-                    <input type="submit" value="Save" class="pure-button pure-button-primary">
+                    <input type="submit" id="createUser" value="Save" class="pure-button pure-button-primary" onclick="validate();"></input>
                   </div>
                 </g:form>
               </div>
