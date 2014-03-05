@@ -18,12 +18,6 @@ $(document).ready(function(){
             rootVisible: true,
             keyboard: true
         },
-        onPostInit: function(isReloading, isError) {
-//        alert("reloading: "+isReloading+", error:"+isError);
-         logMsg("onPostInit(%o, %o) - %o", isReloading, isError, this);
-         // Re-fire onActivate, so the text is updated
-         this.reactivate();
-      },
         onActivate: function(node) {
             if(state=="READY") {
                 selectedNode = node;
@@ -189,15 +183,17 @@ function delete_node() {
                 dataType: 'json',
                 async: false,
                 success: function(data) {
+                    var parentnode=selectedNode.getParent()
                     selectedNode.remove();
-                    if (selectedNode.data.key != '#') {
-                        selectedNode.reloadChildren(function(selectedNode, isOk) {
+                    ready();
+                    if (selectedNode.getParent().data.key != '#') {
+                        selectedNode.getParent().reloadChildren(function(selectedNode, isOk) {
                         });
                     }
                     else {
                         tree.reload();
                     }
-                    ready();
+                    
                 }
             });
         }
@@ -428,11 +424,12 @@ function containerToTransport(){
     }
 }
 function nodeDetailInfo(node){
- var data = { node:node.data.id }
+    
+    var data = { node:node.data.id }
     if(data.node!='ROOT'){
-    $("#nodeType").val(node.data.type);
-    $("#nodeLocation").val(node.data.location);
-    $("#nodeStatus").val(node.data.status);
+        $("#nodeType").val(node.data.type);
+        $("#nodeLocation").val(node.data.location);
+        $("#nodeStatus").val(node.data.status);
         $.ajax({
             url: url('node', 'getDocuments', ''),
             type: 'POST',
@@ -442,13 +439,21 @@ function nodeDetailInfo(node){
             async: false,
             success: function(data) {
                 $("#pageInfo tbody tr").remove();
+                alert(data);
                 $.each(data, function(i) {
                     var imgUrl = url('image','get', data[i].thumbnailImageId);
-                    var status = data[i].status
+                    var status = data[i].status;
+                    alert(imgUrl);
                     $("#pageInfo tbody").append('<tr><td><img class="kumulus-thumbnail kumulus-element-border" height="140" width="100"  src='+ imgUrl +' /></td><td>'+status+'</td></tr>');
-                })
+                });
             }
         });
+         if(node.data.status=='Open'){
+            $('#button-readyfortransfer').prop('disabled', false);
+        }
+        else{
+            $('#button-readyfortransfer').prop('disabled', true);
+        }
     }
     
 

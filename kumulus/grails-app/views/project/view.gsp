@@ -21,7 +21,7 @@
         <div class="pure-g kumulus-small-font">
             <div class="pure-u-1-5">
                 <div class="kumulus-container-2-3 kumulus-element-border pure-form">
-                        <h3>Project Details</h3>
+                    <h3>Project Details</h3>
                     <div class="kumulus-data-entry">
                         <g:form name="edit" action="update" id="${project?.id}" class="pure-form">
                             <div class="pure-control-group">
@@ -59,11 +59,11 @@
                     <div class="pure-u-7-24">
                         <div class="kumulus-button-bank">
                             <g:link controller="capture" action="collect" params='[id: "${project?.id}"]' class="pure-button">Collect paperwork</g:link>
+                            </div>
                         </div>
-                    </div>
-                    <div class="kumulus-container-1-5">
-                        <div id="search">
-                            <div class="kumulus-search-margin"><label> Search </label>
+                        <div class="kumulus-container-1-5">
+                            <div id="search">
+                                <div class="kumulus-search-margin"><label> Search </label>
                                 <g:textField name="q" value="${params.q}" class="pure-input" placeholder="Enter search terms" size="30"/> 
                                 <input type="submit" value="Search" class="pure-button"/>
                             </div>
@@ -72,46 +72,47 @@
                 </div>
             </div>
             <div class="pure-u-1-3">
-                <div class="kumulus-container kumulus-element-border">
-                    <h3>Container Contents</h3>
-                    <div class="kumulus-container-inside-1-3 kumulus-margin-top">
-                        <div class="pure-u-1-2 kumulus-margin-left">
-                            <div class="pure-form kumulus-margin-bottom">
-                                <div class="pure-control-group kumulus-margin-bottom">
-                                    <label for="type" class="pure-u-1-4">Type:</label>
-                                    <input name="type" type="text" id="nodeType" class="pure-u-17-24" readonly=""/>
-                                </div>
-                                <div class="pure-control-group kumulus-margin-bottom">
-                                    <label for="location" class="pure-u-1-4">Location:</label>
-                                    <input name="location" type="text" id="nodeLocation" class="pure-u-17-24" readonly=""/>
-                                </div>
-                                <div class="pure-control-group kumulus-margin-bottom">
-                                    <label for="status" class="pure-u-1-4">Status:</label>
-                                    <input name="status" type="text" id="nodeStatus" class="pure-u-17-24" readonly=""/>
-                                </div>
-                              </div>
+                <div class="kumulus-container-3-7 kumulus-element-border">
+                    <h3>Container Details</h3>
+                    <div class="pure-u-1-2 kumulus-margin-left kumulus-margin-top">
+                        <div class="pure-form kumulus-margin-bottom">
+                            <div class="pure-control-group kumulus-margin-bottom">
+                                <label for="type" class="pure-u-1-4">Type:</label>
+                                <input name="type" type="text" id="nodeType" class="pure-u-17-24" readonly=""/>
                             </div>
-                            <div class="pure-u-1-4 kumulus-margin-left">
-                                <input type="button"  value="Ready for transport" class="pure-button" onclick="containerToTransport();"/>
+                            <div class="pure-control-group kumulus-margin-bottom">
+                                <label for="location" class="pure-u-1-4">Location:</label>
+                                <input name="location" type="text" id="nodeLocation" class="pure-u-17-24" readonly=""/>
+                            </div>
+                            <div class="pure-control-group kumulus-margin-bottom">
+                                <label for="status" class="pure-u-1-4">Status:</label>
+                                <input name="status" type="text" id="nodeStatus" class="pure-u-17-24" readonly=""/>
                             </div>
                         </div>
-                        <div class="kumulus-container-inside-for-collect kumulus-scrollable-y">
-                            <table id="pageInfo" class="pure-table pure-table-horizontal kumulus-margin-top">
-                                <thead>
-                                    <tr>
-                                        <th class="kumulus-td-width"> &nbsp;</th>
-                                        <th> Status</th>
-                                    </tr>
-                                </thead>
-                                <tbody> 
-
-                                </tbody>
-                            </table>
-                        </div>
-                    <g:link controller="capture" action="upload" params='[id: "${project?.id}"]' class="pure-button kumulus-float-right">Upload</g:link>
-                    </div>  
+                    </div>
+                    <div class="pure-u-1-4 kumulus-margin-left kumulus-margin-top">
+                        <input id="button-readyfortransfer" type="button"  value="Ready for transport" class="pure-button" onclick="containerToTransport();" disabled/>
+                    </div>
                 </div>
+                <div class="kumulus-container-for-collect  kumulus-element-border">
+                    <h3>Container Contents</h3>
+                    <div class="kumulus-container-inside-for-collect kumulus-scrollable-y">
 
+                        <table id="pageInfo" class="pure-table pure-table-horizontal kumulus-margin-top">
+                            <thead>
+                                <tr>
+                                    <th class="kumulus-td-width"> &nbsp;</th>
+                                    <th> Status</th>
+                                </tr>
+                            </thead>
+                            <tbody> 
+
+                            </tbody>
+                        </table>
+                    </div>
+                    <g:link controller="capture" action="upload" params='[id: "${project?.id}"]' class="pure-button kumulus-float-right">Upload</g:link>
+                </div>
+            </div>
         </div>
         <div class="kumulus-float-right kumulus-padding kumulus-full-width kumulus-margin-right">
             <input type="submit" value="Download Ledger" class="pure-button kumulus-matgin"/>
