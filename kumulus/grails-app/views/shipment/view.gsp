@@ -39,12 +39,13 @@
                          </tr>
                          
                              <g:each var="node"  in="${nodeList}">
-                              <tr>
+                              <g:if test="${node.delivery==1}">
+                             <tr>
                              <td>${node.nodeObj.name}</td>
                              <td>${node.nodeObj.type.name}</td>
                              <td>${node.quantity}</td>
-                             <td></td>
                              </tr>
+                              </g:if>
                          </g:each>  
                         
                         
@@ -53,12 +54,14 @@
                              
                          </tr>
                           <g:each var="product"  in="${productList}">
+                              <g:if test="${product.delivery==1}">
                               <tr>
                              <td>${product.productObj.name}</td>
                              <td>${product.productObj.description}</td>
                              <td>${product.quantity}</td>
                              <td></td>
                              </tr>
+                               </g:if>
                          </g:each>  
                          <tr>
                              <td colspan="3">Pickup</td>
@@ -70,12 +73,14 @@
                          </tr>
                          
                              <g:each var="node"  in="${nodeList}">
+                                        <g:if test="${node.delivery==2}">
                               <tr>
                              <td>${node.nodeObj.name}</td>
                              <td>${node.nodeObj.type.name}</td>
                              <td>${node.quantity}</td>
                              <td></td>
                              </tr>
+                             </g:if>
                          </g:each>  
                         
                         
@@ -84,12 +89,14 @@
                              
                          </tr>
                           <g:each var="product"  in="${productList}">
+                                     <g:if test="${product.delivery==2}">
                               <tr>
                              <td>${product.productObj.name}</td>
                              <td>${product.productObj.description}</td>
                              <td>${product.quantity}</td>
                              <td></td>
                              </tr>
+                             </g:if>
                              </g:each>
                      </tbody>
                     </table>
