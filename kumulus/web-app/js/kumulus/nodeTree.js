@@ -439,11 +439,9 @@ function nodeDetailInfo(node){
             async: false,
             success: function(data) {
                 $("#pageInfo tbody tr").remove();
-                alert(data);
                 $.each(data, function(i) {
                     var imgUrl = url('image','get', data[i].thumbnailImageId);
                     var status = data[i].status;
-                    alert(imgUrl);
                     $("#pageInfo tbody").append('<tr><td><img class="kumulus-thumbnail kumulus-element-border" height="140" width="100"  src='+ imgUrl +' /></td><td>'+status+'</td></tr>');
                 });
             }
