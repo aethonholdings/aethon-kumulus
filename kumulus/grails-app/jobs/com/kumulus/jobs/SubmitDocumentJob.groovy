@@ -20,7 +20,7 @@ class SubmitDocumentJob {
     def grailsApplication
 
     static triggers = {
-        simple name: 'Submit Job', startDelay: 0, repeatInterval: 120000  
+        simple name: 'Submit Job', startDelay: 0, repeatInterval: 10000  
     }
 
     def group = "Jobs"

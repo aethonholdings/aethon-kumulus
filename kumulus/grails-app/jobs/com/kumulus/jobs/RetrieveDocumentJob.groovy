@@ -22,7 +22,7 @@ class RetrieveDocumentJob {
     def filesystemService
 
     static triggers = {
-        simple name: 'Retrieve Job', startDelay: 0, repeatInterval: 120000  
+        simple name: 'Retrieve Job', startDelay: 0, repeatInterval: 10000  
     }
 
     def group = "Jobs"
