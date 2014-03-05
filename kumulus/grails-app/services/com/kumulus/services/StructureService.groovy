@@ -11,19 +11,28 @@ class StructureService {
     def permissionsService
     def grailsApplication
     
-    def updateDocument(Document document, DocumentType documentType, Date date, String identifier) {
+    def updateDocument(Document document, String companyName, DocumentType documentType, Date date, String identifier) {
         
-        if(document && documentType) {
+        if(document && documentType) {    
+            def company = Company.findByName(companyName)
+            if(!company) {
+                company = new Company(name: companyName)
+                company.save()
+            }
+            document.company = company
             document.type = documentType
             document.date = date
             document.identifier = identifier
             document.save()
         }
+        
         return(document)
+        
     }
     
     def updateLineItem(String lineItemId, String pageId, Currency currency, Date date, String description, String quantity, String price, String amount) {
-        def lineItem = LineItem.get(lineItemId)
+       
+        def lineItem = LineItem.findById(lineItemId)
         if(!lineItem) lineItem = new LineItem()
         lineItem.page = Page.findById(pageId)
         lineItem.currency = currency
@@ -34,5 +43,6 @@ class StructureService {
         lineItem.amount = Float.parseFloat(amount)
         lineItem.save()
         return(lineItem)
+        
     }
 }

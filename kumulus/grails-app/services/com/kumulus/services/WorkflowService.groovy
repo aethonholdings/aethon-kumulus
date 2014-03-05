@@ -49,13 +49,14 @@ class WorkflowService {
         return(task)
     }
     
-    def getNextTask(String taskType) {
-        def task
-        switch(taskType) {
-            case Task.TYPE_PROCESS.toString():
-                task = Task.findByTypeAndCompleted(taskType, null, [order: "created", type: "asc"])
-                break
-        }
+    def getNextTask(String taskType, String userId) {
+        
+        // check the user queue first 
+        def task = Task.findByTypeAndCompletedAndUserId(taskType, null, userId, [order: "created", type: "asc"])
+        
+        // if there are no tasks in the user queue, check the back office queue 
+        if(!task) task = Task.findByTypeAndCompletedAndUserId(taskType, null, null, [order: "created", type: "asc"])
+                
         return(task)
     }
     
