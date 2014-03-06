@@ -609,6 +609,9 @@ li.kumulus-task-queue.kumulus-task-queue-action-item{
     width: 4.38em;
 }
 
+tr .kumulus-border-top{
+    border-top: 2px #e0e0ef solid;
+}
 @media (max-width : 700px) {
     .kumulus-table-image{
         height: 60px;

@@ -322,9 +322,9 @@ LOCK TABLES `product` WRITE;
 
 INSERT INTO `product` (`id`, `version`, `description`, `image_path`, `name`, `price`)
 VALUES
-	(1,0,'30 barcodes per sheet','grails_logo.png','Barcode sheet',1),
-	(2,0,'Standard Kumulus storage boxes','grails_logo.png','Packaging boxes',1),
-	(3,0,'Kumulus barcode scanner','grails_logo.png','Barcode scanner',120);
+	(1,0,'30 barcodes per sheet','barcode.png','Barcode sheet',1),
+	(2,0,'Standard Kumulus storage boxes','container1.png','Packaging boxes',1),
+	(3,0,'Kumulus barcode scanner','barcodescanner.png','Barcode scanner',120);
 
 /*!40000 ALTER TABLE `product` ENABLE KEYS */;
 UNLOCK TABLES;
