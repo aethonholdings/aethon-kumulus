@@ -33,16 +33,18 @@
                         <tbody>    
                             <g:each var="product" in="${products}">
                               <tr onkeydown="send(this)" >
-                                <input name="product${product.id}" type="hidden" id="productId" value=${product.id}>
+                                <input name="productId" type="hidden" id="productId" value=${product.id}>
                                 <td width="10%"><g:img dir="images/products" file="/${product.imagePath}" class="kumulus-table-image"/></td>
                                 <td>${product.name}</td>
                                 <td width="30%">${product.description}</td>
                                 <td>SGD</td>
-                                <td>${product.price}</td>
-                                <td><input name="Quantity-${product.id}" id="quantity" type="text" value="" onblur="calculateTotalAmount(${product.price})" class="kumulus-small-input-box" onkeydown="CheckNumericWithoutDec(event)"></td>
+                                <td>${product.price}
+                                <input type="hidden"  name="price" id="pricehidden"  value="${product.price}">
+                                </td>
+                                <td><input name="Quantity" id="quantity" type="text" value="" onblur="calculateTotalAmount(${product.price})" class="kumulus-small-input-box" onkeydown="CheckNumericWithoutDec(event)"></td>
                                 <td><div  class="kumulus-ordermaterial-Amount">
                                         <label id="totalAmount">0</label>
-                                        <input type="hidden"  name="totalAmount-of-${product.id}" id="totalAmounthidden"  value="">
+                                        <input type="hidden"  name="totalAmount" id="totalAmounthidden"  value="">
                                     </div></td>
                               </tr> 
                              </g:each>
