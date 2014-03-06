@@ -57,7 +57,11 @@ public class AsyncImageViewer extends SwingWorker<Void, NodeProperties> {
 	@Override
 	protected Void doInBackground() throws Exception 
 	{
-		int totalChildNodeCount = importSaparationPanel.controller().getChildNodeCount(selectedNode.getNodeId());
+                // -- KONS CODE - FOLLOWING SPEC CODE IS DEPRECATED, PAGE NODES NOW ONLY HAVE ONE PAGE BY DEFAULT
+		// int totalChildNodeCount = importSaparationPanel.controller().getChildNodeCount(selectedNode.getNodeId());
+                int totalChildNodeCount = 1;                
+                // -- END KONS CODE
+                
 		int batchSize = Integer.parseInt(ConstantUtil.getApplicationConstant("viewThumbnailBatchSize"));
 
 		totalThumbnails=totalChildNodeCount;

@@ -3,6 +3,7 @@
  */
 package com.scannerapp.apps.desktoprightpanel.view;
 
+import com.scannerapp.apps.desktopleftpanel.view.CustomMutableTreeNode;
 import java.io.BufferedInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -21,6 +22,7 @@ import com.scannerapp.common.NodePropertyConstants;
 import com.scannerapp.shared.NodeProperties;
 import com.scannerapp.shared.TransactionConstant;
 import com.sun.jersey.core.util.Base64;
+import javax.swing.tree.TreePath;
 
 /**
  * Class to upload the images.
@@ -52,7 +54,7 @@ public class ImageUploader {
 	 * @param importSaparationPanel
 	 */
 	public ImageUploader(ImportSaparationPanel importSaparationPanel) {
-		this.importSaparationPanel = importSaparationPanel;
+                this.importSaparationPanel = importSaparationPanel;
 	}
 
 	/**
@@ -82,7 +84,9 @@ public class ImageUploader {
 	 * @param isResumeImport
 	 */
 	public void proceedToUpload(String imageDirectoryPath, String imageName,
-			NodeProperties parentDocumentNodeProperties, boolean isResumeImport) {
+			NodeProperties parentDocumentNodeProperties, boolean isResumeImport,
+                        CustomMutableTreeNode selectedNode
+                       ) {
 
 		// Displaying label to indicate that upload image is in process...
 		importSaparationPanel.getUploadProgressPanel().setVisible(true);
@@ -100,7 +104,7 @@ public class ImageUploader {
 		// uploading...
 		imageNodePropertiesList.add(imageNodeProperties);
 
-		uploadImagesInBatch(isResumeImport, false);
+		uploadImagesInBatch(isResumeImport, false, selectedNode);
 	}
 
 	/**
@@ -116,14 +120,14 @@ public class ImageUploader {
 	 *            - Flag to indicate if remaining images in batch are to upload.
 	 */
 	public void uploadImagesInBatch(boolean isResumeImport,
-			boolean uploadRemainingImages) {
+			boolean uploadRemainingImages, CustomMutableTreeNode selectedNode) {
 
 		if ((uploadRemainingImages && imageNodePropertiesList.size() > 0)
 				|| imageNodePropertiesList.size() == Integer
 						.parseInt(SessionUtil.getSessionData()
 								.getTotalImagesToUploadAtOnce())) {
 
-			new Thread(new UploadImage(imageNodePropertiesList, isResumeImport))
+			new Thread(new UploadImage(imageNodePropertiesList, isResumeImport, selectedNode))
 					.start();
 
 			imageNodePropertiesList.clear();
@@ -344,19 +348,24 @@ public class ImageUploader {
 
 		private ArrayList<NodeProperties> imageNodePropertiesList;
 		private boolean isResumeImport;
+                private CustomMutableTreeNode selectedNode;
 
 		private UploadImage(ArrayList<NodeProperties> imageNodePropertiesList,
-				boolean isResumeImport) {
+				boolean isResumeImport, CustomMutableTreeNode selectedNode) {
 
 			this.imageNodePropertiesList = new ArrayList<NodeProperties>();
 			this.imageNodePropertiesList.addAll(imageNodePropertiesList);
-
+                        this.selectedNode = selectedNode;
 			this.isResumeImport = isResumeImport;
 		}
 
 		@Override
 		public void run() {
 			beginToUpload();
+                        
+                        // -- KONS CODE - refresh the tree after the upload is completed
+                        importSaparationPanel.getDesktopMainPanel().getjLeftPanel().refreshTreeNode(selectedNode);
+                        // -- KONS CODE
 		}
 
 		private void beginToUpload() {

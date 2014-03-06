@@ -97,7 +97,7 @@ public class ImportSaparationPanelHelper extends ClientHelper {
 
 		try {
 			ClientResponse response = ConnectionUtil.getWebService()
-					.path("scanDo").path("fetchChildNodeList")
+					.path("scanDo").path("fetchNodeThumbnails")
 			 		.type(MediaType.APPLICATION_JSON_TYPE)
 					.accept(MediaType.APPLICATION_JSON_TYPE)
 					.post(ClientResponse.class, reuestData);
@@ -176,7 +176,7 @@ public class ImportSaparationPanelHelper extends ClientHelper {
 
 		try {
 
-			ClientResponse response = ConnectionUtil.getWebService()
+    			ClientResponse response = ConnectionUtil.getWebService()
 					.path("scanDo").path("saveScannedImages")
 					.type(MediaType.APPLICATION_JSON_TYPE)
 					.accept(MediaType.APPLICATION_JSON_TYPE)
@@ -314,7 +314,7 @@ public class ImportSaparationPanelHelper extends ClientHelper {
 		try {
 
 			ClientResponse response = ConnectionUtil.getWebService()
-					.path("nodeServices")
+					.path("scanDo")
 					.path("getChildNodeCount")
 					.type(MediaType.APPLICATION_JSON_TYPE)
 					.accept(MediaType.APPLICATION_JSON_TYPE)
