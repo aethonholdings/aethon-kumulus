@@ -132,12 +132,18 @@ class ScanDoController {
         
         def response = [:]
         def imageData = request.JSON
+        def project
+        def scanBatch
+        
         imageData.each { data ->
             def parent = Node.findById(data?.parentNodeId)
-            if(data?.encodeStringForImage && parent && data?.name) {
-                def userId = permissionsService.getUsername()
-                def scanBatch = new ScanBatch(userId: userId, timestamp: new Date(), project: parent.project)
+            def userId = permissionsService.getUsername()
+            if(parent && project!=parent.project) {
+                project = parent.project
+                scanBatch = new ScanBatch(userId: userId, timestamp: new Date(), project: project)
                 scanBatch.save()
+            }
+            if(data?.encodeStringForImage && parent && scanBatch && data?.name) {
                 def uFile = filesystemService.writeStringToImageFile(data?.encodeStringForImage, filesystemService.generateLiteral(), request.locale)
                 def document = captureService.indexScan(parent, uFile, scanBatch, userId)
                 def task = workflowService.createTask(document, Task.TYPE_BUILD, userId)
@@ -158,9 +164,35 @@ class ScanDoController {
     def fetchNodeThumbnails() {
         
         def data = request.JSON
-        def response = [done: true]
         
-        println(data)
+        def response = []
+        def pageNode = Node.findById(data?.parentnodeId)
+        def page = pageNode.page
+        
+        if(pageNode && page) {
+            response = [
+                "nodeId": page.literal,
+                "projectId": "" + pageNode.project.id,
+                "name": page.literal,
+                "type": null,
+                "barcode": null,
+                "comment": null,
+                "internalComment": null,
+                "status": null,
+                "parentNodeId": "" + pageNode.id,
+                "hierarchy": null,
+                "thumbnailImageName": page.thumbnailImage.file.name,
+                "actualImageName": page.viewImage.file.name,
+                "lastUpdateDateTime": pageNode.lastUpdateDatetime,
+                "documentSequenceNumber": page.number,
+                "userId": null,
+                "encodeStringForImage": null,
+                "encodeStringForThumbnail": filesystemService.renderFileInBase64(page.thumbnailImage.file),
+                "oldActualImageName": page.viewImage.file.name,
+                "oldThumbnailImageName": page.thumbnailImage.file.name,
+                "transactionStatus":"U"
+            ]
+        }
         
         render response as JSON
     }

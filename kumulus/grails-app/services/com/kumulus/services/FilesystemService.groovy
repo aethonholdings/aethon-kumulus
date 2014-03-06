@@ -123,11 +123,6 @@ class FilesystemService {
     
     def writeStringToImageFile(encodedImageString, filename, locale) {
         
-        // write the string data into a file object
-        // encodedImageString = encodedImageString.replaceAll(" ", "+")
-        // encodedImageString = encodedImageString.replaceAll("\n", "")
-        // byte[] scannedImageBytes = Base64.decode(encodedImageString)
-        
         // PARAMETRISE THE MAX SIZE
         DiskFileItem imageFileItem = new DiskFileItem("file", null, false, filename, 40000000, new File(grailsApplication.config.filesystem.staging))
         byte[] scannedImageBytes = encodedImageString.decodeBase64()
@@ -154,6 +149,24 @@ class FilesystemService {
         ufile.save()
         return(ufile)
         
+    }
+    
+    def renderFileInBase64(UFile ufile) {
+        
+        // get the image byte buffer
+        FileInputStream inputStream = new FileInputStream(ufile.path)
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream()
+        byte[] block = new byte[1024]
+        int bytesRead = 0
+        while ((bytesRead = inputStream.read(block)) != -1) {
+            outputStream.write(block, 0, bytesRead);
+        }
+        byte[] imageBytes = outputStream.toByteArray();
+        
+        // convert to Base 64
+        String render = imageBytes.encodeBase64().toString()
+
+        return(render)
     }
     
    

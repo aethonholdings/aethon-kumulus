@@ -32,11 +32,14 @@ class ScanDoService {
     }
     
     def renderNode(Node node) {
-
+        def name 
+        
+        if(node.barcode?.text) name = node.barcode?.text else name = node.name
+        
         def render = [
             'nodeId': "" + node.id,
             'projectId': "" + node.project.id,
-            'name': "" + node.barcode?.text,                                 // scando requires the barcode as name
+            'name': "" + name,                                 // scando requires the barcode as name
             'type': "" + node.type.code,    
             'barcode': "" + node.barcode?.text,              
             'comment': node.comment,
