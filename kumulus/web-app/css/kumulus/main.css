@@ -350,6 +350,11 @@ kumulus-control-group{
     line-height: 30px;
     margin: 0px auto;
 }
+
+.kumulus-flimstrip-header h6{
+    margin: 1em 10px 10px 6px;
+}
+
 .kumulus-filmstrip-margin-top{
     margin-top: 53px;
 }
