@@ -3,6 +3,7 @@ package com.kumulus.controllers
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 import com.kumulus.domain.*
+import java.text.SimpleDateFormat
 import grails.converters.*
 
 
@@ -102,9 +103,36 @@ class ShipmentController {
         }
     }
     
+    def createShipment (){
+        
+        SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+
+        if(params.fromCompany){
+            def newObj= new Shipment()
+            newObj.fromCompany=params.fromCompany
+            newObj.toCompany=params.fromCompany
+            newObj.scheduled=formatter.parse(params.scheduleDate)
+            //            newObj.started=formatter.parse(params.startDate)
+            //            newObj.finished=formatter.parse(params.finishDate)
+            newObj.notes=params.notes
+            newObj.save(flush:true)
+            if(params["Save and Create"]){
+                redirect(action: "view" ,params:[id:newObj.id])
+            }
+            else{
+                redirect(controller :"home", action: "index") 
+            }
+        
+      
+        }
+ 
+        
+    }
+    
     def view() {
+     
         def productList=[],nodeList=[]
-        def shipmentObj=Shipment.findAllById(1)
+        def shipmentObj=Shipment.findAllById(params.id)
         shipmentObj.shipmentItems[0].each{ it ->
             if(it.type==1){  
                 nodeList<<[
@@ -141,7 +169,7 @@ class ShipmentController {
                 shipItemObj.itemId=Long.parseLong(node.toString())
                 shipItemObj.delivery=Byte.parseByte(data.deliveryId)
                 shipItemObj.quantity=Long.parseLong("1")
-                shipItemObj.shipment=Shipment.findById(1)
+                shipItemObj.shipment=Shipment.findById(Integer.parseInt(data.shipmentId))
                 shipItemObj.save(flush:true,failOnError:true) 
                 status.value="true"
             }
@@ -158,6 +186,13 @@ class ShipmentController {
             def Obj = ShipmentItem.findById(node)
             Obj.delete(flush:true,failOnError:true) 
         }
+        
+    }
+    
+    def remove(){
+        def obj=Shipment.findById(Integer.parseInt(params.id))
+        obj.delete(flush:true)
+        redirect controller :"home", action: "index" 
         
     }
     

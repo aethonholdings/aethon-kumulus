@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-var selectDate = "", deliveryId;
+var selectDate = "", deliveryId, shipmentId;
 
 $(document).ready(function() {
 
@@ -55,7 +55,8 @@ $(document).ready(function() {
 
     $("#addNode, #addNode1").click(function() {
         deliveryId = $(this).attr('deliveryId');
-        getNodeList($(this).attr('deliveryId'));
+        shipmentId = $("#shipmentId").val()
+        getNodeList($(this).attr('deliveryId'), $("#shipmentId").val());
 
     });
 
@@ -91,9 +92,9 @@ $(document).ready(function() {
 
 
 
-function getNodeList(deliveryId) {
+function getNodeList(deliveryId, shipmentId) {
 
-    var data = {deliveryId: deliveryId}
+    var data = {deliveryId: deliveryId, shipmentId: shipmentId, }
     $.ajax({
         url: url('node', 'list', ''),
         type: 'POST',
@@ -180,7 +181,7 @@ function removeNode() {
 
 function saveShipmentNode(nodeId, deliveryId) {
 
-    var data = {nodeList: nodeId, deliveryId: deliveryId};
+    var data = {nodeList: nodeId, deliveryId: deliveryId, shipmentId: shipmentId};
     $.ajax({
         url: url('shipment', 'saveItems', ''),
         type: 'POST',

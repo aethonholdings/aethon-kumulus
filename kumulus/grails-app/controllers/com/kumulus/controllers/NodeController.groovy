@@ -66,12 +66,19 @@ class NodeController {
     
     def list(){
         def data = request.JSON
-    
         def nodes = []
         def nodeList=[]
-        nodes = Node.findAll {
-            (type == NodeType.findByName("Box") && status == Node.STATUS_CLOSED)
+        if(data.deliveryId=="1"){
+            nodes = Node.findAll {
+                (type == NodeType.findByName("Box") && status == Node.STATUS_CLOSED && location =="In storage")
+            }
         }
+        else{
+            nodes = Node.findAll {
+                (type == NodeType.findByName("Box") && status == Node.STATUS_CLOSED && location =="My premises")
+            }
+        }
+        
         nodes.each{node ->
             //            println("hhh"+ShipmentItem.findByItemIdAndDelivery(node.id,data.deliveryId))
             def shipObj=ShipmentItem.findByItemId(node.id)
