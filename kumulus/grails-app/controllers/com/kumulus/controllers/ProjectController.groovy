@@ -6,10 +6,12 @@ import grails.converters.*
 import org.compass.core.engine.SearchEngineQueryParseException
 
 class ProjectController {
-
+     
     def permissionsService
     def filesystemService
-        
+    def searchableService 
+    static String WILDCARD = "*"
+    
     def update() {
         def project = Project.get(params?.id)
         if(project && permissionsService.checkPermissions(project))  {
@@ -56,15 +58,20 @@ class ProjectController {
     }
     
      def search() { 
+         
+        def searchResult 
+        println(params)
+        println(params.q)
         if (!params.q?.trim()) {
             return [:]
         }
         try {
-            def searchResult = searchableService.search(params.q, params)
-            return [searchResult: searchResult]
+               String searchTerm = WILDCARD+ params.q + WILDCARD
+               searchResult = searchableService.search(searchTerm, params)
+             //return [searchResult: searchResult]
         } catch (SearchEngineQueryParseException ex) {
-            return [parseException: true]
+             //return [parseException: true]
         }
-    }
-       
+        render searchResult
+    }  
 }
