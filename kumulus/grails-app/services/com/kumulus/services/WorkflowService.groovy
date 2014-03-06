@@ -4,7 +4,6 @@ import com.kumulus.domain.*
 import java.text.SimpleDateFormat
 import grails.transaction.Transactional
 
-@Transactional
 class WorkflowService {
     
     private def stateMap = {
