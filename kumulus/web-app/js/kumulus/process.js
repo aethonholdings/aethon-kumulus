@@ -157,18 +157,19 @@ function imagePreview(obj) {
 function calculateTotalAmount(price){
     var total=(parseFloat(price)*parseFloat($(currentRowObj).find("td #quantity").val()));
     $(currentRowObj).find("#totalAmount").text(total.toFixed(2));
+     $(currentRowObj).find("#totalAmounthidden").val(total.toFixed(2))
 
     calculategrandTotalAmount()
 }
 
 function calculategrandTotalAmount() {
-
     var gtotal = 0;
     $("#table tbody tr").each(function(j) {
         $(this).find("#totalAmount").each(function(index) {
             gtotal = parseFloat(gtotal) + parseFloat($(this).html());
         });
         $('#grandtotal').text(gtotal.toFixed(2));
+       $('#grandtotalhidden').val(gtotal.toFixed(2));
     });
 }
 

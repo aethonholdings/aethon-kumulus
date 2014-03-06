@@ -33,14 +33,17 @@
                         <tbody>    
                             <g:each var="product" in="${products}">
                               <tr onkeydown="send(this)" >
-                                <input type="hidden" id="productId" value=${product.id}/>
+                                <input name="product${product.id}" type="hidden" id="productId" value=${product.id}>
                                 <td width="10%"><g:img dir="images/products" file="/${product.imagePath}" class="kumulus-table-image"/></td>
                                 <td>${product.name}</td>
                                 <td width="30%">${product.description}</td>
                                 <td>SGD</td>
                                 <td>${product.price}</td>
-                                <td><input id="quantity" type="text" value="" onblur="calculateTotalAmount(${product.price})" class="kumulus-small-input-box" onkeydown="CheckNumericWithoutDec(event)"></td>
-                                <td><div  class="kumulus-ordermaterial-Amount"><label id="totalAmount">0</label></div></td>
+                                <td><input name="Quantity-${product.id}" id="quantity" type="text" value="" onblur="calculateTotalAmount(${product.price})" class="kumulus-small-input-box" onkeydown="CheckNumericWithoutDec(event)"></td>
+                                <td><div  class="kumulus-ordermaterial-Amount">
+                                        <label id="totalAmount">0</label>
+                                        <input type="hidden"  name="totalAmount-of-${product.id}" id="totalAmounthidden"  value="">
+                                    </div></td>
                               </tr> 
                              </g:each>
                               <tr class="kumulus-bold-font kumulus-border-top" onClick="send(this)">
@@ -50,7 +53,9 @@
                                   <td></td>
                                   <td></td>
                                   <td></td>
-                                  <td><div  class="kumulus-ordermaterial-Amount"> <label id="grandtotal" name="Order_Total" class="">0</label></div></td>
+                                  <td><div  class="kumulus-ordermaterial-Amount"> <label id="grandtotal" name="Order_Total" class="">0</label>
+                                      <input type="hidden" name="Order-Grandtotal" id="grandtotalhidden"  value="">
+                                      </div></td>
                               </tr>
                         </tbody>
                     </table> 
