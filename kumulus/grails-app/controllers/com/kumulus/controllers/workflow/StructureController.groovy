@@ -3,49 +3,72 @@ package com.kumulus.controllers.workflow
 import com.kumulus.domain.*
 import grails.converters.JSON
 
+// NEED TO SECURE THIS BASED ON BACK OFFICE PERMISSIONS
 class StructureController {
     
     def structureService
     def permissionsService
     def workflowService
     
+    def getNextTask() {
+        def task = workflowService.getNextTask(Task.TYPE_PROCESS, permissionsService.getUsername())
+        workflowService.assignTask(task, permissionsService.getUsername())
+        workflowService.startTask(task)
+        redirect action: "process", params: [taskId: task.id]
+    }
+    
+    
     def process() {
-        // NEED TO SECURE THIS BASED ON BACK OFFICE PERMISSIONS
-        def task = workflowService.getNextTask(Task.TYPE_PROCESS)
-        def currencies = Currency.listOrderByFullName()
-        def documentTypes = DocumentType.listOrderByName()
-        def document = task.document
-        if(currencies && documentTypes && document) {
-            workflowService.assignTask(task, permissionsService.getUsername())
-            workflowService.startTask(task)
-          
+        
+        def task = Task.get(params?.taskId)
+        if(task && !task.completed) {
+            def currencies = Currency.listOrderByFullName()
+            def documentTypes = DocumentType.listOrderByName()
+            def document = task.document            
+            
             render view: "process", model:[task: task, document: document, currencies: currencies, documentTypes: documentTypes, size:document?.pages?.size()]
         }
     }
     
     def save(){
-        // must check permissions properly
-
+        
+        // NEED TO MOVE ALL THIS TO A SERVICE, CURRENTLY IT IS NOT ATOMIC
+        
         def response = [done: false]
         def data = request.JSON
-    
-        def currency = Currency.findByShortName(data?.currency)
-        if(data?.documentId && data?.taskId && currency) {
+        def task = Task.findById(data?.form.taskId)
+        def currency = Currency.findById(data?.form.currency)
+        def documentType = DocumentType.findById(data?.form.documentType)
+        if(task && !task.completed && currency && documentType && data?.form.company && data?.form.identifier) {
 
             // update the document
             Date date
-            if(data?.date) date = new Date().parse("yyyy-MM-dd", data.date) else date = null
-            def document = structureService.updateDocument(data?.documentId, data?.documentType, date, data?.identifier)
+            if(data.form.date) date = new Date().parse("dd/MM/yyyy", data.form.date) else date = null
+            def document = structureService.updateDocument(task.document, data.form.company, documentType, date, data.form.identifier)
             
-            // update the line items
-            data?.lineItems.each {
+            // update the line items submitted
+            def updatedLineItems = []
+            data.form?.lineItems.each {
                 date = null
-                if(it?.date) date = new Date().parse("yyyy-MM-dd", it.date)
+                if(it?.date) date = new Date().parse("dd/MM/yyyy", it.date)
                 def lineItem = structureService.updateLineItem(it?.lineItemId, it?.pageId, currency, date, it?.description, it?.quantity, it?.price, it?.amount)
+                updatedLineItems.add(lineItem)
             }
-            workflowService.completeTask(Task.findById(data.taskId))
+            
+            // remove any deleted line items from the database
+            def lineItemsToRemove = document.pages.lineItems.toList().flatten()
+            lineItemsToRemove.removeAll(updatedLineItems)
+            lineItemsToRemove.each { lineItem ->
+                lineItem.page.removeFromLineItems(lineItem)
+                lineItem.delete()
+            }
+            
+            // close the task if requested
+            if(data?.completeTask) workflowService.completeTask(task)
+            
             response.done = true
         }
+        
         render response as JSON
     }
     

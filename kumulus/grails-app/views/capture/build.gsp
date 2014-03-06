@@ -40,7 +40,7 @@
       <div class="pure-u-1-3">
         <div class="kumulus-container kumulus-element-border">
           <div class="pure-g">
-            <div class="pure-u-5-6">    
+            <div class="pure-u-3-4">    
               <div class="pure-g">
                 <div class="pure-u-1-2">
                   <div class="kumulus-container-inside kumulus-scrollable-y kumulus-filmstrip-margin-top">
@@ -59,7 +59,7 @@
                   <div class="kumulus-container-inside-full kumulus-scrollable-y">
                       <div class="kumulus-filmstrip-header">
                     <div id="document-strip" class="">
-                        <span><h6>Drag the Doc Here</h6></span>
+                        <span><h6>Drag to put Doc in the end</h6></span>
                         <li id="flimstrip-first-li" class="kumulus-filmstrip"></li>
                     </div>
                       </div>

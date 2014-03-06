@@ -25,11 +25,9 @@ class FilesystemService {
         return(literal)
     }
 
-    def indexDocument(document, uFile) {
-        document.file = uFile
-        File file = new File(uFile.path)
+    def indexDocument(document) {
+        File file = new File(document.file.path)
         document.text = tikaService.parseFile(file)
-        document.save()
     }
     
     def newProject(params) {
@@ -110,8 +108,29 @@ class FilesystemService {
         return(images)
     }
     
-    def indexPdfInFilesystem(literal, document, uFile) {
+    def createUFile(filename) {
+        def file = new File(filename)
+        def ufile = new UFile()
+        ufile.name = filename.substring(filename.lastIndexOf('/') + 1)
+        ufile.size = file.size()
+        ufile.extension = filename.substring(filename.lastIndexOf('.') + 1)
+        ufile.dateUploaded = new Date()
+        ufile.path = file.getAbsolutePath()
+        ufile.downloads = 0
+        ufile.save()
+        return(ufile)
+    }
+    
+    def deriveFilenameForPdf(document) {
+        return grailsApplication.config.filesystem.staging + document.literal + '.pdf'
+    }
         
+    def indexPdfInFilesystem(document, filename) {
+        def path = grailsApplication.config.filesystem.main + document.literal + '/docs/'
+        new File(path).mkdirs()
+        def dest = path + document.literal + '.pdf'
+        new File(filename).renameTo(dest)
+        return createUFile(dest)
     }
     
     def stagingFlush(uFile) {
