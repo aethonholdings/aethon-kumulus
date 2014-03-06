@@ -112,30 +112,33 @@ public class AsyncImageViewer extends SwingWorker<Void, NodeProperties> {
 				publilshNodePropertyList(nodePropertyList);				
 				Thread.sleep(500);
 				//log.info("End publish records");
-					//log.info("Async Image Viewer -> Fetch Call : " + rangeStart);
-					//log.info("Async Image Viewer -> Fetch Range End : " + rangeEnd);
-					
-					rangeStart=rangeEnd+1;
-					rangeEnd=rangeEnd+batchSize;
-					
-					if(rangeEnd>totalChildNodeCount)
-					{																		
-						rangeEnd = totalChildNodeCount;
-						
-						idList.set(2, String.valueOf(rangeStart));
-						idList.set(3, String.valueOf(rangeEnd));
-						// displayedThumbnails = rangeEnd;
-						List<NodeProperties> nodePropertyListLastCall = importSaparationPanelHelper.fetchChildNodeList(idList);
-						
-						displayedThumbnails = displayedThumbnails + nodePropertyListLastCall.size();
-						
-						if (nodePropertyListLastCall == null)
-							return null;				
-						
-						publilshNodePropertyList(nodePropertyListLastCall);
-						Thread.sleep(500);
-					}
-					
+                                //log.info("Async Image Viewer -> Fetch Call : " + rangeStart);
+                                //log.info("Async Image Viewer -> Fetch Range End : " + rangeEnd);
+
+                                // -- KONS EDIT -- REMOVED CODE BELOW, IT PERFORMED UNNECESSARY 2nd CALL ON SERVER FOR SOME REASON
+                                
+//                                rangeStart=rangeEnd+1;
+//                                rangeEnd=rangeEnd+batchSize;
+//
+//                                if(rangeEnd>totalChildNodeCount)
+//                                {																		
+//                                        rangeEnd = totalChildNodeCount;
+//
+//                                        idList.set(2, String.valueOf(rangeStart));
+//                                        idList.set(3, String.valueOf(rangeEnd));
+//                                        // displayedThumbnails = rangeEnd;
+//                                        List<NodeProperties> nodePropertyListLastCall = importSaparationPanelHelper.fetchChildNodeList(idList);
+//
+//                                        displayedThumbnails = displayedThumbnails + nodePropertyListLastCall.size();
+//
+//                                        if (nodePropertyListLastCall == null)
+//                                                return null;				
+//
+//                                        publilshNodePropertyList(nodePropertyListLastCall);
+//                                        Thread.sleep(500);
+//                                }
+//                                
+				// -- KONS END EDIT 
 			}	
 			log.info("====== END VIEW THUMBNAILS ======");
 			

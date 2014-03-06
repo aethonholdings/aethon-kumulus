@@ -170,27 +170,29 @@ class ScanDoController {
         def page = pageNode.page
         
         if(pageNode && page) {
-            response = [
-                "nodeId": page.literal,
-                "projectId": "" + pageNode.project.id,
-                "name": page.literal,
-                "type": null,
-                "barcode": null,
-                "comment": null,
-                "internalComment": null,
-                "status": null,
-                "parentNodeId": "" + pageNode.id,
-                "hierarchy": null,
-                "thumbnailImageName": page.thumbnailImage.file.name,
-                "actualImageName": page.viewImage.file.name,
-                "lastUpdateDateTime": pageNode.lastUpdateDatetime,
-                "documentSequenceNumber": page.number,
-                "userId": null,
-                "encodeStringForImage": null,
-                "encodeStringForThumbnail": filesystemService.renderFileInBase64(page.thumbnailImage.file),
-                "oldActualImageName": page.viewImage.file.name,
-                "oldThumbnailImageName": page.thumbnailImage.file.name,
-                "transactionStatus":"U"
+            response = [ 
+                [
+                    "nodeId": page.literal,
+                    "projectId": "" + pageNode.project.id,
+                    "name": page.literal,
+                    "type": null,
+                    "barcode": null,
+                    "comment": null,
+                    "internalComment": null,
+                    "status": null,
+                    "parentNodeId": "" + pageNode.id,
+                    "hierarchy": null,
+                    "thumbnailImageName": page.thumbnailImage.file.name,
+                    "actualImageName": page.viewImage.file.name,
+                    "lastUpdateDateTime": pageNode.lastUpdateDatetime,
+                    "documentSequenceNumber": page.number,
+                    "userId": null,
+                    "encodeStringForImage": null,
+                    "encodeStringForThumbnail": filesystemService.renderFileInBase64(page.thumbnailImage.file),
+                    "oldActualImageName": page.viewImage.file.name,
+                    "oldThumbnailImageName": page.thumbnailImage.file.name,
+                    "transactionStatus":"U"
+                ]
             ]
         }
         
