@@ -3,6 +3,7 @@ package com.kumulus.controllers
 import com.kumulus.domain.*
 import com.kumulus.services.*
 import grails.converters.*
+import org.compass.core.engine.SearchEngineQueryParseException
 
 class ProjectController {
 
@@ -52,6 +53,18 @@ class ProjectController {
         
       def project=  Project.findById(Integer.parseInt(params.id))
       render view:"view" , model:[project:project]
+    }
+    
+     def search() { 
+        if (!params.q?.trim()) {
+            return [:]
+        }
+        try {
+            def searchResult = searchableService.search(params.q, params)
+            return [searchResult: searchResult]
+        } catch (SearchEngineQueryParseException ex) {
+            return [parseException: true]
+        }
     }
        
 }
