@@ -65,12 +65,23 @@ class NodeController {
     }
     
     def list(){
-        
+        def data = request.JSON
+    
         def nodes = []
+        def nodeList=[]
         nodes = Node.findAll {
             (type == NodeType.findByName("Box") && status == Node.STATUS_CLOSED)
         }
-        render nodes as JSON
+        nodes.each{node ->
+            //            println("hhh"+ShipmentItem.findByItemIdAndDelivery(node.id,data.deliveryId))
+            def shipObj=ShipmentItem.findByItemId(node.id)
+            if(!shipObj){
+                nodeList<<node
+            }
+            
+        }
+
+        render nodeList as JSON
     }
 
     def move(){
@@ -146,9 +157,9 @@ class NodeController {
     }
     
     def fetchFromStorage() {
-         def response = [done: true]
-         //fetch from storage
-         render response as JSON
-         println(response)
+        def response = [done: true]
+        //fetch from storage
+        render response as JSON
+        println(response)
     }
 }
