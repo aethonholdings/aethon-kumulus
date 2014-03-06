@@ -129,7 +129,7 @@ public class ImageUploader {
 
 			new Thread(new UploadImage(imageNodePropertiesList, isResumeImport, selectedNode))
 					.start();
-
+                        
 			imageNodePropertiesList.clear();
 		}
 	}
