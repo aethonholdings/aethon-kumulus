@@ -351,8 +351,8 @@ kumulus-control-group{
     margin: 0px auto;
 }
 
-.kumulus-flimstrip-header h6{
-    margin: 1em 10px 10px 6px;
+#document-strip h6{
+    margin: 2em 10px 15px 6px;
 }
 
 .kumulus-filmstrip-margin-top{
