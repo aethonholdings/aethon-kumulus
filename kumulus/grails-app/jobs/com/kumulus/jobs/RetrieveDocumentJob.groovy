@@ -42,28 +42,30 @@ class RetrieveDocumentJob {
 
         // Retrieve searchable documents from ABBYY
         for (doc in Document.findAll {status == Document.STATUS_SUBMITTED && deleted == false}) {
-            def wtask = com.kumulus.domain.Task.find {document == doc && completed == null && type == com.kumulus.domain.Task.TYPE_OCR_RETRIEVE}
-            workflowService.startTask(wtask)
-            def task = client.getTaskStatus(doc.ocrTask)
-            if (!task.isTaskActive()) {
-                if (task.Status == Task.TaskStatus.Completed) {
-                    def filename = filesystemService.deriveFilenameForPdf(doc)
-                    client.downloadResult(task, filename)
-                    doc.file = filesystemService.indexPdfInFilesystem(doc, filename)
-                    workflowService.completeTask(wtask)
-                    workflowService.createTask(doc, com.kumulus.domain.Task.TYPE_PROCESS, 'kumulus')
+            Document.withTransaction { trans ->
+                def task = client.getTaskStatus(doc.ocrTask)
+                if (!task.isTaskActive()) {
+                    if (task.Status == Task.TaskStatus.Completed) {
+                        def wtask = com.kumulus.domain.Task.find {document == doc && completed == null && type == com.kumulus.domain.Task.TYPE_OCR_RETRIEVE}
+                        workflowService.startTask(wtask)
+                        def filename = filesystemService.deriveFilenameForPdf(doc)
+                        client.downloadResult(task, filename)
+                        doc.file = filesystemService.indexPdfInFilesystem(doc, filename)
+                        workflowService.completeTask(wtask)
+                        workflowService.createTask(doc, com.kumulus.domain.Task.TYPE_PROCESS, 'kumulus')
+                    }
+                    else if (task.Status == Task.TaskStatus.NotEnoughCredits) {
+                        sns.sendEmail('ABBYY is not processing documents due to lack of funds!',
+                                      'Buy additional pages and change the status of affected documents in database.')
+                        doc.status = Document.STATUS_SUBMISSION_ERROR
+                    }
+                    else {
+                        sns.sendEmail('ABBYY reported an error while processing document ' + doc.identifier,
+                                      'Resolve and change status of affected document in database.')
+                        doc.status = Document.STATUS_SUBMISSION_ERROR
+                    }
+                    doc.save()
                 }
-                else if (task.Status == Task.TaskStatus.NotEnoughCredits) {
-                    sns.sendEmail('ABBYY is not processing documents due to lack of funds!',
-                                  'Buy additional pages and change the status of affected documents in database.')
-                    doc.status = Document.STATUS_SUBMISSION_ERROR
-                }
-                else {
-                    sns.sendEmail('ABBYY reported an error while processing document ' + doc.identifier,
-                                  'Resolve and change status of affected document in database.')
-                    doc.status = Document.STATUS_SUBMISSION_ERROR
-                }
-                doc.save(flush: true)
             }
         }
     }
