@@ -239,7 +239,7 @@ environments {
 }
 
 quartz {
-    autoStartup = false
+    autoStartup = true
 }
 
 abbyy {

@@ -7,6 +7,7 @@
 package com.kumulus.jobs
 
 import com.kumulus.domain.Document
+import com.kumulus.domain.Task
 
 /**
  *
@@ -15,6 +16,7 @@ import com.kumulus.domain.Document
 class ExtractTextJob {
     
     def filesystemService
+    def workflowService
 
     static triggers = {
         simple name: 'Extract Job', startDelay: 0, repeatInterval: 10000  
@@ -24,8 +26,11 @@ class ExtractTextJob {
 
     def execute() {
         for (doc in Document.findAll {status == Document.STATUS_SEARCHABLE && deleted == false}) {
+            def wtask = Task.find {document == doc && completed == null && type == Task.TYPE_PROCESS}
+            workflowService.startTask(wtask)
             filesystemService.indexDocument(doc)
-            doc.status = Document.STATUS_PROCESSED
+            workflowService.completeTask(wtask)
+            workflowService.createTask(doc, Task.TYPE_VALIDATE, 'kumulus')
             doc.save(flush: true)
         }
     }

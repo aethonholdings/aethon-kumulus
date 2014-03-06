@@ -20,6 +20,7 @@ class RetrieveDocumentJob {
     
     def grailsApplication
     def filesystemService
+    def workflowService
 
     static triggers = {
         simple name: 'Retrieve Job', startDelay: 0, repeatInterval: 10000  
@@ -41,13 +42,16 @@ class RetrieveDocumentJob {
 
         // Retrieve searchable documents from ABBYY
         for (doc in Document.findAll {status == Document.STATUS_SUBMITTED && deleted == false}) {
+            def wtask = com.kumulus.domain.Task.find {document == doc && completed == null && type == com.kumulus.domain.Task.TYPE_OCR_RETRIEVE}
+            workflowService.startTask(wtask)
             def task = client.getTaskStatus(doc.ocrTask)
             if (!task.isTaskActive()) {
                 if (task.Status == Task.TaskStatus.Completed) {
                     def filename = filesystemService.deriveFilenameForPdf(doc)
                     client.downloadResult(task, filename)
                     doc.file = filesystemService.indexPdfInFilesystem(doc, filename)
-                    doc.status = Document.STATUS_SEARCHABLE
+                    workflowService.completeTask(wtask)
+                    workflowService.createTask(doc, com.kumulus.domain.Task.TYPE_PROCESS, 'kumulus')
                 }
                 else if (task.Status == Task.TaskStatus.NotEnoughCredits) {
                     sns.sendEmail('ABBYY is not processing documents due to lack of funds!',
