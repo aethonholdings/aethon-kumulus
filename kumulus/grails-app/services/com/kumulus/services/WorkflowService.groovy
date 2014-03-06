@@ -4,13 +4,13 @@ import com.kumulus.domain.*
 import java.text.SimpleDateFormat
 import grails.transaction.Transactional
 
-@Transactional
 class WorkflowService {
     
     private def stateMap = {
         def map = [
             (Task.TYPE_BUILD): [create: Document.STATUS_IMPORTED, complete: Document.STATUS_BUILT, error: null],
-            (Task.TYPE_OCR): [create: Document.STATUS_BUILT, complete: Document.STATUS_SEARCHABLE, error: Document.STATUS_SUBMISSION_ERROR],
+            (Task.TYPE_OCR): [create: Document.STATUS_BUILT, complete: Document.STATUS_SUBMITTED, error: null],
+            (Task.TYPE_OCR_RETRIEVE): [create: Document.STATUS_SUBMITTED, complete: Document.STATUS_SEARCHABLE, error: Document.STATUS_SUBMISSION_ERROR],
             (Task.TYPE_PROCESS): [create: Document.STATUS_SEARCHABLE, complete: Document.STATUS_PROCESSED, error: null],
             (Task.TYPE_VALIDATE): [create: Document.STATUS_PROCESSED, complete: Document.STATUS_FINAL, error: null]
         ]

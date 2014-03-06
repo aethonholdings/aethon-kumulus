@@ -10,6 +10,7 @@ import com.abbyy.ocrsdk.Client
 import com.abbyy.ocrsdk.ProcessingSettings
 import com.kumulus.domain.Document
 import com.kumulus.domain.Page
+import com.kumulus.domain.Task
 
 /**
  *
@@ -18,9 +19,10 @@ import com.kumulus.domain.Page
 class SubmitDocumentJob {
 
     def grailsApplication
+    def workflowService
 
     static triggers = {
-        simple name: 'Submit Job', startDelay: 0, repeatInterval: 120000  
+        simple name: 'Submit Job', startDelay: 0, repeatInterval: 10000  
     }
 
     def group = "Jobs"
@@ -35,9 +37,11 @@ class SubmitDocumentJob {
         settings.setOutputFormat(ProcessingSettings.OutputFormat.pdfSearchable)
 
         // Submit documents with status STATUS_BUILT to ABBYY
-        for (doc in Document.list(status: Document.STATUS_BUILT)) {
+        for (doc in Document.findAll {status == Document.STATUS_BUILT && deleted == false}) {
+            def wtask = Task.find {document == doc && completed == null && type == Task.TYPE_OCR}
+            workflowService.startTask(wtask)
             def task = null
-            for (page in Page.list(document: doc)) {
+            for (page in Page.findAll {document == doc}) {
                 def filename = page.scanImage.file.path
                 def id = (task == null) ? null : task.Id
                 def result = client.submitImage(filename, id)
@@ -45,7 +49,8 @@ class SubmitDocumentJob {
             }
             task = client.processDocument(task.Id, settings)
             doc.ocrTask = task.Id
-            doc.status = Document.STATUS_SUBMITTED
+            workflowService.completeTask(wtask)
+            workflowService.createTask(doc, Task.TYPE_OCR_RETRIEVE, 'kumulus')
             doc.save(flush: true)
         }
     }

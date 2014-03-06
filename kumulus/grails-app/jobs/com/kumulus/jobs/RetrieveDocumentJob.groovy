@@ -11,6 +11,7 @@
 package com.kumulus.jobs
 
 import com.abbyy.ocrsdk.Client
+import com.abbyy.ocrsdk.Task
 import com.kumulus.domain.Document
 
 import com.kumulus.aws.SimpleEmailService
@@ -18,9 +19,10 @@ import com.kumulus.aws.SimpleEmailService
 class RetrieveDocumentJob {
     
     def grailsApplication
+    def filesystemService
 
     static triggers = {
-        simple name: 'Retrieve Job', startDelay: 0, repeatInterval: 120000  
+        simple name: 'Retrieve Job', startDelay: 0, repeatInterval: 10000  
     }
 
     def group = "Jobs"
@@ -38,17 +40,16 @@ class RetrieveDocumentJob {
         sns.setDefaultRecipient(grailsApplication.config.smtp.error_to)
 
         // Retrieve searchable documents from ABBYY
-        for (doc in Document.list(status: Document.STATUS_SUBMITTED)) {
+        for (doc in Document.findAll {status == Document.STATUS_SUBMITTED && deleted == false}) {
             def task = client.getTaskStatus(doc.ocrTask)
-            if (task.isTaskActive()) {
-                if (task.status == Task.TaskStatus.Completed) {
-                    // TODO: construct output path
-                    outputPath = ''
-                    client.downloadResult(task, outputPath)
-                    doc.file = outputPath
+            if (!task.isTaskActive()) {
+                if (task.Status == Task.TaskStatus.Completed) {
+                    def filename = filesystemService.deriveFilenameForPdf(doc)
+                    client.downloadResult(task, filename)
+                    doc.file = filesystemService.indexPdfInFilesystem(doc, filename)
                     doc.status = Document.STATUS_SEARCHABLE
                 }
-                else if (task.status == Task.TaskStatus.NotEnoughCredits) {
+                else if (task.Status == Task.TaskStatus.NotEnoughCredits) {
                     sns.sendEmail('ABBYY is not processing documents due to lack of funds!',
                                   'Buy additional pages and change the status of affected documents in database.')
                     doc.status = Document.STATUS_SUBMISSION_ERROR

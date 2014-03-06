@@ -55,6 +55,7 @@ grails.project.dependency.resolution = {
         runtime 'mysql:mysql-connector-java:5.1.24'
         runtime "javax.mail:javax.mail-api:1.5.1"
         runtime "com.sun.jersey:jersey-core:1.18"
+        runtime "com.sun.mail:javax.mail:1.5.1"
     }
 
     plugins {
