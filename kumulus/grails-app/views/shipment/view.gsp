@@ -32,7 +32,7 @@
                         <table class="kumulus-shipment-table pure-table-horizontal" id="nodeTable">
                             <thead>
                                 <tr>
-                                    <th>&nbsp;</th>
+                                    <th width="14%">&nbsp;</th>
                                     <th>Item</th>
                                     <th>Description</th>
                                     <th>Quantity</th>
@@ -59,8 +59,9 @@
                                     </g:if>
                                 </g:each>  
                                 <tr>
-                                    <td><input type="button" id="removeNode" deliveryId="1" name="Remove" value="Remove" class="pure-button kumulus-float-right kumulus-margin-top"></td>
-                                    <td colspan="2"><input type="button" id="addNode" deliveryId="1" name="add" value="Add" class="pure-button kumulus-float-right kumulus-margin-top"></td>
+                                    <td colspan="2"></td>
+                                    <td colspan="2"><input type="button" id="removeNode" deliveryId="1" name="Remove" value="Remove" class="pure-button kumulus-float-right">
+                                        <input type="button" id="addNode" deliveryId="1" name="add" value="Add" class="pure-button kumulus-float-right"></td>
                                 </tr>
                                 <tr>
                                     <td colspan="4"><div class="kumulus-shipment-sub-subheader">Products</div></td>
@@ -94,8 +95,11 @@
                                     </g:if>
                                 </g:each>  
                                 <tr>
-                                    <td><input type="button" id="removeNode1" deliveryId="1" name="Remove" value="Remove" class="pure-button kumulus-float-right kumulus-margin-top"></td>
-                                    <td colspan="2"><input type="button" id="addNode1" deliveryId="2" name="add" value="Add" class="pure-button kumulus-float-right kumulus-margin-top"</td>
+                                    <td colspan="2"></td>
+                                    <td colspan="2">
+                                        <input type="button" id="removeNode1" deliveryId="1" name="Remove" value="Remove" class="pure-button kumulus-float-right">
+                                        <input type="button" id="addNode1" deliveryId="2" name="add" value="Add" class="pure-button kumulus-float-right">
+                                    </td>
                                 </tr>
 
                                 <tr>
