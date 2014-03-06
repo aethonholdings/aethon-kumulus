@@ -148,7 +148,7 @@ public class ImportSaparationPanel extends BaseJPanel implements
 
 	public ImportSaparationPanel(DesktopMainJPanel desktopMainPanel) {
         
-                
+               
 		this.desktopMainPanel = desktopMainPanel;
 		this.setLayout(new GridBagLayout());
 
@@ -384,11 +384,12 @@ public class ImportSaparationPanel extends BaseJPanel implements
 		buttonPanelGroup3.add(cancelButton, new GridBagConstraints(2, 1, 1, 1,
 				0.0, 0.0, GridBagConstraints.NORTH,
 				GridBagConstraints.HORIZONTAL, new Insets(2, 2, 2, 2), 0, 0));
-
-		buttonPanel.add(buttonPanelGroup1, new GridBagConstraints(0, 0, 1, 1,
-				1.0, 1.0, GridBagConstraints.NORTH,
-				GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
-
+                
+                // -- RAJ CODE TO HIDE THE THUMBNAIL BUTTON
+//		buttonPanel.add(buttonPanelGroup1, new GridBagConstraints(0, 0, 1, 1,
+//				1.0, 1.0, GridBagConstraints.NORTH,
+//				GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
+                // -- END RAJ CODE TO HIDE THE THUMBNAIL BUTTON
 		// Condition To Check If User Has Import Rights
 		if (("Y").equalsIgnoreCase(hasImportRights)) {
 			buttonPanel.add(buttonPanelGroup2, new GridBagConstraints(1, 0, 1,
@@ -403,7 +404,7 @@ public class ImportSaparationPanel extends BaseJPanel implements
 
 	}
 
-	private void initThumbnailPanel(final CustomMutableTreeNode selectedNode)
+	public void initThumbnailPanel(final CustomMutableTreeNode selectedNode)
 			throws Exception {
 
 		if (imageViewer != null && imageViewer.getFullScreenDialog() != null) {
@@ -873,24 +874,28 @@ public class ImportSaparationPanel extends BaseJPanel implements
 			}
 
 		}
+                
+                //-- RAJ CODE COMMENTED CODE FOR THUMBNAIL BUTTON
 
-		if (e.getSource() == viewThumbnailsButton) {
-
-			// Check If Selected Node Is Project Node/ Root Node
-			if (selectedNode.getNodeId().equalsIgnoreCase(
-					SessionUtil.getSessionData().getProjectId())) {
-				ErrorMessage.displayMessage('I', "selectDocumentNode");
-				return;
-			}
-
-			try {
-				initThumbnailPanel(selectedNode);
-			} catch (Exception exception) {
-				log.debug("Exception Occurs While Trying To Initialize Thumbnail Panel "
-						+ exception);
-				exception.printStackTrace();
-			}
-		}
+//		if (e.getSource() == viewThumbnailsButton) {
+//
+//			// Check If Selected Node Is Project Node/ Root Node
+//			if (selectedNode.getNodeId().equalsIgnoreCase(
+//					SessionUtil.getSessionData().getProjectId())) {
+//				ErrorMessage.displayMessage('I', "selectDocumentNode");
+//				return;
+//			}
+//                
+//			try {
+//				//initThumbnailPanel(selectedNode);
+//			} catch (Exception exception) {
+//				log.debug("Exception Occurs While Trying To Initialize Thumbnail Panel "
+//						+ exception);
+//				exception.printStackTrace();
+//			}
+//		}
+                
+                //-- END RAJ CODE COMMENTED CODE FOR THUMBNAIL BUTTON
 		if (e.getSource() == editNodePropertyButton) {
 			// Check If Selected Node Is Project Node/ Root Node
 			if (selectedNode.getNodeId().equalsIgnoreCase(

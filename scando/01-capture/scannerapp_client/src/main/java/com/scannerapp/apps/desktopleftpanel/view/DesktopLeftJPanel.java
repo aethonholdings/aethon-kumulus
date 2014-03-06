@@ -873,12 +873,34 @@ public class DesktopLeftJPanel extends BaseJPanel implements IconRepository,
 			}
 
 			lastSelectedNode = selectedElement;
-
+                        
+                        //-- RAJ CODE TO GET THUMBNAILS ON CLIKING ON DOCUMENT
+                        CustomMutableTreeNode selectedNode = desktopMainPanel.getjRightPanel()
+				.getCollectionPanel().getSelectedTreeNode();
+                        
+//                        // Check If Selected Node Is Project Node/ Root Node
+//			if (selectedNode.getNodeId().equalsIgnoreCase(
+//					SessionUtil.getSessionData().getProjectId())) {
+//				ErrorMessage.displayMessage('I', "selectDocumentNode");
+//				return;
+//			}
+                        
+                    
+                        try {
+                               desktopMainPanel.jRightPanel.importAndSepPanel.initThumbnailPanel(selectedNode);
+			} catch (Exception exception) {
+				log.debug("Exception Occurs While Trying To Initialize Thumbnail Panel "
+						+ exception);
+				exception.printStackTrace();
+			}
+                        //-- RAJ CODE TO GET THUMBNAILS ON CLIKING ON DOCUMENT
+                        
 			// Import Separation Panel Thumbnail Panel Visible/Invisible
 			visibleInvisibleThumbnailPanel(selectedElement);
 
 			// Import And Separation Panel Buttons Enable Diable
 			enableDisableImportSeparationButtons(nodeProperties);
+                        
 
 		}
 	}
