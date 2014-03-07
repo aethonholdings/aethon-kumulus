@@ -1,8 +1,8 @@
 package com.kumulus.domain
 
 class Node {
-
-    static searchable = [only: ['name', 'barcode', 'comment', 'createDateTime']]
+    
+    static searchable = [only: ['name', 'parent', 'barcode', 'comment', 'createDateTime']]
     
     static final String STATUS_OPEN = "0"
     static final String STATUS_CLOSED = "1"

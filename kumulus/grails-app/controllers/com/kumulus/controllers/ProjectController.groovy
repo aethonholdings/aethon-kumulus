@@ -57,7 +57,8 @@ class ProjectController {
       render view:"view" , model:[project:project]
     }
     
-     def search() { 
+     def search() 
+     { 
          
         def searchResult 
         println(params)
@@ -68,10 +69,24 @@ class ProjectController {
         try {
                String searchTerm = WILDCARD+ params.q + WILDCARD
                searchResult = searchableService.search(searchTerm, params)
-             //return [searchResult: searchResult]
+               return [searchResult: searchResult]
         } catch (SearchEngineQueryParseException ex) {
-             //return [parseException: true]
+               return [parseException: true]
         }
-        render searchResult
-    }  
+        //render searchResult
+     }  
+     def indexAll() {
+
+        Thread.start {
+
+            searchableService.index()
+
+        }
+    }
+
+    
+     def index(){
+        redirect(action: "list", params: params)
+    }
+    
 }
