@@ -17,10 +17,19 @@ $(document).ready(function(){
         $("#edit div input,textarea").removeAttr("disabled");   
         $(this).attr('disabled', 'disabled');
     });
+    
+     $("#scheduleDate, #startDate, #finishDate").datepicker({
+        minDate: new Date(),
+        onClose: function() {
+            this.focus();
+        }
+
+    });
+    
 
 });
 function validate(){
- $("#structure ,#project, .add, #edit").validate({
+ $("#structure ,#project, .add, #edit, #shipment").validate({
                    	rules: {
 			company: "required",
 			date: "required",
@@ -29,7 +38,11 @@ function validate(){
                         amount:"required",
                         projectName:"required",
                         ClientName:"required",
-                        pageNo:"required"
+                        pageNo:"required",
+                        fromCompany:"required",
+                        scheduleDate:"required",
+                        startDate:"required",
+                        finishDate:"required"
                              }
 //		messages: {
 //			company: "Please enter company name",

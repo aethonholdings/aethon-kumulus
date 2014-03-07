@@ -13,9 +13,10 @@ class HomeController {
             company == permissionsService.getCompany()
             status == Project.STATUS_ACTIVE
         }
+        def shipmentList=Shipment.findAll()
         def userTasks = workflowService.getTaskQueues(permissionsService.getUsername())
         def backOfficeTasks = workflowService.getTaskQueues(null)
-        render(view:"index", model:[pageTitle: "Home", projectList: projectList, userTasks: userTasks, backOfficeTasks: backOfficeTasks, userId: permissionsService.getUsername()])
+        render(view:"index", model:[pageTitle: "Home", projectList: projectList,shipmentList:shipmentList, userTasks: userTasks, backOfficeTasks: backOfficeTasks, userId: permissionsService.getUsername()])
         
     }
     

@@ -24,33 +24,40 @@
                                 <th></th>
                                 <th></th>
                                 <th>Description</th>
+                                <th>Currency</th>
                                 <th>Price</th>
                                 <th>Quantity</th>
-                                <th>Currency</th>
                                 <th>Amount</th>
                             </tr>
                         </thead>
                         <tbody>    
                             <g:each var="product" in="${products}">
                               <tr onkeydown="send(this)" >
-                                <input type="hidden" id="productId" value=${product.id}/>
+                                <input name="productId" type="hidden" id="productId" value=${product.id}>
                                 <td width="10%"><g:img dir="images/products" file="/${product.imagePath}" class="kumulus-table-image"/></td>
                                 <td>${product.name}</td>
-                                <td width="40%">${product.description}</td>
-                                <td>${product.price}</td>
-                                <td><input id="quantity" type="text" value="" onblur="calculateTotalAmount(${product.price})" class="kumulus-small-input-box" onkeydown="CheckNumericWithoutDec(event)"></td>
+                                <td width="30%">${product.description}</td>
                                 <td>SGD</td>
-                                <td><div  class="kumulus-ordermaterial-Amount"><label id="totalAmount">0</label></div></td>
+                                <td>${product.price}
+                                <input type="hidden"  name="price" id="pricehidden"  value="${product.price}">
+                                </td>
+                                <td><input name="Quantity" id="quantity" type="text" value="" onblur="calculateTotalAmount(${product.price})" class="kumulus-small-input-box" onkeydown="CheckNumericWithoutDec(event)"></td>
+                                <td><div  class="kumulus-ordermaterial-Amount">
+                                        <label id="totalAmount">0</label>
+                                        <input type="hidden"  name="totalAmount" id="totalAmounthidden"  value="">
+                                    </div></td>
                               </tr> 
                              </g:each>
-                              <tr class="kumulus-bold-font" onClick="send(this)">
+                              <tr class="kumulus-bold-font kumulus-border-top" onClick="send(this)">
                                   <td style="text-align: center;"> <label for="Order_Total" >Order Total</label></td>
                                   <td></td>
                                   <td></td>
                                   <td></td>
                                   <td></td>
                                   <td></td>
-                                  <td><div  class="kumulus-ordermaterial-Amount"> <label id="grandtotal" name="Order_Total" class="">0</label></div></td>
+                                  <td><div  class="kumulus-ordermaterial-Amount"> <label id="grandtotal" name="Order_Total" class="">0</label>
+                                      <input type="hidden" name="Order-Grandtotal" id="grandtotalhidden"  value="">
+                                      </div></td>
                               </tr>
                         </tbody>
                     </table> 

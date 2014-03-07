@@ -26,8 +26,7 @@ class DocumentController {
         }
         def document = captureService.merge(documents)
         tasks.each { workflowService.completeTask(it) }
-        workflowService.completeTask(workflowService.createTask(document, Task.TYPE_OCR, permissionsService.getUsername()))  
-        workflowService.createTask(document, Task.TYPE_PROCESS, permissionsService.getUsername())        
+        workflowService.createTask(document, Task.TYPE_OCR, permissionsService.getUsername())
         response.done = true
         render response as JSON
     }

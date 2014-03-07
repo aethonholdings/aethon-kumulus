@@ -64,8 +64,10 @@
                         <div class="kumulus-container-1-5">
                             <div id="search">
                                 <div class="kumulus-search-margin"><label> Search </label>
-                                <g:textField name="q" value="${params.q}" class="pure-input" placeholder="Enter search terms" size="30"/> 
-                                <input type="submit" value="Search" class="pure-button"/>
+                                <g:form url='[controller: "project", action: "search"]' id="searchableForm" name="searchableForm" method="get">
+                                    <g:textField name="q" value="${params.q}" class="pure-input" placeholder="Enter search terms" size="30"/> 
+                                    <input type="submit" value="Search" class="pure-button" onclick="show_advanced();"/>
+                                </g:form>
                             </div>
                         </div>
                     </div> 

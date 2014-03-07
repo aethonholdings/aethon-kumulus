@@ -29,11 +29,12 @@ class WorkflowService {
         return(queues)
     }
         
+    class InconsistentStateException extends RuntimeException {
+    }
+    
     def createTask(Document document, String taskType, String createdByUserId) {
-        Task task
-        
         if(stateMap().get(taskType)?.create==document.status) { 
-            task = new Task(
+            def task = new Task(
                 project: document.project,
                 created: new Date(),
                 started: null,
@@ -45,8 +46,11 @@ class WorkflowService {
                 status: null
             )
             task.save()
+            return(task)
         }
-        return(task)
+        else {
+            throw new InconsistentStateException()
+        }
     }
     
     def getNextTask(String taskType, String userId) {
