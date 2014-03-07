@@ -61,8 +61,6 @@ class ProjectController {
      { 
          
         def searchResult 
-        println(params)
-        println(params.q)
         if (!params.q?.trim()) {
             return [:]
         }
