@@ -17,7 +17,10 @@ $(document).ready(function() {
     });
 
     $("#scheduleDated").datepicker({
-        minDate: new Date()
+        minDate: new Date(),
+         beforeShow:function(){
+          $('#scheduleDated').val($('#scheduleDated').val());
+      }
 
     });
     $("#datePickerDate").datepicker({
@@ -32,12 +35,10 @@ $(document).ready(function() {
 //  getNodeList();  
 
     $("#sendPickupNode").click(function() {
-//  alert($("input:checkbox:checked").length);
+
         if ($("input:checkbox:checked").length != 0) {
             $("input:checkbox:checked").each(function(i) {
                 if ($(this).attr("checked", true)) {
-
-
                     nodeId[i] = $(this).attr("id")
                     $("#nodeId").val(nodeId)
                 }
