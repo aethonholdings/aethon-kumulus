@@ -26,7 +26,7 @@ public class SimpleEmailService
     
     public SimpleEmailService(String smtp_server, int smtp_port,
                               String smtp_username, String smtp_password,
-                              String smtp_from)
+                              String smtp_from, String smtp_to)
     {
         this.smtp_server = smtp_server;
         this.smtp_port = smtp_port;
