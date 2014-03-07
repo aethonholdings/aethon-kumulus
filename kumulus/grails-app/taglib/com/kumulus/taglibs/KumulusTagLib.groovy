@@ -99,4 +99,16 @@ class KumulusTagLib {
         out << "</ul>\n"          
     }
     
+    def searchResult = { attrs ->
+        switch(attrs?.result.class){
+            case com.kumulus.domain.Node: 
+                println(attrs?.result.name)
+                break;
+            case com.kumulus.domain.Document:
+                println("Document")
+                break;
+        }
+            
+            
+    }
 }

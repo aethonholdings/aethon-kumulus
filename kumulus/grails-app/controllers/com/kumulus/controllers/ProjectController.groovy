@@ -73,20 +73,5 @@ class ProjectController {
         } catch (SearchEngineQueryParseException ex) {
                return [parseException: true]
         }
-        //render searchResult
      }  
-     def indexAll() {
-
-        Thread.start {
-
-            searchableService.index()
-
-        }
-    }
-
-    
-     def index(){
-        redirect(action: "list", params: params)
-    }
-    
 }

@@ -21,12 +21,10 @@
                     Search Result:
                 </strong></p>
                 <g:each in="${searchResult.results}" status="i" var="doc">
-//                    ${doc.class}
- //             </g:each>
+                   <p>${doc.class}</p>
+                   <g:searchResult result="${doc}"/>
+              </g:each>
             </g:if>
-            <g:else>
-                No Search Result
-            </g:else>
             <div>
                 <span>
                     <g:if test="${haveQuery && haveResults}">
