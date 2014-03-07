@@ -3,12 +3,15 @@ package com.kumulus.controllers
 import com.kumulus.domain.*
 import com.kumulus.services.*
 import grails.converters.*
+import org.compass.core.engine.SearchEngineQueryParseException
 
 class ProjectController {
-
+     
     def permissionsService
     def filesystemService
-        
+    def searchableService 
+    static String WILDCARD = "*"
+    
     def update() {
         def project = Project.get(params?.id)
         if(project && permissionsService.checkPermissions(project))  {
@@ -53,5 +56,37 @@ class ProjectController {
       def project=  Project.findById(Integer.parseInt(params.id))
       render view:"view" , model:[project:project]
     }
-       
+    
+     def search() 
+     { 
+         
+        def searchResult 
+        println(params)
+        println(params.q)
+        if (!params.q?.trim()) {
+            return [:]
+        }
+        try {
+               String searchTerm = WILDCARD+ params.q + WILDCARD
+               searchResult = searchableService.search(searchTerm, params)
+               return [searchResult: searchResult]
+        } catch (SearchEngineQueryParseException ex) {
+               return [parseException: true]
+        }
+        //render searchResult
+     }  
+     def indexAll() {
+
+        Thread.start {
+
+            searchableService.index()
+
+        }
+    }
+
+    
+     def index(){
+        redirect(action: "list", params: params)
+    }
+    
 }

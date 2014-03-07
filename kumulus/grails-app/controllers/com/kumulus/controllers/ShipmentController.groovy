@@ -3,10 +3,12 @@ package com.kumulus.controllers
 import static org.springframework.http.HttpStatus.*
 import grails.transaction.Transactional
 import com.kumulus.domain.*
+import java.text.SimpleDateFormat
+import grails.converters.*
 
-@Transactional(readOnly = true)
+
 class ShipmentController {
-
+    def permissionsService
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
@@ -101,31 +103,97 @@ class ShipmentController {
         }
     }
     
+    def createShipment (){
+        
+        SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+
+        if(params.fromCompany){
+            def newObj= new Shipment()
+            newObj.fromCompany=params.fromCompany
+            newObj.toCompany=params.fromCompany
+            newObj.scheduled=formatter.parse(params.scheduleDate)
+            //            newObj.started=formatter.parse(params.startDate)
+            //            newObj.finished=formatter.parse(params.finishDate)
+            newObj.notes=params.notes
+            newObj.save(flush:true)
+            if(params["Save and Create"]){
+                redirect(action: "view" ,params:[id:newObj.id])
+            }
+            else{
+                redirect(controller :"home", action: "index") 
+            }
+        
+      
+        }
+ 
+        
+    }
+    
     def view() {
+     
         def productList=[],nodeList=[]
-        def shipmentObj=Shipment.findAllById(1)
+        def shipmentObj=Shipment.findAllById(params.id)
         shipmentObj.shipmentItems[0].each{ it ->
             if(it.type==1){  
-              nodeList<<[
-                   nodeObj: Node.findById(it.itemId),
-                   quantity: it.quantity,
-                   delivery:it.delivery
+                nodeList<<[
+                    id:it.id,
+                    nodeObj: Node.findById(it.itemId),
+                    quantity: it.quantity,
+                    delivery:it.delivery
                 ]
-             
             }
             else{
                 productList<<[
-                   productObj: Product.findById(it.itemId),
-                   quantity: it.quantity,
-                   delivery:it.delivery
+                    productObj: Product.findById(it.itemId),
+                    quantity: it.quantity,
+                    delivery:it.delivery
                 ]
             }
       
-
         }
 
         [nodeList:nodeList,productList:productList,shipmentObj:shipmentObj]
     
+    }
+    
+    def saveItems(){
+        def data = request.JSON
+        def status=[:]   
+          
+        data.nodeList.each{node ->
+            def nodeObj = Node.findById(node)
+                 
+            if (permissionsService.checkPermissions(nodeObj)) {
+                def shipItemObj=new ShipmentItem()
+                shipItemObj.type=Byte.parseByte("1")
+                shipItemObj.itemId=Long.parseLong(node.toString())
+                shipItemObj.delivery=Byte.parseByte(data.deliveryId)
+                shipItemObj.quantity=Long.parseLong("1")
+                shipItemObj.shipment=Shipment.findById(Integer.parseInt(data.shipmentId))
+                shipItemObj.save(flush:true,failOnError:true) 
+                status.value="true"
+            }
+           
+        }
+            
+        render status as JSON
+            
+    }
+    
+    def removeItems(){
+        def data = request.JSON
+        data.nodeList.each{node ->
+            def Obj = ShipmentItem.findById(node)
+            Obj.delete(flush:true,failOnError:true) 
+        }
+        
+    }
+    
+    def remove(){
+        def obj=Shipment.findById(Integer.parseInt(params.id))
+        obj.delete(flush:true)
+        redirect controller :"home", action: "index" 
+        
     }
     
 }

@@ -347,9 +347,11 @@ kumulus-control-group{
     text-align: center;
     width: 95%;
     height: 30px; 
-    line-height: 30px;
+    line-height: 20px;
     margin: 0px auto;
+    border-radius: 2px;
 }
+
 .kumulus-filmstrip-margin-top{
     margin-top: 53px;
 }
@@ -604,6 +606,23 @@ li.kumulus-task-queue.kumulus-task-queue-action-item{
     width: 4.38em;
 }
 
+.pure-table .kumulus-border-top td{
+    border-top: 2px #e0e0ef solid;
+}
+
+.kumulus-search-text{
+    margin: 4px 210px 4px 30px;
+    height: 30px;
+    line-height: 15px;
+    overflow: hidden;
+}
+
+.kumulus-search-result{
+    padding : 4px 20px 0px 0px;
+    margin-left:50px;
+    background-color:#F2F7FD; 
+    width: 80%;
+}
 @media (max-width : 700px) {
     .kumulus-table-image{
         height: 60px;

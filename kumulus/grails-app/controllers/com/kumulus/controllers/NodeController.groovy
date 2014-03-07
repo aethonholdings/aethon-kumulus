@@ -65,12 +65,30 @@ class NodeController {
     }
     
     def list(){
-        
+        def data = request.JSON
         def nodes = []
-        nodes = Node.findAll {
-            (type == NodeType.findByName("Box") && status == Node.STATUS_CLOSED)
+        def nodeList=[]
+        if(data.deliveryId=="1"){
+            nodes = Node.findAll {
+                (type == NodeType.findByName("Box") && status == Node.STATUS_CLOSED && location =="In storage")
+            }
         }
-        render nodes as JSON
+        else{
+            nodes = Node.findAll {
+                (type == NodeType.findByName("Box") && status == Node.STATUS_CLOSED && location =="My premises")
+            }
+        }
+        
+        nodes.each{node ->
+            //            println("hhh"+ShipmentItem.findByItemIdAndDelivery(node.id,data.deliveryId))
+            def shipObj=ShipmentItem.findByItemId(node.id)
+            if(!shipObj){
+                nodeList<<node
+            }
+            
+        }
+
+        render nodeList as JSON
     }
 
     def move(){
@@ -146,9 +164,9 @@ class NodeController {
     }
     
     def fetchFromStorage() {
-         def response = [done: true]
-         //fetch from storage
-         render response as JSON
-         println(response)
+        def response = [done: true]
+        //fetch from storage
+        render response as JSON
+        println(response)
     }
 }
