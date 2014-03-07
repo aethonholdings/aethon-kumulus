@@ -47,6 +47,7 @@ import com.scannerapp.apps.desktopmainpanel.view.DesktopMainJPanel;
 import com.scannerapp.apps.desktoprightpanel.scanner6.DocumentScanner;
 import com.scannerapp.apps.framework.view.BaseJPanel;
 import com.scannerapp.apps.framework.view.ErrorMessage;
+import com.scannerapp.apps.login.view.LoginHelper;
 import com.scannerapp.apps.login.view.LoginJPanelController;
 import com.scannerapp.apps.utils.AsyncImageViewer;
 import com.scannerapp.apps.utils.ConstantUtil;
@@ -389,7 +390,7 @@ public class ImportSaparationPanel extends BaseJPanel implements
 //		buttonPanel.add(buttonPanelGroup1, new GridBagConstraints(0, 0, 1, 1,
 //				1.0, 1.0, GridBagConstraints.NORTH,
 //				GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
-                // -- END RAJ CODE TO HIDE THE THUMBNAIL BUTTON
+                // -- END  RAJ CODE TO HIDE THE THUMBNAIL BUTTON
 		// Condition To Check If User Has Import Rights
 		if (("Y").equalsIgnoreCase(hasImportRights)) {
 			buttonPanel.add(buttonPanelGroup2, new GridBagConstraints(1, 0, 1,
@@ -802,7 +803,16 @@ public class ImportSaparationPanel extends BaseJPanel implements
 				.getCollectionPanel().getSelectedTreeNode();
 
 		if (e.getSource() == importButton) {
-			importImageFromScanner(selectedNode);
+                    
+                    //--RAJ CODE TO CHECK THE CONNECTION BEFORE GOING TO UPLOAD THE IMAGES ON SERVER
+                    if (new LoginHelper().authorizeLogin(SessionUtil.getSessionData().getUserName().toString(),
+                            SessionUtil.getSessionData().getPassword().toString())) {
+                       importImageFromScanner(selectedNode); 
+                    }else{
+                       ErrorMessage.displayMessage('I', "errorInASConnection"); 
+                    }  
+                   //--RAJ CODE TO CHECK THE CONNECTION BEFORE GOING TO UPLOAD THE IMAGES ON SERVER 
+			
 		}
 		if (e.getSource() == resumeImportButton) {
 			resumeImport(selectedNode);

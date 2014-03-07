@@ -22,6 +22,7 @@ import com.scannerapp.common.NodePropertyConstants;
 import com.scannerapp.shared.NodeProperties;
 import com.scannerapp.shared.TransactionConstant;
 import com.sun.jersey.core.util.Base64;
+import static java.lang.System.exit;
 import javax.swing.tree.TreePath;
 
 /**
@@ -36,10 +37,11 @@ public class ImageUploader {
 
 	private ImportSaparationPanel importSaparationPanel;
 	private ArrayList<NodeProperties> imageNodePropertiesList = new ArrayList<NodeProperties>();
-
+        private boolean uploadSuccess= false;
 	private int totalScannedImages = 0;
 	private int totalUploadedImages = 0;
 	private int totalImagesWithUploadError = 0;
+        
 
 	/**
 	 * Count to maintain number of pages that are in process of resume import.
@@ -220,6 +222,7 @@ public class ImageUploader {
 					uploadErrorImageNameMap.get(imageDirectoryPath).add(
 							imageName);
 				}
+                               
 			}
 
 			// If image is successfully uploaded...
@@ -264,6 +267,7 @@ public class ImageUploader {
 
 		// Removing label to indicate that upload image is in process when it
 		// gets over...
+                
 		if (!isImportInProcess() && !isResumeImportInProcess()) {
 			importSaparationPanel.getUploadProgressPanel().setVisible(false);
 		}
@@ -361,6 +365,7 @@ public class ImageUploader {
 
 		@Override
 		public void run() {
+                    
 			beginToUpload();
                         
                         // -- KONS CODE - refresh the tree after the upload is completed
@@ -373,7 +378,8 @@ public class ImageUploader {
 			HashMap<String, Boolean> imageUploadResultMap = importSaparationPanel
 					.controller().uploadScannedImages(
 							this.imageNodePropertiesList);
-
+                      
+                        killCurrentThread(imageUploadResultMap);
 			processImageUploadResult(imageUploadResultMap, this.isResumeImport);
 		}
 	}
@@ -399,4 +405,20 @@ public class ImageUploader {
 		else
 			return false;
 	}
+        
+         //-- RAJ CODE TO TERMINATE THE THREAD
+        private void killCurrentThread(HashMap<String, Boolean> imageUploadResultMap){
+                        int count =0;
+                        ArrayList<String> imageList = new ArrayList<String>(
+				imageUploadResultMap.keySet());
+                        for(String imageKey: imageList){
+                            uploadSuccess=(boolean)imageUploadResultMap.get(imageKey);
+                            if(!uploadSuccess) count++;
+                        }
+                        if(count>0) {
+                                ErrorMessage.displayMessage('E', "imageuploadfail","imageuploadfailsuffix",count,imageList.size());
+                                Thread.currentThread().isInterrupted();
+                                importSaparationPanel.getUploadProgressPanel().setVisible(false);
+                            }
+                }
 }

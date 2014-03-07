@@ -140,7 +140,7 @@ public class LoginJPanelController extends BaseController {
 					if (loginHelper.authorizeLogin(username, password)) {           
                                            
 						SessionUtil.setSessionData(loginHelper
-						.fetchSessionData());
+						.fetchSessionData(username, password));
                                          
                                                 setClientVersionInSession();
 

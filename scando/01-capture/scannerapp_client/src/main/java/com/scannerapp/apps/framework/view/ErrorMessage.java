@@ -179,7 +179,42 @@ public class ErrorMessage extends java.lang.Object {
 
 		return errorid;
 	}
+        
+        //--RAJ CODE TO DISPLAY CUSTOM ERROR MESSAGE ON IMAGEUPLOAD FAIL
+	public static int displayMessage(char messageType, String propertyKey, String propertyKeyMore, int fail, int total) {
 
+		int errorid = 0;
+
+		String message = ConstantUtil.getErrorConstant(propertyKey);
+                String messagesuffix = ConstantUtil.getErrorConstant(propertyKeyMore);
+                String finalMessage= message+"  " +fail+"/"+total+"  "+messagesuffix;
+
+		Object[] options = { GeneralUtils.getDesktopBundle().get("jlblOK")
+				.toString() };
+
+		JLabel lbltemp = new JLabel();
+		lbltemp.setVisible(true);
+		lbltemp.setText("");
+		Object[] optionsError = {
+				GeneralUtils.getDesktopBundle().get("jlblOK").toString(),
+				lbltemp };
+
+		switch (messageType) {
+
+		case 'E':
+			errorid = displayMessage(finalMessage, ERROR_MSG,
+					JOptionPane.DEFAULT_OPTION, JOptionPane.ERROR_MESSAGE,
+					null, optionsError, optionsError[1]);// changed for Client
+			break;
+		
+		default:
+			log.debug("ErrorMessage: displayMessage: Invalid message type: "
+					+ messageType);
+		}
+
+		return errorid;
+	}
+        //--RAJ CODE TO DISPLAY CUSTOM ERROR MESSAGE ON IMAGEUPLOAD FAIL
 	public static String getMessage(int messageId) {
 		String id = "E" + String.valueOf(messageId);
 		String message = hMessageBundles.get(id).toString().trim();
