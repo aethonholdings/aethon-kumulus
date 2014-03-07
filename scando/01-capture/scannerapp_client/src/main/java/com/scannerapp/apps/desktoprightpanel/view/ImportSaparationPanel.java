@@ -389,7 +389,7 @@ public class ImportSaparationPanel extends BaseJPanel implements
 //		buttonPanel.add(buttonPanelGroup1, new GridBagConstraints(0, 0, 1, 1,
 //				1.0, 1.0, GridBagConstraints.NORTH,
 //				GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
-                // -- END RAJ CODE TO HIDE THE THUMBNAIL BUTTON
+                // -- END  RAJ CODE TO HIDE THE THUMBNAIL BUTTON
 		// Condition To Check If User Has Import Rights
 		if (("Y").equalsIgnoreCase(hasImportRights)) {
 			buttonPanel.add(buttonPanelGroup2, new GridBagConstraints(1, 0, 1,

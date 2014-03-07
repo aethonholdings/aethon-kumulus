@@ -144,11 +144,15 @@ class ScanDoController {
                 scanBatch.save()
             }
             if(data?.encodeStringForImage && parent && scanBatch && data?.name) {
-                def uFile = filesystemService.writeStringToImageFile(data?.encodeStringForImage, filesystemService.generateLiteral(), request.locale)
-                def document = captureService.indexScan(parent, uFile, scanBatch, userId)
-                def task = workflowService.createTask(document, Task.TYPE_BUILD, userId)
-                if (document && task) { workflowService.assignTask(task, userId) }
-                response.put(data.actualImageName, true)
+                try {
+                    def uFile = filesystemService.writeStringToImageFile(data?.encodeStringForImage, filesystemService.generateLiteral(), request.locale)
+                    def document = captureService.indexScan(parent, uFile, scanBatch, userId)
+                    def task = workflowService.createTask(document, Task.TYPE_BUILD, userId)
+                    if (document && task) { workflowService.assignTask(task, userId) }
+                    response.put(data.actualImageName, true)
+                } catch(Exception exception) {
+                    response.put(data.actualImageName, false)
+                }
             }
         }
         render response as JSON
