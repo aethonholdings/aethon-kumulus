@@ -10,12 +10,8 @@
               <div class="kumulus-container kumulus-scrollable-y kumulus-padding">
                  <g:form name="shipment" action="createShipment"  class="pure-form pure-form-aligned">
                   <div class="pure-control-group">
-                    <label for="fromCompany">* From Company</label>
-                    <input id="fromCompany" name="fromCompany" type="text" value="${project?.projectName}" class="pure-input-1-2">
-                  </div>
-                  <div class="pure-control-group">
                     <label for="scheduleDate">* Schedule Date</label>
-                    <input id="scheduleDate" name="scheduleDate" type="text"  class="pure-input-1-2 ui-widget"></input>
+                    <input id="scheduleDate" name="scheduleDate" type="text" readonly class="pure-input-1-2 ui-widget"></input>
                   </div>
                  <div class="pure-control-group">
                     <label for="notes">Notes</label>

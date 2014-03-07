@@ -18,6 +18,7 @@
                 <h3>Specify the materials you would like to order</h3>
                 <div class="kumulus-container-ordermaterial-inside kumulus-scrollable-y">
                   <g:form name="productOrder" controller="logistics" action="createShipment">
+                           <g:hiddenField name="shipmentId" id="shipmentId" value="${params.shipmentId}" />
                     <table class='pure-table pure-table-horizontal' id="table">
                         <thead>
                             <tr>

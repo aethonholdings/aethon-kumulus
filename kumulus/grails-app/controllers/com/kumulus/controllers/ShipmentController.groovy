@@ -104,13 +104,13 @@ class ShipmentController {
     }
     
     def createShipment (){
-        
+       
         SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
 
-        if(params.fromCompany){
+        if(params.scheduleDate){
             def newObj= new Shipment()
-            newObj.fromCompany=params.fromCompany
-            newObj.toCompany=params.fromCompany
+            newObj.fromCompany=permissionsService.getCompany()
+            newObj.toCompany="kumulus"
             newObj.scheduled=formatter.parse(params.scheduleDate)
             //            newObj.started=formatter.parse(params.startDate)
             //            newObj.finished=formatter.parse(params.finishDate)
@@ -130,7 +130,7 @@ class ShipmentController {
     }
     
     def view() {
-     
+     println("?????????????????????")
         def productList=[],nodeList=[]
         def shipmentObj=Shipment.findAllById(params.id)
         shipmentObj.shipmentItems[0].each{ it ->
