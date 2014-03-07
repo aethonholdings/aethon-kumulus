@@ -22,7 +22,7 @@ public class DesktopMainJPanel extends JPanel implements IconRepository,
 		FocusListener, java.awt.event.ActionListener {
 
 	private DesktopLeftJPanel jLeftPanel = new DesktopLeftJPanel(this);
-	private DesktopRightJPanel jRightPanel = new DesktopRightJPanel(this);
+	public DesktopRightJPanel jRightPanel = new DesktopRightJPanel(this);
 	private static Logger log = Logger.getLogger(DesktopMainJPanel.class);
 
 	public DesktopMainJPanel() {

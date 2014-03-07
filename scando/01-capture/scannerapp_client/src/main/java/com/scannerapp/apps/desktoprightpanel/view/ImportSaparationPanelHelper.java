@@ -22,6 +22,7 @@ import com.sun.jersey.api.client.ClientHandlerException;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.UniformInterfaceException;
 import com.sun.jersey.core.util.MultivaluedMapImpl;
+import static java.lang.System.exit;
 import javax.ws.rs.core.MultivaluedMap;
 import org.codehaus.jettison.json.JSONObject;
 
@@ -97,7 +98,7 @@ public class ImportSaparationPanelHelper extends ClientHelper {
 
 		try {
 			ClientResponse response = ConnectionUtil.getWebService()
-					.path("scanDo").path("fetchChildNodeList")
+					.path("scanDo").path("fetchNodeThumbnails")
 			 		.type(MediaType.APPLICATION_JSON_TYPE)
 					.accept(MediaType.APPLICATION_JSON_TYPE)
 					.post(ClientResponse.class, reuestData);
@@ -173,10 +174,10 @@ public class ImportSaparationPanelHelper extends ClientHelper {
 			ArrayList<NodeProperties> imageNodePropertiesList) {
 
 		HashMap<String, Boolean> imageUploadResultMap = null;
+               
 
 		try {
-
-			ClientResponse response = ConnectionUtil.getWebService()
+    			ClientResponse response = ConnectionUtil.getWebService()
 					.path("scanDo").path("saveScannedImages")
 					.type(MediaType.APPLICATION_JSON_TYPE)
 					.accept(MediaType.APPLICATION_JSON_TYPE)
@@ -193,30 +194,30 @@ public class ImportSaparationPanelHelper extends ClientHelper {
 		catch (JsonParseException e) {
 			log.error("Error to establish connection while uploading images.");
 			log.error("Exception : " + e);
-
-			ErrorMessage.displayMessage('E', "errorInParsingResponseStringAS");
+			ErrorMessage.displayMessage('E', "errorInParsingResponseStringAS");                       
+                        return imageUploadResultMap;                                       //-- RAJ CODE 
 		}
 
 		catch (JsonMappingException e) {
 			log.error("Error to establish connection while uploading images.");
 			log.error("Exception : " + e);
-
 			ErrorMessage.displayMessage('E', "errorInParsingResponseStringAS");
+                         return imageUploadResultMap;                                       //-- RAJ CODE 
 		}
 
 		catch (IOException e) {
 			log.error("Error to establish connection while uploading images.");
 			log.error("Exception : " + e);
-
 			ErrorMessage.displayMessage('E', "errorInParsingResponseStringAS");
+                         return imageUploadResultMap;                                       //-- RAJ CODE 
 		}
 
 		catch (UniformInterfaceException e) {
 
 			log.error("Error to establish connection while uploading images.");
 			log.error("Exception : " + e);
-
 			ErrorMessage.displayMessage('E', "errorGeneratedOnAS");
+                        return imageUploadResultMap;                                         //-- RAJ CODE 
 		}
 
 		catch (ClientHandlerException e) {
@@ -229,6 +230,7 @@ public class ImportSaparationPanelHelper extends ClientHelper {
 			} else {
 				ErrorMessage.displayMessage('E', "errorGeneratedOnAS");
 			}
+                        return imageUploadResultMap;                                          //-- RAJ CODE 
 		}
 
 		catch (Exception e) {
@@ -236,7 +238,8 @@ public class ImportSaparationPanelHelper extends ClientHelper {
 			log.error("Error to establish connection while uploading images.");
 			log.error("Exception : " + e);
 
-			ErrorMessage.displayMessage('E', "errorGeneratedOnAS");
+                         ErrorMessage.displayMessage('E', "errorGeneratedOnAS");
+                         return imageUploadResultMap;                                          //-- RAJ CODE 
 		}
 
 		return imageUploadResultMap;
@@ -314,7 +317,7 @@ public class ImportSaparationPanelHelper extends ClientHelper {
 		try {
 
 			ClientResponse response = ConnectionUtil.getWebService()
-					.path("nodeServices")
+					.path("scanDo")
 					.path("getChildNodeCount")
 					.type(MediaType.APPLICATION_JSON_TYPE)
 					.accept(MediaType.APPLICATION_JSON_TYPE)

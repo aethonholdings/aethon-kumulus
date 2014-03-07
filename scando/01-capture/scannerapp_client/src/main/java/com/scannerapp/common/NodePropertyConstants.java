@@ -4,7 +4,7 @@ import java.io.File;
 
 public interface NodePropertyConstants {
 	// Node Type
-	String DOCUMENT = "D";
+	String DOCUMENT = "P";
 	String BOX = "B";
 	String CONTAINER = "C";
 

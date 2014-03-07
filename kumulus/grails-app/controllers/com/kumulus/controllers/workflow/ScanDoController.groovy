@@ -12,12 +12,26 @@ class ScanDoController {
     def permissionsService
     def filesystemService
     def workflowService
+
+    def updateNodePropertiesList() { }
+    
+    def getChildNodeCount() { }
+    
+    def getEncodedActualImageString() { }    
+    
+    def updateNodeProperties() { }
     
     // action to handle authentication
     def authenticate() {
         
         def response = [true]
         render response as JSON  
+        
+    }
+    
+    def updateAttendance() {
+    
+        redirect(action: "authenticate")
         
     }
     
@@ -32,17 +46,7 @@ class ScanDoController {
         render responseData as JSON  
     }
     
-    def updateNodeProperties() { 
-        
-        def responsedata=[:]
-        def data = request.JSON 
-        def parent = Node.findById(data?.parentNodeId)
-        if(parent) {
-            def node = captureService.insertNode(parent, parent.project, "", filesystemService.generateLiteral(), "", "Page")
-            responsedata = scanDoService.renderNode(node)
-        }
-        render responsedata as JSON 
-    }
+    
     
     def fetchChildNodeList() {
         def nodeList = []
@@ -95,8 +99,6 @@ class ScanDoController {
         render sessiondata as JSON     
     }
     
-    def updateNodePropertiesList() { }
-    
     def getHierarchyFromSearchBarcode() {
         
         def data = request.JSON       
@@ -129,18 +131,29 @@ class ScanDoController {
     def saveScannedImages() {
         
         def response = [:]
-        def data = request.JSON
-        if(data?.encodeStringForImage && data?.parentNodeId) {
-            def node = Node.findById(data?.parentNodeId)
+        def imageData = request.JSON
+        def project
+        def scanBatch
+        
+        imageData.each { data ->
+            def parent = Node.findById(data?.parentNodeId)
             def userId = permissionsService.getUsername()
-           //  def document = scanDoService.uploadImage("data?.encodeStringForImage", node, request.locale, userId)
-            def scanBatch = new ScanBatch(userId: userId, timestamp: new Date(), project: node.project)
-            scanBatch.save()
-            def uFile = filesystemService.writeStringToImageFile(data?.encodeStringForImage, node.name + ".jpg", request.locale)
-            def document = captureService.indexScan(node, uFile, scanBatch, userId)
-            def task = workflowService.createTask(document, Task.TYPE_BUILD, userId)
-            if (document && task) { workflowService.assignTask(task, userId) }
-            response.put(data.actualImageName, true)
+            if(parent && project!=parent.project) {
+                project = parent.project
+                scanBatch = new ScanBatch(userId: userId, timestamp: new Date(), project: project)
+                scanBatch.save()
+            }
+            if(data?.encodeStringForImage && parent && scanBatch && data?.name) {
+                try {
+                    def uFile = filesystemService.writeStringToImageFile(data?.encodeStringForImage, filesystemService.generateLiteral(), request.locale)
+                    def document = captureService.indexScan(parent, uFile, scanBatch, userId)
+                    def task = workflowService.createTask(document, Task.TYPE_BUILD, userId)
+                    if (document && task) { workflowService.assignTask(task, userId) }
+                    response.put(data.actualImageName, true)
+                } catch(Exception exception) {
+                    response.put(data.actualImageName, false)
+                }
+            }
         }
         render response as JSON
     }
@@ -152,11 +165,42 @@ class ScanDoController {
         
     }
     
-    def getChildNodeCount() { }
-    
-    def updateAttendance() {
-      redirect(action: "authenticate")
+    def fetchNodeThumbnails() {
+        
+        def data = request.JSON
+        
+        def response = []
+        def pageNode = Node.findById(data?.parentnodeId)
+        def page = pageNode.page
+        
+        if(pageNode && page) {
+            response = [ 
+                [
+                    "nodeId": page.literal,
+                    "projectId": "" + pageNode.project.id,
+                    "name": page.literal,
+                    "type": null,
+                    "barcode": null,
+                    "comment": null,
+                    "internalComment": null,
+                    "status": null,
+                    "parentNodeId": "" + pageNode.id,
+                    "hierarchy": null,
+                    "thumbnailImageName": page.thumbnailImage.file.name,
+                    "actualImageName": page.viewImage.file.name,
+                    "lastUpdateDateTime": pageNode.lastUpdateDatetime,
+                    "documentSequenceNumber": page.number,
+                    "userId": null,
+                    "encodeStringForImage": null,
+                    "encodeStringForThumbnail": filesystemService.renderFileInBase64(page.thumbnailImage.file),
+                    "oldActualImageName": page.viewImage.file.name,
+                    "oldThumbnailImageName": page.thumbnailImage.file.name,
+                    "transactionStatus":"U"
+                ]
+            ]
+        }
+        
+        render response as JSON
     }
     
-    def getEncodedActualImageString() { }   
 }

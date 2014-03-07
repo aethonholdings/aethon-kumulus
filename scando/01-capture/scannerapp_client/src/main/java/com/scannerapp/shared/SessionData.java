@@ -26,6 +26,8 @@ public class SessionData {
 	String localStoragePath;
 	String localThumbnailDirPath;
 	String breathInterval;
+        String username;
+        String password;
 
 	String totalImagesToUploadAtOnce;
 
@@ -285,5 +287,36 @@ public class SessionData {
 	 */
 	public void setNodeTypeMap(HashMap<String, String> nodeTypeMap) {
 		this.nodeTypeMap = nodeTypeMap;
+	}
+        
+        
+        /**
+	 * @return the userName
+	 */
+	public String getUserName() {
+		return username;
+	}
+
+	/**
+	 * @param username
+	 * the username to set
+	 */
+	public void setUserName(String username) {
+		this.username = username;
+	}
+        
+        /**
+	 * @return the password
+	 */
+	public String getPassword() {
+		return password;
+	}
+
+	/**
+	 * @param password
+	 * the password to set
+	 */
+	public void setPassword(String password) {
+		this.password = password;
 	}
 }

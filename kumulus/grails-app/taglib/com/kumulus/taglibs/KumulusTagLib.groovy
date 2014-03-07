@@ -99,4 +99,43 @@ class KumulusTagLib {
         out << "</ul>\n"          
     }
     
+    def searchResult = { attrs ->
+        def nodeResult=null
+        def docResult=null
+        out<<"<div class='kumulus-search-result'>"
+        switch(attrs?.result.class){
+            case com.kumulus.domain.Node:
+                def node = Node.findById(attrs?.result.id)
+                while(node!=null){
+                   if(nodeResult==null){
+                      nodeResult = node.name
+                   }
+                   else{
+                        nodeResult = node.name+" >> "+nodeResult
+                   }
+                   node=node.parent
+                }
+                out<<"<p><h4>"+Node.findById(attrs?.result.id).project.projectName+" >> "+nodeResult+"</h4></p>"
+                out<<"<p>"+Node.findById(attrs?.result.id).type.name+"</p>"
+                break;
+            case com.kumulus.domain.Document:
+                def doc = Document.findById(attrs?.result.id)
+                def node=doc.pages[0].node.parent
+                while(node!=null)
+                {
+                   if(docResult==null){
+                       docResult = node.name
+                   }
+                   else{
+                        docResult = node.name+" >> "+docResult
+                   }
+                   node=node.parent
+                 }
+                 out<<"<p><h4>"+doc.pages[0].node.parent.project.projectName +" >> "+docResult+" >> <a href='#'>"+ doc.literal+"</a> </h4></p>"
+                 out<<"<p>"+doc.type.name+"</p>"
+                 out<<"<p>"+doc.text+"</p>"
+                 break;
+        }
+        out<<"</div>"        
+    }
 }

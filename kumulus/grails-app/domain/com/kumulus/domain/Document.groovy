@@ -4,7 +4,8 @@ import com.lucastex.grails.fileuploader.UFile
 
 class Document {
 
-    static searchable = [only: ['date', 'company', 'identifier', 'text']]
+    static searchable = [only: ['date','literal', 'company', 'identifier', 'text']]
+    
     
     static final int STATUS_IMPORTED = 1
     static final int STATUS_BUILT  = 2
