@@ -174,7 +174,7 @@ public class LoginHelper extends ClientHelper {
 	 * 
 	 * @return
 	 */
-	public SessionData fetchSessionData() {
+	public SessionData fetchSessionData(String username, String password) {
 		SessionData sessionData = null;
 
 		try {
@@ -209,7 +209,10 @@ public class LoginHelper extends ClientHelper {
                         sessionData.setOverallTarget(jsonobj.getString("setOverallTarget"));
                         sessionData.setLocalThumbnailDirPath(jsonobj.getString("localThumbnailDirPath"));
                         sessionData.setNodeTypeMap(nodeTypeMap);
-                        sessionData.setStatusMap(statusMap);     
+                        sessionData.setStatusMap(statusMap); 
+                        sessionData.setUserName(username);
+                        sessionData.setPassword(password); 
+                        
 		} 
 		catch (UniformInterfaceException e) {
 
