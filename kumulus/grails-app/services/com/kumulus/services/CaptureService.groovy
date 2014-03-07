@@ -148,8 +148,7 @@ class CaptureService {
                 createDatetime: timestamp,
                 lastUpdateDatetime: timestamp,
                 status: Node.STATUS_CLOSED,
-                location: Node.LOCATION_CLIENT,
-                page: null
+                location: Node.LOCATION_CLIENT
             )
             node.save()
 
@@ -179,8 +178,7 @@ class CaptureService {
                 scanBatch: scanBatch,
                 document: document
             )
-            page.save()
-            
+
             // generate the image files for the page
             def images = filesystemService.indexImageInFilesystem(literal, page, uFile, timestamp)
             
@@ -189,8 +187,12 @@ class CaptureService {
             page.thumbnailImage = images.thumbnailImage
             document.addToPages(page)
             page.save(flush:true)
+            
+            // -- Kons - following relationship establishment does not work - not sure why 
             node.page = page
-            node.save()
+            node.save(flush:true)
+            // -- 
+
             filesystemService.stagingFlush(uFile)
         }
         return(document)

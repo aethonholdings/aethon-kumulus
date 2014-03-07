@@ -49,7 +49,7 @@ public class DesktopRightJPanel extends BaseJPanel implements ChangeListener{
   private BorderLayout borderLayout=new BorderLayout();
   private JTabbedPane tabbedPane = new JTabbedPane();
   private CollectionPanel collectionPanel;
-  private ImportSaparationPanel importAndSepPanel;
+  public ImportSaparationPanel importAndSepPanel;
   private JButton jbtnAddNode = new JButton();
   private JPanel jButtonPanel=new JPanel();
   

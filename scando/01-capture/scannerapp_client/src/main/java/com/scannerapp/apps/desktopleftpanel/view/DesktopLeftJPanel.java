@@ -145,9 +145,9 @@ public class DesktopLeftJPanel extends BaseJPanel implements IconRepository,
 		mainPanel.add(jButtonPanel, new GridBagConstraints(0, 0, 1, 1, 1.0,
 				0.0, GridBagConstraints.NORTHWEST, GridBagConstraints.NONE,
 				new Insets(5, 5, 0, 5), 0, 0));
-		mainPanel.add(kpiLabel, new GridBagConstraints(0, 1, 0, 1, 0.0, 0.0,
-				GridBagConstraints.NORTHWEST, GridBagConstraints.NONE,
-				new Insets(0, 0, 0, 0), 0, 0));
+//		mainPanel.add(kpiLabel, new GridBagConstraints(0, 1, 0, 1, 0.0, 0.0,
+//				GridBagConstraints.NORTHWEST, GridBagConstraints.NONE,
+//				new Insets(0, 0, 0, 0), 0, 0));
 		mainPanel.add(jTreePanel, new GridBagConstraints(0, 2, 1, 1, 1.0, 1.0,
 				GridBagConstraints.NORTHWEST, GridBagConstraints.BOTH,
 				new Insets(0, 5, 0, 5), 0, 0));
@@ -202,9 +202,11 @@ public class DesktopLeftJPanel extends BaseJPanel implements IconRepository,
 		tenTLabel.setMinimumSize(new Dimension(50, 30));
 		tenTLabel.setMaximumSize(new Dimension(50, 30));
 
-		jButtonPanel.add(jbtnRefresh, new GridBagConstraints(0, 0, 1, 1, 0.0,
-				0.0, GridBagConstraints.CENTER, GridBagConstraints.NONE,
-				new Insets(0, 0, 0, 10), 0, 0));
+                //RAJ COMMENT
+//		jButtonPanel.add(jbtnRefresh, new GridBagConstraints(0, 0, 1, 1, 0.0,
+//				0.0, GridBagConstraints.CENTER, GridBagConstraints.NONE,
+//				new Insets(0, 0, 0, 10), 0, 0));
+                //END RAJ COMMENT
 
 		/*
 		 * jButtonPanel.add(jbtnCut, new GridBagConstraints(1, 0, 1, 1, 0.0,
@@ -299,9 +301,21 @@ public class DesktopLeftJPanel extends BaseJPanel implements IconRepository,
 		}
 	}
             
-            
-          
-
+        // -- KONS CODE TO REFRESH ONE TREE NODE
+        public void refreshTreeNode(CustomMutableTreeNode selectedNode) {
+            selectedNode.removeAllChildren();
+            fetchChildNodes(SessionUtil.getSessionData().getProjectId(),
+                                        selectedNode.getNodeId());
+            TreePath searchNodePath = new TreePath(
+                                        selectedNode.getPath());
+            getNodeTree().setSelectionPath(searchNodePath);
+            getNodeTree().expandPath(searchNodePath);
+            getNodeTree().updateUI();
+            getNodeTree().repaint();
+        }
+                
+        // -- END KONS CODE
+                
 	private void initNodeDetailPanel() {
 		nameLabelValue.setPreferredSize(new Dimension(180, 13));
 		barCodeLabelValue.setPreferredSize(new Dimension(180, 13));
@@ -540,7 +554,7 @@ public class DesktopLeftJPanel extends BaseJPanel implements IconRepository,
 				desktopMainPanel.getjRightPanel().getImportAndSepPanel()
 						.searchNodeFromhierarchy(getProjectNode(), hierarchy);
 			}
-		} else {
+		}else {
 			ErrorMessage.displayMessage('I',
 					"saveOrDeleteAddedNodeBeforeRefresh");
 		}
@@ -859,12 +873,34 @@ public class DesktopLeftJPanel extends BaseJPanel implements IconRepository,
 			}
 
 			lastSelectedNode = selectedElement;
-
+                        
+                        //-- RAJ CODE TO GET THUMBNAILS ON CLIKING ON DOCUMENT
+                        CustomMutableTreeNode selectedNode = desktopMainPanel.getjRightPanel()
+				.getCollectionPanel().getSelectedTreeNode();
+                        
+//                        // Check If Selected Node Is Project Node/ Root Node
+//			if (selectedNode.getNodeId().equalsIgnoreCase(
+//					SessionUtil.getSessionData().getProjectId())) {
+//				ErrorMessage.displayMessage('I', "selectDocumentNode");
+//				return;
+//			}
+                        
+                    
+                        try {
+                               desktopMainPanel.jRightPanel.importAndSepPanel.initThumbnailPanel(selectedNode);
+			} catch (Exception exception) {
+				log.debug("Exception Occurs While Trying To Initialize Thumbnail Panel "
+						+ exception);
+				exception.printStackTrace();
+			}
+                        //-- RAJ CODE TO GET THUMBNAILS ON CLIKING ON DOCUMENT
+                        
 			// Import Separation Panel Thumbnail Panel Visible/Invisible
 			visibleInvisibleThumbnailPanel(selectedElement);
 
 			// Import And Separation Panel Buttons Enable Diable
 			enableDisableImportSeparationButtons(nodeProperties);
+                        
 
 		}
 	}

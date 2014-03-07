@@ -148,7 +148,7 @@ public class ImportSaparationPanel extends BaseJPanel implements
 
 	public ImportSaparationPanel(DesktopMainJPanel desktopMainPanel) {
         
-                
+               
 		this.desktopMainPanel = desktopMainPanel;
 		this.setLayout(new GridBagLayout());
 
@@ -329,9 +329,11 @@ public class ImportSaparationPanel extends BaseJPanel implements
 		buttonPanelGroup1.add(viewThumbnailsButton, new GridBagConstraints(0,
 				1, 1, 1, 0.0, 0.0, GridBagConstraints.NORTH,
 				GridBagConstraints.HORIZONTAL, new Insets(2, 2, 2, 2), 0, 0));
-		buttonPanelGroup1.add(editNodePropertyButton, new GridBagConstraints(1,
-				1, 1, 1, 0.0, 0.0, GridBagConstraints.NORTH,
-				GridBagConstraints.HORIZONTAL, new Insets(2, 2, 2, 2), 0, 0));
+                //RAJ COMMENT
+//		buttonPanelGroup1.add(editNodePropertyButton, new GridBagConstraints(1,                        
+//				1, 1, 1, 0.0, 0.0, GridBagConstraints.NORTH,
+//				GridBagConstraints.HORIZONTAL, new Insets(2, 2, 2, 2), 0, 0));
+                //END RAJ COMMENT
 
 		buttonPanelGroup2.add(importButton, new GridBagConstraints(0, 0, 1, 1,
 				0.0, 0.0, GridBagConstraints.NORTH,
@@ -382,11 +384,12 @@ public class ImportSaparationPanel extends BaseJPanel implements
 		buttonPanelGroup3.add(cancelButton, new GridBagConstraints(2, 1, 1, 1,
 				0.0, 0.0, GridBagConstraints.NORTH,
 				GridBagConstraints.HORIZONTAL, new Insets(2, 2, 2, 2), 0, 0));
-
-		buttonPanel.add(buttonPanelGroup1, new GridBagConstraints(0, 0, 1, 1,
-				1.0, 1.0, GridBagConstraints.NORTH,
-				GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
-
+                
+                // -- RAJ CODE TO HIDE THE THUMBNAIL BUTTON
+//		buttonPanel.add(buttonPanelGroup1, new GridBagConstraints(0, 0, 1, 1,
+//				1.0, 1.0, GridBagConstraints.NORTH,
+//				GridBagConstraints.HORIZONTAL, new Insets(0, 0, 0, 0), 0, 0));
+                // -- END RAJ CODE TO HIDE THE THUMBNAIL BUTTON
 		// Condition To Check If User Has Import Rights
 		if (("Y").equalsIgnoreCase(hasImportRights)) {
 			buttonPanel.add(buttonPanelGroup2, new GridBagConstraints(1, 0, 1,
@@ -401,7 +404,7 @@ public class ImportSaparationPanel extends BaseJPanel implements
 
 	}
 
-	private void initThumbnailPanel(final CustomMutableTreeNode selectedNode)
+	public void initThumbnailPanel(final CustomMutableTreeNode selectedNode)
 			throws Exception {
 
 		if (imageViewer != null && imageViewer.getFullScreenDialog() != null) {
@@ -424,35 +427,39 @@ public class ImportSaparationPanel extends BaseJPanel implements
 		if (selectedNode == null)
 			return;
 
-		// Condition To Check That Node Has Child Node Or Not...
-		int childNodeCount = controller().getChildNodeCount(
-				selectedNode.getNodeId());
-
-		// Condition To Check If Any Error Generated On Server Side Then Return
-		if (childNodeCount < 0)
-			return;
-
-		if (childNodeCount == 0) {
-			// Condition To Check If Delete Operation is Performed And Node Has
-			// no Pages Then Remove ImageViewer View/ Thumbnail View
-			if (isNodeDeleted() == true) {
-				setNodeDeleted(false);
-				setLastSelectedPageIndexeList(null);
-				imageViewer.getThumbnailList().removeAll();
-				getMainPanel().remove(imageViewer);
-				imageViewer = null;
-				getMainPanel().revalidate();
-				getMainPanel().repaint();
-			}
-			// Flag Became False
-			// If User Cut Page And Paste On Destination Node (After Clicking On
-			// ViewThumbnail And Document Has No Pages)
-			// Then Source Node imageViewer is not removed
-			setNodeDeleted(false);
-
-			ErrorMessage.displayMessage('I', "documentHasNoPages");
-			return;
-		}
+// -- KONS CODE - FOLLOWING CODE SEGMENT IS DEPRECATED, NOT NEEDED
+//                
+//		// Condition To Check That Node Has Child Node Or Not...
+//		int childNodeCount = controller().getChildNodeCount(
+//				selectedNode.getNodeId());
+//
+//		// Condition To Check If Any Error Generated On Server Side Then Return
+//		if (childNodeCount < 0)
+//			return;
+//
+//		if (childNodeCount == 0) {
+//			// Condition To Check If Delete Operation is Performed And Node Has
+//			// no Pages Then Remove ImageViewer View/ Thumbnail View
+//			if (isNodeDeleted() == true) {
+//				setNodeDeleted(false);
+//				setLastSelectedPageIndexeList(null);
+//				imageViewer.getThumbnailList().removeAll();
+//				getMainPanel().remove(imageViewer);
+//				imageViewer = null;
+//				getMainPanel().revalidate();
+//				getMainPanel().repaint();
+//			}
+//			// Flag Became False
+//			// If User Cut Page And Paste On Destination Node (After Clicking On
+//			// ViewThumbnail And Document Has No Pages)
+//			// Then Source Node imageViewer is not removed
+//			setNodeDeleted(false);
+//
+//			ErrorMessage.displayMessage('I', "documentHasNoPages");
+//			return;
+//		}
+//                
+// -- END KONS CODE - 
 
 		// Create Local Directory To Store Image/Thumbnail At Local System
 		NodeProperties selectedNodeProperty = desktopMainPanel.getjLeftPanel()
@@ -867,24 +874,28 @@ public class ImportSaparationPanel extends BaseJPanel implements
 			}
 
 		}
+                
+                //-- RAJ CODE COMMENTED CODE FOR THUMBNAIL BUTTON
 
-		if (e.getSource() == viewThumbnailsButton) {
-
-			// Check If Selected Node Is Project Node/ Root Node
-			if (selectedNode.getNodeId().equalsIgnoreCase(
-					SessionUtil.getSessionData().getProjectId())) {
-				ErrorMessage.displayMessage('I', "selectDocumentNode");
-				return;
-			}
-
-			try {
-				initThumbnailPanel(selectedNode);
-			} catch (Exception exception) {
-				log.debug("Exception Occurs While Trying To Initialize Thumbnail Panel "
-						+ exception);
-				exception.printStackTrace();
-			}
-		}
+//		if (e.getSource() == viewThumbnailsButton) {
+//
+//			// Check If Selected Node Is Project Node/ Root Node
+//			if (selectedNode.getNodeId().equalsIgnoreCase(
+//					SessionUtil.getSessionData().getProjectId())) {
+//				ErrorMessage.displayMessage('I', "selectDocumentNode");
+//				return;
+//			}
+//                
+//			try {
+//				//initThumbnailPanel(selectedNode);
+//			} catch (Exception exception) {
+//				log.debug("Exception Occurs While Trying To Initialize Thumbnail Panel "
+//						+ exception);
+//				exception.printStackTrace();
+//			}
+//		}
+                
+                //-- END RAJ CODE COMMENTED CODE FOR THUMBNAIL BUTTON
 		if (e.getSource() == editNodePropertyButton) {
 			// Check If Selected Node Is Project Node/ Root Node
 			if (selectedNode.getNodeId().equalsIgnoreCase(
@@ -1954,11 +1965,11 @@ public class ImportSaparationPanel extends BaseJPanel implements
 			String imageName = uploadErrorImageNameList.get(index);
 
 			imageUploader.proceedToUpload(imageDirectoryPath, imageName,
-					nodeProperties, true);
+					nodeProperties, true, selectedNode);
 		}
 
 		// Uploading remaining images that did not reach batch size...
-		imageUploader.uploadImagesInBatch(true, true);
+		imageUploader.uploadImagesInBatch(true, true, selectedNode);
 	}
 
 	/**
@@ -2016,12 +2027,22 @@ public class ImportSaparationPanel extends BaseJPanel implements
 			return;
 		}
 
-		NodeProperties parentDocumentNodeProperties = createDummyDocument(selectedNode);
-		log.info("Import -> Import Document To Node: "
-				+ parentDocumentNodeProperties.getNodeId());
-
-		startDocumentScanning(parentDocumentNodeProperties, scanningDevice);
-	}
+                // -- KONS CODE -- CREATING THE SCAN BATCH NODE AFTER UPLOAD
+		// SPEC CODE: 
+                // NodeProperties parentDocumentNodeProperties = createDummyDocument(selectedNode);
+                //
+		// log.info("Import -> Import Document To Node: "
+		// 		+ parentDocumentNodeProperties.getNodeId());
+                //
+		// startDocumentScanning(parentDocumentNodeProperties, scanningDevice);
+                
+                log.info("Import -> Import Document To Node: "
+		 		+ selectedNodeProperty.getNodeId());
+                
+                startDocumentScanning(selectedNodeProperty, scanningDevice, selectedNode);
+                // -- END KONS CODE -- CHANGING SPEC LOGIC IN UPLOAD -- SENDING PARENT NODE TO SERVER
+                
+        }
 
 	/**
 	 * Method to get the scanning device attached with system.
@@ -2077,8 +2098,11 @@ public class ImportSaparationPanel extends BaseJPanel implements
 				+ selectedNode.getNodeId());
 
 		// Condition To check Selected Node Is Not Root Node.
-		if (selectedNode.getNodeId() == SessionUtil.getSessionData()
-				.getProjectId())
+                
+                // -- KONS CODE -- Edit spec code, the test for root was not correct
+		if (selectedNode.getNodeId() == "#")
+                // -- KONS CODE END -- Edit spec code, the test for root was not correct
+                    
 			return null;
 
 		NodeProperties nodeProperties = desktopMainPanel.getjLeftPanel()
@@ -2110,9 +2134,13 @@ public class ImportSaparationPanel extends BaseJPanel implements
 	 * 
 	 * @param parentDocumentNodeProperties
 	 */
+        
+        
+        // -- KONS EDIT -- added parameter for custom mutable tree node to refresh ui in upload thread
 	private void startDocumentScanning(
 			NodeProperties parentDocumentNodeProperties,
-			TwainSource scanningDevice) {
+			TwainSource scanningDevice, 
+                        CustomMutableTreeNode selectedNode) {
 
 		// MORENA 7 CODE STARTS...
 
@@ -2140,7 +2168,7 @@ public class ImportSaparationPanel extends BaseJPanel implements
 				.getApplicationConstant("numberOfPagesToScan");
 
 		documentScanner.scanDocument(scanningDevice,
-				Integer.parseInt(numberOfPagesToScan));
+				Integer.parseInt(numberOfPagesToScan), selectedNode);
 		// MORENA 6 CODE ENDS...
 	}
 

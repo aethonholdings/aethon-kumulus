@@ -27,7 +27,7 @@ public class ImageGenerator {
 	private static final Logger logger = Logger.getLogger(ImageGenerator.class);
 
 	private static final String IMAGE_BASE_NAME = "scanned_doc ";
-	private static final String IMAGE_FILE_EXTENSION = ".jpg";
+	private static final String IMAGE_FILE_EXTENSION = ".png";
 
 	private ImportSaparationPanel importSeparationPanel;
 	private NodeProperties parentDocumentNodeProperties;
@@ -59,7 +59,7 @@ public class ImageGenerator {
 	/**
 	 * Method to start the generation of image and upload in batch.
 	 */
-	public void beginToGenerateImage() {
+	public void beginToGenerateImage(CustomMutableTreeNode selectedNode) {
 
 		logger.debug("Image generation from buffered image is starting.");
 
@@ -70,16 +70,16 @@ public class ImageGenerator {
 		// Getting image name with time stamp...
 		imageName = getImageName();
 
-		generateImage();
+		generateImage(selectedNode);
 	}
 
 	/**
 	 * Method to generate the image.
 	 */
-	private int generateImage() {
+	private int generateImage(CustomMutableTreeNode selectedNode) {
 
 		// output image type.
-		String imageFormat = "jpg";
+		String imageFormat = "png";
 
 		try {
 
@@ -110,7 +110,7 @@ public class ImageGenerator {
 			// Method to proceed for uploading generated image.
 			importSeparationPanel.getImageUploader().proceedToUpload(
 					imageDirectoryPath, imageName,
-					parentDocumentNodeProperties, false);
+					parentDocumentNodeProperties, false, selectedNode);
 
 		} catch (IOException ioExcep) {
 
