@@ -61,6 +61,7 @@
                                 <tr>
                                     <td colspan="2"></td>
                                     <td colspan="2"><input type="button" id="removeNode" deliveryId="1" name="Remove" value="Remove" class="pure-button kumulus-float-right">
+                                        <g:hiddenField name="shipmentId" id="shipmentId" value="${shipmentObj.id[0]}" />
                                         <input type="button" id="addNode" deliveryId="1" name="add" value="Add" class="pure-button kumulus-float-right"></td>
                                 </tr>
                                 <tr>
