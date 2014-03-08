@@ -37,18 +37,19 @@ class SubmitDocumentJob {
         settings.setOutputFormat(ProcessingSettings.OutputFormat.pdfSearchable)
 
         // Submit documents with status STATUS_BUILT to ABBYY
-        for (doc in Document.findAll {status == Document.STATUS_BUILT && deleted == false}) {
+        for (wtask in Task.findAll {type == Task.TYPE_OCR && completed == null}) {
+            workflowService.startTask(wtask)
+            def doc = wtask.document
+            assert doc.status == Document.STATUS_BUILT
+            def task = null
+            for (page in Page.findAll {document == doc}) {
+                def filename = page.scanImage.file.path
+                def id = (task == null) ? null : task.Id
+                def result = client.submitImage(filename, id)
+                if (result != null) { task = result }
+            }
+            task = client.processDocument(task.Id, settings)
             Document.withTransaction { trans ->
-                def wtask = Task.find {document == doc && completed == null && type == Task.TYPE_OCR}
-                workflowService.startTask(wtask)
-                def task = null
-                for (page in Page.findAll {document == doc}) {
-                    def filename = page.scanImage.file.path
-                    def id = (task == null) ? null : task.Id
-                    def result = client.submitImage(filename, id)
-                    if (result != null) { task = result }
-                }
-                task = client.processDocument(task.Id, settings)
                 doc.ocrTask = task.Id
                 workflowService.completeTask(wtask)
                 workflowService.createTask(doc, Task.TYPE_OCR_RETRIEVE, 'kumulus')
