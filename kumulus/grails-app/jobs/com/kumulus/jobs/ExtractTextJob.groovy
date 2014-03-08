@@ -27,11 +27,11 @@ class ExtractTextJob {
     def execute() {
         for (doc in Document.findAll {status == Document.STATUS_SEARCHABLE && deleted == false}) {
             Document.withTransaction { trans ->
-                def wtask = Task.find {document == doc && completed == null && type == Task.TYPE_PROCESS}
+                def wtask = Task.find {document == doc && completed == null && type == Task.TYPE_OCR_EXTRACT}
                 workflowService.startTask(wtask)
                 filesystemService.indexDocument(doc)
                 workflowService.completeTask(wtask)
-                workflowService.createTask(doc, Task.TYPE_VALIDATE, 'kumulus')
+                workflowService.createTask(doc, Task.TYPE_PROCESS, 'kumulus')
                 doc.save()
             }
         }

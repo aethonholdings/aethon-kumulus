@@ -52,7 +52,7 @@ class RetrieveDocumentJob {
                         client.downloadResult(task, filename)
                         doc.file = filesystemService.indexPdfInFilesystem(doc, filename)
                         workflowService.completeTask(wtask)
-                        workflowService.createTask(doc, com.kumulus.domain.Task.TYPE_PROCESS, 'kumulus')
+                        workflowService.createTask(doc, com.kumulus.domain.Task.TYPE_OCR_EXTRACT, 'kumulus')
                     }
                     else if (task.Status == Task.TaskStatus.NotEnoughCredits) {
                         sns.sendEmail('ABBYY is not processing documents due to lack of funds!',

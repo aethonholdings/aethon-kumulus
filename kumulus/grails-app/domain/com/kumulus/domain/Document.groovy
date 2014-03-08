@@ -11,8 +11,9 @@ class Document {
     static final int STATUS_BUILT  = 2
     static final int STATUS_SUBMITTED = 3
     static final int STATUS_SEARCHABLE = 4
-    static final int STATUS_PROCESSED = 5
-    static final int STATUS_FINAL = 6
+    static final int STATUS_EXTRACTED = 5
+    static final int STATUS_PROCESSED = 6
+    static final int STATUS_FINAL = 7
     static final int STATUS_SUBMISSION_ERROR = -1
     
     Company company
