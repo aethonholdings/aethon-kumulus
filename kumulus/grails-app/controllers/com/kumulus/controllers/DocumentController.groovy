@@ -2,6 +2,7 @@ package com.kumulus.controllers
 
 import com.kumulus.domain.*
 import grails.converters.*
+import com.kumulus.jobs.SubmitDocumentJob
 
 class DocumentController {
     
@@ -27,6 +28,7 @@ class DocumentController {
         def document = captureService.merge(documents)
         tasks.each { workflowService.completeTask(it) }
         workflowService.createTask(document, Task.TYPE_OCR, permissionsService.getUsername())
+        SubmitDocumentJob.triggerNow()
         response.done = true
         render response as JSON
     }

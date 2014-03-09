@@ -56,6 +56,7 @@ class RetrieveDocumentJob {
                         workflowService.createTask(doc, com.kumulus.domain.Task.TYPE_OCR_EXTRACT, 'kumulus')
                         doc.save()
                     }
+                    ExtractTextJob.triggerNow()
                 }
                 else {
                     if (task.Status == Task.TaskStatus.NotEnoughCredits) {
