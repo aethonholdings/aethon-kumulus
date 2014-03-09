@@ -20,6 +20,11 @@ class Task {
     Date started
     Date completed
         
+    static mapping = {
+        type index: "idx_task_lookup"
+        completed index: "idx_task_lookup"
+    }
+
     static constraints = {
         document nullable: true
         started nullable: true
