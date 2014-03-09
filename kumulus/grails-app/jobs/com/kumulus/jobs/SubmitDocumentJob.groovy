@@ -23,7 +23,7 @@ class SubmitDocumentJob {
     def concurrent = false
 
     static triggers = {
-        simple name: 'Submit Job', startDelay: 0, repeatInterval: 1000
+        simple name: 'Submit Job', startDelay: 0, repeatInterval: 10000
     }
 
     def group = "Jobs"

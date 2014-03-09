@@ -20,7 +20,7 @@ class ExtractTextJob {
     def concurrent = false
 
     static triggers = {
-        simple name: 'Extract Job', startDelay: 0, repeatInterval: 1000
+        simple name: 'Extract Job', startDelay: 0, repeatInterval: 10000
     }
 
     def group = "Jobs"

@@ -24,7 +24,7 @@ class RetrieveDocumentJob {
     def concurrent = false
 
     static triggers = {
-        simple name: 'Retrieve Job', startDelay: 0, repeatInterval: 1000
+        simple name: 'Retrieve Job', startDelay: 0, repeatInterval: 10000
     }
 
     def group = "Jobs"
