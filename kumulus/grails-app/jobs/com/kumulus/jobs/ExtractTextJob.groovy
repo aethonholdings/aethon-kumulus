@@ -17,15 +17,16 @@ class ExtractTextJob {
     
     def filesystemService
     def workflowService
+    def concurrent = false
 
     static triggers = {
-        simple name: 'Extract Job', startDelay: 0, repeatInterval: 10000  
+        simple name: 'Extract Job', startDelay: 0, repeatInterval: 1000
     }
 
     def group = "Jobs"
 
     def execute() {
-        for (wtask in Task.findAll {type == Task.TYPE_OCR_EXTRACT && completed == null}) {
+        for (wtask in Task.findAllByTypeAndCompleted(Task.TYPE_OCR_EXTRACT, null)) {
             workflowService.startTask(wtask)
             def doc = wtask.document
             assert doc.status == Document.STATUS_SEARCHABLE

@@ -21,9 +21,10 @@ class RetrieveDocumentJob {
     def grailsApplication
     def filesystemService
     def workflowService
+    def concurrent = false
 
     static triggers = {
-        simple name: 'Retrieve Job', startDelay: 0, repeatInterval: 10000  
+        simple name: 'Retrieve Job', startDelay: 0, repeatInterval: 1000
     }
 
     def group = "Jobs"
@@ -41,7 +42,7 @@ class RetrieveDocumentJob {
         sns.setDefaultRecipient(grailsApplication.config.smtp.error_to)
 
         // Retrieve searchable documents from ABBYY
-        for (wtask in com.kumulus.domain.Task.findAll {type == com.kumulus.domain.Task.TYPE_OCR_RETRIEVE && completed == null}) {
+        for (wtask in com.kumulus.domain.Task.findAllByTypeAndCompleted(com.kumulus.domain.Task.TYPE_OCR_RETRIEVE, null)) {
             def doc = wtask.document
             def task = client.getTaskStatus(doc.ocrTask)
             if (doc.status == Document.STATUS_SUBMITTED && !task.isTaskActive()) {

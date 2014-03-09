@@ -20,9 +20,10 @@ class SubmitDocumentJob {
 
     def grailsApplication
     def workflowService
+    def concurrent = false
 
     static triggers = {
-        simple name: 'Submit Job', startDelay: 0, repeatInterval: 10000  
+        simple name: 'Submit Job', startDelay: 0, repeatInterval: 1000
     }
 
     def group = "Jobs"
@@ -37,12 +38,12 @@ class SubmitDocumentJob {
         settings.setOutputFormat(ProcessingSettings.OutputFormat.pdfSearchable)
 
         // Submit documents with status STATUS_BUILT to ABBYY
-        for (wtask in Task.findAll {type == Task.TYPE_OCR && completed == null}) {
+        for (wtask in Task.findAllByTypeAndCompleted(Task.TYPE_OCR, null)) {
             workflowService.startTask(wtask)
             def doc = wtask.document
             assert doc.status == Document.STATUS_BUILT
             def task = null
-            for (page in Page.findAll {document == doc}) {
+            for (page in Page.findAllByDocument(doc, [sort: "number", order: "asc"])) {
                 def filename = page.scanImage.file.path
                 def id = (task == null) ? null : task.Id
                 def result = client.submitImage(filename, id)
