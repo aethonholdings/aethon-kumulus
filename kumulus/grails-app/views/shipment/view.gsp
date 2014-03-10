@@ -57,29 +57,12 @@
                                     </g:if>
                                 </g:each>  
                                 <tr>
-                                     <td colspan="4"><input type="button" id="removeNode" deliveryId="1" name="Remove" value="Remove" class="button-space pure-button kumulus-float-right">
-                                        <g:hiddenField name="shipmentId" id="shipmentId" value="${shipmentObj.id[0]}" />
-                                        <input type="button" id="addNode" deliveryId="1" name="add" value="Add" class="button-space pure-button kumulus-float-right"></td>
-                                </tr>
-<!--                                <tr>
-                                    <td colspan="4"><div class="kumulus-shipment-sub-subheader">Products</div></td>
-                                </tr>
-                                <g:each var="product"  in="${productList}">
-                                    <g:if test="${product.delivery==1}">
-                                        <tr>
-                                            <td><div class="kumulus-shipment-details">${product.productObj.name}</td>
-                                            <td>${product.productObj.description}</td>
-                                            <td>${product.quantity}</td>
-                                            <td></td>
-                                        </tr>
-                                    </g:if>
-                                </g:each>  
-                                    <tr>
                                     <td colspan="4">
-                                           <g:link controller="home" action="index"  class="button-space pure-button kumulus-float-right">Remove</g:link>
-                                           <g:link controller="logistics" action="orderMaterials"  params='[shipmentId: "${shipmentObj.id[0]}"]' class="button-space pure-button kumulus-float-right">Add</g:link>
+                                        <input type="button" id="removeNode" deliveryId="1" name="Remove" value="Remove" class="button-space pure-button kumulus-float-right"/>
+                                        <g:hiddenField name="shipmentId" id="shipmentId" value="${shipmentObj.id[0]}" />
+                                        <input type="button" id="addNode" deliveryId="1" name="add" value="Add" class="button-space pure-button kumulus-float-right"/>
                                     </td>
-                                </tr>-->
+                                </tr>
                                </tbody>
                              </table>    
                            </div>
@@ -92,7 +75,6 @@
                                     <th>Item</th>
                                     <th>Description</th>
                                     <th>Quantity</th>
-
                                 </tr>
                             </thead>
                                  <tbody>    
@@ -134,11 +116,8 @@
                                 </g:each>
                                     <tr>
                                      <td colspan="4">
-                                          <g:link controller="home" action="index"  class="button-space pure-button kumulus-float-right">Remove</g:link>
-                                           <g:link controller="logistics" action="orderMaterials"  params='[shipmentId: "${shipmentObj.id[0]}"]' class="button-space pure-button kumulus-float-right">Add</g:link>
-                                               
-<!--                                        <input type="button" id="removeProducts" deliveryId="1" name="removeProducts" value="Remove" class="button-space pure-button kumulus-float-right">
-                                        <input type="button" id="addProducts" deliveryId="2" name="addProducts" value="Add" class="button-space pure-button kumulus-float-right">-->
+                                        <g:link controller="home" action="index"  class="button-space pure-button kumulus-float-right">Remove</g:link>
+                                        <g:link controller="logistics" action="orderMaterials"  params='[shipmentId: "${shipmentObj.id[0]}"]' class="button-space pure-button kumulus-float-right">Add</g:link>
                                     </td>
                                 </tr>
                             </tbody>
@@ -153,7 +132,7 @@
 
                                 <div class="pure-control-group">
                                     <label for="comment">Schedule Date</label>
-                                    <input id="scheduleDated" name="scheduleDated" readonly type="text" value="${}"  class="pure-u-23-24 ui-widget kumulus-margin"></input>                             
+                                    <input id="scheduleDated" name="scheduleDated" readonly type="text" value="" class="pure-u-23-24 ui-widget kumulus-margin"></input>                             
                                 </div>
 
                             </g:form> 
