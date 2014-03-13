@@ -25,9 +25,8 @@ import com.scannerapp.shared.NodeProperties;
 public class ImageGenerator {
 
 	private static final Logger logger = Logger.getLogger(ImageGenerator.class);
-
-	private static final String IMAGE_BASE_NAME = "scanned_doc ";
-	private static final String IMAGE_FILE_EXTENSION = ".png";
+        private static final String IMAGE_FORMAT = "png";
+	private static final String IMAGE_BASE_NAME = "IMG_";
 
 	private ImportSaparationPanel importSeparationPanel;
 	private NodeProperties parentDocumentNodeProperties;
@@ -35,7 +34,7 @@ public class ImageGenerator {
 	private Image scannedImage;
 
 	private String imageDirectoryPath = File.separator;
-	private String imageName = "";
+	private String imageName;
 
 	/**
 	 * Constructor to initialize the object.
@@ -50,7 +49,35 @@ public class ImageGenerator {
 			ImportSaparationPanel importSeparationPanel,
 			NodeProperties parentDocumentNodeProperties) {
 
-		this.scannedImage = scannedImage;
+                // initialise the image file literal
+                Date currentTime = new Date();
+		DateFormat dateFormat = new SimpleDateFormat("yyyyMMddHHmmssSSS");
+                this.imageName = IMAGE_BASE_NAME + dateFormat.format(currentTime);
+		
+                // initialise the image directory
+                /**
+                * Method to get the directory path for the scanned image. This path is
+                * relative which begins with project name and name subsequent folders are
+                * node id of respective tree nodes in hierarchy of selected node.
+                * 
+                * @return
+                */
+                this.imageDirectoryPath = "";
+		CustomMutableTreeNode presentNode = importSeparationPanel
+				.getDesktopMainPanel().getjRightPanel().getCollectionPanel()
+				.getSelectedTreeNode();
+		while (!presentNode.getNodeId().equals("#")) {
+                        if(presentNode.getParent()==null) { 
+                            this.imageDirectoryPath = SessionUtil.getSessionData().getProjectId() + File.separator + this.imageDirectoryPath;
+                        } else {
+                            this.imageDirectoryPath = presentNode.getNodeId() + File.separator + this.imageDirectoryPath;
+                        }
+			presentNode = (CustomMutableTreeNode) presentNode.getParent();
+		}
+		this.imageDirectoryPath = SessionUtil.getSessionData().getProjectName() + File.separator
+				+ this.imageDirectoryPath 
+                                + File.separator;
+                this.scannedImage = scannedImage;
 		this.bufferedScannedImage = bufferedScannedImage;
 		this.importSeparationPanel = importSeparationPanel;
 		this.parentDocumentNodeProperties = parentDocumentNodeProperties;
@@ -60,26 +87,8 @@ public class ImageGenerator {
 	 * Method to start the generation of image and upload in batch.
 	 */
 	public void beginToGenerateImage(CustomMutableTreeNode selectedNode) {
-
+                
 		logger.debug("Image generation from buffered image is starting.");
-
-		// Getting image directory path by Node IDs of nodes in hierarchy of
-		// selected node...
-		imageDirectoryPath = getImageDirectoryPath();
-
-		// Getting image name with time stamp...
-		imageName = getImageName();
-
-		generateImage(selectedNode);
-	}
-
-	/**
-	 * Method to generate the image.
-	 */
-	private int generateImage(CustomMutableTreeNode selectedNode) {
-
-		// output image type.
-		String imageFormat = "png";
 
 		try {
 
@@ -95,24 +104,24 @@ public class ImageGenerator {
 				dir.mkdirs();
 
 			// WRITING IMAGE FILE...
-			String imageFilePath = imageDir + imageName;
+			String imageFilePath = imageDir + imageName + "." + IMAGE_FORMAT;
 
 			bufferedScannedImage.createGraphics().drawImage(scannedImage, 0, 0,
 					null);
-			ImageIO.write(bufferedScannedImage, imageFormat, new File(
+			ImageIO.write(bufferedScannedImage, IMAGE_FORMAT, new File(
 					imageFilePath));
-
+                        
 			// Method to update the counter on generating scanned image on local
 			// machine...
-			importSeparationPanel.getImageUploader().isScannedImageGenerated(
-					true);
+                        importSeparationPanel.getImageUploader().isScannedImageGenerated(
+                                        true);
 
 			// Method to proceed for uploading generated image.
-			importSeparationPanel.getImageUploader().proceedToUpload(
-					imageDirectoryPath, imageName,
-					parentDocumentNodeProperties, false, selectedNode);
+                        importSeparationPanel.getImageUploader().proceedToUpload(
+                                        imageDirectoryPath, imageName  + "." + IMAGE_FORMAT,
+                                        parentDocumentNodeProperties, false, selectedNode);
 
-		} catch (IOException ioExcep) {
+                } catch (IOException ioExcep) {
 
 			logger.error("Error while generating the image.");
 			logger.error("Exception : " + ioExcep);
@@ -130,57 +139,11 @@ public class ImageGenerator {
 
 		} finally {
 
-			imageFormat = null;
+			
 		}
 
-		return 1;
 	}
 
-	/**
-	 * Method to get the directory path for the scanned image. This path is
-	 * relative which begins with project name and name subsequent folders are
-	 * node id of respective tree nodes in hierarchy of selected node.
-	 * 
-	 * @return
-	 */
-	private String getImageDirectoryPath() {
+	
 
-		String path = "";
-
-		CustomMutableTreeNode presentNode = importSeparationPanel
-				.getDesktopMainPanel().getjRightPanel().getCollectionPanel()
-				.getSelectedTreeNode();
-
-		while (presentNode.getNodeId() != "#") {
-                        if(presentNode.getParent()==null) { 
-                            path = SessionUtil.getSessionData().getProjectId() + File.separator + path;
-                        } else {
-                            path = presentNode.getNodeId() + File.separator + path;
-                        }
-
-			presentNode = (CustomMutableTreeNode) presentNode.getParent();
-		}
-
-		path = SessionUtil.getSessionData().getProjectName() + File.separator
-				+ path;
-
-		return path;
-	}
-
-	/**
-	 * Method to generate and get the name of the image.
-	 * 
-	 * @return
-	 */
-	private String getImageName() {
-
-		// Getting Current Time To Append To File Name...
-		Date currentTime = new Date();
-		DateFormat dateFormat = new SimpleDateFormat("dd_MM_yyyy HH_mm_ss_SSS");
-
-		String imageName = IMAGE_BASE_NAME + dateFormat.format(currentTime)
-				+ IMAGE_FILE_EXTENSION;
-
-		return imageName;
-	}
 }
