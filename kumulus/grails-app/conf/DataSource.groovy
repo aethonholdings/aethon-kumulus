@@ -32,7 +32,7 @@ environments {
     }
     test {
         dataSource {
-            dbCreate = "update"
+            dbCreate = "create-drop"
             url = "jdbc:mysql://kumulus.cokd1jwuhqlu.ap-southeast-1.rds.amazonaws.com/kumulus?autoReconnect=true"
             username = "kumulus"
             password = "d7!8d826ddx1"
