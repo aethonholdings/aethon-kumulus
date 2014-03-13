@@ -425,9 +425,13 @@ public class ImportSaparationPanel extends BaseJPanel implements
 		log.info("Inititalize Thumbnai Panel -> Selected Node Id : "
 				+ selectedNode.getNodeId());
 
-		if (selectedNode == null)
+                // -- KONS CODE -- Added logical test for root node, if the node is the root don't fetch thumbnails
+                
+		if (selectedNode == null || selectedNode.getNodeId().equals("#"))
 			return;
 
+                // -- END KONS CODE
+                
 // -- KONS CODE - FOLLOWING CODE SEGMENT IS DEPRECATED, NOT NEEDED
 //                
 //		// Condition To Check That Node Has Child Node Or Not...
