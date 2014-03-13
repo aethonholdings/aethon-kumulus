@@ -99,7 +99,7 @@ class ScanDoService {
             'projectName':"Scan barcodes",
             'SeparationTarget':"0",
             'refreshInterval':"600000",
-            'totalImagesToUploadAtOnce':"21",
+            'totalImagesToUploadAtOnce':"2",
             'setOverallTarget':"5000",
             'localThumbnailDirPath': null,
             'nodeTypeMap':nodeTypeMap ,
