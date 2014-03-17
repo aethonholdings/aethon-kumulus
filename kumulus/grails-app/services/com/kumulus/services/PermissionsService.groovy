@@ -13,7 +13,7 @@ class PermissionsService {
         def authorities = springSecurityService.authentication.authorities      // get the user authorities
         String company
         authorities.each { authority ->
-            if(!grailsApplication.config.kumulus.roles.contains(authority)) {
+            if(!grailsApplication.config.kumulus.roles.contains(authority.toString())) {
                 company = authority.toString().replaceAll("ROLE_", {""}).replaceAll("_", {" "})
             }
         }
