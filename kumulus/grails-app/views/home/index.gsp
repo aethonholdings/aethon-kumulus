@@ -11,20 +11,28 @@
         <title>Home | Kumulus</title>
     </head>
     <body>
-
-        <div class="pure-g kumulus-small-font">
+        <div class="pure-g">
             <div class="pure-u-1-2">
-                <div class="kumulus-container-4-7 kumulus-scrollable-y kumulus-element-border">
-                    <h3>You have ${userTasks.count} tasks outstanding</h3>
-                    <div class="kumulus-task"><g:taskQueue userId="${userId}"/></div>
-                </div>
-                <div class="kumulus-container-1-5 kumulus-scrollable-y kumulus-element-border">
-                    <h3>There are ${backOfficeTasks.count} tasks outstanding in the Kumulus queue</h3>
-                    <div class="kumulus-task"><g:taskQueue userId="${null}"/></div>
-                </div>
-                <div class="kumulus-container-1-3 kumulus-scrollable-y kumulus-element-border">
-                    <h3>&nbsp;</h3>
-                    <div class="kumulus-task">
+                <div class="kumulus-container">
+                    <div class="kumulus-widget-1-3 kumulus-scrollable-y">                
+                        <h3>You have ${userTasks.count} tasks outstanding</h3>
+                        <div class="kumulus-task"><g:taskQueue userId="${userId}"/></div>
+                    </div>
+                    <sec:ifAnyGranted roles="ROLE_PROCESS">
+                        <div class="kumulus-widget-1-3 kumulus-scrollable-y">
+                            <h3>There are ${backOfficeTasks.count} tasks outstanding in the Kumulus queue</h3>
+                            <div class="kumulus-task"><g:taskQueue userId="${null}"/></div>
+                        </div>
+                    </sec:ifAnyGranted>
+                    <sec:ifNotGranted roles="ROLE_PROCESS">
+                        <div class="kumulus-widget-1-3 kumulus-scrollable-y">
+                            <h3>There are ${backOfficeTasks.count} tasks from you in the Kumulus queue</h3>
+
+                        </div>
+                    </sec:ifNotGranted>
+                    <div class="kumulus-widget-1-3 kumulus-scrollable-y">
+                        <g:link controller="shipment" action="createShipment" class="pure-button kumulus-float-right kumulus-margin-top">Create new</g:link>
+                        <h3>You have ${shipmentList.size} document shipments arranged</h3>
                         <table class='pure-table pure-table-horizontal'>
                             <thead>
                                 <tr>
@@ -40,18 +48,18 @@
                                         <td><g:link controller="shipment" action="view" id="${shipment.id}">${shipment.toCompany}</g:link></td>
                                         <td>${dateFormat.format((java.util.Date)shipment.scheduled)}</td>
                                         <td><g:link controller="shipment" action="remove" id="${shipment.id}">Remove</g:link></td>
-                                        </tr>
+                                    </tr>
                                 </g:each>
                             </tbody>
                         </table>
                     </div>
-                    <g:link controller="shipment" action="createShipment" class="pure-button kumulus-float-right kumulus-margin-top">Create new</g:link>
-                    </div>
                 </div>
-                <div class="pure-u-1-2">
-                    <div class="kumulus-container kumulus-scrollable-y kumulus-element-border">
-                        <h3>You are working on ${projectList.size} projects.</h3>
-                    <div class="kumulus-task">
+            </div>
+            <div class="pure-u-1-2">
+                <div class="kumulus-container">
+                    <div class="kumulus-widget kumulus-scrollable-y">
+                        <g:link controller="project" action="create" class="pure-button kumulus-float-right kumulus-margin-top">Create new</g:link>
+                        <h3>You are working on ${projectList.size} projects.</h3>                      
                         <table class='pure-table pure-table-horizontal'>
                             <thead>
                                 <tr>
@@ -69,9 +77,8 @@
                             </tbody>
                         </table>  
                     </div>
-                    <g:link controller="project" action="create" class="pure-button kumulus-float-right kumulus-margin-top">Create new</g:link>
-                    </div>
                 </div>
             </div>
-        </body>
-    </html>
+        </div>
+    </body>
+</html>

@@ -1,5 +1,9 @@
 html{
-    font-size: small;
+    
+}
+
+body {
+    font-size: 12px;
 }
 
 table{
@@ -34,7 +38,6 @@ table{
 	height: 30px;
 	width: 100%;
         background-color: #0B5992 ;
-	font-size: 10pt;
 	position: relative;
         margin-bottom: 3px;
 }
@@ -88,7 +91,7 @@ table{
 }
 
 .kumulus-small-font {
-    font-size: smaller;
+    
 }
 
 .kumulus-hight{
@@ -141,7 +144,6 @@ kumulus-control-group{
 .kumulus-control-group label{
         display:inline-block;
         vertical-align:middle;
-        //width:15em;
         margin:0 1em 0 0 
 }
 
@@ -216,110 +218,64 @@ kumulus-control-group{
 
 /* work area layout elements */
 .kumulus-container{
-    height: 550px;
-    margin: 3px;
-    padding: 3px;
+    height: 650px;
 }
 
-.kumulus-container-inside-full{
-    height: 540px;
-    margin: 3px;
-    padding: 3px;
-}
-.kumulus-container-1-5{
-    height: 100px;
-    margin: 3px;
-    padding: 3px;
+/*  n x [ 2 x (margin? + border + padding) + height] = 600 */
+.kumulus-widget{
+    border: 1px;
+    padding: 5px;
+    height: 588px;    
+    border-style: solid;
+    border-color: #dfdfdf;
 }
 
-.kumulus-container-1-3{
-    height: 176px;
-    margin: 3px;
-    padding: 3px;
+.kumulus-widget-1-3{
+    border: 1px;
+    padding: 5px;
+    height: 188px;    
+    border-style: solid;
+    border-color: #dfdfdf;
 }
 
-.kumulus-container-4-7{
-    height: 252px;
-    margin: 3px;
-    padding: 3px;
-}
-.kumulus-container-2-3{
-    height: 440px;
-    margin: 3px;
-    padding: 3px;
+.kumulus-widget-2-3{
+    border: 1px;
+    padding: 5px;
+    height: 388px;    
+    border-style: solid;
+    border-color: #dfdfdf;
 }
 
-.kumulus-container-half{
-    height: 270px;
-    margin: 3px;
-    padding: 3px;
+.kumulus-widget-4-5{
+    border: 1px;
+    padding: 5px;
+    height: 468px;    
+    border-style: solid;
+    border-color: #dfdfdf;
 }
 
-.kumulus-container-for-collect h3, .kumulus-container-3-7 h3, .kumulus-container h3, .kumulus-container-2-3 h3,.kumulus-container-half h3, .kumulus-container-1-3 h3, .kumulus-container-1-4 h3, .kumulus-container-4-7 h3, .kumulus-container-1-5 h3{
-    margin: 1em 10px 10px 6px;
+.kumulus-widget-1-5{
+    border: 1px;
+    padding: 5px;
+    height: 108px;    
+    border-style: solid;
+    border-color: #dfdfdf;
 }
 
-.kumulus-container-half-1{
-    height: 250px;
-    margin: 3px;
-    padding: 3px;
-}
 .kumulus-print{
     width: 100%;
-}
-/*container-inside-box*/
-.kumulus-container-inside{
-    height: 500px;
-    margin: 1px;
-}
-.kumulus-container-ordermaterial-inside{
-    height: 480px;
-    margin: 4px;
-}
-
-.kumulus-container-inside-11-24{
-    height: 440px;
-    margin: 1px 4px;
-}
-.kumulus-container-inside-half{
-    height: 205px;
-    margin: 1px;
-}
-.kumulus-container-3-7{
-    height: 140px;
-    margin: 3px;
-    padding: 3px;
-}
-
-.kumulus-container-inside-2-3{
-    height: 320px;
-    margin: 1px;
-}
-.kumulus-container-for-collect{
-    height: 400px;
-    margin: 3px;
-    padding: 3px;
-}
-.kumulus-container-inside-for-collect{
-    height: 335px;
-    width: 85%;
-    margin: auto;
 }
 
 .kumulus-scrollable-y{
     overflow-y: auto;
 }
+
 .kumulus-padding{
     padding: 3px;
 }
+
 .kumulus-scrollable-x{
     overflow-x: auto;
-}
-
-.kumulus-element-border{
-    border:1px;
-    border-style: solid;
-    border-color: #dfdfdf;
 }
 
 .kumulus-button-bank {
@@ -336,47 +292,17 @@ kumulus-control-group{
     padding: 10px;
     text-align:center;
 }
+
 .kumulus-button-bank a{
     margin-top: 4px;
     
-}
-
-.kumulus-filmstrip-header{
-    background: #333;
-    color: #fff;
-    text-align: center;
-    width: 95%;
-    height: 30px; 
-    line-height: 20px;
-    margin: 0px auto;
-    border-radius: 2px;
-}
-
-.kumulus-filmstrip-margin-top{
-    margin-top: 53px;
-}
-.kumulus-filmstrip-button-margin-top{
-    margin-top: 67px;
-}
-
-.kumulus-filmstrip-header li{
-    background: #eee; 
-    text-align: center;
-    width: 100%;
-    list-style: none; 
 }
 
 .kumulus-filmstrip{
     background: #eee; 
     text-align: center;
     width: 100%;
-    min-height: 20px;
-}
-
-#flimstrip-first-li{
-    position: static;
-    float:bottom;
-    list-style:none;
+    min-height: 40px;
 }
 
 .kumulus-filmstrip ul{
@@ -384,10 +310,12 @@ kumulus-control-group{
     padding: 5px;
     display: block;
     background: #eee; 
+    
 }
 
 .kumulus-filmstrip li{
     text-align:center;
+    list-style: none; 
 }
 
 .kumulus-thumbnail{
@@ -455,6 +383,7 @@ label.error{
 .kumulus-vertical-align-top a{
     line-height: 30px;
 }
+
 .kumulus-margin-top{
     margin-top: 10px;
 }

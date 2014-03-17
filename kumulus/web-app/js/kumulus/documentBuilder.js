@@ -1,23 +1,14 @@
 $(document).ready(function(){ 
 
     $("#pages").sortable({
-        connectWith: "div",
-        dropOnEmpty: true
-    });
-
-    $("#document-strip").sortable({
         connectWith: "ul",
         dropOnEmpty: true
     });
 
-    $("#document-strip li").hover(
-        function () {
-            $("#document-strip").addClass("connectedSortable");
-        });
-    $("#document-strip span").hover(
-        function () {
-            $("#document-strip").removeClass("connectedSortable");
-        });
+    $("#documents").sortable({
+        connectWith: "ul",
+        dropOnEmpty: true
+    });
 
   
     $('.kumulus-filmstrip > ul > li > img').bind('mousedown', function() {
