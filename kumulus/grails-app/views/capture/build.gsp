@@ -68,7 +68,7 @@
                 </div>
               </div>
               <div class="pure-u-1-4">
-                <button class="pure-button" onClick="save();">Save</button>
+                <button class="pure-button kumulus-float-right" onClick="save();">Save</button>
               </div>
             </div>
           </div>

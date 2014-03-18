@@ -218,14 +218,22 @@ kumulus-control-group{
 
 /* work area layout elements */
 .kumulus-container{
-    height: 650px;
+    height: 610px;
 }
 
-/*  n x [ 2 x (margin? + border + padding) + height] = 600 */
+/*  2 x (margin? + border + padding) + height = container height */
 .kumulus-widget{
     border: 1px;
     padding: 5px;
     height: 588px;    
+    border-style: solid;
+    border-color: #dfdfdf;
+}
+
+.kumulus-widget-1-2{
+    border: 1px;
+    padding: 5px;
+    height: 288px;    
     border-style: solid;
     border-color: #dfdfdf;
 }
@@ -250,6 +258,22 @@ kumulus-control-group{
     border: 1px;
     padding: 5px;
     height: 468px;    
+    border-style: solid;
+    border-color: #dfdfdf;
+}
+
+.kumulus-widget-3-5{
+    border: 1px;
+    padding: 5px;
+    height: 348px;
+    border-style: solid;
+    border-color: #dfdfdf;
+}
+
+.kumulus-widget-2-5{
+    border: 1px;
+    padding: 5px;
+    height: 228px;    
     border-style: solid;
     border-color: #dfdfdf;
 }
@@ -301,6 +325,7 @@ kumulus-control-group{
 .kumulus-filmstrip{
     background: #eee; 
     text-align: center;
+    max-height: 588px;   
     width: 100%;
     min-height: 40px;
 }
@@ -581,8 +606,8 @@ li.kumulus-task-queue.kumulus-task-queue-action-item{
         padding: 3px;
         width:64%;
         line-height: 10px;
-        
     } 
+    
     .kumulus-control-group input, textarea, select{
         width: 70%;
         padding: 2px;
