@@ -216,12 +216,15 @@ kumulus-control-group{
     margin: 2px auto;
 }
 
-/* work area layout elements */
+/*  work area layout elements and widgets
+    widget sizing formula to calculate element height: 
+    2 x (margin? + border + padding) + height = container height 
+*/
+
 .kumulus-container{
     height: 610px;
 }
 
-/*  2 x (margin? + border + padding) + height = container height */
 .kumulus-widget{
     border: 1px;
     padding: 5px;
@@ -286,20 +289,42 @@ kumulus-control-group{
     border-color: #dfdfdf;
 }
 
-.kumulus-print{
-    width: 100%;
-}
-
 .kumulus-scrollable-y{
     overflow-y: auto;
+}
+
+.kumulus-scrollable-x{
+    overflow-x: auto;
 }
 
 .kumulus-padding{
     padding: 3px;
 }
 
-.kumulus-scrollable-x{
-    overflow-x: auto;
+/*  widget headers */
+
+.kumulus-widget-header {
+    width: 100%; 
+    margin-bottom: 10px;
+    border-bottom: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #dfdfdf;
+}
+
+.kumulus-widget-header-title {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.kumulus-widget-header-action {
+    float: right;
+}
+
+
+
+
+.kumulus-print{
+    width: 100%;
 }
 
 .kumulus-button-bank {
@@ -322,10 +347,12 @@ kumulus-control-group{
     
 }
 
+/* filmstrip */
+
 .kumulus-filmstrip{
     background: #eee; 
     text-align: center;
-    max-height: 588px;   
+    max-height: 555px;   
     width: 100%;
     min-height: 40px;
 }
@@ -335,7 +362,6 @@ kumulus-control-group{
     padding: 5px;
     display: block;
     background: #eee; 
-    
 }
 
 .kumulus-filmstrip li{
@@ -346,6 +372,10 @@ kumulus-control-group{
 .kumulus-thumbnail{
     margin: auto;
 }
+
+
+
+
 
 .kumulus-control-group input,textarea,select{
     width: 40%;
@@ -464,6 +494,7 @@ label.error{
     width: 95%;
     padding: 0px;
 }
+
 .kumulus-task ul li{
     margin-left: 8px;
     clear: both;
@@ -473,51 +504,39 @@ label.error{
     margin-right: 7px;
     float: right
 }
-li.kumulus-task-queue.kumulus-task-queue-action-item{
-    margin-bottom: 1px;
+
+
+/* Task queue */
+
+.kumulus-task-queue-action-item{
     background-color: #EFEFD5;
-    line-height: 21px;
 }
 
 .kumulus-task-queue{
     width: 100%;
 }
 
-.kumulus-task-queue-project{
-    margin-left: 10px;
-    margin-right: -7%;
-    background-color: #EFEFD5; 
-    height: 21px;
-    line-height: 21px;
-    margin-bottom: 2px;
-}
-
 .kumulus-task-queue-project-name{
-    width: 45%;
     float: left;
     padding-left: 15px;
 }
 
-.kumulus-task-queue-project-count{
-    width: 22%;
-    float: left;
-    padding-left: 10px;
-}
-
 .kumulus-task-queue-action{
     width: 22%;
-    padding-left: 10px;
+    text-align:center;
 }
+
+.kumulus-task-count{
+    width: 22%;
+    text-align:center;    
+}
+
+
+
+
 
 .pure-u-1-12 .pure-button{
    width: 90%;
-}
-.pure-table{
-    border:0px;
-}
-.pure-table-horizontal td,.pure-table-horizontal th{
-	border-width:0 0 0px;
-	border-bottom:0px;
 }
 
 .kumulus-shipment-subheader{
@@ -695,3 +714,16 @@ li.kumulus-task-queue.kumulus-task-queue-action-item{
         width: 45px;
     }
 }
+
+
+/* PURE TABLE ADJUSTMENTS */
+
+.pure-table{
+    border:0px;
+}
+
+.pure-table-horizontal td,.pure-table-horizontal th{
+	border-width:0 0 0px;
+	border-bottom:0px;
+}
+

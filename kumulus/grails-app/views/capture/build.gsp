@@ -10,6 +10,10 @@
       <div class="pure-u-1-5">
         <div class="kumulus-container">
           <div class="kumulus-widget">
+            <div class="kumulus-widget-header">
+              <span class="kumulus-widget-header-title">Container details</span>
+              <span class="kumulus-widget-header-action"></span>
+            </div>
             <div class="kumulus-data-entry pure-form">
               <fieldset>
                 <div class="pure-control-group">
@@ -35,6 +39,10 @@
       <div class="pure-u-2-5">
         <div class="kumulus-container">
           <div class="kumulus-widget">
+            <div class="kumulus-widget-header">
+              <span class="kumulus-widget-header-title">Image preview</span>
+              <span class="kumulus-widget-header-action"></span>
+            </div>
             <div class="kumulus-preview">
               <img id="preview-img" class="kumulus-element-border" onClick="zoom();">
             </div>
@@ -44,6 +52,10 @@
       <div class="pure-u-2-5">
         <div class="kumulus-container">
           <div class="kumulus-widget">
+            <div class="kumulus-widget-header">
+              <span class="kumulus-widget-header-title">Document builder</span>
+              <span class="kumulus-widget-header-action"></span>
+            </div>
             <div class="pure-g">
               <div class="pure-u-3-4"> 
                 <div class="pure-g">

@@ -12,7 +12,10 @@
       <div class="pure-u-1-5">
         <div class="kumulus-container">
           <div class="kumulus-widget">
-            <h3>Project Details</h3>
+            <div class="kumulus-widget-header">
+              <span class="kumulus-widget-header-title">Project details</span>
+              <span class="kumulus-widget-header-action"></span>
+            </div>
             <div class="kumulus-data-entry">
               <g:form name="edit" action="update" id="${project?.id}" class="pure-form">
                 <div class="pure-control-group">
@@ -40,15 +43,20 @@
         <span id="project" projectID="${project?.id}"></span>
         <div class="kumulus-container">
           <div class="kumulus-widget-4-5">
-            <g:link controller="capture" action="collect" params='[id: "${project?.id}"]' class="kumulus-float-right kumulus-margin-top">Collect paperwork</g:link>
-            <h3>Archive Structure</h3>
+            <div class="kumulus-widget-header">
+              <span class="kumulus-widget-header-title">Archive structure</span>
+              <span class="kumulus-widget-header-action"><g:link controller="capture" action="collect" params='[id: "${project?.id}"]'>Collect paperwork</g:link></span>
+            </div>
             <div class="kumulus-node-tree kumulus-scrollable-y">
               <div id="nodeTree" class="jstree-draggable"></div>
             </div>
           </div>
           <div class="kumulus-widget-1-5">
+            <div class="kumulus-widget-header">
+              <span class="kumulus-widget-header-title">Archive search</span>
+              <span class="kumulus-widget-header-action"></span>
+            </div>
             <div id="search">
-              <h3>Archive search</h3>
               <g:form url='[controller: "project", action: "search"]' id="searchableForm" name="searchableForm" method="get">
                 <g:textField name="q" value="${params.q}" class="pure-input" placeholder="Enter search terms" size="45"/> 
                 <input type="submit" value="Search" class="pure-button" onclick="show_advanced();"/>
@@ -60,7 +68,10 @@
       <div class="pure-u-2-5">
         <div class="kumulus-container">
           <div class="kumulus-widget-2-5">
-            <h3>Container Details</h3>
+            <div class="kumulus-widget-header">
+              <span class="kumulus-widget-header-title">Container details</span>
+              <span class="kumulus-widget-header-action"></span>
+            </div>
             <div class="pure-form pure-form-aligned">
               <div class="pure-control-group">
                 <label for="barcode">Barcode:</label>
@@ -86,8 +97,10 @@
           </div>
           <div class="kumulus-widget-3-5 kumulus-scrollable-y">
             <div class="kumulus-container-for-collect">
-              <g:link controller="capture" action="upload" params='[id: "${project?.id}"]' class="kumulus-float-right">Upload</g:link>
-              <h3>Container Contents</h3>
+              <div class="kumulus-widget-header">
+                <span class="kumulus-widget-header-title">Container contents</span>
+                <span class="kumulus-widget-header-action"><g:link controller="capture" action="upload" params='[id: "${project?.id}"]' class="kumulus-float-right">Upload</g:link></span>
+              </div>
               <div class="kumulus-scrollable-y">
                 <table id="pageInfo" class="pure-table pure-table-horizontal">
                   <thead>

@@ -31,11 +31,10 @@
         </div>
         <div class='kumulus-menu'>
           <ul>
-                <li><g:link controller='home' action='index'>Home</g:link></li>
-                <li><g:link controller='logistics' action='orderMaterials'>Order materials</g:link></li>
-                <li><a href="#">Manage users</a></li>
-                <li><a href="#">Billing</a></li>
-                <li><a href="#">Manage account</a></li>
+            <li><g:link controller='home' action='index'>Home</g:link></li>
+            <li><a href="#">Manage users</a></li>
+            <li><a href="#">Review billing</a></li>
+            <li><a href="#">Manage account</a></li>
           </ul>
        </div>
        <div id='layout'>

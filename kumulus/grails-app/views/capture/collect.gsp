@@ -12,7 +12,10 @@
         <div class="pure-u-1-4">
           <div class="kumulus-container">
             <div class="kumulus-widget kumulus-scrollable-y kumulus-scrollable-x">
-              <h3>Archive structure</h3>
+              <div class="kumulus-widget-header">
+                <span class="kumulus-widget-header-title">Archive structure</span>
+                <span class="kumulus-widget-header-action"></span>
+              </div>
               <div class="kumulus-node-tree">
                 <div id="nodeTree" class="jstree-draggable"></div>
               </div>            
@@ -28,7 +31,10 @@
         <div class="pure-u-1-2">
           <div class="kumulus-container">
             <div class="kumulus-widget">
-              <h3>Workflow</h3>
+              <div class="kumulus-widget-header">
+                <span class="kumulus-widget-header-title">Workflow</span>
+                <span class="kumulus-widget-header-action"></span>
+              </div>
               <div class="kumulus-data-entry">
                 <form name="newContainer" action="add" method="POST" class="pure-form pure-form-aligned">
                   <fieldset>
@@ -70,7 +76,10 @@
         <div class="pure-u-1-4">
           <div class="kumulus-container">
             <div class="kumulus-widget-1-3">
-            <h3>Container Details</h3>
+            <div class="kumulus-widget-header">
+              <span class="kumulus-widget-header-title">Container Details</span>
+              <span class="kumulus-widget-header-action"></span>
+            </div>
             <div class="kumulus-margin-left">
               <div class="pure-form kumulus-margin-bottom">
                 <div class="pure-control-group kumulus-margin-bottom">
@@ -94,8 +103,10 @@
           </div>
           <div class="kumulus-widget-2-3 kumulus-scrollable-y">
             <div class="kumulus-container-for-collect">
-              <g:link controller="capture" action="upload" params='[id: "${project?.id}"]' class="kumulus-float-right">Upload</g:link>
-              <h3>Container Contents</h3>
+              <div class="kumulus-widget-header">
+                <span class="kumulus-widget-header-title">Container contents</span>
+                <span class="kumulus-widget-header-action"><g:link controller="capture" action="upload" params='[id: "${project?.id}"]' class="kumulus-float-right">Upload</g:link></span>
+              </div>
               <div class="kumulus-scrollable-y">
                 <table id="pageInfo" class="pure-table pure-table-horizontal">
                   <thead>
