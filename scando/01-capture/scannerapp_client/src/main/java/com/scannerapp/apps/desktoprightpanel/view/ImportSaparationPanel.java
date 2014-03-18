@@ -121,7 +121,7 @@ public class ImportSaparationPanel extends BaseJPanel implements
 	private CustomMutableTreeNode cutImageParentNode = null;
 
 	// To upload images...
-	private ImageUploader imageUploader = new ImageUploader(this);
+	private ImageUploader imageUploader = ImageUploader.createInstance(this);
         private ImportSaparationPanelHelper importSaparationPanelHelper = new ImportSaparationPanelHelper();
 
 	/**
@@ -756,6 +756,7 @@ public class ImportSaparationPanel extends BaseJPanel implements
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
+            try {
 
 		if (e.getSource() == searchButton) {
                     try {
@@ -1024,6 +1025,12 @@ public class ImportSaparationPanel extends BaseJPanel implements
 				log.error("Exception : " + err);
 			}
 		}
+            }
+            
+            catch (Exception exc) {
+                // TODO: error handling
+                exc.printStackTrace();
+            }
 	}
 
 	private boolean isImportOrResumeImportInProgress(Object source) {
@@ -1933,7 +1940,8 @@ public class ImportSaparationPanel extends BaseJPanel implements
 	 * 
 	 * @param selectedNode
 	 */
-	private void resumeImport(CustomMutableTreeNode selectedNode) {
+	private void resumeImport(CustomMutableTreeNode selectedNode)
+            throws Exception {
 
 		// Condition To check Selected Node Is Not Root Node.
 		if (selectedNode.getNodeId() == SessionUtil.getSessionData()
