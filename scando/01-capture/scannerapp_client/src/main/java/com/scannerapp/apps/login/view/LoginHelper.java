@@ -18,84 +18,105 @@ import com.scannerapp.apps.utils.ConnectionUtil;
 import com.scannerapp.shared.SessionData;
 import com.sun.jersey.api.client.ClientHandlerException;
 import com.sun.jersey.api.client.ClientResponse;
+import com.sun.jersey.api.client.ClientResponse.Status;
 import com.sun.jersey.api.client.UniformInterfaceException;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import org.codehaus.jettison.json.JSONException;
+import org.codehaus.jettison.json.JSONObject;
 
 public class LoginHelper extends ClientHelper {
 
 	private static Logger log = Logger.getLogger(LoginHelper.class);
 
 	private ObjectMapper mapper = new ObjectMapper();
+        
+        String json= null;
 
 	/**
 	 * Method to fetch the project list when the application starts.
 	 * 
 	 * @return
 	 */
-	public HashMap<String, String> getProjectList() {
-
-		HashMap<String, String> projectList = new HashMap<String, String>();
-
-		try {
-			String projectListJson = ConnectionUtil.getWebService()
-					.path("loginServices").path("fetchProject")
-					.accept(MediaType.APPLICATION_JSON_TYPE).get(String.class);
-
-			projectList = mapper.readValue(projectListJson,
-					new TypeReference<HashMap<String, String>>() {
-					});
-
-		} 
-		catch (JsonParseException e) 
-		{
-			log.error("Error while reading the json string for project list");
-			log.error("Exception : " + e);
-
-			ErrorMessage.displayMessage('E', "errorInParsingResponseStringAS");
-		}
-		catch (JsonMappingException e) 
-		{
-			log.error("Error while reading the json string for project list");
-			log.error("Exception : " + e);
-
-			ErrorMessage.displayMessage('E', "errorInParsingResponseStringAS");
-		}
-		catch (IOException e) 
-		{
-			log.error("Error while reading the json string for project list");
-			log.error("Exception : " + e);
-
-			ErrorMessage.displayMessage('E', "errorInParsingResponseStringAS");
-		}
-		catch (UniformInterfaceException e) {
-
-			log.error("Error while reading the json string for project list");
-			log.error("Exception : " + e);
-
-			ErrorMessage.displayMessage('E', "errorGeneratedOnAS");
-		}
-		catch (ClientHandlerException e) {
-
-			log.error("Error while reading the json string for project list");
-			log.error("Exception : " + e);
-			if(e.toString().contains("java.net.ConnectException: Connection refused"))
-			{
-				ErrorMessage.displayMessage('E', "errorInASConnection");
-			}
-			else
-			{
-				ErrorMessage.displayMessage('E', "errorGeneratedOnAS");	
-			}			
-		}
-		catch (Exception e) {
-
-			log.error("Error while reading the json string for project list");
-			log.error("Exception : " + e);
-
-			ErrorMessage.displayMessage('E', "errorGeneratedOnAS");
-		}
-
-		return projectList;
-	}
+//	public HashMap<String, String> getProjectList() {
+//
+//		HashMap<String, String> projectList = new HashMap<String, String>();
+//              String projectUrl="http://localhost:8080/kumulus/scanDo/fetchProjectList";
+//
+//		try {
+		//	String projectListJson = ConnectionUtil.getWebService()
+////					.path("loginServices").path("fetchProject")
+////					.accept(MediaType.APPLICATION_JSON_TYPE).get(String.class);
+//                        
+//                        
+//                      String projectListJson = GetJsonUtil.getJsonfromServer(projectUrl);
+//                        System.out.println("Project json is : "+projectListJson);
+//                        
+//                        System.out.println("****************************************************");
+//                        
+//                       
+//
+//			projectList = mapper.readValue(projectListJson,
+//					new TypeReference<HashMap<String, String>>() {
+//					});
+//                        
+//                         System.out.println("Project keys"+ projectList.keySet());
+//
+//		} 
+//		catch (JsonParseException e) 
+//		{
+//			log.error("Error while reading the json string for project list");
+//			log.error("Exception : " + e);
+//
+//			ErrorMessage.displayMessage('E', "errorInParsingResponseStringAS");
+//		}
+//		catch (JsonMappingException e) 
+//		{
+//			log.error("Error while reading the json string for project list");
+//			log.error("Exception : " + e);
+//
+//			ErrorMessage.displayMessage('E', "errorInParsingResponseStringAS");
+//		}
+//		catch (IOException e) 
+//		{
+//			log.error("Error while reading the json string for project list");
+//			log.error("Exception : " + e);
+//
+//			ErrorMessage.displayMessage('E', "errorInParsingResponseStringAS");
+//		}
+//		catch (UniformInterfaceException e) {
+//
+//			log.error("Error while reading the json string for project list");
+//			log.error("Exception : " + e);
+//
+//			ErrorMessage.displayMessage('E', "errorGeneratedOnAS");
+//		}
+//		catch (ClientHandlerException e) {
+//
+//			log.error("Error while reading the json string for project list");
+//			log.error("Exception : " + e);
+//			if(e.toString().contains("java.net.ConnectException: Connection refused"))
+//			{
+//				ErrorMessage.displayMessage('E', "errorInASConnection");
+//			}
+//			else
+//			{
+//				ErrorMessage.displayMessage('E', "errorGeneratedOnAS");	
+//			}			
+//		}
+//		catch (Exception e) {
+//
+//			log.error("Error while reading the json string for project list");
+//			log.error("Exception : " + e);
+//
+//			ErrorMessage.displayMessage('E', "errorGeneratedOnAS");
+//		}
+//
+//		return projectList;
+//	}
 
 	/**
 	 * Method to verify the logged in user and perform authorization.
@@ -103,19 +124,18 @@ public class LoginHelper extends ClientHelper {
 	 * @param loginCredentials
 	 * @return
 	 */
-	public boolean authorizeLogin(ArrayList<String> loginCredentials) {
-
+	public boolean authorizeLogin(String username, String password) {
+               
 		Boolean isAuthorizedLogin = false;
-
+                
 		try {
-			ClientResponse response = ConnectionUtil.getWebService()
-					.path("loginServices").path("authorizeLogin")
+                    ClientResponse response = ConnectionUtil.getWebService(username, password)
+                                        .path("scanDo").path("authenticate")
 					.type(MediaType.APPLICATION_JSON_TYPE)
 					.accept(MediaType.APPLICATION_JSON_TYPE)
-					.post(ClientResponse.class, loginCredentials);
-
-			isAuthorizedLogin = (Boolean) response.getEntity(Boolean.class);
-
+					.post(ClientResponse.class, new ArrayList<String>());
+                    isAuthorizedLogin = response.getClientResponseStatus() == Status.OK;
+                    
 		} 		
 		catch (UniformInterfaceException e) {
 
@@ -152,22 +172,47 @@ public class LoginHelper extends ClientHelper {
 	 * Method to fetch the session data from the DB when the user successfully
 	 * logs into the system.
 	 * 
-	 * @param loginCredentials
 	 * @return
 	 */
-	public SessionData fetchSessionData(ArrayList<String> loginCredentials) {
-
+	public SessionData fetchSessionData(String username, String password) {
 		SessionData sessionData = null;
 
 		try {
 			ClientResponse response = ConnectionUtil.getWebService()
-					.path("loginServices").path("fetchSessionData")
+					.path("scanDo").path("fetchSessionData")
 					.type(MediaType.APPLICATION_JSON_TYPE)
 					.accept(MediaType.APPLICATION_JSON_TYPE)
-					.post(ClientResponse.class, loginCredentials);
-
-			sessionData = (SessionData) response.getEntity(SessionData.class);
-
+					.post(ClientResponse.class, new ArrayList<String>());
+                      
+                        String s = response.getEntity(String.class);
+                        JSONObject jsonobj = new JSONObject(s);
+                        
+                        HashMap<String, String>   nodeTypeMap = mapper.readValue(jsonobj.getString("nodeTypeMap"),
+				new TypeReference<HashMap<String, String>>() {});
+                        HashMap<String, String>   statusMap = mapper.readValue(jsonobj.getString("nodeTypeMap"),
+				new TypeReference<HashMap<String, String>>() {});
+                 
+                      
+                        
+			sessionData = new SessionData();
+                        sessionData.setVersion(jsonobj.getString("version"));
+                        sessionData.setBreathInterval(jsonobj.getString("version"));
+                        sessionData.setProjectId(jsonobj.getString("projectId"));
+                        sessionData.setUserId(jsonobj.getString("userid"));
+                        sessionData.setCollectionRight(jsonobj.getString("collectionRight"));
+                        sessionData.setImportRight(jsonobj.getString("importRight"));
+                        sessionData.setLocalStoragePath(jsonobj.getString("LocalStoragePath"));
+                        sessionData.setProjectName(jsonobj.getString("projectName"));    
+                        sessionData.setSeparationTarget(jsonobj.getString("SeparationTarget"));
+                        sessionData.setRefreshInterval(jsonobj.getString("refreshInterval"));
+                        sessionData.setTotalImagesToUploadAtOnce(jsonobj.getString("totalImagesToUploadAtOnce"));
+                        sessionData.setOverallTarget(jsonobj.getString("setOverallTarget"));
+                        sessionData.setLocalThumbnailDirPath(jsonobj.getString("localThumbnailDirPath"));
+                        sessionData.setNodeTypeMap(nodeTypeMap);
+                        sessionData.setStatusMap(statusMap); 
+                        sessionData.setUserName(username);
+                        sessionData.setPassword(password); 
+                        
 		} 
 		catch (UniformInterfaceException e) {
 
@@ -210,13 +255,13 @@ public class LoginHelper extends ClientHelper {
 	public boolean updateAttendance(ArrayList<String> loginCredentials) {
 
 		try {
-			ClientResponse response = ConnectionUtil.getWebService()
-					.path("loginServices").path("updateAttendance")
+			ClientResponse response = ConnectionUtil.getWebService(loginCredentials.get(0),loginCredentials.get(1))
+					.path("scanDo").path("updateAttendance")
 					.type(MediaType.APPLICATION_JSON_TYPE)
 					.accept(MediaType.APPLICATION_JSON_TYPE)
 					.post(ClientResponse.class, loginCredentials);
 
-			return (Boolean) response.getEntity(Boolean.class);
+			return response.getClientResponseStatus() == Status.OK;
 
 		} 
 		catch (UniformInterfaceException e) {
@@ -379,4 +424,7 @@ public class LoginHelper extends ClientHelper {
 		}
 
 	}
+        
+        
+        
 }

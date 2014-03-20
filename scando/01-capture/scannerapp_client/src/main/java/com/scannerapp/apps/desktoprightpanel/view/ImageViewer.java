@@ -156,8 +156,9 @@ public class ImageViewer extends BaseJPanel implements ListSelectionListener  {
 		mainThumbnailImageViewPanel.setLayout(new BorderLayout());
 		mainThumbnailImageViewPanel.add(thumbnailActualImageViewPanel,
 				BorderLayout.CENTER);
-		mainThumbnailImageViewPanel.add(buttonPanel, BorderLayout.PAGE_END);	
-
+                //--RAJ CODE TO HIDE FULLSCREEN BUTTON
+//		mainThumbnailImageViewPanel.add(buttonPanel, BorderLayout.PAGE_END);	
+                 //--END RAJ CODE TO HIDE FULLSCREEN BUTTON
 		thumbnailActualImageViewScrollPanel.getViewport().add(
 				mainThumbnailImageViewPanel,
 				new GridBagConstraints(0, 0, 1, 1, 1.0, 0.0,

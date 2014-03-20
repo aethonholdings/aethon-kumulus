@@ -21,6 +21,10 @@ import com.scannerapp.shared.NodeProperties;
 import com.sun.jersey.api.client.ClientHandlerException;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.UniformInterfaceException;
+import com.sun.jersey.core.util.MultivaluedMapImpl;
+import static java.lang.System.exit;
+import javax.ws.rs.core.MultivaluedMap;
+import org.codehaus.jettison.json.JSONObject;
 
 public class ImportSaparationPanelHelper extends ClientHelper {
 
@@ -38,16 +42,17 @@ public class ImportSaparationPanelHelper extends ClientHelper {
 	public String getHierarchyFromSearchBarcode(String searchBarcode) {
 
 		String hierarchy = null;
-		ArrayList<String> param = new ArrayList<String>();
-		param.add(SessionUtil.getSessionData().getProjectId());
-		param.add(searchBarcode);
-
+		//ArrayList<String> param = new ArrayList<String>();
+                MultivaluedMap requestData = new MultivaluedMapImpl();
+                requestData.add("searchBarcode", searchBarcode);
+		requestData.add("projectId",SessionUtil.getSessionData().getProjectId());
+		
 		try {
 			ClientResponse response = ConnectionUtil.getWebService()
-					.path("nodeServices").path("getHierarchyFromSearchBarcode")
+					.path("scanDo").path("getHierarchyFromSearchBarcode")
 					.type(MediaType.APPLICATION_JSON_TYPE)
 					.accept(MediaType.APPLICATION_JSON_TYPE)
-					.post(ClientResponse.class, param);
+					.post(ClientResponse.class, requestData);
 
 			hierarchy = (String) response.getEntity(String.class);
 
@@ -87,13 +92,16 @@ public class ImportSaparationPanelHelper extends ClientHelper {
 
 	public List<NodeProperties> fetchChildNodeList(ArrayList<String> idList) {
 		ArrayList<NodeProperties> childNodePropertiesList = null;
+                MultivaluedMap reuestData = new MultivaluedMapImpl();
+                 reuestData.add("projectId", idList.get(0));
+                 reuestData.add("parentnodeId", idList.get(1));
 
 		try {
 			ClientResponse response = ConnectionUtil.getWebService()
-					.path("nodeServices").path("fetchChildNodeList")
-					.type(MediaType.APPLICATION_JSON_TYPE)
+					.path("scanDo").path("fetchNodeThumbnails")
+			 		.type(MediaType.APPLICATION_JSON_TYPE)
 					.accept(MediaType.APPLICATION_JSON_TYPE)
-					.post(ClientResponse.class, idList);
+					.post(ClientResponse.class, reuestData);
 
 			String jsonString = (String) response.getEntity(String.class);
 
@@ -166,11 +174,11 @@ public class ImportSaparationPanelHelper extends ClientHelper {
 			ArrayList<NodeProperties> imageNodePropertiesList) {
 
 		HashMap<String, Boolean> imageUploadResultMap = null;
+               
 
 		try {
-
-			ClientResponse response = ConnectionUtil.getWebService()
-					.path("nodeServices").path("saveScannedImages")
+    			ClientResponse response = ConnectionUtil.getWebService()
+					.path("scanDo").path("saveScannedImages")
 					.type(MediaType.APPLICATION_JSON_TYPE)
 					.accept(MediaType.APPLICATION_JSON_TYPE)
 					.post(ClientResponse.class, imageNodePropertiesList);
@@ -186,30 +194,30 @@ public class ImportSaparationPanelHelper extends ClientHelper {
 		catch (JsonParseException e) {
 			log.error("Error to establish connection while uploading images.");
 			log.error("Exception : " + e);
-
-			ErrorMessage.displayMessage('E', "errorInParsingResponseStringAS");
+			ErrorMessage.displayMessage('E', "errorInParsingResponseStringAS");                       
+                        return imageUploadResultMap;                                       //-- RAJ CODE 
 		}
 
 		catch (JsonMappingException e) {
 			log.error("Error to establish connection while uploading images.");
 			log.error("Exception : " + e);
-
 			ErrorMessage.displayMessage('E', "errorInParsingResponseStringAS");
+                         return imageUploadResultMap;                                       //-- RAJ CODE 
 		}
 
 		catch (IOException e) {
 			log.error("Error to establish connection while uploading images.");
 			log.error("Exception : " + e);
-
 			ErrorMessage.displayMessage('E', "errorInParsingResponseStringAS");
+                         return imageUploadResultMap;                                       //-- RAJ CODE 
 		}
 
 		catch (UniformInterfaceException e) {
 
 			log.error("Error to establish connection while uploading images.");
 			log.error("Exception : " + e);
-
 			ErrorMessage.displayMessage('E', "errorGeneratedOnAS");
+                        return imageUploadResultMap;                                         //-- RAJ CODE 
 		}
 
 		catch (ClientHandlerException e) {
@@ -222,6 +230,7 @@ public class ImportSaparationPanelHelper extends ClientHelper {
 			} else {
 				ErrorMessage.displayMessage('E', "errorGeneratedOnAS");
 			}
+                        return imageUploadResultMap;                                          //-- RAJ CODE 
 		}
 
 		catch (Exception e) {
@@ -229,7 +238,8 @@ public class ImportSaparationPanelHelper extends ClientHelper {
 			log.error("Error to establish connection while uploading images.");
 			log.error("Exception : " + e);
 
-			ErrorMessage.displayMessage('E', "errorGeneratedOnAS");
+                         ErrorMessage.displayMessage('E', "errorGeneratedOnAS");
+                         return imageUploadResultMap;                                          //-- RAJ CODE 
 		}
 
 		return imageUploadResultMap;
@@ -254,14 +264,19 @@ public class ImportSaparationPanelHelper extends ClientHelper {
 
 		try {
 
-			ClientResponse response = ConnectionUtil.getWebService()
-					.path("nodeServices")
-					.path("checkIfNodeIsUpdatedByOtherUser")
-					.type(MediaType.APPLICATION_JSON_TYPE)
-					.accept(MediaType.APPLICATION_JSON_TYPE)
-					.post(ClientResponse.class, nodeUpdateTimeMap);
-
-			isNodeUpdated = (Boolean) response.getEntity(Boolean.class);
+// ------ KONS COMMENT OUT
+//			ClientResponse response = ConnectionUtil.getWebService()
+//					.path("scanDo")
+//					.path("checkIfNodeIsUpdatedByOtherUser")
+//					.type(MediaType.APPLICATION_JSON_TYPE)
+//					.accept(MediaType.APPLICATION_JSON_TYPE)
+//					.post(ClientResponse.class, nodeUpdateTimeMap);
+//
+//			isNodeUpdated = (Boolean) response.getEntity(Boolean.class);
+// ------ END KONS COMMENT OUT
+                    
+                        isNodeUpdated = false;
+                        
 		}
 
 		catch (UniformInterfaceException e) {
@@ -302,7 +317,7 @@ public class ImportSaparationPanelHelper extends ClientHelper {
 		try {
 
 			ClientResponse response = ConnectionUtil.getWebService()
-					.path("nodeServices")
+					.path("scanDo")
 					.path("getChildNodeCount")
 					.type(MediaType.APPLICATION_JSON_TYPE)
 					.accept(MediaType.APPLICATION_JSON_TYPE)
@@ -396,4 +411,64 @@ public class ImportSaparationPanelHelper extends ClientHelper {
 		
 		return encodedImageStringForActualImage;
 	}
+        
+        /**
+         * Method to get the Project corresponding to bar code entered by user
+         * @param barcode
+	 * @return project  if any project exists in DB having the bar code provided.
+         */
+        public boolean getProjectByBarcode(String barcode) {
+
+            MultivaluedMap requestData = new MultivaluedMapImpl();
+            requestData.add("barcode", barcode);
+		try {
+			ClientResponse response = ConnectionUtil.getWebService()
+					.path("scanDo").path("getProjectBybarcode")
+					.type(MediaType.APPLICATION_JSON_TYPE)
+					.accept(MediaType.APPLICATION_JSON_TYPE)
+					.post(ClientResponse.class, requestData);
+
+                        String s = response.getEntity(String.class);
+                        JSONObject jsonObj = new JSONObject(s);
+                        SessionUtil.getSessionData().setProjectId(jsonObj.getString("projectId"));
+                        SessionUtil.getSessionData().setProjectName(jsonObj.getString("projectName"));
+
+		} 
+		catch (UniformInterfaceException e) {
+
+			log.error("Error while checking for authorized application parameter.");
+			log.error("Exception : " + e);
+
+			ErrorMessage.displayMessage('E', "errorGeneratedOnAS");
+			
+			return false;
+		}
+		catch (ClientHandlerException e) {
+
+			log.error("Error while checking for authorized application parameter.");
+			log.error("Exception : " + e);
+			if(e.toString().contains("java.net.ConnectException: Connection refused"))
+			{
+				ErrorMessage.displayMessage('E', "errorInASConnection");
+			}
+			else
+			{
+				ErrorMessage.displayMessage('E', "errorGeneratedOnAS");
+			}
+			
+			return false;
+		}
+		catch (Exception e) {
+
+			log.error("Error while checking for authorized application parameter.");
+			log.error("Exception : " + e);
+
+			ErrorMessage.displayMessage('E', "errorGeneratedOnAS");
+
+			return false;
+		}
+            return true;
+
+	}
+        
 }

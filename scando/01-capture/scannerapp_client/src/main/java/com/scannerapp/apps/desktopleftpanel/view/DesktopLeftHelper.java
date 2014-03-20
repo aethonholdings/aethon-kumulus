@@ -1,5 +1,6 @@
 package com.scannerapp.apps.desktopleftpanel.view;
 
+import com.google.gson.JsonObject;
 import java.io.IOException;
 import java.util.ArrayList;
 
@@ -18,6 +19,9 @@ import com.scannerapp.shared.NodeProperties;
 import com.sun.jersey.api.client.ClientHandlerException;
 import com.sun.jersey.api.client.ClientResponse;
 import com.sun.jersey.api.client.UniformInterfaceException;
+import com.sun.jersey.core.util.MultivaluedMapImpl;
+import javax.ws.rs.core.MultivaluedMap;
+import org.codehaus.jettison.json.JSONObject;
 
 public class DesktopLeftHelper extends ClientHelper {
 
@@ -41,21 +45,25 @@ public class DesktopLeftHelper extends ClientHelper {
 	public ArrayList<NodeProperties> getChildNodePropertiesList(
 			ArrayList<String> idList) {
 
+                String projectId =idList.get(0) ;
+                String parentnodeId=idList.get(1) ;
 		ArrayList<NodeProperties> childNodePropertiesList = null;
-
+                
 		try {
+                    
+                    
 			ClientResponse response = ConnectionUtil.getWebService()
-					.path("nodeServices").path("fetchChildNodeList")
+					.path("scanDo").path("fetchChildNodeList")
 					.type(MediaType.APPLICATION_JSON_TYPE)
 					.accept(MediaType.APPLICATION_JSON_TYPE)
 					.post(ClientResponse.class, idList);
 
 			String jsonString = (String) response.getEntity(String.class);
-
+                        //  String jsonobj = GetJsonUtil.getJsonfromServertree(projectUrl);
+                        //childNodePropertiesList = new ArrayList<NodeProperties>();
 			childNodePropertiesList = mapper.readValue(jsonString,
 					new TypeReference<ArrayList<NodeProperties>>() {
 					});
-
 		}
 	
 		catch (JsonParseException e) 
@@ -110,4 +118,6 @@ public class DesktopLeftHelper extends ClientHelper {
 
 		return childNodePropertiesList;
 	}
+        
+        
 }

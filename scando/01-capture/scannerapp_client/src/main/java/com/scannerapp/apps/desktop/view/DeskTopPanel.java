@@ -259,7 +259,7 @@ public class DeskTopPanel extends BaseJPanel {
 
 		eToolbar.add(jToolButtonPurchaseReturn);
 		jToolButtonPurchaseReturn.setText(hBundle.get(
-				"JbuttonPurchaseReturnText").toString());
+				"JbuttonPurchaseReturnText").toString()); 
 		jToolButtonPurchaseReturn.setHorizontalTextPosition(JLabel.CENTER);
 		jToolButtonPurchaseReturn.setVerticalTextPosition(JLabel.BOTTOM);
 

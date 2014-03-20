@@ -12,10 +12,12 @@ import org.apache.log4j.Logger;
 import SK.gnome.morena.MorenaImage;
 import SK.gnome.twain.TwainManager;
 import SK.gnome.twain.TwainSource;
+import com.scannerapp.apps.desktopleftpanel.view.CustomMutableTreeNode;
 
 import com.scannerapp.apps.desktoprightpanel.view.ImportSaparationPanel;
 import com.scannerapp.apps.framework.view.ErrorMessage;
 import com.scannerapp.shared.NodeProperties;
+import java.awt.image.ImageConsumer;
 
 /**
  * @author rahul
@@ -43,7 +45,7 @@ public class DocumentScanner {
 	 */
 	public DocumentScanner(ImportSaparationPanel importSeparationPanel,
 			NodeProperties parentDocumentNodeProperties) {
-
+                
 		this.importSeparationPanel = importSeparationPanel;
 		this.parentDocumentNodeProperties = parentDocumentNodeProperties;
 	}
@@ -54,10 +56,10 @@ public class DocumentScanner {
 	 * @param source
 	 * @throws Exception
 	 */
-	public void scanDocument(TwainSource source) {
+	public void scanDocument(TwainSource source, CustomMutableTreeNode selectedNode) {
 
 		try {
-			scanDocument(source, 1);
+			scanDocument(source, 1, selectedNode);
 
 		} catch (Exception exception) {
 
@@ -77,7 +79,9 @@ public class DocumentScanner {
 	 * @param documentCount
 	 *            - Number of documents to scan.
 	 */
-	public void scanDocument(TwainSource scannerSource, int documentCount) {
+	public void scanDocument(TwainSource scannerSource, 
+                                        int documentCount, 
+                                        CustomMutableTreeNode selectedNode) {
 
 		try {
 
@@ -92,26 +96,29 @@ public class DocumentScanner {
 					isImageScanningInProcess = true;
 
 					MorenaImage morenaImage = new MorenaImage(scannerSource);
+                                        
+                                        if(morenaImage.getStatus()==ImageConsumer.STATICIMAGEDONE) {
+                                        
+                                                Image scannedImage = Toolkit.getDefaultToolkit()
+                                                            .createImage(morenaImage);
 
-					Image scannedImage = Toolkit.getDefaultToolkit()
-							.createImage(morenaImage);
+                                                BufferedImage bufferedScannedImage = new BufferedImage(
+                                                                scannedImage.getWidth(null),
+                                                                scannedImage.getHeight(null),
+                                                                BufferedImage.TYPE_INT_RGB);
 
-					BufferedImage bufferedScannedImage = new BufferedImage(
-							scannedImage.getWidth(null),
-							scannedImage.getHeight(null),
-							BufferedImage.TYPE_INT_RGB);
+                                                ImageGenerator imageGenerator = new ImageGenerator(
+                                                                scannedImage, bufferedScannedImage,
+                                                                importSeparationPanel, parentDocumentNodeProperties);
 
-					ImageGenerator imageGenerator = new ImageGenerator(
-							scannedImage, bufferedScannedImage,
-							importSeparationPanel, parentDocumentNodeProperties);
-
-					imageGenerator.beginToGenerateImage();
-
+                                                imageGenerator.beginToGenerateImage(selectedNode);
+                                                
+                                        }
 				} while (scannerSource.hasMoreImages());
 
 				// Uploading remaining images that did not reach batch size...
 				importSeparationPanel.getImageUploader().uploadImagesInBatch(
-						false, true);
+						false, true, selectedNode);
 
 				// All images are scanned and generated in local machine...
 				isImageScanningInProcess = false;

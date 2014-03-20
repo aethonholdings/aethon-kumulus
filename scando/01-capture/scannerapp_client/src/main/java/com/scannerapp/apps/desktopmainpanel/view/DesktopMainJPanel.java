@@ -22,7 +22,7 @@ public class DesktopMainJPanel extends JPanel implements IconRepository,
 		FocusListener, java.awt.event.ActionListener {
 
 	private DesktopLeftJPanel jLeftPanel = new DesktopLeftJPanel(this);
-	private DesktopRightJPanel jRightPanel = new DesktopRightJPanel(this);
+	public DesktopRightJPanel jRightPanel = new DesktopRightJPanel(this);
 	private static Logger log = Logger.getLogger(DesktopMainJPanel.class);
 
 	public DesktopMainJPanel() {
@@ -51,9 +51,12 @@ public class DesktopMainJPanel extends JPanel implements IconRepository,
 
 		this.add(splitPanel);
 
-		jLeftPanel.fetchChildNodes(SessionUtil.getSessionData().getProjectId(),
-				null);
+                // RAJ COMMENTS OUT
+		// jLeftPanel.fetchChildNodes(SessionUtil.getSessionData().getProjectId(),	null);
+                // END RAJ COMMENTS OUT
 	}
+        
+       
 
 	// Return the frame's preferred size.
 	public Dimension getPreferredSize() {
@@ -110,4 +113,8 @@ public class DesktopMainJPanel extends JPanel implements IconRepository,
 	public DesktopRightJPanel getjRightPanel() {
 		return jRightPanel;
 	}
+
+    public void updatejleftPanel() {
+       jLeftPanel.fetchChildNodes(SessionUtil.getSessionData().getProjectId(),	null); //To change body of generated methods, choose Tools | Templates.
+    }
 }

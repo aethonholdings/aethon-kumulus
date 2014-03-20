@@ -17,10 +17,12 @@ import org.apache.log4j.Logger;
 
 import com.scannerapp.apps.desktop.view.DeskTopFrame;
 import com.scannerapp.apps.desktopmainpanel.view.DesktopMainJPanel;
+import com.scannerapp.apps.desktoprightpanel.view.ImportSaparationPanel;
 import com.scannerapp.apps.framework.view.BaseController;
 import com.scannerapp.apps.framework.view.ErrorMessage;
 import com.scannerapp.apps.utils.ConstantUtil;
 import com.scannerapp.apps.utils.SessionUtil;
+import com.scannerapp.shared.SessionData;
 
 public class LoginJPanelController extends BaseController {
 
@@ -35,6 +37,10 @@ public class LoginJPanelController extends BaseController {
 		loginHelper = new LoginHelper();
 		initializeScreen();
 	}
+        
+        public LoginJPanelController() {
+		
+	}
 
 	public void initialize() {
 		super.initialize();
@@ -46,29 +52,29 @@ public class LoginJPanelController extends BaseController {
 		 * // Default Item will be blank value.
 		 * view().getJcmbProject().addItem("");
 		 */
-		projectList = loginHelper.getProjectList();
-
-		if (projectList == null) {
-			// TODO : Show popup about error while fetch project list.
-			return;
-		}
-
-		ArrayList<String> projectIdList = new ArrayList<String>(
-				projectList.keySet());
-
-		// Checking Condition If only One Project Is Active, It is Preselected
-		if (projectIdList.size() == 1) {
-			view().getJcmbProject().addItem(
-					projectList.get(projectIdList.get(0)));
-		} else {
-			// Default Item will be blank value.
-			view().getJcmbProject().addItem("");
-
-			for (int index = 0; index < projectIdList.size(); index++) {
-				view().getJcmbProject().addItem(
-						projectList.get(projectIdList.get(index)));
-			}
-		}
+//		//projectList = loginHelper.getProjectList();
+//
+//		if (projectList == null) {
+//			// TODO : Show popup about error while fetch project list.
+//			return;
+//		}
+//
+//		ArrayList<String> projectIdList = new ArrayList<String>(
+//				projectList.keySet());
+//
+//		// Checking Condition If only One Project Is Active, It is Preselected
+//		if (projectIdList.size() == 1) {
+//			view().getJcmbProject().addItem(
+//					projectList.get(projectIdList.get(0)));
+//		} else {
+//			// Default Item will be blank value.
+//			view().getJcmbProject().addItem("");
+//
+//			for (int index = 0; index < projectIdList.size(); index++) {
+//				view().getJcmbProject().addItem(
+//						projectList.get(projectIdList.get(index)));
+//			}
+//		}
 	}
 
 	private static String byteToHex(final byte[] hash) {
@@ -103,51 +109,43 @@ public class LoginJPanelController extends BaseController {
 	public void jbtnLogon_actionPerformed() {
 
 		String username = view().getJtxtLogin().getText().trim();
+                System.out.println(username);
 		String password = view().getJpsdPassword().getText();
-		String projectName = view().getJcmbProject().getSelectedItem()
-				.toString().trim();
-		String projecId = null;
-
-		// Iterating through project list to get project id.
-		ArrayList<String> projectIdList = new ArrayList<String>(
-				projectList.keySet());
-
-		for (int index = 0; index < projectIdList.size(); index++) {
-
-			if (projectName == projectList.get(projectIdList.get(index))) {
-				projecId = projectIdList.get(index);
-				break;
-			}
-		}
+//		String projectName = view().getJcmbProject().getSelectedItem()
+//				.toString().trim();
+//		String projecId = null;
+//
+//		// Iterating through project list to get project id.
+//		ArrayList<String> projectIdList = new ArrayList<String>(
+//				projectList.keySet());
+//
+//		for (int index = 0; index < projectIdList.size(); index++) {
+//
+//			if (projectName == projectList.get(projectIdList.get(index))) {
+//				projecId = projectIdList.get(index);
+//				break;
+//			}
+//		}
 
 		// Calling to authorize login...
 		try {
 
-			if (!username.equals("") && !password.trim().equals("")
-					&& !projectName.toString().trim().equals("")) {
+//			if (!username.equals("") && !password.trim().equals("")
+//					&& !projectName.toString().trim().equals("")) {
+                    if (!username.equals("") && !password.trim().equals("")
+					) {
 
 				try {
 
-					ArrayList<String> loginCredentials = new ArrayList<String>();
-
-					loginCredentials.add(username);
-					// loginCredentials.add(username + "_" + password);
-					String encryptedPassword = encryptPasswordUsingSha1(username
-							+ " " + password);
-					// log.info("Encrypt : " + encryptedPassword);
-					loginCredentials.add(encryptedPassword);
-					loginCredentials.add(projecId);
-					loginCredentials.add(projectName);
-
-					if (loginHelper.authorizeLogin(loginCredentials)) {
-
+					if (loginHelper.authorizeLogin(username, password)) {           
+                                           
 						SessionUtil.setSessionData(loginHelper
-								.fetchSessionData(loginCredentials));
+						.fetchSessionData(username, password));
+                                         
+                                                setClientVersionInSession();
 
-						setClientVersionInSession();
-
-						boolean totalUnAuthorizeParam = loginHelper
-								.isAuthorizeApplicationParam(projecId);
+						//boolean totalUnAuthorizeParam = loginHelper.isAuthorizeApplicationParam(projecId);
+                                                boolean totalUnAuthorizeParam =true;
 						if (!totalUnAuthorizeParam) {
 							ErrorMessage.displayMessage('I',
 									"invalidApplicationParameterConfiguration");
@@ -168,13 +166,13 @@ public class LoginJPanelController extends BaseController {
 							view().getJtxtLogin().setText("");
 							view().getJpsdPassword().setText("");
 
-							if (projectList.size() == 1) {
-								view().getJcmbProject().setSelectedItem(
-										projectList.get(projectIdList.get(0)));
-							} else {
-								// Default Item will be blank value.
-								view().getJcmbProject().setSelectedItem("");
-							}
+//							if (projectList.size() == 1) {
+//								view().getJcmbProject().setSelectedItem(
+//										projectList.get(projectIdList.get(0)));
+//							} else {
+//								// Default Item will be blank value.
+//								view().getJcmbProject().setSelectedItem("");
+//							}
 
 							return;
 						}
@@ -182,6 +180,9 @@ public class LoginJPanelController extends BaseController {
 						// Method to create local directory to store temporary
 						// thumbnails, fullscreen images and local path to store
 						// images while import
+                                                
+                                               // new ImportSaparationPanel();
+                                                
 						createLocalDirectory();
 
 						DeskTopFrame.getInstance().getContentPane().removeAll();
@@ -211,9 +212,9 @@ public class LoginJPanelController extends BaseController {
 												+ "       "
 												+ ConstantUtil
 														.getApplicationConstant("projectLabel")
-												+ " : " + projectName);
+											);
 
-						initThreadStartToUpdateAttendanceDetail();
+						//initThreadStartToUpdateAttendanceDetail();     // commented BY Raj
 					}
 
 					else {
@@ -233,9 +234,9 @@ public class LoginJPanelController extends BaseController {
 				ErrorMessage.displayMessage('I', "enterUsernamePassword");
 			}
 
-			else if (projectName.trim().equals("")) {
-				ErrorMessage.displayMessage('I', "selectProject");
-			}
+//			else if (projectName.trim().equals("")) {
+//				ErrorMessage.displayMessage('I', "selectProject");
+//			}
 
 			else {
 				ErrorMessage.displayMessage('I', "invalidUseridPassword");
@@ -265,7 +266,7 @@ public class LoginJPanelController extends BaseController {
 				+ clientVersion);
 	}
 
-	private void createLocalDirectory() throws IOException {
+	public void createLocalDirectory() throws IOException {
 		log.info("Cleaning Local Directory for Thumbnail...");
 		File localThumbnailDirectory = new File(
 				ConstantUtil.getApplicationConstant("local_thumbnail_dir_name"));
