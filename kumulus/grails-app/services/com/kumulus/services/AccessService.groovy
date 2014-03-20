@@ -9,27 +9,31 @@ class AccessService {
     // should implement get abstract, then use helper classes to implement plugins for different export systems
     
     def getCSV(project) {
+        println("here")
         if (project) {
             def ledger = new ArrayList()
-            def nodes = Node?.findAllByProjectAndType(project, "D")
-            nodes.each {node ->
-                node.documents.each {document ->
-                    document.pages.each { page ->
-                        page.lineItems.each { lineItem ->
-                            def extract = [
-                                id: lineItem?.id,
-                                documentId: document.id,
-                                page: page.number,
-                                company: lineItem?.page.document.company?.name,
-                                date: lineItem?.date,
-                                description: lineItem?.description, 
-                                currency: lineItem?.currency?.shortName,
-                                quantity: lineItem?.quantity,
-                                price: lineItem?.price, 
-                                amount: lineItem?.amount
-                            ]
-                            ledger.add extract
-                        }
+            def documents = Document.findAll {
+                project == project
+                deleted == false
+                status == Document.STATUS_FINAL
+            }
+            println(documents)
+            documents.each {document ->
+                document.pages.each { page ->
+                    page.lineItems.each { lineItem ->
+                        def extract = [
+                            id: lineItem?.id,
+                            documentId: document.id,
+                            page: page.number,
+                            company: lineItem?.page.document.company?.name,
+                            date: lineItem?.date,
+                            description: lineItem?.description, 
+                            currency: lineItem?.currency?.shortName,
+                            quantity: lineItem?.quantity,
+                            price: lineItem?.price, 
+                            amount: lineItem?.amount
+                        ]
+                        ledger.add extract
                     }
                 }
             }

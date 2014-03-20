@@ -29,7 +29,4 @@ class AccessController {
         if(export) exportService.export('csv', response.outputStream, export.ledger, export.fields, export.labels, [:], [:])
     }
     
-    def access() {
-        render view: "access"
-    }
 }
