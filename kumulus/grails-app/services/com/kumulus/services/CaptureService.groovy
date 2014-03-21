@@ -203,11 +203,14 @@ class CaptureService {
         Document newDocument
 
         if(documents?.size > 1) {
-            // cycle through the pages to build the document
+            
             def pages = []
             long pageCount = 0
             def project = documents[0].project
-            boolean projectCheck = true                                         // check if all docs are from same project
+            
+            // cycle through the pages to build the document
+            // at the same time ensure that all docs are from same project
+            boolean projectCheck = true                                         
             documents.each { document ->
                 if(document.project == project && projectCheck) {                   
                     document.pages.each { page ->
@@ -251,6 +254,7 @@ class CaptureService {
         }
         return(newDocument)
     }
+    
     def updateContainer(node,status){
      if(node && status){
           if(status=='0'){

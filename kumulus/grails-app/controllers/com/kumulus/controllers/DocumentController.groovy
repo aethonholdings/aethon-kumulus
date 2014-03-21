@@ -16,20 +16,32 @@ class DocumentController {
         def documents = []
         def tasks = []
         def response = [done: false]
+        boolean proceed = true
         
         data?.tasks.each {
-            // NEED TO CHECK PERMISSIONS HERE
+
             if(it) {
                 def task = Task.findById(it)
-                tasks.add(task)
-                documents.add(task.document)
+                if(permissionsService.checkPermissions(task.document) 
+                                    && task.type==Task.TYPE_BUILD 
+                                    && task.document.status==Document.STATUS_IMPORTED 
+                                    && !task.document.deleted
+                                    && !task.completed) {
+                    tasks.add(task)
+                    documents.add(task.document)
+                } else {
+                    proceed = false
+                }
             }
         }
-        def document = captureService.merge(documents)
-        tasks.each { workflowService.completeTask(it) }
-        workflowService.createTask(document, Task.TYPE_OCR, permissionsService.getUsername())
-        SubmitDocumentJob.triggerNow()
-        response.done = true
+        
+        if(tasks.size > 0 && documents.size > 0 && proceed) {
+            def document = captureService.merge(documents)
+            tasks.each { workflowService.completeTask(it) }
+            workflowService.createTask(document, Task.TYPE_OCR, permissionsService.getUsername())
+            SubmitDocumentJob.triggerNow()
+            response.done = true
+        }
         render response as JSON
     }
             
