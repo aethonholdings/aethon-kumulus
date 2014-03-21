@@ -30,6 +30,10 @@ class ProjectController {
     def save() {
         def project = filesystemService.newProject(params) 
         def client = Company.findById(params?.clientId)
+        if (client == null) {
+            client = new Company([name: params.ClientName])
+            client.save()
+        }
         project.client = client
         bindData(project, params, [exclude:['client', 'clientId']])
         project.save()
