@@ -135,7 +135,7 @@ class FilesystemService {
     
     def stagingFlush(uFile) {
         // clean up the staging entities
-        File stagingPath = new File(uFile.path.replace(uFile.name, ""))
+        File stagingPath = new File(uFile.path.substring(0, uFile.path.size()-uFile.name.size()))
         stagingPath.deleteDir()
         return(true)
     }
