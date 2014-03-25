@@ -197,6 +197,7 @@ kumulus {
         'ROLE_SUPERVISE',
         'ROLE_VIEW'
     ]
+    useABBYY = false
 }
 
 environments {

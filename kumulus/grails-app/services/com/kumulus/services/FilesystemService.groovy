@@ -25,9 +25,13 @@ class FilesystemService {
         return(literal)
     }
 
-    def indexDocument(document) {
-        File file = new File(document.file.path)
-        return tikaService.parseFile(file)
+    def indexDocument(Document document) {
+        if(document.file?.path) {
+            File file = new File(document.file.path)
+            return tikaService.parseFile(file)
+        } else {
+            return null
+        }
     }
     
     def newProject(params) {
