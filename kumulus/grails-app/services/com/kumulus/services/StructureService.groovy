@@ -43,6 +43,5 @@ class StructureService {
         lineItem.amount = Float.parseFloat(amount)
         lineItem.save()
         return(lineItem)
-        
     }
 }

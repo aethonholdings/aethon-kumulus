@@ -119,8 +119,8 @@
       </div>
     </div>
     <div class="kumulus-float-right">
-      <g:link controller="access" action="download" id="${project.id}" class="pure-button">Download Ledger</g:link>
-      <input type="submit" value="Download Document" class="pure-button"/>
+      <g:link controller="access" action="download" id="${project.id}" class="pure-button">Download journal</g:link>
+      <input type="submit" value="Download documents" class="pure-button"/>
       <input type="submit" value="Close" class="pure-button"/>
       <input type="submit" value="Delete" class="pure-button"/>
     </div>

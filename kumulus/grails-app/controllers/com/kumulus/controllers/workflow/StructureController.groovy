@@ -11,12 +11,12 @@ class StructureController {
     def workflowService
     
     def getNextTask() {
+        
         def task = workflowService.getNextTask(Task.TYPE_PROCESS, permissionsService.getUsername())
         workflowService.assignTask(task, permissionsService.getUsername())
         workflowService.startTask(task)
         redirect action: "process", params: [taskId: task.id]
     }
-    
     
     def process() {
         
@@ -25,7 +25,6 @@ class StructureController {
             def currencies = Currency.listOrderByFullName()
             def documentTypes = DocumentType.listOrderByName()
             def document = task.document            
-            
             render view: "process", model:[task: task, document: document, currencies: currencies, documentTypes: documentTypes, size:document?.pages?.size()]
         }
     }
@@ -33,7 +32,6 @@ class StructureController {
     def save(){
         
         // NEED TO MOVE ALL THIS TO A SERVICE, CURRENTLY IT IS NOT ATOMIC
-        
         def response = [done: false]
         def data = request.JSON
         def task = Task.findById(data?.form.taskId)
@@ -50,7 +48,7 @@ class StructureController {
             def updatedLineItems = []
             data.form?.lineItems.each {
                 date = null
-                if(it?.date) date = new Date().parse("dd/MM/yyyy", it.date)
+                if(it?.lineItemDate) date = new Date().parse("dd/MM/yyyy", it.lineItemDate)
                 def lineItem = structureService.updateLineItem(it?.lineItemId, it?.pageId, currency, date, it?.description, it?.quantity, it?.price, it?.amount)
                 updatedLineItems.add(lineItem)
             }
