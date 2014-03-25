@@ -80,7 +80,6 @@ class NodeController {
         }
         
         nodes.each{node ->
-            //            println("hhh"+ShipmentItem.findByItemIdAndDelivery(node.id,data.deliveryId))
             def shipObj=ShipmentItem.findByItemId(node.id)
             if(!shipObj){
                 nodeList<<node
@@ -167,6 +166,5 @@ class NodeController {
         def response = [done: true]
         //fetch from storage
         render response as JSON
-        println(response)
     }
 }

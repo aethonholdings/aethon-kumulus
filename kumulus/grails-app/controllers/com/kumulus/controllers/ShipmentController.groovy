@@ -130,7 +130,7 @@ class ShipmentController {
     }
     
     def view() {
-     println("?????????????????????")
+
         def productList=[],nodeList=[]
         def shipmentObj=Shipment.findAllById(params.id)
         shipmentObj.shipmentItems[0].each{ it ->

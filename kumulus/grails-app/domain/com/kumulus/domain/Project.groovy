@@ -12,6 +12,7 @@ class Project {
     String comment
     String literal
     String path
+    String ownerId
 
     static hasMany = [nodes: Node, lineItems: LineItem, documents: Document, tasks: Task]
 
@@ -24,6 +25,7 @@ class Project {
         projectName nullable: true, maxSize: 50
         status nullable: true, maxSize: 10
         company nullable: false, maxSize: 50
+        ownerId maxSize: 20
         comment nullable: true
         literal nullable: false
         path nullable: false

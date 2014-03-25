@@ -12,10 +12,17 @@ class StructureController {
     
     def getNextTask() {
         
-        def task = workflowService.getNextTask(Task.TYPE_PROCESS, permissionsService.getUsername())
-        workflowService.assignTask(task, permissionsService.getUsername())
-        workflowService.startTask(task)
-        redirect action: "process", params: [taskId: task.id]
+        if(params?.type) {
+            def task = workflowService.getNextTask(params.type, permissionsService.getUsername())
+            if(task) {
+                workflowService.assignTask(task, permissionsService.getUsername())
+                workflowService.startTask(task)
+                redirect action: "process", params: [taskId: task.id]
+            } else {
+                redirect controller: "home", action: "index"
+            }
+            
+        }
     }
     
     def process() {
@@ -26,6 +33,8 @@ class StructureController {
             def documentTypes = DocumentType.listOrderByName()
             def document = task.document            
             render view: "process", model:[task: task, document: document, currencies: currencies, documentTypes: documentTypes, size:document?.pages?.size()]
+        } else {
+            redirect controller: "home", action: "index"
         }
     }
     
@@ -37,8 +46,9 @@ class StructureController {
         def task = Task.findById(data?.form.taskId)
         def currency = Currency.findById(data?.form.currency)
         def documentType = DocumentType.findById(data?.form.documentType)
-        if(task && !task.completed && currency && documentType && data?.form.company && data?.form.identifier) {
 
+        if(task && !task.completed && currency && documentType && data?.form.company && data?.form.identifier) {
+            
             // update the document
             Date date
             if(data.form.date) date = new Date().parse("dd/MM/yyyy", data.form.date) else date = null
@@ -64,9 +74,11 @@ class StructureController {
             // close the task if requested
             if(data?.completeTask) {
                 workflowService.completeTask(task)
-                
+                if(data.taskType==Task.TYPE_PROCESS) {
+                    def newTask = workflowService.createTask(document, Task.TYPE_VALIDATE, permissionsService.getUsername())
+                    workflowService.assignTask(newTask, task.document.project.ownerId)
+                }
             }
-            
             response.done = true
         }
         

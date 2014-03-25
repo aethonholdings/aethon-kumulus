@@ -65,14 +65,11 @@ class ScanDoService {
     def uploadImage (String encodedImageString, Node node, Locale locale, String userId) {
         
         def document
-        println(node)
-        println(encodedImageString)
         if (node && encodedImageString) {
-            println("ready to write to filesystem")
-//            def scanBatch = new ScanBatch(userId: userId, timestamp: new Date(), project: node.project)
-//            scanBatch.save()
-//            def uFile = filesystemService.writeStringToImageFile(encodedImageString, node.name + ".jpg", locale)
-//            document = captureService.indexScan(node, uFile, scanBatch, userId)
+            def scanBatch = new ScanBatch(userId: userId, timestamp: new Date(), project: node.project)
+            scanBatch.save()
+            def uFile = filesystemService.writeStringToImageFile(encodedImageString, node.name + ".jpg", locale)
+            document = captureService.indexScan(node, uFile, scanBatch, userId)
         }  
         return(document)
     }

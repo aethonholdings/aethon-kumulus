@@ -39,6 +39,7 @@
                   <div class="kumulus-data-entry">
                     <fieldset>
                       <input type="hidden" name ="taskId" value="${task.id}"/>
+                      <input type="hidden" name ="taskType" value="${task.type}"/>
                       <input type="hidden" name ="documentId" value="${document.id}"/>
                       <div class="pure-control-group">
                         <label for="documentType">* Document type</label>

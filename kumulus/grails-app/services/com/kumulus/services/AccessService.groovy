@@ -9,7 +9,6 @@ class AccessService {
     // should implement get abstract, then use helper classes to implement plugins for different export systems
     
     def getCSV(project) {
-        println("here")
         if (project) {
             def ledger = new ArrayList()
             def documents = Document.findAll {
@@ -17,7 +16,6 @@ class AccessService {
                 deleted == false
                 status == Document.STATUS_FINAL
             }
-            println(documents)
             documents.each {document ->
                 document.pages.each { page ->
                     page.lineItems.each { lineItem ->

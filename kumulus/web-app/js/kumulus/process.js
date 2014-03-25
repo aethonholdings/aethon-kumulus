@@ -180,10 +180,9 @@ function ConvertFormToJSON(form) {
     var itemList = new Array();
     var i = 0;
 
-
     jQuery.each(array, function() {
 
-        if (i < 7) {
+        if (i < 8) {
             json[this.name] = this.value || '';
         }
         else {
@@ -305,12 +304,11 @@ function save(next) {
     var rowStatus = validateLastRow();
 
     if (status && rowStatus) {
-        var json = ConvertFormToJSON(formObj);
         var submit = {
             completeTask: next,
-            form: json
+            form: ConvertFormToJSON(formObj)
         };
-        
+
         $.ajax({
             url: url('structure', 'save', ''),
             type: 'POST',
@@ -321,7 +319,8 @@ function save(next) {
             success: function(data) {
                 if(data.done) { 
                     if(next) {
-                        location.href = url("structure", "getNextTask", "");
+                        var toUrl = "getNextTask?type=" + submit.form.taskType;
+                        window.location.href = toUrl;
                     } else {
                         location.reload();
                     } 
