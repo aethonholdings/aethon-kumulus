@@ -62,7 +62,10 @@ class StructureController {
             }
             
             // close the task if requested
-            if(data?.completeTask) workflowService.completeTask(task)
+            if(data?.completeTask) {
+                workflowService.completeTask(task)
+                
+            }
             
             response.done = true
         }
