@@ -1,0 +1,118 @@
+[2014-03-28 13:18:49,581] ERROR - com.scannerapp.apps.login.view.LoginHelper.authorizeLogin(LoginHelper.java:149) - Error while checking for authorized login.
+[2014-03-28 13:18:49,584] ERROR - com.scannerapp.apps.login.view.LoginHelper.authorizeLogin(LoginHelper.java:150) - Exception : com.sun.jersey.api.client.ClientHandlerException: java.net.ConnectException: Connection refused
+[2014-03-28 13:19:15,411]  INFO - com.scannerapp.apps.login.view.LoginJPanelController.setClientVersionInSession(LoginJPanelController.java:265) - Start Executing --- ScanDo Application --- Version : v1.1.3
+[2014-03-28 13:19:15,412]  INFO - com.scannerapp.apps.login.view.LoginJPanelController.createLocalDirectory(LoginJPanelController.java:270) - Cleaning Local Directory for Thumbnail...
+[2014-03-28 13:19:15,412]  INFO - com.scannerapp.apps.login.view.LoginJPanelController.createLocalDirectory(LoginJPanelController.java:276) - Local Directory Path To Store Thumbnails Images : /Users/cocodinos/Documents/Work/11-Aethon/00-Aethon Holdings/01-Projects/01-Bucephalus/05-Software/kumulus/scando/01-capture/scannerapp_client/ScanDoThumbnails
+[2014-03-28 13:19:15,432]  INFO - com.scannerapp.apps.login.view.LoginJPanelController.createLocalDirectory(LoginJPanelController.java:282) - Cleaning Local Directory for Storage...
+[2014-03-28 13:19:15,432]  INFO - com.scannerapp.apps.login.view.LoginJPanelController.createLocalDirectory(LoginJPanelController.java:287) - Local Directory Path for Storage: /Users/cocodinos/Documents/Work/11-Aethon/00-Aethon Holdings/01-Projects/01-Bucephalus/05-Software/kumulus/scando/01-capture/scannerapp_client/ScanDoLocalStorage/
+[2014-03-28 13:19:15,433]  INFO - com.scannerapp.apps.login.view.LoginJPanelController.createLocalDirectory(LoginJPanelController.java:293) - Creating Local Directory for View Thumbnail....
+[2014-03-28 13:19:15,433]  INFO - com.scannerapp.apps.login.view.LoginJPanelController.createLocalDirectory(LoginJPanelController.java:297) - Creating Local Directory for Storage....
+[2014-03-28 13:19:15,433]  INFO - com.scannerapp.apps.login.view.LoginJPanelController.createLocalDirectory(LoginJPanelController.java:305) - Local Thumbnail Path: /Users/cocodinos/Documents/Work/11-Aethon/00-Aethon Holdings/01-Projects/01-Bucephalus/05-Software/kumulus/scando/01-capture/scannerapp_client/ScanDoThumbnails
+[2014-03-28 13:19:15,433]  INFO - com.scannerapp.apps.login.view.LoginJPanelController.createLocalDirectory(LoginJPanelController.java:307) - Local Storage Path: /Users/cocodinos/Documents/Work/11-Aethon/00-Aethon Holdings/01-Projects/01-Bucephalus/05-Software/kumulus/scando/01-capture/scannerapp_client/ScanDoLocalStorage/
+[2014-03-28 13:19:15,508]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanel.isRootNode(CollectionPanel.java:381) - Selected Tree Node: Scan barcodes
+[2014-03-28 13:19:15,509]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanel.isRootNode(CollectionPanel.java:382) - Selected Tree Node Object: Scan barcodes
+[2014-03-28 13:19:15,509]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanel.isRootNode(CollectionPanel.java:384) - Project Node: Scan barcodes
+[2014-03-28 13:19:15,509]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanel.<init>(CollectionPanel.java:116) - is Root Node: Disable Property: true
+[2014-03-28 13:19:15,617]  INFO - com.scannerapp.apps.desktoprightpanel.view.DesktopRightJPanel.jbInit(DesktopRightJPanel.java:106) - Collection Panel RightN
+[2014-03-28 13:19:15,619]  INFO - com.scannerapp.apps.desktoprightpanel.view.DesktopRightJPanel.jbInit(DesktopRightJPanel.java:107) - Import Panel RightY
+[2014-03-28 13:19:15,619]  INFO - com.scannerapp.apps.desktoprightpanel.view.DesktopRightJPanel.jbInit(DesktopRightJPanel.java:108) - Separation Panel Rightnull
+[2014-03-28 13:19:19,226]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanelController.addNodeButton_actionPerformed(CollectionPanelController.java:64) - Selected Node: Demo project
+[2014-03-28 13:19:19,226]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanelController.addNodeButton_actionPerformed(CollectionPanelController.java:65) - Sel Path: [Demo project]
+[2014-03-28 13:19:19,227]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanelController.addNodeButton_actionPerformed(CollectionPanelController.java:64) - Selected Node: Demo project
+[2014-03-28 13:19:19,227]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanelController.addNodeButton_actionPerformed(CollectionPanelController.java:65) - Sel Path: [Demo project]
+[2014-03-28 13:19:19,227]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanelController.addNodeButton_actionPerformed(CollectionPanelController.java:64) - Selected Node: Demo project
+[2014-03-28 13:19:19,228]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanelController.addNodeButton_actionPerformed(CollectionPanelController.java:65) - Sel Path: [Demo project]
+[2014-03-28 13:19:19,229]  INFO - com.scannerapp.apps.desktopleftpanel.view.DesktopLeftJPanel.valueChanged(DesktopLeftJPanel.java:704) - Value Change Call
+[2014-03-28 13:19:19,275]  INFO - com.scannerapp.apps.desktoprightpanel.view.ImportSaparationPanel.searchNodeFromBarcode(ImportSaparationPanel.java:2219) - Search Barcode -> Search Node Hierarchy : [Demo project, AE1393691428778CG]
+[2014-03-28 13:19:19,275]  INFO - com.scannerapp.apps.desktopleftpanel.view.DesktopLeftJPanel.valueChanged(DesktopLeftJPanel.java:704) - Value Change Call
+[2014-03-28 13:19:19,276]  INFO - com.scannerapp.apps.desktopleftpanel.view.DesktopLeftJPanel.valueChanged(DesktopLeftJPanel.java:813) - Node To Cut : null
+[2014-03-28 13:19:19,276]  INFO - com.scannerapp.apps.desktopleftpanel.view.DesktopLeftJPanelController.getAndSetNodePropertyValue(DesktopLeftJPanelController.java:72) - Selected Tree Node: AE1393691428778CG
+[2014-03-28 13:19:19,276]  INFO - com.scannerapp.apps.desktopleftpanel.view.DesktopLeftJPanelController.getAndSetNodePropertyValue(DesktopLeftJPanelController.java:73) - Selected Tree Node Object: AE1393691428778CG
+[2014-03-28 13:19:19,277]  INFO - com.scannerapp.apps.desktopleftpanel.view.DesktopLeftJPanelController.getAndSetNodePropertyValue(DesktopLeftJPanelController.java:74) - Project Node: Demo project
+[2014-03-28 13:19:19,277]  INFO - com.scannerapp.apps.desktopleftpanel.view.DesktopLeftJPanelController.setNodePropertyToLeftPanel(DesktopLeftJPanelController.java:106) - Set Node Property left
+[2014-03-28 13:19:19,326]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanel.getSelectedTreeNode(CollectionPanel.java:410) - Selected Node Path: [Demo project, AE1393691428778CG]
+[2014-03-28 13:19:19,326]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanel.getSelectedTreeNode(CollectionPanel.java:411) - Selected Tree Node: AE1393691428778CG
+[2014-03-28 13:19:19,327]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanel.getSelectedTreeNode(CollectionPanel.java:412) - Parent node path: [Demo project]
+[2014-03-28 13:19:19,327]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanel.isRootNode(CollectionPanel.java:381) - Selected Tree Node: AE1393691428778CG
+[2014-03-28 13:19:19,327]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanel.isRootNode(CollectionPanel.java:382) - Selected Tree Node Object: AE1393691428778CG
+[2014-03-28 13:19:19,327]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanel.isRootNode(CollectionPanel.java:384) - Project Node: Demo project
+[2014-03-28 13:19:19,328]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanel.getSelectedTreeNode(CollectionPanel.java:420) - Selected Node Id: 1
+[2014-03-28 13:19:19,328]  INFO - com.scannerapp.apps.desktoprightpanel.view.ImportSaparationPanel.initThumbnailPanel(ImportSaparationPanel.java:417) - Inititalize Thumbnai Panel -> Local Directory Path To Store Full Screen Images : /Users/cocodinos/Documents/Work/11-Aethon/00-Aethon Holdings/01-Projects/01-Bucephalus/05-Software/kumulus/scando/01-capture/scannerapp_client/ScanDoThumbnails
+[2014-03-28 13:19:19,328]  INFO - com.scannerapp.apps.desktoprightpanel.view.ImportSaparationPanel.initThumbnailPanel(ImportSaparationPanel.java:425) - Inititalize Thumbnai Panel -> Selected Node Id : 1
+[2014-03-28 13:19:19,330]  INFO - com.scannerapp.apps.desktoprightpanel.view.ImageViewer.<init>(ImageViewer.java:106) - Call 1 Arg Constructor.
+[2014-03-28 13:19:19,341]  INFO - com.scannerapp.apps.desktoprightpanel.view.ImageViewer$ThumbnailClickActionListener.<init>(ImageViewer.java:279) - Selected: -1
+[2014-03-28 13:19:19,342]  INFO - com.scannerapp.apps.desktoprightpanel.view.ImportSaparationPanel.initThumbnailPanel(ImportSaparationPanel.java:483) - Inititalize Thumbnai Panel -> Local Directory Path To Store Thumbnails Images : /Users/cocodinos/Documents/Work/11-Aethon/00-Aethon Holdings/01-Projects/01-Bucephalus/05-Software/kumulus/scando/01-capture/scannerapp_client/ScanDoThumbnails/thumbnail/
+[2014-03-28 13:19:19,348]  INFO - com.scannerapp.apps.utils.AsyncImageViewer.doInBackground(AsyncImageViewer.java:90) - ====== START VIEW THUMBNAILS ======
+[2014-03-28 13:19:19,354]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanel.getSelectedTreeNode(CollectionPanel.java:410) - Selected Node Path: [Demo project, AE1393691428778CG]
+[2014-03-28 13:19:19,354]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanel.getSelectedTreeNode(CollectionPanel.java:411) - Selected Tree Node: AE1393691428778CG
+[2014-03-28 13:19:19,354]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanel.getSelectedTreeNode(CollectionPanel.java:412) - Parent node path: [Demo project]
+[2014-03-28 13:19:19,354]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanel.isRootNode(CollectionPanel.java:381) - Selected Tree Node: AE1393691428778CG
+[2014-03-28 13:19:19,355]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanel.isRootNode(CollectionPanel.java:382) - Selected Tree Node Object: AE1393691428778CG
+[2014-03-28 13:19:19,355]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanel.isRootNode(CollectionPanel.java:384) - Project Node: Demo project
+[2014-03-28 13:19:19,355]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanel.getSelectedTreeNode(CollectionPanel.java:420) - Selected Node Id: 1
+[2014-03-28 13:19:19,894]  INFO - com.scannerapp.apps.utils.AsyncImageViewer.doInBackground(AsyncImageViewer.java:143) - ====== END VIEW THUMBNAILS ======
+[2014-03-28 13:19:22,661]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanel.getSelectedTreeNode(CollectionPanel.java:410) - Selected Node Path: [Demo project, AE1393691428778CG]
+[2014-03-28 13:19:22,661]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanel.getSelectedTreeNode(CollectionPanel.java:411) - Selected Tree Node: AE1393691428778CG
+[2014-03-28 13:19:22,661]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanel.getSelectedTreeNode(CollectionPanel.java:412) - Parent node path: [Demo project]
+[2014-03-28 13:19:22,661]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanel.isRootNode(CollectionPanel.java:381) - Selected Tree Node: AE1393691428778CG
+[2014-03-28 13:19:22,662]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanel.isRootNode(CollectionPanel.java:382) - Selected Tree Node Object: AE1393691428778CG
+[2014-03-28 13:19:22,662]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanel.isRootNode(CollectionPanel.java:384) - Project Node: Demo project
+[2014-03-28 13:19:22,662]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanel.getSelectedTreeNode(CollectionPanel.java:420) - Selected Node Id: 1
+[2014-03-28 13:38:52,176]  INFO - com.scannerapp.apps.login.view.LoginJPanelController.setClientVersionInSession(LoginJPanelController.java:265) - Start Executing --- ScanDo Application --- Version : v1.1.3
+[2014-03-28 13:38:52,180]  INFO - com.scannerapp.apps.login.view.LoginJPanelController.createLocalDirectory(LoginJPanelController.java:270) - Cleaning Local Directory for Thumbnail...
+[2014-03-28 13:38:52,180]  INFO - com.scannerapp.apps.login.view.LoginJPanelController.createLocalDirectory(LoginJPanelController.java:276) - Local Directory Path To Store Thumbnails Images : /Users/cocodinos/Documents/Work/11-Aethon/00-Aethon Holdings/01-Projects/01-Bucephalus/05-Software/kumulus/scando/01-capture/scannerapp_client/ScanDoThumbnails
+[2014-03-28 13:38:52,188]  INFO - com.scannerapp.apps.login.view.LoginJPanelController.createLocalDirectory(LoginJPanelController.java:282) - Cleaning Local Directory for Storage...
+[2014-03-28 13:38:52,189]  INFO - com.scannerapp.apps.login.view.LoginJPanelController.createLocalDirectory(LoginJPanelController.java:287) - Local Directory Path for Storage: /Users/cocodinos/Documents/Work/11-Aethon/00-Aethon Holdings/01-Projects/01-Bucephalus/05-Software/kumulus/scando/01-capture/scannerapp_client/ScanDoLocalStorage/
+[2014-03-28 13:38:52,189]  INFO - com.scannerapp.apps.login.view.LoginJPanelController.createLocalDirectory(LoginJPanelController.java:293) - Creating Local Directory for View Thumbnail....
+[2014-03-28 13:38:52,190]  INFO - com.scannerapp.apps.login.view.LoginJPanelController.createLocalDirectory(LoginJPanelController.java:297) - Creating Local Directory for Storage....
+[2014-03-28 13:38:52,190]  INFO - com.scannerapp.apps.login.view.LoginJPanelController.createLocalDirectory(LoginJPanelController.java:305) - Local Thumbnail Path: /Users/cocodinos/Documents/Work/11-Aethon/00-Aethon Holdings/01-Projects/01-Bucephalus/05-Software/kumulus/scando/01-capture/scannerapp_client/ScanDoThumbnails
+[2014-03-28 13:38:52,190]  INFO - com.scannerapp.apps.login.view.LoginJPanelController.createLocalDirectory(LoginJPanelController.java:307) - Local Storage Path: /Users/cocodinos/Documents/Work/11-Aethon/00-Aethon Holdings/01-Projects/01-Bucephalus/05-Software/kumulus/scando/01-capture/scannerapp_client/ScanDoLocalStorage/
+[2014-03-28 13:38:52,281]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanel.isRootNode(CollectionPanel.java:381) - Selected Tree Node: Scan barcodes
+[2014-03-28 13:38:52,282]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanel.isRootNode(CollectionPanel.java:382) - Selected Tree Node Object: Scan barcodes
+[2014-03-28 13:38:52,282]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanel.isRootNode(CollectionPanel.java:384) - Project Node: Scan barcodes
+[2014-03-28 13:38:52,282]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanel.<init>(CollectionPanel.java:116) - is Root Node: Disable Property: true
+[2014-03-28 13:38:52,362]  INFO - com.scannerapp.apps.desktoprightpanel.view.DesktopRightJPanel.jbInit(DesktopRightJPanel.java:106) - Collection Panel RightN
+[2014-03-28 13:38:52,362]  INFO - com.scannerapp.apps.desktoprightpanel.view.DesktopRightJPanel.jbInit(DesktopRightJPanel.java:107) - Import Panel RightY
+[2014-03-28 13:38:52,363]  INFO - com.scannerapp.apps.desktoprightpanel.view.DesktopRightJPanel.jbInit(DesktopRightJPanel.java:108) - Separation Panel Rightnull
+[2014-03-28 13:38:58,276]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanelController.addNodeButton_actionPerformed(CollectionPanelController.java:64) - Selected Node: Demo project
+[2014-03-28 13:38:58,276]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanelController.addNodeButton_actionPerformed(CollectionPanelController.java:65) - Sel Path: [Demo project]
+[2014-03-28 13:38:58,277]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanelController.addNodeButton_actionPerformed(CollectionPanelController.java:64) - Selected Node: Demo project
+[2014-03-28 13:38:58,277]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanelController.addNodeButton_actionPerformed(CollectionPanelController.java:65) - Sel Path: [Demo project]
+[2014-03-28 13:38:58,277]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanelController.addNodeButton_actionPerformed(CollectionPanelController.java:64) - Selected Node: Demo project
+[2014-03-28 13:38:58,278]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanelController.addNodeButton_actionPerformed(CollectionPanelController.java:65) - Sel Path: [Demo project]
+[2014-03-28 13:38:58,281]  INFO - com.scannerapp.apps.desktopleftpanel.view.DesktopLeftJPanel.valueChanged(DesktopLeftJPanel.java:704) - Value Change Call
+[2014-03-28 13:38:58,354]  INFO - com.scannerapp.apps.desktoprightpanel.view.ImportSaparationPanel.searchNodeFromBarcode(ImportSaparationPanel.java:2219) - Search Barcode -> Search Node Hierarchy : [Demo project, AE1393691428778CG]
+[2014-03-28 13:38:58,354]  INFO - com.scannerapp.apps.desktopleftpanel.view.DesktopLeftJPanel.valueChanged(DesktopLeftJPanel.java:704) - Value Change Call
+[2014-03-28 13:38:58,355]  INFO - com.scannerapp.apps.desktopleftpanel.view.DesktopLeftJPanel.valueChanged(DesktopLeftJPanel.java:813) - Node To Cut : null
+[2014-03-28 13:38:58,355]  INFO - com.scannerapp.apps.desktopleftpanel.view.DesktopLeftJPanelController.getAndSetNodePropertyValue(DesktopLeftJPanelController.java:72) - Selected Tree Node: AE1393691428778CG
+[2014-03-28 13:38:58,355]  INFO - com.scannerapp.apps.desktopleftpanel.view.DesktopLeftJPanelController.getAndSetNodePropertyValue(DesktopLeftJPanelController.java:73) - Selected Tree Node Object: AE1393691428778CG
+[2014-03-28 13:38:58,355]  INFO - com.scannerapp.apps.desktopleftpanel.view.DesktopLeftJPanelController.getAndSetNodePropertyValue(DesktopLeftJPanelController.java:74) - Project Node: Demo project
+[2014-03-28 13:38:58,355]  INFO - com.scannerapp.apps.desktopleftpanel.view.DesktopLeftJPanelController.setNodePropertyToLeftPanel(DesktopLeftJPanelController.java:106) - Set Node Property left
+[2014-03-28 13:38:58,444]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanel.getSelectedTreeNode(CollectionPanel.java:410) - Selected Node Path: [Demo project, AE1393691428778CG]
+[2014-03-28 13:38:58,444]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanel.getSelectedTreeNode(CollectionPanel.java:411) - Selected Tree Node: AE1393691428778CG
+[2014-03-28 13:38:58,445]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanel.getSelectedTreeNode(CollectionPanel.java:412) - Parent node path: [Demo project]
+[2014-03-28 13:38:58,445]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanel.isRootNode(CollectionPanel.java:381) - Selected Tree Node: AE1393691428778CG
+[2014-03-28 13:38:58,445]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanel.isRootNode(CollectionPanel.java:382) - Selected Tree Node Object: AE1393691428778CG
+[2014-03-28 13:38:58,445]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanel.isRootNode(CollectionPanel.java:384) - Project Node: Demo project
+[2014-03-28 13:38:58,445]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanel.getSelectedTreeNode(CollectionPanel.java:420) - Selected Node Id: 1
+[2014-03-28 13:38:58,446]  INFO - com.scannerapp.apps.desktoprightpanel.view.ImportSaparationPanel.initThumbnailPanel(ImportSaparationPanel.java:417) - Inititalize Thumbnai Panel -> Local Directory Path To Store Full Screen Images : /Users/cocodinos/Documents/Work/11-Aethon/00-Aethon Holdings/01-Projects/01-Bucephalus/05-Software/kumulus/scando/01-capture/scannerapp_client/ScanDoThumbnails
+[2014-03-28 13:38:58,446]  INFO - com.scannerapp.apps.desktoprightpanel.view.ImportSaparationPanel.initThumbnailPanel(ImportSaparationPanel.java:425) - Inititalize Thumbnai Panel -> Selected Node Id : 1
+[2014-03-28 13:38:58,448]  INFO - com.scannerapp.apps.desktoprightpanel.view.ImageViewer.<init>(ImageViewer.java:106) - Call 1 Arg Constructor.
+[2014-03-28 13:38:58,454]  INFO - com.scannerapp.apps.desktoprightpanel.view.ImageViewer$ThumbnailClickActionListener.<init>(ImageViewer.java:279) - Selected: -1
+[2014-03-28 13:38:58,455]  INFO - com.scannerapp.apps.desktoprightpanel.view.ImportSaparationPanel.initThumbnailPanel(ImportSaparationPanel.java:483) - Inititalize Thumbnai Panel -> Local Directory Path To Store Thumbnails Images : /Users/cocodinos/Documents/Work/11-Aethon/00-Aethon Holdings/01-Projects/01-Bucephalus/05-Software/kumulus/scando/01-capture/scannerapp_client/ScanDoThumbnails/thumbnail/
+[2014-03-28 13:38:58,462]  INFO - com.scannerapp.apps.utils.AsyncImageViewer.doInBackground(AsyncImageViewer.java:90) - ====== START VIEW THUMBNAILS ======
+[2014-03-28 13:38:58,465]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanel.getSelectedTreeNode(CollectionPanel.java:410) - Selected Node Path: [Demo project, AE1393691428778CG]
+[2014-03-28 13:38:58,465]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanel.getSelectedTreeNode(CollectionPanel.java:411) - Selected Tree Node: AE1393691428778CG
+[2014-03-28 13:38:58,465]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanel.getSelectedTreeNode(CollectionPanel.java:412) - Parent node path: [Demo project]
+[2014-03-28 13:38:58,466]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanel.isRootNode(CollectionPanel.java:381) - Selected Tree Node: AE1393691428778CG
+[2014-03-28 13:38:58,466]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanel.isRootNode(CollectionPanel.java:382) - Selected Tree Node Object: AE1393691428778CG
+[2014-03-28 13:38:58,466]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanel.isRootNode(CollectionPanel.java:384) - Project Node: Demo project
+[2014-03-28 13:38:58,466]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanel.getSelectedTreeNode(CollectionPanel.java:420) - Selected Node Id: 1
+[2014-03-28 13:38:59,006]  INFO - com.scannerapp.apps.utils.AsyncImageViewer.doInBackground(AsyncImageViewer.java:143) - ====== END VIEW THUMBNAILS ======
+[2014-03-28 13:39:08,005]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanel.getSelectedTreeNode(CollectionPanel.java:410) - Selected Node Path: [Demo project, AE1393691428778CG]
+[2014-03-28 13:39:08,005]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanel.getSelectedTreeNode(CollectionPanel.java:411) - Selected Tree Node: AE1393691428778CG
+[2014-03-28 13:39:08,005]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanel.getSelectedTreeNode(CollectionPanel.java:412) - Parent node path: [Demo project]
+[2014-03-28 13:39:08,005]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanel.isRootNode(CollectionPanel.java:381) - Selected Tree Node: AE1393691428778CG
+[2014-03-28 13:39:08,005]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanel.isRootNode(CollectionPanel.java:382) - Selected Tree Node Object: AE1393691428778CG
+[2014-03-28 13:39:08,006]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanel.isRootNode(CollectionPanel.java:384) - Project Node: Demo project
+[2014-03-28 13:39:08,006]  INFO - com.scannerapp.apps.desktoprightpanel.view.CollectionPanel.getSelectedTreeNode(CollectionPanel.java:420) - Selected Node Id: 1

@@ -56,19 +56,22 @@ public class ConnectionUtil {
 		config.getFeatures().put(JSONConfiguration.FEATURE_POJO_MAPPING,
 				Boolean.TRUE);
 
-		//client = Client.create(config);
-                Client client = new Client(new URLConnectionClientHandler(
-                        new HttpURLConnectionFactory() {
-                    Proxy p = null;
-                    @Override
-                    public HttpURLConnection getHttpURLConnection(URL url) throws IOException {
-                        if (p == null) {
-                                p = new Proxy(Proxy.Type.HTTP,
-                                        new InetSocketAddress("127.0.0.1", 8888));
-                            }
-                        return (HttpURLConnection) url.openConnection(p);
-                    }
-                }), config);
+		Client client = Client.create(config);
+                
+                // THODORIS CODE - PROXY REQUIREMENT ---------------------------
+//                Client client = new Client(new URLConnectionClientHandler(
+//                        new HttpURLConnectionFactory() {
+//                    Proxy p = null;
+//                    @Override
+//                    public HttpURLConnection getHttpURLConnection(URL url) throws IOException {
+//                        if (p == null) {
+//                                p = new Proxy(Proxy.Type.HTTP,
+//                                        new InetSocketAddress("127.0.0.1", 8888));
+//                            }
+//                        return (HttpURLConnection) url.openConnection(p);
+//                    }
+//                }), config);
+                // -- END THODORIS CODE ----------------------------------------
                 
                 // ADD BASIC AUTHENTICATION
                 HTTPBasicAuthFilter authenticationFilter = new HTTPBasicAuthFilter(username, password);
