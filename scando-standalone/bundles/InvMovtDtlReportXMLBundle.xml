@@ -1,0 +1,72 @@
+<?xml version="1.0" ?>
+<Application-IM>
+<Report>
+	<Report>
+		<ALL  e030="ALL" r070="TOT" g060="ΟΛΑ"/>
+		<lblComment  e030="COMMENT" r070="Comentarii" g060="Σχόλιο"/>
+		<CUSTOMER  e030="Customer" r070="Client" g060="Πελάτης"/>
+		<locationInfo  e030="CUSTOMER/SRCE/DEST.LOC" r070="CLIENT/SRCE/LOC.DEST." g060="ΑΠΟΘ. ΠΕΛ./ΠΡΟΕΛ./ΠΡΟΟΡ."/>
+		<DailyInvMov  e030="DAILY INVENTORY MOVEMENTS" r070="MISCARI DE STOC ZILNICE" g060="ΗΜΕΡΗΣΙΕΣ ΚΙΝΗΣΕΙΣ ΑΠΟΘΕΜΑΤΩΝ"/>
+		<date  e030="Date :" r070="Data :" g060="Ημ/νία:"/>
+		<lblDate  e030="Date :" r070="Data :" g060="Ημ/νία:"/>
+		<defUom  e030="DEF" r070="IMPL" g060="ΠΡΟΚΑΘ."/>
+		<defQty  e030="DEF" r070="IMPL" g060="ΠΡΟΚΑΘ."/>
+		<description  e030="ITEM DESCRIPTION" r070="DESCRIERE" g060="Περιγραφή Είδους"/>
+		<lblDetail  e030="Detail" r070="Detaliat" g060="Ανάλυση"/>
+		<documentNo  e030="DOCUMENT NO" r070="Doc. Nr." g060="Αρ.Παρ/κού"/>
+		<endOfReport  e030="END OF REPORT" r070="Sfarsitul Raportului" g060="ΤΕΛΟΣ ΑΝΑΦΟΡΑΣ"/>
+		<end_stock_shift  e030="ENDING STOCK" r070="STOC FINAL" g060="ΑΠΟΘ.ΤΕΛΟΥΣ ΒΑΡΔΙΑΣ"/>
+		<end_stock  e030="FINAL" r070="STOC FINAL" g060="ΑΠΟΘ.ΤΕΛΟΥΣ"/>
+		<fromDate  e030="From Date :" r070="De la :" g060="Ημ/νία 'από':"/>
+		<jlblFromTime  e030="From Time :" r070="Timp start :" g060="Ώρα Αποστ."/>
+		<grand_total  e030="Grand Total" r070="TOTAL" g060="Γεν.Σύνολο"/>
+		<reportfooterlabel  e030="Grand Total:" r070="TOTAL:" g060="Γεν.Σύνολο:"/>
+		<in_shift  e030="IN" r070="INTRARI" g060="ΕΙΣΑΓΩΓΗ"/>
+		<int_stock  e030="INITIAL STOCK" r070="STOC INITIAL" g060="ΑΡΧ.ΑΠΟΘΕΜΑ"/>
+		<invMovmt  e030="INVENTORY MOVEMENTS" r070="TRANZACTII STOC" g060="ΚΙΝΗΣΕΙΣ ΑΠΟΘΕΜΑΤΩΝ"/>
+		<lblLocation  e030="Location" r070="Locatie" g060="Αποθήκη"/>
+		<location  e030="LOCATION :" r070="LOCATIE :" g060="Αποθήκη:"/>
+		<lucode  e030="ITEM CODE" r070="COD LOGISTIC" g060="Κωδικός Είδους"/>
+		<Lu_code  e030="Lu code:" r070="Cod logistic:" g060="LU:"/>
+		<of  e030="of" r070="of" g060="από"/>
+		<out_shift  e030="OUT" r070="IESIRI" g060="ΕΞΑΓΩΓΗ"/>
+		<jlblpage  e030="Page:" r070="Pagina:" g060="Σελίδα :"/>
+		<SALESPERSON1  e030="PERSON" r070="PERSOANA" g060="Πωλητής"/>
+		<productionSummaryReport  e030="PRODUCTION SUMMARY REPORT" r070="SUMAR RECEPTII DIN PRODUCTIE" g060="Συνοπτική Αναφορά Παραγωγής"/>
+		<qty  e030="QTY" r070="CANT" g060="ΠΟΣΟΤ."/>
+		<defQty1  e030="QTY" r070="CANT" g060="ΠΟΣΟΤ."/>
+		<lblQty  e030="QUANTITY" r070="Cantitate" g060="Ποσοτ"/>
+		<lblReportType  e030="Report Type :" r070="Tipul raportului :" g060="Τυπ.Αναφοράς"/>
+		<LBLROUTE  e030="ROUTE" r070="RUTA" g060="ΔΡΟΜΟΛΟΓΙΟ"/>
+		<SALESPERSON  e030="SALES" r070="VANZ" g060="ΠΩΛΗΣΕΙΣ"/>
+		<sellLUCode  e030="SELL-LU CODE :" r070="SELL-LU CODE :" g060="Κωδ.Πωλ./LU:"/>
+		<selling_code  e030="Selling code:" r070="Cod vanzare:" g060="Κωδ.Πώλησης:"/>
+		<sellingcode  e030="SELLLING CODE" r070="COD VANZARE" g060="Κωδ.Πώλησης"/> 
+		<shift1  e030="SHIFT 1" r070="SCHIMBUL 1" g060="Βάρδια 1"/>
+		<shift2  e030="SHIFT 2" r070="SCHIMBUL 2" g060="Βάρδια 2"/>
+		<shift3  e030="SHIFT 3" r070="SCHIMBUL 3" g060="Βάρδια 3"/>
+		<lblShiftHour  e030="SHIFT/HOUR" r070="Schimb/Ora" g060="Βάρδια/Ώρα"/>
+		<companyNameRoman  e030="STAR FOODS" r070="STAR FOODS" g060="TASTY FOODS"/>
+		<status  e030="STATUS" r070="STARE" g060="Κατάσταση"/>
+		<lblSummary  e030="Summary" r070="Sumarizat" g060="Σύνοψη"/>
+		<system  e030="SYSTEM" r070="SYSTEM" g060="Συστημα"/>
+		<companyNameGreece  e030="TASTY" r070="TASTY" g060="TASTY"/>
+		<toDate  e030="To Date :" r070="Pina La :" g060="Ημ/νία 'έως':"/>
+		<jlblToTime  e030="To Time :" r070="La Ora :" g060="Ώρα παράδ.:"/>
+		<grouplabel  e030="Total for Date:" r070="Total pentru Zi:" g060="Σύν. Ημέρας:"/>
+		<transDate  e030="TRANS DATE" r070="DATA TRANZ" g060="HM/NIA KIN"/>
+		<transType  e030="TRANS TYPE" r070="TIP TRANZ" g060="Τυπ.Κίνησης"/>
+		<TransactionType  e030="Transaction Type:" r070="Tip Tranzactie:" g060="Τυπ.Κίνησης:"/>
+		<ULL  e030="ULL :" r070="ULL :" g060="ULL:"/>
+		<ULL  e030="ULL :" r070="ULL :" g060="ULL:"/>
+		<uom  e030="UOM" r070="UM" g060="Μ.Μ."/>
+		<defUom1  e030="UOM" r070="UM" g060="Μ.Μ."/>
+		<lblUser  e030="USER" r070="Utilizator" g060="ΧΡΗΣΤΗΣ"/>
+		<userId  e030="USERID :" r070="UTILIZATORID :" g060="ΧΡΗΣΤΗΣ:"/>
+		<warehouse  e030="WAREHOUSE :" r070="DEPOZIT :" g060="ΑΠΟΟΘΗΚΗ:"/>
+		<lblItemsSubtotal  e030="Items Subtotals:" r070="Items Subtotals:" g060="Μερ.Σύνολο Είδους:"/>
+		<jlblOf     e030="Of" r070="Of" g060="Από"/><!-- added by shraddha forQA Issue#12342 -->
+		
+	</Report>
+</Report>
+</Application-IM>

@@ -1,0 +1,193 @@
+<?xml version="1.0" ?>
+<Application-IM>
+<PurchaseReturn>
+	<PURCHASERETURNJPANEL>
+		<date   e030="Date" r070="Data" g060="Ημ/νία"/>
+		<MAX_PER_PAGE  e030="32" r070="32" g060="32"/>
+		<MAX_PER_PAGE1  e030="42" r070="42" g060="42"/>
+		<Address  e030="Address :" r070="Adresa:" g060="Διεύθυνση:"/>
+		<jlblCaddies  e030="Caddies :" r070="Display :" g060="Κουτιά:"/>
+		<jbtnCancel  e030="Cancel(W)" r070="Anulare(W)" g060="Ακύρωση(W)"/>
+		<comments  e030="Comments :" r070="Comentarii:" g060="Σχόλια :"/>
+		<Comments  e030="Comments :" r070="Comentarii:" g060="Σχόλια :"/>
+		<costCenter  e030="Cost Center" r070="Centru Cost" g060="Κέντρο Κόστους"/>
+		<CostDate  e030="CostDate" r070="CostDate" g060="Ημερομηνία κόστους"/>
+		<CostType  e030="costType" r070="costType" g060="Τυπ.Κοστ."/>
+		<jtblCurrency  e030="Currency" r070="Moneda" g060="Νόμισμα"/>
+		<jrbtnAutomatedSC  e030="D" r070="D" g060="D"/>
+		<jtblDescription  e030="Description" r070="Descriere" g060="Περιγραφή"/>
+		<DocNo  e030="Doc. No :" r070="Doc. No :" g060="Αρ. Παραστατικού:"/>
+		<jtblExpectedPrice  e030="ExpectedPrice" r070="Pret asteptat" g060="Αναμενόμενη τιμή"/>
+		<jtblFinalPrice  e030="Final Price" r070="Final Price" g060="Τελ.Τιμή"/>
+		<jtblFinalValue  e030="Final Value" r070="Final Value" g060="Τελ.Αξία"/>
+		<freightReptTitle  e030="Freight" r070="Cost transport" g060="Φορτίο"/>
+		<jbtnRetProdSC  e030="I" r070="I" g060="I"/>
+		<jtblInitialPrice  e030="Initial Price" r070="Initial Price" g060="Αρχ.Τιμή"/>
+		<jtblInitialValue  e030="Initial Value" r070="Initial Value" g060="Αρχ.Αξία"/>
+		<InvoiceDate  e030="InvoiceDate" r070="InvoiceDate" g060="Ημ/νία Τιμολ."/>
+		<jblInvoiceNo  e030="InvoiceNo" r070="InvoiceNo" g060="Αρ. Τιμολογίου"/>
+		<jlblKilo  e030="Kilo" r070="Kg." g060="Kg."/>
+		<jrbtnCancelPurchaseReceiptSC  e030="L" r070="L" g060="L"/>
+		<JtblLUCode  e030="LU Code" r070="Cod SKU" g060="LU"/>
+		<jtblM3  e030="M3" r070="Volum" g060="M3"/>
+		<jlblTotM3  e030="M3" r070="Volum" g060="M3"/>
+		<jrbtnManualSupplierDlvNote  e030="Supplier Delivery Note" r070="Supplier Delivery Note" g060="Δ.Α.Προμηθευτή"/>
+		<jbtnOK  e030="OK" r070="OK" g060="OK"/>
+		<plate1  e030="Plate 1" r070="Numar 1" g060="Πινακίδα 1"/>
+		<jlblRef2  e030="PO Ref number:" r070="Referinta PO:" g060="Αρ.Σχ.Ε.Α."/>
+		<jlblPrintcounter  e030="Print Counter:" r070="Nr. Duplicate:" g060="Μετρ.Εκτυπ."/>
+		<jtblPrintDate  e030="Print Date" r070="Print Date" g060="Ημ/νμία Εκτύπ."/>
+		<reportDialogTitlePurchaseReturn  e030="Purchase Return Document Print" r070="Document de retur receptie" g060="Εκτύπ.Δ.Α.Επιστρ.Αγορών"/>
+		<Title  e030="PurchaseReturn" r070="NotaRetur" g060="Επιστροφή αγορών"/>
+		<jrbtnPurchaseReturnSC  e030="Q" r070="Q" g060="Q"/>
+		<jbtnRetrieveSC  e030="R" r070="E" g060="R"/>
+		<jtblRONPrice  e030="RON Value" r070="Valoare ROL" g060="RON Value"/>
+		<jtblSellingCode  e030="Selling Code" r070="Cod Vanzare" g060="Κωδ.Πώλησης"/>
+		<jlblLineId  e030="Sr.No." r070="Sr.No." g060="Α.Α."/>
+		<Company  e030="STAR FOODS" r070="STAR FOODS" g060="TASTY FOODS"/>
+		<rmncmpname  e030="STAR FOODS" r070="STAR FOODS" g060="TASTY FOODS"/>
+		<grccmpname  e030="TASTY" r070="TASTY TASTY" g060="TASTY"/>
+		<jrbtnTempPurchaseVal  e030="Temporary Return Value (Z)" r070="Estimare valorica retur (Z)" g060="Προσωρινή αξία επιστροφής (Z)"/>
+		<TransportistaName  e030="Transportista Name :" r070="Nume Transportator :" g060="Όνομα μεταφορέα :"/>
+		<jlblTransTime  e030="TransTime :" r070="TransTime" g060="Ώρα μεταφοράς :"/>
+		<jrbtnManualSC  e030="U" r070="U" g060="U"/>
+		<jtblUOM  e030="UOM" r070="UM" g060="M.M"/>
+		<jtblUserID  e030="User Id" r070="User Id" g060="Χρήστης"/>
+		<jlblValue  e030="Value :" r070="Valoare" g060="Αξία:"/>
+		<Volumn  e030="Volumn :" r070="Volum :" g060="Όγκος"/>
+		<jrbtnTempPurchaseValSC  e030="Z" r070="Z" g060="z"/>
+		<jlblStatusCancel  e030="Cancel" r070="Anulare" g060="Ακύρωση"/>
+		<jbtnCancel1  e030="Cancel" r070="Anulare" g060="Ακύρωση"/>
+		<jbtnCancel1  e030="Cancel" r070="Anulare" g060="Ακύρωση"/>
+		<jrbtnCancelPurchaseReturn  e030="Cancel Purchased Quantity Return" r070="Anulare NIR Retur Cancel" g060="Ακυρωτικό Δ.Α.Επιστρ.Αγορών"/>
+		<CancelPurchaseReturnQtyTitle  e030="Cancel Purchased Quantity Return" r070="Anulare NIR Retur Cancel" g060="Ακυρωτικό Δ.Α.Επιστρ.Αγορών"/>
+		<CancelPurchasedQuantityReturn  e030="Cancel Purchased Quantity Return" r070="Anulare NIR Retur Cancel" g060="Ακυρωτικό Δ.Α.Επιστρ.Αγορών"/>
+		<jbtnCancelTT  e030="Cancel Document" r070="Anulare Document" g060="Ακύρωση παραστατικού"/>
+		<carrierID  e030="Carrier ID" r070="ID Transportator" g060="Κωδ.Μεταφορέα"/>
+		<TruckID  e030="Truck ID :" r070="ID Camion:" g060="Κωδ.Φορτηγού:"/>
+		<jbtnRetrieve  e030="Retrieve" r070="Aduce" g060="Ανάκτηση"/>
+		<jbtnRetProdTT  e030="Retrieve Products" r070="Aduce Produse" g060="Ανάκτηση προϊόντων"/>
+		<jbtnRetProd  e030="Retrieve Products" r070="Aduce Produse" g060="Ανάκτηση προϊόντων"/>
+		<jbtnRetrieveTT  e030="Retrieve specified document" r070="Aduce Document Specificat" g060="Ανάκτηση συγκεκριμένου παραστατικού"/>
+		<jrbtnExpectedReturn  e030="Expected Purchase Return" r070="Comanda Retur(G)" g060="Αναμενόμενη επιστροφή αγοράς"/>
+		<ExpectedPurchaseTitle  e030="Expected Purchase Return" r070="Comanda retur" g060="Αναμενόμενη επιστροφή αγοράς"/>
+		<ExpectedPurchaseReturn  e030="Expected Purchase Return" r070="Comanda retur" g060="Αναμενόμενη επιστροφή αγοράς"/>
+		<jtblExpectedReturn  e030="Exp.Ret.Qty" r070="Cantitate Comandata" g060="Αναμ.Ποσ.Επιστρ."/>
+		<jlblExpectedDocNo  e030="Expected Doc No :" r070="Nr. Comanda :" g060="Αρ.Παρ/κού:"/>
+		<jlblCoPacker  e030="Copacker :" r070="Impachetare:" g060="Ανασυσκευαστής :"/>
+		<duplicate  e030="DUPLICATE" r070="Duplicat" g060="ΔΙΠΛΟΕΓΓΡΑΦΗ"/>
+		<jtblValue  e030="Value" r070="Valoare" g060="Αξία"/>
+		<jrbtnPurchaseVal  e030="Purchased Return Value" r070="Valoare Retururi" g060="Αξία επιστροφής αγορών"/>
+		<PurchaseValTitle  e030="Purchased Return Value" r070="Valoare Retururi" g060="Αξία επιστροφής αγορών"/>
+		<PurchasedVal  e030="Purchased Return Value" r070="Valoare Retururi" g060="Αξία επιστροφής αγορών"/>
+		<jlblStatusSave  e030="Save" r070="Salvare" g060="ΑΠΟΘΗΚΕΥΜΕΝΟ"/>
+		<jlblLocDesc  e030="Source :" r070="Sursa :" g060="Αποθήκη Προελ:"/>
+		<jlblLoginLocation  e030="Location :" r070="Locatie :" g060="Αποθήκη Προορ.:"/>
+		<jlblRef  e030="Reference # :" r070="Referinta # :" g060="Σχετ.Παρ.:"/>
+		<accNo  e030="Account No" r070="Nr Cont" g060="Αρ. Λογ/μού"/>
+		<jlblDocNo  e030="Document No. :" r070="Doc. Nr. :" g060="Αρ. Παρ/ικού :"/>
+		<jlblLocation  e030="Supplier # :" r070="Furnizor # :" g060="Κωδ. Προμηθ.:"/>
+		<jlblInvoiceNo  e030="Invoice No :" r070="Nr. factura :" g060="Αρ. Τιμολ.:"/>
+		<jlblRef1  e030="Delivery Note Number :" r070="Nr Aviz Expeditie :" g060="Αρ. Δ.Α.:"/>
+		<plate2  e030="Matricula Numbro:" r070="Numar inmatriculare:" g060="Αρ.Πινακ.2:"/>
+		<jrbtnAutomated  e030="Automated" r070="Automat(D)" g060="Αυτόματο"/>
+		<jrbtnAutomated  e030="Automated" r070="Automat(D)" g060="Αυτόματο"/>
+		<jtblProdWeight  e030="Product Weight" r070="Greutate Produs" g060="Βάρος προϊόντος"/>
+		<jtblDocLine  e030="DocLine" r070="Linie Doc" g060="Γραμμή παρ/κού"/>
+		<jlblCreateUser  e030="Created by :" r070="Creat de :" g060="Δημ. από:"/>
+		<rowDelete1  e030="Delete Row" r070="Sterge Rind" g060="Διαγραφή γραμμής"/>
+		<header  e030="Purchase Return Edit Dialog" r070="Dialog Editare Nota Retur" g060="Διάλογος επεξεργασίας επιστροφής αγορών"/>
+		<DocNoHeader  e030="Document Number Header Dialog" r070="Doc. Nr." g060="Διάλογος κεφαλίδας αριθμού παραστατικού"/>
+		<jbtnCancelSC  e030="W" r070="W" g060="ε"/>
+		<jrbtnExistingSC  e030="E" r070="X" g060="Ε"/>
+		<jlblItems  e030="Items :" r070="Produs :" g060="Είδη :"/>
+		<jlblUpdateUser  e030="Updated by :" r070="Modif de :" g060="Ενημ. από"/>
+		<jbtnEditHead  e030="Edit Header" r070="Modifica Antet" g060="Επεξεργασία Κεφαλίδας"/>
+		<jbtnEditHeadTT  e030="Edit Header" r070="Modifica Antet" g060="Επεξεργασία Κεφαλίδας"/>
+		<jrbtnPurchaseReturn  e030="Purchased Quantity Return" r070="Cantitate Retur(Q)" g060="Επιστροφή Αγορών"/>
+		<PurchaseReturnQtyTitle  e030="Purchased Quantity Return" r070="Cantitate Retur" g060="Επιστροφή Αγορών"/>
+		<PurchaseQuantityReturn  e030="Purchased Quantity Return" r070="CANTITATE Retur" g060="Επιστροφή Αγορών"/>
+		<carrierName  e030="Carrier Name" r070="Nume Transportator" g060="Επωνυμία Μεταφορέα"/>
+		<jlblStatusCommit  e030="Commit" r070="Comis" g060="ΕΠΙΒΕΒΑΙΩΣΗ"/>
+		<jtblQuantity  e030="Returned" r070="Returnat" g060="Έχει επιστραφεί"/>
+		<jStatRecv  e030="Returned" r070="Returnat" g060="Έχει επιστραφεί"/>
+		<jbtnEditHeadSC  e030="H" r070="H" g060="Η"/>
+		<jlblShipDate  e030="Shipment Date :" r070="Data Livrare :" g060="Ημ/νία αποστολής :"/>
+		<jlblCreateDate  e030="Creation Date :" r070="Data creare :" g060="Ημ/νία δημ.:"/>
+		<jlblUpdateDate  e030="Updation Date :" r070="Data Modif :" g060="Ημ/νία ενημ.:"/>
+		<jlblRecvDate  e030="Returned Date :" r070="Data Returnat :" g060="Ημ/νία επιστροφής :"/>
+		<jlblRecvDate  e030="Return Date :" r070="Data Retur :" g060="Ημ/νία επιστροφής :"/>
+		<jlblPurchaseCostDate  e030="Return Cost Date :" r070="Data Cost Retur :" g060="Ημ/νία κόστους :"/>
+		<jlblTransDate  e030="Trans Date :" r070="Data Tranz :" g060="Ημ/νία κινησης:"/>
+		<jlbldate  e030="Date:" r070="Data:" g060="Ημ/νία:"/>
+		<jlblSysDate  e030="Date :" r070="Data :" g060="Ημ/νία:"/>
+		<docCancel  e030="Do you want to cancel the Document" r070="Doriti sa anulati documentul?" g060="Θέλετε να ακυρώσετε το παραστατικό;"/>
+		<DocNoExists  e030="Do you want to changed document number?" r070="Schimbati nr. documentului?" g060="Θέλετε να αλλάξετε αριθμό παραστατικού;"/>
+		<rowDelete  e030="Do you want to delete the specified row" r070="Stergeti randul?" g060="Θέλετε να διαγράψετε τη συγκεκριμένη γραμμή;"/>
+		<position   e030="Position" r070="Pozitie" g060="Θέση"/>
+		<jrbtnPurchaseValSC  e030="V" r070="V" g060="V"/>
+		<jtblStatus  e030="Status :" r070="Stare :" g060="Κατάσταση:"/>
+		<blank  e030="BLANK" r070="BLANK" g060="ΚΕΝΟ"/>
+		<blank1  e030="BLANK" r070="BLANK" g060="ΚΕΝΟ"/>
+		<jlblCases  e030="Cases :" r070="Boxuri :" g060="Κιβ.:"/>
+		<jlblExpectedCloseReturn  e030="Close Return" r070="Inchide Retur" g060="Κλείσιμο Επιστροφής"/>
+		<freightCost  e030="Freight Cost" r070="Cost transport" g060="Κόστος φορτίου"/>
+		<jlblDocumentTypecode  e030="Document Type Code :" r070="Cod Tip Doc." g060="Κωδικός τύπου παραστατικού :"/>
+		<jlblOPMLocation  e030="Logical Location :" r070="Locatie Logica:" g060="Λογική Αποθήκη :"/>
+		<plate1  e030="Matricula:" r070="Numar:" g060="Αρ.Πινακ.1:"/>
+		<jrbtnNewSC  e030="N" r070="N" g060="Ν"/>
+		<jlblYES  e030="YES" r070="DA" g060="ΝΑΙ"/>
+		<jrbtnNew  e030="New" r070="Nou" g060="Νέο"/>
+		<jlblCurrency  e030="Currency :" r070="Moneda :" g060="Νόμισμα:"/>
+		<jlblNO  e030="NO" r070="NU" g060="ΟΧΙ"/>
+		<plate2  e030="Plate 2" r070="Numar 2" g060="Πινακίδα 2"/>
+		<fullName  e030="Full Name" r070="Nume" g060="Πλήρης επωνυμία"/>
+		<TemporaryPurchaseValTitle  e030="Temporary Return Value" r070="Estimare Retur" g060="Προσωρινή αξία επιστροφής"/>
+		<TemporaryPurchaseReturn  e030="Temporary Return Value" r070="Estimare Retur" g060="Προσωρινή αξία επιστροφής"/>
+		<jtblBagsUnit  e030="Bags / Unit" r070="Buc./ Box" g060="Σακ. / Μονάδα"/>
+		<jlblDocSeries  e030="Doc. Series :" r070="Serie Doc." g060="Σειρά Παρ/κού :"/>
+		<jlblpage  e030="Page:" r070="Pagina:" g060="Σελ.:"/>
+		<jlblTotal  e030="Total :" r070="Total :" g060="Σύνολο:"/>
+		<frTotal  e030="Total :" r070="Total :" g060="Σύνολο:"/>
+		<jlblSystem  e030="System :" r070="System :" g060="Σύστημα:"/>
+		<jlblComment  e030="Comment :" r070="Comentarii :" g060="Σχόλιο :"/>
+		<jchkFinal  e030="Final" r070="Final" g060="Τελικό"/>
+		<jlblEaches  e030="Eaches :" r070="Bucati :" g060="Τεμ.:"/>
+		<jtblPrice  e030="Price" r070="Pret" g060="Τιμή"/>
+		<jlblConversionRate  e030="Conversion Rate :" r070="Curs valutar :" g060="Ισοτιμία"/>
+		<jlblDocumentReviewflag  e030="Document Reviewed" r070="Document Revizuit" g060="Το παραστατικό αναθεωρήθηκε"/>
+		<jlblLocationType  e030="Doc. Number :" r070="Doc. Number :" g060="Doc. Number:"/>
+		<jtblCaseType  e030="Case Label" r070="Case Label" g060="Ετικέτα Κιβωτίου"/>
+		<jrbtnExisting  e030="Existing" r070="Existent" g060="Υπάρχον"/>
+		<signature   e030="Signature" r070="Semnatura" g060="Υπογραφή"/>
+		<jtblRemaining  e030="Remaining" r070="Ramas" g060="Υπόλοιπο"/>
+		<freight  e030="Freight :" r070="Cost transport:" g060="Φορτίο :"/>
+		<jrbtnExpectedReturnSC  e030="X" r070="G" g060="Χ"/>
+		<jrbtnManual  e030="Manual" r070="Manual" g060="Χειρόγραφα"/>
+		<jrbtnManual  e030="Manual" r070="Manual" g060="Χειρόγραφα"/>
+		<jlblReceivedTime  e030="Return Time :" r070="Ora Retur :" g060="Ώρα επιστρ.:"/>
+		<jlblPurchaseCostTime  e030="Return Cost Time :" r070="Ora Cost Retur :" g060="Ώρα κόστους επιστροφής :"/>
+		<jjrbtnManualSupplierDlvNoteSC e030="S" r070="S" g060="S"/>
+		<jlblTotalReprintDlvNote e030="Total Reprint Delivery Note" r070="Total Reprint Delivery Note" g060="Συν.Αρ.Εκτυπ.Δ.Α."/>
+		<jtblReasoncode e030="Reason Code" r070="Reason Code" g060="Κωδ. Αιτιολογίας"/>
+		<jlblReasoncode e030="Reason Code:" r070="Reason Code:" g060="Κωδ. Αιτιολογίας:"/>
+		<jlblTruckID e030="Truck Plate No:" r070="Truck Plate No:" g060="Αρ.Κυκλοφοριας :"/>
+		<jlblAccrualInv e030="Accrual Number:" r070="Accrual Number:" g060="Αρ. Παραστατικού Προβλέψεως:"/>
+		<jbtnDupDocCancel e030="Cancel" r070="Cancel" g060="Ακύρωση"/>
+		<jbtnDupDocOk e030="Ok" r070="Ok" g060="Ok"/>
+		<titleDocNoExists e030="Document Number Exist" r070="Document Number Exist" g060="Ο Αριθμός Παραστατικού υπάρχει."/>
+		<jlblPageTotal  e030="Page Total :" r070="Page Total :" g060="Σύνολο Σελίδας:"/>
+		<jlblGrandTotal  e030="Grand Total :" r070="Grand Total :" g060="Τελικό Σύνολο:"/>
+    	<jlblStatusVoid e030="Void" r070="Void" g060="ΑΚΥΡΟ"/>				
+    
+    	<legalPrintMsg  e030="Are you sure you want to re-print the document on legal printer?" r070="Are you sure you want to re-print the document on legal printer?" g060="Are you sure you want to re-print the document on legal printer?"/>
+		<legalPrintMsg_Title e030="Legal Document Print" r070="Legal Document Print" g060="Legal Document Print"/>
+		<lblOf  e030="Of" r070="Of" g060="Από"/>
+		<jcolStatus  e030="Status" r070="Stare :" g060="Κατάσταση"/>
+    <jlblRecvDateMsg  e030="Return Date" r070="Data Retur" g060="Ημ/νία επιστροφής"/>
+    <jlblPurchaseCostDateMsg  e030="Return Cost Date" r070="Data Cost Retur" g060="Ημ/νία κόστους"/>
+    <jlblCancelDateMsg  e030="Current Date" r070="Current Date" g060="Current Date"/>
+    
+	</PURCHASERETURNJPANEL>
+</PurchaseReturn>
+</Application-IM>

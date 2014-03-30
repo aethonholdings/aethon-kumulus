@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<Application-IM>
+<Report>
+	<Report>
+		<blank1  e030="____/____" r070="___/___" g060="___/___"/>
+		<blank2  e030="___/___" r070="___/___" g060="___/___"/>
+		<blank3  e030="___/___" r070="___/___" g060="___/___"/>
+		<blank4  e030="___/___" r070="___/___" g060="___/___"/>
+		<blank5  e030="___/___" r070="___/___" g060="___/___"/>
+		<blank6  e030="___/___" r070="___/___" g060="___/___"/>
+		<blank7  e030="___/___" r070="___/___" g060="___/___"/>
+		<blank8  e030="___/___" r070="___/___" g060="___/___"/>
+		<blank9  e030="___/___" r070="___/___" g060="___/___"/>
+		<blank10  e030="___/___" r070="___/___" g060="___/___"/>
+		<blank11  e030="___/___" r070="___/___" g060="___/___"/>
+		<blank12  e030="___/___" r070="___/___" g060="___/___"/>
+		<companyNamefull  e030="MATUTANO INVENTORY MANAGEMENT" r070="STARFOODS INVENTORY MANAGEMENT" g060="ΔΙΑΧΕΙΡΙΣΗ ΑΠΟΘΕΜΑΤΩΝ TASTY FOODS"/>
+		<reporttime  e030="Report Time :" r070="Ora Raport :" g060="Ώρα Αναφ. :"/>
+		<phyInvSupp  e030="PHYSICAL INVENTORY SUPPORT REPORT" r070="TIPARIRE LISTA INVENTAR" g060="ΚΑΤΑΣΤΣΗ ΦΥΣΙΚΗΣ ΑΠΟΓΡΑΦΗΣ"/>
+		<sellingLU  e030="SELLING-LU" r070="VANZARE-LU" g060="Πώλησης / LU"/>
+		<description  e030="Product Description" r070="Descriere Produs" g060="Περιγραφή"/>
+		<product  e030="Product Code" r070="Cod Produs" g060="Κωδ.Είδους"/>
+		<code  e030="CODE" r070="COD" g060="Κωδικός"/>
+		<Invtime  e030="Inventory Time :" r070="Data inventar:" g060="Ώρφα Απογραφής :"/>
+		<Invdate  e030="Inventory Date :" r070="Data inventar :" g060="Ημ/νία Απογραφής :"/>
+		<reportdate  e030="Report Date :" r070="Data Raport :" g060="Ημ/νία Αναφ. :"/>
+		<reportno  e030="REPORT NO. :" r070="NR. RAPORT :" g060="Αρ.Αναφοράς :"/>
+		<location  e030="LOCATION :" r070="LOCATIE :" g060="ΑΠΟΘΗΚΗ:"/>
+		<Invlocation  e030="INVENTORY LOCATION :" r070="Locatie Inventar:" g060="ΑΠΟΓΡΑΦΗ ΑΠΟΘΗΚΗΣ:"/>
+	</Report>
+</Report>
+</Application-IM>

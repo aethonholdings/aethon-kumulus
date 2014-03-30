@@ -1,0 +1,95 @@
+<?xml version="1.0" ?>
+<Application-IM>
+<ProductionCostInformation>
+	<PRODUCTIONCOSTINFORMATIONJPANEL>
+		<MAX_PER_PAGECD  e030="12" r070="12" g060="12"/>
+		<MAX_PER_PAGE1CD  e030="20" r070="20" g060="20"/>
+		<MAX_PER_PAGE  e030="25" r070="25" g060="25"/>
+		<MAX_PER_PAGE1  e030="33" r070="33" g060="33"/>
+		<jsRow  e030="Rows Retrieved" r070="Rinduri aduse" g060="Ανακτημένες γραμμές"/>
+		<jrbtnAllSC  e030="A" r070="A" g060="Α"/>
+		<jcmbOPM  e030="All" r070="Tot" g060="Όλα"/>
+		<jrbtnAll  e030="All" r070="Tot" g060="Όλα"/>
+		<available  e030="Available" r070="Disponibil" g060="Διαθέσιμα"/>
+		<jrbtnBrandSC  e030="B" r070="B" g060="B"/>
+		<jtblBagsunit1  e030="Bags/" r070="Buc./" g060="Σακ./"/>
+		<jtblBagsunit  e030="Bags/Case" r070="Buc./Box" g060="Σακ./Κιβ."/>
+		<book  e030="Book :" r070="Book :" g060="Βιβλία :"/>
+		<jrbtnBrand  e030="Brand" r070="Brand" g060="Brand"/>
+		<brand  e030="Brand" r070="Brand" g060="Brand"/>
+		<jtblCasetype1  e030="Case" r070="Box" g060="Κιβ."/>
+		<jtblBagsunit2  e030="Case" r070="Box" g060="Κιβ."/>
+		<jtblCasetype  e030="Case Label" r070="Case Label" g060="Ετικ.Κιβ."/>
+		<jbtnPrintTT  e030="Click to Print" r070="Apasa pt Tiparire" g060="Κλίκ για εκτύπωση"/>
+		<jbtnClose  e030="Close" r070="Inchide" g060="Κλείσιμο"/>
+		<jbtnCloseTT  e030="Close the screen" r070="Inchide ecran" g060="Κλείνει η Οθόνη"/>
+		<coPacker  e030="Co-Packer" r070="Impachetare" g060="Ανασυσκευαστής"/>
+		<code	 e030="Code" r070="Cod" g060="Κωδ.Πώλησης"/>
+		<mappedluCode  e030="Core" r070="Mapped" g060="Αντιπρόσωπος"/>
+		<cQty  e030="Curr. Qty" r070="Cant Cur." g060="Τρ.Ποσοτ."/>
+		<cValue  e030="Curr. Value" r070="Val. Cur." g060="Τρ.Αξία"/>
+		<jlblDate  e030="Date :" r070="Data :" g060="Ημ/νία :"/>
+		<jlblSysDate  e030="Date :" r070="Data :" g060="Ημ/νία :"/>
+		<jlbldate1  e030="Date:" r070="Data:" g060="Ημ/νία:"/>
+		<jcmbUOM  e030="Default" r070="Implicit" g060="Προεπιλογή"/>
+		<description  e030="Description" r070="Descriere" g060="Περιγραφή"/>
+		<dueIn  e030="Due In" r070="Tranzit" g060="Αναμενόμενα"/>
+		<jbtnCloseSC  e030="E" r070="E" g060="E"/>
+		<jrbtnSubFamilySC  e030="F" r070="F" g060="F"/>
+		<jrbtnGreeceBookSC  e030="G" r070="G" g060="G"/>
+		<jrbtnGreeceBook  e030="Greece Book" r070="Greece Book" g060="GR Βιβλία"/>
+		<groupby  e030="Group By :" r070="Grupate dupa:" g060="Ομαδ/ση ανά :"/>
+		<jrbtnLUCodeSC  e030="L" r070="L" g060="L"/>
+		<lm2Qty  e030="Last 2Month Qty" r070="Cant Ult. 2Luni" g060="Ποσ.Προηγ. 2 Μήν."/>
+		<lm2Value  e030="Last 2Month Value" r070="Val Ult. 2Luni" g060="Αξία Προηγ. 2 Μην."/>
+		<lmQty  e030="Last Month Qty" r070="Cant Ult. Luna" g060="Ποσ.Προηγ.Μήνα"/>
+		<lmValue  e030="Last Month Value" r070="Val Ult. Luna" g060="Αξία Προηγ.Μήνα"/>
+		<jlblWH  e030="Location :" r070="Locatie :" g060="Αποθήκη :"/>
+		<jlblLocation  e030="Logical Location :" r070="Locatie Logica :" g060="Λογική Αποθήκη :"/>
+		<luCode  e030="LU Code" r070="Cod SKU" g060="LU"/>
+		<jrbtnLUCode  e030="LU Code" r070="Cod SKU" g060="LU"/>
+		<jrbtnNoneSC  e030="N" r070="N" g060="N"/>
+		<jsNoData  e030="No Data Found" r070="Nu s-au gasit date" g060="Δεν βρέθηκαν δεδομένα"/>
+		<jrbtnNone  e030="None" r070="Nimic" g060="Τίποτα"/>
+		<jbtnSortSC  e030="O" r070="O" g060="O"/>
+		<jbtnPrintSC  e030="P" r070="P" g060="P"/>
+		<jlblpage  e030="Page:" r070="Pagina:" g060="Σελ.:"/>
+		<pendAck  e030="Pend-Ack" r070="Ast.Conf" g060="Εκρ.Αποδοχή"/>
+		<jlblPeriod  e030="Period :" r070="Perioada :" g060="Περίοδος :"/>
+		<jbtnPrint  e030="Print" r070="Tiparire" g060="Εκτύτπωση"/>
+		<Title  e030="Production Cost Information" r070="Informatie Cost Productie" g060="Πληροφορίες κόστους παραγωγής"/>
+		<jbtnRetrieveSC  e030="R" r070="R" g060="R"/>
+		<jbtnRetrieve  e030="Retrieve" r070="Aduce" g060="Ανάκτηση"/>
+		<jbtnRetrieveTT  e030="Retrieve data" r070="Aduce date" g060="Ανάκτηση δεδομένων"/>
+		<route  e030="Route" r070="Ruta" g060="Δρομολόγιο"/>
+		<jrbtnSellingCodeSC  e030="S" r070="S" g060="S"/>
+		<selectionProduct  e030="Selection by Product :" r070="Selectie dupa Produs:" g060="Επιλογή ανά προϊόν"/>
+		<sell	 e030="Selling" r070="Vanzare" g060="Πώλησης :"/>
+		<sellingCode  e030="Selling Code" r070="Cod Vanzare" g060="Κωδ.Πώλησης"/>
+		<jrbtnSellingCode  e030="Selling Code" r070="Cod Vanzare" g060="Κωδ.Πώλησης"/>
+		<jbtnSortTT  e030="Sort" r070="Sort" g060="Ταξινόμηση"/>
+		<jbtnSort  e030="Sort" r070="Sort" g060="Ταξινόμηση"/>
+		<rmncmpname  e030="STAR FOODS" r070="STAR FOODS" g060="STAR FOODS"/>
+		<subFamily  e030="Sub Family" r070="Sub Familie" g060="Υπό-οικογένεια"/>
+		<jrbtnSubFamily  e030="Sub Family" r070="Sub Familie" g060="Υπο-οικογένεια"/>
+		<grccmpname  e030="TASTY" r070="TASTY" g060="TASTY"/>
+		<totValue  e030="Tot Value" r070="Val Total" g060="Συν.Αξία"/>
+		<columnTotal  e030="Total" r070="Total" g060="Σύνολο"/>
+		<total  e030="Total" r070="Total" g060="Σύνολο"/>
+		<jtblCasetype2  e030="Type" r070="Tip" g060="Τυπ."/>
+		<jrbtnUSBookSC  e030="U" r070="U" g060="U"/>
+		<UOM  e030="UOM" r070="UM" g060="Μ.Μ."/>
+		<jlblUOM  e030="UOM :" r070="UM :" g060="Μ.Μ :"/>
+		<jrbtnUSBook  e030="US Book" r070="US Book" g060="US Βιβλία"/>
+		<jlblYear  e030="Year :" r070="An :" g060="Έτος :"/>
+		<!-- Added by shraddha for unit test issue #5712 -->
+		<prodQty  e030="Production Qty" r070="Production Qty" g060="Production Qty"/>
+		<prodCost  e030="Production Cost" r070="Production Cost" g060="Production Cost"/>
+		<OPMCost  e030="OPM Cost" r070="OPM Cost" g060="OPM Cost"/>
+		<!-- End by shraddha for unit test issue #5712 -->
+		<lblOf  e030="Of" r070="Of" g060="Από"/>
+		
+		
+	</PRODUCTIONCOSTINFORMATIONJPANEL>
+</ProductionCostInformation>
+</Application-IM>

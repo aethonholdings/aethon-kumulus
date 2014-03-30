@@ -1,0 +1,57 @@
+<?xml version="1.0" ?>
+<Application-IM>
+<Report>
+	<Report>
+		<InvDiffReportTitle  e030="Inventory Differences Report" r070="Raport diferente inventar" g060="ΑΝΑΦΟΡΑ ΔΙΑΦΟΡΩΝ ΑΠΟΘΕΜΑΤΩΝ"/>
+		<jrbtnDates  e030="By Dates" r070="Dupa data" g060="Ανά ημ/νία"/>
+		<jrbtnInventory  e030="By Inventory" r070="Dupa stoc" g060="Ανά Κωδικό"/>
+		<jbtnCancelSC  e030="C" r070="C" g060="C"/>
+		<desc  e030="DESCRIPTION" r070="DESCRIERE" g060="Περιγραφή"/>
+		<Diff.  e030="Diff." r070="Diff." g060="Διαφ."/>
+		<documentNo  e030="DOCUMENT NO" r070="Doc. Nr." g060="Αρ. Παρ/κού"/>
+		<jlblFlavour  e030="Flavour" r070="Aroma" g060="Flavour"/>
+		<InvDiff  e030="Inventory Differences" r070="Diferente inventar" g060="Διαφ.Αποθ."/>
+		<companyName  e030="MATUTANO" r070="STARFOODS" g060="TASTY FOODS"/>
+		<jlblLastInv  e030="Number of last Inventories" r070="Numarul ultimelor inventare" g060="Αριθ.Τελ.Αποθέματος"/>
+		<jbtnPrintSC  e030="P" r070="P" g060="P"/>
+		<jbtnRetrieveSC  e030="R" r070="R" g060="R"/>
+		<jbtnRemoveSC  e030="R" r070="R" g060="R"/>
+		<sum  e030="Sum" r070="Sum" g060="Sum"/>
+		<system  e030="SYSTEM" r070="SYSTEM" g060="Σύστημα"/>
+		<jbtnAddSC  e030="A" r070="A" g060="Α"/>
+		<jbtnCancel  e030="Cancel" r070="Anulare" g060="Ακύρωση"/>
+		<userId  e030="USERID :" r070="UTILIZATORID :" g060="ΧΡΗΣΤΗΣ:"/>
+		<jbtnRetrieve  e030="Retrieve" r070="Aduce" g060="Ανάκτηση"/>
+		<StockPerDayReportTitle  e030="Stock Per Day Report" r070="Raport Stoc Pe Zi" g060="Αναφορά αποθέματος ανά ημέρα"/>
+		<Inv.  e030="Inv." r070="Inv." g060="Απογραφή"/>
+		<Inv.  e030="Inv." r070="Inv." g060="Απογραφή"/>
+		<stock  e030="stock" r070="Stoc" g060="ΑΠΟΘΕΜΑ"/>
+		<jrbtnDetail  e030="Stock Per Shift" r070="Stoc pe Schimb" g060="Απόθεμα ανά βάρδια"/>
+		<jrbtnSummary  e030="Stock Per Day" r070="Stoc Pe Zi" g060="Απόθεμα ανά ημέρα"/>
+		<location  e030="LOCATION :" r070="LOCATIE :" g060="Αποθήκη:"/>
+		<jbtnRemove  e030="Remove" r070="Sterge" g060="ΔΙΑΓΡΑΦΗ"/>
+		<jlblLU  e030="LU" r070="SKU" g060="LU"/>
+		<lu  e030="LU" r070="SKU" g060="LU"/>
+		<jbtnPrint  e030="Print" r070="Tiparire" g060="Εκτύπωση"/>
+		<jlblFromDate  e030="From Date :" r070="De la :" g060="Ημ/νία 'από' :"/>
+		<fromDate  e030="From Date :" r070="De la :" g060="Ημ/νία 'από' :"/>
+		<jlblToDate  e030="To Date :" r070="Pina La :" g060="Ημ/νία 'έως':"/>
+		<toDate  e030="To Date :" r070="Pina La :" g060="Ημ/νία 'έως':"/>
+		<date  e030="Date :" r070="Data :" g060="Ημ/νία:"/>
+		<rowDelete  e030="Do you want to delete the specified row" r070="Stergeti randul?" g060="Θέλετε να διαγράψετε τη συγκεκριμένη γραμμή;"/>
+		<jlblCatagory  e030="Catagory" r070="Categorie" g060="Κατηγορία"/>
+		<warehouse  e030="Warehouse :" r070="Depozit :" g060="Κεντρική αποθήκη:"/>
+		<code  e030="CODE" r070="COD" g060="Κωδικός"/>
+		<jlblYES  e030="YES" r070="DA" g060="ΝΑΙ"/>
+		<jchkBoxAll  e030="All" r070="Tot" g060="ΟΛΑ"/>
+		<jlblFamily  e030="Family" r070="Familie" g060="Ομάδα"/>
+		<jlblNO  e030="NO" r070="NU" g060="ΟΧΙ"/>
+		<jbtnAdd  e030="Add" r070="Ad." g060="Προσθήκη"/>
+		<jlblSelling  e030="SELL" r070="VANZ" g060="ΠΩΛΗΣΗ"/>
+		<sell  e030="SELL" r070="VANZ" g060="ΠΩΛΗΣΗ"/>
+		<final  e030="final" r070="Final" g060="Τελικό"/>
+		<jlblDivision  e030="Division" r070="Divizie" g060="Τομέας"/>
+		<jlblSubFamily  e030="Sub Family" r070="Sub Familie" g060="Υπο-ομάδα"/>
+	</Report>
+</Report>
+</Application-IM>

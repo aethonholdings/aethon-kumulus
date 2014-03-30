@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<Application-IM>
+<PeriodCost>
+	<PERIODCOSTJPANEL>
+		<date   e030="Date" r070="Data" g060="Ημ/νία"/>
+		<avgActlCost  e030="Avg. Actl. Cost (Current Period)" r070="Avg. Actl. Cost (Current Period)" g060="Μ.Π.Κόστος (τρεχ.Περιόδου)"/>
+		<Book  e030="Book :" r070="Book :" g060="Βιβλίο :"/>
+		<description  e030="Description" r070="Descriere" g060="Περιγραφή"/>
+		<jrbtnGreeceBookSC  e030="G" r070="G" g060="G"/>
+		<lastAvgActlCost  e030="Last Avg. Actl Cost(Last period)" r070="Last Avg. Actl Cost(Last period)" g060="Τελ. Μ.Πραγμ.Κόστος (Τελ.Περίοδος)"/>
+		<luCode  e030="LU Code" r070="Cod SKU" g060="Κωδικός είδους"/>
+		<jlblPeriod  e030="Period :" r070="Period :" g060="Περίοδος :"/>
+		<title  e030="Period Cost" r070="Period Cost" g060="Κόστος Περιόδου"/>
+		<pickLocation  e030="Picking Location" r070="Locatie Picking" g060="Αποθήκη Συλλογής"/>
+		<jlblPrefill  e030="Prefill :" r070="Prefill :" g060="Προ-συμπλήρωση :"/>
+		<Printingsequence  e030="Printing Sequence" r070="Secventa de printare" g060="Σειρά Εκτύπωσης"/>
+		<jbtnRetrieveSC  e030="R" r070="E" g060="R"/>
+		<jbtnRetrieveTT  e030="Retrieve data" r070="Aduce date" g060="Ανάκτηση δεδομένων"/>
+		<sellingCode  e030="Selling Code" r070="Cod Vanzare" g060="Κωδικός Πώλησης"/>
+		<srNo  e030="Sr. No." r070="Sr. No." g060="Α.Α."/>
+		<rmncmpname  e030="STAR FOODS" r070="STAR FOODS" g060="STAR FOODS"/>
+		<grccmpname  e030="TASTY" r070="TASTY" g060="TASTY"/>
+		<jrbtnUSBookSC  e030="U" r070="U" g060="U"/>
+		<UOM  e030="UOM" r070="UM" g060="M.M"/>
+		<jrbtnUSBook  e030="US Book" r070="US Book" g060="Βιβλία US"/>
+		<!-- changes start  by shraddha for prefill value -->
+		<!-- <strTrue  e030="null" r070="null" g060="ΑΛΗΘΕΣ"/> -->
+		<strTrue  e030="True" r070="True" g060="True"/>
+		<!-- changes end  by shraddha for prefill value -->
+		
+		<docLineId  e030="Doc Line Id" r070="Linie Doc." g060="Κωδ.Γραμμής"/>
+		<jbtnRetrieve  e030="Retrieve" r070="Aduce" g060="Ανάκτηση"/>
+		<jlblItem  e030="Items :" r070="Produs :" g060="Είδη :"/>
+		<jlblYear  e030="Year :" r070="Year :" g060="Έτος:"/>
+		<jlbldate1  e030="Date:" r070="Data:" g060="Ημ/νία:"/>
+		<jlblDate  e030="Date :" r070="Data :" g060="Ημ/νία:"/>
+		<position   e030="Position" r070="Pozitie" g060="Θέση"/>
+		<jrbtnGreeceBook  e030="Greece Book" r070="Greece Book" g060="Ελληνικά Βιβλία"/>
+		<fullName  e030="Full Name" r070="Nume" g060="Πλήρης επωνυμία"/>
+		<jlblpage  e030="Page:" r070="Pagina:" g060="Σελίδα :"/>
+		<system  e030="System :" r070="System :" g060="Σύστημα:"/>
+		<sequence  e030="Sequence" r070="Secventa" g060="Συχνότητα"/>
+		<price  e030="Price" r070="Price" g060="Τιμή"/>
+		<signature   e030="Signature" r070="Semnatura" g060="Υπογραφή"/>
+		<!-- changes start  by shraddha for prefill value -->
+		<!-- <strFalse  e030="null" r070="null" g060="ΨΕΥΔΕΣ"/> -->
+		<strFalse  e030="False" r070="False" g060="False"/>
+		<!-- changes end  by shraddha for prefill value -->
+		
+		<jlblGrandTotal  e030="Grand Total:" r070="Grand Total :" g060="Τελικό Σύνολο:"/>
+		<jlblTotalItems   e030="Total Items:" r070="Total Items :" g060="Συν. Ειδών:"/>
+		<lblOf  e030="Of" r070="Of" g060="Από"/>
+		
+	</PERIODCOSTJPANEL>
+</PeriodCost>
+</Application-IM>

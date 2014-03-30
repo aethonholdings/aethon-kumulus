@@ -43,6 +43,11 @@ kumulus/logs
 scando/01-capture/scannerapp_client/log
 scando/01-capture/scannerapp_client/Log
 scando/01-capture/scannerapp_client/Log/ScannerApp.log
+scando-standalone/log/*
+
+# scando stuff
+scando-standalone/ScanDoLocalStorage/*
+scando-standalone/ScanDoThumbnails/*
 
 # project release file
 kumulus/*.war

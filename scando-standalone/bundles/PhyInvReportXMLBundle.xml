@@ -1,0 +1,20 @@
+<?xml version="1.0" ?>
+<Application-IM>
+<Report>
+	<Report>
+		<description  e030="DESCRIPTION" r070="DESCRIERE" g060="ΠΕΡΙΓΡΑΦΗ"/>
+		<companyName  e030="MATUTANO" r070="STARFOODS" g060="TASTY FOODS"/>
+		<ULL  e030="ULL :" r070="ULL :" g060="ULL :"/>
+		<userId  e030="USERID :" r070="UTILIZATORID :" g060="ΧΡΗΣΤΗΣ:"/>
+		<location  e030="LOCATION :" r070="LOCATIE :" g060="Αποθήκη:"/>
+		<date  e030="Date :" r070="Data :" g060="Ημ/νία:"/>
+		<warehouse  e030="Warehouse :" r070="Depozit :" g060="Κεντρική αποθήκη:"/>
+		<code  e030="CODE" r070="COD" g060="ΚΩΔ."/>
+		<qty  e030="QTY" r070="CANT" g060="ΠΟΣΟΤΗΤΑ"/>
+		<sellingLU  e030="SELLING-LU" r070="VANZARE-LU" g060="Κωδ.Πωλ./LU"/>
+		<endOfReport  e030="END OF REPORT" r070="Sfarsitul Raportului" g060="Τέλος Αναφοράς"/>
+		<of  e030="of" r070="of" g060="του"/>
+		<phyInv  e030="PHYSICAL INVENTORY" r070="INVENTAR FIZIC" g060="Φυσική Απογραφή"/>
+	</Report>
+</Report>
+</Application-IM>
