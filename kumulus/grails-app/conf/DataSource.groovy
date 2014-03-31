@@ -16,7 +16,7 @@ environments {
             dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
             url = "jdbc:mysql://"+ (System.getenv('KUMULUS_DB_HOST') ?: "localhost") +":3306/kumulus?autoReconnect=true"
             username = "kumulus"
-            password = "password"
+            password = System.getenv('KUMULUS_DB_PASS') ?:"password"
             properties {
                 //run the evictor every 30 minutes and evict any connections older than 30 minutes.
                 minEvictableIdleTimeMillis=1800000
@@ -33,9 +33,9 @@ environments {
     test {
         dataSource {
             dbCreate = "update"
-            url = "jdbc:mysql://kumulus.cokd1jwuhqlu.ap-southeast-1.rds.amazonaws.com/kumulus?autoReconnect=true"
+            url = "jdbc:mysql://"+(System.getenv('KUMULUS_DB_HOST') ?:"kumulus.cokd1jwuhqlu.ap-southeast-1.rds.amazonaws.com")+":3306/kumulus?autoReconnect=true"
             username = "kumulus"
-            password = "d7!8d826ddx1"
+            password = System.getenv('KUMULUS_DB_PASS') ?:"d7!8d826ddx1"
             properties {
                 //run the evictor every 30 minutes and evict any connections older than 30 minutes.
                 minEvictableIdleTimeMillis=1800000
