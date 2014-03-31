@@ -2,9 +2,12 @@ var state;
 var tree;
 var selectedNode;
 var newNode;
+var containerViewer;
 
 $(document).ready(function(){
-        
+    
+    containerViewer = new ContainerViewer();
+    
     // create the node tree
     $('#nodeTree').dynatree({
         
@@ -40,7 +43,6 @@ $(document).ready(function(){
         dnd: {
     
             onDragStart: function(node) {
-       
                 logMsg("tree.onDragStart(%o)", node);
                 return true;
             },
@@ -133,7 +135,7 @@ function ready() {
 }
 
 function refresh_container_information(node) {
-    
+        
     if(node && node.data.id!="ROOT"){
         $('#barcode').val(node.data.barcode);
         $('#name').val(node.data.title);
@@ -160,47 +162,7 @@ function refresh_container_information(node) {
             $('.kumulus-uploader').addClass('pure-button-disabled', false);
         }
     }
-
-    // update node detail info panel
-    var data = { node:node.data.id }
-    if(data.node!='ROOT'){
-        $("#nodeActions").empty();
-        $("#nodeBarcode").val(node.data.barcode);
-        $("#nodeType").val(node.data.type);
-        $("#nodeLocation").val(node.data.location);
-        $("#nodeStatus").val(node.data.state);
-        $.ajax({
-            url: url('node', 'getDocuments', ''),
-            type: 'POST',
-            data: JSON.stringify(data),
-            contentType: 'application/json; charset=utf-8',
-            dataType: 'json',
-            async: false,
-            success: function(data) {
-                $("#pageInfo tbody tr").remove();
-                $.each(data, function(i) {
-                    var imgUrl = url('image','get', data[i].thumbnailImageId);
-                    var status = data[i].status;
-                    $("#pageInfo tbody").append('<tr><td><img class="kumulus-thumbnail kumulus-element-border" height="140" width="100"  src='+ imgUrl +' /></td><td>'+status+'</td></tr>');
-                });
-            }
-        });
-        
-        // map node state to buttons
-        if(node.data.storeable) {
-            var buttonTag;
-            if(node.data.location=="My premises") {
-                // node is at customer premises                
-                if(node.data.status=='Open') {
-                    buttonTag = '<input id="button-readyfortransfer" type="button"  value="Seal" class="pure-button kumulus-margin-top" onclick="seal();" />';
-                }
-            } else {
-                // node is at Kumulus premises
-                buttonTag =  '<input id="button-fetch" type="button"  value="Fetch from storage" class="pure-button kumulus-margin-top" onclick="fetch();" />';
-            }
-            $("#nodeActions").append(buttonTag);
-        }
-    }
+    containerViewer.update(node);
 }  
 
 function delete_node() {
@@ -425,65 +387,3 @@ function save() {
         tree.selectKey(news.data.key, true);
     }
 }
-
-// --- LOGISTCS
-
-function fetch(){
-    
-    var data ={  id: selectedNode.data.id }
-    if(data.node!='ROOT'){
-        $.ajax({
-            url: url('node', 'fetch', ''),
-            type: 'POST',
-            data: JSON.stringify(data),
-            contentType: 'application/json; charset=utf-8',
-            dataType: 'json',
-            async: false,
-            success: function(data) {
-                if(data.done == true){
-                    alert("Your request has been placed");
-                }
-            }
-        });
-    }         
-}
-
-function seal(){
-    var data = { 
-        id: selectedNode.data.id
-    }
-    var newNodeKey=selectedNode.data.key;
-    if(data.id!='ROOT'){
-        $.ajax({
-            url: url('node', 'seal', ''),
-            type: 'post', 
-            data: JSON.stringify(data),
-            contentType: 'application/json; charset=utf-8',
-            dataType: 'json',
-            async: false,
-            success: function(data) {
-                var pnode = selectedNode.getParent()
-                if (selectedNode.getParent().data.key != '#') {
-                    selectedNode.getParent().reloadChildren(function(pnode, isOk) { 
-                        tree.activateKey(newNodeKey);
-                    });                   
-                }
-                else {
-                    var path = "#/" + newNodeKey;
-                    location.reload(true)
-                    tree.loadKeyPath(path, function(node, status){
-                        if(status == "loaded") {
-                            node.expand();
-                        } else if(status == "ok") {
-                            node.activate();
-                        }
-                    });
-                }
-            }
-        });    
-    }
-}
-
-
-
-

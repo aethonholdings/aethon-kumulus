@@ -47,8 +47,8 @@
             <table class='pure-table pure-table-horizontal'>
               <thead>
                 <tr>
-                  <th>Shipment Name</th>
                   <th>Schedule Date</th>
+                  <th>Items</th>
                   <th>&nbsp;</th>
                 </tr>
               </thead>
@@ -56,9 +56,9 @@
                 <% SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy"); %> 
                 <g:each var="shipment" in="${shipmentList}">
                   <tr>
-                    <td><g:link controller="shipment" action="view" id="${shipment.id}">${shipment.toCompany}</g:link></td>
-                    <td>${dateFormat.format((java.util.Date)shipment.scheduled)}</td>
-                    <td><g:link controller="shipment" action="remove" id="${shipment.id}">Remove</g:link></td>
+                    <td><g:link controller="shipment" action="view" id="${shipment.id}">${dateFormat.format((java.util.Date)shipment.scheduled)}</g:link></td>
+                    <td class="kumulus-task-count">tbd</td>
+                    <td class="kumulus-task-queue-action"><g:link controller="shipment" action="remove" id="${shipment.id}">Remove</g:link></td>
                   </tr>
                 </g:each>
               </tbody>

@@ -5,6 +5,7 @@
     <g:javascript src='kumulus/validation.js'/>
     <g:javascript src='dynatree/jquery.dynatree.js'/>
     <g:javascript src='kumulus/nodeTree.js'/>
+    <g:javascript src='kumulus/containerViewer.js'/>
     <title>View project | Kumulus</title>
   </head>
   <body>

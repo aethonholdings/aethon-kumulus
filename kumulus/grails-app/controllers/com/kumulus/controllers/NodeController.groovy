@@ -169,4 +169,8 @@ class NodeController {
         //fetch from storage
         render response as JSON
     }
+    
+    def ship() {
+        
+    }
 }
