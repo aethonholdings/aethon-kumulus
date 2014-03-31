@@ -63,7 +63,6 @@ class CaptureService {
             node.type = nodeType
             node.location = location
             node.save()
-            
             barcode.used = true
             barcode.save()
         }
@@ -84,6 +83,7 @@ class CaptureService {
                 type: node.type.name,
                 status: node.status(),
                 location: node.location,
+                storeable: node.type.storeable,
                 id: node.id, 
                 project: node.project.id
             ]
@@ -107,6 +107,7 @@ class CaptureService {
             comment: null,
             status: null,
             location: null,
+            storeable: false,
             children: children,
             type: "ROOT",
             id: "ROOT",
@@ -255,14 +256,4 @@ class CaptureService {
         return(newDocument)
     }
     
-    def updateContainer(node,status){
-     if(node && status){
-          if(status=='0'){
-             status='1'
-             node.status=status
-             node.save()
-          }
-      }  
-        return(node)
-    }
 }

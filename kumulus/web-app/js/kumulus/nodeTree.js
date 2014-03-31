@@ -7,6 +7,7 @@ $(document).ready(function(){
         
     // create the node tree
     $('#nodeTree').dynatree({
+        
         initAjax: {
             title: 'Archive structure',
             url: url('node', 'getRoot', $('#project').attr('projectID')),
@@ -18,13 +19,14 @@ $(document).ready(function(){
             rootVisible: true,
             keyboard: true
         },
+        
         onActivate: function(node) {
             if(state=="READY") {
                 selectedNode = node;
                 refresh_container_information(node);
-                 nodeDetailInfo(node);
             }  
         }, 
+                
         onLazyRead: function(node) {
             node.appendAjax({
                 url: url('node', 'getChildren', ''), 
@@ -33,69 +35,65 @@ $(document).ready(function(){
                 }
             });
 
-        },      
-        
-     dnd: {
-      onDragStart: function(node) {
-       
-        logMsg("tree.onDragStart(%o)", node);
-        return true;
-      },
-      onDragStop: function(node) {
-       
-        logMsg("tree.onDragStop(%o)", node);
-      },
-      autoExpandMS: 1000,
-      preventVoidMoves: true, // Prevent dropping nodes 'before self', etc.
-      onDragEnter: function(node, sourceNode) {
-       
-        logMsg("tree.onDragEnter(%o, %o)", node, sourceNode);
-        return true;
-      },
-      onDragOver: function(node, sourceNode, hitMode) {
-        
-        logMsg("tree.onDragOver(%o, %o, %o)", node, sourceNode, hitMode);
-        
-        if(node.isDescendantOf(sourceNode)){
-          return false;
-        }
-        
-        if( !node.data.isFolder && hitMode === "over" ){
-          return "after";
-        }
-      },
-      onDrop: function(node, sourceNode, hitMode, ui, draggable) {
-        
-        logMsg("tree.onDrop(%o, %o, %s)", node, sourceNode, hitMode);
-        sourceNode.expand(true);
-      
-      var data = { 
-            id: selectedNode.data.id,
-            targetId: node.data.id,
-            hitMode:hitMode,
-        }
-      
-             $.ajax({
-             url: url('node', 'move', ''),
-             type: 'post', 
-             data: JSON.stringify(data),
-             contentType: 'application/json; charset=utf-8',
-             dataType: 'json',
-             async: false,
-             success: function(data) {
-                 sourceNode.move(node, hitMode);
-                 sourceNode.expand(true);
-                 ready();
-                }
-            });
-      },
-      onDragLeave: function(node, sourceNode) {
-        
-        logMsg("tree.onDragLeave(%o, %o)", node, sourceNode);
-      }
-    }
+        },    
+                
+        dnd: {
     
-   });
+            onDragStart: function(node) {
+       
+                logMsg("tree.onDragStart(%o)", node);
+                return true;
+            },
+                    
+            onDragStop: function(node) {
+                logMsg("tree.onDragStop(%o)", node);
+            },
+            autoExpandMS: 1000,
+            preventVoidMoves: true, // Prevent dropping nodes 'before self', etc.
+    
+            onDragEnter: function(node, sourceNode) {
+                logMsg("tree.onDragEnter(%o, %o)", node, sourceNode);
+                return true;
+            },
+                    
+            onDragOver: function(node, sourceNode, hitMode) {
+                logMsg("tree.onDragOver(%o, %o, %o)", node, sourceNode, hitMode);    
+                if(node.isDescendantOf(sourceNode)){
+                    return false;
+                }
+                if( !node.data.isFolder && hitMode === "over" ){
+                    return "after";
+                }
+            },
+                    
+            onDrop: function(node, sourceNode, hitMode, ui, draggable) {
+                logMsg("tree.onDrop(%o, %o, %s)", node, sourceNode, hitMode);
+                sourceNode.expand(true);
+                var data = { 
+                    id: selectedNode.data.id,
+                    targetId: node.data.id,
+                    hitMode:hitMode,
+                }
+                $.ajax({
+                    url: url('node', 'move', ''),
+                    type: 'post', 
+                    data: JSON.stringify(data),
+                    contentType: 'application/json; charset=utf-8',
+                    dataType: 'json',
+                    async: false,
+                    success: function(data) {
+                        sourceNode.move(node, hitMode);
+                        sourceNode.expand(true);
+                        ready();
+                    }
+                });
+            },
+            
+            onDragLeave: function(node, sourceNode) {
+                logMsg("tree.onDragLeave(%o, %o)", node, sourceNode);
+            }
+        }
+    });
     tree = $('#nodeTree').dynatree("getTree");
     ready();
     
@@ -110,26 +108,21 @@ $(document).ready(function(){
             dataType: 'json',
             async: false,
             success: function(data) {
-
-             if(data.status=='true'){
-                alert("Invalid Barcode")
-                enable(true)
-                $('#barcode').val('')
-                $('#barcode').prop('disabled', false);
-//                $('#button-save').prop('disabled', true);
-                $('#barcode').focus();
-                return false;
-                }
-                else{
-                     enable(false)
+                if(data.status=='true'){
+                    alert("Invalid Barcode")
+                    enable(true)
+                    $('#barcode').val('')
+                    $('#barcode').prop('disabled', false);
+                    $('#barcode').focus();
+                    return false;
+                } else {
+                    enable(false)
                     $('#button-save').prop('disabled', false);
-                     $('#type').focus();
+                    $('#type').focus();
                 }   
             }   
-            
         });
     });
-    
 });
 
 
@@ -140,11 +133,13 @@ function ready() {
 }
 
 function refresh_container_information(node) {
+    
     if(node && node.data.id!="ROOT"){
         $('#barcode').val(node.data.barcode);
         $('#name').val(node.data.title);
         $('#type').val(node.data.type);
         $('#comment').val(node.data.comment);
+        nodeDetailInfo(node);
         if ($('#nodeId')) {
             $('#nodeId').attr('value', node.data.id);
             $('.kumulus-uploader-form').attr('action', url('fileUploader', 'process', node.data.id));
@@ -157,6 +152,7 @@ function refresh_container_information(node) {
         $('#name').val('Enter name here');
         $('#type').val('');
         $('#comment').val('');
+        nodeDetailInfo(node);
         if ($('#nodeId')) {   
             $('#nodeId').attr('value', '');
             $('.kumulus-uploader-form').attr('action', url('fileUploader', 'process', ''));
@@ -166,6 +162,49 @@ function refresh_container_information(node) {
         }
     }
 }
+
+function nodeDetailInfo(node){
+    
+    var data = { node:node.data.id }
+    if(data.node!='ROOT'){
+        $("#nodeActions").empty();
+        $("#nodeBarcode").val(node.data.barcode);
+        $("#nodeType").val(node.data.type);
+        $("#nodeLocation").val(node.data.location);
+        $("#nodeStatus").val(node.data.status);
+        $.ajax({
+            url: url('node', 'getDocuments', ''),
+            type: 'POST',
+            data: JSON.stringify(data),
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            async: false,
+            success: function(data) {
+                $("#pageInfo tbody tr").remove();
+                $.each(data, function(i) {
+                    var imgUrl = url('image','get', data[i].thumbnailImageId);
+                    var status = data[i].status;
+                    $("#pageInfo tbody").append('<tr><td><img class="kumulus-thumbnail kumulus-element-border" height="140" width="100"  src='+ imgUrl +' /></td><td>'+status+'</td></tr>');
+                });
+            }
+        });
+        
+        // map node state to buttons
+        if(node.data.storeable) {
+            var buttonTag;
+            if(node.data.location=="My premises") {
+                // node is at customer premises                
+                if(node.data.status=='Open') {
+                    buttonTag = '<input id="button-readyfortransfer" type="button"  value="Seal" class="pure-button kumulus-margin-top" onclick="seal();" />';
+                }
+            } else {
+                // node is at Kumulus premises
+                buttonTag =  '<input id="button-fetchFromStorage" type="button"  value="Fetch from storage" class="pure-button kumulus-margin-top" onclick="fetchFromStorage();" />';
+            }
+            $("#nodeActions").append(buttonTag);
+        }
+    }
+}  
 
 function delete_node() {
    $('#button-add').prop('disabled', true);
@@ -198,10 +237,10 @@ function delete_node() {
                 }
             });
         }
-            $('#button-add').prop('disabled', false);
-            $('#button-edit').prop('disabled', false);
-            $('#button-delete').prop('disabled', false);
-            $('#button-search').prop('disabled', false);
+        $('#button-add').prop('disabled', false);
+        $('#button-edit').prop('disabled', false);
+        $('#button-delete').prop('disabled', false);
+        $('#button-search').prop('disabled', false);
     }
 };
 
@@ -388,14 +427,37 @@ function save() {
         tree.selectKey(news.data.key, true);
     }
 }
-function containerToTransport(){
+
+// --- LOGISTCS
+
+function fetchFromStorage(){
+    
+    var data ={  id: selectedNode.data.id }
+    if(data.node!='ROOT'){
+        $.ajax({
+            url: url('node', 'fetchFromStorage', ''),
+            type: 'POST',
+            data: JSON.stringify(data),
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            async: false,
+            success: function(data) {
+                if(data.done == true){
+                    alert("your Request has been placed");
+                }
+            }
+        });
+    }         
+}
+
+function seal(){
     var data = { 
         id: selectedNode.data.id
     }
     var newNodeKey=selectedNode.data.key;
     if(data.id!='ROOT'){
         $.ajax({
-            url: url('node', 'containerToTransport', ''),
+            url: url('node', 'seal', ''),
             type: 'post', 
             data: JSON.stringify(data),
             contentType: 'application/json; charset=utf-8',
@@ -423,54 +485,7 @@ function containerToTransport(){
         });    
     }
 }
-function nodeDetailInfo(node){
-    
-    var data = { node:node.data.id }
-    if(data.node!='ROOT'){
-        $("#nodeBarcode").val(node.data.barcode);
-        $("#nodeType").val(node.data.type);
-        $("#nodeLocation").val(node.data.location);
-        $("#nodeStatus").val(node.data.status);
-        $.ajax({
-            url: url('node', 'getDocuments', ''),
-            type: 'POST',
-            data: JSON.stringify(data),
-            contentType: 'application/json; charset=utf-8',
-            dataType: 'json',
-            async: false,
-            success: function(data) {
-                $("#pageInfo tbody tr").remove();
-                $.each(data, function(i) {
-                    var imgUrl = url('image','get', data[i].thumbnailImageId);
-                    var status = data[i].status;
-                    $("#pageInfo tbody").append('<tr><td><img class="kumulus-thumbnail kumulus-element-border" height="140" width="100"  src='+ imgUrl +' /></td><td>'+status+'</td></tr>');
-                });
-            }
-        });
-         if(node.data.status=='Open'){
-            $('#button-readyfortransfer').prop('disabled', false);
-        }
-        else{
-            $('#button-readyfortransfer').prop('disabled', true);
-        }
-    }
-  }  
-  function fetchFromStorage(){
-     var data ={  id: selectedNode.data.id }
-          if(data.node!='ROOT'){
-           $.ajax({
-                url: url('node', 'fetchFromStorage', ''),
-                type: 'POST',
-                data: JSON.stringify(data),
-                contentType: 'application/json; charset=utf-8',
-                dataType: 'json',
-                async: false,
-                success: function(data) {
-                    if(data.done == true){
-                    alert("your Request has been placed");
-                           }
-                       }
-            });
-          }         
-    }
+
+
+
 

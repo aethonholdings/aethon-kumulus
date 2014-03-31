@@ -6,8 +6,9 @@ import grails.converters.*
 class NodeController {
 
     def captureService
+    def logisticsService
     def permissionsService
-        
+    
     def getRoot() {
         def project = Project.findById(params?.id)
         if(permissionsService.checkPermissions(project)) {
@@ -153,11 +154,12 @@ class NodeController {
         }
         render response as JSON
     }
-    def containerToTransport(){
+    
+    def seal(){
         def data = request.JSON
         def node = Node.findById(data?.id)
-        if (permissionsService.checkPermissions(node)) {
-            captureService.updateContainer(node, Node.STATUS_OPEN)
+        if (permissionsService.checkPermissions(node) && node.type.storeable) {
+            logisticsService.sealNode(node)
             render node as JSON
         }
     }

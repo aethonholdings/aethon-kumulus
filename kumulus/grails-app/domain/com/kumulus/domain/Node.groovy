@@ -25,7 +25,7 @@ class Node {
     Node parent 
     NodeType type
     Page page
-
+    
     static mapping = {
         id column: "node_id"
         parent column: "parent_node_id"

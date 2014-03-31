@@ -90,10 +90,7 @@
                 <input name="status" type="text" id="nodeStatus" class="pure-u-1-2" readonly=""/>
               </div>
             </div>
-            <div class="kumulus-button-bank">
-              <input id="button-readyfortransfer" type="button"  value="Seal and send to storage" class="pure-button" onclick="containerToTransport();" disabled/>
-              <input id="button-fetchFromStorage" type="button"  value="Fetch from storage" class="pure-button kumulus-margin-top" onclick="fetchFromStorage();" />
-            </div>
+            <div id ="nodeActions" class="kumulus-button-bank"></div>
           </div>
           <div class="kumulus-widget-3-5 kumulus-scrollable-y">
             <div class="kumulus-container-for-collect">

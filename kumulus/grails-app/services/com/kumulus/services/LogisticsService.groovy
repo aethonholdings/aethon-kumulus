@@ -21,4 +21,37 @@ class LogisticsService {
         barcode.save()
         return(barcode)
     }
+    
+    def sealNode(Node node){
+        
+        // check node exists
+        if(node) {
+            // seal this node
+            node.status= Node.STATUS_CLOSED
+            node.save()
+            
+            // seal all children
+            Node.findAllByParent(node).each { 
+                sealNode(it)
+            }
+        }
+        return(node)
+    }
+    
+    def openNode(Node node) {
+        
+        // check node exists
+        if(node) {
+            // open this node
+            node.status= Node.STATUS_OPEN
+            node.save()
+            
+            // seal all children
+            Node.findAllByParent(node).each { 
+                openNode(it)
+            }
+        }
+        return(node)
+    }
+    
 }
