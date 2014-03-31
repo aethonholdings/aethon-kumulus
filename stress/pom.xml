@@ -53,5 +53,10 @@
       <artifactId>jersey-client</artifactId>
       <version>1.17.1</version>
     </dependency>
+    <dependency>
+      <groupId>htmlunit</groupId>
+      <artifactId>htmlunit</artifactId>
+      <version>1.13</version>
+    </dependency>
   </dependencies>
 </project>
