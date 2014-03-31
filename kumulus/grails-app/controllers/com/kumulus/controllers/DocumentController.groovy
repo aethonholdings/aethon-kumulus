@@ -55,7 +55,6 @@ class DocumentController {
     
     def get() {
         def document = Document.findById(params?.id) 
-        println(document)
         if(document && permissionsService.checkPermissions(document)) {
             if(document.status>=Document.STATUS_IMPORTED && document.file) {
                 redirect controller: "download", action: "index", id: document.file.id
