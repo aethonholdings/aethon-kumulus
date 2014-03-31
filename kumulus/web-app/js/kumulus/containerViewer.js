@@ -36,7 +36,7 @@ function ContainerViewer() {
                         var imgUrl = url('image','get', data[i].thumbnailImageId);
                         var status = data[i].status;
                         $("#pageInfo tbody").append(
-                            '<tr><td><img class="kumulus-thumbnail" height="140" width="100"  src='+ imgUrl +' /></td><td>'+status+'</td></tr>'
+                            '<tr><td><a href="' + url("document", "get", data[i].id) + '"><img class="kumulus-thumbnail" height="140" width="100"  src='+ imgUrl +' /></a></td><td>'+status+'</td></tr>'
                         );
                     });
                 }

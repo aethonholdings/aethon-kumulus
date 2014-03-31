@@ -52,4 +52,16 @@ class DocumentController {
         structureService.update(document, data)
         render response as JSON
     }
+    
+    def get() {
+        def document = Document.findById(params?.id) 
+        println(document)
+        if(document && permissionsService.checkPermissions(document)) {
+            if(document.status>=Document.STATUS_IMPORTED && document.file) {
+                redirect controller: "download", action: "index", id: document.file.id
+            } else {
+                if(document?.pages[0]) redirect controller: "download", action: "index", id: document.pages[0].viewImage.file.id
+            }
+        }
+    }
 }
