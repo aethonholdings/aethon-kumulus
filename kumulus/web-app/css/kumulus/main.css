@@ -371,11 +371,10 @@ kumulus-control-group{
 
 .kumulus-thumbnail{
     margin: auto;
+    border: 1px;
+    border-style: solid;
+    border-color: #dfdfdf;
 }
-
-
-
-
 
 .kumulus-control-group input,textarea,select{
     width: 40%;

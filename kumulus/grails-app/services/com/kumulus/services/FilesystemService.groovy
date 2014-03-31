@@ -140,9 +140,11 @@ class FilesystemService {
     }
         
     def indexPdfInFilesystem(document, filename) {
-        def path = grailsApplication.config.filesystem.main + document.literal + '/docs/'
+        def path = grailsApplication.config.filesystem.main + document.project.literal + '/docs/'
         new File(path).mkdirs()
         def dest = path + document.literal + '.pdf'
+        println(path)
+        println(dest)
         new File(filename).renameTo(dest)
         return createUFile(dest)
     }

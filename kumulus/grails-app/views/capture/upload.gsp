@@ -12,6 +12,7 @@
     <g:javascript src='kumulus/base.js'/>
     <g:javascript src='kumulus/uploader.js'/>
     <g:javascript src='kumulus/nodeTree.js'/>
+    <g:javascript src='kumulus/containerViewer.js'/>
     <title>Upload scans | Kumulus</title>
   </head>
   <body>
