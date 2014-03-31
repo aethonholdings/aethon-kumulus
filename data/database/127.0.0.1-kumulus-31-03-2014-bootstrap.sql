@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.6.10)
 # Database: kumulus
-# Generation Time: 2014-03-01 16:31:26 +0000
+# Generation Time: 2014-03-31 06:40:52 +0000
 # ************************************************************
 
 
@@ -298,12 +298,12 @@ UNLOCK TABLES;
 LOCK TABLES `node_type` WRITE;
 /*!40000 ALTER TABLE `node_type` DISABLE KEYS */;
 
-INSERT INTO `node_type` (`id`, `version`, `code`, `description`, `image_path`, `is_container`, `name`)
+INSERT INTO `node_type` (`id`, `version`, `code`, `description`, `image_path`, `is_container`, `name`, `storeable`)
 VALUES
-	(1,0,'B','','',1,'Box'),
-	(2,0,'C','','',1,'Container'),
-	(3,0,'P','','',0,'Page'),
-	(4,0,'O','','',1,'Other');
+	(1,0,'B','','',1,'Box',1),
+	(2,0,'C','','',1,'Container',0),
+	(3,0,'P','','',0,'Page',0),
+	(4,0,'O','','',1,'Other',0);
 
 /*!40000 ALTER TABLE `node_type` ENABLE KEYS */;
 UNLOCK TABLES;

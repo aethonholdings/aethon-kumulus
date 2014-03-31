@@ -22,7 +22,7 @@ class CaptureService {
         }
     }
     
-    def insertNode(parent, project, barcodeString, name, comment, type) {
+    def insertNode(parent, project, barcodeString, name, comment, type, state) {
         
         def barcode = Barcode.findByText(barcodeString)
         def nodeType = NodeType.findByName(type)
@@ -42,6 +42,7 @@ class CaptureService {
             node.lastUpdateDatetime = timestamp
             node.location = Node.LOCATION_CLIENT
             node.page = null
+            node.state = state
             node.save()
             
             barcode?.used = true
@@ -83,6 +84,7 @@ class CaptureService {
                 type: node.type.name,
                 status: node.status(),
                 location: node.location,
+                state: node.state(),
                 storeable: node.type.storeable,
                 id: node.id, 
                 project: node.project.id
@@ -107,6 +109,7 @@ class CaptureService {
             comment: null,
             status: null,
             location: null,
+            state: null,
             storeable: false,
             children: children,
             type: "ROOT",
@@ -149,7 +152,8 @@ class CaptureService {
                 createDatetime: timestamp,
                 lastUpdateDatetime: timestamp,
                 status: Node.STATUS_CLOSED,
-                location: Node.LOCATION_CLIENT
+                location: Node.LOCATION_CLIENT,
+                state: parentNode.state
             )
             node.save()
 

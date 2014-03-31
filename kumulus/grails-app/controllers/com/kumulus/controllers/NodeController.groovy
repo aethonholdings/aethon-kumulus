@@ -45,7 +45,7 @@ class NodeController {
         def parent
         if(data?.parentID && data.parentID != "ROOT") 
         parent = Node.findById(data?.parentID) else parent = null
-        if(project && permissionsService.checkPermissions(project) && captureService.insertNode(parent, project, data?.barcode, data?.name, data?.comment, data?.type)) { 
+        if(project && permissionsService.checkPermissions(project) && captureService.insertNode(parent, project, data?.barcode, data?.name, data?.comment, data?.type, Node.STATE_CLIENT_OPEN)) { 
             response.done = true
             response.message = "Success"
     
@@ -164,7 +164,7 @@ class NodeController {
         }
     }
     
-    def fetchFromStorage() {
+    def fetch() {
         def response = [done: true]
         //fetch from storage
         render response as JSON

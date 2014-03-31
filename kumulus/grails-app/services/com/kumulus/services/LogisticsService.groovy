@@ -28,6 +28,7 @@ class LogisticsService {
         if(node) {
             // seal this node
             node.status= Node.STATUS_CLOSED
+            node.state = Node.STATE_CLIENT_SEALED
             node.save()
             
             // seal all children

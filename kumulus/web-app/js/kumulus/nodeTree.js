@@ -139,7 +139,6 @@ function refresh_container_information(node) {
         $('#name').val(node.data.title);
         $('#type').val(node.data.type);
         $('#comment').val(node.data.comment);
-        nodeDetailInfo(node);
         if ($('#nodeId')) {
             $('#nodeId').attr('value', node.data.id);
             $('.kumulus-uploader-form').attr('action', url('fileUploader', 'process', node.data.id));
@@ -161,17 +160,15 @@ function refresh_container_information(node) {
             $('.kumulus-uploader').addClass('pure-button-disabled', false);
         }
     }
-}
 
-function nodeDetailInfo(node){
-    
+    // update node detail info panel
     var data = { node:node.data.id }
     if(data.node!='ROOT'){
         $("#nodeActions").empty();
         $("#nodeBarcode").val(node.data.barcode);
         $("#nodeType").val(node.data.type);
         $("#nodeLocation").val(node.data.location);
-        $("#nodeStatus").val(node.data.status);
+        $("#nodeStatus").val(node.data.state);
         $.ajax({
             url: url('node', 'getDocuments', ''),
             type: 'POST',
@@ -199,7 +196,7 @@ function nodeDetailInfo(node){
                 }
             } else {
                 // node is at Kumulus premises
-                buttonTag =  '<input id="button-fetchFromStorage" type="button"  value="Fetch from storage" class="pure-button kumulus-margin-top" onclick="fetchFromStorage();" />';
+                buttonTag =  '<input id="button-fetch" type="button"  value="Fetch from storage" class="pure-button kumulus-margin-top" onclick="fetch();" />';
             }
             $("#nodeActions").append(buttonTag);
         }
@@ -207,10 +204,11 @@ function nodeDetailInfo(node){
 }  
 
 function delete_node() {
-   $('#button-add').prop('disabled', true);
-   $('#button-edit').prop('disabled', true);
-   $('#button-delete').prop('disabled', true);
-   $('#button-search').prop('disabled', true);
+    
+    $('#button-add').prop('disabled', true);
+    $('#button-edit').prop('disabled', true);
+    $('#button-delete').prop('disabled', true);
+    $('#button-search').prop('disabled', true);
     if(selectedNode && state=="READY"  && selectedNode.data.id!="ROOT") {
         if(confirm("Please confirm that you would like to delete this archive item")) {
             var data = { id: selectedNode.data.id }
@@ -430,12 +428,12 @@ function save() {
 
 // --- LOGISTCS
 
-function fetchFromStorage(){
+function fetch(){
     
     var data ={  id: selectedNode.data.id }
     if(data.node!='ROOT'){
         $.ajax({
-            url: url('node', 'fetchFromStorage', ''),
+            url: url('node', 'fetch', ''),
             type: 'POST',
             data: JSON.stringify(data),
             contentType: 'application/json; charset=utf-8',
@@ -443,7 +441,7 @@ function fetchFromStorage(){
             async: false,
             success: function(data) {
                 if(data.done == true){
-                    alert("your Request has been placed");
+                    alert("Your request has been placed");
                 }
             }
         });
