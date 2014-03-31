@@ -91,7 +91,7 @@
               </div>
             </div>
             <div class="kumulus-button-bank">
-              <input id="button-readyfortransfer" type="button"  value="Ready for transport" class="pure-button" onclick="containerToTransport();" disabled/>
+              <input id="button-readyfortransfer" type="button"  value="Seal and send to storage" class="pure-button" onclick="containerToTransport();" disabled/>
               <input id="button-fetchFromStorage" type="button"  value="Fetch from storage" class="pure-button kumulus-margin-top" onclick="fetchFromStorage();" />
             </div>
           </div>

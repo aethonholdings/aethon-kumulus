@@ -1,0 +1,137 @@
+<?xml version="1.0" ?>
+<Application-IM>
+<LocalMaintenance>
+	<LOCALMAINTENANCEJPANEL>
+		<MAX_PER_PAGE  e030="null" r070="null" g060="null"/>
+		<MAX_PER_PAGE1  e030="null" r070="null" g060="null"/>
+		<TitleAccNo  e030="Account Maintenance" r070="Mentenanta Cont" g060="Διαχείριση Λογ/μών"/>
+		<accNo  e030="Account No" r070="Nr Cont" g060="Αρ.Λογ/μού"/>
+		<AccountNo  e030="Account No" r070="Nr Cont" g060="Αρ.Λογ/μού"/>
+		<accNodesc  e030="Account No Description" r070="Descriere Nr Cont" g060="Περιγραφή Αρ. Λογαριασμού"/>
+		<accNoType  e030="Account No Type" r070="Tip Nr Cont" g060="Τύπος Αρ. Λογαριασμού"/>
+		<acc1  e030="Account Number" r070="Numar Cont" g060="Αρ.Λογ/μού"/>
+		<defAccCost7  e030="Account Number" r070="Numar Cont" g060="Αρ.Λογ/μού"/>
+		<acc2  e030="Account Number Description" r070="Descriere Numar Cont" g060="Περιγραφή Λογαριασμού"/>
+		<acc3  e030="Account Number Type" r070="Tip Numar Cont" g060="Τύπος Λογ/μού"/>
+		<jbtnCloseSC  e030="C" r070="C" g060="C"/>
+		<jbtnCancelSC  e030="C" r070="A" g060="C"/>
+		<jbtnCancel  e030="Cancel" r070="Anulare" g060="ΑΚΥΡΟ"/>
+		<carrierID  e030="Carrier ID" r070="ID Transportator" g060="Κωδ.Μεταφορέα"/>
+		<carrier1  e030="Carrier ID" r070="ID Transportator" g060="Κωδ.Μεταφορέα"/>
+		<TitleCarrier  e030="Carrier Maintenance" r070="Mentenanta Transportator" g060="Διαχείριση Μεταφορέα"/>
+		<carrierCif  e030="Cif" r070="Cif" g060="CIF"/>
+		<carrier8  e030="cif" r070="CUI" g060="CIF"/>
+		<jbtnClose	 e030="Close" r070="Inchide" g060="Κλείσιμο"/>
+		<jbtnCloseTT  e030="Close Alt-C" r070="Inchide Alt-C" g060="Κλείσιμο με Alt-C"/>
+		<costCenterCode  e030="Cost Center" r070="Centru Cost" g060="Κ.Κόστους"/>
+		<CostCenter  e030="Cost Center" r070="Centru Cost" g060="Κ.Κόστους"/>
+		<cc1  e030="Cost Center" r070="Centru Cost" g060="Κ.Κόστους"/>
+		<defAccCost8  e030="Cost Center" r070="Centru Cost" g060="Κ.Κόστους"/>
+		<costCenterdesc  e030="Cost Center Description" r070="Descriere Centru Cost" g060="Περιγραφή Κέντρου Κόστους"/>
+		<cc2  e030="Cost Center Description" r070="Descriere Centru Cost" g060="Περιγραφή Κέντρου Κόστους"/>
+		<TitleCC  e030="Cost Center Maintenance" r070="Mentenanta Centru Cost" g060="Διαχείριση Κ. Κόστους"/>
+		<costCenterType  e030="Cost Center Type" r070="Tip Centru Cost" g060="Τύπος Κέντρου Κόστους"/>
+		<cc3  e030="Cost Center Type" r070="Tip Centru Cost" g060="Τύπος Κέντρου Κόστους"/>
+		<date   e030="Date" r070="Data" g060="Ημ/νία:"/>
+		<jlblSysDate  e030="Date :" r070="Data :" g060="Ημ/νία:"/>
+		<jlbldate1  e030="Date:" r070="Data:" g060="Ημ/νία:"/>
+		<TitleD  e030="Default Account and Cost Center" r070="Cont si Centru Cost Implicit" g060="Προεπιλεγμένος Λογ/μός και Κ.Κόστους"/>
+		<DestCompany  e030="Destination Company" r070="Companie destinatie" g060="Εταιρία Προορισμού"/>
+		<defAccCost5  e030="Destination Company" r070="Companie destinatie" g060="Εταιρία Προορισμού"/>
+		<DestCountry  e030="Destination Country" r070="Tara destinatie" g060="Χώρα Προορισμού"/>
+		<defAccCost4  e030="Destination Country" r070="Tara destinatie" g060="Χώρα Προορισμού"/>
+		<DestLocation  e030="Destination Location" r070="Locatie destinatie" g060="Αποθήκη Προορισμού"/>
+		<defAccCost6  e030="Destination Location" r070="Locatie destinatie" g060="Αποθήκη Προορισμού"/>
+		<carrierDirection  e030="Direction" r070="Directie" g060="κατεύθυνση"/>
+		<carrier3  e030="direction" r070="Directie" g060="κατεύθυνση"/>
+		<car02  e030="External" r070="Extern" g060="Εξωτερικό"/>
+		<ccF  e030="Freight" r070="Cost transport" g060="Μεταφορικά"/>
+		<acF  e030="Freight" r070="Cost transport" g060="Μεταφορικά"/>
+		<fullName  e030="Full Name" r070="Nume" g060="Πλήρης επωνυμία"/>
+		<car01  e030="Internal" r070="Intern" g060="Εσωτερικό"/>
+		<ccM  e030="Miscellaneous" r070="Bon Consum" g060="Πρωτόκολλα καταστροφής"/>
+		<acM  e030="Miscellaneous" r070="Bon Consum" g060="Πρωτόκολλα καταστροφής"/>
+		<carrierName  e030="Name" r070="Nume" g060="Όνομα"/>
+		<carrier2  e030="Name" r070="Nume" g060="Όνομα"/>
+		<toaN  e030="No" r070="Nu" g060="Όχι"/>
+		<pedida0  e030="No" r070="Nu" g060="Όχι"/>
+		<pactada0  e030="No" r070="Nu" g060="Όχι"/>
+		<jlblLocation  e030="OPM Location" r070="OPM Locatie" g060="Αποθήκη OPM"/>
+		<jbtnPrintSC  e030="P" r070="P" g060="P"/>
+		<Pactada  e030="Pactada" r070="Agreat" g060="Ζητήθηκαν"/>
+		<rc5  e030="Pactada" r070="Agreat" g060="Ζητήθηκαν"/>
+		<jlblpage  e030="Page:" r070="Pagina:" g060="Σελ.:"/>
+		<Pedida  e030="Pedida" r070="Pierdut" g060="Συμφ/καν"/>
+		<rc4  e030="Pedida" r070="Pierdut" g060="Συμφ/καν"/>
+		<carrierPoblacion  e030="Poblacion" r070="Localitate" g060="Πληθυσμός"/>
+		<carrier4  e030="Poblacion" r070="Localitate" g060="Πληθυσμός"/>
+		<position   e030="Position" r070="Pozitie" g060="Θέση"/>
+		<carrierPostal  e030="Postal" r070="Postal" g060="Ταχ.Κωδ."/>
+		<carrier5  e030="Postal" r070="Postal" g060="Ταχ.Κωδ."/>
+		<jbtnPrint	 e030="Print" r070="Tiparire" g060="Εκτύπωση"/>
+		<jbtnPrintTT  e030="Print Alt-P" r070="Tiparire Alt-P" g060="Εκτύπωση Alt-P"/>
+		<carrierProvincia  e030="Provincia" r070="Provincie" g060="Επαρχία"/>
+		<carrier6  e030="Provincia" r070="Provincie" g060="Επαρχία"/>
+		<reasonCode  e030="Reason Code" r070="Motiv" g060="Κωδ.Αιτιολ."/>
+		<rc1  e030="Reason Code" r070="Motiv" g060="Κωδ.Αιτιολ."/>
+		<reasonCodedesc  e030="Reason Code Description" r070="Descriere Cod Motiv" g060="Αιτιολογία"/>
+		<rc2  e030="Reason Code Description" r070="Descriere Cod Motiv" g060="Αιτιολογία"/>
+		<TitleRC  e030="Reason Code Maintenance" r070="Descriere Cod Motiv" g060="Διαχείριση κωδ. αιτιολογίας"/>
+		<reasonCodeType  e030="Reason Code Type" r070="Tip Cod Motiv" g060="Τύπος κωδ.Αιτιολογίας"/>
+		<jbtnSortSC  e030="S" r070="S" g060="S"/>
+		<jlblSelection  e030="Selection" r070="Selectie" g060="Επιλογή"/>
+		<signature   e030="Signature" r070="Semnatura" g060="Υπογραφή"/>
+		<jbtnSort	 e030="Sort" r070="Sort" g060="Ταξινόμηση"/>
+		<SortTitle	 e030="Sort" r070="Sort" g060="Ταξινόμηση"/>
+		<jbtnSortTT  e030="Sort Alt-S" r070="Sort Alt-S" g060="Ταξινόμηση Alt-S"/>
+		<SrcCompany  e030="Source Company" r070="Companie Sursa" g060="Εταιρεία προέλευσης"/>
+		<defAccCost2  e030="Source Company" r070="Companie Sursa" g060="Εταιρεία προέλευσης"/>
+		<SrcCountry  e030="Source Country" r070="Tara Sursa" g060="Χώρα προέλευσης"/>
+		<defAccCost1  e030="Source Country" r070="Tara Sursa" g060="Χώρα προέλευσης"/>
+		<SrcLocation  e030="Source Location" r070="Locatie Sursa" g060="Αποθ.Προελ."/>
+		<defAccCost3  e030="Source Location" r070="Locatie Sursa" g060="Αποθ.Προελ."/>
+		<rmncmpname  e030="STAR FOODS" r070="STAR FOODS" g060="TASTY FOODS"/>
+		<grccmpname  e030="TASTY" r070="TASTY" g060="TASTY"/>
+		<carrierTelephone  e030="Telephone" r070="Telefon" g060="Τηλέφωνο"/>
+		<carrier7  e030="Telephone" r070="Telefon" g060="Τηλέφωνο"/>
+		<TOA  e030="TOA" r070="TOA" g060="TOA"/>
+		<rc3  e030="TOA" r070="TOA" g060="TOA"/>
+		<jlblTotal  e030="Total :" r070="Total:" g060="Σύνολο:"/>
+		<jlblTotalAccNo  e030="Total Account Numbers :" r070="Total Numere Cont :" g060="Σύ. Αρ. Λογ/μών:"/>
+		<jlblTotalCarrier  e030="Total Carriers :" r070="Total Transportatori :" g060="Σύn. μεταφορέων:"/>
+		<jlblTotalCostCenter	 e030="Total Cost Centers :" r070="Total Centre Cost :" g060="Συν. Κ.Κόστους:"/>
+		<jlblTotalRC  e030="Total ReasonCodes :" r070="Total Cod Motive :" g060="Σύν. Κωδ.Aιτιολογίας:"/>
+		<jlblTruckId  e030="Truck Id" r070="ID Camion" g060="Κωδ.Φορτηγού"/>
+		<Type  e030="Type" r070="Tip" g060="Τυπος"/>
+		<defAccCost9  e030="Type" r070="Tip" g060="Τύπος"/>
+		<carrierTypecode  e030="Typecode" r070="Typecode" g060="Κωδ. τύπου"/>
+		<carrier10  e030="Typecode" r070="Typecode" g060="Κωδ.τύπου"/>
+		<ULL  e030="ULL :" r070="ULL :" g060="ULL:"/>
+		<User  e030="User :" r070="Utilizator :" g060="Χρήστης:"/>
+		<carrierVolume  e030="Volume" r070="Volum" g060="Όγκος"/>
+		<carrier9  e030="Volume" r070="Volum" g060="Όγκος"/>
+		<jlblWhse  e030="Warehouse" r070="Depozit" g060="Κεντρική αποθήκη"/>
+		<jlblWeight  e030="Weight" r070="Greutate" g060="Βάρος"/>
+		<toaY  e030="Yes" r070="DA" g060="ΝΑΙ"/>
+		<pedida1  e030="Yes" r070="DA" g060="ΝΑΙ"/>
+		<pactada1  e030="Yes" r070="DA" g060="ΝΑΙ"/>
+		
+	<!-- ADDED By SHALIN SHAH For CLIENT ISSUE 301 (of OMS) -->
+	
+		<jbtnAddNew e030="Add New" r070="Add New" g060="Προσθήκη" />	
+		<jbtnSave e030="Save" r070="Save" g060="ΑΠΟΘΗΚΕΥΣΗ" />
+		<addMsg e030="Do you want to add new reason code?" r070="Do you want to add new reason code?" g060="Θέλετε να προσθέσετε νέο REASON CODE?" />
+		<updateMsg e030="Do you want to update reason code?" r070="Do you want to update reason code?" g060="Θέλετε να ενημερώσετε το REASON CODE?" />
+		<saveMsgBoxTitle e030="Confirmation" r070="Confirmation" g060="Confirmation" />
+		<jlblStatus e030="Status" r070="Status" g060="Κατάσταση" />
+		<Active e030="Active" r070="Active" g060="Ενεργός" />
+		<Inactive e030="Inactive" r070="Inactive" g060="Ανενεργός" />
+		<validDesc e030="Please enter reason code description" r070="Please enter reason code description" g060="Καταχωρήστε περιγραφή για το REASON CODE" />
+		<saveSuccess e030="Reason Code saved successfully" r070="Reason Code saved successfully" g060="Επιτυχής ενημέρωση για το REASON CODE" />
+		<saveFail e030="Reason Code save failed" r070="Reason Code save failed" g060="Αποτυχία ενημέρωσης για το REASON CODE" />
+		
+	<!-- FINISHED By SHALIN SHAH For CLIENT ISSUE 301 (of OMS) -->
+		
+	</LOCALMAINTENANCEJPANEL>
+</LocalMaintenance>
+</Application-IM>

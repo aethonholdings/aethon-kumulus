@@ -1,0 +1,82 @@
+<?xml version="1.0" ?>
+<Application-IM>
+<Reconciliation>
+	<RECONCILIATIONJPANEL>
+		<jtblSellingCode  e030="Selling Code" r070="Cod Vanzare" g060="Κωδ.Πώλησης"/>
+		<jlblCaddies  e030="Caddies :" r070="Display :" g060="Πακέτα :"/>
+		<comments  e030="Comments :" r070="Comentarii:" g060="Σχόλια :"/>
+		<jtblDescription  e030="Description" r070="Descriere" g060="Περιγραφή"/>
+		<jlblInvoiceDocDate  e030="Invoice Document Create Date:" r070="Invoice Document Create Date:" g060="Ημ/νία Τιμολ.:"/>
+		<jlblInvoiceDocNo  e030="Invoice Document Number:" r070="Invoice Document Number:" g060="Αρ.Τιμολ.:"/>
+		<JtblLUCode  e030="LU Code" r070="Cod SKU" g060="Κωδ. είδους"/>
+		<jtblProductFlag  e030="ProductFlag" r070="Flag Produs" g060="Ένδειξη προϊόντος"/>
+		<jlblTransTime  e030="Trans Time :" r070="Ora Tranz :" g060="Ώρα κιν:"/>
+		<jtblUOM  e030="UOM" r070="UM" g060="M.M"/>
+		<jlblVendorLoc  e030="Vendor Location :" r070="Locatie Furnizor :" g060="Αρ. Προμηθευτή:"/>
+		<jrbtnDebitSC  e030="D" r070="D" g060="D"/>
+		<jbtnRetProdSC  e030="I" r070="I" g060="I"/>
+		<jrbtnCreditSC  e030="I" r070="I" g060="I"/>
+		<jlblTotM3  e030="M3" r070="Volum" g060="M3"/>
+		<jbtnOK  e030="OK" r070="OK" g060="OK"/>
+		<jbtnRetrieveSC  e030="R" r070="R" g060="R"/>
+		<jlblCompany  e030="TASTY" r070="TASTY" g060="TASTY"/>
+		<jlblStatusCancel  e030="Cancel" r070="Anulare" g060="Ακύρωση"/>
+		<jbtnCancel1  e030="Cancel" r070="Anulare" g060="Ακύρωση"/>
+		<jbtnCancel  e030="Cancel(Y)" r070="Anulare(Y)" g060="Ακύρωση(Υ)"/>
+		<jbtnCancelTT  e030="Cancel document" r070="Anulare document" g060="Ακύρωση παραστατικού"/>
+		<jbtnRetrieve  e030="Retrieve" r070="Aduce" g060="Ανάκτηση"/>
+		<jbtnRetProdTT  e030="Retrieve Products" r070="Aduce Produse" g060="Ανάκτηση προϊόντων"/>
+		<jbtnRetProd  e030="Retrieve Products" r070="Aduce Produse" g060="Ανάκτηση προϊόντων"/>
+		<jbtnRetrieveTT  e030="Retrieve specified document" r070="Aduce Document Specificat" g060="Ανάκτηση συγκεκριμένου παραστατικού"/>
+		<Title e030="Reconciliation Transaction Journal" r070="Jurnal Tranzactii Reconciliere" g060="Αξιακές κινήσεις"/>
+		<jlblStatusSave  e030="Save" r070="Salvare" g060="ΑΠΟΘΗΚΕΥΜΕΝΟ"/>
+		<jlblLocation  e030="Location :" r070="Locatie :" g060="Αποθήκη:"/>
+		<jlblLoginLocation e030="Location :" r070="Locatie :" g060="Αποθήκη Σύνδ:"/>
+		<jlblDocNo  e030="Document No. :" r070="Doc. Nr. :" g060="Αρ. Παρ/κού :"/>
+		<jtblDocLine  e030="DocLine" r070="Linie Doc." g060="Γραμμή παρ/κού"/>
+		<jlblCreateUser  e030="Created by :" r070="Creat de :" g060="Δημ. από:"/>
+		<rowDelete1  e030="Delete Row" r070="Sterge Rind" g060="Διαγραφή γραμμής"/>
+		<header  e030="Reconciliation Transaction Journal Edit Dialog" r070="Dialog Editare Jurnal Tranzactii Reconciliere" g060="Διάλογος επεξεργασίας αξιακών κινήσεων συναλλαγών"/>
+		<jrbtnExistingSC  e030="E" r070="E" g060="Ε"/>
+		<jlblItems  e030="Items :" r070="Produs :" g060="Είδη :"/>
+		<jlblUpdateUser  e030="Updated by :" r070="Modif de :" g060="Ενημ. από"/>
+		<jbtnEditHead  e030="Edit Header" r070="Modifica Antet" g060="Επεξεργασία Κεφαλίδας"/>
+		<jbtnEditHeadTT  e030="Edit Header" r070="Modifica Antet" g060="Επεξεργασία Κεφαλίδας"/>
+		<jlblStatusCommit  e030="Commit" r070="Comis" g060="ΕΧΕΙ ΕΚΤΕΛΕΣΤΕΙ"/>
+		<jbtnEditHeadSC  e030="H" r070="H" g060="Η"/>
+		<jlblShipDate  e030="Shipment Date :" r070="Data Livrare :" g060="Ημ/νία αποστ.:"/>
+		<jlblCreateDate  e030="Creation Date :" r070="Data creare :" g060="Ημ/νία δημ.:"/>
+		<jlblUpdateDate  e030="Updation Date :" r070="Data Modif :" g060="Ημ/νία ενημ.:"/>
+		<jlblTransDate  e030="Trans Date :" r070="Data Tranz :" g060="Ημ/νία κιν.:"/>
+		<jlbldate1  e030="Date:" r070="Data:" g060="Ημ/νία:"/>
+		<jlblSysDate  e030="Date :" r070="Data :" g060="Ημ/νία:"/>
+		<docCancel  e030="Do you want to cancel the Document" r070="Doriti sa anulati documentul?" g060="Θέλετε να ακυρώσετε το παραστατικό;"/>
+		<rowDelete  e030="Do you want to delete the specified row" r070="Stergeti randul?" g060="Θέλετε να διαγράψετε τη συγκεκριμένη γραμμή;"/>
+		<jtblStatus  e030="Status :" r070="Stare :" g060="Κατάσταση:"/>
+		<blank  e030="BLANK" r070="BLANK" g060="ΚΕΝΟ"/>
+		<blank1  e030="BLANK" r070="BLANK" g060="ΚΕΝΟ"/>
+		<jlblCases  e030="Cases :" r070="Boxuri :" g060="Κιβ.:"/>
+		<jtblCost  e030="Cost" r070="Cost" g060="Κόστος"/>
+		<jtblCost  e030="Cost" r070="Cost" g060="Κόστος"/>
+		<jrbtnNewSC  e030="N" r070="N" g060="Ν"/>
+		<jlblYES  e030="YES" r070="DA" g060="ΝΑΙ"/>
+		<jrbtnNew  e030="New" r070="Nou" g060="Νέο"/>
+		<jlblNO  e030="NO" r070="NU" g060="ΟΧΙ"/>
+		<jrbtnCredit  e030="Credit" r070="Credit" g060="Πίστωση"/>
+		<jlblLocDesc  e030="Destination :" r070="Destinatie ." g060="Προορισμός :"/>
+		<jlblpage  e030="Page:" r070="Pagina:" g060="Σελ.:"/>
+		<jlblTransaction  e030="Transaction :" r070="Tranzactie :" g060="Συναλλαγή:"/>
+		<jlblTotal  e030="Total :" r070="Total :" g060="Σύνολο:"/>
+		<jlblSystem  e030="System :" r070="System :" g060="Σύστημα:"/>
+		<jlblComment  e030="Comment :" r070="Comentarii :" g060="Σχόλιο :"/>
+		<jlblEaches  e030="Total Cost :" r070="Total Cost :" g060="Συνολικό Κόστος :"/>
+		<jbtnCancelSC  e030="Y" r070="Y" g060="Υ"/>
+		<jrbtnExisting  e030="Existing" r070="Existent" g060="Υπάρχον"/>
+		<jrbtnDebit  e030="Debit" r070="Debit" g060="Χρέωση"/>
+		<jlblPageTotal  e030="Page Total :" r070="Page Total :" g060="Σύνολο Σελίδας:"/>
+		<jlblGrandTotal  e030="Grand Total :" r070="Grand Total :" g060="Τελικό Σύνολο:"/>
+		<lblOf  e030="Of" r070="Of" g060="Από"/>
+		
+	</RECONCILIATIONJPANEL>
+</Reconciliation>
+</Application-IM>

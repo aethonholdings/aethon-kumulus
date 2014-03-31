@@ -1,0 +1,220 @@
+<?xml version="1.0" ?>
+<Application-IM>
+<PhysicalInventory>
+	<PHYSICALINVENTORYJPANEL>
+		<MAX_PER_PAGECD  e030="12" r070="12" g060="12"/>
+		<MAX_PER_PAGE1CD  e030="20" r070="20" g060="20"/>
+		<MAX_PER_PAGE  e030="25" r070="25" g060="25"/>
+		<MAX_PER_PAGE1  e030="33" r070="33" g060="33"/>
+		<adjustment_prizereport e030="Adjustment" r070="Adjustment" g060="Διόρθωση"/>
+		<adjustment  e030="Adjustment" r070="Ajustare" g060="Διαφορά Κιβώτια"/>
+		<statusAPPLIED  e030="Apply" r070="Aplicat" g060="ΕΦΑΡΜΟΣΜΕΝΟ"/>
+		<applyConfirm1  e030="Apply Dcument" r070="Aplica Document" g060="Εφαρμογή παραστατικού"/>
+		<Areacode  e030="Area Code" r070="Area Code" g060="Κωδ.Περιοχής"/>
+		<jlblareacode  e030="Area Code :" r070="Area Code :" g060="Κωδ.Περιοχής:"/>
+		<jrbtnAutomated  e030="Automated" r070="Automat" g060="Αυτόματο"/>
+		<jrbtnAutomated  e030="Automated" r070="Automat" g060="Αυτόματο"/>
+		<bagsCase  e030="Bags/" r070="Buc./" g060="Σακ./"/>
+		<jtblBagsunit  e030="Bags/Case" r070="Buc./Box" g060="Σακ./Κιβ."/>
+		<brand  e030="Brand" r070="Brand" g060="Brand"/>
+		<brandgroup  e030="Brand Group" r070="Brand Grup" g060="Brand Group"/>
+		<jlblCaddy  e030="Caddies :" r070="Display :" g060="Κουτιά:"/>
+		<lblcaddyies  e030="Caddies:" r070="Caddies:" g060="Κουτιά:"/>
+		<jcmbcaddyeachvalue  e030="Caddy/Each" r070="Caddy/Each" g060="Πακ./Τεμ."/>
+		<jbtnDupDocCancel e030="Cancel" r070="Cancel" g060="Ακύρωση"/>
+		<statusCANCELLED  e030="Cancel" r070="Anulare" g060="Ακύρωση"/>
+		<jbtnCancel1  e030="Cancel" r070="Anulare" g060="Ακύρωση"/>
+		<jbtnCancelTT  e030="Cancel document" r070="Anulare document" g060="Ακυρωση .Παραστατικού;"/>
+		<jbtnCancel  e030="Cancel(Z)" r070="Anulare(Z)" g060="Ακύρωση(Z)"/>
+		<jcmbcasevalue  e030="Case" r070="Case" g060="Κιβώτιο"/>
+		<caseType  e030="Case" r070="Box" g060="Κιβώτιο"/>
+		<bagsCase1  e030="Case" r070="Box" g060="Κιβώτιο"/>
+		<jtblCasetype  e030="Case Label" r070="Case Label" g060="Ετικέτα Κιβωτίου"/>
+		<caseQty  e030="Case_Quantity" r070="Cant_Box" g060="Ποσότ.Κιβωτίου"/>
+		<jlblCases  e030="Cases :" r070="Boxuri :" g060="Κιβώτια :"/>
+		<lblcases   e030="Cases:" r070="Cases:" g060="Κιβώτια :"/>
+		<jbtnClearAll  e030="Clear All" r070="Sterge Tot" g060="Απαλοιφή όλων"/>
+		<jbtnClearallTT   e030="Clear Physical quantity" r070="Sterge Cant Fizica" g060="Απαλοιφή ποσότητας"/>
+		<jbtnStartTT  e030="Click here to start the Physical Inventory" r070="Apasa aici pt Start Inventar Fizic" g060="Κάντε κλικ εδώ για έναρξη της απογραφής"/>
+		<jbtnGetLastTT  e030="Click to see the list of Authorised Locations" r070="Apasa pt Vizualizare Locatii Autorizate" g060="Κάντε κλικ για προβολή της λίστας εξουσιοδοτημένων αποθηκών"/>
+		<sCode  e030="Code" r070="Cod" g060="Κωδικός"/>
+		<lCode  e030="Code" r070="Cod" g060="Κωδικός"/>
+		<statusCOMMITED  e030="Commit" r070="Comis" g060="Εκτέλεση"/>
+		<jbtnComponent  e030="Commit" r070="Comitere" g060="Εκτέλεση"/>
+		<mappedluCode  e030="Core LU Code" r070="Cod Logistic Core" g060="LU Αντιπροσώπου"/>
+		<jrbtnAutomaticSC  e030="D" r070="D" g060="D"/>
+		<date   e030="Date" r070="Data" g060="Ημ/νία"/>
+		<jlblSysDate  e030="Date :" r070="Data :" g060="Ημ/νία:"/>
+		<jlbldate1  e030="Date:" r070="Data:" g060="Ημ/νία:"/>
+		<rowDelete1  e030="Delete Row" r070="Sterge Rind" g060="Διαγρ.Γραμμής"/>
+		<lblProductDesc  e030="Description" r070="Description" g060="Περιγραφή"/>
+		<description  e030="Description" r070="Descriere" g060="Περιγραφή"/>
+		<lblTeamdiff  e030="Difference(Team1 - Team2)" r070="Difference(Team1 - Team2)" g060="Διαφορά (Ομ.1 - Ομ.2)"/>
+		<division  e030="Division" r070="Divizie" g060="Τομέας"/>
+		<divisiongroup  e030="Division Group" r070="Grup divizie:" g060="Ομάδα Τομέα"/>
+		<applyConfirm  e030="Do you want to apply the Physical Inventory?" r070="Doriti sa salvati inventarul?" g060="Θέλετε να εφαρμόσετε την απογραφή;"/>
+		<docCancel  e030="Do you want to cancel the Document" r070="Doriti sa anulati documentul?" g060="Θέλετε να ακυρώσετε το παραστατικό;"/>
+		<cancelConfirm  e030="Do you want to cancel the Physical Inventory?" r070="Doriti sa anulati documentul?" g060="Θέλετε να ακυρώσετε την Απογραφή;"/>
+		<DocNoExists  e030="Do you want to change document number?" r070="Schimbati nr. documentului?" g060="Θέλετε να αλλάξετε αριθμό παραστατικού;"/>
+		<rowDelete  e030="Do you want to delete the specified row" r070="Stergeti randul?" g060="Θέλετε να διαγράψετε τη συγκεκριμένη γραμμή;"/>
+		<docLineId  e030="Doc Line Id" r070="Linie Doc." g060="Αρ.γραμμής"/>
+		<jlblDocNo  e030="Doc No :" r070="Doc. Nr.:" g060="Αρ.Παρ/ικού :"/>
+		<jlblDocSeries  e030="Doc. Series :" r070="Serie Doc." g060="Σειρά Παρ/ικού :"/>
+		<DocNoExists1  e030="Document Number Exist" r070="Nr. Doc. Existent" g060="Ο αριθμός παραστατικού υπάρχει"/>
+		<DocNoHeader  e030="Document Number Header Dialog" r070="Doc. Nr." g060="Διάλογος κεφαλίδας αριθμού παραστατικού"/>
+		<jlblDocumentTypecode  e030="Document Type Code :" r070="Cod Tip Doc." g060="Κωδ.τύπ.παρ/κού :"/>
+		<jrbtnExistingSC  e030="E" r070="X" g060="Ε"/>
+		<opmLoc  e030="E_OPM Loc :" r070="E_OPM Loc :" g060="Ε_ΑΠΟΘΗΚΗ OPM :"/>
+		<jlblEach  e030="Eaches :" r070="Bucati :" g060="Τεμάχια :"/>
+		<lbleaches   e030="Eaches:" r070="Eaches:" g060="Τεμάχια :"/>
+		<jbtnEditHead  e030="Edit Header" r070="Modifica Antet" g060="Επεξεργασία Κεφαλίδας"/>
+		<jbtnEditHeadTT  e030="Edit Header" r070="Modifica Antet" g060="Επεξεργασία Κεφαλίδας"/>
+		<jrbtnExisting  e030="Existing" r070="Existent" g060="Υπάρχον"/>
+		<jrtnFinalInvSC  e030="F" r070="F" g060="F"/>
+		<jrtnFinalInv  e030="Final Phy. Inv." r070="Final Inv. Fizic" g060="Τελική απογραφή"/>
+		<lblFinalqtycount  e030="Final Physical Count" r070="Final Physical Count" g060="Τελ.φυσ.Ποσότητα"/>
+		<lblFinalqty  e030="Final Quantity" r070="Final Quantity" g060="Τελική Ποσότητα"/>
+		<fullName  e030="Full Name" r070="Nume" g060="Πλήρης Επωνυμία"/>
+		<jbtnGetLast  e030="Get Last" r070="Ultima" g060="Λήψη τελευταίου"/>
+		<lblGrandTotal  e030="Grand Total" r070="Grand Total" g060="Γεν.Σύνολο"/>
+		<grandTotal  e030="Grand Total" r070="TOTAL" g060="Γεν.Σύνολο"/>
+		<jbtnEditHeadSC  e030="H" r070="H" g060="Η"/>
+		<jbtnRetProdSC  e030="I" r070="I" g060="I"/>
+		<jbtnComponentSC  e030="I" r070="M" g060="I"/>
+		<jlblInventoryDate  e030="Inventory Date :" r070="Data inventar :" g060="Ημ/νία Απογραφής :"/>
+		<!-- <InvDIffReportTitle  e030="Inventory Difference Report" r070="Inventory Difference Report" g060="Αναφορά Αποκλίσεων Απογραφής"/> -->
+		<InvDIffReportTitle  e030="Inventory Physical Count Report" r070="Inventoy Physical Count Report" g060="Κατάσταση Aπογραφών"/>
+		<jlblItems  e030="Items :" r070="Produs :" g060="Είδη :"/>
+		<lblitem  e030="Items:" r070="Items:" g060="Είδη :"/>
+		<jbtnGetLastSC  e030="L" r070="L" g060="L"/>
+		<jbtnClearAllSC  e030="L" r070="G" g060="L"/>
+		<lineStatus  e030="Line Status" r070="Stare Linie" g060="Κατ.γραμ."/>
+		<jlblLocation  e030="Location :" r070="Locatie :" g060="Αποθήκη:"/>
+		<jlblLocationType  e030="Doc. Number :" r070="Doc. Number:" g060="Αρ.Παρ/κού :"/>
+		<jlblOPMLocation  e030="Logical Location :" r070="Locatie Logica:" g060="Λογική Αποθήκη :"/>
+		<LMpriceReport  e030="Manual Logical Physical Inventory Price Report" r070="Manual Logical Physical Inventory Price Report" g060="Αναφορά Λογιστική και χειρόγραφης Αξίας Απογραφής"/>
+		<LabelLogicalPhysicalInventory  e030="Logical Physical Inventory" r070="Inventar fizic logic" g060="Λογική απογραφή"/>
+		<LpriceReport  e030="Logical Physical Inventory Price Report" r070="Logical Physical Inventory Price Report" g060="Αναφορά Λογιστική Αξίας Απογραφής"/>
+		<lu  e030="LU" r070="SKU" g060="LU"/>
+		<luCode  e030="LU code" r070="Cod SKU" g060="LU"/>
+		<luCode  e030="LU Code" r070="Cod SKU" g060="LU"/>
+		<jrbtnManual  e030="Manual" r070="Manual" g060="Χειρόγραφα"/>
+		<jrbtnManual  e030="Manual" r070="Manual" g060="Χειρόγραφα"/>
+		<LabelManualLogicalPhysicalInventory  e030="Manual Logical Physical Inventory" r070="Manual Logical Physical Inventory" g060="Χειρόγραφη Λογική Απογραφή"/>
+		<LabelManualPhysicalInventory  e030="Manual Physical Inventory" r070="Manual Physical Inventory" g060="Χειρόγραφη Απογραφή"/>
+		<MpriceReport  e030="Manual Physical Inventory Price Report" r070="Manual Physical Inventory Price Report" g060="Χειρόγραφη αναφορά αξίας απογραφής"/>
+		<mapluCode  e030="Mapped Code" r070="Cod Mapat" g060="Αντιστοιχισμένος Κωδικός"/>
+		<jrbtnNewSC  e030="N" r070="N" g060="Ν"/>
+		<jrbtnNew  e030="New" r070="Nou" g060="Νέο"/>
+		<jlblNO  e030="NO" r070="NU" g060="ΟΧΙ"/>
+		<jbtnDupDocOk e030="Ok" r070="Ok" g060="Ok"/>
+		<jbtnOK1  e030="OK" r070="OK" g060="OK"/>
+		<jbtnOK  e030="OK" r070="OK" g060="OK"/>
+		<lbPageTotal  e030="Page Total" r070="Page Total" g060="Συν.Σελίδων"/>
+		<jlblpage  e030="Page:" r070="Pagina:" g060="Σελ.:"/>
+		<CANNOTCREATENEW1  e030="pending physical Inventory" r070="Inventar fizic in asteptare" g060="Απογραφή σε εκκρεμότητα"/>
+		<physical_prizereport e030="Physical" r070="Physical" g060="Φυσική"/>
+		<physical  e030="Physical" r070="Fizic" g060="Απογραφή Κιβώτια"/>
+		<physical1  e030="Physical :" r070="Fizic :" g060="Φυσική:"/>
+		<LabelPhysicalInventory  e030="Physical Inventory" r070="Inventar Fizic" g060="Φυσική Απογραφή"/>
+		<title  e030="Physical Inventory" r070="Inventar Fizic" g060="Φυσική Απογραφή"/>
+		<header  e030="Physical Inventory Edit Dialog" r070="Dialog Editare Inventar Fizic" g060="Διάλογος Επεξεργασίας Απογραφής"/>
+		<priceReport  e030="Physical Inventory Price Report" r070="Raport Pret Inventar Fizic" g060="Αναφορά αξίας απογραφής"/>
+		<header1  e030="Physical Inventory Transaction Date Dialog" r070="Physical Inventory Transaction Date Dialog" g060="Διάλογος Ημ/νιας Κιν.Φυσικής Απογραφής"/>
+		<position   e030="Position" r070="Pozitie" g060="Θέση"/>
+		<jbtnTransactionTT  e030="Post Transaction" r070="Post Transaction" g060="Ενημέρωση Κίν."/>
+		<jchkPrefill  e030="Prefill" r070="Pre-introd" g060="Προ-συμπλήρωση"/>
+		<price  e030="Price" r070="Pret" g060="Τιμή"/>
+		<qty  e030="Qty" r070="Cant" g060="Ποσότητα"/>
+		<quantity  e030="Quantity" r070="Cantitate" g060="Παγωμενη Κιβώτια"/>
+		<jbtnRetrieveSC  e030="R" r070="E" g060="R"/>
+		<jbtnRecalculate  e030="Recalculate" r070="Recalculare" g060="Νέος υπολογισμός"/>
+		<jbtnRecalculateTT   e030="Recalculate Quantity" r070="Recalculare Cantitate" g060="Νέος υπολογισμός ποσότητας"/>
+		<jbtnRetrieve  e030="Retrieve" r070="Aduce" g060="Ανάκτηση"/>
+		<jbtnRetrieveTT  e030="Retrieve data" r070="Aduce date" g060="Ανάκτηση Δεδομένων"/>
+		<jbtnRetProdTT  e030="Retrieve Products" r070="Aduce Produse" g060="Ανάκτηση προϊόντων"/>
+		<jbtnRetProd  e030="Retrieve Products" r070="Aduce Produse" g060="Ανάκτηση προϊόντων"/>
+		<jbtnCommitSC  e030="S" r070="S" g060="S"/>
+		<jbtnCommit  e030="Save" r070="Salvare" g060="Αποθήκευση"/>
+		<statusSAVE  e030="Save" r070="Salvare" g060="Αποθήκευση"/>
+		<jbtnSaveTT   e030="Save document" r070="Salveaza document" g060="Αποθήκευση παραστατικού;"/>
+		<jbtnCommitTT   e030="Save the record" r070="Salveaza inregistrare" g060="Αποθήκευση εγγραφής"/>
+		<selling  e030="Selling" r070="Vanzare" g060="Πώληση"/>
+		<sellingCode  e030="Selling Code" r070="Cod Vanzare" g060="Κωδ.Πώλησης"/>
+		<signature   e030="Signature" r070="Semnatura" g060="Υπογραφή"/>
+		<srNo  e030="Sr. No." r070="Sr. No." g060="Α.Α."/>
+		<rmncmpname  e030="STAR FOODS" r070="STAR FOODS" g060="STAR FOODS"/>
+		<jbtnStart  e030="Start" r070="Start" g060="Έναρξη"/>
+		<status  e030="Status :" r070="Stare :" g060="Κατάσταση:"/>
+		<subbrand  e030="SubBrand" r070="SubBrand" g060="Sub Brand"/>
+		<jbtnStartSC  e030="t" r070="t" g060="Τ"/>
+		<jbtnTransactionSc  e030="T" r070="T" g060="Τ"/>
+		<grccmpname  e030="TASTY" r070="TASTY" g060="TASTY"/>
+		<jlblteam  e030="Team :" r070="Team :" g060="Ομάδα:"/>
+		<lblTeam1  e030="Team 1 Physical Quantity" r070="Team 1 Physical Quantity" g060="Ποσ.Ομ.1"/>
+		<lblTeam2  e030="Team 2 Physical Quantity" r070="Team 2 Physical Quantity" g060="Ποσ.Ομ.\2"/>
+		<theoritical  e030="Theoritical" r070="Teoretic" g060="Θεωρητική"/>
+		<lblTheoqty  e030="Theoritical" r070="Theoritical" g060="Θεωρητική"/>
+		<CANNOTCREATENEW  e030="There is still a pending physical Inventory, Cannot create new Do you want to open it?" r070="Inventar fizic in asteptare, nu se poate crea Nou. Doriti deschiderea?" g060="Υπάρχει ακόμα απογραφή σε εκκρεμότητα, δεν είναι δυνατή η δημιουργία νέας. Θέλετε να την ανοίξετε;"/>
+		<jlblTime  e030="Time :" r070="Ora :" g060="Ώρα:"/>
+		<jlblTotal  e030="Total :" r070="Total :" g060="Σύνολο:"/>
+		<Total_for_Brand  e030="Total for Brand" r070="Total for Brand" g060="Σύνολο γiα Brand"/>
+		<Total_for_Division  e030="Total for Division" r070="Total for divizie" g060="Σύνολο για Τομέα"/>
+		<jlblTransDate  e030="Trans Date :" r070="Data Tranz :" g060="Ημ/νία Κίν.:"/>
+		<jbtnTransaction  e030="Transaction" r070="Transaction" g060="Κίνηση"/>
+		<jlblTranscationCode  e030="Transaction Code :" r070="Cod Tranzactie :" g060="Κωδ.Κίνησης:"/>
+		<lblTransactionDateTime  e030="Transaction Date-Time :" r070="Transaction Date-Time :" g060="Ημ/νια &#x26; Ώρα κιν.:"/>
+		<caseType1  e030="Type" r070="Tip" g060="Τύπος"/>
+		<jrbtnManualSC  e030="U" r070="U" g060="U"/>
+		<UnauthProd   e030="UnAuthorized Product Do you want to continue?" r070="Produs neautorizat. Doriti sa continuati?" g060="Μη ωρισμένο είδος. Θέλετε να συνεχίσετε;"/>
+		<UOM  e030="UOM" r070="UM" g060="M.M"/>
+		<jlbluom  e030="UOM :" r070="UOM :" g060="Μ.Μ:"/>
+		<jlbluserid  e030="User Id:" r070="Utilizator Id:" g060="ΧΡΗΞΣΤΗΣ:"/>
+		<jlblYES  e030="YES" r070="DA" g060="ΝΑΙ"/>
+		<jbtnCancelSC  e030="Z" r070="Z" g060="Z"/>
+				
+		<Theoqtyeach e030="Each Quantity" r070="Each Quantity" g060="Παγωμένη Τεμάχια"/>
+		<Physicalqtyeach e030="Each Physical" r070="Each Physical" g060="Απογραφή τεμάχια"/>
+		<Adjustqtyeach e030="Each Adjustment" r070="Each Adjustment" g060="Διαφορά Τεμάχια"/>		
+		<Palletqty e030="Pallet qty" r070="Pallet qty" g060="Ποσ.Παλ."/>
+		<Caseqty e030="Case qty" r070="Case qty" g060="Ποσ.Κιβ."/>
+		<Eachqty e030="Each qty" r070="Each qty" g060="Ποσ.Τεμ."/>
+		<CasePerPallet e030="Case per pallet" r070="Case per pallet" g060="Κιβ./ Παλ."/>
+		<Manualdocumentphysicalqtyeach e030="Total Eaches" r070="Total Eaches" g060="Σύνολο Τεμάχια"/>
+	<!-- 	<InvDIff_PrdReportTitle e030="Inventory Difference Report For Difference Product" r070="Inventory Difference Report For Difference Product" g060="Αναφορά Διαφορών Απογραφής για το είδος"/> --> 
+   <InvDIff_PrdReportTitle e030="Inventory Physical Count Report (Only Differences)" r070="Inventory Physical Count Report (Only Differences)" g060="Κατάσταση Aπογραφών (Μόνο Διαφορές)"/> 
+    <InvcountforitemTitle e030="Inventory Count for Item" r070="Inventory Count for Item" g060="Ποσ.Απογρ.για το είδος"/>     
+    <FromLucode e030="LuCode From:" r070="LuCode From:" g060="LU Από:"/>     
+    <ToLucode e030="LuCode To:" r070="LuCode To:" g060="LU έως:"/> 
+    <Teamrep e030="Team Name" r070="Team Name" g060="Ομάδα."/>          
+    <mandocno e030="Manual Doc No" r070="Manual Doc No" g060="Αρ.Χειρ.Παρ/κού"/>
+    <jlblPageTotal  e030="Page Total :" r070="Page Total :" g060="Σύνολο Σελίδας:"/>
+	<jlblGrandTotal  e030="Grand Total :" r070="Grand Total :" g060="Τελικό Σύνολο:"/>
+	<jlblSummary  e030="Summary:" r070="Summary:" g060="Συγκεντρωτικό:"/>
+	<subDivisiongroup  e030="Brand Group" r070="Brand Group" g060="Brand Group"/>
+	<lblOf  e030="Of" r070="Of" g060="Από"/>
+	
+		<jlbUOM    e030="CASE/EACH: " r070="CASE/EACH:" g060="ΚΙΒΩΤΙΑ/ΤΕΜΑΧΙΑ:"/>
+		<jlblUOM_Case    e030="CASE " r070="CASE" g060="ΚΙΒΩΤΙΑ"/>
+		<jlblUOM_Each    e030="EACH " r070="EACH" g060="ΤΕΜΑΧΙΑ"/>
+	
+	<Manualdocumentphysicalqtycase e030="Total Cases" r070="Total Cases" g060="Σύνολο Κιβώτια"/>
+  <jtblBagsunitmanual  e030="Bags/Case " r070="Buc./Box " g060="Σακ./Κιβ. "/> <!-- do not remove space-->   
+  <jlblSellingCode  e030="Selling Code :" r070="Cod Vanzare :" g060="Κωδ. Πώλησης :"/>
+	<jlblLUCode  e030="LU Code :" r070="Cod SKU :" g060="LU:"/>
+  <lblProductDescription  e030="Product Description" r070="Product Description" g060="Product Description"/>		    
+  <jbtnUpdate  e030="Update" r070="Update" g060="Update"/>
+  <jbtnUpdateSC  e030="U" r070="U" g060="U"/>
+  <jbtnUpdateQuantity  e030="Update Quantity" r070="Update Quantity" g060="Update Quantity"/>
+  <titleUpdateQuantity  e030="Update Quantity" r070="Update Quantity" g060="Update Quantity"/>
+  <jbtnDupDocCancelSC e030="C" r070="C" g060="C"/>  
+  <jbtnUpdateQuantitySC  e030="Q" r070="Q" g060="Q"/>  
+  <jbtnUpdateQuantityTT  e030="Update Quantity" r070="Update Quantity" g060="Update Quantity"/>  
+  <jlblConfirmation  e030="Confirmation" r070="Confirmation" g060="Confirmation"/>
+  <jlblStatus  e030="Status" r070="Status" g060="Status"/>
+  <jlblNew e030="New" r070="Νέο" g060="Νέο"/>
+  <jlblExisting e030="Existing" r070="Υπάρχον" g060="Υπάρχον"/>
+  
+	</PHYSICALINVENTORYJPANEL>
+</PhysicalInventory>
+</Application-IM>

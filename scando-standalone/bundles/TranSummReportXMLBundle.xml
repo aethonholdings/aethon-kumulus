@@ -1,0 +1,63 @@
+<?xml version="1.0" ?>
+<Application-IM>
+<Report>
+	<Report>
+		<selling  e030="Selling Code" r070="Cod Vanzare" g060="Κωδ.Πώλησης"/>
+		<description  e030="Descpription" r070="Descriere" g060="Περιγραφή"/>
+		<producto  e030="Description" r070="Descriere" g060="Περιγραφή"/>
+		<bags  e030="eBag per" r070="eBag per" g060="Σακ."/>
+		<price  e030="eValue" r070="eValue" g060="Αξία"/>
+		<gr_tot_price  e030="Grand Total Price" r070="Total Pret" g060="Συνολ. Αξία"/>
+		<gr_tot_quan  e030="Grand Total Quantity" r070="Grand Total Quantity" g060="Συνολ. Ποσότητα"/>
+		<input  e030="Input" r070="Introdus" g060="Εισαγ."/>
+		<Invfromdate  e030="Inventory From Date :" r070="Stoc, de la :" g060="Ημ/νία 'από' :"/>
+		<Invtodate  e030="Inventory To Date :" r070="Stoc, pana la :" g060="Ημ/νία 'έως' :"/>
+		<luCode  e030="LU Code" r070="Cod SKU" g060="LU"/>
+		<companyNamefull  e030="MATUTANO INVENTORY MANAGEMENT" r070="STARFOODS INVENTORY MANAGEMENT" g060="MATUTANO INVENTORY MANAGEMENT"/>
+		<opmLoc  e030="OPM Location :" r070="OPM Locatie :" g060="OPM Location :"/>
+		<output  e030="Output" r070="Iesiri" g060="Output"/>
+		<phy  e030="Physical" r070="Fizic" g060="Φυσικό"/>
+		<TOA2  e030="TOA2" r070="TOA2" g060="TOA2"/>
+		<UOM  e030="UOM" r070="UM" g060="Μ.Μ"/>
+		<jlblUom  e030="UOM:" r070="UOM:" g060="Μ.Μ:"/>
+		<Invlocation  e030="INVENTORY LOCATION :" r070="Locatie Inventar:" g060="ΑΠΟΘΗΚΗ :"/>
+		<location  e030="LOCATION :" r070="LOCATIE :" g060="Αποθήκη:"/>
+		<jlblLocation  e030="Location :" r070="Locatie :" g060="Αποθήκη:"/>
+		<reportno  e030="REPORT NO. :" r070="NR. RAPORT :" g060="ΑΡΙΘΜΟΣ ΑΝΑΦΟΡΑΣ :"/>
+		<initial  e030="Initial" r070="Initial" g060="αρχικό"/>
+		<jlblPrintEqp  e030="Print Equipments?:" r070="Tiparire Echipamente?:" g060="Εκτύπωση Εξοπλισμών;"/>
+		<PrintOnAllPages  e030="Sel. Crit. in all pages" r070="Crit. Sel. in toate paginile" g060="Επιλέξτε κριτήρια σε όλες τις σελίδες"/>
+		<jlblYear  e030="Year :" r070="An :" g060="Έτος:"/>
+		<reportdate  e030="Report Date :" r070="Data Raport :" g060="Ημ/νία αναφοράς :"/>
+		<Invdate  e030="Inventory Date :" r070="Data inventar :" g060="Ημ/νία Αποθ.:"/>
+		<jlblInventoryDate  e030="Inventory Date :" r070="Data inventar :" g060="Ημ/νία Αποθ.:"/>
+		<Invtime  e030="Inventory Time :" r070="Data inventar:" g060="Ώρα Αποθ.:"/>
+		<case  e030="Case" r070="Box" g060="Κιβώτιο"/>
+		<code  e030="CODE" r070="COD" g060="Κωδικός"/>
+		<product  e030="Product Code" r070="Cod Produs" g060="Κωδικός Προϊόντος"/>
+		<jlbl3YProductUom  e030="3Y products UOM:" r070="3Y produs UM:" g060="ΜΜ προϊόντων 3Υ:"/>
+		<jlblPrintEqpValY  e030="Yes" r070="DA" g060="ΝΑΙ"/>
+		<brand  e030="Brand" r070="Brand" g060="Ομάδα"/>
+		<divisionGroup  e030="Division Group:" r070="Grup divizie:" g060="Ομάδα Τομέα:"/>
+		<brandGroup  e030="Brand Group:" r070="Brand Grup:" g060="Όμιλος ομάδας:"/>
+		<subBrandGroup  e030="SubBrand Group :" r070="SubBrand Grup :" g060="Όμιλος υπο-ομάδας:"/>
+		<jlblPrintEqpValN  e030="No" r070="Nu" g060="ΟΧΙ"/>
+		<jlblPeriod  e030="Period/Month :" r070="Perioada/Luna :" g060="Περίοδος/Μήνας :"/>
+		<ShowAllProducts  e030="Show All Products" r070="Arata Toate Produsele" g060="Προβολή όλων των προϊόντων"/>
+		<adj  e030="Adjustment" r070="Ajustare" g060="Ρύθμιση"/>
+		<totalBrandPrice  e030="Total Brand Price :" r070="Total Brand Pret:" g060="Σύνολο αξίας ομάδας:"/>
+		<totalDivisionPrice   e030="Total division Price :" r070="Total divizie pret :" g060="Σύνολο αξίας τομέα:"/>
+		<totalSubBrandPrice  e030="Total SubBrand Price :" r070="Total SubBrand Pret :" g060="Σύνολο αξίας υπο-ομάδας:"/>
+		<totalBrandQuantity   e030="Total Brand Quantity :" r070="Total Brand Cant :" g060="Σύνολο ποσότητας ομάδας:"/>
+		<totalDivisionQuantity  e030="Total division Quantity :" r070="Total cant. divizie:" g060="Σύνολο ποσότητας τομέα:"/>
+		<totalSubBrandQuantity  e030="Total Subbrand Quantity :" r070="Total Subbrand Cant :" g060="Σύνολο ποσότητας υπο-ομάδας:"/>
+		<tranSummReport  e030="TRANSACTION SUMMARY REPORT" r070="Raport Sumar Tranzactii" g060="Συνοπτική αναφορά Κινήσεων"/>
+		<tranSummCompanyReport  e030="TRANSACTION SUMMARY REPORT BY COMPANY" r070="Raport Sumar Tranzactii per Companie" g060="Συνοπτική αναφορά Κινήσεων ανά εταιρεία"/>
+		<final  e030="Final" r070="Final" g060="Τελικό"/>
+		<division  e030="Division" r070="Divizie" g060="Τομέας"/>
+		<caseType  e030="Case Label" r070="Case Label" g060="Ετικέτα Κιβωτίου"/>
+		<subbrand  e030="SubBrand" r070="SubBrand" g060="Υπο-ομάδα"/>
+		<reporttime  e030="Report Time :" r070="Ora Raport :" g060="Ώρα αναφοράς:"/>
+	</Report>
+</Report>
+</Application-IM>
