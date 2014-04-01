@@ -88,7 +88,10 @@ class LogisticsService {
         if (node && (node.state == Node.STATE_FLAGGED_TO_SHIP || node.state == Node.STATE_FLAGGED_TO_FETCH)) {
         
             def shipmentItem = ShipmentItem.findByItemId(node.id)
-            shipmentItem.delete(flush:true,failOnError:true) 
+            def shipment = shipmentItem.shipment
+            shipment.shipmentItems.remove(shipmentItem)
+            shipmentItem.delete(flush:true, failOnError:true) 
+
             if(node.state == Node.STATE_FLAGGED_TO_SHIP) {
                 changeNodeState(node, null, Node.STATE_CLIENT_SEALED)
             } else { 

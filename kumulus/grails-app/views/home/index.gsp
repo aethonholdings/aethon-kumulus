@@ -57,8 +57,8 @@
                 <g:each var="shipment" in="${shipmentList}">
                   <tr>
                     <td><g:link controller="shipment" action="view" id="${shipment.id}">${dateFormat.format((java.util.Date)shipment.scheduled)}</g:link></td>
-                    <td class="kumulus-task-count">tbd</td>
-                    <td class="kumulus-task-queue-action"><g:link controller="shipment" action="delete" id="${shipment.id}">Cancel</g:link></td>
+                    <td class="kumulus-task-count">${shipment.shipmentItems.size()}</td>
+                    <td class="kumulus-task-queue-action"><g:link controller="shipment" action="remove" id="${shipment.id}">Cancel</g:link></td>
                   </tr>
                 </g:each>
               </tbody>
