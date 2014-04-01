@@ -74,7 +74,7 @@ class StructureController {
             // close the task if requested
             if(data?.completeTask) {
                 workflowService.completeTask(task)
-                if(data.taskType==Task.TYPE_PROCESS) {
+                if(task.type==Task.TYPE_PROCESS) {
                     def newTask = workflowService.createTask(document, Task.TYPE_VALIDATE, permissionsService.getUsername())
                     workflowService.assignTask(newTask, task.document.project.ownerId)
                 }
