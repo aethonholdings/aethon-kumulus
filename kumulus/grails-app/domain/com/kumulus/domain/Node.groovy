@@ -72,17 +72,17 @@ class Node {
     String state() {
         switch(state) {
             case STATE_CLIENT_OPEN:
-                return("Open and work in progress")
+                return("Open and work in progress at my premises")
             case STATE_CLIENT_SEALED:
-                return("Sealed and ready for shipment to storage")
+                return("Sealed at my premises")
             case STATE_FLAGGED_TO_SHIP:
-                return("Pending shipment to storage")
+                return("Sealed and pending shipment to storage")
             case STATE_IN_STORAGE:
                 return("In storage")
             case STATE_IN_DIGITISATION_LINE:
                 return("Digitisation in progress")
             case STATE_FLAGGED_TO_FETCH:
-                return("Pending shipment to you")
+                return("Pending shipment to my premises")
         }
     }
     
