@@ -6,8 +6,10 @@
 
 package sg.aethon.kumulus.stress;
 
-import com.gargoylesoftware.htmlunit.*;
-import com.gargoylesoftware.htmlunit.html.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.htmlunit.HtmlUnitDriver;
+import org.springframework.jdbc.core.JdbcTemplate;
 
 /**
  *
@@ -16,7 +18,7 @@ import com.gargoylesoftware.htmlunit.html.*;
 public class User implements Runnable {
     
     final Properties p;
-    final WebClient webClient = new WebClient();
+    final WebDriver driver = new HtmlUnitDriver();
     
     public User(Properties p)
     {
@@ -26,30 +28,21 @@ public class User implements Runnable {
 
     private void login() throws Exception
     {
-        webClient.setThrowExceptionOnScriptError(false);
+        driver.get(p.site_url);
+        driver.findElement(By.name("j_username")).sendKeys(p.auth_username);
+        driver.findElement(By.name("j_password")).sendKeys(p.auth_password);
+        driver.findElement(By.id("submit")).click();
         
-        // Get the first page
-        final HtmlPage page1 = (HtmlPage) webClient.getPage(p.site_url);
-
-        // Get the form that we are dealing with and within that form, 
-        // find the submit button and the field that we want to change.
-        final HtmlForm form = (HtmlForm) page1.getForms().get(0);
-        
-        final HtmlSubmitInput button = (HtmlSubmitInput) form.getInputByValue("Login");
-        final HtmlTextInput username = (HtmlTextInput) form.getInputByName("j_username");
-        final HtmlPasswordInput password = (HtmlPasswordInput) form.getInputByName("j_password");
-
-        // Change the value of the text fields
-        username.setValueAttribute(p.auth_username);
-        password.setValueAttribute(p.auth_password);
-
-        // Now submit the form by clicking the button and get back the second page.
-        button.focus();
-        final Page page2 = button.click();
-        if (!page2.getWebResponse().getUrl().toString().equals(p.site_url+"/home"))
+        if (!driver.getCurrentUrl().equals(p.site_url+"/home"))
         {
             throw new UserCannotWorkException(UserCannotWorkReason.CANNOT_LOGIN);
         }
+    }
+    
+    private void createContainer() throws Exception
+    {
+        JdbcTemplate conn = Commons.getKumulusConnection(p);
+        String barcodeString = conn.queryForObject("select text from barcode where used=0 limit 1", String.class);
     }
     
     @Override
@@ -58,6 +51,7 @@ public class User implements Runnable {
         try
         {
             login();
+            createContainer();
         }
         catch (Exception e)
         {
