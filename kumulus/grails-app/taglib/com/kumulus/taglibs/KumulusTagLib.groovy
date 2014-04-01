@@ -93,6 +93,14 @@ class KumulusTagLib {
             }
         }
         
+        // OCR queue
+        def taskCount = userTasks.types.OCR.count + userTasks.types.RETRIEVE.count + userTasks.types.EXTRACT.count
+        out << "\t<tr>\n"         
+        out << "\t\t<td>Documents in OCR queue</td>\n"
+        out << "\t\t<td class='kumulus-task-count'>${taskCount}</td>\n"
+        out << "\t\t<td class='kumulus-task-queue-action'></td>"
+        out << "\t</tr>\n"
+        
         // process queue
         if(userTasks.types.PROCESS.count>0) out << "\t<tr class='kumulus-task-queue-action-item'>\n" else out << "\t<tr>\n"         
         out << "\t\t<td>Documents to be processed</td>\n"
