@@ -197,7 +197,7 @@ kumulus {
         'ROLE_SUPERVISE',
         'ROLE_VIEW'
     ]
-    useABBYY = true
+    useABBYY = System.getenv('KUMULUS_STRESS') == null
 }
 
 environments {
