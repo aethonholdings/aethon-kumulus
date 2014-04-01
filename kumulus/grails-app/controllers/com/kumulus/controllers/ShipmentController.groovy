@@ -9,6 +9,8 @@ import grails.converters.*
 
 class ShipmentController {
     def permissionsService
+    def logisticsService
+    
     static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
 
     def index(Integer max) {
@@ -19,11 +21,7 @@ class ShipmentController {
     def show(Shipment shipmentInstance) {
         respond shipmentInstance
     }
-
-    def create() {
-        respond new Shipment(params)
-    }
-
+    
     @Transactional
     def save(Shipment shipmentInstance) {
         if (shipmentInstance == null) {
@@ -74,25 +72,6 @@ class ShipmentController {
         }
     }
 
-    @Transactional
-    def delete(Shipment shipmentInstance) {
-
-        if (shipmentInstance == null) {
-            notFound()
-            return
-        }
-
-        shipmentInstance.delete flush:true
-
-        request.withFormat {
-            form {
-                flash.message = message(code: 'default.deleted.message', args: [message(code: 'Shipment.label', default: 'Shipment'), shipmentInstance.id])
-                redirect action:"index", method:"GET"
-            }
-            '*'{ render status: NO_CONTENT }
-        }
-    }
-
     protected void notFound() {
         request.withFormat {
             form {
@@ -103,7 +82,7 @@ class ShipmentController {
         }
     }
     
-    def createShipment (){
+    def create(){
        
         SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
 
@@ -156,44 +135,39 @@ class ShipmentController {
     
     }
     
-    def saveItems(){
-        def data = request.JSON
-        def status=[:]   
-          
-        data.nodeList.each{node ->
-            def nodeObj = Node.findById(node)
-                 
-            if (permissionsService.checkPermissions(nodeObj)) {
-                def shipItemObj=new ShipmentItem()
-                shipItemObj.type=Byte.parseByte("1")
-                shipItemObj.itemId=Long.parseLong(node.toString())
-                shipItemObj.delivery=Byte.parseByte(data.deliveryId)
-                shipItemObj.quantity=Long.parseLong("1")
-                shipItemObj.shipment=Shipment.findById(Integer.parseInt(data.shipmentId))
-                shipItemObj.save(flush:true,failOnError:true) 
-                status.value="true"
-            }
-           
-        }
-            
-        render status as JSON
-            
-    }
-    
-    def removeItems(){
-        def data = request.JSON
-        data.nodeList.each{node ->
-            def Obj = ShipmentItem.findById(node)
-            Obj.delete(flush:true,failOnError:true) 
-        }
-        
-    }
-    
-    def remove(){
+    def delete() {
         def obj=Shipment.findById(Integer.parseInt(params.id))
         obj.delete(flush:true)
         redirect controller :"home", action: "index" 
+    }
+    
+    def addNodes() {
+        def data = request.JSON
+        def status=[done: true]
         
+        def shipment = Shipment.findById(data?.shipmentId)
+        if(shipment && data?.nodeIds) {
+            data.nodeIds.each {
+                def node = Node.findById(it)
+                if(permissionsService.checkPermissions(node)) status.done = status.done && logisticsService.shipNode(node, shipment)
+            }
+        }
+        render status as JSON
+    }
+    
+    def removeNodes(){
+        
+        def data = request.JSON
+        def status = [done: true]
+
+        if(data?.shipmentItemIds) {
+            data.shipmentItemIds.each {
+                def node = Node.findById(ShipmentItem.findById(it)?.itemId)
+                if(node && permissionsService.checkPermissions(node)) status.done = status.done && logisticsService.unshipNode(node)
+            }
+        }
+        render status as JSON
+
     }
     
 }

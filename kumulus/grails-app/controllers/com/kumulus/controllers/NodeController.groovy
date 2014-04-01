@@ -65,30 +65,17 @@ class NodeController {
         render response as JSON
     }
     
-    def list(){
-        def data = request.JSON
-        def nodes = []
-        def nodeList=[]
-        if(data.deliveryId=="1"){
-            nodes = Node.findAll {
-                (type == NodeType.findByName("Box") && status == Node.STATUS_CLOSED && location =="In storage")
-            }
-        }
-        else{
-            nodes = Node.findAll {
-                (type == NodeType.findByName("Box") && status == Node.STATUS_CLOSED && location =="My premises")
-            }
-        }
+    def listShippable(){
         
-        nodes.each{node ->
-            def shipObj=ShipmentItem.findByItemId(node.id)
-            if(!shipObj){
-                nodeList<<node
-            }
-            
+        def renderedNodes = []
+        
+        def nodes = Node.findAll {
+            type.storeable == true && project.company == permissionsService.getCompany() && state == Node.STATE_CLIENT_SEALED
         }
-
-        render nodeList as JSON
+        nodes.each { node ->
+            if(permissionsService.checkPermissions(node)) renderedNodes.add(captureService.renderNode(node))
+        }
+        render renderedNodes as JSON
     }
 
     def move(){
@@ -170,7 +157,4 @@ class NodeController {
         render response as JSON
     }
     
-    def ship() {
-        
-    }
 }

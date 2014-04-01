@@ -556,10 +556,10 @@ label.error{
 }
 
 .kumulus-shipment-table thead{
-	background:#e0e0e0;
-	color:#000;
-	text-align:left;
-	vertical-align:bottom;
+    background:#e0e0e0;
+    color:#000;
+    text-align:left;
+    vertical-align:bottom;
 }
 
 .kumulus-shipment-table td{
@@ -726,3 +726,7 @@ label.error{
 	border-bottom:0px;
 }
 
+/* SHIPMENT TABLE */
+.kumulus-table-shipment {
+    width: 500px;
+}

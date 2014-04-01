@@ -42,12 +42,12 @@
           <div class="kumulus-widget-1-3 kumulus-scrollable-y">     
             <div class="kumulus-widget-header">
               <span class="kumulus-widget-header-title">You have ${shipmentList.size} document shipments arranged</span>
-              <span class="kumulus-widget-header-action"><g:link controller="shipment" action="createShipment">Create new</g:link></span>
+              <span class="kumulus-widget-header-action"><g:link controller="shipment" action="create">Create new</g:link></span>
             </div>
             <table class='pure-table pure-table-horizontal'>
               <thead>
                 <tr>
-                  <th>Schedule Date</th>
+                  <th>Scheduled Date</th>
                   <th>Items</th>
                   <th>&nbsp;</th>
                 </tr>
@@ -58,7 +58,7 @@
                   <tr>
                     <td><g:link controller="shipment" action="view" id="${shipment.id}">${dateFormat.format((java.util.Date)shipment.scheduled)}</g:link></td>
                     <td class="kumulus-task-count">tbd</td>
-                    <td class="kumulus-task-queue-action"><g:link controller="shipment" action="remove" id="${shipment.id}">Remove</g:link></td>
+                    <td class="kumulus-task-queue-action"><g:link controller="shipment" action="delete" id="${shipment.id}">Cancel</g:link></td>
                   </tr>
                 </g:each>
               </tbody>
