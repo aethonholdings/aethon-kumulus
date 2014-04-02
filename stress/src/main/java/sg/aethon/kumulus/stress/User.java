@@ -86,19 +86,21 @@ public class User implements Runnable {
     @Override
     public void run()
     {
-        WebDriver driver = new FirefoxDriver();
         try
         {
-            login(driver);
-            scanDo(createContainer(driver));
+            WebDriver driver = new FirefoxDriver();
+            String barcode;
+            try
+            {
+                login(driver);
+                barcode = createContainer(driver);
+            }
+            finally { driver.quit(); }
+            scanDo(barcode);
         }
         catch (Exception e)
         {
             e.printStackTrace();
-        }
-        finally
-        {
-            driver.quit();
         }
     }
     
