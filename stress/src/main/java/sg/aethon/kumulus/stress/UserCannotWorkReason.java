@@ -10,4 +10,4 @@ package sg.aethon.kumulus.stress;
  *
  * @author theo
  */
-public enum UserCannotWorkReason { CANNOT_LOGIN }
+public enum UserCannotWorkReason { CANNOT_LOGIN, CANNOT_CREATE_CONTAINER }
