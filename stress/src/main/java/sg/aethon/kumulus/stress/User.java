@@ -6,11 +6,15 @@
 
 package sg.aethon.kumulus.stress;
 
+import java.util.HashMap;
+import java.util.Map;
+import org.apache.commons.lang3.RandomStringUtils;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 
 /**
  *
@@ -42,7 +46,14 @@ public class User implements Runnable {
     private String createContainer(WebDriver driver) throws Exception
     {
         JdbcTemplate conn = Commons.getKumulusConnection(p);
-        String barcode = conn.queryForObject("select text from barcode where used=0 limit 1", String.class);
+        String barcode = RandomStringUtils.random(17, true, true);
+        SimpleJdbcInsert insert = new SimpleJdbcInsert(conn).withTableName("barcode").usingGeneratedKeyColumns("id");
+         Map<String, Object> parameters = new HashMap<String, Object>(2); 
+        parameters.put("version", 1); 
+        parameters.put("printed", 0);
+        parameters.put("text", barcode);
+        parameters.put("used", 0);
+        insert.execute(parameters);
         driver.get(p.site_url + "/capture/collect/1");
         while (true)
         {
@@ -63,7 +74,7 @@ public class User implements Runnable {
         sendKeysWhenReady(driver.findElement(By.id("name")), "test");
         driver.findElement(By.id("button-save")).click();
         boolean used = conn.queryForObject("select used from barcode where text=?",
-                new Object[] { barcode }, Boolean.class);
+                                           new Object[] { barcode }, Boolean.class);
         if (!used)
         {
             throw new UserCannotWorkException(UserCannotWorkReason.CANNOT_CREATE_CONTAINER);
