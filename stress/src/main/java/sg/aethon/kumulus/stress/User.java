@@ -48,7 +48,7 @@ public class User implements Runnable {
         JdbcTemplate conn = Commons.getKumulusConnection(p);
         String barcode = RandomStringUtils.random(17, true, true);
         SimpleJdbcInsert insert = new SimpleJdbcInsert(conn).withTableName("barcode").usingGeneratedKeyColumns("id");
-         Map<String, Object> parameters = new HashMap<String, Object>(2); 
+        Map<String, Object> parameters = new HashMap<>(2); 
         parameters.put("version", 1); 
         parameters.put("printed", 0);
         parameters.put("text", barcode);
