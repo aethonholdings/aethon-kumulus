@@ -27,7 +27,6 @@ public class User implements Runnable {
     public User(Properties p)
     {
         this.p = p;
-        run();
     }
 
     private void login(WebDriver driver) throws Exception
