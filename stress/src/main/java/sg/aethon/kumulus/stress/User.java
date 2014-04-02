@@ -78,6 +78,11 @@ public class User implements Runnable {
         elem.sendKeys(keys);
     }
     
+    private void scanDo(String barcode)
+    {
+        System.out.println(barcode);
+    }
+    
     @Override
     public void run()
     {
@@ -85,7 +90,7 @@ public class User implements Runnable {
         try
         {
             login(driver);
-            createContainer(driver);
+            scanDo(createContainer(driver));
         }
         catch (Exception e)
         {
