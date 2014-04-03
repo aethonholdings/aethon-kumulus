@@ -37,7 +37,6 @@ public class User implements Runnable {
         driver.findElement(By.name("j_username")).sendKeys(p.auth_username);
         driver.findElement(By.name("j_password")).sendKeys(p.auth_password);
         driver.findElement(By.id("submit")).click();
-        
         if (!driver.getCurrentUrl().equals(p.site_url+"/home"))
         {
             throw new UserCannotWorkException(UserCannotWorkReason.CANNOT_LOGIN);
@@ -65,6 +64,7 @@ public class User implements Runnable {
             }
             catch (org.openqa.selenium.StaleElementReferenceException e)
             {
+                Thread.sleep(10);
                 continue;
             }
             break;
@@ -72,7 +72,7 @@ public class User implements Runnable {
         driver.findElement(By.id("button-add")).click();
         sendKeysWhenReady(driver.findElement(By.id("barcode")), barcode + "\t");
         sendKeysWhenReady(driver.findElement(By.id("type")), "Box");
-        sendKeysWhenReady(driver.findElement(By.id("name")), "test");
+        sendKeysWhenReady(driver.findElement(By.id("name")), barcode);
         driver.findElement(By.id("button-save")).click();
         boolean used = conn.queryForObject("select used from barcode where text=?",
                                            new Object[] { barcode }, Boolean.class);
