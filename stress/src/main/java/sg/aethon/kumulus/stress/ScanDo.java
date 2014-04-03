@@ -15,6 +15,7 @@ import com.sun.jersey.api.client.filter.HTTPBasicAuthFilter;
 import com.sun.jersey.api.json.JSONConfiguration;
 import com.sun.jersey.client.urlconnection.HttpURLConnectionFactory;
 import com.sun.jersey.client.urlconnection.URLConnectionClientHandler;
+import com.sun.jersey.core.util.MultivaluedMapImpl;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.InetSocketAddress;
@@ -22,6 +23,10 @@ import java.net.Proxy;
 import java.net.URL;
 import java.util.ArrayList;
 import javax.ws.rs.core.MediaType;
+import javax.ws.rs.core.MultivaluedMap;
+import org.codehaus.jackson.map.ObjectMapper;
+import org.codehaus.jackson.type.TypeReference;
+import org.codehaus.jettison.json.JSONObject;
 
 /**
  *
@@ -60,20 +65,64 @@ public class ScanDo {
         webService = client.resource(p.site_url);
     }
 
-    public void login()
+    private String request(String method, Object params)
     {
-        ClientResponse response = webService.path("scanDo").path("authenticate")
+        ClientResponse response = webService.path("scanDo").path(method)
                                             .type(MediaType.APPLICATION_JSON_TYPE)
                                             .accept(MediaType.APPLICATION_JSON_TYPE)
-                                            .post(ClientResponse.class, new ArrayList<String>());
+                                            .post(ClientResponse.class, params);
         if (response.getClientResponseStatus() != ClientResponse.Status.OK)
             throw new UserCannotWorkException(UserCannotWorkReason.CANNOT_LOGIN);
+        else
+            return response.getEntity(String.class);
     }
 
-    public void locate(String barcode) throws RuntimeException
+    public void login()
     {
-        
+        request("authenticate", null);
+        request("fetchSessionData", null);
+    }
+    
+    public void locate(String barcode) throws Exception
+    {
+        String project;
+        String node = null;
+        {
+            MultivaluedMap request = new MultivaluedMapImpl();
+            request.add("barcode", barcode);
+            JSONObject json = new JSONObject(request("getProjectBybarcode", request));
+            project = json.getString("projectId");
+        }
+        {
+            ArrayList<String> request = new ArrayList<>();
+            request.add(project);
+            request.add(null);
+            //count = json.getJSONArray(null).length() + "";
+            ObjectMapper mapper = new ObjectMapper();
+            ArrayList<NodeProperties> list = mapper.readValue(request("fetchChildNodeList", request), new TypeReference<ArrayList<NodeProperties>>(){});
+            for (NodeProperties np : list)
+            {
+                if (np.barcode.equals(barcode)) { node = np.nodeId; break; }
+            }
+        }
+        {
+            MultivaluedMap request = new MultivaluedMapImpl();
+            request.add("projectId", project);
+            request.add("searchBarcode", barcode);
+            request("getHierarchyFromSearchBarcode", request);
+        }
+        {
+            ArrayList<String> request = new ArrayList<>();
+            request.add(project);
+            request.add(node);
+            request("fetchChildNodeList", request);
+        }
+        {
+            MultivaluedMap request = new MultivaluedMapImpl();
+            request.add("parentnodeId", node);
+            request.add("projectId", project);
+            request("fetchNodeThumbnails", request);
+        }
     }
 
-    
 }
