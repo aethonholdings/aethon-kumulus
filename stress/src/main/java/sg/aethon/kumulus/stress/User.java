@@ -55,22 +55,21 @@ public class User implements Runnable {
         parameters.put("used", 0);
         insert.execute(parameters);
         driver.get(p.site_url + "/capture/collect/1");
-        Thread.sleep(100);
-        while (true)
+        WebElement barcodeElem = driver.findElement(By.id("barcode"));
+        while (!barcodeElem.isEnabled())
         {
             try
             {
-                WebElement root = driver.findElement(By.className("dynatree-title"));
-                root.sendKeys(" ");
+                Thread.sleep(500);
+                driver.findElement(By.className("dynatree-title")).click();
+                Thread.sleep(500);
+                driver.findElement(By.id("button-add")).click();
+                Thread.sleep(500);
                 break;
             }
-            catch (org.openqa.selenium.StaleElementReferenceException e)
-            {
-                Thread.sleep(10);
-            }
+            catch (org.openqa.selenium.StaleElementReferenceException e) { }
         }
-        driver.findElement(By.id("button-add")).click();
-        sendKeysWhenReady(driver.findElement(By.id("barcode")), barcode + "\t");
+        sendKeysWhenReady(barcodeElem, barcode + "\t");
         sendKeysWhenReady(driver.findElement(By.id("type")), "Box");
         sendKeysWhenReady(driver.findElement(By.id("name")), barcode);
         driver.findElement(By.id("button-save")).click();
