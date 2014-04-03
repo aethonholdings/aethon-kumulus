@@ -89,11 +89,12 @@ public class User implements Runnable {
         elem.sendKeys(keys);
     }
     
-    private void scanDo(String barcode)
+    private void scanDo(String barcode) throws Exception
     {
         ScanDo scando = new ScanDo(p);
         scando.login();
-        scando.locate(barcode);
+        String[] session = scando.locate(barcode);
+        scando.upload(session);
     }
     
     @Override
