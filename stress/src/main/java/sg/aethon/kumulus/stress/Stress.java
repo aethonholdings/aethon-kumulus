@@ -6,8 +6,11 @@ public class Stress
             throws Exception
     {
         Properties p = new Properties();
-        Thread u = new Thread(new User(p));
-        u.start();
-        u.join();
+        Thread u1 = new Thread(new User(p));
+        Thread u2 = new Thread(new User(p));
+        u1.start();
+        u2.start();
+        u1.join();
+        u2.join();
     }
 }
