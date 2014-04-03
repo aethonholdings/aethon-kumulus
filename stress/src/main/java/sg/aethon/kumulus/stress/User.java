@@ -61,6 +61,7 @@ public class User implements Runnable {
             {
                 WebElement root = driver.findElement(By.className("dynatree-title"));
                 root.click();
+                Thread.sleep(100);
             }
             catch (org.openqa.selenium.StaleElementReferenceException e)
             {
