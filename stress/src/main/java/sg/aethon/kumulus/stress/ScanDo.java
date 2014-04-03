@@ -15,7 +15,9 @@ import com.sun.jersey.api.client.filter.HTTPBasicAuthFilter;
 import com.sun.jersey.api.json.JSONConfiguration;
 import com.sun.jersey.client.urlconnection.HttpURLConnectionFactory;
 import com.sun.jersey.client.urlconnection.URLConnectionClientHandler;
+import com.sun.jersey.core.util.Base64;
 import com.sun.jersey.core.util.MultivaluedMapImpl;
+import java.io.File;
 import java.io.IOException;
 import java.net.HttpURLConnection;
 import java.net.InetSocketAddress;
@@ -25,6 +27,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.MultivaluedMap;
+import org.apache.commons.io.FileUtils;
 import org.codehaus.jackson.map.ObjectMapper;
 import org.codehaus.jackson.type.TypeReference;
 import org.codehaus.jettison.json.JSONObject;
@@ -36,9 +39,11 @@ import org.codehaus.jettison.json.JSONObject;
 public class ScanDo {
     
     private final WebResource webService;
+    private final Properties p;
     
     public ScanDo(Properties p)
     {
+        this.p = p;
         ClientConfig config = new DefaultClientConfig();
         config.getFeatures().put(JSONConfiguration.FEATURE_POJO_MAPPING,
                         Boolean.TRUE);
@@ -132,7 +137,17 @@ public class ScanDo {
 
     public void upload(String[] session) throws Exception
     {
+        String stress_image = new String(Base64.encode(FileUtils.readFileToByteArray(new File(p.stress_image))));
         ArrayList<NodeProperties> request = new ArrayList<>();
+        for (int i=0; i < p.stress_batch; i++)
+        {
+            NodeProperties np = new NodeProperties();
+            np.encodeStringForImage = stress_image;
+            np.parentNodeId = session[1];
+            np.name = i + "";
+            np.actualImageName = i + "";
+            request.add(np);
+        }
         ObjectMapper mapper = new ObjectMapper();
         HashMap<String, Boolean> list = mapper.readValue(request("saveScannedImages", request, UserCannotWorkReason.CANNOT_UPLOAD),
                                                           new TypeReference<HashMap<String, Boolean>>(){});

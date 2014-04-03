@@ -25,6 +25,8 @@ public class Properties
     final public String auth_password;
 
     final public int stress_threads;
+    final public int stress_batch;
+    final public String stress_image;
     
     public Properties() throws Exception
     {
@@ -49,5 +51,7 @@ public class Properties
         auth_username = ini.get("Authentication", "username", String.class);
         auth_password = ini.get("Authentication", "password", String.class);
         stress_threads = ini.get("Stress", "threads", Integer.class);
+        stress_batch = ini.get("Stress", "batch", Integer.class);
+        stress_image = ini.get("Stress", "image", String.class);
     }
 }
