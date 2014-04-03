@@ -31,7 +31,7 @@ public class User implements Runnable {
         this.p = p;
     }
 
-    private void login(WebDriver driver) throws Exception
+    private void login(WebDriver driver)
     {
         driver.get(p.site_url);
         driver.findElement(By.name("j_username")).sendKeys(p.auth_username);
@@ -55,20 +55,19 @@ public class User implements Runnable {
         parameters.put("used", 0);
         insert.execute(parameters);
         driver.get(p.site_url + "/capture/collect/1");
+        Thread.sleep(100);
         while (true)
         {
             try
             {
                 WebElement root = driver.findElement(By.className("dynatree-title"));
-                root.click();
-                Thread.sleep(100);
+                root.sendKeys(" ");
+                break;
             }
             catch (org.openqa.selenium.StaleElementReferenceException e)
             {
                 Thread.sleep(10);
-                continue;
             }
-            break;
         }
         driver.findElement(By.id("button-add")).click();
         sendKeysWhenReady(driver.findElement(By.id("barcode")), barcode + "\t");
@@ -84,8 +83,7 @@ public class User implements Runnable {
         return barcode;
     }
     
-    private void sendKeysWhenReady(WebElement elem, String keys)
-            throws Exception
+    private void sendKeysWhenReady(WebElement elem, String keys) throws Exception
     {
         while (!elem.isEnabled()) { Thread.sleep(10); }
         elem.sendKeys(keys);
@@ -93,7 +91,9 @@ public class User implements Runnable {
     
     private void scanDo(String barcode)
     {
-        System.out.println(barcode);
+        ScanDo scando = new ScanDo(p);
+        scando.login();
+        scando.locate(barcode);
     }
     
     @Override

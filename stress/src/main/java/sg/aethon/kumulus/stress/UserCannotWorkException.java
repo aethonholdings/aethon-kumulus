@@ -10,7 +10,7 @@ package sg.aethon.kumulus.stress;
  *
  * @author theo
  */
-public class UserCannotWorkException extends Exception
+public class UserCannotWorkException extends RuntimeException
 {
     final UserCannotWorkReason reason;
     public UserCannotWorkException(UserCannotWorkReason reason)

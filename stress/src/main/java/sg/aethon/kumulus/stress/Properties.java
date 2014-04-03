@@ -24,6 +24,8 @@ public class Properties
     final public String auth_username;
     final public String auth_password;
 
+    final public int stress_threads;
+    
     public Properties() throws Exception
     {
         final String filename = System.getenv().get("KUMULUS_STRESS_CONFIG");
@@ -46,5 +48,6 @@ public class Properties
         site_url = ini.get("Website", "url", String.class);
         auth_username = ini.get("Authentication", "username", String.class);
         auth_password = ini.get("Authentication", "password", String.class);
+        stress_threads = ini.get("Stress", "threads", Integer.class);
     }
 }
