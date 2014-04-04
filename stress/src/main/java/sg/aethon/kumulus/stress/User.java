@@ -6,8 +6,17 @@
 
 package sg.aethon.kumulus.stress;
 
-import com.gargoylesoftware.htmlunit.*;
-import com.gargoylesoftware.htmlunit.html.*;
+import java.net.URL;
+import java.util.HashMap;
+import java.util.Map;
+import org.apache.commons.lang3.RandomStringUtils;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 
 /**
  *
@@ -16,40 +25,75 @@ import com.gargoylesoftware.htmlunit.html.*;
 public class User implements Runnable {
     
     final Properties p;
-    final WebClient webClient = new WebClient();
     
     public User(Properties p)
     {
         this.p = p;
-        run();
     }
 
-    private void login() throws Exception
+    private void login(WebDriver driver)
     {
-        webClient.setThrowExceptionOnScriptError(false);
-        
-        // Get the first page
-        final HtmlPage page1 = (HtmlPage) webClient.getPage(p.site_url);
-
-        // Get the form that we are dealing with and within that form, 
-        // find the submit button and the field that we want to change.
-        final HtmlForm form = (HtmlForm) page1.getForms().get(0);
-        
-        final HtmlSubmitInput button = (HtmlSubmitInput) form.getInputByValue("Login");
-        final HtmlTextInput username = (HtmlTextInput) form.getInputByName("j_username");
-        final HtmlPasswordInput password = (HtmlPasswordInput) form.getInputByName("j_password");
-
-        // Change the value of the text fields
-        username.setValueAttribute(p.auth_username);
-        password.setValueAttribute(p.auth_password);
-
-        // Now submit the form by clicking the button and get back the second page.
-        button.focus();
-        final Page page2 = button.click();
-        if (!page2.getWebResponse().getUrl().toString().equals(p.site_url+"/home"))
+        driver.get(p.site_url);
+        driver.findElement(By.name("j_username")).sendKeys(p.auth_username);
+        driver.findElement(By.name("j_password")).sendKeys(p.auth_password);
+        driver.findElement(By.id("submit")).click();
+        if (!driver.getCurrentUrl().equals(p.site_url+"/home"))
         {
             throw new UserCannotWorkException(UserCannotWorkReason.CANNOT_LOGIN);
         }
+    }
+    
+    private String createContainer(WebDriver driver) throws Exception
+    {
+        JdbcTemplate conn = Commons.getKumulusConnection(p);
+        String barcode = RandomStringUtils.random(17, true, true);
+        SimpleJdbcInsert insert = new SimpleJdbcInsert(conn).withTableName("barcode").usingGeneratedKeyColumns("id");
+        Map<String, Object> parameters = new HashMap<>(2); 
+        parameters.put("version", 0); 
+        parameters.put("printed", 0);
+        parameters.put("text", barcode);
+        parameters.put("used", 0);
+        insert.execute(parameters);
+        driver.get(p.site_url + "/capture/collect/1");
+        WebElement barcodeElem = driver.findElement(By.id("barcode"));
+        while (!barcodeElem.isEnabled())
+        {
+            try
+            {
+                Thread.sleep(500);
+                driver.findElement(By.className("dynatree-title")).click();
+                Thread.sleep(500);
+                driver.findElement(By.id("button-add")).click();
+                Thread.sleep(500);
+                break;
+            }
+            catch (org.openqa.selenium.StaleElementReferenceException e) { }
+        }
+        sendKeysWhenReady(barcodeElem, barcode + "\t");
+        sendKeysWhenReady(driver.findElement(By.id("type")), "Box");
+        sendKeysWhenReady(driver.findElement(By.id("name")), barcode);
+        driver.findElement(By.id("button-save")).click();
+        boolean used = conn.queryForObject("select used from barcode where text=?",
+                                           new Object[] { barcode }, Boolean.class);
+        if (!used)
+        {
+            throw new UserCannotWorkException(UserCannotWorkReason.CANNOT_CREATE_CONTAINER);
+        }
+        return barcode;
+    }
+    
+    private void sendKeysWhenReady(WebElement elem, String keys) throws Exception
+    {
+        while (!elem.isEnabled()) { Thread.sleep(10); }
+        elem.sendKeys(keys);
+    }
+    
+    private void scanDo(String barcode) throws Exception
+    {
+        ScanDo scando = new ScanDo(p);
+        scando.login();
+        String[] session = scando.locate(barcode);
+        scando.upload(session);
     }
     
     @Override
@@ -57,7 +101,15 @@ public class User implements Runnable {
     {
         try
         {
-            login();
+            WebDriver driver = new RemoteWebDriver(new URL("http://localhost:9515"), DesiredCapabilities.chrome());
+            String barcode;
+            try
+            {
+                login(driver);
+                barcode = createContainer(driver);
+            }
+            finally { driver.quit(); }
+            scanDo(barcode);
         }
         catch (Exception e)
         {
