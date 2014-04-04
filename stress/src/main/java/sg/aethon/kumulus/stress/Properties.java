@@ -4,7 +4,9 @@
  */
 package sg.aethon.kumulus.stress;
 
+import com.sun.jersey.core.util.Base64;
 import java.io.File;
+import org.apache.commons.io.FileUtils;
 import org.ini4j.Wini;
 
 class MandatoryPropertyNotSet extends RuntimeException { }
@@ -52,6 +54,6 @@ public class Properties
         auth_password = ini.get("Authentication", "password", String.class);
         stress_threads = ini.get("Stress", "threads", Integer.class);
         stress_batch = ini.get("Stress", "batch", Integer.class);
-        stress_image = ini.get("Stress", "image", String.class);
+        stress_image = new String(Base64.encode(FileUtils.readFileToByteArray(new File(ini.get("Stress", "image", String.class)))));
     }
 }
