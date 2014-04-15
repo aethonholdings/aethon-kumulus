@@ -1,8 +1,10 @@
 /*
  * Konstantinos - class implementing automated upload of scanned images 
- * from cache
+ * from cache; sould use SwingWorker as separate thread to work in background of 
+ * UI
  */
 package com.kumulus.scando;
+import javax.swing.SwingWorker;
 
 /**
  *
@@ -11,12 +13,4 @@ package com.kumulus.scando;
 public class Uploader {
     
        
-    private class UploadThread implements Runnable {
-
-        public void run() {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        }
-       
-    }
-
 }
