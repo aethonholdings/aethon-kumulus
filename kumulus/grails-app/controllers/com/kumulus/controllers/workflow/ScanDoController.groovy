@@ -46,8 +46,6 @@ class ScanDoController {
         render responseData as JSON  
     }
     
-    
-    
     def fetchChildNodeList() {
         def nodeList = []
         def data = request.JSON
@@ -203,4 +201,14 @@ class ScanDoController {
         render response as JSON
     }
     
+    def getNode() {
+        
+        def data = request.JSON
+        def response = []
+        def node = Node.findById(data?.id)
+        if(node && permissionsService.checkPermissions(node)) {
+            response = captureService.renderNode(node)
+        }
+        render response as JSON
+    }
 }
