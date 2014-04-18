@@ -74,3 +74,4 @@ data/filesystem/staging/*
 /scando/01-capture/scannerapp_server/target
 /scando/01-capture/scannerapp_client/Log/ScannerApp.log
 /stress/target/
+/scando/01-capture/scando/target/

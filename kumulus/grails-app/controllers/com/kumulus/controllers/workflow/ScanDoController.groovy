@@ -24,7 +24,7 @@ class ScanDoController {
     // action to handle authentication
     def authenticate() {
         
-        def response = [true]
+        def response = [success: true]
         render response as JSON  
         
     }
