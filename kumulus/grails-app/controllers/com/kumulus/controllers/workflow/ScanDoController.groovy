@@ -201,7 +201,6 @@ class ScanDoController {
     
     def getNode() {
         def data = request.JSON
-        println(data)
         def response = [
             success: false,
             data: []
@@ -214,7 +213,7 @@ class ScanDoController {
         render response as JSON
     }
     
-    def getNodeChildren() {
+    def getNodeChildrenIds() {
         def data = request.JSON
         def response = [
             success: false,
@@ -222,10 +221,27 @@ class ScanDoController {
         ]
         def node = Node.findById(data?.id)
         if(node && permissionsService.checkPermissions(node)) {
+            response.success = true
             def children = Node.findAllByParent(node, [sort: "name", order: "asc"])
-            children.each {
+            children.each {    
+                response.data.add(it.id)
+            }
+        }
+        render response as JSON
+    }
+    
+    def getNodeIdFromBarcode() {
+        def data = request.JSON
+        def response = [
+            success: false,
+            data: [id: -1]
+        ]
+        def barcode = Barcode.findByText(data?.barcode)
+        if(barcode) {
+            def node = Node.findByBarcode(barcode) 
+            if(node && permissionsService.checkPermissions(node)) {
                 response.success = true
-                response.data.add(captureService.rednerNode(it))
+                response.data.id = node.id
             }
         }
         render response as JSON

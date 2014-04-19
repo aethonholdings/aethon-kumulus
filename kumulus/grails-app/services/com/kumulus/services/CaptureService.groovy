@@ -73,7 +73,7 @@ class CaptureService {
     def renderNode(node) {
         
         def parentId
-        if(node?.parent) parentId = node.parent.id else parentId = -1
+        if(node?.parent) parentId = node.parent.id else parentId = "#"
         
         if(node) {
             def treeNode = [
@@ -121,7 +121,8 @@ class CaptureService {
             children: children,
             type: "ROOT",
             id: "ROOT",
-            project: project.id
+            project: project.id,
+            parentId: null
         ]
         
         // get the top-level nodes
