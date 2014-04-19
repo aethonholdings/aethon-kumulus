@@ -71,9 +71,15 @@ class CaptureService {
     }
     
     def renderNode(node) {
+        def parentId = "#"
+        def thumbnailId = null
+        def viewId = null
         
-        def parentId
-        if(node?.parent) parentId = node.parent.id else parentId = "#"
+        if(node?.parent) parentId = node.parent.id 
+        if(node?.page) {
+            thumbnailId = node.page.thumbnailImage.id
+            viewId = node.page.viewImage.id
+        }
         
         if(node) {
             def treeNode = [
@@ -93,7 +99,9 @@ class CaptureService {
                 storeable: node.type.storeable,
                 id: node.id, 
                 project: node.project.id,
-                parentId: parentId
+                parentId: parentId,
+                thumbnailId: thumbnailId,
+                viewId: viewId
             ]
             return(treeNode)
         }

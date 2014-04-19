@@ -259,7 +259,8 @@ class ScanDoController {
             response.data.put ("id", image.id)
             response.data.put ("height", image.height)
             response.data.put ("width", image.width)
-            response.data.put("data", filesystemService.renderFileInBase64(image.file))
+            response.data.put ("filename", image.file.name)
+            response.data.put ("imageData", filesystemService.renderFileInBase64(image.file))
         }
         render response as JSON
     }
