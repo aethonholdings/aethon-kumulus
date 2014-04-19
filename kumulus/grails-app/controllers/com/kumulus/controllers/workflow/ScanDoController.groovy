@@ -246,4 +246,21 @@ class ScanDoController {
         }
         render response as JSON
     }
+    
+    def getImage() {
+        def data = request.JSON
+        def response = [
+            success: false,
+            data: [:]
+        ]
+        def image = Image.findById(data?.id)
+        if(image && permissionsService.checkPermissions(image)) {
+            response.success = true
+            response.data.put ("id", image.id)
+            response.data.put ("height", image.height)
+            response.data.put ("width", image.width)
+            response.data.put("data", filesystemService.renderFileInBase64(image.file))
+        }
+        render response as JSON
+    }
 }
