@@ -82,4 +82,18 @@ class ScanDo2Controller {
         }
         render response as JSON
     }
+    
+    def getProject() {
+        def data = request.JSON
+        def response = [
+            success: false,
+            data: [:]
+        ]
+        def project = Project.findById(data?.id)
+        if(project && permissionsService.checkPermissions(project)) {
+            response.success = true
+            response.data = captureService.renderProject(project)
+        }
+        render response as JSON
+    }
 }

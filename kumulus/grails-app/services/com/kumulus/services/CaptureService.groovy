@@ -107,6 +107,22 @@ class CaptureService {
         }
     }
     
+    def renderProject(project) {
+        if(project) {
+            def projectRender = [
+                id: project.id,
+                company: project.company,
+                name: project.projectName,
+                topLevelNodeIds: []
+            ]
+            def nodes = Node.findAllByProjectAndParent(project, null, [sort: "name", order: "asc"])
+            nodes.each { node ->
+                projectRender.topLevelNodeIds.add(node.id)
+            }
+            return(projectRender)
+        }
+    }
+    
     def renderRoot(project) {
 
         def children = []
@@ -130,7 +146,9 @@ class CaptureService {
             type: "ROOT",
             id: "ROOT",
             project: project.id,
-            parentId: null
+            parentId: null, 
+            thumbnailId: null,
+            viewId: null
         ]
         
         // get the top-level nodes
