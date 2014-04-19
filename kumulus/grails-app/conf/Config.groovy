@@ -140,8 +140,8 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
         '/task/**':                       ['isAuthenticated()'],
 
         '/barcode/**':                    ['ROLE_ADMIN'],
-        '/scanDo/**':                    ['permitAll'],
-
+        '/scanDo/**':                     ['permitAll'],
+        '/scanDo2/**':                    ['permitAll'],
 
         '/shipment/**':                   ['isAuthenticated()'],
         '/product/**':                    ['isAuthenticated()'],
@@ -158,6 +158,7 @@ grails.plugin.springsecurity.useBasicAuth = true
 grails.plugin.springsecurity.basic.realmName = "kumulus"
 grails.plugin.springsecurity.filterChain.chainMap = [
         '/scando/**': 'JOINED_FILTERS,-exceptionTranslationFilter',
+        '/scando2/**': 'JOINED_FILTERS,-exceptionTranslationFilter',
         '/**': 'JOINED_FILTERS,-basicAuthenticationFilter,-basicExceptionTranslationFilter'
 ]
 
