@@ -20,15 +20,7 @@ class ScanDoController {
     def getEncodedActualImageString() { }    
     
     def updateNodeProperties() { }
-    
-    // action to handle authentication
-    def authenticate() {
         
-        def response = [success: true]
-        render response as JSON  
-        
-    }
-    
     def updateAttendance() {
     
         redirect(action: "authenticate")
@@ -201,13 +193,40 @@ class ScanDoController {
         render response as JSON
     }
     
+    // action to handle authentication
+    def authenticate() {
+        def response = [success: true]
+        render response as JSON  
+    }
+    
     def getNode() {
-        
         def data = request.JSON
-        def response = []
+        println(data)
+        def response = [
+            success: false,
+            data: []
+        ]
         def node = Node.findById(data?.id)
         if(node && permissionsService.checkPermissions(node)) {
-            response = captureService.renderNode(node)
+            response.success = true
+            response.data = captureService.renderNode(node)
+        }
+        render response as JSON
+    }
+    
+    def getNodeChildren() {
+        def data = request.JSON
+        def response = [
+            success: false,
+            data: []
+        ]
+        def node = Node.findById(data?.id)
+        if(node && permissionsService.checkPermissions(node)) {
+            def children = Node.findAllByParent(node, [sort: "name", order: "asc"])
+            children.each {
+                response.success = true
+                response.data.add(captureService.rednerNode(it))
+            }
         }
         render response as JSON
     }

@@ -72,6 +72,9 @@ class CaptureService {
     
     def renderNode(node) {
         
+        def parentId
+        if(node?.parent) parentId = node.parent.id else parentId = -1
+        
         if(node) {
             def treeNode = [
                 key: node.id.toString(),
@@ -89,7 +92,8 @@ class CaptureService {
                 state: node.state(),
                 storeable: node.type.storeable,
                 id: node.id, 
-                project: node.project.id
+                project: node.project.id,
+                parentId: parentId
             ]
             return(treeNode)
         }
