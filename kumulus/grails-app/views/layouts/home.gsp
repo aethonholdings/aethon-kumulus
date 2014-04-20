@@ -32,9 +32,6 @@
         <div class='kumulus-menu'>
           <ul>
             <li><g:link controller='home' action='index'>Home</g:link></li>
-            <li><a href="#">Manage users</a></li>
-            <li><a href="#">Review billing</a></li>
-            <li><a href="#">Manage account</a></li>
           </ul>
        </div>
        <div id='layout'>

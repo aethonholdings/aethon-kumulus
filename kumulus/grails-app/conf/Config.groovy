@@ -127,22 +127,25 @@ grails.plugin.springsecurity.interceptUrlMap = [
         // secured - workflow controllers
         '/':                              ['isAuthenticated()'],
         '/home/**':                       ['isAuthenticated()'],
+        '/fileUploader/process/**':       ['isAuthenticated()'],
+        '/download/**':                   ['isAuthenticated()'],
+        '/login/**':                      ['permitAll'],
+        '/logout/**':                     ['permitAll'],
 
         // admin pages
         '/user/**':                       ['ROLE_ADMIN'],
     
         // workflow pages
         '/customer/**':                   ['ROLE_ADMIN', 'ROLE_CUSTOMER'],
-        '/capture/**':                    ['ROLE_ADMIN'],
-        '/structure/**':                  ['ROLE_ADMIN'],
-        '/logistics/**':                  ['ROLE_ADMIN'],
-        '/access/**':                     ['ROLE_ADMIN'],
+        '/capture/**':                    ['ROLE_ADMIN', 'ROLE_CAPTURE'],
+        '/backOffice/**':                 ['ROLE_ADMIN', 'ROLE_BACK_OFFICE'],
+        '/logistics/**':                  ['ROLE_ADMIN', 'ROLE_LOGISTICS'],
 
         // import
         '/scanDo/**':                     ['ROLE_ADMIN','ROLE_IMPORT'],
         '/scanDo2/**':                    ['ROLE_ADMIN','ROLE_IMPORT'],
        
-        // secured - domain controllers
+        // domain base controllers
         '/company/**':                    ['isAuthenticated()'],
         '/document/**':                   ['isAuthenticated()'],
         '/file/**':                       ['isAuthenticated()'],
@@ -153,12 +156,6 @@ grails.plugin.springsecurity.interceptUrlMap = [
         '/barcode/**':                    ['isAuthenticated()'],
         '/shipment/**':                   ['isAuthenticated()'],
         '/product/**':                    ['isAuthenticated()'],
-    
-        // secured - plugin controllers
-        '/fileUploader/process/**':       ['isAuthenticated()'],
-        '/download/**':                   ['isAuthenticated()'],
-        '/login/**':                      ['permitAll'],
-        '/logout/**':                     ['permitAll']
 ]
 
 // scando controller - use basic authentication

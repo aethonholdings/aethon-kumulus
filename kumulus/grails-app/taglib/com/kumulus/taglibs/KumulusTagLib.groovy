@@ -106,7 +106,7 @@ class KumulusTagLib {
         out << "\t\t<td>Documents to be processed</td>\n"
         out << "\t\t<td class='kumulus-task-count'>${userTasks.types.PROCESS.count}</td>\n"
         if(userTasks.types.PROCESS.count > 0) {
-            out << "\t\t<td class='kumulus-task-queue-action'>" << g.link(controller: "structure", action: "getNextTask", params:[type: "${Task.TYPE_PROCESS}"], "Action") << "</td>\n"
+            out << "\t\t<td class='kumulus-task-queue-action'>" << g.link(controller: "backOffice", action: "getNextTask", params:[type: "${Task.TYPE_PROCESS}"], "Action") << "</td>\n"
         } else {
             out << "\t\t<td class='kumulus-task-queue-action'></td>"
         }

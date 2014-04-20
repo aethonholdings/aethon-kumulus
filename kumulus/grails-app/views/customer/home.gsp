@@ -21,7 +21,7 @@
             </div>
             <div class="kumulus-task"><g:taskQueue userId="${userId}"/></div>
           </div>
-          <sec:ifAnyGranted roles="ROLE_PROCESS">
+          <sec:ifAnyGranted roles="ROLE_BACK_OFFICE">
             <div class="kumulus-widget-1-3 kumulus-scrollable-y">
               
               <div class="kumulus-widget-header">
@@ -31,7 +31,7 @@
               <div class="kumulus-task"><g:taskQueue userId="${null}"/></div>
             </div>
           </sec:ifAnyGranted>
-          <sec:ifNotGranted roles="ROLE_PROCESS">            
+          <sec:ifNotGranted roles="ROLE_BACK_OFFICE">            
             <div class="kumulus-widget-1-3 kumulus-scrollable-y">
               <div class="kumulus-widget-header">
                 <span class="kumulus-widget-header-title">There are ${backOfficeTasks.count} tasks in the Kumulus queue</span>
