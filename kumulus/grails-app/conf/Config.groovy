@@ -113,7 +113,7 @@ log4j = {
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'com.kumulus.domain.User'              
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'com.kumulus.domain.UserRole'       
 grails.plugin.springsecurity.authority.className = 'com.kumulus.domain.Role'                         
-grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/home'          
+grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/home'
 
 // permission definitions
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
@@ -126,8 +126,6 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 grails.plugin.springsecurity.securityConfigType = "InterceptUrlMap"
 grails.plugin.springsecurity.interceptUrlMap = [
         // secured - workflow controllers
-        '/login/**':                      ['permitAll'],
-        '/logout/**':                     ['permitAll'],
         '/home/**':                       ['isAuthenticated()'],
         '/capture/**':                    ['ROLE_ADMIN'],
         '/structure/**':                  ['ROLE_ADMIN'],
@@ -153,7 +151,9 @@ grails.plugin.springsecurity.interceptUrlMap = [
    
         // secured - plugin controllers
         '/fileUploader/process/**':       ['isAuthenticated()'],
-        '/download/**':                   ['isAuthenticated()'] 
+        '/download/**':                   ['isAuthenticated()'],
+        '/login/**':                      ['permitAll'],
+        '/logout/**':                     ['permitAll']
 ]
 
 

@@ -3,7 +3,7 @@ package com.kumulus.services
 import grails.transaction.Transactional
 import com.kumulus.domain.*
 
-// import grails.plugin.springsecurity.SpringSecurityUtils
+import grails.plugin.springsecurity.SpringSecurityUtils
 
 @Transactional
 class PermissionsService {
