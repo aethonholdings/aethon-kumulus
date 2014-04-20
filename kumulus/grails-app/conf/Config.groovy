@@ -110,9 +110,9 @@ log4j = {
 }
 
 // Added by the Spring Security Core plugin:
-// grails.plugin.springsecurity.userLookup.userDomainClassName = 'com.kumulus.domain.User'              // not needed because we are using LDAP
-// grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'com.kumulus.domain.UserRole'       // not needed because we are using LDAP
-// grails.plugin.springsecurity.authority.className = 'com.kumulus.domain.Role'                         // not needed because we are using LDAP
+grails.plugin.springsecurity.userLookup.userDomainClassName = 'com.kumulus.domain.User'              
+grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'com.kumulus.domain.UserRole'       
+grails.plugin.springsecurity.authority.className = 'com.kumulus.domain.Role'                         
 grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/home'                                  // added by Konstantinos to configure login landing page
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
         
@@ -156,30 +156,17 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 // scando controller - use basic authentication
 grails.plugin.springsecurity.useBasicAuth = true
 grails.plugin.springsecurity.basic.realmName = "kumulus"
+grails.plugin.springsecurity.logout.postOnly = false
 grails.plugin.springsecurity.filterChain.chainMap = [
         '/scando/**': 'JOINED_FILTERS,-exceptionTranslationFilter',
         '/scando2/**': 'JOINED_FILTERS,-exceptionTranslationFilter',
         '/**': 'JOINED_FILTERS,-basicAuthenticationFilter,-basicExceptionTranslationFilter'
 ]
-
-grails.plugin.springsecurity.providerNames = ['ldapAuthProvider', 'anonymousAuthenticationProvider', 'rememberMeAuthenticationProvider']
-grails.plugin.springsecurity.logout.postOnly = false
-
-// LDAP configuration ----------------------------
-
-// server
-grails.plugin.springsecurity.ldap.context.server = 'ldap://test.aethon.sg:389'
-grails.plugin.springsecurity.ldap.context.managerDn = 'cn=admin,dc=aethon,dc=sg'
-grails.plugin.springsecurity.ldap.context.managerPassword = 'secret'
-
-// search
-grails.plugin.springsecurity.ldap.user.base = 'ou=people,dc=aethon,dc=sg'
-grails.plugin.springsecurity.ldap.search.base = 'dc=aethon,dc=sg'
-grails.plugin.springsecurity.ldap.search.searchSubtree = true
-
-// authorities
-grails.plugin.springsecurity.ldap.authorities.groupRoleAttribute = 'cn'
-grails.plugin.springsecurity.ldap.authorities.groupSearchBase = 'ou=groups,dc=aethon,dc=sg'
+grails.plugin.springsecurity.providerNames = [
+        'daoAuthenticationProvider', 
+        'anonymousAuthenticationProvider', 
+        'rememberMeAuthenticationProvider'
+]
 
 // Kumulus configuration --------------------------
 grails.sitemesh.default.layout = 'home'                 // default layout

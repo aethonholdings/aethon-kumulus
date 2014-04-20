@@ -66,7 +66,6 @@ grails.project.dependency.resolution = {
         compile ":scaffolding:2.0.1"
         compile ':cache:1.1.1'
         compile ":spring-security-core:2.0-RC2"
-        compile ":spring-security-ldap:2.0-RC2"
         compile ":export:1.5"
         compile ":file-uploader:1.2.1"                                          // File upload and download
         compile ":tika-parser:1.3.0.1"                                          // Tika parser
