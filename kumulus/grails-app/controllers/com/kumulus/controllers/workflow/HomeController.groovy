@@ -10,7 +10,7 @@ class HomeController {
     def index() { 
         
         def projectList = Project.findAll {
-            company == permissionsService.getCompany()
+            company == permissionsService.getCompany()?.name
             status == Project.STATUS_ACTIVE
         }
         def shipmentList=Shipment.findAll()

@@ -11,9 +11,9 @@ class KumulusTagLib {
     //static encodeAsForTags = [tagName: 'raw']
         
     def userCompany = { attrs, body ->
-        String company = permissionsService.company
+        def company = permissionsService.getCompany()
         if(company) {
-            out << company
+            out << company.name
         }
     }
     

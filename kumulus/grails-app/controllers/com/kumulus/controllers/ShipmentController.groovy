@@ -19,7 +19,7 @@ class ShipmentController {
 
         if(params.scheduleDate){
             def newObj= new Shipment()
-            newObj.fromCompany=permissionsService.getCompany()
+            newObj.fromCompany=permissionsService.getCompany()?.name
             newObj.toCompany="kumulus"
             newObj.scheduled=formatter.parse(params.scheduleDate)
             newObj.notes=params.notes

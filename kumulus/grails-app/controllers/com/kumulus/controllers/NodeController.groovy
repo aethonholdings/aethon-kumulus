@@ -70,7 +70,7 @@ class NodeController {
         def renderedNodes = []
         
         def nodes = Node.findAll {
-            type.storeable == true && project.company == permissionsService.getCompany() && state == Node.STATE_CLIENT_SEALED
+            type.storeable == true && project.company == permissionsService.getCompany()?.name && state == Node.STATE_CLIENT_SEALED
         }
         nodes.each { node ->
             if(permissionsService.checkPermissions(node)) renderedNodes.add(captureService.renderNode(node))

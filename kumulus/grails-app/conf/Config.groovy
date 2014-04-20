@@ -113,22 +113,26 @@ log4j = {
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'com.kumulus.domain.User'              
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'com.kumulus.domain.UserRole'       
 grails.plugin.springsecurity.authority.className = 'com.kumulus.domain.Role'                         
-grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/home'                                  // added by Konstantinos to configure login landing page
+grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/home'          // added by Konstantinos to configure login landing page
+
+// permission definitions
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
-        
-        // public
 	'/':                              ['permitAll'],
 	'/**/js/**':                      ['permitAll'],
 	'/**/css/**':                     ['permitAll'],
 	'/**/images/**':                  ['permitAll'],
 	'/**/favicon.ico':                ['permitAll'],
-
+]
+grails.plugin.springsecurity.securityConfigType = "InterceptUrlMap"
+grails.plugin.springsecurity.interceptUrlMap = [
         // secured - workflow controllers
+        '/login/**':                      ['permitAll'],
+        '/logout/**':                     ['permitAll'],
         '/home/**':                       ['isAuthenticated()'],
-        '/access/**':                     ['ROLE_ADMIN', 'ROLE_VIEW'],
-        '/capture/**':                    ['ROLE_ADMIN', 'ROLE_IMPORT'],
-        '/structure/**':                  ['ROLE_ADMIN', 'ROLE_PROCESS'],
-        '/logistics/**':                  ['isAuthenticated()'],
+        '/capture/**':                    ['ROLE_ADMIN'],
+        '/structure/**':                  ['ROLE_ADMIN'],
+        '/logistics/**':                  ['ROLE_ADMIN'],
+        '/access/**':                     ['ROLE_ADMIN'],
     
         // secured - domain controllers
         '/company/**':                    ['isAuthenticated()'],
@@ -139,7 +143,7 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
         '/project/**':                    ['isAuthenticated()'],
         '/task/**':                       ['isAuthenticated()'],
 
-        '/barcode/**':                    ['ROLE_ADMIN'],
+        '/barcode/**':                    ['isAuthenticated()'],
         '/scanDo/**':                     ['permitAll'],
         '/scanDo2/**':                    ['permitAll'],
 
@@ -148,10 +152,10 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
         '/scando/**':                     ['isAuthenticated()'],
    
         // secured - plugin controllers
-        '/fileUploader/process/**':       ['ROLE_ADMIN', 'ROLE_IMPORT'],
-        '/download/**':                   ['isAuthenticated()']
-        
+        '/fileUploader/process/**':       ['isAuthenticated()'],
+        '/download/**':                   ['isAuthenticated()'] 
 ]
+
 
 // scando controller - use basic authentication
 grails.plugin.springsecurity.useBasicAuth = true
@@ -246,3 +250,5 @@ smtp {
     from = "theodoros.balopoulos@aethon.sg"
     error_to = "theodoros.balopoulos@aethon.sg"
 }
+
+

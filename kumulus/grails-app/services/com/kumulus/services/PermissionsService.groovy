@@ -3,6 +3,8 @@ package com.kumulus.services
 import grails.transaction.Transactional
 import com.kumulus.domain.*
 
+// import grails.plugin.springsecurity.SpringSecurityUtils
+
 @Transactional
 class PermissionsService {
 
@@ -10,30 +12,26 @@ class PermissionsService {
     def grailsApplication
     
     def getCompany() {
-        def authorities = springSecurityService.authentication.authorities      // get the user authorities
-        String company
-        authorities.each { authority ->
-            if(!grailsApplication.config.kumulus.roles.contains(authority.toString())) {
-                company = authority.toString().replaceAll("ROLE_", {""}).replaceAll("_", {" "})
-            }
-        }
+        def company = springSecurityService.currentUser.company
         return(company)
     }
     
     def getProjects(params) {
-        def projectList = Project.findAllByCompany(getCompany())
+        def projectList = Project.findAllByCompany(getCompany().name)
         if(params?.status) projectList = projectList.findAll { it.status == params.status }
         return (projectList)
     }
         
     def getUsername() {
-        def auth = springSecurityService.getAuthentication()
-        String username = auth.getPrincipal().getUsername()        
+        return(springSecurityService.currentUser.username)
     }
     
     boolean checkPermissions(instance) { 
         boolean permission = false
-        if(instance?.owner() && getCompany() && instance?.owner() == getCompany()) permission = true
+        String companyName = getCompany().name?.toString()
+        String owner = instance.owner()?.toString()
+        if(owner && companyName && owner.equalsIgnoreCase(companyName)) permission = true
         return(permission)
     }
+    
 }

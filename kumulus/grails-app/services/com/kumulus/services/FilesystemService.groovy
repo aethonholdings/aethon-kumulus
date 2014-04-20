@@ -53,7 +53,7 @@ class FilesystemService {
                 projectName: params?.projectName, 
                 comment: params?.comment, 
                 status: "A", 
-                company: permissionsService.getCompany(), 
+                company: permissionsService.getCompany()?.name, 
                 lineItems:[], 
                 nodes:[], 
                 client: client, 
