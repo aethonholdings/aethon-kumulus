@@ -18,7 +18,7 @@
               <span class="kumulus-widget-header-action"></span>
             </div>
             <div class="kumulus-data-entry">
-              <g:form name="edit" action="update" id="${project?.id}" class="pure-form">
+              <g:form name="edit" controller="customer" action="updateProject" id="${project?.id}" class="pure-form">
                 <div class="pure-control-group">
                   <label for="projectName">* Project name</label>
                   <input id="projectName" name="projectName" disabled type="text" value="${project?.projectName}" class="pure-u-23-24 kumulus-margin">
@@ -46,7 +46,7 @@
           <div class="kumulus-widget-4-5">
             <div class="kumulus-widget-header">
               <span class="kumulus-widget-header-title">Archive structure</span>
-              <span class="kumulus-widget-header-action"><g:link controller="capture" action="collect" params='[id: "${project?.id}"]'>Collect paperwork</g:link></span>
+              <span class="kumulus-widget-header-action"><g:link controller="customer" action="collect" params='[id: "${project?.id}"]'>Collect paperwork</g:link></span>
             </div>
             <div class="kumulus-node-tree kumulus-scrollable-y">
               <div id="nodeTree" class="jstree-draggable"></div>
@@ -58,7 +58,7 @@
               <span class="kumulus-widget-header-action"></span>
             </div>
             <div id="search">
-              <g:form url='[controller: "project", action: "search"]' id="searchableForm" name="searchableForm" method="get">
+              <g:form url='[controller: "customer", action: "search"]' id="searchableForm" name="searchableForm" method="get">
                 <g:textField name="q" value="${params.q}" class="pure-input" placeholder="Enter search terms" size="45"/> 
                 <input type="submit" value="Search" class="pure-button" onclick="show_advanced();"/>
               </g:form>
@@ -117,7 +117,7 @@
       </div>
     </div>
     <div class="kumulus-float-right">
-      <g:link controller="access" action="download" id="${project.id}" class="pure-button">Download journal</g:link>
+      <g:link controller="customer" action="download" id="${project.id}" class="pure-button">Download journal</g:link>
       <input type="submit" value="Download documents" class="pure-button"/>
       <input type="submit" value="Close" class="pure-button"/>
       <input type="submit" value="Delete" class="pure-button"/>

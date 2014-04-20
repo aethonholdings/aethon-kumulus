@@ -127,12 +127,21 @@ grails.plugin.springsecurity.interceptUrlMap = [
         // secured - workflow controllers
         '/':                              ['isAuthenticated()'],
         '/home/**':                       ['isAuthenticated()'],
+
+        // admin pages
+        '/user/**':                       ['ROLE_ADMIN'],
+    
+        // workflow pages
+        '/customer/**':                   ['ROLE_ADMIN', 'ROLE_CUSTOMER'],
         '/capture/**':                    ['ROLE_ADMIN'],
         '/structure/**':                  ['ROLE_ADMIN'],
         '/logistics/**':                  ['ROLE_ADMIN'],
         '/access/**':                     ['ROLE_ADMIN'],
-        '/user/**':                       ['ROLE_ADMIN'],
-    
+
+        // import
+        '/scanDo/**':                     ['ROLE_ADMIN','ROLE_IMPORT'],
+        '/scanDo2/**':                    ['ROLE_ADMIN','ROLE_IMPORT'],
+       
         // secured - domain controllers
         '/company/**':                    ['isAuthenticated()'],
         '/document/**':                   ['isAuthenticated()'],
@@ -141,15 +150,10 @@ grails.plugin.springsecurity.interceptUrlMap = [
         '/node/**':                       ['isAuthenticated()'],
         '/project/**':                    ['isAuthenticated()'],
         '/task/**':                       ['isAuthenticated()'],
-
         '/barcode/**':                    ['isAuthenticated()'],
-        '/scanDo/**':                     ['permitAll'],
-        '/scanDo2/**':                    ['permitAll'],
-
         '/shipment/**':                   ['isAuthenticated()'],
         '/product/**':                    ['isAuthenticated()'],
-        '/scando/**':                     ['isAuthenticated()'],
-   
+    
         // secured - plugin controllers
         '/fileUploader/process/**':       ['isAuthenticated()'],
         '/download/**':                   ['isAuthenticated()'],

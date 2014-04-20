@@ -34,4 +34,11 @@ class PermissionsService {
         return(permission)
     }
     
+    boolean getUserCategory() {
+        def category
+        if(SpringSecurityUtils.ifAllGranted("ROLE_CUSTOMER")) category = "CUSTOMER"
+        return(category)
+        
+    }
+    
 }

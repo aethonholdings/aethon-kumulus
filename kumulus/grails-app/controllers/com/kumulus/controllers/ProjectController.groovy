@@ -3,40 +3,26 @@ package com.kumulus.controllers
 import com.kumulus.domain.*
 import com.kumulus.services.*
 import grails.converters.*
-import org.compass.core.engine.SearchEngineQueryParseException
 
 class ProjectController {
      
     def permissionsService
     def filesystemService
     def searchableService 
-    static String WILDCARD = "*"
-    
-    def update() {
-        def project = Project.get(params?.id)
-        if(project && permissionsService.checkPermissions(project))  {
-            def client = Company.findById(params?.clientId)
-            project.client = client
-            bindData(project, params, [exclude:['client', 'clientId']])
-            project.save()
-        }
-        redirect action: "view", id: params?.id
-    }
-    
+    def captureService
+        
     def create() {
         render view: "create", model:[project: new Project()]
     }
     
     def save() {
-        def project = filesystemService.newProject(params) 
-        def client = Company.findById(params?.clientId)
-        if (client == null) {
-            client = new Company([name: params.ClientName])
-            client.save()
-        }
-        project.client = client
-        bindData(project, params, [exclude:['client', 'clientId']])
-        project.save()
+        if(params?.projectName && params?.ClientName)  {
+            def project = captureService.insertProject(params.projectName, 
+                                                            params.ClientName, 
+                                                            params?.comment, 
+                                                            permissionsService.getCompany().name, 
+                                                            permissionsService.getUsername())
+        }        
         redirect controller: "home", action: "index"
     }
     
@@ -55,25 +41,4 @@ class ProjectController {
         redirect action:"list", params:[type:"manage"]
     }
     
-    def view(){
-        
-      def project=  Project.findById(Integer.parseInt(params.id))
-      render view:"view" , model:[project:project]
-    }
-    
-     def search() 
-     { 
-         
-        def searchResult 
-        if (!params.q?.trim()) {
-            return [:]
-        }
-        try {
-               String searchTerm = WILDCARD+ params.q + WILDCARD
-               searchResult = searchableService.search(searchTerm, params)
-               return [searchResult: searchResult]
-        } catch (SearchEngineQueryParseException ex) {
-               return [parseException: true]
-        }
-     }  
 }

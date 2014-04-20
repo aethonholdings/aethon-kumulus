@@ -4,14 +4,13 @@ import com.kumulus.domain.*
 import grails.converters.JSON
 
 // NEED TO SECURE THIS BASED ON BACK OFFICE PERMISSIONS
-class StructureController {
+class BackOfficeController {
     
     def structureService
     def permissionsService
     def workflowService
     
     def getNextTask() {
-        
         if(params?.type) {
             def task = workflowService.getNextTask(params.type, permissionsService.getUsername())
             if(task) {
@@ -21,12 +20,10 @@ class StructureController {
             } else {
                 redirect controller: "home", action: "index"
             }
-            
         }
     }
     
     def process() {
-        
         def task = Task.get(params?.taskId)
         if(task && !task.completed) {
             def currencies = Currency.listOrderByFullName()
@@ -39,7 +36,6 @@ class StructureController {
     }
     
     def save(){
-        
         // NEED TO MOVE ALL THIS TO A SERVICE, CURRENTLY IT IS NOT ATOMIC
         def response = [done: false]
         def data = request.JSON
@@ -81,8 +77,6 @@ class StructureController {
             }
             response.done = true
         }
-        
         render response as JSON
     }
-    
 }

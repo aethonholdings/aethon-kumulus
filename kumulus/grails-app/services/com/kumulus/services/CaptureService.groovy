@@ -294,4 +294,31 @@ class CaptureService {
         return(newDocument)
     }
     
+    Project insertProject(String projectName, String clientName, String comment, String companyName, String username) {
+        def project = new Project([
+            projectName: projectName, 
+            comment: comment, 
+            status: "A", 
+            company: companyName, 
+            lineItems:[], 
+            nodes:[], 
+            ownerId: username
+        ])
+        filesystemService.newProject(project)
+        updateProject(project, projectName, clientName, comment)
+        return(project)
+    }
+    
+    Project updateProject(Project project, String projectName, String clientName, String comment) {
+        def client = Company.findByName(clientName)
+        if (client == null) {
+            client = new Company([name: clientName])
+            client.save()
+        }
+        project.client = client
+        project.projectName = projectName
+        project.comment = comment
+        project.save()
+        return(project)
+    }
 }

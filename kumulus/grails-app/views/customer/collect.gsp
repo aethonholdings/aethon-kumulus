@@ -124,7 +124,7 @@
           </div>    
         </div>
         <div class="kumulus-button-bank">
-          <g:link class="pure-button" controller="project" action="view" id="${project.id}">Project Home</g:link>
+          <g:link class="pure-button" controller="customer" action="viewProject" id="${project.id}">Project Home</g:link>
         </div>
       </div>            
     </div>

@@ -34,7 +34,7 @@ class FilesystemService {
         }
     }
     
-    def newProject(params) {
+    Project newProject(Project project) {
         def literal = generateLiteral()
         
         // create the necessary directories
@@ -46,21 +46,9 @@ class FilesystemService {
         targetPath = new File(path + "pages/")
         targetPath.mkdir()
         
-        // create the database instances
-        def client = new Company([name: params?.ClientName])         // NEED TO CHECK THE PREEXISTENCE OF THE COMPANY
-        client.save()
-        def project = new Project([
-                projectName: params?.projectName, 
-                comment: params?.comment, 
-                status: "A", 
-                company: permissionsService.getCompany()?.name, 
-                lineItems:[], 
-                nodes:[], 
-                client: client, 
-                literal: literal, 
-                path: path, 
-                ownerId: permissionsService.getUsername()])
-        project.save()
+        // initialise the relevant project variables
+        project.literal = literal
+        project.path = targetPath
         return(project)
     }
     
