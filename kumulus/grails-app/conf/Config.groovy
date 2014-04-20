@@ -117,7 +117,6 @@ grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/home'
 
 // permission definitions
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
-	'/':                              ['permitAll'],
 	'/**/js/**':                      ['permitAll'],
 	'/**/css/**':                     ['permitAll'],
 	'/**/images/**':                  ['permitAll'],
@@ -126,11 +125,13 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 grails.plugin.springsecurity.securityConfigType = "InterceptUrlMap"
 grails.plugin.springsecurity.interceptUrlMap = [
         // secured - workflow controllers
+        '/':                              ['isAuthenticated()'],
         '/home/**':                       ['isAuthenticated()'],
         '/capture/**':                    ['ROLE_ADMIN'],
         '/structure/**':                  ['ROLE_ADMIN'],
         '/logistics/**':                  ['ROLE_ADMIN'],
         '/access/**':                     ['ROLE_ADMIN'],
+        '/user/**':                       ['ROLE_ADMIN'],
     
         // secured - domain controllers
         '/company/**':                    ['isAuthenticated()'],
@@ -155,7 +156,6 @@ grails.plugin.springsecurity.interceptUrlMap = [
         '/login/**':                      ['permitAll'],
         '/logout/**':                     ['permitAll']
 ]
-
 
 // scando controller - use basic authentication
 grails.plugin.springsecurity.useBasicAuth = true

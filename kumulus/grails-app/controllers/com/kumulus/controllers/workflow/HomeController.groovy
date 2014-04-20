@@ -20,4 +20,8 @@ class HomeController {
         
     }
     
+    def user() {
+        
+    }
+    
 }
