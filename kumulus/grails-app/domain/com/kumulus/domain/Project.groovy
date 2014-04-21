@@ -13,6 +13,8 @@ class Project {
     String literal
     String path
     String ownerId
+    Date created
+    Date closed
 
     static hasMany = [nodes: Node, lineItems: LineItem, documents: Document, tasks: Task]
 
@@ -29,6 +31,7 @@ class Project {
         comment nullable: true
         literal nullable: false
         path nullable: false
+        closed nullable: true
     }
     
     def afterDelete() {
@@ -37,7 +40,7 @@ class Project {
             if (f.deleteDir()) {
                     log.debug "file [${path}] deleted"
             } else {
-                    log.error "could not delete file: ${file}"
+                    log.error "could not delete file: ${f}"
             }
         } catch (Exception exp) {
             log.error "Error deleting file: ${exp.message}"
@@ -47,6 +50,15 @@ class Project {
     
     String owner() {
         return(company)
+    }
+    
+    String status() {
+        switch(status) {
+            case STATUS_ACTIVE:
+                return("Currently open")
+            case STATUS_CLOSED:
+                return("Project closed")
+        }
     }
         
 }

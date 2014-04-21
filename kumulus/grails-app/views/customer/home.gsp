@@ -23,6 +23,9 @@
                 <tr>
                   <th>Project Name</th>
                   <th>Client</th>
+                  <th>Status</th>
+                  <th>Created</th>
+                  <th>Closed</th>
                 </tr>
               </thead>
               <tbody>     
@@ -30,6 +33,14 @@
                   <tr>
                     <td><g:link controller="customer" action="collect" id="${project.id}">${project.projectName}</g:link></td>
                     <td>${project.client.name}</td>
+                    <td>${project.status()}</td>
+                    <td>${project.created.format("dd MMM yyyy")}</td>
+                    <g:if test="${project.closed}">
+                      <td>${project.closed.format("dd MMM yyyy")}</td>
+                    </g:if>
+                    <g:else>
+                      <td></td>
+                    </g:else>
                   </tr>
                 </g:each>
               </tbody>

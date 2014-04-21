@@ -302,6 +302,8 @@ class CaptureService {
             company: companyName, 
             lineItems:[], 
             nodes:[], 
+            created: new Date(),
+            closed: null,
             ownerId: username
         ])
         filesystemService.newProject(project)

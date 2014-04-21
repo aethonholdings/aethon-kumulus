@@ -19,10 +19,7 @@ class CustomerController {
     }
     
     def home() {
-        def projectList = Project.findAll {
-            company == permissionsService.getCompany()?.name
-            status == Project.STATUS_ACTIVE
-        }
+        def projectList = Project.findAllByCompany(permissionsService.getCompany().name, [sort: "created", order: "asc"])
         render(view:"home", model:[pageTitle: "Home", projectList: projectList,userId: permissionsService.getUsername()])    
     }
     
