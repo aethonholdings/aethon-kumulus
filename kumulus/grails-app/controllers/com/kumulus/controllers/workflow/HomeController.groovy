@@ -8,6 +8,7 @@ class HomeController {
     def workflowService
     
     def index() { 
+        // redirect to the appropriate homepage for the user category
         String category = permissionsService.getUserCategory()
         switch(category) {
             case "CUSTOMER":
@@ -20,7 +21,7 @@ class HomeController {
                 redirect (controller: "backOffice", action: "home")
                 break;
             case "ADMIN":
-                redirect (controller: "customer", action: "home")
+                redirect (controller: "admin", action: "home")
                 break;
         }
         

@@ -18,7 +18,7 @@
               <span class="kumulus-widget-header-action"></span>
             </div>
             <div class="kumulus-data-entry">
-              <g:form name="edit" controller="customer" action="updateProject" id="${project?.id}" class="pure-form">
+              <g:form name="edit" controller="customer" action="update" id="${project?.id}" class="pure-form">
                 <div class="pure-control-group">
                   <label for="projectName">* Project name</label>
                   <input id="projectName" name="projectName" disabled type="text" value="${project?.projectName}" class="pure-u-23-24 kumulus-margin">

@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.6.10)
 # Database: kumulus
-# Generation Time: 2014-03-31 06:40:52 +0000
+# Generation Time: 2014-04-21 03:36:40 +0000
 # ************************************************************
 
 
@@ -72,7 +72,8 @@ LOCK TABLES `company` WRITE;
 INSERT INTO `company` (`id`, `version`, `name`)
 VALUES
 	(1,0,'SmartSpace Pte Ltd'),
-	(2,0,'TestCo Pte Ltd');
+	(2,0,'TestCo Pte Ltd'),
+	(3,0,'Kumulus Pte Ltd');
 
 /*!40000 ALTER TABLE `company` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -340,6 +341,24 @@ UNLOCK TABLES;
 
 
 
+# Dump of table role
+# ------------------------------------------------------------
+
+LOCK TABLES `role` WRITE;
+/*!40000 ALTER TABLE `role` DISABLE KEYS */;
+
+INSERT INTO `role` (`id`, `version`, `authority`)
+VALUES
+	(1,0,'ROLE_ADMIN'),
+	(2,0,'ROLE_CAPTURE'),
+	(3,0,'ROLE_CUSTOMER'),
+	(4,0,'ROLE_BACK_OFFICE'),
+	(5,0,'ROLE_LOGISTICS');
+
+/*!40000 ALTER TABLE `role` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
 # Dump of table scan_batch
 # ------------------------------------------------------------
 
@@ -363,6 +382,40 @@ UNLOCK TABLES;
 # Dump of table ufile
 # ------------------------------------------------------------
 
+
+
+# Dump of table user
+# ------------------------------------------------------------
+
+LOCK TABLES `user` WRITE;
+/*!40000 ALTER TABLE `user` DISABLE KEYS */;
+
+INSERT INTO `user` (`id`, `version`, `account_expired`, `account_locked`, `company_id`, `enabled`, `password`, `password_expired`, `username`)
+VALUES
+	(1,1,0,0,3,1,'$2a$10$grDTo.E4U4Nk3Fmg1g0IROlGHHBLb0wkJYgmzacy3gNYM3zzM6ssm',0,'kumulus'),
+	(2,0,0,0,1,1,'$2a$10$ZPqQmC1SMhTtIpQkX8SUkuiJItaZ0Ro9wlWduLPpWPuhB2LqgLwie',0,'customer'),
+	(3,0,0,0,3,1,'$2a$10$EjT/Z1qr8AICmHZd5jYGO.NsBgrkByMPqCiSwyZK60jf1asg1bYEO',0,'capture'),
+	(4,0,0,0,3,1,'$2a$10$xY8gqxM0xG84z/MIUCb37ewaA6ubLn31mV5sRIu4c2GPvN16BIbp.',0,'backoffice');
+
+/*!40000 ALTER TABLE `user` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table user_role
+# ------------------------------------------------------------
+
+LOCK TABLES `user_role` WRITE;
+/*!40000 ALTER TABLE `user_role` DISABLE KEYS */;
+
+INSERT INTO `user_role` (`role_id`, `user_id`)
+VALUES
+	(1,1),
+	(2,3),
+	(3,2),
+	(4,4);
+
+/*!40000 ALTER TABLE `user_role` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 

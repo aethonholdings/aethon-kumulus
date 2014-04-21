@@ -123,17 +123,20 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	'/**/favicon.ico':                ['permitAll'],
 ]
 grails.plugin.springsecurity.securityConfigType = "InterceptUrlMap"
-grails.plugin.springsecurity.interceptUrlMap = [
-        // secured - workflow controllers
+grails.plugin.springsecurity.interceptUrlMap = [    
+        // authentication pages accessed by all
+        '/login/**':                      ['permitAll'],
+        '/logout/**':                     ['permitAll'],
+    
+        // key controller tools shared by all authenticated users
         '/':                              ['isAuthenticated()'],
         '/home/**':                       ['isAuthenticated()'],
         '/fileUploader/process/**':       ['isAuthenticated()'],
         '/download/**':                   ['isAuthenticated()'],
-        '/login/**':                      ['permitAll'],
-        '/logout/**':                     ['permitAll'],
 
         // admin pages
         '/user/**':                       ['ROLE_ADMIN'],
+        '/admin/**':                      ['ROLE_ADMIN'],
     
         // workflow pages
         '/customer/**':                   ['ROLE_ADMIN', 'ROLE_CUSTOMER'],
@@ -151,7 +154,6 @@ grails.plugin.springsecurity.interceptUrlMap = [
         '/file/**':                       ['isAuthenticated()'],
         '/image/**':                      ['isAuthenticated()'],
         '/node/**':                       ['isAuthenticated()'],
-        '/project/**':                    ['isAuthenticated()'],
         '/task/**':                       ['isAuthenticated()'],
         '/barcode/**':                    ['isAuthenticated()'],
         '/shipment/**':                   ['isAuthenticated()'],

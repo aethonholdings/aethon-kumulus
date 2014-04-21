@@ -18,16 +18,12 @@ class CustomerController {
         redirect(controller: "home")
     }
     
-    
     def home() {
         def projectList = Project.findAll {
             company == permissionsService.getCompany()?.name
             status == Project.STATUS_ACTIVE
         }
-        def shipmentList=Shipment.findAll()
-        def userTasks = workflowService.getTaskQueues(permissionsService.getUsername())
-        def backOfficeTasks = workflowService.getTaskQueues(null)
-        render(view:"home", model:[pageTitle: "Home", projectList: projectList,shipmentList:shipmentList, userTasks: userTasks, backOfficeTasks: backOfficeTasks, userId: permissionsService.getUsername()])    
+        render(view:"home", model:[pageTitle: "Home", projectList: projectList,userId: permissionsService.getUsername()])    
     }
     
     def search() { 
@@ -36,11 +32,11 @@ class CustomerController {
             return [:]
         }
         try {
-               String searchTerm = WILDCARD + params.q + WILDCARD
-               searchResult = searchableService.search(searchTerm, params)
-               return [searchResult: searchResult]
+            String searchTerm = WILDCARD + params.q + WILDCARD
+            searchResult = searchableService.search(searchTerm, params)
+            return [searchResult: searchResult]
         } catch (SearchEngineQueryParseException ex) {
-               return [parseException: true]
+            return [parseException: true]
         }
      }  
     
@@ -58,7 +54,7 @@ class CustomerController {
             def nodeTypes = NodeType.findAll {
                 isContainer==true
             }
-            render view:"collect", model:[project: project, nodeTypes: nodeTypes]
+            render view: "collect", model:[project: project, nodeTypes: nodeTypes]
         }
     }
     
@@ -77,19 +73,52 @@ class CustomerController {
                 shipItemObj.shipment=Shipment.findById(Integer.parseInt(params.shipmentId))
                 shipItemObj.save(flush:true,failOnError:true)           
           }
-          redirect controller :"shipment" , action :"view" ,params:[id: params.shipmentId]
+          redirect controller : "shipment" , action : "view" ,params:[id: params.shipmentId]
     }
        
-    def viewProject() {
+    def view() {
         def project=  Project.findById(Integer.parseInt(params.id))
-        render view:"viewProject" , model:[project:project]
+        render view:"view" , model:[project:project]
     }
     
-    def updateProject() {
+    def update() {
         def project = Project.get(params?.id)
         if(project && permissionsService.checkPermissions(project) && params?.projectName && params?.ClientName)  {
             captureService.updateProject(project, params.projectName.toString(), params.ClientName.toString(), params?.comment?.toString())
         }
-        redirect action: "viewProject", id: params?.id
+        redirect action: "view", id: params?.id
     }
+    
+    def create() {
+        render view: "create", model:[project: new Project()]
+    }
+    
+    def save() {
+        if(params?.projectName && params?.ClientName)  {
+            def project = captureService.insertProject(params.projectName, 
+                                                            params.ClientName, 
+                                                            params?.comment, 
+                                                            permissionsService.getCompany().name, 
+                                                            permissionsService.getUsername())
+        }        
+        redirect action: "home"
+    }
+    
+    def delete() {
+        def project = Project.findById(params?.id)
+        if(permissionsService.checkPermissions(project) && project.status == "A") project.delete()
+        redirec action: "home"
+    }
+    
+    def close() {
+        def project = Project.findById(params?.id)
+        if(permissionsService.checkPermissions(project)) {
+            project.status = Project.STATUS_CLOSED
+            project.save()
+        }
+        redirect action: "home"
+    }
+    
+    
+    
 }

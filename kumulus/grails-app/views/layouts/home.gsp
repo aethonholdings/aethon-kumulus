@@ -22,7 +22,7 @@
                <div class='pure-u-3-4'>
                  <div class='kumulus-session-management kumulus-small-font'>
                    <g:userCompany/> |
-                   <b><sec:loggedInUserInfo field='username'/></b> |  
+                   user: <b><sec:loggedInUserInfo field='username'/></b> |  
                    <g:link controller='logout'> Logout</g:link>
                  </div>
                </div>

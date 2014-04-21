@@ -9,17 +9,16 @@ class CaptureController {
 
     def home() {
         def projectList = Project.findAll {
-            company == permissionsService.getCompany()?.name
+            // company == permissionsService.getCompany()?.name                 // temporary centralised implementattion of upload functionality
             status == Project.STATUS_ACTIVE
         }
-        def shipmentList=Shipment.findAll()
         def userTasks = workflowService.getTaskQueues(permissionsService.getUsername())
-        def backOfficeTasks = workflowService.getTaskQueues(null)
-        render(view:"home", model:[pageTitle: "Home", projectList: projectList,shipmentList:shipmentList, userTasks: userTasks, backOfficeTasks: backOfficeTasks, userId: permissionsService.getUsername()])    
+        render(view:"home", model:[pageTitle: "Home", projectList: projectList, userTasks: userTasks, userId: permissionsService.getUsername()])    
     }
     
     def upload() {
         def project = Project.findById(params?.id)
+        // no permission checking for the time being here
         if(permissionsService.checkPermissions(project)) {
             def nodeTypes = NodeType.findAll {
                 isContainer==true

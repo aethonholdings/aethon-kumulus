@@ -27,10 +27,20 @@ class PermissionsService {
     }
     
     boolean checkPermissions(instance) { 
+        
+        // check permissions for customers; authenticated internal roles have access to objects
+        // in order to work with them
         boolean permission = false
-        String companyName = getCompany().name?.toString()
-        String owner = instance.owner()?.toString()
-        if(owner && companyName && owner.equalsIgnoreCase(companyName)) permission = true
+        String userCategory = getUserCategory()
+        if(userCategory) {
+            if(userCategory=="CUSTOMER") {
+                String companyName = getCompany().name?.toString()
+                String owner = instance.owner()?.toString()
+                if(owner && companyName && owner.equalsIgnoreCase(companyName)) permission = true
+            } else {
+                permission = true
+            }
+        }
         return(permission)
     }
     

@@ -1,7 +1,12 @@
 package com.kumulus.controllers.workflow
 
+import com.kumulus.domain.*
+
 class AdminController {
 
+    def workflowService
+    def permissionsService
+    
      def home() {
         def projectList = Project.findAll {
             company == permissionsService.getCompany()?.name
