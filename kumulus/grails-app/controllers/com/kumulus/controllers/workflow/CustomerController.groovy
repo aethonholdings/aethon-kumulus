@@ -13,7 +13,12 @@ class CustomerController {
     def captureService
     
     static String WILDCARD = "*"
-       
+    
+    def index() {
+        redirect(controller: "home")
+    }
+    
+    
     def home() {
         def projectList = Project.findAll {
             company == permissionsService.getCompany()?.name

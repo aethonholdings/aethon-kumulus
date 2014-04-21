@@ -34,11 +34,14 @@ class PermissionsService {
         return(permission)
     }
     
-    boolean getUserCategory() {
-        def category
+    String getUserCategory() {
+        String category
+        // return the key user category based on role
         if(SpringSecurityUtils.ifAllGranted("ROLE_CUSTOMER")) category = "CUSTOMER"
-        return(category)
-        
+        if(SpringSecurityUtils.ifAllGranted("ROLE_CAPTURE")) category = "CAPTURE"
+        if(SpringSecurityUtils.ifAllGranted("ROLE_BACK_OFFICE")) category = "BACK_OFFICE"
+        if(SpringSecurityUtils.ifAllGranted("ROLE_ADMIN")) category = "ADMIN"
+        return(category) 
     }
     
 }

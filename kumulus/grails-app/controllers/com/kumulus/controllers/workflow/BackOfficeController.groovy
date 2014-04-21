@@ -10,6 +10,17 @@ class BackOfficeController {
     def permissionsService
     def workflowService
     
+    def home() {
+        def projectList = Project.findAll {
+            company == permissionsService.getCompany()?.name
+            status == Project.STATUS_ACTIVE
+        }
+        def shipmentList=Shipment.findAll()
+        def userTasks = workflowService.getTaskQueues(permissionsService.getUsername())
+        def backOfficeTasks = workflowService.getTaskQueues(null)
+        render(view:"home", model:[pageTitle: "Home", projectList: projectList,shipmentList:shipmentList, userTasks: userTasks, backOfficeTasks: backOfficeTasks, userId: permissionsService.getUsername()])    
+    }
+    
     def getNextTask() {
         if(params?.type) {
             def task = workflowService.getNextTask(params.type, permissionsService.getUsername())
