@@ -159,20 +159,6 @@ width:60%;
     font-weight: bold; 
     font-size: 14px;
 }
-.kumulus-search-margin{
-    display: inline-block;
-    width: 100%;
-    margin-top: 3px; 
-    padding: 4px;
-}
-.kumulus-search-margin .pure-input{
-    margin-left: 5px;
-    width: 70%;
-}
-
-.kumulus-search-margin .pure-button{
-    float: right;
-}
 
 .kumulus-padding-side{
     padding-left: 40px;
@@ -230,7 +216,8 @@ width:60%;
     padding: 5px;
     height: 588px;    
     border-style: solid;
-    border-color: #dfdfdf;
+    border-color: #ffffff;
+    background-color: #F7F7F7;
 }
 
 .kumulus-widget-1-2{
@@ -238,7 +225,8 @@ width:60%;
     padding: 5px;
     height: 288px;    
     border-style: solid;
-    border-color: #dfdfdf;
+    border-color: #ffffff;
+    background-color: #F7F7F7;
 }
 
 .kumulus-widget-1-3{
@@ -246,7 +234,8 @@ width:60%;
     padding: 5px;
     height: 188px;    
     border-style: solid;
-    border-color: #dfdfdf;
+    border-color: #ffffff;
+    background-color: #F7F7F7;
 }
 
 .kumulus-widget-2-3{
@@ -254,7 +243,8 @@ width:60%;
     padding: 5px;
     height: 388px;    
     border-style: solid;
-    border-color: #dfdfdf;
+    border-color: #ffffff;
+    background-color: #F7F7F7;
 }
 
 .kumulus-widget-4-5{
@@ -262,7 +252,8 @@ width:60%;
     padding: 5px;
     height: 468px;    
     border-style: solid;
-    border-color: #dfdfdf;
+    border-color: #ffffff;
+    background-color: #F7F7F7;
 }
 
 .kumulus-widget-3-5{
@@ -270,7 +261,8 @@ width:60%;
     padding: 5px;
     height: 348px;
     border-style: solid;
-    border-color: #dfdfdf;
+    border-color: #ffffff;
+    background-color: #F7F7F7;
 }
 
 .kumulus-widget-2-5{
@@ -278,7 +270,8 @@ width:60%;
     padding: 5px;
     height: 228px;    
     border-style: solid;
-    border-color: #dfdfdf;
+    border-color: #ffffff;
+    background-color: #F7F7F7;
 }
 
 .kumulus-widget-1-5{
@@ -286,7 +279,8 @@ width:60%;
     padding: 5px;
     height: 108px;    
     border-style: solid;
-    border-color: #dfdfdf;
+    border-color: #ffffff;
+    background-color: #F7F7F7;
 }
 
 .kumulus-scrollable-y{
@@ -309,8 +303,8 @@ width:60%;
     padding-top: 5px;
     padding-left: 5px;
     padding-right: 5px;
-    margin-bottom: 3px;
-    background-color: #CCCCCC;
+    margin-bottom: 15px;
+    background-color: #DDDDDD;
 }
 
 .kumulus-widget-header-title {
@@ -732,3 +726,27 @@ label.error{
 .kumulus-table-shipment {
     width: 500px;
 }
+
+/* SEARCH */
+.kumulus-search-input{
+    text-align: center;
+    width: 30px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.kumulus-search-margin{
+    display: inline-block;
+    width: 100%;
+    margin-top: 3px; 
+    padding: 4px;
+}
+.kumulus-search-margin .pure-input{
+    margin-left: 5px;
+    width: 70%;
+}
+
+.kumulus-search-margin .pure-button{
+    float: right;
+}
+

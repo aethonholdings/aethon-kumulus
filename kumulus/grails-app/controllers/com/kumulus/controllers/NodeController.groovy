@@ -42,13 +42,11 @@ class NodeController {
         def data = request.JSON
         def response = [done: false, message: "Error"]
         def project = Project.findById(data?.project)
-        def parent
-        if(data?.parentID && data.parentID != "ROOT") 
-        parent = Node.findById(data?.parentID) else parent = null
+        def parent = null
+        if(data?.parentId && data.parentId != "ROOT") parent = Node.findById(data?.parentId) 
         if(project && permissionsService.checkPermissions(project) && captureService.insertNode(parent, project, data?.barcode, data?.name, data?.comment, data?.type, Node.STATE_CLIENT_OPEN)) { 
             response.done = true
             response.message = "Success"
-    
         }
         render response as JSON
     }
