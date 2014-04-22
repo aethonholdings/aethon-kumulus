@@ -12,7 +12,6 @@ $(document).ready(function()
         }
     });
     
-    
     currentRowObj= $("#lineItems tbody tr");
  
     datePick($("#lineItems tbody tr").length,$("#lineItemCount").val());
@@ -91,13 +90,11 @@ function cloneRow() {
 
 }
 
-
 function send(obj) {
 
     currentRowObj = obj;
     
 }
-
 
 function CheckNumeric(e) {
     var keyCode = e.which;
@@ -126,13 +123,10 @@ function CheckNumericWithoutDec(e) {
     }
 }
 
-
-
 function onLoadPreview() {
     var obj = $("ul#pages li:first img")
     imagePreview(obj);
 }
-
 
 function imagePreview(obj) {
 
@@ -297,20 +291,19 @@ for(var j=0;j<=mainCounter;j++)
 }
 
 function save(next) {
-
     var formObj = $("#structure");
     validate();
     var status = $("#structure").valid();
     var rowStatus = validateLastRow();
-
+    
     if (status && rowStatus) {
         var submit = {
             completeTask: next,
             form: ConvertFormToJSON(formObj)
         };
-
+        
         $.ajax({
-            url: url('structure', 'save', ''),
+            url: url('backOffice', 'save', ''),
             type: 'POST',
             data: JSON.stringify(submit),
             contentType: 'application/json; charset=utf-8',

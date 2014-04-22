@@ -82,8 +82,8 @@ class KumulusTagLib {
                         }
                     }
                 }
-            
-            if(category=="BACK_OFFICE" || category=="ADMIN") {
+                
+            if(category=="ADMIN") {
                 // OCR queue
                 def taskCount = userTasks.types.OCR.count + userTasks.types.RETRIEVE.count + userTasks.types.EXTRACT.count
                 out << "\t<tr>\n"         
@@ -91,7 +91,9 @@ class KumulusTagLib {
                 out << "\t\t<td class='kumulus-task-count'>${taskCount}</td>\n"
                 out << "\t\t<td class='kumulus-task-queue-action'></td>"
                 out << "\t</tr>\n"
-
+            }
+            
+            if(category=="BACK_OFFICE" || category=="ADMIN") {
                 // process queue
                 if(userTasks.types.PROCESS.count>0) out << "\t<tr class='kumulus-task-queue-action-item'>\n" else out << "\t<tr>\n"         
                 out << "\t\t<td>Documents to be processed</td>\n"
