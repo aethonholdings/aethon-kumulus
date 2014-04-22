@@ -116,7 +116,7 @@ function save_node(formData) {
 }
 
 $(document).ready(function(){    
-    containerViewer = new ContainerViewer();
+    containerViewer = new ContainerViewer("WRITE");
     nodeWorkflow = new NodeWorkflow("#workflow", save_node);
     tree = new NodeTree("#nodeTree", $('#project').attr('projectID'), function(node){
         containerViewer.update(node);

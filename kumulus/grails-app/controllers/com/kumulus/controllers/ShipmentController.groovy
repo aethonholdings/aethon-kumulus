@@ -66,7 +66,6 @@ class ShipmentController {
     def remove() {
 
         def shipment=Shipment.findById(params?.id)
-        println(params)
         if(shipment) {
             shipment.shipmentItems.each { shipmentItem ->
                 def node = Node.findById(shipmentItem.itemId)

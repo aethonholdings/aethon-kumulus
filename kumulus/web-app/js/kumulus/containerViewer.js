@@ -1,5 +1,5 @@
-function ContainerViewer() {
-    
+function ContainerViewer(permissions) {
+    this.permissions = permissions.toUpperCase();
     this.node = null;
     this.update = update;
     this.fetch = fetch;
@@ -41,50 +41,52 @@ function ContainerViewer() {
                     });
                 }
             });
-        
-            // map node state to buttons
-            switch(node.data.stateId) {
-                case 1:                                                         // container open and still being processed by customer
-                    if(node.data.storeable) buttonTag = '<input id="button-readyfortransfer" type="button"  value="Seal" class="pure-button kumulus-margin-top" onclick="containerViewer.seal();" />';
-                    break;
+            
+            if(this.permissions=="WRITE") {
+                // map node state to buttons
+                switch(node.data.stateId) {
+                    case 1:                                                         // container open and still being processed by customer
+                        if(node.data.storeable) buttonTag = '<input id="button-readyfortransfer" type="button"  value="Seal" class="pure-button kumulus-margin-top" onclick="containerViewer.seal();" />';
+                        break;
 
-                case 2:                                                         // container sealed and ready for shipping
-                    
-                    break;
+                    case 2:                                                         // container sealed and ready for shipping
 
-                case 3:                                                         // container flagged for shipping
-                    
-                    break;
+                        break;
 
-                case 4:                                                         // container in storage
-                    buttonTag = '<input id="button-fetch" type="button"  value="Fetch from storage" class="pure-button kumulus-margin-top" onclick="containerViewer.fetch();" />';
-                    break;  
-                    
-                case 5:                                                         // container in digitisation production line for scanning
-                    break;
-                
-                case 6:                                                         // container flagged for fetching from storage
-                    break;
-            }       
-            $("#nodeActions").append(buttonTag);   
+                    case 3:                                                         // container flagged for shipping
+
+                        break;
+
+                    case 4:                                                         // container in storage
+                        buttonTag = '<input id="button-fetch" type="button"  value="Fetch from storage" class="pure-button kumulus-margin-top" onclick="containerViewer.fetch();" />';
+                        break;  
+
+                    case 5:                                                         // container in digitisation production line for scanning
+                        break;
+
+                    case 6:                                                         // container flagged for fetching from storage
+                        break;
+                }       
+                $("#nodeActions").append(buttonTag);   
+            }
         }
     }
     
     function seal(){
-        if(this.node.id!='ROOT'){
+        if(this.node.id!='ROOT' && this.permissions=="WRITE"){
             this.submit(url('node', 'seal', ''));
         }
     }
     
     function ship(){
-        if(this.node.id!='ROOT'){
+        if(this.node.id!='ROOT' && this.permissions=="WRITE"){
             this.submit(url('node', 'ship', ''));
         }
     }
     
     function fetch(){
         var data ={  id: this.node.data.id }
-        if(data.node!='ROOT'){
+        if(data.node!='ROOT' && this.permissions=="WRITE"){
             $.ajax({
                 url: url('node', 'fetch', ''),
                 type: 'POST',

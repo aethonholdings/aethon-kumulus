@@ -87,7 +87,6 @@
         </div>
       </div>
     </div>
-    <g:link class="pure-button kumulus-float-right kumulus-margin-right" controller='home' action='index'>Home</g:link>
   </body>
 </html>
 

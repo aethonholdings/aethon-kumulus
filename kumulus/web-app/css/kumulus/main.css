@@ -319,7 +319,7 @@ width:60%;
 /* filmstrip */
 
 .kumulus-filmstrip{
-    background: #eee; 
+    background-color: #d8e3ff; 
     text-align: center;
     max-height: 555px;   
     width: 100%;
@@ -330,7 +330,7 @@ width:60%;
     list-style-type: none;
     padding: 5px;
     display: block;
-    background: #eee; 
+    background-color: #d8e3ff; 
 }
 
 .kumulus-filmstrip li{
