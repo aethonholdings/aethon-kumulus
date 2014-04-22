@@ -3,11 +3,13 @@ package com.kumulus.services
 import com.kumulus.domain.*
 import grails.transaction.Transactional
 import com.lucastex.grails.fileuploader.UFile
+import org.compass.core.engine.SearchEngineQueryParseException
 
 @Transactional
 class AccessService {
     
-    // should implement get abstract, then use helper classes to implement plugins for different export systems
+    def searchableService
+    def captureService
     
     def getCSV(project) {
         if (project) {
@@ -83,6 +85,46 @@ class AccessService {
         response.setContentType(contentType)
         response.setHeader("Content-disposition", disposition + "; filename=${ufile.name}")
         response.outputStream << file.readBytes()
+    }
+    
+    def search(Project project, String query) {
+        // Konstantinos: this implementation is currently very inefficient
+        def responseData = [
+                total: 0,
+                data: []
+            ]
+        try {    
+            String searchTerm = "*" + query + "*"
+            def searchResult = searchableService.search(searchTerm)
+            responseData.total = searchResult.total
+            int count = 0
+            searchResult.results.each { result ->
+                def resultClass = result.getClass()
+                def node, documentId
+                if(resultClass == Node) {
+                    node = Node.findById(result.id)
+                    documentId = -1
+                }
+                if(resultClass == Document) {
+                    def document = Document.findById(result.id)
+                    node = document.pages[0].node
+                    documentId = document.id
+                }
+                if(node.project == project) {
+                    responseData.data.add([
+                        nodeId: node.id,
+                        nodeBarcode: node?.barcode?.text,
+                        nodeName: node.name,
+                        documentId: documentId
+                    ])
+                    count++
+                }
+            }
+            responseData.total = count
+        } catch (SearchEngineQueryParseException ex) {
+            return(null)
+        }
+        return(responseData)
     }
     
 }

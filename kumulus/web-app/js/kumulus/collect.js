@@ -1,6 +1,7 @@
 var containerViewer;
 var nodeWorkflow;
 var tree
+var searchPanel;
 
 function add_node() {
     if(!tree.getSelectedNode()) { 
@@ -115,9 +116,14 @@ function save_node(formData) {
     tree.selectKey(key);
 }
 
+function search() {
+    searchPanel.search();
+}
+
 $(document).ready(function(){    
     containerViewer = new ContainerViewer("WRITE");
     nodeWorkflow = new NodeWorkflow("#workflow", save_node);
+    searchPanel = new SearchPane("#search");
     tree = new NodeTree("#nodeTree", $('#project').attr('projectID'), function(node){
         containerViewer.update(node);
     });

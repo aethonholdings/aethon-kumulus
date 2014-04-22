@@ -1,7 +1,7 @@
 package com.kumulus.controllers.workflow
 
-import org.compass.core.engine.SearchEngineQueryParseException
 import com.kumulus.domain.*
+import grails.converters.JSON
 
 class CustomerController {
     
@@ -9,10 +9,7 @@ class CustomerController {
     def accessService
     def permissionsService
     def workflowService
-    def searchableService
     def captureService
-    
-    static String WILDCARD = "*"
     
     def index() {
         redirect(controller: "home")
@@ -22,20 +19,6 @@ class CustomerController {
         def projectList = Project.findAllByCompany(permissionsService.getCompany().name, [sort: "created", order: "asc"])
         render(view:"home", model:[pageTitle: "Home", projectList: projectList,userId: permissionsService.getUsername()])    
     }
-    
-    def search() { 
-        def searchResult 
-        if (!params.q?.trim()) {
-            return [:]
-        }
-        try {
-            String searchTerm = WILDCARD + params.q + WILDCARD
-            searchResult = searchableService.search(searchTerm, params)
-            return [searchResult: searchResult]
-        } catch (SearchEngineQueryParseException ex) {
-            return [parseException: true]
-        }
-     }  
     
     def download() {
         def project = Project?.findById(params?.id)

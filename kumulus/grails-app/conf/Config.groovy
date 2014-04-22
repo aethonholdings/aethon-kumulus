@@ -158,6 +158,7 @@ grails.plugin.springsecurity.interceptUrlMap = [
         '/barcode/**':                    ['isAuthenticated()'],
         '/shipment/**':                   ['isAuthenticated()'],
         '/product/**':                    ['isAuthenticated()'],
+        '/project/**':                    ['isAuthenticated()']
 ]
 
 // scando controller - use basic authentication

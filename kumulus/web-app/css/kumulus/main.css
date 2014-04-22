@@ -4,6 +4,7 @@ html{
 
 body {
     font-size: 14px;
+    word-break: break-all;
 }
 
 table{
@@ -217,7 +218,7 @@ width:60%;
     padding: 5px;
     border-style: solid;
     border-color: #e0e0e0;
-    background-color: #f4f4f4;
+    background-color: #ffffff;
 }
 
 .kumulus-widget{    
@@ -233,12 +234,7 @@ width:60%;
 }
 
 .kumulus-widget-2-3{
-    border: 1px;
-    padding: 5px;
     height: 388px;    
-    border-style: solid;
-    border-color: #ffffff;
-    background-color: #F7F7F7;
 }
 
 .kumulus-widget-4-5{
@@ -278,7 +274,7 @@ width:60%;
     padding-left: 5px;
     padding-right: 5px;
     margin-bottom: 15px;
-    background-color: #DDDDDD;
+    background-color: #f4f4f4;
 }
 
 .kumulus-widget-header-title {

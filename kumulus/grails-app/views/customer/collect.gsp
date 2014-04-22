@@ -7,6 +7,7 @@
     <g:javascript src='kumulus/containerViewer.js'/>
     <g:javascript src='kumulus/documentViewer.js'/>
     <g:javascript src='kumulus/nodeWorkflow.js'/>
+    <g:javascript src='kumulus/searchPane.js'/>
     <title>Prepare scans | Kumulus</title>
   </head>
   <body>
@@ -89,11 +90,14 @@
                 <span class="kumulus-widget-header-title">Search</span>
                 <span class="kumulus-widget-header-action"></span>
               </div>
-              <div id="search" class="kumulus-search-input">
-                <g:form url='[controller: "customer", action: "search"]' id="searchableForm" name="searchableForm" method="get">
-                  <g:textField name="q" value="${params.q}" class="pure-input" placeholder="Enter search terms" size="20"/> 
-                  <input type="submit" value="Search" class="pure-button" onclick="show_advanced();"/>
-                </g:form>
+              <div id="search">
+                <div class="kumulus-search-input">
+                  <input name="projectId" value="${project.id}" class="pure-input-search-project" type="hidden"/>
+                  <g:textField name="q" value="${params.q}" class="pure-input-search" placeholder="Enter search terms" size="20"/> 
+                  <input type="submit" value="Search" class="pure-button" onclick="search();"/>
+                </div>
+                <div class="kumulus-search-outputs kumulus-scrollable-y">
+                </div>
               </div>
             </div>
           </div>
