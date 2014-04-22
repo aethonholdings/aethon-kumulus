@@ -12,7 +12,7 @@
     <div class="pure-g">
       <div class="pure-u-1-5">
         <div class="kumulus-container">
-          <div class="kumulus-widget">
+          <div class="kumulus-widget-base kumulus-widget">
             <div class="kumulus-widget-header">
               <span class="kumulus-widget-header-title">Project details</span>
               <span class="kumulus-widget-header-action"></span>
@@ -43,7 +43,7 @@
       <div class="pure-u-2-5">
         <span id="project" projectID="${project?.id}"></span>
         <div class="kumulus-container">
-          <div class="kumulus-widget-4-5">
+          <div class="kumulus-widget-base kumulus-widget-4-5">
             <div class="kumulus-widget-header">
               <span class="kumulus-widget-header-title">Archive structure</span>
               <span class="kumulus-widget-header-action"><g:link controller="customer" action="collect" params='[id: "${project?.id}"]'>Collect paperwork</g:link></span>
@@ -52,7 +52,7 @@
               <div id="nodeTree" class="jstree-draggable"></div>
             </div>
           </div>
-          <div class="kumulus-widget-1-5">
+          <div class="kumulus-widget-base kumulus-widget-1-5">
             <div class="kumulus-widget-header">
               <span class="kumulus-widget-header-title">Archive search</span>
               <span class="kumulus-widget-header-action"></span>
@@ -68,7 +68,7 @@
       </div>
       <div class="pure-u-2-5">
         <div class="kumulus-container">
-          <div class="kumulus-widget-2-5">
+          <div class="kumulus-widget-base kumulus-widget-2-5">
             <div class="kumulus-widget-header">
               <span class="kumulus-widget-header-title">Container details</span>
               <span class="kumulus-widget-header-action"></span>
@@ -93,7 +93,7 @@
             </div>
             <div id ="nodeActions" class="kumulus-button-bank"></div>
           </div>
-          <div class="kumulus-widget-3-5 kumulus-scrollable-y">
+          <div class="kumulus-widget-base kumulus-widget-3-5 kumulus-scrollable-y">
             <div class="kumulus-container-for-collect">
               <div class="kumulus-widget-header">
                 <span class="kumulus-widget-header-title">Container contents</span>

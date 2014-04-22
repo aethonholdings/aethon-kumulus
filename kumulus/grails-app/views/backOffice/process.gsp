@@ -13,7 +13,7 @@
       <div class="pure-g">
         <div class="pure-u-1-8">
           <div class="kumulus-container">
-            <div class="kumulus-widget kumulus-scrollable-y">
+            <div class="kumulus-widget-base kumulus-widget kumulus-scrollable-y">
               <div id="page-strip" class="kumulus-filmstrip">
                 <ul id="pages">
                   <g:each var="page" in="${document.pages.sort{it.number}}">
@@ -28,14 +28,14 @@
           <div class="kumulus-container">
             <div class="pure-g">
               <div class="pure-u-3-4">
-                <div class="kumulus-widget-1-2 kumulus-scrollable-y">
+                <div class="kumulus-widget-base kumulus-widget-1-2 kumulus-scrollable-y">
                   <div class="kumulus-preview">
                     <img id="preview-img" onClick="zoom();">
                   </div>
                 </div>
               </div>
               <div class="pure-u-1-4">
-                <div class="kumulus-widget-1-2">
+                <div class="kumulus-widget-base kumulus-widget-1-2">
                   <div class="kumulus-data-entry">
                     <fieldset>
                       <input type="hidden" name ="taskId" value="${task.id}"/>
@@ -76,7 +76,7 @@
                 </div> 
               </div>
             </div>
-            <div class="kumulus-widget-1-2 kumulus-margin-bottom kumulus-scrollable-y">
+            <div class="kumulus-widget-base kumulus-widget-1-2 kumulus-margin-bottom kumulus-scrollable-y">
               <div class="kumulus-line-item-table">
                 <table id="lineItems" class="pure-table-horizontal">
                   <thead>

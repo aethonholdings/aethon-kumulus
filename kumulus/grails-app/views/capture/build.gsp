@@ -9,7 +9,7 @@
     <div class="pure-g">
       <div class="pure-u-1-5">
         <div class="kumulus-container">
-          <div class="kumulus-widget">
+          <div class="kumulus-widget-base kumulus-widget">
             <div class="kumulus-widget-header">
               <span class="kumulus-widget-header-title">Container details</span>
               <span class="kumulus-widget-header-action"></span>
@@ -38,7 +38,7 @@
       </div>
       <div class="pure-u-2-5">
         <div class="kumulus-container">
-          <div class="kumulus-widget">
+          <div class="kumulus-widget-base kumulus-widget">
             <div class="kumulus-widget-header">
               <span class="kumulus-widget-header-title">Image preview</span>
               <span class="kumulus-widget-header-action"></span>
@@ -51,7 +51,7 @@
       </div>
       <div class="pure-u-2-5">
         <div class="kumulus-container">
-          <div class="kumulus-widget">
+          <div class="kumulus-widget-base kumulus-widget">
             <div class="kumulus-widget-header">
               <span class="kumulus-widget-header-title">Document builder</span>
               <span class="kumulus-widget-header-action"></span>

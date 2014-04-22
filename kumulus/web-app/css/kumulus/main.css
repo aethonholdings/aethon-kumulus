@@ -211,31 +211,24 @@ width:60%;
     height: 610px;
 }
 
-.kumulus-widget{
+.kumulus-widget-base {
     border: 1px;
     padding: 5px;
-    height: 588px;    
     border-style: solid;
     border-color: #ffffff;
-    background-color: #F7F7F7;
+    background-color: #eeeeee;
+}
+
+.kumulus-widget{    
+    height: 588px;    
 }
 
 .kumulus-widget-1-2{
-    border: 1px;
-    padding: 5px;
     height: 288px;    
-    border-style: solid;
-    border-color: #ffffff;
-    background-color: #F7F7F7;
 }
 
 .kumulus-widget-1-3{
-    border: 1px;
-    padding: 5px;
     height: 188px;    
-    border-style: solid;
-    border-color: #ffffff;
-    background-color: #F7F7F7;
 }
 
 .kumulus-widget-2-3{
@@ -248,39 +241,19 @@ width:60%;
 }
 
 .kumulus-widget-4-5{
-    border: 1px;
-    padding: 5px;
     height: 468px;    
-    border-style: solid;
-    border-color: #ffffff;
-    background-color: #F7F7F7;
 }
 
 .kumulus-widget-3-5{
-    border: 1px;
-    padding: 5px;
     height: 348px;
-    border-style: solid;
-    border-color: #ffffff;
-    background-color: #F7F7F7;
 }
 
 .kumulus-widget-2-5{
-    border: 1px;
-    padding: 5px;
     height: 228px;    
-    border-style: solid;
-    border-color: #ffffff;
-    background-color: #F7F7F7;
 }
 
 .kumulus-widget-1-5{
-    border: 1px;
-    padding: 5px;
     height: 108px;    
-    border-style: solid;
-    border-color: #ffffff;
-    background-color: #F7F7F7;
 }
 
 .kumulus-scrollable-y{
@@ -389,6 +362,7 @@ width:60%;
     padding: 1px 3px;
     overflow-x: auto;
     overflow-y: auto;
+    height: 250px;
 }
 
 .kumulus-line-item-table {
@@ -730,9 +704,6 @@ label.error{
 /* SEARCH */
 .kumulus-search-input{
     text-align: center;
-    width: 30px;
-    margin-left: auto;
-    margin-right: auto;
 }
 
 .kumulus-search-margin{

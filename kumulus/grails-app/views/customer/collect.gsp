@@ -11,28 +11,23 @@
   <body>
     <span id="project" projectID="${project.id}"></span>  
       <div class="pure-g">
-        <div class="pure-u-1-4">
-          <div class="kumulus-container">
-            <div class="kumulus-widget kumulus-scrollable-y kumulus-scrollable-x">
-              <div class="kumulus-widget-header">
-                <span class="kumulus-widget-header-title">Archive structure</span>
-                <span class="kumulus-widget-header-action"></span>
-              </div>
-              <div class="kumulus-node-tree">
-                <div id="nodeTree" class="jstree-draggable"></div>
-              </div>            
-            </div>
-          </div>
-          <div class="kumulus-button-bank">
-            <button type="button" id="button-add" class="pure-button kumulus-margin-bottom" onclick="add_node();">Add</button>
-            <button type="button" id="button-edit" class="pure-button kumulus-margin-bottom" onclick="update_node();">Edit</button>
-            <button type="button" id="button-delete" class="pure-button kumulus-margin-bottom" onclick="delete_node();">Delete</button>
-            <button type="button" id="button-search" class="pure-button kumulus-margin-bottom" onclick="search_node();">Search barcode</button>
-          </div>
-        </div>
         <div class="pure-u-1-3">
           <div class="kumulus-container">
-            <div class="kumulus-widget">
+            <div class="kumulus-widget-base kumulus-widget-3-5">
+              <div class="kumulus-widget-header">
+                <span class="kumulus-widget-header-title">Archive contents</span>
+                <span class="kumulus-widget-header-action"></span>
+              </div>
+              <div class="kumulus-node-tree kumulus-scrollable-y kumulus-scrollable-x">
+                <div id="nodeTree" class="jstree-draggable"></div>
+              </div>            
+              <div class="kumulus-button-bank">
+                <button type="button" id="button-add" class="pure-button kumulus-margin-bottom" onclick="add_node();">Add</button>
+                <button type="button" id="button-edit" class="pure-button kumulus-margin-bottom" onclick="update_node();">Edit</button>
+                <button type="button" id="button-delete" class="pure-button kumulus-margin-bottom" onclick="delete_node();">Delete</button>
+              </div>
+            </div>
+            <div class="kumulus-widget-base kumulus-widget-2-5">
               <div class="kumulus-widget-header">
                 <span class="kumulus-widget-header-title">Container details</span>
                 <span class="kumulus-widget-header-action"></span>
@@ -56,36 +51,18 @@
                 </div>
               </div>
               <div id ="nodeActions" class="kumulus-button-bank"></div>
-            </div>    
+            </div> 
           </div>
-        </div>  
-        <div class="pure-u-5-12">
+        </div>
+        <div class="pure-u-1-3">
           <div class="kumulus-container">
-            <div class="kumulus-widget-1-5">
-              <div class="kumulus-widget-header">
-                <span class="kumulus-widget-header-title">Archive search</span>
-                <span class="kumulus-widget-header-action"></span>
-              </div>
-              <div id="search" class="kumulus-search-input">
-                <g:form url='[controller: "customer", action: "search"]' id="searchableForm" name="searchableForm" method="get">
-                  <g:textField name="q" value="${params.q}" class="pure-input" placeholder="Enter search terms" size="30"/> 
-                  <input type="submit" value="Search" class="pure-button" onclick="show_advanced();"/>
-                </g:form>
-              </div>
-            </div>
-            <div class="kumulus-widget-4-5 kumulus-scrollable-y">
+            <div class="kumulus-widget-base kumulus-widget kumulus-scrollable-y">
               <div class="kumulus-container-for-collect">
                 <div class="kumulus-widget-header">
                   <span class="kumulus-widget-header-title">Container contents</span>
                 </div>
                 <div class="kumulus-scrollable-y">
                   <table id="pageInfo" class="pure-table pure-table-horizontal">
-                    <thead>
-                      <tr>
-                        <th class="kumulus-td-width">Thumbnail</th>
-                        <th>Status</th>
-                      </tr>
-                    </thead>
                     <tbody> 
                     </tbody>
                   </table>
@@ -93,9 +70,34 @@
               </div>
             </div>
           </div>
+        </div>  
+        <div class="pure-u-1-3">
+          <div class="kumulus-container">
+            <div class="kumulus-widget-base kumulus-widget-1-5">
+              <div class="kumulus-widget-header">
+                <span class="kumulus-widget-header-title">Archive access</span>
+                <span class="kumulus-widget-header-action"></span>
+              </div>
+              <div class="kumulus-search-input">
+                <g:link controller="customer" action="download" id="${project.id}" >Download journal</g:link> | 
+                <a hred="#">Download documents</a> 
+              </div>
+            </div>
+            <div class ="kumulus-widget-base kumulus-widget-4-5">
+              <div class="kumulus-widget-header">
+                <span class="kumulus-widget-header-title">Archive search</span>
+                <span class="kumulus-widget-header-action"></span>
+              </div>
+              <div id="search" class="kumulus-search-input">
+                <g:form url='[controller: "customer", action: "search"]' id="searchableForm" name="searchableForm" method="get">
+                  <g:textField name="q" value="${params.q}" class="pure-input" placeholder="Enter search terms" size="20"/> 
+                  <input type="submit" value="Search" class="pure-button" onclick="show_advanced();"/>
+                </g:form>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-
       <div id="workflow">
         <div class="kumulus-data-entry">
           <form name="newContainer" action="add" method="POST" class="pure-form pure-form-aligned">
@@ -131,8 +133,7 @@
             </div>
           </form>
         </div>
-      </div>
-    
+      </div>  
     </div>
   </body>
 </html>

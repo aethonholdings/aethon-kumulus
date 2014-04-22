@@ -14,7 +14,7 @@
   </head>
   <body>
     <div class="kumulus-container">
-      <div class="kumulus-widget kumulus-scrollable-y kumulus-element-border">
+      <div class="kumulus-widget-base kumulus-widget kumulus-scrollable-y kumulus-element-border">
         
         <g:form name="edit" action="update" id="${project?.id}" class="pure-form">     
           <% SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy"); %>

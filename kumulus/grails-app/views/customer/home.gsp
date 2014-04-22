@@ -13,7 +13,7 @@
     <div class="pure-g">
       <div class="pure-u-1">
         <div class="kumulus-container">
-          <div class="kumulus-widget kumulus-scrollable-y">
+          <div class="kumulus-widget-base kumulus-widget kumulus-scrollable-y">
             <div class="kumulus-widget-header">
               <span class="kumulus-widget-header-title">You are working on ${projectList.size} projects</span>
               <span class="kumulus-widget-header-action"><g:link controller="customer" action="create">Create new</g:link></span>

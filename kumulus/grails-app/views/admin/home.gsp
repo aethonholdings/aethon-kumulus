@@ -14,15 +14,15 @@
     <div class="pure-g">
       <div class="pure-u-1-2">
         <div class="kumulus-container">
-          <div class="kumulus-widget-1-3 kumulus-scrollable-y">                
-            <div class="kumulus-widget-header">
+          <div class="kumulus-widget-base kumulus-widget-1-3 kumulus-scrollable-y">                
+            <div class="kumulus-widget-base kumulus-widget-header">
               <span class="kumulus-widget-header-title">You have ${userTasks.count} tasks outstanding in your task queue</span>
               <span class="kumulus-widget-header-action"></span>
             </div>
             <div class="kumulus-task"><g:taskQueue userId="${userId}"/></div>
           </div>
           <sec:ifAnyGranted roles="ROLE_BACK_OFFICE">
-            <div class="kumulus-widget-1-3 kumulus-scrollable-y">
+            <div class="kumulus-widget-base kumulus-widget-1-3 kumulus-scrollable-y">
               
               <div class="kumulus-widget-header">
                 <span class="kumulus-widget-header-title">There are ${backOfficeTasks.count} tasks outstanding in the Kumulus task queue</span>
@@ -32,14 +32,14 @@
             </div>
           </sec:ifAnyGranted>
           <sec:ifNotGranted roles="ROLE_BACK_OFFICE">            
-            <div class="kumulus-widget-1-3 kumulus-scrollable-y">
+            <div class="kumulus-widget-base kumulus-widget-1-3 kumulus-scrollable-y">
               <div class="kumulus-widget-header">
                 <span class="kumulus-widget-header-title">There are ${backOfficeTasks.count} tasks in the Kumulus queue</span>
                 <span class="kumulus-widget-header-action"></span>
               </div>
             </div>
           </sec:ifNotGranted>
-          <div class="kumulus-widget-1-3 kumulus-scrollable-y">     
+          <div class="kumulus-widget-base kumulus-widget-1-3 kumulus-scrollable-y">     
             <div class="kumulus-widget-header">
               <span class="kumulus-widget-header-title">You have ${shipmentList.size} document shipments arranged</span>
               <span class="kumulus-widget-header-action"><g:link controller="shipment" action="create">Create new</g:link></span>
@@ -68,7 +68,7 @@
       </div>
       <div class="pure-u-1-2">
         <div class="kumulus-container">
-          <div class="kumulus-widget kumulus-scrollable-y">
+          <div class="kumulus-widget-base kumulus-widget kumulus-scrollable-y">
             <div class="kumulus-widget-header">
               <span class="kumulus-widget-header-title">You are working on ${projectList.size} projects</span>
               <span class="kumulus-widget-header-action"><g:link controller="project" action="create">Create new</g:link></span>
