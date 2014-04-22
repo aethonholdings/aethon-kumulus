@@ -158,4 +158,28 @@ class KumulusTagLib {
         }
         out<<"</div>"        
     }
+    
+    def viewImage = {attrs ->
+        if(attrs?.image) {
+            out << "<html>"
+            out << "\t<head>"
+            out << "\t</head>"
+            out << "\t<body>"
+            out << "\t\t<img  src='${request.contextPath}/image/get/${attrs.image.id}'>"
+            out << "\t</body>"
+            out << "</html>"
+        }
+    }
+    
+    def viewDocument = {attrs ->
+        if(attrs?.document) {
+            out << "<html>"
+            out << "\t<head>"
+            out << "\t</head>"
+            out << "\t<body>"
+            out << "<object width='100%' height='100%' type='application/pdf' src='${request.contextPath}/document/get/${attrs.document.id}'>"
+            out << "\t</body>"
+            out << "</html>"
+        }
+    }
 }

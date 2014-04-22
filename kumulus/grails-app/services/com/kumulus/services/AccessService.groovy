@@ -2,6 +2,7 @@ package com.kumulus.services
 
 import com.kumulus.domain.*
 import grails.transaction.Transactional
+import com.lucastex.grails.fileuploader.UFile
 
 @Transactional
 class AccessService {
@@ -66,6 +67,22 @@ class AccessService {
             ]
             return(output)
         }
+    }
+    
+    void renderFile(response, UFile ufile, String disposition) {
+        def contentTypes = [
+            jpg: "image/jpg",
+            png: "image/png",
+            pdf: "application/pdf"
+        ]
+        def contentType = contentTypes.get(ufile.extension)
+        def file = new File(ufile.path)        
+        
+        ufile.downloads++
+        ufile.save()
+        response.setContentType(contentType)
+        response.setHeader("Content-disposition", disposition + "; filename=${ufile.name}")
+        response.outputStream << file.readBytes()
     }
     
 }

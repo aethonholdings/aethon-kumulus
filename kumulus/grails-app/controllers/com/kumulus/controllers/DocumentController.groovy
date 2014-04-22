@@ -6,6 +6,7 @@ import com.kumulus.jobs.SubmitDocumentJob
 
 class DocumentController {
     
+    def accessService
     def workflowService
     def permissionsService
     def captureService
@@ -57,9 +58,20 @@ class DocumentController {
         def document = Document.findById(params?.id) 
         if(document && permissionsService.checkPermissions(document)) {
             if(document.status>=Document.STATUS_IMPORTED && document.file) {
-                redirect controller: "download", action: "index", id: document.file.id
+                accessService.renderFile(response, document.file, "attachment")
             } else {
-                if(document?.pages[0]) redirect controller: "download", action: "index", id: document.pages[0].viewImage.file.id
+                if(document?.pages[0]) redirect controller: "image", action: "get", id: document.pages[0].viewImage.id
+            }
+        }
+    }
+    
+    def view() {
+        def document = Document.findById(params?.id) 
+        if(document && permissionsService.checkPermissions(document)) {
+            if(document.status>=Document.STATUS_IMPORTED && document.file) {
+                accessService.renderFile(response, document.file, "inline")
+            } else {
+                if(document?.pages[0]) redirect controller: "image", action: "view", id: document.pages[0].viewImage.id
             }
         }
     }

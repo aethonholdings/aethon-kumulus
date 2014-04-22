@@ -3,6 +3,7 @@
   <head>
     <title>Build documents | Kumulus</title>
     <g:javascript src='kumulus/documentBuilder.js'/>
+    <g:javascript src='kumulus/documentViewer.js'/>
     <g:javascript src='kumulus/preview.js'/>
   </head>
   <body>

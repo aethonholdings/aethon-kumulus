@@ -5,6 +5,7 @@
     <g:javascript src='dynatree/jquery.dynatree.js'/>
     <g:javascript src='kumulus/nodeTree.js'/>
     <g:javascript src='kumulus/containerViewer.js'/>
+    <g:javascript src='kumulus/documentViewer.js'/>
     <g:javascript src='kumulus/nodeWorkflow.js'/>
     <title>Prepare scans | Kumulus</title>
   </head>
@@ -75,7 +76,7 @@
           <div class="kumulus-container">
             <div class="kumulus-widget-base kumulus-widget-1-5">
               <div class="kumulus-widget-header">
-                <span class="kumulus-widget-header-title">Archive access</span>
+                <span class="kumulus-widget-header-title">Download data</span>
                 <span class="kumulus-widget-header-action"></span>
               </div>
               <div class="kumulus-search-input">
@@ -85,7 +86,7 @@
             </div>
             <div class ="kumulus-widget-base kumulus-widget-4-5">
               <div class="kumulus-widget-header">
-                <span class="kumulus-widget-header-title">Archive search</span>
+                <span class="kumulus-widget-header-title">Search</span>
                 <span class="kumulus-widget-header-action"></span>
               </div>
               <div id="search" class="kumulus-search-input">

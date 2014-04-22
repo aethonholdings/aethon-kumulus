@@ -36,7 +36,7 @@ function ContainerViewer(permissions) {
                         var imgUrl = url('image','get', data[i].thumbnailImageId);
                         var status = data[i].status;
                         $("#pageInfo tbody").append(
-                            '<tr><td><a href="' + url("document", "get", data[i].id) + '"><img class="kumulus-thumbnail" height="140" width="100"  src='+ imgUrl +' /></a></td><td>'+status+'</td></tr>'
+                            '<tr><td><a href="#"><img class="kumulus-thumbnail" height="140" width="100"  src='+ imgUrl +' onClick="new DocumentViewer(' + data[i].id + ')"/></a></td><td>'+status+'</td></tr>'
                         );
                     });
                 }
@@ -133,6 +133,6 @@ function ContainerViewer(permissions) {
             }
         }); 
     }
-    
+        
 }
 
