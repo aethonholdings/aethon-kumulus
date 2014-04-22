@@ -212,15 +212,16 @@ width:60%;
 }
 
 .kumulus-widget-base {
+    margin: 3px;
     border: 1px;
     padding: 5px;
     border-style: solid;
-    border-color: #ffffff;
-    background-color: #eeeeee;
+    border-color: #e0e0e0;
+    background-color: #f4f4f4;
 }
 
 .kumulus-widget{    
-    height: 588px;    
+    height: 591px;    
 }
 
 .kumulus-widget-1-2{
