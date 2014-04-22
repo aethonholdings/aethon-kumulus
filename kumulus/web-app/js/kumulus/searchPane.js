@@ -17,12 +17,12 @@ function SearchPane(element) {
                 function(response) {
                     instance.output.empty();
                     instance.output.append("<p class='.kumulus-search-result'>" + response.total + " search results</p>");
-                    instance.output.append("\t<ul>");
+                    instance.output.append("<ul>");
                     // alert(JSON.stringify(response));
                     for(var i=0; i<response.data.length; i++) {
-                        instance.output.append("\t\t<li class='.kumulus-search-result'>" + response.data[i].nodeName + "</li>");
+                        instance.output.append("\t<li class='.kumulus-search-result'>" + response.data[i].nodeName + "</li>");
                     }
-                    instance.output.append("\t</ul>");                
+                    instance.output.append("</ul>");                
                 }   
         );
     }
