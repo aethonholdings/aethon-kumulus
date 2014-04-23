@@ -15,7 +15,7 @@
       <div class="pure-u-1-2">
         <div class="kumulus-container">
           <div class="kumulus-widget-base kumulus-widget kumulus-scrollable-y">                
-            <div class="kumulus-widget-base kumulus-widget-header">
+            <div class="kumulus-widget-header">
               <span class="kumulus-widget-header-title">You have ${userTasks.count} tasks outstanding in your task queue</span>
               <span class="kumulus-widget-header-action"></span>
             </div>

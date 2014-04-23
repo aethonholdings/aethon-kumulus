@@ -120,10 +120,18 @@ function search() {
     searchPanel.search();
 }
 
+function selectSearchResult(searchResult, type) {
+    tree.expandKeypath(searchResult.keypath);
+    if(type=="document" && searchResult.documentId!=-1) {        
+        new DocumentViewer(searchResult.documentId);
+    }
+}
+
+
 $(document).ready(function(){    
     containerViewer = new ContainerViewer("WRITE");
     nodeWorkflow = new NodeWorkflow("#workflow", save_node);
-    searchPanel = new SearchPane("#search");
+    searchPanel = new SearchPane("#search", selectSearchResult);
     tree = new NodeTree("#nodeTree", $('#project').attr('projectID'), function(node){
         containerViewer.update(node);
     });

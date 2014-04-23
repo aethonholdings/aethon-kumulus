@@ -59,16 +59,14 @@
         <div class="pure-u-1-3">
           <div class="kumulus-container">
             <div class="kumulus-widget-base kumulus-widget kumulus-scrollable-y">
-              <div class="kumulus-container-for-collect">
-                <div class="kumulus-widget-header">
-                  <span class="kumulus-widget-header-title">Container contents</span>
-                </div>
-                <div class="kumulus-scrollable-y">
-                  <table id="pageInfo" class="pure-table pure-table-horizontal">
-                    <tbody> 
-                    </tbody>
-                  </table>
-                </div>
+              <div class="kumulus-widget-header">
+                <span class="kumulus-widget-header-title">Container contents</span>
+              </div>
+              <div class="kumulus-scrollable-y">
+                <table id="pageInfo" class="pure-table pure-table-horizontal kumulus-table-no-border">
+                  <tbody> 
+                  </tbody>
+                </table>
               </div>
             </div>
           </div>
@@ -92,9 +90,11 @@
               </div>
               <div id="search">
                 <div class="kumulus-search-input">
-                  <input name="projectId" value="${project.id}" class="pure-input-search-project" type="hidden"/>
-                  <g:textField name="q" value="${params.q}" class="pure-input-search" placeholder="Enter search terms" size="20"/> 
-                  <input type="submit" value="Search" class="pure-button" onclick="search();"/>
+                  <form>
+                    <input name="projectId" value="${project.id}" class="pure-input-search-project" type="hidden"/>
+                    <g:textField name="q" value="${params.q}" class="pure-input-search" placeholder="Enter search terms" size="20"/> 
+                    <input type="submit" value="Search" class="pure-button" onclick="search();"/>
+                  </form>
                 </div>
                 <div class="kumulus-search-outputs kumulus-scrollable-y">
                 </div>
@@ -105,16 +105,16 @@
       </div>
       <div id="workflow">
         <div class="kumulus-data-entry">
-          <form name="newContainer" action="add" method="POST" class="pure-form pure-form-aligned">
+          <form name="newContainer" class="kumulus-import-node">
             <fieldset>
-              <div class="kumulus-hight kumulus-control-group">
-                <div class="kumulus-barcode-image"> <img src="../../images/barcode.png" class="kumulus-image"  alt="no image"/> </div>
-                <label for="barcode" class="kumulus-label">* Stick the Barcode sticker on the container or Box and Scan the Barcode</label>
+              <div class="kumulus-control-group">
+<!--                <img src="../../images/barcode.png" alt="no image"/>-->
+                <label for="barcode">* Stick the Barcode sticker on the container or Box and Scan the Barcode</label>
                 <input id="barcode" type="text" placeholder="Scan container barcode" disabled>
-              </div>  
-              <div class="kumulus-hight kumulus-control-group">
-                <div class="kumulus-barcode-image"> <img src="../../images/container-type.jpg" class="kumulus-image"  alt="no image"/> </div>
-                <label for="type" class="kumulus-label">* Please select a container type</label>
+              </div>
+              <div class="kumulus-control-group">
+<!--                <img src="../../images/container-type.jpg" alt="no image"/>-->
+                <label for="type">* Please select a container type</label>
                 <select id="type" disabled>
                   <option value=""  selected="selected">Please Select Container Type</option>
                   <g:each in="${nodeTypes}" var="nodeType">
@@ -122,14 +122,14 @@
                   </g:each>                  
                 </select>
               </div>
-              <div class="kumulus-hight kumulus-control-group">
-                <div class="kumulus-barcode-image"> <img src="../../images/container-name.jpg" class="kumulus-image"  alt="no image"/> </div>
-                <label for="name" class="kumulus-label">* Please enter the container name</label>
+              <div class="kumulus-control-group">
+<!--                <img src="../../images/container-name.jpg" alt="no image"/>-->
+                <label for="name">* Please enter the container name</label>
                 <input id="name" type="text" placeholder="Enter name here" disabled>
               </div>
-              <div class="kumulus-hight kumulus-control-group">
-                <div class="kumulus-barcode-image"> <img src="../../images/comment.png" class="kumulus-image"  alt="no image"/> </div>
-                <label for="comment" class="kumulus-label">Comments</label>
+              <div class="kumulus-control-group">
+<!--                <img src="../../images/comment.png" alt="no image"/>-->
+                <label for="comment">Comments</label>
                 <textarea id="comment" type="text" disabled rows="5"></textarea>
               </div>
             </fieldset>

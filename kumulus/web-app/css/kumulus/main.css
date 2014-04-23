@@ -2,16 +2,56 @@ html{
     
 }
 
-body {
+body{
     font-size: 14px;
-    word-break: break-all;
 }
 
-table{
+/* -- LAYOUT ---------------------------- */
+
+#layout{
+    width:90%;
+    margin: auto;
+}
+
+.kumulus-float-left{
+    float:left;
+}
+
+.kumulus-float-right{
+    float: right;
+    margin-right: 5px;
+}
+
+.kumulus-margin-bottom{
+    margin-bottom: 3px;
+}
+
+.kumulus-margin-left{
+    margin-left: 12px;
+}
+
+.kumulus-padding-side{
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+#kumulus-full-width{ 
     width: 100%;
 }
 
-/*header*/
+.kumulus-print{
+    width: 100%;
+}
+
+/* -- IMAGES --------------------------- */
+
+.kumulus-image{
+    vertical-align: middle;
+    width:  70%;
+}
+
+/* -- HEADER ---------------------------- */
+
 #kumulus-header-layout{
     background: linear-gradient (bottom, #0B5992 5%, #0E3857 95%);
     background: -moz-linear-gradient(bottom, #0B5992 5%, #0E3857 95%);
@@ -25,7 +65,7 @@ table{
     margin-bottom: 3px;
 }
 
-#kumulus-logo{
+#kumulus-logo{ 
     height:59px;
     width: 59px;
     line-height: 60px;
@@ -33,143 +73,6 @@ table{
     background-repeat: no-repeat;
     background-position:  center;
     border-radius: 4px;
-}
-/*menu*/
-.kumulus-menu {
-	height: 30px;
-	width: 100%;
-        background-color: #0B5992 ;
-	position: relative;
-        margin-bottom: 3px;
-}
-.kumulus-menu ul {
-        width: 90%;
-	margin: auto;
-	height: 30px;
-        padding: 0px;
-        -webkit-padding-start:0px;
-}
-.kumulus-menu li {
-	display: inline;
-	float: left;
-        margin-right: 3px;
-        min-width: 19%;
-}
-.kumulus-menu a {
-	color: #fff;
-        width: 100%;
-	display: inline-block;
-	text-align: center;
-	text-decoration: none;
-	text-shadow: 1px 1px 0px #283744;
-        line-height: 30px;
-        font-weight: bold;
-}
-
-.kumulus-menu li a {
-	box-sizing:border-box;
-	-moz-box-sizing:border-box;
-	-webkit-box-sizing:border-box;
-}
-.kumulus-menu li:last-child a {
-	border-right: 0;
-}
-.kumulus-menu a:hover{
-	background:#fff;
-        color: darkblue;
-        text-shadow: none;
-}
-.kumulus-menu a#pull {
-	display: none;
-}
-
-/*menu test*/
-
-/*mainlayout*/
-#layout{
-    width:90%;
-    margin: auto;
-}
-
-.kumulus-small-font {
-    
-}
-
-.kumulus-hight{
-    text-align:left;
-    height: 103px;  
-    margin: Auto;
-    line-height: 100px;
-}
-
-.kumulus-label{
-    line-height: 15px;
-    text-align: left;
-    vertical-align: middle;
-    font-size: 2em;
-    width:30%
-}
-
-.kumulus-float-left{
-    float:left;
-}
-
-.kumulus-float-right{
-    float: right;
-    margin-right: 5px;
-}
-.kumulus-barcode-image{
-    height: 100%;
-    width: 15%;
-    float: left;
-    line-height: 90px;;
-    margin-left: 10px;
-    margin-right:10px;
-}
-.kumulus-image{
-    vertical-align: middle;
-    width:  70%;
-}
-.kumulus-thumbnail-image{
-    vertical-align: middle;
-    width:  40%;
-}
-.kumulus-td-width{
-width:60%;
-}
-
-.kumulus-control-group{
-    margin-bottom:.5em
-}
-
-.kumulus-control-group label{
-        display:inline-block;
-        vertical-align:middle;
-        margin:0 1em 0 0 
-}
-
-.kumulus-margin-bottom{
-    margin-bottom: 3px;
-}
-
-.kumulus-margin-left{
-    margin-left: 12px;
-}
-
-.kumulus-bold-font{
-    font-weight: bold; 
-    font-size: 14px;
-}
-
-.kumulus-padding-side{
-    padding-left: 40px;
-    padding-right: 40px;
-}
-
-.kumulus-gradient-blue{
-    background: linear-gradient(top,#001133,#003355);
-    color: white;
-    a: "color: white;";
 }
 
 .kumulus-session-management{
@@ -185,8 +88,60 @@ width:60%;
 .kumulus-session-management a:hover{
     color: #ABA144;
 }
-/* layout body */
-#kumulus-full-width{
+
+/* -- MENU  ---------------------------- */
+
+.kumulus-menu{
+	height: 30px;
+	width: 100%;
+        background-color: #0B5992 ;
+	position: relative;
+        margin-bottom: 3px;
+}
+.kumulus-menu ul{
+        width: 90%;
+	margin: auto;
+	height: 30px;
+        padding: 0px;
+        -webkit-padding-start:0px;
+}
+.kumulus-menu li{
+	display: inline;
+	float: left;
+        margin-right: 3px;
+        min-width: 19%;
+}
+.kumulus-menu a{
+	color: #fff;
+        width: 100%;
+	display: inline-block;
+	text-align: center;
+	text-decoration: none;
+	text-shadow: 1px 1px 0px #283744;
+        line-height: 30px;
+        font-weight: bold;
+}
+
+.kumulus-menu li a{
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+}
+.kumulus-menu li:last-child a{
+	border-right: 0;
+}
+.kumulus-menu a:hover{
+	background:#fff;
+        color: darkblue;
+        text-shadow: none;
+}
+.kumulus-menu a#pull{
+	display: none;
+}
+
+/* -- TABLE --------------------------- */
+
+table{
     width: 100%;
 }
 
@@ -194,14 +149,16 @@ width:60%;
     margin: 3px;
 }
 
-#advancedSearch{
-    text-align:center;
+.pure-table-horizontal td,.pure-table-horizontal th{
+	border-width:0 0 0px;
+	border-bottom:0px;
 }
 
-#search{
-    width: 100%;
-    margin: 2px auto;
+.kumulus-td-width{
+width:60%;
 }
+
+/* -- WIDGET CONTAINERS --------------------------- */
 
 /*  work area layout elements and widgets
     widget sizing formula to calculate element height: 
@@ -212,7 +169,7 @@ width:60%;
     height: 610px;
 }
 
-.kumulus-widget-base {
+.kumulus-widget-base{
     margin: 3px;
     border: 1px;
     padding: 5px;
@@ -261,13 +218,7 @@ width:60%;
     overflow-x: auto;
 }
 
-.kumulus-padding{
-    padding: 3px;
-}
-
-/*  widget headers */
-
-.kumulus-widget-header {
+.kumulus-widget-header{
     width: auto;
     padding-bottom: 5px;
     padding-top: 5px;
@@ -277,30 +228,17 @@ width:60%;
     background-color: #f4f4f4;
 }
 
-.kumulus-widget-header-title {
+.kumulus-widget-header-title{
     font-weight: bold;
     color: #1d3aa4;
 }
 
-.kumulus-widget-header-action {
+.kumulus-widget-header-action{
     float: right;
 }
 
+/* -- PREVIEW WIDGET --------------------------- */
 
-
-
-.kumulus-print{
-    width: 100%;
-}
-
-.kumulus-button-bank {
-    text-align: right;
-    margin-right: 1px;
-    margin-left: 1px;
-    margin-top: 1px;
-}
-
-/* UI element components */
 .kumulus-preview{
     height: 95%;
     width: 95%;
@@ -308,12 +246,7 @@ width:60%;
     text-align:center;
 }
 
-.kumulus-button-bank a{
-    margin-top: 4px;
-    
-}
-
-/* filmstrip */
+/* -- FILMSTRIP WIDGET --------------------------- */
 
 .kumulus-filmstrip{
     background-color: #d8e3ff; 
@@ -342,35 +275,130 @@ width:60%;
     border-color: #dfdfdf;
 }
 
-.kumulus-control-group input,textarea,select{
-    width: 40%;
-    margin: auto;
-    margin-top: 6px;
-    padding: 4px;
+.kumulus-thumbnail-image{
+    vertical-align: middle;
+    width:  40%;
 }
-    
+
+/* -- CONTAINER CONTENT WIDGET -------------------- */
+
+.kumulus-table-no-border{
+    border: 0px;
+}
+
+
+/* -- TASK QUEUE WIDGET --------------------------- */
+
+.kumulus-task-queue-action-item{
+    background-color: #EFEFD5;
+}
+
+.kumulus-task-queue{
+    width: 100%;
+}
+
+.kumulus-task-queue-project-name{
+    float: left;
+    padding-left: 15px;
+}
+
+.kumulus-task-queue-action{
+    width: 22%;
+    text-align:center;
+}
+
+.kumulus-task-count{
+    width: 22%;
+    text-align:center;    
+}
+
+/* -- SEARCH WIDGET ----------------------- */
+
+.kumulus-search-input{
+    text-align: center;
+}
+
+.kumulus-search-result{
+    list-style: none;
+    margin-bottom: 10px;
+    margin-left: 5px;
+}
+
+/* -- BUTTON BANKS --------------------------- */
+
+.kumulus-button-align{
+    margin-top: -3px;
+}
+
+.kumulus-button-bank{
+    text-align: right;
+    margin-right: 1px;
+    margin-left: 1px;
+    margin-top: 1px;
+}
+
+.kumulus-button-bank a{
+    margin-top: 4px;    
+}
+
+/* -- DATA ENTRY WIDGETS ------------------------- */
+
 .kumulus-data-entry{
     padding: 3px 10px;
     overflow-y: auto;
     text-align: left;
 }
 
-.kumulus-node-tree{
-    padding: 1px 3px;
-    overflow-x: auto;
-    overflow-y: auto;
-    height: 250px;
-}
-
-.kumulus-line-item-table {
+.kumulus-line-item-table{
     width: 100%;
     text-align: center;
 }
 
+/* -- NODE IMPORT WIDGET ------------------------- */
 
-.kumulus-header-row {
-    width: 50px;
+.kumulus-import-node fieldset{
+    width: 600px;
+    border: 0px;
 }
+
+.kumulus-control-group {
+}
+
+.kumulus-import-node label {
+    width: 200px;
+    height: 80px;
+    display: inline-block;
+    margin: 5px;
+}
+
+.kumulus-import-node input, select, textarea {
+    width: 250px;
+    height: 80px;
+    display: inline-block;
+    margin: 5px;
+}
+
+/* -- NODE TREE WIDGET ------------------------- */
+
+.kumulus-node-tree{
+    padding: 1px 3px;
+    overflow-x: auto;
+    overflow-y: auto;
+    height: 270px;
+    background-color: null;
+}
+
+
+
+
+
+
+/* -- VARIOUS -------------------------------------*/
+
+.kumulus-table-shipment{
+    width: 500px;
+}
+
 .error{
     background-color:yellow;
 }
@@ -472,35 +500,6 @@ label.error{
 }
 
 
-/* Task queue */
-
-.kumulus-task-queue-action-item{
-    background-color: #EFEFD5;
-}
-
-.kumulus-task-queue{
-    width: 100%;
-}
-
-.kumulus-task-queue-project-name{
-    float: left;
-    padding-left: 15px;
-}
-
-.kumulus-task-queue-action{
-    width: 22%;
-    text-align:center;
-}
-
-.kumulus-task-count{
-    width: 22%;
-    text-align:center;    
-}
-
-
-
-
-
 .pure-u-1-12 .pure-button{
    width: 90%;
 }
@@ -533,10 +532,6 @@ label.error{
     padding: 2px 1px 0px 0px;
 }
 
-.kumulus-button-align{
-    margin-top: -3px;
-}
-
 .pure-table thead{
     background: none;
     border-bottom: 2px #e0e0ef solid;
@@ -549,34 +544,7 @@ label.error{
     border-top: 2px #e0e0ef solid;
 }
 
-.kumulus-search-result{
-    padding : 0px 10px 4px 4px;
-    margin-left:50px;
-    border: #F2F7FD solid 2px;
-    width: 80%;
-    margin-bottom: 4px;
-    border-radius: 5px;
-    overflow: hidden;
-}
-
-.kumulus-search-result p{
-    margin-left: 10px;
-}
-
-.kumulus-search-result h4{
-    margin-left: 10px;
-}
-.paging a.step {
-    padding: 0 .3em;
-}
-.paging span.currentStep {
-    font-weight: bold;
-}
-
-.kumulus-pagination a{
-    padding: 0 .3em;
-}
-@media (max-width : 700px) {
+@media (max-width : 700px){
     .kumulus-table-image{
         height: 60px;
         width: 100px;
@@ -587,7 +555,7 @@ label.error{
     }
     
      .kumulus-label
-    {
+   {
         padding: 3px;
         width:64%;
         line-height: 10px;
@@ -619,8 +587,8 @@ label.error{
         overflow: hidden;
     }
 }
-@media (max-width : 600px) {
-    .kumulus-menu li {
+@media (max-width : 600px){
+    .kumulus-menu li{
             display: inline;
             float: left;
             min-width: 15%;
@@ -632,19 +600,19 @@ label.error{
     }
 }
 /*Smartphone*/
-@media (max-width : 500px) {
+@media (max-width : 500px){
     .kumulus-menu{
         height: 155px;
         background-color: #fff; 
     }
-    .kumulus-menu li {
+    .kumulus-menu li{
         display: block;
         background-color: #0B5992 ;
         float: none;
         width: 100%;
         overflow: hidden;
     }
-    .kumulus-menu li a {
+    .kumulus-menu li a{
         border-bottom: 1px solid #576979;
     }
     .kumulus-barcode-image{
@@ -653,7 +621,7 @@ label.error{
         visibility: hidden;
     }
     .kumulus-label
-    {
+   {
         padding: 3px;
         width:90%;
         line-height: 10px;
@@ -682,39 +650,7 @@ label.error{
 }
 
 
-/* PURE TABLE ADJUSTMENTS */
+/* -- VARIOUS END -------------------------------------*/
 
-.pure-table{
-    border:0px;
-}
 
-.pure-table-horizontal td,.pure-table-horizontal th{
-	border-width:0 0 0px;
-	border-bottom:0px;
-}
-
-/* SHIPMENT TABLE */
-.kumulus-table-shipment {
-    width: 500px;
-}
-
-/* SEARCH */
-.kumulus-search-input{
-    text-align: center;
-}
-
-.kumulus-search-margin{
-    display: inline-block;
-    width: 100%;
-    margin-top: 3px; 
-    padding: 4px;
-}
-.kumulus-search-margin .pure-input{
-    margin-left: 5px;
-    width: 70%;
-}
-
-.kumulus-search-margin .pure-button{
-    float: right;
-}
 

@@ -100,22 +100,32 @@ class AccessService {
             int count = 0
             searchResult.results.each { result ->
                 def resultClass = result.getClass()
-                def node, documentId
+                def node, documentId, documentName;
                 if(resultClass == Node) {
                     node = Node.findById(result.id)
                     documentId = -1
                 }
                 if(resultClass == Document) {
                     def document = Document.findById(result.id)
-                    node = document.pages[0].node
+                    node = document.pages[0].node.parent
                     documentId = document.id
+                    documentName = document.identifier
                 }
                 if(node.project == project) {
+                    String keypath = node.id.toString()
+                    def parent = node.parent
+                    while(parent) {
+                        keypath = parent.id + "/" + keypath
+                        parent = parent.parent
+                    }
+                    keypath = "#" + "/" + keypath
                     responseData.data.add([
                         nodeId: node.id,
                         nodeBarcode: node?.barcode?.text,
                         nodeName: node.name,
-                        documentId: documentId
+                        documentId: documentId,
+                        documentName: documentName,
+                        keypath: keypath
                     ])
                     count++
                 }

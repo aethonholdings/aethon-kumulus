@@ -1,7 +1,7 @@
 function NodeTree(elementId, projectId, refreshCallbackFunction) {
-    
+    var instance = this;
     // create the node tree
-    this.dynatree = $(elementId).dynatree({
+    instance.dynatree = $(elementId).dynatree({
         
         initAjax: {
             title: 'Archive structure',
@@ -78,16 +78,16 @@ function NodeTree(elementId, projectId, refreshCallbackFunction) {
         }
     });
     
-    this.getTree = function() {
+    instance.getTree = function() {
         return $(elementId).dynatree("getTree");
     }
     
-    this.getSelectedNode = function() {
-        return this.getTree().getActiveNode();
+    instance.getSelectedNode = function() {
+        return instance.getTree().getActiveNode();
     }
     
-    this.expandKeypath = function(keypath) { 
-        this.getTree().loadKeyPath(keypath, function(node, status){
+    instance.expandKeypath = function(keypath) { 
+        instance.getTree().loadKeyPath(keypath, function(node, status){
             if(status == "loaded") {
                 // 'node' is a parent that was just traversed.
                 // If we call expand() here, then all nodes will be expanded
@@ -106,23 +106,26 @@ function NodeTree(elementId, projectId, refreshCallbackFunction) {
         }); 
     }
     
-    this.removeNode = function(node) {
+    instance.removeNode = function(node) {
         node.remove();
         if (node.getParent().data.key != '#') {
             node.getParent().reloadChildren(function(selectedNode, isOk) {
-                this.getTree().activateKey(selectedNode.data.key);
+                instance.getTree().activateKey(selectedNode.data.key);
             });
         } else {
-            this.getTree().activateKey(selectedNode.getParent().data.key);
+            instance.getTree().activateKey(selectedNode.getParent().data.key);
         }
     }
     
-    this.selectKey = function(key) {
-        this.getTree().selectKey(key, true);
+    instance.selectKey = function(key) {
+        alert(key);
+        var node = instance.getTree().getNodeByKey(key);
+        alert(node);
+        return node;
     }
     
-    this.reload = function() {
-        this.getTree().reload();
+    instance.reload = function() {
+        instance.getTree().reload();
     }
 }
 
