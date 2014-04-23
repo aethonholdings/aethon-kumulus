@@ -356,24 +356,23 @@ width:60%;
 
 /* -- NODE IMPORT WIDGET ------------------------- */
 
+.kumulus-control-group {
+    height: 80px;
+}
+
 .kumulus-import-node fieldset{
     width: 600px;
     border: 0px;
 }
 
-.kumulus-control-group {
-}
-
 .kumulus-import-node label {
     width: 200px;
-    height: 80px;
     display: inline-block;
     margin: 5px;
 }
 
 .kumulus-import-node input, select, textarea {
     width: 250px;
-    height: 80px;
     display: inline-block;
     margin: 5px;
 }

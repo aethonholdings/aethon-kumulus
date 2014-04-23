@@ -66,7 +66,7 @@
                 <span class="kumulus-widget-header-title">Container contents</span>
               </div>
               <div class="kumulus-scrollable-y">
-                <table id="pageInfo" class="pure-table pure-table-horizontal">
+                <table id="pageInfo" class="pure-table pure-table-horizontal kumulus-table-no-border">
                   <tbody> 
                   </tbody>
                 </table>
