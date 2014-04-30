@@ -80,7 +80,7 @@
               </div>
               <div class="kumulus-search-input">
                 <g:link controller="customer" action="download" id="${project.id}" >Download journal</g:link> | 
-                <a hred="#">Download documents</a> 
+                <a href="#">Download documents</a> 
               </div>
             </div>
             <div class ="kumulus-widget-base kumulus-widget-4-5">
