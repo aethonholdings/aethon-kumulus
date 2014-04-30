@@ -55,11 +55,6 @@ class CustomerController {
           }
           redirect controller : "shipment" , action : "view" ,params:[id: params.shipmentId]
     }
-       
-    def view() {
-        def project=  Project.findById(Integer.parseInt(params.id))
-        render view:"view" , model:[project:project]
-    }
     
     def update() {
         def project = Project.get(params?.id)
