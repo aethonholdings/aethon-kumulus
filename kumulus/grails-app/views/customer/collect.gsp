@@ -1,13 +1,13 @@
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="${resource(dir: 'css/dynatree/skin', file: 'ui.dynatree.css')}"/>
-    <g:javascript src='kumulus/collect.js'/>
     <g:javascript src='dynatree/jquery.dynatree.js'/>
-    <g:javascript src='kumulus/nodeTree.js'/>
-    <g:javascript src='kumulus/containerViewer.js'/>
-    <g:javascript src='kumulus/documentViewer.js'/>
-    <g:javascript src='kumulus/nodeWorkflow.js'/>
-    <g:javascript src='kumulus/searchPane.js'/>
+    <g:javascript src='kumulus/classes/NodeTree.js'/>
+    <g:javascript src='kumulus/classes/DocumentViewer.js'/>
+    <g:javascript src='kumulus/classes/NodeWorkflow.js'/>
+    <g:javascript src='kumulus/classes/ContainerViewer.js'/>
+    <g:javascript src='kumulus/classes/SearchPane.js'/>
+    <g:javascript src='kumulus/collect.js'/>
     <title>Prepare scans | Kumulus</title>
   </head>
   <body>

@@ -9,12 +9,11 @@
   <head>
     <link rel="stylesheet" type="text/css" href="${resource(dir: 'css/dynatree/skin', file: 'ui.dynatree.css')}"/>
     <g:javascript src='dynatree/jquery.dynatree.js'/>
-    <g:javascript src='kumulus/base.js'/>
+    <g:javascript src='kumulus/classes/NodeTree.js'/>
+    <g:javascript src='kumulus/classes/ContainerViewer.js'/>
+    <g:javascript src='kumulus/classes/Uploader.js'/>
+    <g:javascript src='kumulus/classes/DocumentViewer.js'/>
     <g:javascript src='kumulus/upload.js'/>
-    <g:javascript src='kumulus/nodeTree.js'/>
-    <g:javascript src='kumulus/containerViewer.js'/>
-    <g:javascript src='kumulus/uploader.js'/>
-    <g:javascript src='kumulus/documentViewer.js'/>
     <title>Upload scans | Kumulus</title>
   </head>
   <body>

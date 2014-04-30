@@ -3,9 +3,9 @@
   <head>
     <title>Process document | Kumulus</title>
     <g:javascript src='jquery/validate/validate.js'/>
-    <g:javascript src='kumulus/preview.js'/>
-    <g:javascript src='kumulus/process.js'/>
+    <g:javascript src='kumulus/classes/Preview.js'/>
     <g:javascript src='kumulus/validation.js'/>
+    <g:javascript src='kumulus/process.js'/>
   </head>
   <body>
     <g:form name="structure" action="save" id="${document.id}" class="pure-form pure-form-stacked">

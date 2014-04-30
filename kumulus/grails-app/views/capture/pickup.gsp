@@ -10,7 +10,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Arrange document pickup | Kumulus</title>
-     <g:javascript src='kumulus/pickup.js'/>
+        <g:javascript src='kumulus/pickup.js'/>
     </head>
     <body>
        <g:form name="document" action="update">
