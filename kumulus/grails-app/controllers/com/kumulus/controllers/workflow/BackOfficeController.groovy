@@ -8,6 +8,7 @@ class BackOfficeController {
     
     def permissionsService
     def workflowService
+    def captureService
     
     def home() {
         def projectList = Project.findAll {

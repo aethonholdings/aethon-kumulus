@@ -184,22 +184,15 @@ grails.databinding.dateFormats = [
         'yyyy-MM-dd HH:mm:ss.S', 
         "yyyy-MM-dd'T'hh:mm:ss'Z'"
     ]
+
 kumulus {
-    roles = [
-        'ROLE_ADMIN',
-        'ROLE_IMPORT',
-        'ROLE_PROCESS',
-        'ROLE_REVIEW',
-        'ROLE_SUPERVISE',
-        'ROLE_VIEW'
-    ]
     useABBYY = System.getenv('KUMULUS_STRESS') == null
 }
 
 environments {
     development {
         grails.logging.jul.usebridge = true
-        grails.serverURL
+        grails.serverURL = "http://localhost:8080"
         filesystem.root = "../data/filesystem"
         filesystem.staging = "${filesystem.root}/staging/"
         filesystem.main = "${filesystem.root}/main/"
@@ -210,13 +203,11 @@ environments {
                 path = "${filesystem.root}/staging/"
             }
         }
-        // grails.serverURL = "http://localhost:8080/"
     }
     
     test {
-        // grails.serverURL = "http://test.llamrei.sg:8080"
         grails.logging.jul.usebridge = true
-        grails.serverURL
+        grails.serverURL = "http://test.aethon.sg:8080"
         filesystem.root = "/home/tomcat/kumulus"
         filesystem.staging = "${filesystem.root}/staging/"
         filesystem.main = "${filesystem.root}/main/"

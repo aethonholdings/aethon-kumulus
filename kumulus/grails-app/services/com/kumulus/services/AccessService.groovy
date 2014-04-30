@@ -11,6 +11,7 @@ class AccessService {
     
     def searchableService
     def captureService
+    def grailsApplication
     
     def getCSV(project) {
         if (project) {
@@ -23,17 +24,19 @@ class AccessService {
             documents.each {document ->
                 document.pages.each { page ->
                     page.lineItems.each { lineItem ->
+                        
                         def extract = [
-                            id: lineItem?.id,
-                            documentId: document.id,
+                            id: lineItem.id,
+                            link: renderSourceLink(lineItem),
+                            type: document.type.name,
                             page: page.number,
-                            company: lineItem?.page.document.company?.name,
-                            date: lineItem?.date,
-                            description: lineItem?.description, 
-                            currency: lineItem?.currency?.shortName,
-                            quantity: lineItem?.quantity,
-                            price: lineItem?.price, 
-                            amount: lineItem?.amount
+                            company: lineItem.page.document.company?.name,
+                            date: lineItem.date,
+                            description: lineItem.description, 
+                            currency: lineItem.currency.shortName,
+                            quantity: lineItem.quantity,
+                            price: lineItem.price, 
+                            amount: lineItem.amount
                         ]
                         ledger.add extract
                     }
@@ -41,7 +44,8 @@ class AccessService {
             }
             List fields = [
                 "id", 
-                "documentId",
+                "link", 
+                "type", 
                 "page",
                 "company",
                 "date",
@@ -52,10 +56,11 @@ class AccessService {
                 "amount"
             ]
             Map labels = [
-                id: "ID",
-                documentId: "Document ID",
+                id: "Line item id",
+                link: "Source document",
+                type: "Document type",
                 page: "Page number",
-                company: "Company name",
+                company: "Issuing company",
                 date: "Date",
                 description: "Description",
                 currency: "Currency",
@@ -250,6 +255,11 @@ class AccessService {
             nodes.add(renderNode(node))
         }
         return(nodes)
+    }
+    
+    String renderSourceLink(LineItem lineItem) {
+        def g = grailsApplication.mainContext.getBean('org.codehaus.groovy.grails.plugins.web.taglib.ApplicationTagLib');
+        return(g.createLink([controller: "document", action:"get", id: lineItem.id, absolute: true]))
     }
     
 }
