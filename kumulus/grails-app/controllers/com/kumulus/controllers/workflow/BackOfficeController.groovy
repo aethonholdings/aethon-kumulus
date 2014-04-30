@@ -6,7 +6,6 @@ import grails.converters.JSON
 // NEED TO SECURE THIS BASED ON BACK OFFICE PERMISSIONS
 class BackOfficeController {
     
-    def structureService
     def permissionsService
     def workflowService
     
@@ -60,14 +59,14 @@ class BackOfficeController {
                 // update the document
                 Date date
                 if(data.form.date) date = new Date().parse("dd/MM/yyyy", data.form.date) else date = null
-                def document = structureService.updateDocument(task.document, data.form.company, documentType, date, data.form.identifier)
+                def document = captureService.updateDocument(task.document, data.form.company, documentType, date, data.form.identifier)
 
                 // update the line items submitted
                 def updatedLineItems = []
                 data.form?.lineItems.each {
                     date = null
                     if(it?.lineItemDate) date = new Date().parse("dd/MM/yyyy", it.lineItemDate)
-                    def lineItem = structureService.updateLineItem(it?.lineItemId, it?.pageId, currency, date, it?.description, it?.quantity, it?.price, it?.amount)
+                    def lineItem = captureService.updateLineItem(it?.lineItemId, it?.pageId, currency, date, it?.description, it?.quantity, it?.price, it?.amount)
                     updatedLineItems.add(lineItem)
                 }
 

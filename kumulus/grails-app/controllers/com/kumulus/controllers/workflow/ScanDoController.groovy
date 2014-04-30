@@ -7,6 +7,7 @@ import java.text.SimpleDateFormat
 
 class ScanDoController {
 
+    def accessService
     def scanDoService
     def captureService
     def permissionsService
@@ -45,8 +46,6 @@ class ScanDoController {
         }      
         render responseData as JSON  
     }
-    
-    
     
     def fetchChildNodeList() {
         def nodeList = []
@@ -192,7 +191,7 @@ class ScanDoController {
                     "documentSequenceNumber": page.number,
                     "userId": null,
                     "encodeStringForImage": null,
-                    "encodeStringForThumbnail": filesystemService.renderFileInBase64(page.thumbnailImage.file),
+                    "encodeStringForThumbnail": accessService.renderFileInBase64(page.thumbnailImage.file),
                     "oldActualImageName": page.viewImage.file.name,
                     "oldThumbnailImageName": page.thumbnailImage.file.name,
                     "transactionStatus":"U"

@@ -1,6 +1,7 @@
 package com.kumulus.services
 
 import com.kumulus.domain.*
+import java.text.SimpleDateFormat
 import grails.transaction.Transactional
 
 @Transactional
@@ -8,6 +9,7 @@ class CaptureService {
 
     def springSecurityService
     def filesystemService
+    def grailsApplication
     
     def deleteNode(nodeID) {
         
@@ -70,102 +72,6 @@ class CaptureService {
         return(node)
     }
     
-    def renderNode(node) {
-        def parentId = "#"
-        def thumbnailId = null
-        def viewId = null
-        
-        if(node?.parent) parentId = node.parent.id 
-        if(node?.page) {
-            thumbnailId = node.page.thumbnailImage.id
-            viewId = node.page.viewImage.id
-        }
-        
-        if(node) {
-            def treeNode = [
-                key: node.id.toString(),
-                title: node.name,
-                isLazy: true,
-                text: node.name,
-                barcode: node?.barcode?.text,
-                isFolder: node.type.isContainer,
-                comment: node.comment,
-                type: node.type.name,
-                typeId: node.type.id,
-                status: node.status(),
-                location: node.location,
-                stateId: node.state,
-                state: node.state(),
-                storeable: node.type.storeable,
-                id: node.id, 
-                project: node.project.id,
-                parentId: parentId,
-                thumbnailId: thumbnailId,
-                viewId: viewId
-            ]
-            return(treeNode)
-        }
-    }
-    
-    def renderProject(project) {
-        if(project) {
-            def projectRender = [
-                id: project.id,
-                company: project.company,
-                name: project.projectName,
-                topLevelNodeIds: []
-            ]
-            def nodes = Node.findAllByProjectAndParent(project, null, [sort: "name", order: "asc"])
-            nodes.each { node ->
-                projectRender.topLevelNodeIds.add(node.id)
-            }
-            return(projectRender)
-        }
-    }
-    
-    def renderRoot(project) {
-
-        def children = []
-        def root = [
-            key: "#",
-            title: "Root",
-            isFolder: true,
-            expand: true,
-            select: true,
-            isLazy: false,
-            parent: null,
-            text: null, 
-            barcode: null,
-            comment: null,
-            status: null,
-            location: null,
-            stateId: null,
-            state: null,
-            storeable: false,
-            children: children,
-            type: "ROOT",
-            id: "ROOT",
-            project: project.id,
-            parentId: null, 
-            thumbnailId: null,
-            viewId: null
-        ]
-        
-        // get the top-level nodes
-        def nodeList = Node.findAllByProjectAndParent(project, null)  // temporary solution, should be filtering out documents here
-        nodeList.each { root.children.add renderNode(it) }
-        return(root)
-    }
-    
-    def renderNodeHierarchy(Node node) {
-        def nodes = [renderNode(node)]
-        while(node.parent!=null) {
-            node = node.parent
-            nodes.add(renderNode(node))
-        }
-        return(nodes)
-    }
-
     def indexScan(parentNode, uFile, scanBatch, userId) {
         
         Document document
@@ -322,5 +228,39 @@ class CaptureService {
         project.comment = comment
         project.save()
         return(project)
+    }
+    
+    def updateDocument(Document document, String companyName, DocumentType documentType, Date date, String identifier) {
+        
+        if(document && documentType) {    
+            def company = Company.findByName(companyName)
+            if(!company) {
+                company = new Company(name: companyName)
+                company.save()
+            }
+            document.company = company
+            document.type = documentType
+            document.date = date
+            document.identifier = identifier
+            document.save()
+        }
+        
+        return(document)
+        
+    }
+    
+    def updateLineItem(String lineItemId, String pageId, Currency currency, Date date, String description, String quantity, String price, String amount) {
+       
+        def lineItem = LineItem.findById(lineItemId)
+        if(!lineItem) lineItem = new LineItem()
+        lineItem.page = Page.findById(pageId)
+        lineItem.currency = currency
+        lineItem.date = date
+        lineItem.description = description
+        if(quantity) lineItem.quantity = Float.parseFloat(quantity) else lineItem.quantity = 0
+        if(price) lineItem.price = Float.parseFloat(price) else lineItem.price = 0
+        lineItem.amount = Float.parseFloat(amount)
+        lineItem.save()
+        return(lineItem)
     }
 }

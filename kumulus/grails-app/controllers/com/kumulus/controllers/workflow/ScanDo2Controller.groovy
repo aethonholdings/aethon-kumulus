@@ -7,9 +7,9 @@ import java.text.SimpleDateFormat
 
 class ScanDo2Controller {
 
+    def accessService
     def captureService
     def permissionsService
-    def filesystemService
 
     // action to handle authentication
     def authenticate() {
@@ -26,7 +26,7 @@ class ScanDo2Controller {
         def node = Node.findById(data?.id)
         if(node && permissionsService.checkPermissions(node)) {
             response.success = true
-            response.data = captureService.renderNode(node)
+            response.data = accessService.renderNode(node)
         }
         render response as JSON
     }
@@ -78,7 +78,7 @@ class ScanDo2Controller {
             response.data.put ("height", image.height)
             response.data.put ("width", image.width)
             response.data.put ("filename", image.file.name)
-            response.data.put ("imageData", filesystemService.renderFileInBase64(image.file))
+            response.data.put ("imageData", accessService.renderFileInBase64(image.file))
         }
         render response as JSON
     }
@@ -92,7 +92,7 @@ class ScanDo2Controller {
         def project = Project.findById(data?.id)
         if(project && permissionsService.checkPermissions(project)) {
             response.success = true
-            response.data = captureService.renderProject(project)
+            response.data = accessService.renderProject(project)
         }
         render response as JSON
     }

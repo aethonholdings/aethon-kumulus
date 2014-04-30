@@ -10,7 +10,6 @@ class DocumentController {
     def workflowService
     def permissionsService
     def captureService
-    def structureService
     
     def merge() {
         def data = request.JSON
@@ -50,7 +49,7 @@ class DocumentController {
         def data = request.JSON
         def response = [done: false]
         def document = Document.findById(data?.id)
-        structureService.update(document, data)
+        captureService.update(document, data)
         render response as JSON
     }
     

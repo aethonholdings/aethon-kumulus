@@ -5,6 +5,7 @@ import grails.converters.*
 
 class NodeController {
 
+    def accessService
     def captureService
     def logisticsService
     def permissionsService
@@ -12,7 +13,7 @@ class NodeController {
     def getRoot() {
         def project = Project.findById(params?.id)
         if(permissionsService.checkPermissions(project)) {
-            def rootNode = captureService.renderRoot(Project?.findById(params?.id))   
+            def rootNode = accessService.renderRoot(Project?.findById(params?.id))   
             render rootNode as JSON
         }
     }    
@@ -24,7 +25,7 @@ class NodeController {
             def children = Node.findAll {
                 (parent == node && type.isContainer == true)               // get all the non-page children nodes
             }
-            children.each { treeNodes.add(captureService.renderNode(it)) }   
+            children.each { treeNodes.add(accessService.renderNode(it)) }   
         }
         render treeNodes as JSON
     }
@@ -71,7 +72,7 @@ class NodeController {
             type.storeable == true && project.company == permissionsService.getCompany()?.name && state == Node.STATE_CLIENT_SEALED
         }
         nodes.each { node ->
-            if(permissionsService.checkPermissions(node)) renderedNodes.add(captureService.renderNode(node))
+            if(permissionsService.checkPermissions(node)) renderedNodes.add(accessService.renderNode(node))
         }
         render renderedNodes as JSON
     }
@@ -102,7 +103,7 @@ class NodeController {
         def response = []
         def node=Node.findByBarcode(Barcode.findByText(request.JSON?.barCode))
         if(node && permissionsService.checkPermissions(node)) {            
-            response = captureService.renderNodeHierarchy(node)
+            response = accessService.renderNodeHierarchy(node)
         }
         render response as JSON
     }
