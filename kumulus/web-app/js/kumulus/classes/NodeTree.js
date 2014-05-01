@@ -95,33 +95,43 @@ function NodeTree(elementId, projectId, refreshCallbackFunction) {
                 // as we go
                 node.expand();
                 return true;
-            }else if(status == "ok") {
+            } else if(status == "ok") {
                 // 'node' is the end node of our path.
                 // If we call activate() or makeVisible() here, then the
                 // whole branch will be exoanded now
                 node.activate();
                 return true;
-            }else if(status == "notfound") {            
+            } else if(status == "notfound") {            
                 return false;
             }
         }); 
     }
     
-    instance.removeNode = function(node) {
-        node.remove();
-        if (node.getParent().data.key != '#') {
-            node.getParent().reloadChildren(function(selectedNode, isOk) {
-                instance.getTree().activateKey(selectedNode.data.key);
-            });
-        } else {
-            instance.getTree().activateKey(selectedNode.getParent().data.key);
+    instance.reloadChildren = function(node) {
+        if(node) {
+            if(node.isLazy()) {
+                node.reloadChildren(function(selectedNode, isOk) {
+                    instance.getTree().activateKey(selectedNode.data.key);
+                });
+            } else {
+               // we are reloading the root
+               instance.reload();
+            }
+            return true;
         }
+        return false;
+    }
+    
+    instance.removeNode = function(node) {
+        if(node!="ROOT") {
+            node.remove();
+            return instance.reloadChildren(node.getParent());
+        }
+        return false;
     }
     
     instance.selectKey = function(key) {
-        alert(key);
         var node = instance.getTree().getNodeByKey(key);
-        alert(node);
         return node;
     }
     
