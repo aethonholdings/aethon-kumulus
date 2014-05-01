@@ -1,7 +1,8 @@
 var containerViewer;
+var containerContentViewer;
 var nodeWorkflow;
 var tree
-var searchPanel;
+var searchPane;
 
 function add_node() {
     if(!tree.getSelectedNode()) { 
@@ -117,7 +118,7 @@ function save_node(formData) {
 }
 
 function search() {
-    searchPanel.search();
+    searchPane.search();
 }
 
 function selectSearchResult(searchResult, type) {
@@ -129,10 +130,12 @@ function selectSearchResult(searchResult, type) {
 
 
 $(document).ready(function(){    
-    containerViewer = new ContainerViewer("WRITE");
+    containerViewer = new ContainerViewer("WRITE", "#containerViewer");
+    containerContentViewer = new ContainerContentViewer("#containerContentViewer");
     nodeWorkflow = new NodeWorkflow("#workflow", save_node);
-    searchPanel = new SearchPane("#search", selectSearchResult);
+    searchPane = new SearchPane("#search", selectSearchResult);
     tree = new NodeTree("#nodeTree", $('#project').attr('projectID'), function(node){
         containerViewer.update(node);
+        containerContentViewer.update(node);
     });
 });

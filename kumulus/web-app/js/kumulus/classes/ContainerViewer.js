@@ -1,16 +1,16 @@
-function ContainerViewer(permissions) {
-    this.permissions = permissions.toUpperCase();
-    this.node = null;
-    this.update = update;
-    this.fetch = fetch;
-    this.seal = seal;
-    this.submit = submit;
+function ContainerViewer(permissions, elementId) {
+    var instance = this;
+    instance.element = $(elementId);
+    instance.permissions = permissions.toUpperCase();
+    instance.node = null;
+    instance.update = update;
+    instance.fetch = fetch;
+    instance.seal = seal;
+    instance.submit = submit;
     
     function update(node) {
-        
         var buttonTag;
-        this.node = node;
-        
+        instance.node = node;
         $("#nodeActions").empty();
         $("#nodeBarcode").val(null);
         $("#nodeType").val(null);
@@ -22,27 +22,8 @@ function ContainerViewer(permissions) {
             $("#nodeBarcode").val(node.data.barcode);
             $("#nodeType").val(node.data.type);
             $("#nodeLocation").val(node.data.location);
-            $("#nodeStatus").val(node.data.state);
-            $.ajax({
-                url: url('node', 'getDocuments', ''),
-                type: 'POST',
-                data: JSON.stringify({ node: node.data.id }),
-                contentType: 'application/json; charset=utf-8',
-                dataType: 'json',
-                async: false,
-                success: function(data) {
-                    $("#pageInfo tbody tr").remove();
-                    $.each(data, function(i) {
-                        var imgUrl = url('image','get', data[i].thumbnailImageId);
-                        var status = data[i].status;
-                        $("#pageInfo tbody").append(
-                            '<tr><td><a href="#"><img class="kumulus-thumbnail" height="140" width="100"  src='+ imgUrl +' onClick="new DocumentViewer(' + data[i].id + ')"/></a></td><td>'+status+'</td></tr>'
-                        );
-                    });
-                }
-            });
-            
-            if(this.permissions=="WRITE") {
+            $("#nodeStatus").val(node.data.state);            
+            if(instance.permissions=="WRITE") {
                 // map node state to buttons
                 switch(node.data.stateId) {
                     case 1:                                                         // container open and still being processed by customer
@@ -73,20 +54,20 @@ function ContainerViewer(permissions) {
     }
     
     function seal(){
-        if(this.node.id!='ROOT' && this.permissions=="WRITE"){
-            this.submit(url('node', 'seal', ''));
+        if(instance.node.id!='ROOT' && instance.permissions=="WRITE"){
+            instance.submit(url('node', 'seal', ''));
         }
     }
     
     function ship(){
-        if(this.node.id!='ROOT' && this.permissions=="WRITE"){
-            this.submit(url('node', 'ship', ''));
+        if(instance.node.id!='ROOT' && instance.permissions=="WRITE"){
+            instance.submit(url('node', 'ship', ''));
         }
     }
     
     function fetch(){
-        var data ={  id: this.node.data.id }
-        if(data.node!='ROOT' && this.permissions=="WRITE"){
+        var data ={  id: instance.node.data.id }
+        if(data.node!='ROOT' && instance.permissions=="WRITE"){
             $.ajax({
                 url: url('node', 'fetch', ''),
                 type: 'POST',
@@ -104,12 +85,12 @@ function ContainerViewer(permissions) {
     }
     
     function submit(url) {
-        var pnode = this.node.getParent();
-        var newNodeKey=this.node.data.key;
+        var pnode = instance.node.getParent();
+        var newNodeKey=instance.node.data.key;
         $.ajax({
             url: url,
             type: 'post', 
-            data: JSON.stringify({ id: this.node.data.id }),
+            data: JSON.stringify({ id: instance.node.data.id }),
             contentType: 'application/json; charset=utf-8',
             dataType: 'json',
             async: false,

@@ -6,6 +6,7 @@
     <g:javascript src='kumulus/classes/DocumentViewer.js'/>
     <g:javascript src='kumulus/classes/NodeWorkflow.js'/>
     <g:javascript src='kumulus/classes/ContainerViewer.js'/>
+    <g:javascript src='kumulus/classes/ContainerContentViewer.js'/>
     <g:javascript src='kumulus/classes/SearchPane.js'/>
     <g:javascript src='kumulus/collect.js'/>
     <title>Prepare scans | Kumulus</title>
@@ -34,7 +35,7 @@
                 <span class="kumulus-widget-header-title">Container details</span>
                 <span class="kumulus-widget-header-action"></span>
               </div>
-              <div class="pure-form pure-form-aligned">
+              <div id="containerViewer" class="pure-form pure-form-aligned">
                 <div class="pure-control-group">
                   <label for="barcode">Barcode:</label>
                   <input name="barcode" type="text" id="nodeBarcode" class="pure-u-1-2" readonly=""/>
@@ -62,7 +63,7 @@
               <div class="kumulus-widget-header">
                 <span class="kumulus-widget-header-title">Container contents</span>
               </div>
-              <div class="kumulus-scrollable-y">
+              <div id="containerContentViewer" class="kumulus-scrollable-y">
                 <table id="pageInfo" class="pure-table pure-table-horizontal kumulus-table-no-border">
                   <tbody> 
                   </tbody>

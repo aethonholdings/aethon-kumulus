@@ -192,7 +192,6 @@ kumulus {
 environments {
     development {
         grails.logging.jul.usebridge = true
-        // grails.serverURL = "http://localhost:8080"
         filesystem.root = "../data/filesystem"
         filesystem.staging = "${filesystem.root}/staging/"
         filesystem.main = "${filesystem.root}/main/"
@@ -207,7 +206,6 @@ environments {
     
     test {
         grails.logging.jul.usebridge = true
-        // grails.serverURL = "http://test.aethon.sg:8080"
         filesystem.root = "/home/tomcat/kumulus"
         filesystem.staging = "${filesystem.root}/staging/"
         filesystem.main = "${filesystem.root}/main/"
