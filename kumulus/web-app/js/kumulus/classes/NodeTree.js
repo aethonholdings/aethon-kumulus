@@ -3,17 +3,17 @@ function NodeTree(elementId, projectId, refreshCallbackFunction) {
     
     // create the node tree
     instance.dynatree = $(elementId).dynatree({
+        selectMode: 1, 
+        autoFocus: false,
+        persist: false,
+        clickFolderMode: 3, 
+        rootVisible: true,
+        minExpandLevel: 1,
+        keyboard: true,        
         
         initAjax: {
             title: 'Archive structure',
             url: url('node', 'getRoot', projectId),
-            minExpandLevel: 0,
-            autoFocus: true,
-            persist: true,
-            clickFolderMode: 1, 
-            selectMode: 1, 
-            rootVisible: true,
-            keyboard: true
         },
         
         onActivate: function(node) {
@@ -24,7 +24,8 @@ function NodeTree(elementId, projectId, refreshCallbackFunction) {
             node.appendAjax({
                 url: url('node', 'getChildren', ''), 
                 data : {
-                    "id": node.data.key
+                    "id": node.data.key,
+                    "projectId": node.data.project
                 }
             });
         },    
@@ -107,16 +108,11 @@ function NodeTree(elementId, projectId, refreshCallbackFunction) {
         }); 
     }
     
-    instance.reloadChildren = function(node) {
+    instance.reloadChildren = function(node, callback) {
         if(node) {
-            if(node.isLazy()) {
-                node.reloadChildren(function(selectedNode, isOk) {
-                    instance.getTree().activateKey(selectedNode.data.key);
-                });
-            } else {
-               // we are reloading the root
-               instance.reload();
-            }
+            node.reloadChildren(function(selectedNode, isOk) {
+                callback();
+            });
             return true;
         }
         return false;
@@ -125,7 +121,8 @@ function NodeTree(elementId, projectId, refreshCallbackFunction) {
     instance.removeNode = function(node) {
         if(node!="ROOT") {
             node.remove();
-            return instance.reloadChildren(node.getParent());
+            var parent = node.getParent();
+            return instance.reloadChildren(parent, function() { instance.getTree().activateKey(parent.data.key); });
         }
         return false;
     }

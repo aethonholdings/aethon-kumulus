@@ -7,9 +7,9 @@ import grails.transaction.Transactional
 @Transactional
 class CaptureService {
 
-    def springSecurityService
     def filesystemService
     def grailsApplication
+    def permissionsService
     
     def deleteNode(nodeID) {
         
@@ -31,12 +31,11 @@ class CaptureService {
         if(project && nodeType) {
             def timestamp = new Date()            
             def node = new Node()
-            node.creatorId = springSecurityService.principal.username
-            node.lastUpdateId = springSecurityService.principal.username
+            node.creatorId = permissionsService.getUsername()
+            node.lastUpdateId = permissionsService.getUsername()
             node.project = project
             node.status = Node.STATUS_OPEN
             node.type = nodeType
-            node.parent = parent
             node.barcode = barcode
             node.name = name
             node.comment = comment
@@ -44,9 +43,9 @@ class CaptureService {
             node.lastUpdateDatetime = timestamp
             node.location = Node.LOCATION_CLIENT
             node.page = null
-            node.state = state
-            node.save()
-            
+            node.parent = parent
+            if(parent) node.state = parent.state else node.state = Node.STATE_CLIENT_OPEN
+            node.save()            
             barcode?.used = true
             barcode?.save()
             return(node)

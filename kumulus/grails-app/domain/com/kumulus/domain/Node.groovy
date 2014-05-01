@@ -76,7 +76,7 @@ class Node {
             case STATE_CLIENT_OPEN:
                 return("At my premises, work in progress")
             case STATE_FLAGGED_TO_SHIP:
-                return("Shipment requested")
+                return("Pickup requested")
             case STATE_IN_TRANSIT:
                 return("In transit")
             case STATE_IN_STORAGE:
@@ -84,7 +84,7 @@ class Node {
             case STATE_IN_DIGITISATION_LINE:
                 return("Digitisation in progress")
             case STATE_FLAGGED_TO_FETCH:
-                return("Pending shipment to my premises")
+                return("Fetch requested")
             case STATE_RETURN_IN_PROGRESS:
                 return("In transit")
             case STATE_CLIENT_RETURNED:

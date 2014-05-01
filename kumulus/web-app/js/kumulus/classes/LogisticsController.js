@@ -9,19 +9,34 @@ function LogisticsController(elementId, callbackFunction) {
         var buttonBinding;
         instance.node = node;
         instance.element.empty();
+        var data = { 
+            nodeId: node.data.key, 
+            flag: null
+        };
                 
         // map node state to buttons
         switch(node.data.stateId) {
             case 1:                                                         // STATE_CLIENT_OPEN
                 button = true;
                 buttonValue = "Pick up";
+                data.flag = true;
                 buttonBinding = function() {
-                    alert("Container flagged for pickup.");
+                    request(url("node", "pickup", ""), data, function(){
+                        alert("Container flagged for pickup");
+                        callbackFunction();
+                    });
                 }
                 break;
             case 2:                                                         // STATE_FLAGGED_TO_SHIP
                 button = true;
-                buttonValue = "Cancel pickup"
+                buttonValue = "Cancel pickup";
+                data.flag = false;
+                buttonBinding = function() {
+                    request(url("node", "pickup", ""), data, function(){
+                        alert("Pickup cancelled");
+                        callbackFunction();
+                    });
+                }
                 break;
             case 3:                                                         // STATE_IN_TRANSIT
                 break;  
@@ -41,7 +56,7 @@ function LogisticsController(elementId, callbackFunction) {
             var buttonTag = instance.element.find("input");
             buttonTag.val(buttonValue);
             buttonTag.click(function(obj) { 
-                buttonBinding()
+                buttonBinding();
             });
         } 
     }    

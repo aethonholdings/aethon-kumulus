@@ -222,8 +222,8 @@ class AccessService {
             title: "Root",
             isFolder: true,
             expand: true,
-            select: true,
-            isLazy: false,
+            select: false,
+            isLazy: true,
             parent: null,
             text: null, 
             barcode: null,
@@ -242,9 +242,10 @@ class AccessService {
             viewId: null
         ]
         
-        // get the top-level nodes
-        def nodeList = Node.findAllByProjectAndParent(project, null)  // temporary solution, should be filtering out documents here
-        nodeList.each { root.children.add renderNode(it) }
+        Node.findAllByParentAndProject (null, project, [sort: "name", order: "asc"]).each {
+            children.add(renderNode(it))
+        }
+        
         return(root)
     }
     

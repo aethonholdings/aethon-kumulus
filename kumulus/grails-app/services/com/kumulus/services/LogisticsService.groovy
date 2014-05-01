@@ -24,17 +24,17 @@ class LogisticsService {
         return(barcode)
     }
     
-    def pickup(Node node){
+    def pickup(Node node, boolean pickupFlag){
         
         // check node exists
         if(node) {
             // flag this node as ready to pick up
-            node.state = Node.STATE_FLAGGED_TO_SHIP
+            if(pickupFlag) node.state = Node.STATE_FLAGGED_TO_SHIP else node.state = Node.STATE_CLIENT_OPEN                
             node.save()
             
             // flag all children as ready to pick up
             Node.findAllByParent(node).each { 
-                pickup(it)
+                pickup(it, pickupFlag)
             }
         }
         return(node)

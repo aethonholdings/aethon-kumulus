@@ -20,12 +20,23 @@ class NodeController {
     
     def getChildren() {
         def treeNodes = []
-        def node = Node.findById(params?.id)   
-        if (permissionsService.checkPermissions(node)) {
-            def children = Node.findAll {
-                (parent == node && type.isContainer == true)               // get all the non-page children nodes
+        def children
+        if(params?.id && params.id!="#") { 
+            def node = Node.findById(params?.id)   
+            if (permissionsService.checkPermissions(node)) {
+                children = Node.findAll ([sort: "name", order: "asc"]) {
+                    (parent == node && type.isContainer == true)               // get all the non-page children nodes
+                }
+                children.each { treeNodes.add(accessService.renderNode(it)) }   
             }
-            children.each { treeNodes.add(accessService.renderNode(it)) }   
+        } else if(params?.projectId) {
+            def project = Project.findById(params.projectId)
+            if(project && permissionsService.checkPermissions(project)) {
+                children = Node.findAll ([sort: "name", order: "asc"]) {
+                    (project == project && parent == null && type.isContainer == true)  
+                }
+                children.each { treeNodes.add(accessService.renderNode(it)) }   
+            }
         }
         render treeNodes as JSON
     }
@@ -133,15 +144,16 @@ class NodeController {
         render response as JSON
     }
     
-    def pickup(){
+    def pickup() {
         def data = request.JSON
         def response = [
             success: false,
             data: []
         ]
-        def node = Node.findById(data?.id)
-        if (permissionsService.checkPermissions(node) && node.type.storeable) {
-            logisticsService.pickup(node)
+        def node = Node.findById(data?.nodeId)
+        println(data)
+        if (permissionsService.checkPermissions(node)) {
+            logisticsService.pickup(node, (boolean)data?.flag)
             response.success = true
         }
         render response as JSON
