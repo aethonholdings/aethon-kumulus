@@ -90,14 +90,6 @@ class NodeController {
         }
         render response as JSON
     }
-
-    def test(){
-        def data = request.JSON
-        def response = [done: false]
-        // handle this to send email request
-        // need to create a logistics shipment instance
-        render response as JSON
-    }
     
     def searchByBarcode() {
         def response = []
@@ -141,13 +133,18 @@ class NodeController {
         render response as JSON
     }
     
-    def seal(){
+    def pickup(){
         def data = request.JSON
+        def response = [
+            success: false,
+            data: []
+        ]
         def node = Node.findById(data?.id)
         if (permissionsService.checkPermissions(node) && node.type.storeable) {
-            logisticsService.sealNode(node)
-            render node as JSON
+            logisticsService.pickup(node)
+            response.success = true
         }
+        render response as JSON
     }
     
     def fetch() {

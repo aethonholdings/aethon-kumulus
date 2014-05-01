@@ -24,18 +24,17 @@ class LogisticsService {
         return(barcode)
     }
     
-    def sealNode(Node node){
+    def pickup(Node node){
         
         // check node exists
         if(node) {
-            // seal this node
-            node.status= Node.STATUS_CLOSED
-            node.state = Node.STATE_CLIENT_SEALED
+            // flag this node as ready to pick up
+            node.state = Node.STATE_FLAGGED_TO_SHIP
             node.save()
             
-            // seal all children
+            // flag all children as ready to pick up
             Node.findAllByParent(node).each { 
-                sealNode(it)
+                pickup(it)
             }
         }
         return(node)

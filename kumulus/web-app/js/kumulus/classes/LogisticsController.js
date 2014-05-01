@@ -16,7 +16,7 @@ function LogisticsController(elementId, callbackFunction) {
                 button = true;
                 buttonValue = "Pick up";
                 buttonBinding = function() {
-                    alert("Request placed");
+                    alert("Container flagged for pickup.");
                 }
                 break;
             case 2:                                                         // STATE_FLAGGED_TO_SHIP
