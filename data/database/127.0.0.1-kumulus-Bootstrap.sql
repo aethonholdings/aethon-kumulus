@@ -395,7 +395,8 @@ VALUES
 	(1,1,0,0,3,1,'$2a$10$grDTo.E4U4Nk3Fmg1g0IROlGHHBLb0wkJYgmzacy3gNYM3zzM6ssm',0,'kumulus'),
 	(2,0,0,0,1,1,'$2a$10$ZPqQmC1SMhTtIpQkX8SUkuiJItaZ0Ro9wlWduLPpWPuhB2LqgLwie',0,'customer'),
 	(3,0,0,0,3,1,'$2a$10$EjT/Z1qr8AICmHZd5jYGO.NsBgrkByMPqCiSwyZK60jf1asg1bYEO',0,'capture'),
-	(4,0,0,0,3,1,'$2a$10$xY8gqxM0xG84z/MIUCb37ewaA6ubLn31mV5sRIu4c2GPvN16BIbp.',0,'backoffice');
+	(4,0,0,0,3,1,'$2a$10$xY8gqxM0xG84z/MIUCb37ewaA6ubLn31mV5sRIu4c2GPvN16BIbp.',0,'backoffice'),
+	(5,0,0,0,3,1,'$2a$10$UwECzXbtvfRFtShEDL..7OUP4QfI86nVwZ06OFZWbuyp9l04t.eMK',0,'logistics');
 
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -412,7 +413,8 @@ VALUES
 	(1,1),
 	(2,3),
 	(3,2),
-	(4,4);
+	(4,4),
+	(5,5);
 
 /*!40000 ALTER TABLE `user_role` ENABLE KEYS */;
 UNLOCK TABLES;
