@@ -1,5 +1,6 @@
 function NodeTree(elementId, projectId, refreshCallbackFunction) {
     var instance = this;
+    
     // create the node tree
     instance.dynatree = $(elementId).dynatree({
         

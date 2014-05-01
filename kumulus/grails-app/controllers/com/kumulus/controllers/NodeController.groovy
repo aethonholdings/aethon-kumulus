@@ -69,7 +69,7 @@ class NodeController {
         def renderedNodes = []
         
         def nodes = Node.findAll {
-            type.storeable == true && project.company == permissionsService.getCompany()?.name && state == Node.STATE_CLIENT_SEALED
+            type.storeable == true && project.company == permissionsService.getCompany()?.name && state == Node.STATE_CLIENT_OPEN
         }
         nodes.each { node ->
             if(permissionsService.checkPermissions(node)) renderedNodes.add(accessService.renderNode(node))
@@ -122,7 +122,7 @@ class NodeController {
         def data = request.JSON
         def response = []
                 
-        if(data?.node) {
+        if(data?.node && data.node!="ROOT") {
             def nodes = Node.findAll() { node -> 
                 parent.id == data.node.toLong()
                 page != null

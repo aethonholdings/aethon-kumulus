@@ -5,11 +5,13 @@ class Node {
     static searchable = [only: ['name', 'barcode', 'comment', 'createDateTime']]
         
     static final int STATE_CLIENT_OPEN = 1
-    static final int STATE_CLIENT_SEALED = 2
-    static final int STATE_FLAGGED_TO_SHIP =3
+    static final int STATE_FLAGGED_TO_SHIP = 2
+    static final int STATE_IN_TRANSIT = 3
     static final int STATE_IN_STORAGE = 4
     static final int STATE_IN_DIGITISATION_LINE = 5
     static final int STATE_FLAGGED_TO_FETCH = 6
+    static final int STATE_RETURN_IN_PROGRESS = 7
+    static final int STATE_CLIENT_RETURNED = 8
     
     static final String STATUS_OPEN = "0"
     static final String STATUS_CLOSED = "1"
@@ -62,7 +64,7 @@ class Node {
         switch(status) {
             case STATUS_OPEN:
                 return("Open")
-            case STATE_CLIENT_SEALED:
+            case STATUS_CLOSED:
                 return("Closed")
             case STATUS_REOPENED:
                 return("Reopened")
@@ -72,17 +74,21 @@ class Node {
     String state() {
         switch(state) {
             case STATE_CLIENT_OPEN:
-                return("Open and work in progress at my premises")
-            case STATE_CLIENT_SEALED:
-                return("Sealed at my premises")
+                return("At my premises, work in progress")
             case STATE_FLAGGED_TO_SHIP:
-                return("Sealed and pending shipment to storage")
+                return("Shipment requested")
+            case STATE_IN_TRANSIT:
+                return("In transit")
             case STATE_IN_STORAGE:
                 return("In storage")
             case STATE_IN_DIGITISATION_LINE:
                 return("Digitisation in progress")
             case STATE_FLAGGED_TO_FETCH:
                 return("Pending shipment to my premises")
+            case STATE_RETURN_IN_PROGRESS:
+                return("In transit")
+            case STATE_CLIENT_RETURNED:
+                return("Returned to client")
         }
     }
     

@@ -3,6 +3,7 @@ var containerContentViewer;
 var nodeWorkflow;
 var tree
 var searchPane;
+var logisticsController;
 
 function add_node() {
     if(!tree.getSelectedNode()) { 
@@ -128,14 +129,24 @@ function selectSearchResult(searchResult, type) {
     }
 }
 
-
 $(document).ready(function(){    
-    containerViewer = new ContainerViewer("WRITE", "#containerViewer");
+    
+    // initialise the view objects
+    containerViewer = new ContainerViewer("#containerViewer");
     containerContentViewer = new ContainerContentViewer("#containerContentViewer");
     nodeWorkflow = new NodeWorkflow("#workflow", save_node);
     searchPane = new SearchPane("#search", selectSearchResult);
-    tree = new NodeTree("#nodeTree", $('#project').attr('projectID'), function(node){
+    logisticsController = new LogisticsController("#nodeActions", function(node) {
         containerViewer.update(node);
         containerContentViewer.update(node);
     });
+    tree = new NodeTree("#nodeTree", $('#project').attr('projectID'), function(node) {
+        containerViewer.update(node);
+        containerContentViewer.update(node);
+        logisticsController.update(node);
+    });
+    
+    // perform event bindings
+    $()
+    
 });

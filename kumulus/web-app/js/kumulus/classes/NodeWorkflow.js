@@ -66,7 +66,7 @@ function NodeWorkflow(elementId, callbackFunction) {
         }
     }
     
-    // function to return the form inputs
+    // bind function to return the form inputs
     $('#button-save').click(function() {
         if (!$("#barcode").val() || !$("#type").val() || !$("#name").val()) {
             alert("Please complete all required input fields")
@@ -85,4 +85,18 @@ function NodeWorkflow(elementId, callbackFunction) {
             instance.element.dialog("close");
         }
     });
+    
+    instance.add = function() {
+        
+    }
+    
+    instance.update = function(node) {
+        
+    }
+    
+    instance.delete = function(node) {
+        
+    }
+    
+    
 }
