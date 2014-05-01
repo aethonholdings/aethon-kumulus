@@ -28,14 +28,16 @@ function LogisticsController(elementId, callbackFunction) {
                 }
                 break;
             case 2:                                                         // STATE_FLAGGED_TO_SHIP
-                button = true;
-                buttonValue = "Cancel pickup";
-                data.flag = false;
-                buttonBinding = function() {
-                    request(url("node", "pickup", ""), data, function(){
-                        alert("Pickup cancelled");
-                        callbackFunction();
-                    });
+                if(node.parent.data.stateId < 2) {
+                    button = true;
+                    buttonValue = "Cancel pickup";
+                    data.flag = false;
+                    buttonBinding = function() {
+                        request(url("node", "pickup", ""), data, function(){
+                            alert("Pickup cancelled");
+                            callbackFunction();
+                        });
+                    }
                 }
                 break;
             case 3:                                                         // STATE_IN_TRANSIT

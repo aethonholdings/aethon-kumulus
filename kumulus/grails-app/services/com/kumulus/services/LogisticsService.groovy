@@ -24,20 +24,28 @@ class LogisticsService {
         return(barcode)
     }
     
-    def pickup(Node node, boolean pickupFlag){
+    boolean pickup(Node node, boolean pickupFlag){
         
         // check node exists
         if(node) {
-            // flag this node as ready to pick up
-            if(pickupFlag) node.state = Node.STATE_FLAGGED_TO_SHIP else node.state = Node.STATE_CLIENT_OPEN                
-            node.save()
             
-            // flag all children as ready to pick up
+            if(pickupFlag) {
+                node.state = Node.STATE_FLAGGED_TO_SHIP 
+            } else {
+                if(node.parent?.state != Node.STATE_FLAGGED_TO_SHIP ) {
+                    node.state = Node.STATE_CLIENT_OPEN
+                } else { 
+                    return(false)
+                }
+            }
+            node.save()
+            // flag all children iteratively
             Node.findAllByParent(node).each { 
                 pickup(it, pickupFlag)
             }
+            return(true)
         }
-        return(node)
+        return(false)
     }
     
     def openNode(Node node) {

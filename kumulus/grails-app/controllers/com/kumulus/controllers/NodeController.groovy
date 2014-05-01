@@ -151,7 +151,6 @@ class NodeController {
             data: []
         ]
         def node = Node.findById(data?.nodeId)
-        println(data)
         if (permissionsService.checkPermissions(node)) {
             logisticsService.pickup(node, (boolean)data?.flag)
             response.success = true
