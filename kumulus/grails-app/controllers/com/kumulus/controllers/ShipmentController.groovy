@@ -15,25 +15,6 @@ class ShipmentController {
     
     def create(){
        
-        SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
-
-        if(params.scheduleDate){
-            def newObj= new Shipment()
-            newObj.fromCompany=permissionsService.getCompany()?.name
-            newObj.toCompany="kumulus"
-            newObj.scheduled=formatter.parse(params.scheduleDate)
-            newObj.notes=params.notes
-            newObj.save(flush:true)
-            if(params["Save and Create"]){
-                redirect(action: "view" ,params:[id:newObj.id])
-            }
-            else{
-                redirect(controller :"home", action: "index") 
-            }
-      
-        }
- 
-        
     }
     
     def view() {
@@ -75,35 +56,6 @@ class ShipmentController {
         }
         redirect controller :"home", action: "index" 
         
-    }
-    
-    def addNodes() {
-        def data = request.JSON
-        def status=[done: true]
-        
-        def shipment = Shipment.findById(data?.shipmentId)
-        if(shipment && data?.nodeIds) {
-            data.nodeIds.each {
-                def node = Node.findById(it)
-                if(permissionsService.checkPermissions(node)) status.done = status.done && logisticsService.shipNode(node, shipment)
-            }
-        }
-        render status as JSON
-    }
-    
-    def removeNodes(){
-        
-        def data = request.JSON
-        def status = [done: true]
-
-        if(data?.shipmentItemIds) {
-            data.shipmentItemIds.each {
-                def node = Node.findById(ShipmentItem.findById(it)?.itemId)
-                if(node && permissionsService.checkPermissions(node)) status.done = status.done && logisticsService.unshipNode(node)
-            }
-        }
-        render status as JSON
-
     }
     
 }

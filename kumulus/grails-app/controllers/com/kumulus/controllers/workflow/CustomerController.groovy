@@ -38,24 +38,6 @@ class CustomerController {
         }
     }
     
-    def orderMaterials() {
-        def products =  Product.getAll()
-        render view: "orderMaterials", model: [products: products]
-    }
-    
-    def createShipment() {       
-        params.productId.eachWithIndex{prod, i ->
-                def shipItemObj=new ShipmentItem()
-                shipItemObj.type=ShipmentItem.TYPE_PRODUCT
-                shipItemObj.itemId=Long.parseLong(prod.toString())
-                shipItemObj.delivery=ShipmentItem.DELIVERY_DROP_OFF
-                shipItemObj.quantity=Long.parseLong(params.Quantity[i])
-                shipItemObj.shipment=Shipment.findById(Integer.parseInt(params.shipmentId))
-                shipItemObj.save(flush:true,failOnError:true)           
-          }
-          redirect controller : "shipment" , action : "view" ,params:[id: params.shipmentId]
-    }
-    
     def update() {
         def project = Project.get(params?.id)
         if(project && permissionsService.checkPermissions(project) && params?.projectName && params?.ClientName)  {

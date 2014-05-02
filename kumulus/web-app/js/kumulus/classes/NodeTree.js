@@ -31,15 +31,16 @@ function NodeTree(elementId, projectId, refreshCallbackFunction) {
         },    
                 
         dnd: {
-    
+            
+            autoExpandMS: 1000,
+            preventVoidMoves: true, // Prevent dropping nodes 'before self', etc.
+                        
             onDragStart: function(node) {
                 return true;
             },
               
             onDragStop: function(node) {
             },
-            autoExpandMS: 1000,
-            preventVoidMoves: true, // Prevent dropping nodes 'before self', etc.
     
             onDragEnter: function(node, sourceNode) {
                 return true;
@@ -55,24 +56,29 @@ function NodeTree(elementId, projectId, refreshCallbackFunction) {
             },
                     
             onDrop: function(node, sourceNode, hitMode, ui, draggable) {
-                sourceNode.expand(true);
-                var data = { 
-                    id: sourceNode.data.id,
-                    targetId: node.data.id,
-                    hitMode:hitMode,
-                }
-                $.ajax({
-                    url: url('node', 'move', ''),
-                    type: 'post', 
-                    data: JSON.stringify(data),
-                    contentType: 'application/json; charset=utf-8',
-                    dataType: 'json',
-                    async: false,
-                    success: function(data) {
-                        sourceNode.move(node, hitMode);
-                        sourceNode.expand(true);
+                if(hitMode == "over") {
+                    sourceNode.expand(true);
+                    var data = { 
+                        id: sourceNode.data.id,
+                        targetId: node.data.id,
+                        hitMode:hitMode,
                     }
-                });
+                    $.ajax({
+                        url: url('node', 'move', ''),
+                        type: 'post', 
+                        data: JSON.stringify(data),
+                        contentType: 'application/json; charset=utf-8',
+                        dataType: 'json',
+                        async: false,
+                        success: function(data) {
+                            sourceNode.move(node, hitMode);
+                            sourceNode.expand(true);
+                        }
+                    });
+                } else {
+                    return false;
+                }
+                return true;
             },
             
             onDragLeave: function(node, sourceNode) {

@@ -23,6 +23,9 @@ class HomeController {
             case "ADMIN":
                 redirect (controller: "admin", action: "home")
                 break;
+            case "LOGISTICS":
+                redirect (controller: "logistics", action: "home")
+                break;
         }
         
         

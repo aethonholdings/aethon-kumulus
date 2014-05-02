@@ -68,21 +68,7 @@ class LogisticsService {
         
         if (node && shipment && (node.state == Node.STATE_CLIENT_SEALED || node.state == Node.STATE_IN_STORAGE)) {
         
-            // create a shipment item and update the node state
-            def shipItemObj = new ShipmentItem()
-            shipItemObj.type = ShipmentItem.TYPE_NODE
-            shipItemObj.itemId = node.id
-            shipItemObj.quantity = 1
-            shipItemObj.shipment = shipment
-            if(node.state == Node.STATE_CLIENT_SEALED) {
-                shipItemObj.delivery = ShipmentItem.DELIVERY_PICK_UP 
-                changeNodeState(node, shipment, Node.STATE_FLAGGED_TO_SHIP)
-            } else { 
-                shipItemObj.delivery = ShipmentItem.DELIVERY_DROP_OFF
-                changeNodeState(node, shipment, Node.STATE_FLAGGED_TO_FETCH)
-            }
             
-            shipItemObj.save(flush:true,failOnError:true) 
             return(true)
             
         }
@@ -94,16 +80,7 @@ class LogisticsService {
         
         if (node && (node.state == Node.STATE_FLAGGED_TO_SHIP || node.state == Node.STATE_FLAGGED_TO_FETCH)) {
         
-            def shipmentItem = ShipmentItem.findByItemId(node.id)
-            def shipment = shipmentItem.shipment
-            shipment.shipmentItems.remove(shipmentItem)
-            shipmentItem.delete(flush:true, failOnError:true) 
-
-            if(node.state == Node.STATE_FLAGGED_TO_SHIP) {
-                changeNodeState(node, null, Node.STATE_CLIENT_SEALED)
-            } else { 
-                changeNodeState(node, null, Node.STATE_IN_STORAGE)
-            }
+           
             return(true)
             
         }
@@ -124,4 +101,13 @@ class LogisticsService {
         }
         return(node)
     }
+    
+    def getOutstandingPickups() {
+        def nodes = Node.findAllByState(Node.STATE_FLAGGED_TO_SHIP)
+        return(nodes.groupBy({ node ->
+            node.project.client
+        }))
+    }
+    
+    
 }
