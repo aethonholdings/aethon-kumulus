@@ -29,11 +29,11 @@
             </div>
           </div>
           <g:each status="i" var="day" in="${calendar}">
-            <div id="scheduleDate${i}" class="pure-u-1-6">
+            <div class="pure-u-1-6">
               <h3 class="kumulus-scheduler-header">${day.format("EEE MMM dd")}</h3>
-              <input type="datetime" value="${day.getDateTimeString()}" hidden/>
               <div class="kumulus-scheduler kumulus-scrollable-y">
-                <ul class="connectedSortable">
+                <ul id="scheduleDate${i}" date="${day.getDateTimeString()}" class="scheduled connectedSortable">
+                  
                 </ul>
               </div>
             </div>
