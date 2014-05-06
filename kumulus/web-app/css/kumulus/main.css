@@ -387,6 +387,42 @@ width:60%;
     background-color: null;
 }
 
+/* -- SCHEDULER WIDGET --------------------------- */
+
+.kumulus-scheduler {
+    margin: 3px;
+    padding: 3px;
+    background-color: #eeeeee;
+    height: 480px;
+}
+
+.kumulus-scheduler ul {
+    list-style: none;
+    padding: 0px;
+    min-height: 475px;  
+}
+
+.kumulus-scheduler li {
+    vertical-align: middle;
+    text-align: center;
+    background-color: #dddddd;
+    height: 40px;
+    margin: 4px;
+}
+
+.kumulus-scheduler-header {
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+}
+
+
+
+
+
+
+
+
 
 
 

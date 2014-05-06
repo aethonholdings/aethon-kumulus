@@ -75,27 +75,14 @@ class NodeController {
         render response as JSON
     }
     
-    def listShippable(){
-        
-        def renderedNodes = []
-        
-        def nodes = Node.findAll {
-            type.storeable == true && project.company == permissionsService.getCompany()?.name && state == Node.STATE_CLIENT_OPEN
-        }
-        nodes.each { node ->
-            if(permissionsService.checkPermissions(node)) renderedNodes.add(accessService.renderNode(node))
-        }
-        render renderedNodes as JSON
-    }
-
     def move(){
         def data = request.JSON
         def parent
         if(data?.targetId=="ROOT") parent = null else parent = Node.findById(data?.targetId)
         def child = Node.findById(data?.id)
         def response = [done: false]
-        if(permissionsService.checkPermissions(parent) && permissionsService.checkPermissions(child)) {
-            if(parent) child.parent = parent else child.parent = null
+        if(permissionsService.checkPermissions(child)) {
+            if(parent && permissionsService.checkPermissions(parent)) child.parent = parent else child.parent = null
             child.save()
             response.done = true
         }

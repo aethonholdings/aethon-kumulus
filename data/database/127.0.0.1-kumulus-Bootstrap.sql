@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.6.10)
 # Database: kumulus
-# Generation Time: 2014-04-21 03:36:40 +0000
+# Generation Time: 2014-05-02 09:20:44 +0000
 # ************************************************************
 
 
@@ -271,8 +271,9 @@ INSERT INTO `document_type` (`id`, `version`, `name`)
 VALUES
 	(1,0,'Invoice'),
 	(2,0,'Receipt'),
-	(3,0,'Account statement'),
-	(4,0,'Unknown');
+	(3,0,'Bank statement'),
+	(4,0,'Unknown'),
+	(5,0,'Payment slip');
 
 /*!40000 ALTER TABLE `document_type` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -369,11 +370,6 @@ UNLOCK TABLES;
 
 
 
-# Dump of table shipment_item
-# ------------------------------------------------------------
-
-
-
 # Dump of table task
 # ------------------------------------------------------------
 
@@ -396,7 +392,7 @@ VALUES
 	(2,0,0,0,1,1,'$2a$10$ZPqQmC1SMhTtIpQkX8SUkuiJItaZ0Ro9wlWduLPpWPuhB2LqgLwie',0,'customer'),
 	(3,0,0,0,3,1,'$2a$10$EjT/Z1qr8AICmHZd5jYGO.NsBgrkByMPqCiSwyZK60jf1asg1bYEO',0,'capture'),
 	(4,0,0,0,3,1,'$2a$10$xY8gqxM0xG84z/MIUCb37ewaA6ubLn31mV5sRIu4c2GPvN16BIbp.',0,'backoffice'),
-	(5,0,0,0,3,1,'$2a$10$UwECzXbtvfRFtShEDL..7OUP4QfI86nVwZ06OFZWbuyp9l04t.eMK',0,'logistics');
+	(5,0,0,0,3,1,'$2a$10$oT6eZ1ZOG0GM/FVVXnZOru8gWoBnWtjkOVT7vW2BDL3XsmzEX1aYW',0,'logistics');
 
 /*!40000 ALTER TABLE `user` ENABLE KEYS */;
 UNLOCK TABLES;
