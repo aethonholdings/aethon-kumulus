@@ -28,7 +28,6 @@ class LogisticsService {
         
         // check node exists
         if(node) {
-            
             if(pickupFlag) {
                 node.state = Node.STATE_FLAGGED_TO_SHIP 
             } else {

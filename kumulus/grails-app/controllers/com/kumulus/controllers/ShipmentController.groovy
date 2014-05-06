@@ -21,10 +21,6 @@ class ShipmentController {
         }
     }
     
-    def view() {
-        
-    }
-    
     def delete() {
         def data = request.JSON
         logisticsService.deleteShipment(Shipment.findById(data?.id))
