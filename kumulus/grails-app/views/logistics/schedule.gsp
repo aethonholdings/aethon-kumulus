@@ -18,11 +18,12 @@
           <div id="serviceRequests" class="pure-u-1-6">
             <h3 class="kumulus-scheduler-header">Service requests</h3>
             <div class="kumulus-scrollable-y kumulus-scheduler">
-              <ul id="unscheduled" class="connectedSortable">
-                <g:each var="pickup "in="${pickups}">
-                  <li class="">
-                    <input class="kumulus-customerId" type="hidden" value="${pickup.key.id}"/>
-                    ${pickup.key.name}
+              <ul date="" class="connectedSortable">
+${flaggedNodes[1]}                
+${flaggedNodes[2]}
+                <g:each var="pickup "in="${flaggedNodes}">
+                  <li>
+                    <span class="kumulus-shipment-data" shipmentId="" companyId="${pickup.key.id}" scheduled="">${pickup.key.name}</span>
                   </li>
                 </g:each>
               </ul>
@@ -32,8 +33,7 @@
             <div class="pure-u-1-6">
               <h3 class="kumulus-scheduler-header">${day.format("EEE MMM dd")}</h3>
               <div class="kumulus-scheduler kumulus-scrollable-y">
-                <ul id="scheduleDate${i}" date="${day.getDateTimeString()}" class="scheduled connectedSortable">
-                  
+                <ul date="${day.toTimestamp()}" class="scheduled connectedSortable">
                 </ul>
               </div>
             </div>

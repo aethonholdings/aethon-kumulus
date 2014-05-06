@@ -102,11 +102,9 @@ class LogisticsService {
         return(node)
     }
     
-    def getOutstandingPickups() {
-        def nodes = Node.findAllByState(Node.STATE_FLAGGED_TO_SHIP)
-        return(nodes.groupBy({ node ->
-            node.project.client
-        }))
+    def getFlaggedNodes() {
+        def nodes = Node.findAll {(Node.STATE_FLAGGED_TO_SHIP || Node.STATE_FLAGGED_TO_FETCH)}
+        return(nodes.groupBy({it.project.client}, {it.state}))
     }
     
     

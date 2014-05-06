@@ -6,25 +6,27 @@ $(document).ready(function(){
     });
     
     $("#save").click(function() {
-        var data = {
-            unscheduled: [],
-            scheduled: {}
-        }
-        $("#unscheduled input").each(function() {
-            data.unscheduled.push(this.value);
+        var updates = [];
+        
+        // package all shipments into a data structure
+        $(".kumulus-shipment-data").each(function() {
+            var data = {
+                companyId: $(this).attr("companyId"),
+                id: $(this).attr("shipmentId"),
+                scheduledDate: $(this).parent().parent().attr("date")
+            }
+            updates.push(data);
         });
-        
-        for(var i=0; i<5; i++) {
-            var element = $("#scheduleDate" + i);
-            var key = element.attr("date");
-            data.scheduled[key] = [];
-            element.find("input").each(function() {
-                data.scheduled[key].push(this.value);
-            });
+        for(var i=0; i < updates.length; i++) {
+            var action;
+            var data = updates[i];
+            if(data.id) {
+                if(data.scheduledDate) action = "update"; else action = "remove";
+            } else {
+                if(data.scheduledDate) action = "create";
+            }
+            if(action) request(url("shipment", action, ""), data, function(){});
         }
-        
-        alert(JSON.stringify(data));
-        // request(url("logistics", "save", ""), data, function() {});
-    }); 
-
+        location.reload(true);
+    });
 });
