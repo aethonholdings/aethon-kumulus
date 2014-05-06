@@ -144,11 +144,5 @@ class NodeController {
         }
         render response as JSON
     }
-    
-    def fetch() {
-        def response = [done: true]
-        //fetch from storage
-        render response as JSON
-    }
-    
+        
 }

@@ -17,10 +17,10 @@
             </div>
             <ul>
               <li><g:link controller="logistics" action="schedule">Schedule logistics</g:link></li>
-              <li><g:link controller="logistics" action="store">Store items</g:link></li>
-              <li><g:link controller="logistics" action="retrieve">Retrieve items</g:link></li>
+              <li><g:link controller="logistics" action="pickup">Pickup</g:link></li>
+              <li><g:link controller="logistics" action="store">Store</g:link></li>
+              <li><g:link controller="logistics" action="retrieve">Retrieve</g:link></li>
             </ul>
-             
           </div>
         </div>
       </div>

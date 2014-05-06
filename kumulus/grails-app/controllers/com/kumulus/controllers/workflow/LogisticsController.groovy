@@ -26,6 +26,10 @@ class LogisticsController {
         render(view:"schedule", model:[flaggedNodes: flaggedNodes, shipments: shipments, userId: permissionsService.getUsername(), calendar: calendar])
     }
     
+    def pickup() {
+        
+    }
+    
     def store() {
         render(view:"store", model:[userId: permissionsService.getUsername()])    
     }
