@@ -11,9 +11,7 @@ import java.sql.Timestamp
 class ShipmentController {
     def permissionsService
     def logisticsService
-    
-    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
-    
+        
     def create(){
         def data = request.JSON
         Company company = Company.findById(data?.companyId)
@@ -27,8 +25,18 @@ class ShipmentController {
         
     }
     
-    def remove() {
+    def delete() {
         def data = request.JSON
         logisticsService.deleteShipment(Shipment.findById(data?.id))
+    }
+    
+    def update() {
+        def data = request.JSON
+        Date date = new Date(Timestamp.valueOf(data?.scheduledDate).getTime())
+        Shipment shipment = Shipment.findById(data.id)
+        if(shipment && date) {
+            shipment.scheduled = date
+            shipment.save()
+        }
     }
 }

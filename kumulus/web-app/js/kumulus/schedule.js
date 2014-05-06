@@ -21,7 +21,7 @@ $(document).ready(function(){
             var action;
             var data = updates[i];
             if(data.id) {
-                if(data.scheduledDate) action = "update"; else action = "remove";
+                if(data.scheduledDate) action = "update"; else action = "delete";
             } else {
                 if(data.scheduledDate) action = "create";
             }
