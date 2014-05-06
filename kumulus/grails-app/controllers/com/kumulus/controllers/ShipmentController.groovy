@@ -19,8 +19,7 @@ class ShipmentController {
         Company company = Company.findById(data?.companyId)
         Date date = new Date(Timestamp.valueOf(data?.scheduledDate).getTime())
         if(!data?.id && company && date) {            
-            Shipment shipment = new Shipment(company: company, scheduled: date)
-            shipment.save()
+            logisticsService.createShipment(company, date.clearTime())
         }
     }
     
@@ -30,7 +29,6 @@ class ShipmentController {
     
     def remove() {
         def data = request.JSON
-        def shipment=Shipment.findById(data?.id)
-        if(shipment) { shipment.delete(flush:true, failOnError:true) }
+        logisticsService.deleteShipment(Shipment.findById(data?.id))
     }
 }

@@ -19,8 +19,6 @@
             <h3 class="kumulus-scheduler-header">Service requests</h3>
             <div class="kumulus-scrollable-y kumulus-scheduler">
               <ul date="" class="connectedSortable">
-${flaggedNodes[1]}                
-${flaggedNodes[2]}
                 <g:each var="pickup "in="${flaggedNodes}">
                   <li>
                     <span class="kumulus-shipment-data" shipmentId="" companyId="${pickup.key.id}" scheduled="">${pickup.key.name}</span>
@@ -33,7 +31,12 @@ ${flaggedNodes[2]}
             <div class="pure-u-1-6">
               <h3 class="kumulus-scheduler-header">${day.format("EEE MMM dd")}</h3>
               <div class="kumulus-scheduler kumulus-scrollable-y">
-                <ul date="${day.toTimestamp()}" class="scheduled connectedSortable">
+                <ul date="${day.clearTime().toTimestamp()}" class="scheduled connectedSortable">
+                  <g:each var="shipment" in="${shipments?.get(day.clearTime())}">
+                    <li>
+                      <span class="kumulus-shipment-data" shipmentId="${shipment.id}" companyId="${shipment.company.id}" scheduled="${shipment.scheduled}">${shipment.company.name}</span>
+                    </li>
+                  </g:each>
                 </ul>
               </div>
             </div>

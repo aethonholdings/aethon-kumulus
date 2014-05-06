@@ -64,6 +64,7 @@ class LogisticsService {
         return(node)
     }
     
+
     def shipNode(Node node, Shipment shipment) {
         
         if (node && shipment && (node.state == Node.STATE_CLIENT_SEALED || node.state == Node.STATE_IN_STORAGE)) {
@@ -103,9 +104,35 @@ class LogisticsService {
     }
     
     def getFlaggedNodes() {
-        def nodes = Node.findAll {(Node.STATE_FLAGGED_TO_SHIP || Node.STATE_FLAGGED_TO_FETCH)}
-        return(nodes.groupBy({it.project.client}, {it.state}))
+        def nodes = Node.findAll {
+            state == Node.STATE_FLAGGED_TO_SHIP || state == Node.STATE_FLAGGED_TO_FETCH 
+            shipment == null
+        }
+        return(nodes.groupBy({it.project.client}))
     }
     
+    def getSchedule() {
+        return(Shipment.getAll().groupBy({it.scheduled}))
+    }
+    
+    def createShipment(Company company, Date date) {
+        if(company && date) {
+            Shipment shipment = new Shipment(company: company, scheduled: date)
+            getFlaggedNodes().get(company).each { node ->
+                shipment.addToNodes(node)
+            }
+            shipment.save()
+        }
+    }
+    
+    def deleteShipment(Shipment shipment) {
+        if(shipment) {
+            while(shipment.nodes.size() > 0) {
+                shipment.removeFromNodes(shipment.nodes[0])
+            }
+            shipment.delete(flush:true, failOnError:true)
+        }
+
+    }
     
 }

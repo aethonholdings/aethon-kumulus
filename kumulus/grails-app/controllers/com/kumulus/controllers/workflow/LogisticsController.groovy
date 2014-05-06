@@ -17,12 +17,13 @@ class LogisticsController {
     
     def schedule() {
         def flaggedNodes = logisticsService.getFlaggedNodes()
-        def today = new Date()
+        def shipments = logisticsService.getSchedule()
+        def today = (new Date()).clearTime()
         def calendar = []
         (today..(today+6)).each { date ->
             if(date.format("EEE")!="Sat" && date.format("EEE")!="Sun") calendar.add(date)
         }
-        render(view:"schedule", model:[flaggedNodes: flaggedNodes, userId: permissionsService.getUsername(), calendar: calendar])
+        render(view:"schedule", model:[flaggedNodes: flaggedNodes, shipments: shipments, userId: permissionsService.getUsername(), calendar: calendar])
     }
     
     def store() {
