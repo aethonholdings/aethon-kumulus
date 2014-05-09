@@ -14,7 +14,8 @@ environments {
     development {
         dataSource {
             dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
-            url = "jdbc:mysql://"+ (System.getenv('KUMULUS_DB_HOST') ?: "localhost") +":3306/kumulus?autoReconnect=true"
+            url = "jdbc:mysql://"+ (System.getenv('KUMULUS_DB_HOST') ?: "localhost") +\
+                  ":3306/"+(System.getenv('KUMULUS_DB_NAME') ?: "kumulus")+"?autoReconnect=true"
             username = "kumulus"
             password = System.getenv('KUMULUS_DB_PASS') ?:"password"
             properties {
@@ -33,7 +34,8 @@ environments {
     test {
         dataSource {
             dbCreate = "update"
-            url = "jdbc:mysql://"+(System.getenv('KUMULUS_DB_HOST') ?:"kumulus.cokd1jwuhqlu.ap-southeast-1.rds.amazonaws.com")+":3306/kumulus?autoReconnect=true"
+            url = "jdbc:mysql://"+(System.getenv('KUMULUS_DB_HOST') ?:"kumulus.cokd1jwuhqlu.ap-southeast-1.rds.amazonaws.com")+\
+                  ":3306/"+(System.getenv('KUMULUS_DB_NAME') ?: "kumulus")+"?autoReconnect=true"
             username = "kumulus"
             password = System.getenv('KUMULUS_DB_PASS') ?:"d7!8d826ddx1"
             properties {
