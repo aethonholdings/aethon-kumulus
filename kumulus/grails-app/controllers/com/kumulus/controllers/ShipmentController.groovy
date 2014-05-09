@@ -11,6 +11,7 @@ import java.sql.Timestamp
 class ShipmentController {
     def permissionsService
     def logisticsService
+    def accessService
         
     def create(){
         def data = request.JSON
@@ -34,5 +35,20 @@ class ShipmentController {
             shipment.scheduled = date
             shipment.save()
         }
+    }
+    
+    def getByNodeId() {
+        def data = request.JSON
+        def response = [
+            success: false,
+            data: []
+        ]
+        def node = Node.findById(data?.nodeId)
+        if(node && permissionsService.checkPermissions(node) && node?.shipment) {  
+            response.success = true
+            response.data = accessService.renderShipment(node.shipment)
+        }
+        println(response)
+        render response as JSON
     }
 }

@@ -263,4 +263,12 @@ class AccessService {
         return(g.createLink([controller: "document", action:"get", id: lineItem.id, absolute: true]))
     }
     
+    def renderShipment(Shipment shipment) {
+        return ([
+            id: shipment.id,
+            scheduled: shipment.scheduled.toTimestamp(),
+            company: shipment.company.name
+        ])
+    }
+    
 }

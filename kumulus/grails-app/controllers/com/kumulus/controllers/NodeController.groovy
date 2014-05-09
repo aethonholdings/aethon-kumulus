@@ -89,11 +89,15 @@ class NodeController {
         render response as JSON
     }
     
-    def searchByBarcode() {
-        def response = []
-        def node=Node.findByBarcode(Barcode.findByText(request.JSON?.barCode))
+    def getByBarcode() {
+        def response = [
+            success: false,
+            data: []
+        ]
+        def node=Node.findByBarcode(Barcode.findByText(request.JSON?.barcode))
         if(node && permissionsService.checkPermissions(node)) {            
-            response = accessService.renderNodeHierarchy(node)
+            response.success = true
+            response.data = accessService.renderNode(node)
         }
         render response as JSON
     }
@@ -111,7 +115,6 @@ class NodeController {
     def getDocuments() {
         def data = request.JSON
         def response = []
-                
         if(data?.node && data.node!="ROOT") {
             def nodes = Node.findAll() { node -> 
                 parent.id == data.node.toLong()

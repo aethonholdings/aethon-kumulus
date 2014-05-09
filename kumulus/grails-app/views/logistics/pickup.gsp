@@ -24,25 +24,25 @@
               </div>
               <div class="pure-control-group">
                 <label for="company">Company</label>
-                <input id="company" type="text" class="pure-u-1-2" disabled>
+                <input id="company" type="text" class="pure-u-1-2" readonly>
               </div>
               <div class="pure-control-group">
                 <label for="date">Shipment date</label>
-                <input id="date" type="date" class="pure-u-1-2" disabled>
+                <input id="date" type="date" class="pure-u-1-2">
               </div>
             </div>
             <div id="containerViewer" class="pure-form pure-form-aligned">
               <div class="pure-control-group">
                 <label for="type">Container type:</label>
-                <input name="type" type="text" id="nodeType" class="pure-u-1-2" readonly=""/>
+                <input name="type" type="text" id="nodeType" class="pure-u-1-2" readonly/>
               </div>
               <div class="pure-control-group">
                 <label for="location">Location:</label>
-                <input name="location" type="text" id="nodeLocation" class="pure-u-1-2" readonly=""/>
+                <input name="location" type="text" id="nodeLocation" class="pure-u-1-2" readonly/>
               </div>
               <div class="pure-control-group">
                 <label for="status">Status:</label>
-                <input name="status" type="text" id="nodeStatus" class="pure-u-1-2" readonly=""/>
+                <input name="status" type="text" id="nodeStatus" class="pure-u-1-2" readonly/>
               </div>
             </div>
           </div>
