@@ -110,7 +110,7 @@ class KumulusTagLib {
                 out << "\t\t<td>Documents to be validated</td>\n"
                 out << "\t\t<td class='kumulus-task-count'>${userTasks.types.VALIDATE.count}</td>\n"
                 if(userTasks.types.VALIDATE.count > 0) {
-                    out << "\t\t<td class='kumulus-task-queue-action'>" << g.link(controller: "structure", action: "getNextTask", params:[type: "${Task.TYPE_VALIDATE}"], "Action") << "</td>\n"
+                    out << "\t\t<td class='kumulus-task-queue-action'>" << g.link(controller: "backOffice", action: "getNextTask", params:[type: "${Task.TYPE_VALIDATE}"], "Action") << "</td>\n"
                 } else {
                     out << "\t\t<td class='kumulus-task-queue-action'></td>"
                 }

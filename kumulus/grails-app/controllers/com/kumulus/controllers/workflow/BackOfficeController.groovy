@@ -84,7 +84,6 @@ class BackOfficeController {
                     workflowService.completeTask(task)
                     if(task.type==Task.TYPE_PROCESS) {
                         def newTask = workflowService.createTask(document, Task.TYPE_VALIDATE, permissionsService.getUsername())
-                        workflowService.assignTask(newTask, task.document.project.ownerId)
                     }
                 }
                 response.done = true

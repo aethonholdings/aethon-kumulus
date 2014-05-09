@@ -37,15 +37,31 @@ class ShipmentController {
         }
     }
     
-    def getByNodeId() {
+    def getByBarcode() {
         def data = request.JSON
         def response = [
             success: false,
             data: []
         ]
+        def node=Node.findByBarcode(Barcode.findByText(request.JSON?.barcode))
         if(node && permissionsService.checkPermissions(node) && node?.shipment) {  
             response.success = true
             response.data = accessService.renderShipment(node.shipment)
+        }
+        render response as JSON
+    }
+    
+    def getNodes() {
+        def data = request.JSON
+        def response = [
+            success: false,
+            data: []
+        ]
+        def shipment = Shipment.findById(data?.shipmentId) 
+        if(shipment) {
+            shipment.nodes.each { node ->
+                if(permissionsService.checkPermissions(node)) response.data.add(accessService.renderNode(node))
+            }
         }
         render response as JSON
     }

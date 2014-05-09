@@ -28,7 +28,7 @@
               </div>
               <div class="pure-control-group">
                 <label for="date">Shipment date</label>
-                <input id="date" type="date" class="pure-u-1-2">
+                <input id="date" type="date" class="pure-u-1-2" readonly>
               </div>
             </div>
             <div id="containerViewer" class="pure-form pure-form-aligned">
