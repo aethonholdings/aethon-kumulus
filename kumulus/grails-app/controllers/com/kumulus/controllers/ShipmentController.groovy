@@ -43,12 +43,10 @@ class ShipmentController {
             success: false,
             data: []
         ]
-        def node = Node.findById(data?.nodeId)
         if(node && permissionsService.checkPermissions(node) && node?.shipment) {  
             response.success = true
             response.data = accessService.renderShipment(node.shipment)
         }
-        println(response)
         render response as JSON
     }
 }
