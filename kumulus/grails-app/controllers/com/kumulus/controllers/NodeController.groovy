@@ -6,8 +6,9 @@ import grails.converters.*
 class NodeController {
 
     def captureService
+    def logisticsService
     def permissionsService
-        
+    
     def getRoot() {
         def project = Project.findById(params?.id)
         if(permissionsService.checkPermissions(project)) {
@@ -41,13 +42,11 @@ class NodeController {
         def data = request.JSON
         def response = [done: false, message: "Error"]
         def project = Project.findById(data?.project)
-        def parent
-        if(data?.parentID && data.parentID != "ROOT") 
-        parent = Node.findById(data?.parentID) else parent = null
-        if(project && permissionsService.checkPermissions(project) && captureService.insertNode(parent, project, data?.barcode, data?.name, data?.comment, data?.type)) { 
+        def parent = null
+        if(data?.parentId && data.parentId != "ROOT") parent = Node.findById(data?.parentId) 
+        if(project && permissionsService.checkPermissions(project) && captureService.insertNode(parent, project, data?.barcode, data?.name, data?.comment, data?.type, Node.STATE_CLIENT_OPEN)) { 
             response.done = true
             response.message = "Success"
-    
         }
         render response as JSON
     }
@@ -64,31 +63,17 @@ class NodeController {
         render response as JSON
     }
     
-    def list(){
-        def data = request.JSON
-        def nodes = []
-        def nodeList=[]
-        if(data.deliveryId=="1"){
-            nodes = Node.findAll {
-                (type == NodeType.findByName("Box") && status == Node.STATUS_CLOSED && location =="In storage")
-            }
-        }
-        else{
-            nodes = Node.findAll {
-                (type == NodeType.findByName("Box") && status == Node.STATUS_CLOSED && location =="My premises")
-            }
-        }
+    def listShippable(){
         
-        nodes.each{node ->
-            //            println("hhh"+ShipmentItem.findByItemIdAndDelivery(node.id,data.deliveryId))
-            def shipObj=ShipmentItem.findByItemId(node.id)
-            if(!shipObj){
-                nodeList<<node
-            }
-            
+        def renderedNodes = []
+        
+        def nodes = Node.findAll {
+            type.storeable == true && project.company == permissionsService.getCompany()?.name && state == Node.STATE_CLIENT_SEALED
         }
-
-        render nodeList as JSON
+        nodes.each { node ->
+            if(permissionsService.checkPermissions(node)) renderedNodes.add(captureService.renderNode(node))
+        }
+        render renderedNodes as JSON
     }
 
     def move(){
@@ -154,19 +139,20 @@ class NodeController {
         }
         render response as JSON
     }
-    def containerToTransport(){
+    
+    def seal(){
         def data = request.JSON
         def node = Node.findById(data?.id)
-        if (permissionsService.checkPermissions(node)) {
-            captureService.updateContainer(node, Node.STATUS_OPEN)
+        if (permissionsService.checkPermissions(node) && node.type.storeable) {
+            logisticsService.sealNode(node)
             render node as JSON
         }
     }
     
-    def fetchFromStorage() {
+    def fetch() {
         def response = [done: true]
         //fetch from storage
         render response as JSON
-        println(response)
     }
+    
 }

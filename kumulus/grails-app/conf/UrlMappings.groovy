@@ -2,7 +2,7 @@ class UrlMappings {
 
 	static mappings = {
         "/"{
-            controller = "login"
+            controller = "home"
         }
         "/$controller/$action?/$id?(.${format})?"{
             constraints {

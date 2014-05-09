@@ -29,6 +29,9 @@ class SubmitDocumentJob {
     def group = "Jobs"
 
     def execute() {
+        def useABBYY = grailsApplication.config.kumulus.useABBYY
+        def taskIdABBYY = null
+
         def client = new Client()
         client.applicationId = grailsApplication.config.abbyy.applicationId
         client.password = grailsApplication.config.abbyy.password
@@ -43,15 +46,19 @@ class SubmitDocumentJob {
             def doc = wtask.document
             assert doc.status == Document.STATUS_BUILT
             def task = null
-            for (page in Page.findAllByDocument(doc, [sort: "number", order: "asc"])) {
-                def filename = page.scanImage.file.path
-                def id = (task == null) ? null : task.Id
-                def result = client.submitImage(filename, id)
-                if (result != null) { task = result }
+            if(useABBYY) {
+                for (page in Page.findAllByDocument(doc, [sort: "number", order: "asc"])) {
+                    def filename = page.scanImage.file.path
+                    def id = (task == null) ? null : task.Id
+                    def result = client.submitImage(filename, id)
+                    if (result != null) { task = result }
+                }
+                taskIdABBYY = task.Id
+                task = client.processDocument(taskIdABBYY, settings)
             }
-            task = client.processDocument(task.Id, settings)
+            
             Document.withTransaction { trans ->
-                doc.ocrTask = task.Id
+                doc.ocrTask = taskIdABBYY
                 workflowService.completeTask(wtask)
                 workflowService.createTask(doc, Task.TYPE_OCR_RETRIEVE, 'kumulus')
                 doc.save()

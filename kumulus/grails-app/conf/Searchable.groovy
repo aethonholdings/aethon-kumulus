@@ -134,7 +134,7 @@ searchable {
      * If you use BootStrap.groovy to insert your data then you should use "true",
      * which means do a non-forking, otherwise "fork" is recommended
      */
-    bulkIndexOnStartup = true
+    bulkIndexOnStartup = "fork"
 
     /**
      * Should index locks be removed (if present) at startup?
@@ -152,11 +152,6 @@ environments {
 
     test {
         searchable {
-            // disable bulk index on startup
-            bulkIndexOnStartup = false
-
-            // use faster in-memory index
-            compassConnection = "ram://test-index"
         }
     }
 

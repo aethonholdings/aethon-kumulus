@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Sample title</title>
+        <title>Arrange document pickup | Kumulus</title>
      <g:javascript src='kumulus/pickup.js'/>
     </head>
     <body>

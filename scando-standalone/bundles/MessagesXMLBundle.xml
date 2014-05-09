@@ -1,0 +1,462 @@
+<?xml version="1.0" ?>
+<Application-IM>
+<ErrorMessage>
+	<ErrorMessage>
+		<E3223  e030=",You can not create document with date less than Stock Date." r070=",You can not create document with date less than Stock Date." g060=",Δεν μπορείτε να εκδόσετε παραστατικό με ημερομηνία προγεννέστερη της Ημερομηνίας  απογραφής"/>
+		<E3226  e030=",You can not create document with time less than Stock time." r070=",You can not create document with time less than Stock time." g060=",Δεν μπορείτε να εκδόσετε παραστατικό με ώρα προγεννέστερη της ώρας απογραφής"/>
+		<E3306 e030="Accrual Number should not be empty" r070="Accrual Number should not be empty" g060="Η εκτιμόμενη αριθμός δεν μπορεί να είναι κενή."/>
+		<E3035  e030="Adjustments Pending" r070="Ajustari in Asteptare" g060="Διορθώσεις σε εκκρεμότητα"/>
+		<E3138  e030="Aging value should not be less than zero" r070="Va rugam sa completati urmatoarele date" g060="Η αξία ενηλικίωσης δεν πρέπει να είναι μικρότερη από μηδέν."/>
+		<E3230  e030="All Entered Products Quantity are 0, Can not Print." r070="All Entered Products Quantity are 0, Can not Print." g060="Όλες οι ποσότητες που δώσατε είναι 0. Δεν μπορεί να γίνει εκτύπωση"/>
+		<E3225  e030="already exist with Stock Date time:" r070="already exist with Stock Date time:" g060="ύπάρχει ήδη με ημερομηνία και ώρα απογραφής:"/>
+		<E3222  e030="already exist with Stock Date:" r070="already exist with Stock Date:" g060="ύπάρχει ήδη με ημερομηνία απογραφής:"/>
+		<E3069  e030="already exists." r070="exista deja" g060="υπάρχει ήδη."/>
+		<E2020  e030="Alteast One Product Line Should be selected" r070="Cel putin o linie produs trebuie selectata" g060="Πρέπει να επιλεχθεί τουλάχιστον μία γραμμή προϊόντος"/>
+		<E3263  e030="Another user has created new manual document, please re-open this document." r070="Another user has created new manual document, please re-open this document." g060="Κάποιος Άλλος χρήστης δημιούργησε νέο χειρόγραφο παραστατικό. Ανοίξτε αυτό το παραστατικό."/>
+		<E2010  e030="Another user is working on the same destiny" r070="Alt utilizator lucreaza cu aceeasi destinatie" g060="Ένας άλλος χρήστης εργάζεται στον ίδιο προορισμό."/>
+		<E3141  e030="Automatic Document for Entered Date is not created,You can not create Manual Document." r070="Document Automat pentru Data introdusa nu este creat, Nu se poate crea Document Manual" g060="Δεν εκδόθηκε αυτόματο παραστατικό για την ημερομηνία που έχετε εισάγει. Δεν μπορείτε να εκδώσετε χειρόγραφο παραστατικό."/>
+		<E3142  e030="Automatic Document for Entered Date is not created,You can not create Manual Document." r070="Document Automat pentru Data introdusa nu este creat, Nu se poate crea Document Manual" g060="Δεν εκδόθηκε αυτόματο παραστατικό για την ημερομηνία που έχετε εισάγει. Δεν μπορείτε να εκδώσετε χειρόγραφο παραστατικό."/>
+		<E3039  e030="Below Product(s) are unauthorized for selected Document Date" r070="Produsele de mai jos sint neautorizate pentru Data Operatie selectata" g060="Το(α) παρακάτω προϊόν(τα) δεν είναι εξουσιοδοτημένο(α) για επιλεγμένη ημερομηνία λειτουργίας"/>
+		<E3012  e030="Brand Can not be empty" r070="Brand este obligatoriu" g060="Η ομάδα δεν μπορεί να είναι κενή"/>
+		<E3016  e030="Can not Acknowledge without Opening the Document" r070="Deschideti mai intai documentul pentru a putea fi confirmat" g060="Δεν είναι δυνατή η αποδοχή χωρίς το άνοιγμα του παραστατικού"/>
+		<E3045  e030="Can not Change UOM" r070="UM nu poate fi schimbata" g060="null"/>
+		<E3149  e030="CAN NOT CHANGE YEAR FOR FINAL PHYSICAL INVENTORY" r070="NU SE POATE SCHIMBA AN PT INVENTAR FIZIC" g060="ΔΕΝ ΕΙΝΑΙ ΔΥΝΑΤΗ Η ΑΛΛΑΓΗ ΕΤΟΥΣ ΓΙΑ ΤΗΝ ΤΕΛΙΚΗ ΑΠΟΓΡΑΦΗ"/>
+		<E3017  e030="Can not delete....No row exists" r070="Nu pot sterge..nu exista rinduri" g060="Δεν είναι δυνατή η διαγραφή ...Δεν υπάρχει γραμμή"/>
+		<E3241  e030="Cancel document's transaction date can not be less than approved document's transaction date" r070="Cancel document's transaction date can not be less than approved document's transaction date" g060="Η Ημερομηνία του ακυρωτικού παραστατικού δεν μπορεί να είναι μικρότερη από την ημερομηνία έγκρισης της κίνησης"/>
+		<E3240  e030="Cancel document's transaction time can not be less than approved document's transaction time" r070="Cancel document's transaction time can not be less than approved document's transaction time" g060="Η Ώρα του ακυρωτικού παραστατικού δεν μπορεί να είναι μικρότερη από την ώρα έγκρισης της κίνησης"/>
+		<E3260  e030="Cannot approved document with quantity of all products set to zero" r070="Cannot approved document with quantity of all products set to zero" g060="Δεν μπορεί να εγκριθεί παραστατικό με όλες τις ποσότητες μηδενικές."/>
+		<E3217  e030="Carrier Id" r070="Carrier Id" g060="Κωδ.Μεταφ."/>
+		<E3218  e030="Carrier id not entered" r070="Carrier id not entered" g060="Δεν δόθηκε Μεταφορέας."/>
+		<E3219  e030="Carrier id not found" r070="Carrier id not found" g060="Δεν Βρέθηκε Μεταφορέας"/>
+		<E3093  e030="Co-packer Delivery Note Number Not Entered" r070="Numar Aviz Expeditie Impachetare neintrodus" g060="Δεν εισήχθη Αριθμός Δελτίου Αποστολής Ανασυσκευαστή :"/>
+		<E3032  e030="Commit Not Done. Some problems occured." r070="Comitere neefectuata. Probleme aparute." g060="Δεν πραγματοποιήθηκε η εκτέλεση. Παρουσιάστηκαν σφάλματα."/>
+		<E3247  e030="committed successfully" r070="committed successfully" g060="Επιβεβαιώθηκε Επιτυχώς"/>
+		<E3077  e030="Conversion rate for selected received date not found" r070="Curs valutar inexistent pt data receptie selectata" g060="Δεν βρέθηκε τιμή μετατροπής για την επιλεγμένη ημερομηνία παραλαβής"/>
+		<E3314 e030="Cost can not be minus" r070="Cost can not be minus" g060="Το κόστος δεν μπορεί να είναι αρνητικό"/>
+		<E3313 e030="Cost can not be null" r070="Cost can not be null" g060="Το κόστος δεν μπορεί να είναι κενό."/>
+		<E3315 e030="Cost can not be zero" r070="Cost can not be zero" g060="Το κόστος δεν μπορεί να είναι μηδέν."/>
+		<E3228  e030="Create Transfer In Document" r070="Create Transfer In Document" g060="Δημιουργία Παραστατικού Ενδοδιακίνησης Εισαγωγής"/>
+		<E3311 e030="Current year document exist for enter delivery note number" r070="Current year document exist for enter delivery note number" g060="Υπάρχει μέσα στο τρέχον έτος παραστατικό για το δεδομένο αριθμό Δελτίου Αποστολής"/>
+		<E1000  e030="DAO not found" r070="DAO negasit" g060="Δεν ήταν δυνατή η εύρεση DAO"/>
+		<E3049  e030="Date Difference should not be more than 1 Days" r070="Diferenta nu trebuie sa fie mai mare de 1 zi" g060="Η απόκλιση στην ημερομηνία δεν θα πρέπει να υπερβαίνει τη 1 ημέρα"/>
+		<E3047  e030="Date Difference should not be more than 10 Days" r070="Diferenta nu trebuie sa fie mai mare de 10 zile" g060="Η απόκλιση στην ημερομηνία δεν θα πρέπει να υπερβαίνει τις 10 ημέρες"/>
+		<E3048  e030="Date Difference should not be more than 7 Days" r070="Diferenta nu trebuie sa fie mai mare de 7 zile" g060="Η απόκλιση στην ημερομηνία δεν θα πρέπει να υπερβαίνει τις 7 ημέρες"/>
+		<E2007  e030="Date Should Be Within Open Current Period" r070="Data trebuie sa fie in Perioada Curenta" g060="Η ημερομηνία θα πρέπει να είναι εντός της τρέχουσας ανοιχτής περιόδου"/>
+		<E2006  e030="Date Should Not Be Future Date" r070="Data nu trebuie sa fie in Viitor" g060="Η ημερομηνία δεν πρέπει να είναι μελλοντική"/>
+		<E3229  e030="Default Truck Number is not available in Assigned Truck" r070="Default Truck Number is not available in Assigned Truck" g060="Ο προεπιλεγμένος αρ.φορτηγού δεν περιλαμβάνεται στα ορισμένα φορτηγά."/>
+		<E3137  e030="Difference of First Period should not be less than zero" r070="Diferentele nu pot fi negative" g060="Η απόκλιση της πρώτης περιόδου δεν πρέπει να είναι μικρότερη από μηδέν"/>
+		<E3227  e030="Do you want to create Transfer In Document?" r070="Do you want to create Transfer In Document?" g060="Θέλετε να εκδόσετε παραστατικό Ενδοδιακίνησης Εισαγωγής;"/>
+		<E3143  e030="Do you want to generate report for all" r070="Generati raportul pentru toti furnizorii" g060="Θέλετε να εκδόσετε αναφορά για όλα"/>
+		<E3144  e030="Do you want to generate report for all Supplier Delivery Number?" r070="Generati raport pentru toate avizele de la furnizori?" g060="Θέλετε να δημιουργήσετε αναφορά για όλους τους αριθμούς παραδόσεων προμηθευτή;"/>
+		<E3145  e030="Do you want to generate report for all Supplier Invoice Number?" r070="Generati raport pentru toate facturile de la furnizori?" g060="Θέλετε να δημιουργήσετε αναφορά για όλους τους αριθμούς τιμολογίου προμηθευτή;"/>
+		<E3071  e030="Document already exist with save status, You can not create New Miscellaneous Document" r070="Nu puteti crea un document nou deoarece el exista deja ion statut salvat" g060="Το παραστατικό υπάρχει ήδη αποθηκευμένο. Δεν είναι δυνατή η δημιουργία Νέου Παραστατικού Πρωτοκόλλου Καταστροφής"/>
+		<E3025  e030="Document Can not be cancelled. Not retrieved" r070="Nu puteti anula acest document" g060="δεν μπορείτε να ακυρώσετε το παραστατικό. Δεν το έχετε ανακτήσει."/>
+		<E2004  e030="Document Could Not Be Saved" r070="Documentul nu poate fi salvat!" g060="Δεν ήταν δυνατή η αποθήκευση του παραστατικού"/>
+		<E2005  e030="Document has been saved successfully" r070="Documentul a fost salvat!" g060="Το παραστατικό αποθηκεύτηκε με επιτυχία"/>
+		<E2057  e030="Document must be retrieved before committing" r070="Documentul trebuie editat inaintea salvarii" g060="Το παραστατικό πρέπει να ανακτηθεί πριν την εκτέλεση"/>
+		<E2035  e030="Document Number" r070="Nr. Document" g060="Αρ. Παρ/κού"/>
+		<E3061  e030="DOCUMENT NUMBER ALREADY EXIST" r070="DOCUMENT EXISTENT" g060="ΤΟ ΠΑΡΑΣΤΑΤΙΚΟ ΥΠΑΡΧΕΙ ΗΔΗ"/>
+		<E3166  e030="Document Number Exist in Save status, Can not create New Logical Physical Inventory document." r070="Numar document exista in starea Salvat, nu se poate crea Document Nou Inventar Logic." g060="Ο αριθμός παραστατικού υπάρχει φυλαγμένος. Δεν μπορεί να εκδοθεί νέο παραστατικό Λογιστικής Απογραφής"/>
+		<E3165  e030="Document Number Exist in Save status, Can not create New Physical Inventory document." r070="Numar document exista in starea Salvat, nu se poate crea Document Nou Inventar Fizic." g060="Ο αριθμός παραστατικού υπάρχει φυλαγμένος. Δεν μπορεί να εκδοθεί νέο παραστατικό Φυσικής Απογραφής"/>
+		<E2037  e030="Document Number Not Entered" r070="Nr. Doc. Necompletat!" g060="Δεν εισήχθη αριθμός παραστατικού"/>
+		<E3221  e030="Document Number:" r070="Document Number:" g060="Αρ. Παρ/κού"/>
+		<E3224  e030="Document Number:" r070="Document Number:" g060="Αρ. Παρ/κού"/>
+		<E2034  e030="Duplicate Templates are not allowed" r070="Duplicarea formularelor nu este permisa" g060="Δεν επιτρέπονται επαναλήψεις στα πρότυπα"/>
+		<E3115  e030="Enter delivery note number" r070="Completati nr. aviz" g060="Δώστε τον Αρ.του Δελτίου Αποστολής"/>
+		<E3074  e030="Enter PO Ref. number" r070="Enter PO Ref. number" g060="Εισάγετε αριθμό εντολής αγοράς."/>
+		<E3200  e030="Enter valid final value" r070="Enter valid final value" g060="Εισάγετε έγκυρη τελική αξία"/>
+		<E3103  e030="Enter valid price" r070="Introduceti un pret valid" g060="Εισάγετε έγκυρη τιμή"/>
+		<E3242  e030="Enter valid quantity" r070="Enter valid quantity" g060="Δώστε έγκυρη ποσότητα"/>
+		<E3236  e030="Entered co-packer delivery note number does not exist for selected date" r070="Entered co-packer delivery note number does not exist for selected date" g060="Ο Δοθείς αριθμός Δ.Α. Ανασυσκευαστή δεν υπάρχει για την επιλεχθείσα ημερομηνία."/>
+		<E3237  e030="Entered co-packer location number does not exist" r070="Entered co-packer location number does not exist" g060="Ο Δοθείς Κωδικός Αποθήκης  Ανασυσκευαστή δεν υπάρχει."/>
+		<E3064  e030="Entered packed products for Lucode:" r070="Nr. Pachete pentru cod logistic:" g060="Δοθέντα συσκευασμένα προϊόντα για τον LU:"/>
+		<E3146  e030="Entered PO Ref. number is already entered in document" r070="Numar comanda exista deja in sistem" g060="Ο αριθμός εντολής αγοράς που έχετε εισάγει έχει ήδη εισαχθεί στο παραστατικό"/>
+		<E3068  e030="Entered Quantity is greater than required quantity" r070="Cantitatea introdusa este mai mare decat cantitatea ceruta!" g060="Η ποσότητα που έχετε εισάγει είναι μεγαλύτερη από την απαιτούμενη"/>
+		<E3249  e030="Entered Quantity is less than Pallet Quantity" r070="Entered Quantity is less than Pallet Quantity" g060="Η δοθείσα ποσότητα είναι λιγότερη από την ποσότητα παλέτας"/>
+		<E3250  e030="Entered Quantity is more than Pallet Quantity" r070="Entered Quantity is more than Pallet Quantity" g060="Η δοθείσα ποσότητα είναι περισσότερη από την ποσότητα παλέτας"/>
+		<E3029  e030="Entered Time can not be more than current time" r070="Ora completata nu poate depasi ora sistemului" g060="Η δοθείσα ώρα δεν μπορεί να είναι μεταγενέστερη της τρέχουσας"/>
+		<E3085  e030="Entry date should not be future date" r070="Data introdusa nu poate fi in viitor!" g060="Η ημερομηνία καταχώρησης δεν πρέπει να είναι μελλοντική"/>
+		<E3086  e030="Entry date should not be less than document date" r070="Data introdusa nu poate fi mai mica decat data crearii documentului!" g060="Η ημερομηνία καταχώρησης δεν πρέπει να είναι μικρότερη της ημερομηνίας παραστατικού"/>
+		<E3087  e030="Entry date should not be less than inventory control date" r070="Data introdusa nu poate fi anterioara datei inventarului!" g060="Η ημερομηνία καταχώρησης δεν πρέπει να είναι μικρότερη από την ημερομηνία απογραφής"/>
+		<E3088  e030="Entry time should not be future time" r070="Data introdusa nu poate fi in viitor!" g060="Η ώρα καταχώρησης δεν πρέπει να είναι μελλοντική"/>
+		<E3089  e030="Entry time should not be less than document time" r070="Data introdusa nu poate fi in viitor!" g060="Η ώρα καταχώρησης δεν πρέπει να είναι μικρότερη από την ώρα παραστατικού"/>
+		<E1013  e030="Error in Refreshing Locations and Products" r070="Eroare la actualizarea produselor si locatiilor!" g060="Σφάλμα κατά την ανανέωση αποθηκών και προϊόντων"/>
+		<E3203  e030="Excel file does not exist" r070="Excel file does not exist" g060="Δεν υπάρχει το αρχείο EXCEL"/>
+		<E3248  e030="exist in commited status,You can not create new Document." r070="exist in commited status,You can not create new Document." g060="υπάρχει στην επιβεβαιωμένη κατάσταση. Δεν μπορείτε να εκδόσετε νέο παραστατικό."/>
+		<E3151  e030="exist in Save status, Can not commit the Document." r070="exista deja in statut salvat, nu se poate modifica" g060="Υπάρχει αποθηκευμένο. Δεν είναι δυνατή η εκτέλεση του παραστατικού"/>
+		<E3075  e030="Expected document number not entered" r070="Nr. Comanda necompletat" g060="Δεν έγινε εισαγωγή του αναμενόμενου αριθμού παραστατικού"/>
+		<E3192  e030="Export to Excel Completed Successfully" r070="S-a exportat in Excel cu succesuri" g060="Η Εξαγώγή σε EXCEL ολοκληρώθηκε επιτυχώς"/>
+		<E3194  e030="Export to Excel Failed" r070="Nu s-a putut exporta in Excel" g060="Η Εξαγώγή σε EXCEL απέτυχε."/>
+		<E3191  e030="File already exists, Do you want to Over Write ?" r070="Do you want to Over Write ?" g060="Το αρχείο ήδη υπάρχει, θέλετε να το ξαναγράψετε;"/>
+		<E3317 e030="File is processed" r070="File is processed" g060="Το αρχείο είναι επεξεργασμένο."/>
+		<E3316 e030="File not uploaded" r070="File not uploaded" g060="Το αρχείο δεν φορτώθηκε"/>
+		<E2023  e030="Fill All the Entries" r070="Completeaza campurile" g060="Συμπλήρωση όλων των καταχωρήσεων"/>
+		<E1008  e030="Fill in the required details" r070="Completeaza detaliile" g060="Συμπληρώστε τις απαιτούμενες λεπτομέρειες"/>
+		<E3148  e030="Final Physical Inventory is already created for Entered Year" r070="Final Inv. Fizic deja creat pentru perioada intrata" g060="Η τελική απογραφή έχει ήδη δημιουργηθεί για το συγκεκριμένο έτος που εισάγατε"/>
+		<E3201  e030="Final Value can not be minus" r070="Final Value can not be minus" g060="Τελική αξία δεν μπορεί να είναι αρνητική"/>
+		<E3199  e030="Final Value can not be NULL" r070="Final Value can not be NULL" g060="Τελική αξία δεν μπορεί να είναι κενό."/>
+		<E3004  e030="Forecast Weeks Can not be null" r070="Nr. sapt. in viitor obligatoriu" g060="Η πρόβλεψη εβδομάδων δεν μπορεί να είναι κενό"/>
+		<E3131  e030="Form Year should not less than four digit" r070="Anul nu trebuie sa contina mai putin de 4 cifre" g060="Το έτος της φόρμας δεν μπορεί να αποτελείται από λιγότερα από τέσσερα ψηφία"/>
+		<E3254  e030="found in commit status" r070="found in commit status" g060="βρέθηκε σε κατάσταση επιβεβαιωμένο."/>
+		<E3253  e030="found in saved status" r070="found in saved status" g060="βρέθηκε σε κατάσταση αποθηκευμένο."/>
+		<E3180  e030="From brand should not be empty" r070="Brand nu trebuie sa fie gol" g060="Η ομάδα αποστολής δεν πρέπει να είναι κενή"/>
+		<E3136  e030="From Date Must Be Greater than To Date" r070="Data de inceput trebuie sa fie inferioara datei de sfarsit" g060="Η ημερομηνία αποστολής πρέπει να είναι μεγαλύτερη από την ημερομηνία παράδοσης"/>
+		<E3153  e030="From Pallet Number should not greater than To Pallet Number" r070="From Pallet Number should not greater than To Pallet Number" g060="Ο αριθμός παλέτας αποστολής δεν πρέπει να είναι μεγαλύτερος από τον αριθμό παλέτας παράδοσης"/>
+		<E3156  e030="From Pallet Number should not blank" r070="From Pallet Number should not blank" g060="Ο αριθμός παλέτας τέλους δεν μπορεί να είναι κενός"/>
+		<E3123  e030="From period should not be 0" r070="Luna de inceput nu trebie sa fie 0" g060="Η περίοδος αποστολής δεν πρέπει να είναι 0"/>
+		<E3122  e030="From period should not greater than 12" r070="Luna de inceput nu trebie sa depaseasca 12" g060="Η περίοδος αποστολής δεν πρέπει να είναι μεγαλύτερη από 12"/>
+		<E3126  e030="From Period should not greater than To Period" r070="Luna de inceput trebuie sa fie inferioara lunei de sfirsit" g060="Η περίοδος αποστολής δεν πρέπει να είναι μεγαλύτερη από την περίοδο παράδοσης"/>
+		<E3134  e030="From Period/Year is not available" r070="Luna de inceput/An" g060="Η/Το περίοδος/έτος αποστολής δεν είναι διαθέσιμη/ο"/>
+		<E3133  e030="From Period/Year should not be First Closing Period" r070="Luna de inceput/An nu trebuie sa fie egala cu prima luna inchisa" g060="Η/Το περίοδος/έτος αποστολής δεν πρέπει να είναι η πρώτη περίοδος κλεισίματος"/>
+		<E3187  e030="From time should not greater than To time" r070="Ora de start nu poate fi mai mare decit ora de sfarsit" g060="Η ώρα 'από' δεν μπορέι να είναι μεγαλύτερη από την ώρα 'έως'."/>
+		<E3127  e030="From Year should not greater than To Year" r070="Anul de inceput trebuie sa fie inferior anului de sfarsit" g060="Το έτος αποστολής δεν πρέπει να είναι μεγαλύτερο από το έτος παράδοσης"/>
+		<E3120  e030="Future period not allow" r070="Future period not allow" g060="Μελλοντική περίοδος δεν επιτρέπεται"/>
+		<E3208  e030="Goods send from stale location to goods location" r070="Goods send from stale location to goods location" g060="Τα αγαθά στάλθηκαν από την αποθήκη Ακαταλλήλων στην αποθήκη Καταλλήλων."/>
+		<E3207  e030="Goods send from stale location to goods location ,Do you want to continue?" r070="Goods send from stale location to goods location ,Do you want to continue?" g060="Τα αγαθά στάλθηκαν από την αποθήκη Ακαταλλήλων στην αποθήκη Καταλλήλων. Θέλετε να συνεχίσετε;"/>
+		<E2048  e030="has been applied" r070="s-a aplicat" g060="έχει εφαρμοστεί"/>
+		<E2049  e030="has been canceled" r070="s-a aplicat" g060="έχει ακυρωθεί"/>
+		<E3041  e030="Header Could not be Saved" r070="Antetul nu poate fi salvat" g060="Δεν ήταν δυνατή η αποθήκευση της κεφαλίδας"/>
+		<E3040  e030="Header Saved Successfully" r070="Antet salvat cu succes" g060="Η κεφαλίδα αποθηκεύτηκε με επιτυχία"/>
+		<E3031  e030="HHC Document already available" r070="HHC Document deja disponibil" g060="Το παραστατικό του HHC έιναι ήδη διαθέσιμο."/>
+		<E3298  e030="HHC Document not available" r070="HHC Document not available" g060="Το παραστατικό του HHC ΔΕΝ έιναι διαθέσιμο."/>
+		<E3003  e030="History Weeks Can not be null" r070="Nr. sapt. in trecut obligatoriu" g060="Οι εβδομάδες ιστορικού δεν μπορεί να είναι κενές"/>
+		<E3052  e030="Information already inserted in DB for the new date and time" r070="Informatie existenta pentru aceasta data" g060="Οι πληροφορίες ήδη εισήχθησαν στην Β.Δ. Με νέα ημερομηνία και ώρα."/>
+		<E2055  e030="Internal Error while processing the transaction" r070="Eroare la procesarea tranzactiei" g060="Εσωτερικό σφάλμα κατά την επεξεργασία της συναλλαγής"/>
+		<E3096  e030="Invalid Document Number" r070="Nr. Doc. Invalid" g060="Μη έγκυρος αριθμός παραστατικού"/>
+		<E2013  e030="Invalid Product Code" r070="Cod produs invalid" g060="Μη έγκυρος κωδικός προϊόντος"/>
+		<E1005  e030="Invalid SPC Entered" r070="Invalid SPC Entered" g060="Εισήχθη μη έγκυρο SPC"/>
+		<E3044  e030="Invalid UserId" r070="Utiliozator invalid" g060="Μη έγκυρο αναγνωριστικό χρήστη"/>
+		<E2002  e030="Invalid UserId/Password" r070="Utilizator/parola invalide" g060="Μη έγκυρος χρήστης / κωδικός πρόσβασης"/>
+		<E3037  e030="Inventory closed for these dates" r070="Luna inchisa" g060="Η απογραφή έκλεισε για τις συγκεκριμένες ημερομηνίες"/>
+		<E2050  e030="Inventory has been already closed for this document" r070="Inventar deja inchis pentru acest document" g060="Η απογραφή έχει ήδη κλείσει για αυτό το παραστατικό"/>
+		<E3092  e030="Inventory is being changed for red colored products" r070="Stocul s-a modificat pentru produsele marcate cu rosu" g060="Η απογραφή υφίσταται αλλαγές για προϊόντα με κόκκινη σήμανση"/>
+		<E3182  e030="Invoice No. should not be empty" r070="Nr. Factura obligatoriu" g060="Ο αριθμός τιμολογίου δεν πρέπει να είναι κενός"/>
+		<E3104  e030="Invoice Number should not be empty" r070="Nr. Factura necompletat" g060="Ο αριθμός τιμολογίου δεν πρέπει να είναι κενός"/>
+		<E3065  e030="is not enough" r070="insuficient" g060="δεν είναι αρκετό"/>
+		<E3178  e030="Item Brand From can not be Empty" r070="Brand nu poate fi nul" g060="Η ομάδα είδους αποστολής δεν μπορεί να είναι κενή"/>
+		<E3176  e030="Item Brand From can not be greater than Item Brand To" r070="Brand inceput nu poate fi mai mare decit Brand sfarsit" g060="Η ομάδα είδους αποστολής δεν μπορεί να είναι μεγαλύτερη από την ομάδα είδους παράδοσης"/>
+		<E3179  e030="Item Brand To can not be Empty" r070="Brand nu poate fi nul" g060="Η ομάδα είδους παράδοσης δεν μπορεί να είναι κενή"/>
+		<E3177  e030="Item Brand To can not be less than Item Brand From" r070="Brand sfarsit nu poate fi mai mic decit Brand inceput" g060="Η ομάδα είδους παράδοσης δεν μπορεί να είναι μικρότερη από την ομάδα είδους αποστολής"/>
+		<E3160  e030="Item From and Item To Must be Different" r070="Produs start trebuie sa fie diferit de produs sfarsit" g060="Το είδος αποστολής πρέπει να είναι διαφορετικό από το είδος παράδοσης"/>
+		<E3163  e030="Item From can not be Empty" r070="Produs start nu poate sa fie nul" g060="Το είδος αποστολής δεν μπορεί να είναι κενό"/>
+		<E3161  e030="Item From can not be greater than Item To" r070="Cod prod. inceput trebuie sa fie inferior celui de sfarsit" g060="Το είδος αποστολής δεν μπορεί να είναι μεγαλύτερο από το είδος παράδοσης"/>
+		<E3164  e030="Item To can not be Empty" r070="Produs sfarsit nu poate fi nul" g060="Το είδος παράδοσης δεν μπορεί να είναι κενό"/>
+		<E3162  e030="Item To can not be less than Item From" r070="Cod prod. inceput trebuie sa fie inferior celui de sfarsit" g060="Το είδος παράδοσης δεν μπορεί να είναι μικρότερο από το είδος αποστολής"/>
+		<E3310 e030="Last year document exist for enter delivery note number" r070="Last year document exist for enter delivery note number" g060="Υπάρχει παραστατικό στον προηγούμενο χρόνο για τον δοθέν Δελτίο Αποστολής."/>
+		<E2045  e030="Location Is not Inventory Controlled" r070="Locatie nu e Controlata Stoc" g060="Δεν τηρούνται αποθέματα από το σύστημα για την αποθήκη αυτή"/>
+		<E3220  e030="Location number not found" r070="Carrier id not found" g060="Δεν βρέθηκε ο Κωδ. Αποθήκης"/>
+		<E3095  e030="Document Series should not be blank" r070="Document Series should not be blank" g060="Document Series should not be blank"/>
+		<E3060  e030="LPH INV exist for future date time" r070="LPH INV exist for future date time" g060="ΥΠΑΡΧΕΙ LPH INV για ΜΕΛΛΟΝΤΙΚΗ ΗΜΕΡΟΜΗΝΙΑ ΚΑΙ ΩΡΑ"/>
+		<E3059  e030="LPH INV exist for same date time" r070="LPH INV exist for same date time" g060="ΥΠΑΡΧΕΙ LPH INV ΓΙΑ ΤΗΝ ΙΔΙΑ ΗΜΕΡΟΜΗΝΙΑ ΚΑΙ ΩΡΑ"/>
+		<E3140  e030="LPH INV exist for selected date" r070="LPH INV exist for selected date" g060="ΥΠΑΡΧΕΙ LPH INV ΓΙΑ ΤΗΝ ΕΠΙΛΕΓΜΕΝΗ ΗΜΕΡΟΜΗΝΙΑ"/>
+		<E3011  e030="LU Code Can not be empty" r070="SKU este obligatoriu" g060="Ο κωδικός είδους δεν μπορεί να είναι κενός"/>
+		<E2042  e030="LU Code Does not exist for the given Selling Code" r070="Cod SKU inexistent corespunzator codului HHC" g060="Δεν υπάρχει LU για τον κωδικό πώλησης που έχετε εισάγει"/>
+		<E3234  e030="LuCode does not Exist" r070="LuCode does not Exist" g060="Ο Κωδικός LU δεν υπάρχει"/>
+		<E3150  e030="Manual Document Number" r070="Manual Document Number" g060="Αριθμός χειρόγραφου παραστατικού"/>
+		<E3257  e030="Manual Production summary document exist" r070="Manual Production summary document exist" g060="Υπάρχει χειρόγραφο Συγκεντρωτικό Δελτίο Εσωτερκής Διακίνησης Παραγωγής"/>
+		<E2008  e030="Match Constraint/UnAble to Add" r070="Match Constraint/UnAble to Add" g060="Περιορισμός συμφωνίας(match) / Δεν ήταν δυνατή η προσθήκη"/>
+		<E2015  e030="Match Constraint/Unable to Delete" r070="Match Constraint/Unable to Delete" g060="Περιορισμός συμφωνίας (match)/Δεν ήταν δυνατή η διαγραφή"/>
+		<E3091  e030="Miscellaneous Document already exist with save status, You can not create New Document with date and time" r070="Document Bon Consum exista deja in stare Salvat. Nu se poate crea document nou cu aceeasi zi si timp" g060="Το παραστατικό πρωτοκόλλων καταστροφής είναι ήδη αποθηκευμένο. Δεν είναι δυνατή η δημιουργία νέου παραστατικού με ημερομηνία και ώρα"/>
+		<E3300 e030="Miscellaneous Document already exist with save status, You can not update document" r070="Miscellaneous Document already exist with save status, You can not update document" g060="Το πρωτόκολλο καταστοφής υπάρχει ήδη σε κατάσταση 'ΦΥΛΑΓΜΕΝΟ'. Δεν μπορείτε να το ενημερώσετε."/>
+		<E3019  e030="No changes made after last commit" r070="Fara schimbari dupa ultima comitere" g060="Δεν πραγματοποιήθηκαν αλλαγές μετά την τελευταία εκτέλεση"/>
+		<E3235  e030="No co-packer delivery note number exist for selected date" r070="No co-packer delivery note number exist for selected date" g060="Δεν υπάρχει Δ.Α. Ανασυσκευαστή για την επιλεγείσα ημερομηνία."/>
+		<E3204  e030="No data exist" r070="No data exist" g060="Δεν υπάρχουν στοιχεία"/>
+		<E3233  e030="No Data Found" r070="No Data Found" g060="Δεν βρέθηκαν δεδομένα."/>
+		<E2058  e030="No Data found with specified criteria" r070="Nu s-au gasit date cu criteriul specificat" g060="Δεν βρέθηκαν δεδομένα με τα συγκεκριμένα κριτήρια"/>
+		<E2054  e030="No Data to Save" r070="Fara date de salvat" g060="Δεν υπάρχουν δεδομένα για αποθήκευση"/>
+		<E3018  e030="No default picking sequence available" r070="Secventa picking implicita nedisponibila" g060="Δεν υπάρχει διαθέσιμη συχνότητα συλλογής"/>
+		<E3167  e030="No Manual Document is Created for Current Automated document" r070="Document Manual nu este creat pentru Documentul Automat curent" g060="Δεν έχει δημιουργηθεί χειρόγραφο παραστατικό για το τρέχον αυτόματο παραστατικό"/>
+		<E3080  e030="No more remaining quantity for this document" r070="Nu exista cantitate ramasa pentru acest document" g060="Δεν υπολείπεται ποσότητα για αυτό το παραστατικό"/>
+		<E2053  e030="No Physical Inventory found for specified OPM Location" r070="Nu exista Inventar Fizic pentru Locatia OPM specificata" g060="Δεν βρέθηκε απογραφή για την καθορισμένη αποθήκη ΟΡΜ"/>
+		<E3046  e030="No Product Found for given crieteria" r070="Nu exista produse conform criteriilor selectate" g060="Δεν βρέθηκαν είδη με τα συγκεκριμένα κριτήρια"/>
+		<E3070  e030="No right to open this document" r070="Nu aveti drept de deschidere pe acest document" g060="Δεν έχετε δικαιώματα για το άνοιγμα αυτού του παραστατικού"/>
+		<E2051  e030="No Route defined for the location" r070="Nici o ruta definita pe aceasta Locatie" g060="Δεν καθορίστηκε δρομολόγιο για την αποθήκη"/>
+		<E3027  e030="No Route Defined for this Location" r070="Nici o ruta definita pe aceasta Locatie" g060="Δεν καθορίστηκε δρομολόγιο για αυτήν την αποθήκη"/>
+		<E3043  e030="No Rows to delete" r070="Nu sint rinduri de sters" g060="Δεν υπάρχουν γραμμές για διαγραφή"/>
+		<E2038  e030="No Sequence defined for specified Location" r070="Nu exista secventa definita pe Locatia specificata" g060="Δεν έχει οριστεί σειρά για τη συγκεκριμένη αποθήκη"/>
+		<E3063  e030="No Stale Warehouse is Defined for this Location" r070="Locatia nu are nici o alta locatie de tip EXPIRATE asociata" g060="Δεν έχει ορισθεί αποθήκη ακαταλλήλων γι αυτή την αποθήκη."/>
+		<E2019  e030="No Substitute found" r070="Nu exista Substitut" g060="Δεν βρέθηκε υποκατάστατο"/>
+		<E2003  e030="No Such Document Found" r070="Nu s-a gasit Documentul" g060="Δεν βρέθηκε αυτό το παραστατικό"/>
+		<E2043  e030="No Such Location found" r070="Nu s-a gasit Locatia" g060="Δεν βρέθηκε αυτή η αποθήκη"/>
+		<E2052  e030="No Such Product is Authorized to this Location" r070="Acest Produs nu e autorizat pe aceasta Locatie" g060="Δεν υπάρχει εξουσιοδότηση για αυτό το προϊόν στην αποθήκη"/>
+		<E3022  e030="OPM Data not saved properly" r070="Date OPM salvate incorect" g060="Τα δεδομένα ΟΡΜ δεν έχουν αποθηκευτεί σωστά"/>
+		<E3067  e030="Packing Products is not available for selected Product" r070="Produsele de pachet nu sint disponibile pt produsul selectat" g060="Η συσκευασία προϊόντων δεν είναι διαθέσιμη για το επιλεγμένο προϊόν"/>
+		<E3147  e030="Pallet number is duplicated" r070="Numar Palet duplicat" g060="υπάρχει διπλή εγγραφή αριθμού παλέτας"/>
+		<E3158  e030="Pallet number should be between 0 to 9 digit" r070="Numar Palet trebuie sa fie intre 0 si 9 cifre" g060="Ο αριθμός παλέτας πρέπει να είναι από 0 έως 9 ψηφία"/>
+		<E3154  e030="Pallet number should not be empty" r070="Numar Palet nu trebuie sa fie gol" g060="Ο αριθμός παλέτας δεν πρέπει να είναι κενός"/>
+		<E3256  e030="Pallet number should not be greater than 18 digit" r070="Pallet number should not be greater than 18 digit" g060="Ο αριθμός παλέτας δεν πρέπει να είναι μεγαλύτερος από 18 ψηφία."/>
+		<E3175  e030="Pallet number should not zero" r070="Numar Palet nu trebuie sa fie zero" g060="Ο αριθμός παλέτας δεν μπορεί να είναι μηδέν"/>
+		<E3193  e030="Path not found / File is already opened" r070="Calea nu exista / Fisier deja deschis" g060="Δεν βρέθηκε η διαδρομή / Το αρχείο είναι ήδη ανοικτό."/>
+		<E2033  e030="Percent can not be greater than 100" r070="Procentul nu poate depasi 100" g060="Το ποσοστό δεν μπορεί να είναι μεγαλύτερο από 100"/>
+		<E3057  e030="PERIOD IS EMPTY" r070="PERIOADA ESTE GOALA" g060="Η ΠΕΡΙΟΔΟΣ ΕΙΝΑΙ ΚΕΝΗ"/>
+		<E3054  e030="PHY INV exist for future date time" r070="PHY INV exist for future date time" g060="ΥΠΑΡΧΕΙ ΑΠΟΓΡΑΦΗ σε ΜΕΛΛΟΝΤΙΚΗ ΗΜΕΡΟΜΗΝΙΑ ΚΑΙ ΩΡΑ"/>
+		<E3053  e030="PHY INV exist for same date time" r070="PHY INV exist for same date time" g060="ΥΠΑΡΧΕΙ ΑΠΟΓΡΑΦΗ ΓΙΑ ΤΗΝ ΙΔΙΑ ΗΜΕΡΟΜΗΝΙΑ ΚΑΙ ΩΡΑ"/>
+		<E3139  e030="PHY INV exist for selected date" r070="PHY INV exist for selected date" g060="ΥΠΑΡΧΕΙ ΑΠΟΓΡΑΦΗ για ΤΗΝ ΕΠΙΛΕΓΜΕΝΗ ΗΜΕΡΟΜΗΝΙΑ"/>
+		<E2060  e030="Physical Inventory is already Entered for this Product" r070="Inventar Fizic este deja introdus pentru acest Produs" g060="Η απογραφή για αυτό το προϊόν έχει ήδη καταχωρηθεί"/>
+		<E3212  e030="Plate Number should not be empty" r070="Plate Number should not be empty" g060="Ο αριθμός κυκλοφορίας δεν μπορεί να είναι κενό."/>
+		<E3007  e030="Please Enter Destination Information" r070="Introduceti Informatie Destinatie" g060="Παρακαλούμε εισάγετε πληροφορίες προορισμού"/>
+		<E2001  e030="Please Enter Id/Password" r070="Introduceti Utilizator/Parola" g060="Παρακαλούμε εισάγετε αριθμό αναγνωριστικού/Κωδικό πρόσβασης"/>
+		<E3202  e030="Please enter numeric value" r070="Please enter numeric value" g060="Παρακαλώ δώστε αριθμητική τιμή."/>
+		<E3172  e030="Please Enter Period" r070="Introduceti Perioada" g060="Παρακαλούμε εισάγετε περίοδο"/>
+		<E3171  e030="Please Enter Period/Year" r070="Introduceti Perioada/Anul" g060="Παρακαλούμε εισάγετε περίοδο/έτος"/>
+		<E3038  e030="Please enter Physical values for atleast one product" r070="Introduceti Inventar pentru cel putin un produs" g060="Παρακαλώ δώστε τιμή τουλάχιστον για ένα είδος."/>
+		<E3251  e030="Please enter reason code for updated item quantity" r070="Please enter reason code for updated item quantity" g060="Παρακαλώ δώστε κωδ. Αιτιολογίας για την αλλαγή στην ποσότητα."/>
+		<E3033  e030="Please Enter Source Information" r070="Introduceti Informatie Sursa" g060="Παρακαλούμε εισάγετε πληροφορίες προέλευσης"/>
+		<E3112  e030="Please Enter Supplier Information" r070="Introduceti Informatie Furnizor" g060="Παρακαλούμε εισάγετε πληροφορίες προμηθευτή"/>
+		<E3185  e030="Please Enter the Printing Sequence" r070="Va rugam sa introduceti secventa de printare" g060="Παρακαλώ δώστε τη σειρά εκτύπωσης"/>
+		<E3006  e030="Please Enter the Quantity" r070="Introduceri Cantitate" g060="Παρακαλούμε εισάγετε ποσότητα"/>
+		<E3190  e030="Please enter valid file name" r070="Va rugam sa introduceti un nume de fisier valid" g060="Παρακαλώ δώστε σωστό όνομα αρχείου."/>
+		<E3214  e030="Please Enter valid information" r070="Please Enter valid information" g060="Παρακαλώ δώστε σωστές πληροφορίες"/>
+		<E3312 e030="Please enter valid Item Codes" r070="Please enter valid Item Codes" g060="Παρακαλώ δώστε σωστούς κωδικούς ειδών."/>
+		<E3238  e030="Please enter valid period" r070="Please enter valid period" g060="Παρακαλώ δώστε σωστή περίοδο"/>
+		<E3173  e030="Please Enter Year" r070="Introduceti Anul" g060="Παρακαλούμε εισάγετε έτος"/>
+		<E3009  e030="Please Fill the Sequence Number" r070="Introduceti Numarul de Secventa" g060="Παρακαλούμε συμπληρώστε αύξοντα αριθμό"/>
+		<E3024  e030="Please insert all the values before Applying" r070="Introduceti toate valorile inainte de Aplicare" g060="Παρακαλώ εισάγετε όλες τις τιμές πριν προχωρήσετε σε εφαρμογή."/>
+		<E3066  e030="Please select component item for Lucode:" r070="Selectati componenta pentru Cod Logistic:" g060="Παρακαλούμε εισάγετε όλες τις τιμές πριν προχωρήσετε σε εφαρμογή"/>
+		<E3299 e030="Please select location series" r070="Please select location series" g060="Παρακαλώ επιλέξατε σειρά Παρ/κού αποθήκης"/>
+		<E3078  e030="Price can not be 0" r070="Pretul nu poate fi 0" g060="Η αξία δεν μπορεί να είναι 0"/>
+		<E3102  e030="Price can not be minus" r070="Pretul nu poate fi minus" g060="Η αξία δεν μπορεί να είναι μικρότερη από μηδέν"/>
+		<E3079  e030="Price can not be NULL" r070="Pretul nu poate fi NULL" g060="Η αξία δεν μπορεί να είναι ΚΕΝΗ"/>
+		<E3121  e030="Price in temporary document should not greater than allow expected price" r070="Pretul nu poate depasi valoarea din comanda initiala" g060="Η αξία στο προσωρινό παραστατικό δεν μπορεί να είναι μεγαλύτερη από το επιτρεπόμενο από την αναμενόμενη αξία."/>
+		<E3083  e030="Price should not greater than allow expected price" r070="Pretul nu poate fi mai mare decit cel asteptat" g060="Η αξία δεν πρέπει να είναι μεγαλύτερη από την επιτρεπτή αυτόματη αξία"/>
+		<E3184  e030="Printing Sequence Number can not be made zero" r070="Secventa de printare nu poate fi 0" g060="Η Αρίθμηση Σειράς Εκτύπωσης δεν μπορεί να μηδενισθεί."/>
+		<E3051  e030="Product is already entered" r070="Produsul e deja introdus" g060="Έχει ήδη γίνει εισαγωγή του προϊόντος"/>
+		<E2000  e030="Product Not Found" r070="Produs negasit" g060="Το προϊόν δεν βρέθηκε"/>
+		<E3002  e030="Product-Case Level Daily Adjustments will be lost" r070="Ajustarile zilnice la nivel de Box vor fi pierdute" g060="Οι ημερήσιες προσαρμογές των προϊόντων σε κιβώτια θα χαθούν"/>
+		<E3318 e030="Production Cost File format is not as per requirement" r070="Production Cost File format is not as per requirement" g060="Η μορφοποίση του αρχείου κόστους παραγωγής δεν συμφωνεί με τις προδιαγρεφές."/>
+		<E3062  e030="Production Receipt document does not exist for selected date and time" r070="Production Receipt document does not exist for selected date and time" g060="Δεν υπάρχει το δελτίο εσωτερικής διακίνησης παραγωγής για την επιλεγείσα ημερομηνία και ώρα."/>
+		<E3255  e030="Production receipt document exist" r070="Production receipt document exist" g060="Το δελτίο Εσωτερικής Δικίνησης Παραγωγής υπάρχει."/>
+		<E3252  e030="Production summary document" r070="Production summary document" g060="Συνοπτικό Δελτίο Εσωτερικής Διακίνησης Παραγωγής"/>
+		<E3155  e030="Production Summary Document created for the selected date" r070="Document Sumar Productie creat pentru data selectata" g060="Δημιουργήθηκε συνοπτικό παραστατικό παραγωγής για την επιλεγμένη ημερομηνία"/>
+		<E3302 e030="Production summary document not exist for date" r070="Production summary document not exist for date" g060="Δεν υπάρχει συνοπτικό Δελ΄τιο εσωτερικής διακίνηυσης παραγωγής για την ημερομηνία"/>
+		<E3082  e030="Purchase cost date should not less than receive date" r070="Data inreg. costului nu trebuie sa fie mai mica decit data receptiei" g060="Η ημερομηνία κόστους των αγορών δεν πρέπει να προηγείται της ημερομηνίας παραλαβής"/>
+		<E3094  e030="Purchase cost time should not less than purchase receipt time" r070="Ora Cost Cumparare nu poate fi mai mica decit Ora Nota Receptie" g060="Η ώρα κόστους των αγορών δεν πρέπει να προηγείται από την ώρα παραλαβής των αγορών"/>
+		<E2012  e030="Qty Can't be Null" r070="Cant nu poate fi Null" g060="Η ποσότητα δεν μπορεί να είναι κενή"/>
+		<E2011  e030="Qty must be Greater than Zero" r070="Cant trebuie sa fie mai mare ca 0" g060="Η ποσότητα πρέπει να είναι μεγαλύτερη από το μηδέν"/>
+		<E3028  e030="Quantity can not be 0" r070="Cantitatea nu poate fi 0" g060="Η ποσότητα δεν μπορεί να είναι 0"/>
+		<E3243  e030="Quantity can not be minus" r070="Quantity can not be minus" g060="Η ποσότητα δεν μπορεί να είναι αρνητική."/>
+		<E2044  e030="Quantity exceeded for the Red Marked Products and Yellow marked products not found at OPM" r070="Cantitatea depasita pentru produsele in Rosu si produsele in Galben negasite in OPM" g060="Έχετε υπερβεί την ποσότητα για προϊόντα με κόκκινη σήμανση και δεν βρέθηκαν προϊόντα με κίτρινη σήμανση στο ΟΡΜ"/>
+		<E3152  e030="Quantity is being Recalculated Successfully" r070="Cantitatea este recalculata cu success" g060="Η ποσότητα βρίσκεται υπό νέο υπολογισμό επιτυχώς"/>
+		<E3262  e030="Reason code require only for updated item quantity" r070="Reason code require only for updated item quantity" g060="Κωδ. Αιτιολογίας χρειάζεται μόνο στις αλλαγμένες ποσότητες."/>
+		<E3258  e030="Recalculate proccess successfully completed" r070="Recalculate proccess successfully completed" g060="Η διαδικασία επανυπολογισμού έχει ολοκληρωθεί με επιτυχία"/>
+		<E2059  e030="Received Date Can not be greater than Current Date" r070="Data receptiei nu poate depasi data curenta" g060="Η ημερομηνία παραλαβής δεν μπορεί να είναι μεγαλύτερη της τρέχουσας ημερομηνίας"/>
+		<E3036  e030="Received Date Can not be Less Than Inventory Control Date" r070="Data receptiei nu poate fi anterioara datei de inventar" g060="Η ημερομηνία παραλαβής δεν μπορεί να είναι μικρότερη της ημερομηνίας ελέγχου αποθήκης"/>
+		<E2056  e030="Received Date Can not be less than Shipment Date" r070="Data receptiei nu poate fi anterioara datei de livrare" g060="Η ημερομηνία παραλαβής δεν μπορεί να είναι μικρότερη της ημερομηνίας αποστολής"/>
+		<E3195  e030="Received date should not be less than last Received date" r070="Received date should not be less than last Received date" g060="Η ημερομηνία παραλαβής, δεν μπορεί να είναι προγενέστερη από την τελευταία ημερομηνία παραλαβής."/>
+		<E3084  e030="Received date should not less than expected purchase date" r070="Data Receptie nu poate fi mai mica decit Data PO" g060="Η ημερομηνία παραλαβής δεν πρέπει να είναι μικρότερη της αναμενόμενης ημερομηνίας αγοράς"/>
+		<E3073  e030="Received quantity of all product should not be zero" r070="Cantitatea Receptionata a tuturor produselor nu poate fi zero" g060="Η παραληφθείσα ποσότητα για όλα τα προϊόντα δεν πρέπει να είναι μηδέν"/>
+		<E3072  e030="Received quantity should not greater than expected allow quantity" r070="Cantitatea Receptionata nu poate fi mai mare decit cea admisa" g060="Η παραληφθείσα ποσότητα δεν πρέπει να είναι μεγαλύτερη από την προβλεπόμενη επιτρεπόμενη ποσότητα"/>
+		<E3030  e030="Received Time can not be less than shipment time" r070="Ora receptiei nu poate fi anterioara orei de livrare" g060="Η ώρα παραλαβής δεν μπορεί να προηγείται της ώρας αποστολής"/>
+		<E3196  e030="Received time should not be less than last Received time" r070="Received time should not be less than last Received time" g060="Η ώρα παραλαβής, δεν μπορεί να είναι προγενέστερη από την τελευταία ώρα παραλαβής."/>
+		<E3076  e030="Received time should not less than expected purchase time" r070="Ora receptiei nu poate fi mai mica decit ora PO" g060="Η ώρα παραλαβής δεν πρέπει να προηγείται της προβλεπόμενης ώρας αγοράς"/>
+		<E2024  e030="record(s) successfully deleted" r070="Inregistrari sterse" g060="Οι εγγραφές διεγράφησαν με επιτυχία"/>
+		<E2018  e030="Record(s) Successfully Updated" r070="Inregistrari modificate" g060="Οι εγγραφές ενημερώθηκαν με επιτυχία"/>
+		<E2016  e030="Records have been inserted successfully" r070="Inregistrarile au fost inserate cu success" g060="Οι εγγραφές έχουν καταχωρηθεί με επιτυχία"/>
+		<E3023  e030="Ref Document not available" r070="Ref Document nedisponibil" g060="το σχετικό παραστατικό δεν είναι διαθέσιμο"/>
+		<E2046  e030="Refreshed Successfully" r070="Actualizat cu succes" g060="Η ανανέωση πραγματοποιήθηκε με επιτυχία"/>
+		<E3026  e030="Report can not be printed. Data Unavailable" r070="Raportul nu poate fi printat. Data inexistenta" g060="Δεν είναι δυνατή η εκτύπωση της αναφοράς. Μη διαθέσιμα δεδομένα"/>
+		<E3108  e030="Return cost date should not less than return date" r070="Data Cost Retur nu poate fi mai mica decit Data Retur" g060="Η ημερομηνία κόστους επιστροφής δεν πρέπει να προηγείται της ημερομηνίας επιστροφής"/>
+		<E3110  e030="Return cost time should not less than return time" r070="Return cost time should not less than return time" g060="Η ημερομηνία κόστους επιστροφής δεν πρέπει να προηγείται της ημερομηνίας επιστροφής"/>
+		<E3109  e030="Return date should not less than expected purchase date" r070="Data Retur nu poate fi mai mica decit data PO" g060="Η ημερομηνία επιστροφής δεν πρέπει να προηγείται της ημερομηνίας προβλεπόμενης αγοράς"/>
+		<E3107  e030="Return quantity of all product should not be zero" r070="Cantitatea tuturor produselor de retur nu poate fi zero" g060="Η ποσότητα επιστροφής για όλα τα προϊόντα δεν πρέπει να είναι μηδέν"/>
+		<E3106  e030="Return quantity should not greater than expected allow quantity" r070="Cantitatea retur nu poate fi mai mare decit cea asteptata" g060="Η ποσότητα επιστροφής δεν πρέπει να έπεται της προβλεπόμενης επιτρεπόμενης ποσότητας"/>
+		<E3105  e030="Return time should not less than expected purchase time" r070="Ora Retur nu poate fi mai mica decit ora PO" g060="Η ώρα επιστροφής δεν πρέπει να προηγείται της ώρας προβλεπόμενης αγοράς"/>
+		<E3197  e030="Returned date should not be less than last Returned date" r070="Received date should not be less than last Returned date" g060="Η ημερομηνία επιστροφής δεν πρέπει να προηγείται της τελευταίας ημερομηνίας επιστροφής"/>
+		<E3198  e030="Returned time should not be less than last Returned time" r070="Received time should not be less than last Returned time" g060="Η ώρα επιστροφής δεν πρέπει να προηγείται της τελευταίας ώρας επιστροφής"/>
+		<E2040  e030="Row Can not be deleted It contains shipment quantity" r070="Row Can not be deleted It contains shipment quantity" g060="Δεν είναι δυνατή η διαγραφή της γραμμής γιατί περιέχει ποσότητα αποστολής"/>
+		<E2021  e030="RunPlan procedure has been completed successfully" r070="Procedura RunPlan a fost incheiata cu succes" g060="Η διαδικασία εκτέλεσης προγράμματος έχει ολοκληρωθεί με επιτυχία"/>
+		<E1010  e030="Safety Stock Coverage Period is Mandatory" r070="Safety Stock Coverage Period is Mandatory" g060="Η περίοδος κάλυψης αποθέματος ασφαλείας είναι υποχρεωτική"/>
+		<E2017  e030="Sales/Forecast Details Not Found" r070="Sales/Forecast Details Not Found" g060="Δεν βρέθηκαν λεπτομέρειες πωλήσεων/προβλέψεων"/>
+		<E2036  e030="Saved Successfully" r070="Saved Successfully" g060="Η αποθήκευση ολοκληρώθηκε με επιτυχία"/>
+		<E3186  e030="Select a proper Printing Sequence Number" r070="Va rugam selectati un nr. de secventa de printare valid" g060="Επιλέξτε σωστό αύξοντα αριθμό"/>
+		<E2039  e030="Select a proper Sequence Number" r070="Selectati Numar Secventa Corect" g060="Επιλεξατε σωστό αύξοντα αριθμό."/>
+		<E2009  e030="Select a Record" r070="Selectare Inregistrare" g060="Επιλέξτε εγγραφή"/>
+		<E3042  e030="Select a row for delete" r070="Selectati rind pentru sterg" g060="Επιλέξατε γραμμή για διαγραφή"/>
+		<E3188  e030="Select atleast one brand" r070="Va rugam selectati cel putin un brand" g060="Επίλεξτε τουλάχιστιστον ένα brand."/>
+		<E3130  e030="Select atleast one location type" r070="Selectati cel putin un tip locatie" g060="Επιλέξτε τουλάχιστον έναν τύπο αποθήκης"/>
+		<E3189  e030="Select atleast one transaction" r070="Va rugam selectati cel putin un tip de tranzactie" g060="Επιλέξατε τουλάχιστον μία κίνηση"/>
+		<E3174  e030="Selected Location should not be more than 10." r070="Nu se pot selecta mai mult de 10 locatii" g060="Η επιλεγμένες αποθήκες δεν πρέπει να είναι περισσότερες από 10"/>
+		<E3374  e030="Selected Location should not be more than 5." r070="Nu se pot selecta mai mult de 5 locatii" g060="Η επιλεγμένες αποθήκες δεν πρέπει να είναι περισσότερες από 5"/> <!-- Added by Sankit -->
+		<E3259  e030="Selected Transacations should not be more than 10." r070="Selected Transacations should not be more than 10." g060="Δεν μπορείτε να επιλέξετε περισσότερες από 10 κινήσεις."/>
+		<E1011  e030="Selection of Destiny is Mandatory" r070="Selectia destinatiei este obligatorie" g060="Η επιλογή προορισμού είναι υποχρεωτική"/>
+		<E1009  e030="Selection of Source and Destiny is Mandatory" r070="Selectia sursei si destinatiei este obligatorie" g060="Η επιλογή προέλευσης και προορισμού είναι υποχρεωτική"/>
+		<E3010  e030="Selling Code Can not be empty" r070="Cod vanzare obligatoriu" g060="Ο κωδικός πώλησης δεν μπορεί να είναι κενός"/>
+		<E2041  e030="Selling Code does not Exist" r070="Cod Vanzare nu exista" g060="Δεν υπάρχει κωδικός πώλησης"/>
+		<E1014  e030="Sequence Number can not be made zero" r070="Nr. secventa obligatoriu" g060="Ο αύξοντας αριθμός δεν μπορεί να είναι μηδέν"/>
+		<E3090  e030="should not be less than allowed number of days" r070="nu poate fi mai mica decit nr de zile admis" g060="δεν πρέπει να είναι μικρότερη από τον επιτρεπόμενο αριθμό ημερών"/>
+		<E3014  e030="Source and Destination can not be the same" r070="Sursa si destinatia nu pot fi aceleasi" g060="Η αποθήκη προέλευσης και η αποθήκη προορισμού δεν μπορεί να είναι οι ίδιες"/>
+		<E3206  e030="Source and Destination locations are same" r070="Source and Destination locations are same" g060="Οι κωδικοί απόθήκης προέλευσης και προορισμού είναι ίδιοι."/>
+		<E3205  e030="Source and Destination locations are same,Do you want to continue?" r070="Source and Destination locations are same,Do you want to continue?" g060="Οι κωδικοί απόθήκης προέλευσης και προορισμού είναι ίδιοι.Θέλετε να συνεχίσετε;"/>
+		<E3015  e030="Specified Transaction can not be made !!! Details Unavailable" r070="Tranzactia specificata nu poate fi executata. Detalii Indisponibile." g060="Η καθορισμένη συναλλαγή δεν μπορεί να πραγματοποιηθεί!!! Μη διαθέσιμες λεπτομέρειες"/>
+		<E3013  e030="Sub Family Can not be empty" r070="Categ. este obligatorie" g060="Η υπο-ομάδα δεν μπορεί να είναι κενή"/>
+		<E1012  e030="Summation of selected Quantity Exceeded Total Capacity" r070="Insumarea cantitatilor selectate depaseste cantitatea totala" g060="Το σύνολο της επιλεγμένης ποσότητας έχει υπερβεί τη συνολική χωρητικότητα"/>
+		<E3129  e030="System wont allow to cancel reviewed document" r070="Sistemul nu permite anulare document revizuit" g060="Το σύστημα δεν θα επιτρέψει την ακύρωση του αναθεωρημένου παραστατικού"/>
+		<E3244  e030="Team Final has Created Manual Document,Can not Create Manual Document with selected team" r070="Team Final has Created Manual Document,Can not Create Manual Document with selected team" g060="Έχει καταχωρηθεί τελικό χειρόγραφο παραστατικό για αυτή την ομάδα. Δεν μπορείτε να το επαναλάβετε."/>
+		<E3111  e030="Temporary cost already entered" r070="Estimare deja introdusa" g060="Το προσωρινό κόστος έχει ήδη εισαχθεί"/>
+		<E3305 e030="Temporary Purchase date should in same month of receive date" r070="Temporary Purchase date should in same month of receive date" g060="Η ημερομηνία προσωρινής αξίας αγοράς πρέπει να είναι τον ίδιο μήνα με την ποσοτική παραλαβή."/>
+		<E3309 e030="Temporary Purchase date should in same month of return date" r070="Temporary Purchase date should in same month of return date" g060="Η ημερομηνία προσωρινής αξίας αγοράς πρέπει να είναι τον ίδιο μήνα με την ημερομηνία επιστροφής"/>
+		<E3303 e030="Temporary Purchase date should not less than receive date" r070="Temporary Purchase date should not less than receive date" g060="Η ημερομηνία προσωρινής αξίας αγοράς πρέπει να είναι μεταγενέστερη από την ημερομηνία ποσοτικής παραλαβή."/>
+		<E3307 e030="Temporary Purchase date should not less than return date" r070="Temporary Purchase date should not less than return date" g060="Η ημερομηνία προσωρινής αξίας αγοράς πρέπει να είναι μεταγενέστερη από την ημερομηνία επιστροφής."/>
+		<E3304 e030="Temporary Purchase time should not less than receive time" r070="Temporary Purchase time should not less than receive time" g060="Η ώρα προσωρινής αξίας αγοράς πρέπει να είναι μεταγενέστερη από την ώρα ποσοτικής παραλαβή."/>
+		<E3308 e030="Temporary Purchase time should not less than return time" r070="Temporary Purchase time should not less than return time" g060="Η ώρα προσωρινής αξίας αγοράς πρέπει να είναι μεταγενέστερη από την ώρα επιστροφής."/>
+		<E3183  e030="There are still documents in pending to acknowledge :" r070="Documente in asteptarea confirmarii diferentelor :" g060="Υπάρχουν ακόμη παραστατική με εκκρεμότητα αποδοχής:"/>
+		<E3008  e030="There is no data in the table" r070="Nu sint date in tabel" g060="Δεν υπάρχουν δεδομένα στον πίνακα."/>
+		<E2047  e030="There is still a pending physical Inventory, Can not create new" r070="va rugam sa completati urmatoarele date" g060="Υπάρχει ακόμα απογραφή σε εκκρεμότητα, δεν είναι δυνατή η δημιουργία νέας"/>
+		<E3081  e030="This document is finalize" r070="Document finalizat" g060="Το παραστατικό αυτό έχει ολοκληρωθεί"/>
+		<E3181  e030="To brand should not be empty" r070="Brand nu poate fi gol" g060="Η ομάδα παράδοσης δεν πρέπει να είναι κενή"/>
+		<E2032  e030="To Date Can't Be Current Date" r070="Pina La nu poate fi Data Curenta" g060="Η ημερομηνία 'έως' δεν μπορεί να είναι η τρέχουσα"/>
+		<E2031  e030="To Date Can't Be Future Date" r070="Pina La nu poate fi Data Viitoare" g060="Η ημερομηνία 'έως' δεν μπορεί να είναι μελλοντική ημερομηνία"/>
+		<E2014  e030="To Date must be Future date" r070="To Date must be Future date" g060="Η ημερομηνία παράδοσης πρέπει να είναι μελλοντική ημερομηνία"/>
+		<E2030  e030="To Date must be greater than From Date" r070="Pina La trebuie sa fie mai mare decit De La" g060="Η ημερομηνία παράδοσης πρέπει να είναι μεγαλύτερη από την ημερομηνία αποστολής"/>
+		<E3157  e030="To Pallet Number should not blank" r070="In Nr. Palet nu poate fi gol" g060="Ο αριθμός παλέτας αρχής δεν μπορεί να είναι κενός"/>
+		<E3125  e030="To period should not be 0" r070="La Perioada nu poate fi gol" g060="Η περίοδος δεν πρέπει να είναι 0"/>
+		<E3124  e030="To period should not greater than 12" r070="La Perioada nu poate fi mai mare decit 12" g060="Η περίοδος δεν πρέπει να είναι μεγαλύτερη από 12"/>
+		<E3135  e030="To Period/Year is not available" r070="La Perioada/Timp nu e disponibila" g060="Η/Το περίοδος/έτος δεν είναι διαθέσιμη/ο"/>
+		<E3132  e030="To Year should not less than four digit" r070="La Anul nu poate fi mai mic decit 4 cifre" g060="Το έτος παράδοσης δεν πρέπει να περιέχει λιγότερα από τέσσερα ψηφία"/>
+		<E3001  e030="Total is not 100" r070="Total nu e 100" g060="Το σύνολο δεν είναι 100."/>
+		<E3005  e030="Total is not 100 since other format are Active" r070="Total nu e 100 pentru ca alte formate sint active" g060="Το σύνολο δεν είναι 100 αφού άλλες μορφές είναι ενεργές"/>
+		<E3118  e030="Total numbers of documents are in pending to acknowledge :" r070="Nr. total de documente aflate in asteptarea confirmarii diferentelor :" g060="Συν.Αριθ.Παρ/κων σε εκκρεμότητα αποδοχής:"/>
+		<E3119  e030="Total numbers of documents are in pending to receive :" r070="Nr. total de documente aflate in asteptarea confirmarii receptiilor :" g060="Συν.Αριθ.Παρ/κων σε εκκρεμότητα παραλαβής:"/>
+		<E3114  e030="Total numbers of documents are in pending to reviewe :" r070="Nr. total de documente aflate in asteptarea confirmarii revizurii :" g060="Συν.Αριθ.Παρ/κων σε εκκρεμότητα για επανεξέταση:"/>
+		<E3113  e030="Total numbers of documents are in save status :" r070="Nr. total de documente aflate in asteptarea confirmarii salvarii :" g060="Συν.Αριθ.Παρ/κων σε κατάσταση Αποθηκευμένα:"/>
+		<E3021  e030="Transaction Date Can not be Less Than Inventory Control Date" r070="Data tranzactiei nu poate depasi data de inventar" g060="Η ημερομηνία συναλλαγής δεν μπορεί να είναι μικρότερη από την ημερομηνία απογραφής"/>
+		<E3245  e030="Transaction Date Can not be Less than Inventory Date" r070="Transaction Date Can not be Less than Inventory Date" g060="Η ημερομηνία κίνησης δεν μπορεί να είναι μικρότερη από την ημερομηνία απογραφής"/>
+		<E3231  e030="Transaction Date Can not be Less than Stock Date" r070="Transaction Date Can not be Less than Stock Date" g060="Η ημερομηνία κίνησης δεν μπορεί να είναι μικρότερη από την ημερομηνία αποθεμάτων"/>
+		<E3097  e030="Transaction date should not be future date" r070="Data Tranzactie nu poate fi mai data viitoare" g060="Η ημερομηνία συναλλαγής δεν μπορεί να είναι μελλοντική"/>
+		<E3319 e030="Transaction date should not be less than allow number of day" r070="Transaction date should not be less than allow number of day" g060="Η ημερομηνία κίνησης δεν μπορέι να είναι μικρότερη από τον μέγιστο επιτρεπτό αριθμόι ημερών."/>
+		<E3098  e030="Transaction date should not be less than document date" r070="Data Tranzactie nu poate fi mai mica decit Data documentului" g060="Η ημερομηνία συναλλαγής δεν μπορεί να είναι μικρότερη από την ημερομηνία του παραστατικού"/>
+		<E3099  e030="Transaction date should not be less than inventory control date" r070="Data Tranzactie nu poate fi mai mica decit Data Inventory Control" g060="Η ημερομηνία συναλλαγής δεν μπορεί να είναι μικρότερη από την ημερομηνία απογραφής"/>
+		<E3239  e030="Transaction Time Can not be future time" r070="Transaction Time Can not be future time" g060="Η ώρα συναλλαγής δεν μποιρεί να είναι μελλοντική."/>
+		<E3232  e030="Transaction Time Can not be Less than Stock Time" r070="Transaction Time Can not be Less than Stock Time" g060="Η ώρα κίνησης δεν μπορεί να είναι μικρότερη από την ώρα αποθεμάτων"/>
+		<E3100  e030="Transaction time should not be future time" r070="Ora Tranzactiei nu poate fi in viitor" g060="Η ώρα συναλλαγής δεν μπορεί να είναι μελλοντική"/>
+		<E3101  e030="Transaction time should not be less than document time" r070="Ora Tranzactiei nu poate fi mai mica decit Ora Documentului" g060="Η ώρα συναλλαγής δεν μπορεί να είναι μικρότερη από την ώρα του παραστατικού"/>
+		<E3246  e030="Transaction Year Can not be Greater than Inventory Year" r070="Transaction Year Can not be Greater than Inventory Year" g060="Το έτος της κίνησης δεν μπορεί να είναι μεγαλύτερο από το έτος απογραφής"/>
+		<E3034  e030="Transfer In Pending" r070="Intrari Pending" g060="Εκκρεμής παραλαβή ενδοδιακίνησης"/>
+		<E3211  e030="Truck Description should not be empty" r070="Truck Description should not be empty" g060="Η περιγραφή φορτηγού δεν μπορεί να είναι κενή"/>
+		<E3210  e030="Truck Number" r070="Truck Number" g060="Κωδ.Φορτηγού"/>
+		<E3215  e030="Truck number not entered" r070="Truck number not entered" g060="Δεν δόθηκε κωδικός φορτηγού"/>
+		<E3216  e030="Truck number not found" r070="Truck number not found" g060="δεν βρέθηκε ο κωδικός φορτηγού"/>
+		<E3209  e030="Invalid truck plate number" r070="Invalid truck plate number" g060="Invalid truck plate number"/>
+		<E3213  e030="Truck Volume should not be empty" r070="Truck Volume should not be empty" g060="Ο όγκος δεν μπορεί να είναι κενός"/>
+		<E3301 e030="Trucks are not available" r070="Trucks are not available" g060="Δεν διατίθενται φορτηγά"/>
+		<E1004  e030="Unable to Delete Records" r070="Nu se pot sterge inregistrarile" g060="Δεν είναι δυνατή η διαγραφή εγγραφών"/>
+		<E1007  e030="Unable to Initialize Screen" r070="Nu se poate initializa ecranul" g060="Δεν είναι δυνατή η εκκίνηση της οθόνης"/>
+		<E1002  e030="Unable to Insert Records" r070="Nu se pot Insera inregistrarile" g060="Δεν είναι δυνατή η εισαγωγή εγγραφών"/>
+		<E1006  e030="Unable to Run Procedure" r070="Nu se poate rula procedura" g060="Δεν είναι δυνατή η εκτέλεση της διαδικασίας"/>
+		<E1001  e030="Unable to Select Records" r070="Nu se pot selecta inregistrarile" g060="Δεν είναι δυνατή η επιλογή εγγραφών"/>
+		<E1003  e030="Unable to Update Records" r070="Nu se pot modifica inregistrarile" g060="Δεν είναι δυνατή η ενημέρωση εγγραφών"/>
+		<E3055  e030="Unauthorized to see Freight Detail" r070="Neautorizat vizualizare Detalii Costuri" g060="Δεν έχετε δικαιώματα να δείτε τις λεπτομέρειες μεταφορικών"/>
+		<E3020  e030="UOM Entry has not done" r070="UM Inregistrarea nu este facuta" g060="Η καταχώρηση Μ.Μ. δεν έχει πραγματοποιηθεί."/>
+		<E3261  e030="User do not have any team rights, Can not continue." r070="User do not have any team rights, Can not continue." g060="Ο χρήστης δεν έχει δικαιώματα. Δεν μπορεί να συνεχίσει"/>
+		<E3159  e030="User Does not have any Transaction Report Rigths" r070="Utilizatorul nu are drepturi pe Rapoarte Tranzactii" g060="Ο χρήστης δεν έχει δικαιώματα αναφοράς συναλλαγών"/>
+		<E2022  e030="Volume Can't Be Blank" r070="Volum nu poate fi gol" g060="Ο όγκος δεν μπορεί να είναι κενός"/>
+		<E3058  e030="WEEK IS EMPTY" r070="SAPT E GOALA" g060="Η ΕΒΔΟΜΑΔΑ ΕΙΝΑΙ ΚΕΝΗ"/>
+		<E3056  e030="YEAR IS EMPTY" r070="ANUL E GOL" g060="ΤΟ ΕΤΟΣ ΕΙΝΑΙ ΚΕΝΟ"/>
+		<E3050  e030="you can not get report for more than 10 last inventory" r070="Nu se poate obtine raportul pentru mai mult de 10 inventare in urma" g060="δεν μπορείτε να λάβετε αναφορά για περισσότερες από τις 10 τελευταίες απογραφές"/>
+		<E3128  e030="You should enter all required values" r070="Trebuie introduse toate valorile necesare" g060="Πρέπει να εισάγετε όλες τις απαραίτητες τιμές"/>
+		<E3320 e030="Negative transactions are exist after selected stock date" r070="Negative transactions are exist after selected stock date" g060="Υπάρχουν αρνητικές κινήσεις ματά την ημερομηνία που επιλέξατε."/>
+		<E3321  e030="Production Summary Document created for the future date" r070="Production Summary Document created for the future date" g060="Δημιουργήθηκε συνοπτικό παραστατικό παραγωγής για μελλοντική ημερομηνία"/>
+		<E3264 e030="Reason code require only for updated received quantity" r070="Reason code require only for updated received quantity" g060="Απαιτείται κωδ. Αιτιολογίας για τις ενημερωμένες παραληφθείσες ποσότητες."/>
+		<E3265 e030="Please select Reason code" r070="Please select Reason code" g060="Παρακαλώ επιλέξατε κωδικό αιτιολογίας"/>
+		<E3266 e030="Received quantity can not be changed without entering reason code" r070="Received quantity can not be changed without entering reason code" g060="Η παραληφθείσα ποσότητα δεν μπορεί να αλλαχθεί, χωρίς να δώσετε κωδικό αιτιολογίας."/>						
+		<E3267 e030="Area code should not be blank" r070="Area code should not be blank" g060="Ο κωδικός περιοχής δεν μπορεί να είναι κενό."/>		     
+		<E3268 e030="Please select reason code" r070="Please select reason code" g060="Παρακαλώ επιλέξατε κωδικό Αιτιολογίας"/>
+    <E3269 e030="Pallet constant should not be empty" r070="Numar Palet constant nu trebuie sa fie gol" g060="Το σταθερό μέρος του αριθμού παλλέτας δεν μπορεί να είναι κενό."/>     
+    <E3270 e030="Pallet constant should not be greater or less than 11 digit" r070="Pallet number constant should not be greater or less than 11 digit" g060="Το σταθερό μέρος του αριθμού παλλέτας δεν μπορεί να είναι περισσότερο ή λιγότερο από 11 ψηφία."/>		
+    <E3271 e030="Pallet constant should not zero" r070="Numar Palet nu constant trebuie sa fie zero" g060="Το σταθερό μέρος του αριθμού παλλέτας δεν μπορεί να είναι μηδέν."/>
+    <E3272 e030="Pallet constant should be between 0 to 9 digit" r070="constant Palet trebuie sa fie intre 0 si 9 cifre" g060="Το σταθερό μέρος του αριθμού παλλέτας είναι μόνο ψηφία (0-9)."/>     
+    <E3273 e030="Pallet,Case and Each,all 3 values should not be blank" r070="Pallet,Case and Each,all 3 values should not be blank" g060="Οι τρείς τιμές (Παλλέτας, Λιβωτίου,Τεμαχίου) δεν μπορεί να είναι κενό."/>    
+    <E3274 e030="From Pallet constant should not be empty" r070="From Pallet constant should not be empty" g060="Το σταθερό μέρος του αριθμού παλλέτας 'από' δεν μπορεί να είναι κενό"/>             
+    <E3275 e030="From Pallet constant should be between 0 to 9 digit" r070="From Pallet constant should be between 0 to 9 digit" g060="Το σταθερό μέρος του αριθμού παλλέτας 'από'  πρέπει να είναι μόνο ψηφία."/>
+    <E3276 e030="To Pallet constant should not be empty" r070="To Pallet constant should not be empty" g060="Το σταθερό μέρος του αριθμού παλλέτας δεν μπορεί να είναι μηδέν."/>             
+    <E3277 e030="To Pallet constant should be between 0 to 9 digit" r070="To Pallet constant should be between 0 to 9 digit" g060="Το σταθερό μέρος του αριθμού παλλέτας είναι μόνο ψηφία (0-9)."/>
+    <E3278 e030="From Pallet constant should not greater than To Pallet constant" r070="From Pallet constant should not greater than To Pallet constant" g060="Το σταθερό μέρος του αριθμού παλλέτας 'από' δεν μπορεί να είναι μεγαλύτερο από το σταθερό μέρος του αριθμού παλλέτας 'έως' "/>		
+    <E3279 e030="From Pallet constant should not be less than 11 digit" r070="From Pallet constant should not be less than 11 digit" g060="Το σταθερό μέρος του αριθμού παλλέτας 'από' δεν μπορεί να είναι περισσότερο από 11 ψηφία."/>		
+    <E3280 e030="To Pallet constant should not be less than 11 digit" r070="To Pallet constant should not be less than 11 digit" g060="Το σταθερό μέρος του αριθμού παλλέτας 'από' δεν μπορεί να είναι λιγότερο από 11 ψηφία."/>		
+    <E3281 e030="Quantity each should not be blank" r070="Quantity each should not be blank" g060="Η ποσότητα τεμαχίων δεν μπορεί να είναι κενό"/>
+    <E3282 e030="Already Defualt Truck is assigned for Carrier id" r070="Already Defualt Truck is assigned for Carrier id" g060="Έχει ήδη ορισθεί φορτηγό προεπιλογής για τον Κωδικό Μεταφορέα"/>
+	  <E3283 e030="Please Assign Truck to carrier id" r070="Please Assign Truck to carrier id" g060="Παρακαλώ ορίσατε φορτηγό για τον κωδικό μεταφορέα."/>
+	  <E3284 e030="Pallet,Case and Each,all 3 values should not be zero or blank" r070="Pallet,Case and Each,all 3 values should not be zero or blank" g060="Οι τρείς τιμές (Παλλέτας, Λιβωτίου,Τεμαχίου) δεν μπορεί να είναι κενό ή μηδέν."/>
+		<E3285 e030="Your Change has not been Save" r070="Your Change has not been Save" g060="Οι αλλαγές σας δεν έχουν φυλαχθεί."/>
+		<E3286 e030="Received Date is Past Date or Future Date" r070="Received Date is Past Date or Future Date" g060="Η ημερομηνία παραλαβής είτε είναι στο παρελθόν, είτε στο μέλλον."/>
+	  <E3287 e030="Received Time is Past Tim	e or Future Time" r070="Received Time is Past Time or Future v" g060="Η ώρα παραλαβής είτε είναι στο παρελθόν είτε στο μέλλον."/>
+	  <E3288 e030="Invalid FORWARDER location" r070="Invalid FORWARDER location" g060="Μη έγκυρη αποθήκη Μεταφορέα."/>
+	  <E3289 e030="Invalid DESTIGNATION location" r070="Invalid DESTIGNATION location" g060="Μή έγκυρη αποθήκη προορισμού."/>	
+	  <E3290 e030="FORWARDER location can not be empty" r070="FORWARDER location can not be empty" g060="Η αποθήκη μεταφορέα δεν μπορεί να είναι κενό."/>
+	  <E3291 e030="DESTIGNATION location can not be empty" r070="DESTIGNATION location can not be empty" g060="Η αποθήκη προορισμού δεν μπορεί να είναι κενό."/>
+	  <E3292 e030="Truck plate number can not be empty" r070="Truck plate number can not be empty" g060="Ο αριθμός κυκλοφορίας δεν μπορεί να είναι κενό."/>
+	  <E3293 e030="From LU Code can not be empty" r070="From LU Code can not be empty" g060="Ο LU 'από' δεν μπορεί να είναι κενό"/>
+	  <E3294 e030="To LU Code can not be empty"   r070="To LU Code can not be empty" g060="Ο LU 'έως' δεν μπορεί να είναι κενό"/>	
+	  <E3295 e030="NO LOCATION FOUND" r070="NO LOCATION FOUND" g060="ΔΕΝ ΒΡΕΘΗΚΕ ΑΠΟΘΗΚΗ"/>	
+	  <E3296 e030="From LU Code can not be greater than To LU Code" r070="From LU Code can not be greater than To LU Code" g060="Ο LU 'από' δεν μπορεί να είναι μεγαλύτερος από τον LU 'έως'"/>
+	  <E3297 e030="To LU Code can not be less than From LU Code" r070="To LU Code can not be less than From LU Code" g060="Ο LU 'έως' δεν μπορεί να είναι μικρότερος από τον LU 'από'"/>		
+	  <E3322 e030="Legal Printer not available for logged in user." r070="Legal Printer not available for logged in user." g060="Δεν διατίθετε ΦΟΡΟΛΟΓΙΚΟΣ ΜΗΧΑΝΙΣΜΟΣ για το χρήστη που έχετε συνδεθεί."/>		
+	  <E3323 e030="Host information not found" r070="Host information not found" g060="Δεν βρέθηκα πληροφορίες για το κεντρικό Σύστημα"/>
+	  <!-- SSCC Change (Serial Shipping Container Code) -->
+	  <E3324 e030="Invalid check digit for Pallet" r070="Invalid check digit for Pallet" g060="Μη έγκυρο ψηφείο ελέγχου για την Παλέτα."/>
+	  <!-- And Addition SSCC Change (Serial Shipping Container Code) -->	
+	  
+	  <!-- Start Client Change 1231 -->	
+	  <E3325 e030="Please enter atleast one Multipack Product" r070="Please enter atleast one Multipack Product" g060="Παρακαλώ δώστε τουλάχιστον ένα προϊόν Multipack."/>
+	  <E3326 e030="Please select finalized opening qty. option" r070="Please select finalized opening qty. option" g060="Παρακαλώ επιλέξατε την επιλογή οριστικοποιημένη ποσότητα έναρξης."/>
+	  <E3327 e030="Location already exists in the table , Pl. update the value in New Opening qty column manually" r070="Location already exists in the table , Pl. update the value in New Opening qty column manually" g060="Η αποθήκη υπάρχει στον πίνακα. Παρακαλώ ενημερώστε την τιμή στη στήλη Νέα ποσότητα έναρξης, χειρόγραφα."/>
+	  <E3328 e030="Please select the row from table and then press Update Opening Qty." r070="Please select the row from table and then press Update Opening Qty." g060="Παρακαλώ επιλέξατε γραμμή από τον πίνακα και πιέσατε Ενημέρωση Ποσότητας Έναρξης"/>
+	  <E3329 e030="File is not valid. Please select proper file" r070="File is not valid. Please select proper file" g060="Το αρχείο δεν είναι σωστό. Παρακαλώ επιλέξατε το σωστό αρχείο."/>
+	  <E3330 e030="Total Number of production document pending for final production summary :" r070="Total Number of production document pending for final production summary :" g060="Συνολικός αριθ. Παραστατικών παραγωγής που εκκρεμούν για την έκδοση στης Συνολικής Παραγωγής :"/>
+	  <E3331 e030="Total Number of Delivery note/Receipt Note document pending for Invoiced/Credited :" r070="Total Number of Delivery note/Receipt Note document pending for Invoiced/Credited :" g060="Συνολικός Αριθμός ΔΑ / ΔΠΠ που εκκρεμεί έκδοση Τιμολογίου / Πιστ.Σημειώματος :"/>
+	  <E3380 e030="Document has been updated by other user" r070="Document has been updated by other user" g060="Το παραστατικό έχει αλαχθεί από άλλο χρήστη."/>
+	  <E3381 e030="Reprint is not allowed." r070="Reprint is not allowed." g060="Δεν επιτρέπεται επανεκτύπωση"/>
+	  
+	  <E3382 e030="Records Retrive for reports has exceed the excel limit" r070="Records Retrive for reports has exceed the excel limit" g060="Οι εγγραφές που ανακτήθηκαν για την αναφορά, ξεπερνούν τα όρια του Excel."/>
+	  <E3383 e030="Miscellaneous document exist in save status on destination location" r070="Miscellaneous document exist in save status on destination location" g060="Miscellaneous document exist in save status on destination location"/>
+	
+	  <!-- Added for QA Issue#10271 -->
+	  <E3384  e030="Void Document Number" r070="Void Document Number" g060="Void Document Number"/>
+	  <E3385  e030="The open period has been closed successfully" r070="The Open Period Has Been Closed Successfully" g060="The open period has been closed successfully"/>	  
+	  <!-- End for QA Issue#10271 -->
+	  <E3386  e030="Opening Quanity does not modify for any products" r070="Opening Quanity does not modify for any products" g060="Opening Quanity does not modify for any products"/>
+	  <E3387  e030="Opening Quanity updated for products :" r070="Opening Quanity updated for products :" g060="Opening Quanity updated for products :"/>
+	  <!-- Added by shraddha for deadlock error handling -->
+	  <E3388  e030="Another user already performing the transaction which affects the invenotory. Please try after sometime" r070="Another user already performing the transaction which affects the invenotory. Please try after sometime" g060="Another user already performing the transaction which affects the invenotory. Please try after sometime"/>
+	  <E3389  e030="Following sessions are processed in last hhc-im cycle" r070="Following sessions are processed in last hhc-im cycle" g060="Following sessions are processed in last hhc-im cycle "/> 
+	  <E3390  e030="Truck plate number is blank, Do you want to continue?" r070="Truck plate number is blank, Do you want to continue?" g060="Κενός Αριθμος Κυκλοφοριας Φορτηγου.Θελετε να συνεχίστε? "/>
+	  <E3391  e030="Truck Plate Number" r070="Truck Plate Number" g060="Truck Plate Number"/>
+	  <E3392  e030="MDB file has been created successfully" r070="MDB file has been created successfully" g060="MDB file has been created successfully"/>
+	  
+      <E3393 e030="Password has been changed by Administrator/Helpdesk user,please change your password." 
+      r070="Password has been changed by Administrator/Helpdesk user,please change your password." 
+      g060="Password has been changed by Administrator/Helpdesk user,please change your password.."/>
+	  
+	  <E3394  e030="Please enter selling code or lu code" r070="Please enter selling code or lu code" g060="Please enter selling code or lu code"/>
+	  <E3395  e030="Do you want to update items quantity change?" r070="Do you want to update items quantity change" g060="Do you want to update items quantity change"/>
+	  
+	  <E3396  e030="Value should be zero if Receive quantity is zero" r070="Value should be zero if Receive quantity is zero" g060="Value should be zero if Receive quantity is zero"/>
+	  <E3397  e030="Final Value should be zero if Receive quantity is zero" r070="Final Value should be zero if Receive quantity is zero" g060="Final Value should be zero if Receive quantity is zero"/>
+	  
+	  <E3398  e030="Value should be zero if Returned quantity is zero" r070="Value should be zero if Returned quantity is zero" g060="Value should be zero if Returned quantity is zero"/>
+	  <E3399  e030="Final Value should be zero if Returned quantity is zero" r070="Final Value should be zero if Returned quantity is zero" g060="Final Value should be zero if Returned quantity is zero"/>
+
+    <E3400  e030="Received date should not be less than allowed number of days from shipment date" r070="Received date should not be less than allowed number of days from shipment date" g060="Received date should not be less than allowed number of days from shipment date"/>
+    <E3401  e030="Void Document date should not be less than shipment date" r070="Void Document date should not be less than shipment date" g060="Void Document date should not be less than shipment date"/>	  
+    <E3402  e030="Selected product not effective on period start date" r070="Selected product not effective on period start date" g060="Selected product not effective on period start date"/>	  
+    <E3403  e030="Below Product(s) are unauthorized for" r070="Below Product(s) are unauthorized for" g060="Below Product(s) are unauthorized for"/>    
+    
+    <E3404  e030="File path not found or User has not permission to write file" r070="File path not found or User has not permission to write file" g060="File path not found or User has not permission to write file"/>    
+    <E3405  e030="MDB file path should not be blank" r070="MDB file path should not be blank" g060="MDB file path should not be blank"/>
+    <E3406  e030="Invalid FTP UserId/Password" r070="Utilizator/parola FTP invalide" g060="Μη έγκυρος FTP χρήστης / κωδικός πρόσβασης"/> 
+    <E3407  e030="Text file has been created successfully" r070="Κείμενο αρχείο έχει δημιουργηθεί με επιτυχία" g060="Κείμενο αρχείο έχει δημιουργηθεί με επιτυχία"/>
+    <E3408  e030="PDF file has been created successfully" r070="PDF αρχείο έχει δημιουργηθεί με επιτυχία" g060="PDF αρχείο έχει δημιουργηθεί με επιτυχία"/>
+    <E3409  e030="FTP  Information Not Found" r070="FTP Information Not Found" g060="FTP Information Not Found" />
+    
+    <!-- ADDED By SHALIN SHAH For CLIENT ISSUE 486 -->
+    <E3410  e030="Other User Has Updated The Document. Please Retrieve This Document Once Again." r070="Other User Has Updated The Document. Please Retrieve This Document Once Again." g060="Other User Has Updated The Document. Please Retrieve This Document Once Again." />
+    <!-- FINISHED ADDITION By SHALIN SHAH For CLIENT ISSUE 486 -->
+       
+       
+    <E3411  e030="Please select project."  />   
+       
+	</ErrorMessage>
+</ErrorMessage>
+</Application-IM>
+
+

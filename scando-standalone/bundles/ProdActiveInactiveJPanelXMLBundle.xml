@@ -1,0 +1,76 @@
+<?xml version="1.0" ?>
+<Application-IM>
+<ProdActiveInactive>
+	<ProdActiveInactiveJPanel>
+		<MAX_PER_PAGE e030="26" r070="26" g060="26"/>
+		<MAX_PER_PAGE1 e030="32" r070="32" g060="32"/>
+		<Active  e030="Active" r070="Activ" g060="Ενεργός"/>
+		<docLineId  e030="Active/Inactive" r070="Activ" g060="Ενεργός/Ανενεργός"/>
+		<prodActInAct1  e030="Active/Inactive" r070="Activ" g060="Ενεργός/Ανενεργός"/>
+		<ALL  e030="ALL" r070="TOT" g060="ΟΛΑ"/>
+		<Bags  e030="Bags" r070="Buc." g060="Σακουλάκια"/>
+		<prodActInAct12  e030="Bags EAN" r070="Pungi EAN" g060="ΕΑΝ τεμαχ."/>
+		<prodActInAct5  e030="Bags/Case" r070="Buc./Box" g060="Σακ./Κιβ."/>
+		<case1  e030="Case" r070="Box" g060="Κιβώτιο"/>
+		<Case2  e030="Case" r070="Box" g060="Κιβώτιο"/>
+		<Case3  e030="Case" r070="Box" g060="Κιβώτιο"/>
+		<prodActInAct13  e030="Case EAN" r070="EAN Box" g060="ΕΑΝ κιβ."/>
+		<prodActInAct6  e030="Case Label" r070="Case Label" g060="Ετ.Κιβ."/>
+		<prodActInAct10  e030="Case Pallete" r070="Palet Box" g060="Παλέτα κιβωτίου"/>
+		<date  e030="Date" r070="Data" g060="Ημ/νία"/>
+		<date   e030="Date" r070="Data" g060="Ημ/νία"/>
+		<jlblDate  e030="Date :" r070="Data :" g060="Ημ/νία :"/>
+		<jlblSysDate  e030="Date :" r070="Data :" g060="Ημ/νία :"/>
+		<jlbldate1  e030="Date:" r070="Data:" g060="Ημ/νία:"/>
+		<prodActInAct4  e030="Description" r070="Descriere" g060="Περιγραφή"/>
+		<description  e030="Description" r070="Descriere" g060="Περιγραφή"/>
+		<jbtnSelectallSC  e030="E" r070="E" g060="E"/>
+		<EAN_BAGS  e030="EAN of Bags" r070="Cod EAN Pungi" g060="ΕΑΝ τεμαχ."/>
+		<EAN_CASE  e030="EAN of Case" r070="Cod EAN Cutii" g060="ΕΑΝ κιβωτίου"/>
+		<effective  e030="Effective" r070="Efectiv" g060="Έναρξη ισχύος"/>
+		<prodActInAct15  e030="Effective Date" r070="Data Efectiva" g060="Ημ/νία Έναρξης Ισχύος"/>
+		<fullName  e030="Full Name" r070="Nume" g060="Πληρ.Όνομα"/>
+		<Inactive  e030="Inactive" r070="Inactive" g060="Ανενεργό"/>
+		<jlblItem  e030="Items :" r070="Produs :" g060="Είδη :"/>
+		<Kilos  e030="Kilos" r070="Kg" g060="Kg."/>
+		<prodActInAct9  e030="Kilos" r070="Kg" g060="Kg."/>
+		<Local  e030="Local" r070="Local" g060="Τοπικό"/>
+		<Location  e030="Location" r070="Locatie" g060="Αποθήκη"/>
+		<jlblLocation  e030="Location :" r070="Locatie :" g060="Αποθήκη:"/>
+		<jlblOPMLocation  e030="Logical Location :" r070="Locatie Logica:" g060="Λογ.Αποθ.:"/>
+		<prodActInAct3  e030="LU Code" r070="Cod SKU" g060="LU"/>
+		<luCode  e030="LU Code" r070="Cod SKU" g060="LU"/>
+		<aLL  e030="M3" r070="Volum" g060="m3"/>
+		<jlblpage  e030="Page:" r070="Pagina:" g060="Σελ.:"/>
+		<Pallete1  e030="Pallete" r070="Palet" g060="Παλέτα"/>
+		<Pallete2  e030="Pallete" r070="Palet" g060="Παλέτα"/>
+		<prodActInAct7  e030="Pallete" r070="Palet" g060="Παλέτα"/>
+		<prodActInAct11  e030="Pick Location" r070="Pick Location" g060="Θέση Συγκέντρωσης"/>
+		<Picking  e030="PICKING" r070="PICKING" g060="ΣΥΛΛΟΓΗ (PICKING)"/>
+		<position   e030="Position" r070="Pozitie" g060="Θέση"/>
+		<price  e030="Price" r070="Pret" g060="Τιμή"/>
+		<prodActInAct14 e030="Price" r070="Pret" g060="Τιμή"/>
+		<title  e030="Product Active/Inactive" r070="Activare/Inactivare produse" g060="Προϊόν Ενεργ./Ανενεργ."/>
+		<jbtnRetrieveSC  e030="R" r070="U" g060="R"/>
+		<jbtnRetrieve  e030="Retrieve" r070="Aduce" g060="Ανάκτηση"/>
+		<jbtnSortSC  e030="S" r070="S" g060="S"/>
+		<jbtnSelect  e030="Select All" r070="Select Tot" g060="Επιλογή Όλων"/>
+		<jlblSelection  e030="Selection:" r070="Selectie" g060="Επιλογή"/>
+		<prodActInAct2  e030="Selling Code" r070="Cod Vanzare" g060="Κωδ.Πώλησης"/>
+		<sellingCode  e030="Selling Code" r070="Cod Vanzare" g060="Κωδ.Πώλησης"/>
+		<sequence  e030="Sequence" r070="Secventa" g060="Σειρά"/>
+		<signature   e030="Signature" r070="Semnatura" g060="Υπογραφή"/>
+		<jbtnSort  e030="Sort" r070="Sort" g060="Ταξινόμηση"/>
+		<rmncmpname  e030="STAR FOODS" r070="STAR FOODS" g060="STAR FOODS"/>
+		<system  e030="System :" r070="System :" g060="Σύστημα:"/>
+		<jbtnUnselectallSC  e030="T" r070="D" g060="T"/>
+		<grccmpname  e030="TASTY" r070="TASTY" g060="TASTY"/>
+		<Type  e030="Type" r070="Tip" g060="Τύπος"/>
+		<jbtnUnselect  e030="Unselect All" r070="Deselect tot" g060="Απ' επιλογή όλων"/>
+		<UOM  e030="UOM" r070="UM" g060="Μ.Μ."/>
+		<prodActInAct8  e030="Volume" r070="Volum" g060="όγκος (m3)"/>
+		<jlblWhse  e030="Warehouse" r070="Depozit" g060="Κεντρική αποθήκη:"/>
+		<M3 e030="M3" r070="Volum" g060="M3"/>
+	</ProdActiveInactiveJPanel>
+</ProdActiveInactive>
+</Application-IM>

@@ -1,0 +1,367 @@
+<?xml version="1.0" ?>
+<Application-IM>
+<Report>
+	<Report>
+		<jcmbclosedItem2  e030="FALSE" r070="Nu" g060="ΨΕΥΔΕΣ"/>
+		<jcmbclosedItem1  e030="TRUE" r070="Da" g060="ΑΛΗΘΕΣ"/>
+		<lblInvtTimeVal  e030="____:____" r070="____:____" g060="____:____"/>
+		<lblblank1  e030="____/____" r070="___/___" g060="____/____"/>
+		<Day1  e030="0-30 days" r070="0-30 days" g060="0-30 ημερ."/>
+		<Day5  e030="121-150 days" r070="121-150 days" g060="121-150 ημερ."/>
+		<Day2  e030="31-60 days" r070="31-60 days" g060="31-60 ημερ."/>
+		<jlbl3YProductUom  e030="3Y products UOM:" r070="3Y produs UM:" g060="3Y products UOM:"/>
+		<Day3  e030="61-90 days" r070="61-90 days" g060="61-90 ημερ."/>
+		<Day4  e030="91-120 days" r070="91-120 days" g060="91-120 ημερ."/>
+		<ACTUALPURCHASEVALUE  e030="ACTUAL  PURCHASE VALUE" r070="VALOARE CUMP ACTUALA" g060="ΠΡΑΓΜΑΤΙΚΗ ΑΞΙΑ ΑΓΟΡΩΝ"/>
+		<RSHACK  e030="Adjust Acknowledgement" r070="Confirmare Ajustare" g060="Αποδοχή Διόρθωσης"/>
+		<TOA  e030="Adjust Acknowledgement" r070="Confirmare Ajustare" g060="Αποδοχή Διόρθωσης"/>
+		<adjAck  e030="Adjust Acknowledgement" r070="Confirmare Ajustare" g060="Αποδοχή Διόρθωσης"/>
+		<Agingquantitieskilo     e030="Aging quantities(kilo)" r070="Aging cantitati(Kg.)" g060="Ενηλικίωση ποσοτήτων (κιλό)"/>
+		<AgingSKU     e030="Aging quantities(SKU)" r070="Aging cantitati(SKU)" g060="Ενηλικίωση ποσοτήτων (SKU)"/>
+		<Agingvalue       e030="Aging Value" r070="Aging Valoare" g060="Αξία ενηλικίωσης"/>
+		<jrbtnAll  e030="ALL" r070="TOT" g060="ΟΛΑ"/>
+		<ALL  e030="ALL" r070="TOT" g060="ΟΛΑ"/>
+		<jlblAllLocation  e030="All Location" r070="Toate Locatiile" g060="Όλες τις Αποθήκες"/>
+		<Analitic  e030="Analitic" r070="Analitic" g060="Αναλυτικό"/>
+		<lblAutoDocDate  e030="Automated Doc Date :" r070="Data Doc Automat :" g060="Αυτόματη ημερομηνία παραστατικού :"/>
+		<lblAutoDocNo  e030="Automated Doc No. :" r070="Nr Doc Automat :" g060="Αυτόματος αριθ. παραστατικού :"/>
+		<AvgMonth  e030="AVG(Current Month)" r070="MED(Luna Curenta)" g060="Μ.Ο (μηνός)"/>
+		<Avg1  e030="AVG(WEEK1)" r070="MED(Sapt1)" g060="Μ.Ο (1η ΕΒΔΟΜΑΔΑ)"/>
+		<Avg2  e030="AVG(WEEK2)" r070="MED(Sapt2)" g060="Μ.Ο (2η ΕΒΔΟΜΑΔΑ)"/>
+		<Avg3  e030="AVG(WEEK3)" r070="MED(Sapt3)" g060="Μ.Ο (3η ΕΒΔΟΜΑΔΑ)"/>
+		<Avg4  e030="AVG(WEEK4)" r070="MED(Sapt4)" g060="Μ.Ο (4η ΕΒΔΟΜΑΔΑ)"/>
+		<BadReturn  e030="Bad Returns" r070="Retur perimate" g060="Επιστροφές ελαττωματικών προϊόντων"/>
+		<jlblBook  e030="Book :" r070="Book :" g060="Βιβλ.:"/>
+		<both  e030="BOTH" r070="AMBELE" g060="ΚΑΙ ΤΑ ΔΥΟ"/>
+		<jcmbclosedItem3  e030="Both" r070="Ambele" g060="Και τα δύο"/>
+		<jbtnCancelSC  e030="C" r070="A" g060="C"/>
+		<Caddy  e030="Caddy" r070="Afisare" g060="Πακέτο"/>
+		<jbtnCancel  e030="Cancel" r070="Anulare" g060="Άκυρο"/>
+		<jbtnCancelTT  e030="Cancel" r070="Anulare" g060="Άκυρο"/>
+		<Cases  e030="Case" r070="Box" g060="Κιβ.:"/>
+		<jlblcatagory  e030="Catagory" r070="Categorie" g060="Κατηγορία"/>
+		<Channel  e030="Channel" r070="Canal" g060="Κανάλι"/>
+		<jbtnClear  e030="Clear" r070="Sterge" g060="Καθαρισμός"/>
+		<jbtnClearTT  e030="Clear" r070="Sterge" g060="Καθαρισμός"/>
+		<lblClosed  e030="Closed" r070="Inchis" g060="Κλειστό"/>
+		<jcmbclosed  e030="Closed :" r070="Inchis :" g060="Κλειστό :"/>
+		<CTI  e030="Co Packer Transfer In" r070="Intrari Impachetare" g060="Παραλαβή από ανασυσκευαστή"/>
+		<copackerTransferIn  e030="Co Packer Transfer In" r070="Intrari Impachetare" g060="Παραλαβή από ανασυσκευαστή"/>
+		<jlblComment  e030="Comment :" r070="Comentarii :" g060="Σχόλιο:"/>
+		<Company  e030="Company:" r070="Companie:" g060="Εταιρεία :"/>
+		<copackerTransferOut  e030="CoPacker Transfer Out" r070="Iesiri Impachetare" g060="Αποστολή προς ανασυσκευαστή"/>
+		<CTO  e030="CoPacker Transfer Out" r070="Iesiri Impachetare" g060="Αποστολή προς ανασυσκευαστή"/>
+		<CostOfGoodSold  e030="Cost Of Good Sold" r070="Cost Of Good Sold" g060="Κόστος Πωλούμενων Αγαθών"/>
+		<Costcenter  e030="Costcenter" r070="CentruCost" g060="Κ.Κόστους"/>
+		<Creditamount  e030="Creditamount" r070="ValoareCredit" g060="Ποσό Πίστωσης"/>
+		<lblCurrency  e030="Currency" r070="Moneda" g060="Νόμισμα"/>
+		<DailyInvMovmtReportTitle  e030="Daily Inventory Movement Report" r070="Miscari zilnice de stoc" g060="Ημερολόγιο Κινήσεων Αποθήκης"/>
+		<jlblDatePendTransReport  e030="Date" r070="Data" g060="Ημ/νία"/>
+		<jtblDate  e030="Date" r070="Data" g060="Ημ/νία"/>
+		<date   e030="Date" r070="Data" g060="Ημ/νία"/>
+		<Date  e030="Date :" r070="Data :" g060="Ημ/νία :"/>
+		<jlblDate  e030="Date :" r070="Data :" g060="Ημ/νία :"/>
+		<Debitamount  e030="Debitamount" r070="Debit" g060="Ποσό Χρέωσης"/>
+		<Dedutibility  e030="Dedutibility" r070="Deductibilitate" g060="Έκπτωση"/>
+		<DefaultCaddy  e030="Default:Caddy" r070="Implicit:Display" g060="Προεπ.: Πακέτο"/>
+		<DefaultCase  e030="Default:Case" r070="Implicit:Box" g060="Προεπ.:Κιβώτιο"/>
+		<DefaultEach  e030="Default:Eache" r070="Implicit:Buc" g060="Προεπ.:Τεμάχιο"/>
+		<description  e030="Description" r070="Descriere" g060="Περιγραφή"/>
+		<Description  e030="Description" r070="Descriere" g060="Περιγραφή"/>
+		<hrDestLoc  e030="DestLoc" r070="DestLoc" g060="Αποθ.Προορ."/>
+		<hrDestLocDesc  e030="DestLocDesc" r070="Descr. Dest." g060="Περιγρ.Αποθ.Προορισμού"/>
+		<jlblDetail  e030="Detail" r070="Detaliat" g060="Λεπτομέρειες"/>
+		<jlbldivision  e030="Division" r070="Divizie" g060="Τομέας"/>
+		<lblDocNo  e030="Doc No" r070="Doc. Nr." g060="Αρ. Παρ/κου"/>
+		<jlblDocDate  e030="Document Date" r070="Data Doc." g060="Ημ/νια Παρ/κού"/>
+		<jlblDocNo  e030="Document Number" r070="Nr. Document" g060="Αρ.Παρ/κού"/>
+		<jlblGroupDocNo  e030="Document Number :" r070="Nr. Document" g060="Αρ.παρ/ικού :"/>
+		<hrDocumentType  e030="Document Type" r070="Tip Doc." g060="Τυπ.Παρ/κού"/>
+		<hrDocumentDateTime  e030="DocumentDateTime" r070="Data Doc." g060="Ημ/νια &#x26; Ώρα Παρ/κού"/>
+		<hrDocumentNo  e030="DocumentNo" r070="Doc. Nr." g060="Αρ.Παρ/κού"/>
+		<jbtnExcelSC  e030="E" r070="E" g060="E"/>
+		<Each  e030="Each" r070="Bucata" g060="Τεμ."/>
+		<jlblEach_Qty  e030="Each Quantity" r070="Cantitate Buc" g060="Ποσ.Τεμ."/>
+		<EBQTYkg  e030="EB QTY(kg)" r070="Sold Cantitate (Kg)i" g060="ΠΟΣΟΤΗΤΑ EB (kg)"/>
+		<EBQTYsku  e030="EB QTY(SKU)" r070="Sold Cantitate (SKU)" g060="ΠΟΣΟΤΗΤΑ EB (SKU)"/>
+		<EBVALUEstdcst  e030="EB VALUE std cst" r070="Sold la std cst" g060="ΑΞΙΑ EB σταθερό κόστος"/>
+		<EndingBalance  e030="Ending Balance" r070="Sold Final" g060="Ισοζύγιο κλεισίματος"/>
+		<EndingBalance  e030="EndingBalance" r070="Sold Final" g060="Υπόλοιπο"/>
+		<jbtnExcel  e030="Excel" r070="Excel" g060="Excel"/>
+		<jbtnExcelTT  e030="Excel" r070="Excel" g060="Excel"/>
+		<jbtnExit  e030="Exit" r070="Inchide" g060="Έξοδος"/>
+		<jbtnExitTT  e030="Exit" r070="Iesire" g060="Έξοδος"/>
+		<jrbtnExpPUCDocNo  e030="Expected Purchase Number :" r070="Nr. Comanda :" g060="Αρ.Αναμ.Αγοράς"/>
+		<lblExpPurQtyNo  e030="Expected Purchase Quantity Number" r070="Nr. NIR" g060="Ποσοτ.Αναμ.Αγοράς"/>
+		<lblExpDocNo  e030="Expected Purchase Receipt Number" r070="Nr. Comanda cump." g060="Αρ. Δ.Ποσ.Παρ.Αγοράς"/>
+		<lblExpRetDocNo  e030="Expected Purchase Return Number" r070="Nr comanda retur" g060="Αρ. Δ.Α.Επιστρ.Αγοράς"/>
+		<jrbtnExpPUTDocNo  e030="Expected Return Number :" r070="Nr. Comanda retur :" g060="Αρ. Δ.Α.Επιστρ.Αγοράς"/>
+		<CoPacker  e030="External Co-Packer WareHouse Trial Balance" r070="Balanta stoc extern" g060="Προοδ.Υπολοιπο Αποθ.Εξ.Ανασυκ/τή"/>
+		<jlblfamily  e030="Family" r070="Familie" g060="Ομάδα"/>
+		<jlblflavour  e030="Flavour" r070="Aroma" g060="Γεύση"/>
+		<lblFromDate  e030="From Date :" r070="De la :" g060="Ημ/νια 'από':"/>
+		<jlblFromTransDt  e030="From Date :" r070="De la :" g060="Ημ/νια 'από':"/>
+		<jlblFromDate  e030="From Date :" r070="De la :" g060="Ημ/νια 'από':"/>
+		<ITX02  e030="From ITX" r070="ITX, De la" g060="Σε ITX"/>
+		<lblFromPallateNo  e030="From Pallet No." r070="Nr. Palet, de la" g060="Από αρ.παλέτας :"/>
+		<jlblFromPallateNo  e030="From Pallet No.:" r070="Nr. Palet, de la:" g060="Από αρ.παλέτας :"/>
+		<jlblFromPeriod  e030="From Period :" r070="Luna, de la :" g060="Περίοδος 'από':"/>
+		<jlblFromTime  e030="From Time :" r070="Timp start :" g060="Ώρα 'από':"/>
+		<jlblFromYear  e030="From Year :" r070="An, de la:" g060="Έτος 'από':"/>
+		<fullName  e030="Full Name" r070="Nume" g060="Πλήρης επωνυμία"/>
+		<GLAccounts  e030="GL Accounts Update" r070="Actualizare conturi GL" g060="Ενημέρωση λογ/μών ΓΛ"/>
+		<GoodReturn  e030="Good Returns" r070="Retururi bune" g060="Επιστροφές προϊόντων"/>
+		<jlblReturns  e030="Good/Bad Returns :" r070="Retururi bune/expirate :" g060="Επιστροφές καλών/ακαταλλήλων προϊόντων"/>
+		<gramspersku  e030="grams per sku" r070="gr./SKU" g060="γρ,/ SKU"/>
+		<lblGrandTotal  e030="Grand Total" r070="TOTAL" g060="Γεν.Σύνολο"/>
+		<reportfooterlabel  e030="Grand Total:" r070="TOTAL:" g060="Γεν.Σύνολο:"/>
+		<jlblGreece  e030="Greece" r070="Greece" g060="GR"/>
+		<jrbtnGREECE  e030="GREECE Book" r070="GREECE Book" g060="GR Βιβλία"/>
+		<InMovements  e030="IN Movements" r070="Miscari stoc" g060="Κινήσεις ΙΝ"/>
+		<INQTYkg  e030="IN QTY(kg)" r070="IntrariCant.(kg)" g060="Ποσότητα IN (kg)"/>
+		<INQTYsku  e030="IN QTY(SKU)" r070="Intrari Cant.(SKU)" g060="ΠΟΣΟΤΗΤΑ IN (SKU)"/>
+		<INVALUEactualpurchaseprice  e030="IN VALUE actual purchase price" r070="Val. Intrari(pret de cump.)" g060="Πραγματική τιμή αγοράς IN VALUE"/>
+		<INVALUEstdcst  e030="IN VALUE std cst" r070="Val. Intrari(std. cost)" g060="Σταθερό κόστος IN VALUE"/>
+		<IntExtDocListReportTitle  e030="Internal or External Doc. List Report" r070="Transferuri la co-packer" g060="Αναφορά Εσωτερικών ή Εξωτερικών Παραστατικών"/>
+		<InvRecCaddy  e030="Inv. Rec.:Caddy" r070="Inv. Rec.:Caddy" g060="Απογραφή Παραλαβή: Πακέτο"/>
+		<lblInvtDate  e030="Inventory Date" r070="Data inventar" g060="Ημ/νία Απογραφής"/>
+		<LocWiseInvMovDtlAllReport  e030="INVENTORY DETAIL MOVEMENT - TRANSACTION LIST(ALL)" r070="MISC. STOC - LISTA TRANZACTII(CANT. SI VALOARE)" g060="ΑΝΑΛΥΤΙΚΗ ΚΑΤΑΣΤΑΣΗ ΚΙΝΗΣΕΩΝ ΑΠΟΘΕΜΑΤΩΝ (Όλα)"/>
+		<lblInvtLoc  e030="Inventory Loc" r070="Loc. Inventar" g060="Αποθήκη"/>
+		<InvMovmtDetailReportTitle  e030="Inventory Movement Detail Report" r070="Miscari de stoc pe loc. curenta" g060="Αναλυτική Αναφορά Κινήσεων Αποθεμάτων"/>
+		<InvMovmtReportTitle  e030="Inventory Movement Report" r070="Raport detaliat tranz. stoc" g060="Αναφορά Κινήσεων Αποθεμάτων"/>
+		<InventoryMovements  e030="Inventory Movements" r070="Tranzactii stoc" g060="ΚΙΝΗΣΕΙΣ ΑΠΟΘΕΜΑΤΩΝ"/>
+		<Inventoryforcasting  e030="Inventory Sales Forcasting" r070="Raport medii zilnice" g060="Προβλέψεις πωλήσεων"/>
+		<InvSalesForecastingReportTitle  e030="Inventory Sales Forecasting Report" r070="Raport medii zilnice" g060="Αναφορά Πρόβλεψης Πωλήσεων"/>
+		<lblInvtTime  e030="Inventory Time" r070="Data inventar" g060="Ώρα Απογ."/>
+		<ITX  e030="Inventory Transformation" r070="Impachetari/Infolieri" g060="Μετασχηματισμός Αποθεμάτων"/>
+		<inventoryTransformation  e030="Inventory Transformation" r070="Impachetari/Infolieri" g060="Μετασχηματισμός Αποθεμάτων"/>
+		<lblInvNo  e030="Invoice Number" r070="Nr. Factura" g060="Αρ.Τιμολογίου"/>
+		<lblInvPrice  e030="Invoice Price" r070="Pret facturat" g060="Τιμή τιμολογίου"/>
+		<lblInvValue  e030="Invoice Value" r070="Valoare factura" g060="Αξία τιμολογίου"/>
+		<jlblItem  e030="Item" r070="Prod." g060="Είδος"/>
+		<lblItemCode  e030="Item Code" r070="Cod. Prod." g060="Κωδικός Είδους"/>
+		<lblItemCode  e030="Item code" r070="Cod. Prod." g060="Κωδικός Είδους"/>
+		<lblItemDesc  e030="Item Desc" r070="Descr. Produs" g060="Περιγραφή είδους"/>
+		<lblItemDesc  e030="Item description" r070="Descr. Produs" g060="Περιγραφή είδους"/>
+		<lblItemId  e030="Item ID" r070="Cod. Prod." g060="Κωδ.Είδους"/>
+		<ItemType  e030="Item Type :" r070="Tip produs:" g060="Τύπος είδους :"/>
+		<jlblItemType  e030="Item Type :" r070="Tip produs:" g060="Τυπ.Είδους:"/>
+		<jbtnClearSC  e030="L" r070="S" g060="L"/>
+		<Location  e030="Location" r070="Locatie" g060="Αποθήκη"/>
+		<Location  e030="Location" r070="Locatie" g060="Αποθήκη"/>
+		<jlblLocation  e030="Location" r070="Locatie" g060="Αποθήκη"/>
+		<jlbllocation  e030="Location :" r070="Locatie :" g060="Αποθήκη:"/>
+		<lblLocation  e030="Location :" r070="Locatie :" g060="Αποθήκη:"/>
+		<jlbllocationType  e030="Location Type :" r070="Tip Locatie :" g060="Τυπ.Αποθήκης :"/>
+		<LocationWiseInvMovDtlReportTitle  e030="Location Wise Inventory Detail Movement Report" r070="Miscari de stoc pe toate loc." g060="Αναλυτική Αναφορά Κινήσεων Αποθεμάτων ανά Αποθήκη."/>
+		<LocatoinType  e030="Locatoin Type" r070="Tip Locatie" g060="Τυπ.Αποθήκης"/>
+		<Logicallocation  e030="Logical Location :" r070="Locatie Logica:" g060="Λογική αποθήκη :"/>
+		<jlblLogLocation  e030="Logical Location :" r070="Locatie Logica :" g060="Λογική αποθήκη :"/>
+		<hrLoginLoc  e030="LoginLoc" r070="LocLogin" g060="Σύνδεση με αποθήκη"/>
+		<luCode  e030="LU Code" r070="Cod SKU" g060="LU"/>
+		<jlblLUCode  e030="LU Code :" r070="Cod SKU :" g060="LU"/>
+		<jCompany002  e030="TASTY FOODS" r070="TASTY FOODS" g060="TASTY FOODS"/>
+		<lblMatuInvtMgmt  e030="Matutano Inventory Support Report" r070="Matutano Inventory Support Report" g060="Matutano Inventory Support Report"/>
+		<MI  e030="Miscellaneous" r070="Bon Consum" g060="Πρωτόκολλα Καταστροφής"/>
+		<miscellaneous  e030="Miscellaneous" r070="Bon Consum" g060="Πρωτόκολλα Καταστροφής"/>
+		<MisSummReportTitle  e030="Miscellaneous Summary Report" r070="Raport Sumarizat Bon Consum" g060="Συνοπτική αναφορά πρωτοκόλλων καταστροφής"/>
+		<Moreday  e030="Moreday" r070="Moreday" g060="Moreday"/>
+		<no  e030="NO" r070="NU" g060="ΟΧΙ"/>
+		<jlblPrintEqpVal2  e030="No(Inv. Rec.)" r070="Nr(Inv. Rec.)" g060="Αριθμ.(Τιμολόγιο Παραλ.)"/>
+		<OBQTYsku  e030="OB QTY (SKU)" r070="OB QTY (SKU)" g060="Ποσότητα ΟB (SKU)"/>
+		<OBQTYkg  e030="OB QTY(kg)" r070="OB QTY(kg)" g060="Ποσότητα ΟB (kg)"/>
+		<OBVALUEstdcst  e030="OB VALUE std cst" r070="OB VALUE std cst" g060="Σταθερό κόστος OB VALUE"/>
+		<ObsoleteProducts  e030="Obsolete Products" r070="Produse Invechite" g060="Ακατ/λα προϊόντα"/>
+		<OpeningBalance  e030="Opening Balance" r070="Sold Initial" g060="Υπολοίπο Έναρξης"/>
+		<OutMovements  e030="OUT Movements" r070="OUT Movements" g060="Κινήσεις ΑΠΟΣΤΟΛΗΣ"/>
+		<OUTQTYkg  e030="OUT QTY(kg)" r070="OUT QTY(kg)" g060="ΠΟΣΟΤΗΤΑ ΑΠΟΣΤΟΛΗΣ(kg)"/>
+		<OUTQTYsku  e030="OUT QTY(SKU)" r070="OUT QTY(SKU)" g060="ΠΟΣΟΤΗΤΑ ΑΠΟΣΤΟΛΗΣ (SKU)"/>
+		<OUTVALUEstdcst  e030="OUT VALUE std cst" r070="OUT VALUE std cst" g060="ΑΞΙΑ ΑΠΟΣΤΟΛΗΣ σταθερό κόστος std cst"/>
+		<jbtnPrintSC  e030="P" r070="P" g060="P"/>
+		<lblPage  e030="Page" r070="Pagina" g060="Σελ."/>
+		<lblPageTotal  e030="Page Total" r070="Pagina Total" g060="Συν.Σελίδων"/>
+		<jlblpage  e030="PAGE:" r070="Pagina:" g060="ΣΕΛ.:"/>
+		<lblPalleteNo  e030="Pallet No." r070="Nr. Palet" g060="Αρ.Παλέτας"/>
+		<jlblInputparameters  e030="PARAMETERS:" r070="PARAMETRII:" g060="ΠΑΡΑΜΕΤΡΟΙ:"/>
+		<statusPENDACK  e030="PENDING TO ACK" r070="ASTEAPTA CONF" g060="ΕΚΚΡΕΜΕΙ ΑΠΟΔΟΧΗ"/>
+		<statusNOTRECEIVED  e030="Pending to receive" r070="ASTEAPTA RECEPTIE" g060="ΕΚΚΡΕΜΕΙ ΠΑΡΑΛΑΒΗ"/>
+		<statusPENREVIEW  e030="PENDING TO REVIEW" r070="ASTEAPTA REVIZUIRE" g060="ΕΚΚΡΕΜΕΙ ΕΛΕΓΧΟΣ"/>
+		<PendingTransReportTitle  e030="Pending Transaction Report" r070="Documente nefinalizate" g060="Αναφορά Συναλλαγών σε Εκκρεμότητα"/>
+		<jlblPeriod  e030="Period" r070="Perioada" g060="Περίοδος"/>
+		<lblPeriod  e030="Period :" r070="Luna :" g060="Περίοδος:"/>
+		<PeriodClosingReportTitle  e030="Period Closing Report" r070="Period Closing Report" g060="Αναφορές Κλεισίματος Περιόδου"/>
+		<jlblPeriod  e030="Period/Month :" r070="Perioada/Luna :" g060="Περίοδος/Μήνας :"/>
+		<lblPhyQty  e030="Phy Qty" r070="Phy Qty" g060="Ποσότητα"/>
+		<PHY2  e030="PHY2" r070="PHY2" g060="ΦΥΣ.2"/>
+		<PHY  e030="Physical Inventory" r070="Inventar Fizic" g060="Φυσική Απογραφή"/>
+		<physicalInventory  e030="Physical Inventory" r070="Inventar Fizic" g060="Φυσική Απογραφή"/>
+		<PhyInvReportTitle  e030="Physical Inventory Report" r070="Raport Inventar Fizic" g060="Αναφορά Φυσικής Απογραφής"/>
+		<PhysicalInventoryReport  e030="Physical Inventory Report" r070="Raport Inventar Fizic" g060="Αναφορά Φυσικής Απογραφής"/>
+		<lblPhyInvtReportTitle  e030="Physical Inventory Support Report" r070="Tiparire lista inventar" g060="Υποστηρικτική Αναφορά Απογραφής"/>
+		<PhyInvSuppReportTitle  e030="Physical Inventory Support Report" r070="Tiparire lista inventar" g060="Υποστηρικτική Αναφορά Απογραφής"/>
+		<jCompany003  e030="PORTUGAL" r070="PORTUGAL" g060="PORTUGAL"/>
+		<posequip  e030="POS Eq." r070="POS Eq." g060="Εξ. POS"/>
+		<Posequip  e030="POS Equipment :" r070="POS Equipment :" g060="Εξοπλισμός POS :"/>
+		<jlblPOSEquipment  e030="POS Equipment :" r070="Rack/stand :" g060="Εξοπλισμός POS :"/>
+		<position   e030="Position" r070="Pozitie" g060="Θέση"/>
+		<jlblPrice  e030="Price" r070="Pret" g060="Τιμή"/>
+		<jbtnPrintTT  e030="Print" r070="Tiparire" g060="Εκτύπωση"/>
+		<jbtnPrint  e030="Print" r070="Tiparire" g060="Εκτύπωση"/>
+		<jlblPrintEqp  e030="Print Equipments?:" r070="Tiparire Echipamente?:" g060="Εκτυπωτής;:"/>
+		<lblProdCode  e030="Prod Code" r070="Cod Prod" g060="Κωδ.Είδους"/>
+		<lblProdDate  e030="Prod Date" r070="Data Prod" g060="Ημερομηνία παραγωγής"/>
+		<lblProdQty  e030="Prod Qty" r070="Cant Prod" g060="Ποσότητα παραγωγής"/>
+		<produce  e030="PRODUCED" r070="PRODUS" g060="ΠΑΡΑΓΩΓΗ"/>
+		<ProducedItem  e030="Produced Item Trial Balance" r070="Balanta pentru produse" g060="Προσωρινό ισοζύγιο παραγόμενου είδους"/>
+		<PurchasedValue   e030="Produced Value" r070="Valoare Productie" g060="Αξία παραγωγής"/>
+		<Product  e030="Product" r070="Produs" g060="Προϊόν"/>
+		<Producategory  e030="Product Category" r070="Categorie Produs" g060="Κατηγορία προϊόντος"/>
+		<lblProdCatTotal  e030="Product Category:(Total)" r070="Categ. Produs (Total):" g060="Κατηγ.Προϊόντων :(Συν.)"/>
+		<lblProdDesc  e030="Product Desc" r070="Desc Produs" g060="Περιγραφή"/>
+		<Productdescription  e030="Product Description" r070="Descriere Produs" g060="Περιφραφή Προϊόντος"/>
+		<productionReceipt  e030="Production Receipt" r070="Receptii productie" g060="Παραλαβή απο παραγωγή"/>
+		<PRC  e030="Production Receipt" r070="Receptii productie" g060="Παραλαβή από Παραγωγή"/>
+		<ProdRcptDetailReportTitle  e030="Production Receipt Detail Report" r070="Raport Detaliat Receptie Productie" g060="Αναλυτική Αναφορά Εισαγωγών από Παραγωγή"/>
+		<ProdRcptShiftWiseReportTitle  e030="Detail Production Report" r070="Detail Production Report" g060="Αναλυτική Αναφορά Παραγωγής"/>
+		<productionReturn  e030="Production Return" r070="Retur Productie" g060="Επιστροφή Παραγωγής"/>
+		<PRT  e030="Production Return" r070="Retur Productie" g060="Επιστροφή Παραγωγής"/>
+		<PRT02  e030="Production returns From" r070="Retur Productie Din" g060="Επιστρ.Παραγ.'Από'"/>
+		<PRT01  e030="Production returns To" r070="Retur Productie In" g060="Επιστρ.Παραγ.'εως'"/>
+		<productionSummaryReport  e030="PRODUCTION SUMMARY REPORT" r070="SUMAR RECEPTII DIN PRODUCTIE" g060="Συνοπτική Αναφορά Παραγωγής"/>
+		<Project  e030="Project" r070="Project" g060="Έργο"/>
+		<PurchasePriceVariance  e030="Purchase Price Variance" r070="Variatie Pret Cumparare" g060="Απόκλιση Τιμής Αγοράς"/>
+		<PURCHASEPRICEVARIANCE  e030="PURCHASE PRICE VARIANCE" r070="VARIATIE PRET CUMPARARE" g060="ΑΠΟΚΛΙΣΗ ΤΙΜΗΣ ΑΓΟΡΑΣ"/>
+		<lblPOPrice  e030="Purchase price(PO price)" r070="Pret Cumparare(Pret PO)" g060="Τιμή Αγοράς (Τιμή Ε.Α.)"/>
+		<PUC  e030="Purchase Receipt" r070="Receptii furnizor" g060="Παραλαβή Αγορών"/>
+		<PUC  e030="Purchase Receipt" r070="Receptii furnizor" g060="Παραλαβή Αγορών"/>
+		<jlblPUC  e030="Purchase Receipt" r070="Receptii furnizor" g060="Παραλαβή Αγορών"/>
+		<jcmbItemPurRec  e030="Purchase Receipt" r070="Receptii furnizor" g060="Παραλαβή Αγορών"/>
+		<PUT  e030="Purchase Return" r070="Retur receptii furnizor" g060="Επιστροφή αγορών"/>
+		<jcmbItemPurRet  e030="Purchase Return" r070="Retur receptii furnizor" g060="Επιστροφή αγορών"/>
+		<purchasereturn  e030="Purchase return" r070="Retur receptii furnizor" g060="Επιστροφή αγορών"/>
+		<jlblPUT  e030="Purchase returns" r070="Retur receptii furnizor" g060="Επιστροφή αγορών"/>
+		<PUT  e030="Purchase returns" r070="Retur receptii furnizor" g060="Επιστροφή αγορών"/>
+		<PurSummaryReportTitle  e030="Purchase Summary Report" r070="Sumar receptii furnizori" g060="Συνοπτική Αναφορά Αγορών"/>
+		<purchase  e030="PURCHASED" r070="CUMPARAT" g060="ΑΓΟΡΑΣΘΕΝ"/>
+		<PurchasedItem  e030="Purchased Item Trial Balance" r070="Balanta Verificare Marfa" g060="Προσωρινό ισοζύγιο είδους αγοράς"/>
+		<PurchasedValueN   e030="Purchased Value(Pos Eqip=N)" r070="Valoare Cumparata(Pos Eqip=N)" g060="Αξία αγοράς προϊόντων(Pos Eqip=N)"/>
+		<PurchasedValueY  e030="Purchased Value(Pos Eqip=Y)" r070="Valoare cumparata(Pos Eqip=Y)" g060="Αξία αγοράς προϊόντων(Pos Eqip=Υ)"/>
+		<purchasereceipt  e030="purchasereceipt" r070="purchasereceipt" g060="Παραλαβή Αγορών"/>
+		<jlblQty  e030="Quantity" r070="Cantitate" g060="Ποσότητα"/>
+		<jbtnRetrieveLocationSC  e030="R" r070="U" g060="R"/>
+		<jlblReasonCode  e030="Reason Code" r070="Motiv" g060="Κωδ.Αιτιολ."/>
+		<lblRecDate  e030="Received date" r070="Received date" g060="Ημ/νία Παρ/βης"/>
+		<lblRecQty  e030="Received Qty." r070="Cant Recept." g060="Παραλ.Ποσότητα"/>
+		<lblReportDate  e030="Report Date" r070="Data Raport" g060="Ημ/νία Αναφ.:"/>
+		<reportDate  e030="Report Date :" r070="Data Raport :" g060="Ημερομηνία αναφοράς :"/>
+		<lblReportNo  e030="Report No." r070="Nr. Raport" g060="Αρ.Αναφ."/>
+		<jlblPeriodSubType  e030="Report Sub Type :" r070="Subraport:" g060="Δευτ.Τπυπος Αναφοράς"/>
+		<lblReportTime  e030="Report Time" r070="Ora Raport" g060="Ώρα Αναφ."/>
+		<jlblReportType  e030="Report Type :" r070="Ora Raport :" g060="Τυπ.Αναφοράς:"/>
+		<jlblPeriodType  e030="Report Type :" r070="Raport :" g060="Τυπ.Αναφοράς:"/>
+		<jbtnRetrieveLocation  e030="Retrieve" r070="Aduce" g060="Ανάκτηση"/>
+		<jbtnRetrieveLocationTT  e030="Retrieve" r070="Aduce" g060="Ανάκτηση"/>
+		<ReturnsFromMarket  e030="Returns From The Market" r070="Retururi din Piata" g060="Επιστροφές από τα καταστήματα"/>
+		<RRS  e030="Reverse Route Shipment" r070="Vizualizare czi. retur" g060="Ανάκληση δρομολογίου"/>
+		<reverseRouteShipment  e030="Reverse Route Shipment" r070="Vizualizare czi. retur" g060="Ανάκληση δρομολογίου"/>
+		<RAU  e030="Route Allocation" r070="Alocare Ruta" g060="Τοποθέτηση σε δρομολόγιο"/>
+		<routeAllocation  e030="Route Allocation" r070="Alocare Ruta" g060="Τοποθέτηση σε δρομολόγιο"/>
+		<RSH  e030="Route Shipment" r070="Vizualizare comenzi" g060="Αποστ.Δρομολογίου"/>
+		<routeShipment  e030="Route Shipment" r070="Vizualizare comenzi" g060="Αποστ.Δρομολογίου"/>
+		<PrintOnAllPages  e030="Sel. Crit. in all pages" r070="Crit. Sel. in toate paginile" g060="Επιλ.Κριτ. Σε όλες τις σελίδες"/>
+		<jlblSelectedLocation  e030="Selected Location" r070="Locatie Selectata" g060="Επιλεγμ.Αποθήκη"/>
+		<sellingCode  e030="Selling Code" r070="Cod Vanzare" g060="Κωδ. Πώλησης"/>
+		<jlblSellingCode  e030="Selling Code :" r070="Cod Vanzare :" g060="Κωδικός πώλησης/ LU"/>
+		<Lusellingcode  e030="Selling Code/Lu code" r070="Cod Vanzare/Cod Logistic" g060="Βάρδια:"/>
+		<Shift  e030="Shift" r070="Schimb" g060="Βάρδια:"/>
+		<jlblShift  e030="Shift :" r070="Schimb :" g060="Αρ.Βάρδιας:"/>
+		<lblShiftNo  e030="Shift No" r070="Schimb Nr" g060="Αριθμός βάρδιας :"/>
+		<lblShiftNum  e030="Shift No. :" r070="Schimb Nr.:" g060="Επιλ.Κριτ. Σε όλες τις σελίδες:"/>
+		<ShowAllProducts  e030="Show All Products" r070="Arata Toate Produsele" g060="Εμφάνιση όων των ειδών"/>
+		<signature   e030="Signature" r070="Semnatura" g060="Υπογραφή"/>
+		<skucategory  e030="SKU category" r070="Categ produs" g060="Κατηγ. SKU"/>
+		<SKUcode  e030="SKU code" r070="Cod produs" g060="SKU"/>
+		<SKUNAME  e030="SKU NAME" r070="Nume produs" g060="Όνομα SKU"/>
+		<SKUType  e030="SkuType" r070="Tip Produs" g060="Τύποσ SKU"/>
+		<hrSourceLoc  e030="SourceLoc" r070="Loc.Sursa" g060="Αποθ. Προέλευσης"/>
+		<hrSourceLocDesc  e030="SourceLocDesc" r070="Loc.SursaDesc" g060="Περιγρ. αποθ. προέλευσης"/>
+		<STANDARDCOSTperSKU  e030="STANDARD COST per SKU" r070="COST STANDARD pe SKU" g060="Βασ.Κόστος / SKU"/>
+		<Title  e030="STAR FOODS" r070="STAR FOODS" g060="TASTY FOODS"/>
+		<hrStatus  e030="Status" r070="Stare" g060="Κατασταση"/>
+		<Stdcstperkg  e030="Std cst per kg" r070="Cost std per kg" g060="Προτ.κόστος/kg."/>
+		<Stock     e030="Stock" r070="Stoc" g060="Απόθεμα"/>
+		<StockAging  e030="Stock Aging" r070="Ageing Stoc" g060="Ηλικία Αποθέματων"/>
+		<jlblsubFamily  e030="Sub-Family" r070="Sub-Familie" g060="Υπο-ομάδα"/>
+		<jlblSummary  e030="Summary" r070="Sumarizat" g060="Σύνοψη"/>
+		<jlblSummaryDetail  e030="Summary/Detail:" r070="Sumar/Detaliat:" g060="Σύνοψη/Λεπτομέρειες:"/>
+		<jlblSupplier  e030="Supplier" r070="Furnizor" g060="Προμηθευτής"/>
+		<lblSupplier  e030="Supplier" r070="Furnizor" g060="Προμηθευτής"/>
+		<jlblGroupSupplier  e030="Supplier :" r070="Furnizor :" g060="Προμηθευτής :"/>
+		<jcmbSupplier  e030="Supplier :" r070="Furnizor :" g060="Προμηθευτής :"/>
+		<lblSupDlvNo  e030="Supplier Delivery Note" r070="Aviz Expeditie Furnizor" g060="Δ.Α. προμηθευτή:"/>
+		<jrbtnSupDlvNo  e030="Supplier Delivery Number :" r070="Aviz Expeditie Furnizor :" g060="Αρ. Δ.Α.Προμηθευτή:"/>
+		<jrbtnSupInvNo  e030="Supplier Invoice Number :" r070="Numar Factura Furnizor :" g060="Αρ.Τιμολ.Προμηθευτή:"/>
+		<hrSystem  e030="System" r070="System" g060="Σύστημα"/>
+		<lblTasty  e030="TASTY" r070="TASTY" g060="TASTY"/>
+		<lblTempPrice  e030="Temporary Purchase Price" r070="Estimare cost" g060="Προσωρινή αξία αγοράς"/>
+		<jcmbTempValueReport2  e030="Temporary Purchase Value Not Final" r070="Estimare Nefinalizata" g060="Η προσωρινή αξία αγοράς δεν είναι τελική"/>
+		<jcmbTempValueReport1  e030="Temporary Purchase Value Not Reviewed" r070="Estimare Nerevizuita" g060="Η προσωρινή αξία αγοράς δεν έχει αναθεωρηθεί"/>
+		<TemporaryPurchaseValueTitle  e030="Temporary Purchase Value Report" r070="Raport Estimari" g060="Αναφορά κινήσεων Προσωρινών Αξιών Αγορών"/>
+		<jlblToTransDt  e030="To Date :" r070="Pina La :" g060="Ημ/νία 'εως':"/>
+		<lblToDate  e030="To Date :" r070="Pina La :" g060="Ημ/νία 'εως':"/>
+		<jlblToDate  e030="To Date :" r070="Pina La :" g060="Ημ/νία 'εως':"/>
+		<ITX01  e030="To ITX" r070="La ITX" g060="Από ITX"/>
+		<jlblToPallateNo  e030="To Pallet No:" r070="In Nr. Palet.:" g060="Αρ. παλέτας παράδοσης:"/>
+		<lblToPallateNo  e030="To Pallet No." r070="In Nr. Palet" g060="Σε Α\αριμθό παλέτας:"/>
+		<jlblToPeriod  e030="To Period :" r070="Luna, pana la:" g060="Περίοδος 'έως':"/>
+		<jlblToTime  e030="To Time :" r070="La Ora :" g060="Ώρα 'έως':"/>
+		<jlblToYear  e030="To Year :" r070="An, pana la:" g060="Έτος 'έως':"/>
+		<TOA2  e030="TOA2" r070="TOA2" g060="ΤΟΑ2"/>
+		<lblTotal  e030="Total" r070="Total" g060="Σύνολο"/>
+		<jlblGroupTotal  e030="Total :" r070="Total :" g060="Σύνολο:"/>
+		<grouplabel  e030="Total for Date:" r070="Total pentru Zi:" g060="Συνολο για Ημ/νία"/>
+		<lblTotalItems  e030="Total Items" r070="Total Produse" g060="Σύνολα Είδους"/>
+		<totalqty  e030="Total Quantity" r070="Cant Totala" g060="Συνολική Ποσότητα"/>
+		<Transaction  e030="Transaction" r070="Tranzactie" g060="Κίνηση"/>
+		<jlblTransaction  e030="Transaction :" r070="Tranzactie :" g060="Κίνηση:"/>
+		<TransactionCode  e030="Transaction Code" r070="Cod Tranzactie" g060="Κωδ.Κίνησης"/>
+		<jlblTrans_Quantity  e030="Transaction Quantity" r070="Cant. tranzactie" g060="Ποσ.Κίνησης"/>
+		<TranSummReportTitle  e030="Transaction Summary Report" r070="Raport Sumar Tranzactii" g060="Συνοπτική αναφορά κινήσεων"/>
+		<TransactionType  e030="Transaction Type" r070="Tip Tranzactie" g060="Τυπ.Κίνησης"/>
+		<transferIn  e030="Transfer In" r070="Intrari" g060="Ενδοδιακ.Εισαγωγής"/>
+		<TIN  e030="Transfer In" r070="Intrari" g060="Ενδοδ.Εισαγωγής"/>
+		<TOT  e030="Transfer Out" r070="Iesiri" g060="Ενδοδ.Εξαγωγής"/>
+		<transferOut  e030="Transfer Out" r070="Iesiri" g060="Ενδοδιακ.Εξαγωγής"/>
+		<lblULL  e030="ULL :" r070="ULL :" g060="ULL:"/>
+		<lblUom  e030="UOM" r070="UM" g060="M.M"/>
+		<UOM  e030="UOM" r070="UM" g060="M.M"/>
+		<jlblUom  e030="UOM:" r070="UOM:" g060="M.M:"/>
+		<jlblUS  e030="US" r070="US" g060="US"/>
+		<jrbtnUS  e030="US Book" r070="US Book" g060="US Βιβλία"/>
+		<hrUser  e030="User" r070="Utilizator" g060="Χρήστης"/>
+		<jlblUserPendTransReport  e030="User" r070="Utilizator" g060="Χρήστης"/>
+		<lblUser  e030="User :" r070="Utilizator :" g060="Χρήστης:"/>
+		<jlblValue  e030="Value" r070="Valoare" g060="Αξία"/>
+		<jlblWarehouse_code  e030="Warehouse Code" r070="Cod depozit" g060="Κωδ.Κ.Αποθ."/>
+		<jlblWeek  e030="Week :" r070="Sapt :" g060="Εβδομάδα:"/>
+		<jbtnExitSC  e030="x" r070="x" g060="X"/>
+		<jlblYear  e030="Year :" r070="An :" g060="Έτος:"/>
+		<jlblYear  e030="Year :" r070="An :" g060="Έτος:"/>
+		<jlblPrintEqpVal1  e030="Yes" r070="DA" g060="ΝΑΙ"/>
+		<yes  e030="YES" r070="DA" g060="ΝΑΙ"/>
+		<jlblFromPallateConstant e030="From Pallet Constant:" r070="From Pallet Constant:" g060="Σταθ.Αρ.Παλέτας Από:"/>
+		<jlblParameter e030="Input Parameter" r070="Input Parameter" g060="Εισαγ.Παραμέτρου"/>
+		<LocWiseInvMovDtlOnlyQtyReport  e030="INVENTORY DETAIL MOVEMENT - TRANSACTION LIST(ONLY QUANTITY)" r070="MISC. STOC - LISTA TRANZACTII(CANT.)" g060="ΑΝΑΛΥΤΙΚΗ ΚΑΤΑΣΤΑΣΗ ΚΙΝΗΣΕΩΝ ΑΠΟΘΕΜΑΤΩΝ (Μόνο Ποσότητα)"/>
+		<jlblResult e030="Result" r070="Result" g060="Αποτελεσμα"/>
+		<statusSAVE  e030="Save" r070="Salvare" g060="Αποθήκευση"/>
+		<jlblToPallateConstant e030="To Pallet Cosntant :" r070="To Pallet Cosntant :" g060="Σταθ.Αρ.Παλέτας Έως:"/>
+		<detailProductionReportTitle  e030="Detail Production Report" r070="Detail Production Report" g060="ΑΝΑΛΥΤΙΚΗ ΚΑΤΑΣΤΑΣΗ ΠΑΡΑΓΩΓΗΣ"/>
+		<hrStatusSummary  e030="Status Summary" r070="Status Summary" g060="Σύνολο Κατάστασης"/>
+		<jlblPageTotal  e030="Page Total :" r070="Page Total :" g060="Σύνολο Σελίδας:"/>
+		<jlblGrandTotal  e030="Grand Total :" r070="Grand Total :" g060="Τελικό Σύνολο:"/>
+    <statusPendingSummary  e030="Pending to summary" r070="Pending to summary" g060="Pending to summary"/>	
+    <statusPendingInvoice  e030="Pending to invoice/credit" r070="Pending to invoice/credit" g060="Pending to invoice/credit"/>	
+    <jlblOf     e030="Of" r070="Of" g060="Από"/><!-- added by shraddha for QA Issue#12342 -->
+	</Report>
+</Report>
+</Application-IM>

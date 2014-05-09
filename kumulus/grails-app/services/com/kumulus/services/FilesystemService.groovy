@@ -25,12 +25,16 @@ class FilesystemService {
         return(literal)
     }
 
-    def indexDocument(document) {
-        File file = new File(document.file.path)
-        return tikaService.parseFile(file)
+    def indexDocument(Document document) {
+        if(document.file?.path) {
+            File file = new File(document.file.path)
+            return tikaService.parseFile(file)
+        } else {
+            return null
+        }
     }
     
-    def newProject(params) {
+    Project newProject(Project project) {
         def literal = generateLiteral()
         
         // create the necessary directories
@@ -42,11 +46,9 @@ class FilesystemService {
         targetPath = new File(path + "pages/")
         targetPath.mkdir()
         
-        // create the database instances
-        def client = new Company([name: params?.ClientName])         // NEED TO CHECK THE PREEXISTENCE OF THE COMPANY
-        client.save()
-        def project = new Project([projectName: params?.projectName, comment: params?.comment, status: "A", company: permissionsService.getCompany(), lineItems:[], nodes:[], client: client, literal: literal, path: path])
-        project.save()
+        // initialise the relevant project variables
+        project.literal = literal
+        project.path = targetPath
         return(project)
     }
     
@@ -126,7 +128,7 @@ class FilesystemService {
     }
         
     def indexPdfInFilesystem(document, filename) {
-        def path = grailsApplication.config.filesystem.main + document.literal + '/docs/'
+        def path = grailsApplication.config.filesystem.main + document.project.literal + '/docs/'
         new File(path).mkdirs()
         def dest = path + document.literal + '.pdf'
         new File(filename).renameTo(dest)
@@ -135,7 +137,7 @@ class FilesystemService {
     
     def stagingFlush(uFile) {
         // clean up the staging entities
-        File stagingPath = new File(uFile.path.replace(uFile.name, ""))
+        File stagingPath = new File(uFile.path.substring(0, uFile.path.size()-uFile.name.size()))
         stagingPath.deleteDir()
         return(true)
     }

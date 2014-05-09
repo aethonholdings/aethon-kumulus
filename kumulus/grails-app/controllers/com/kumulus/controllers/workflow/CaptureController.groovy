@@ -5,25 +5,25 @@ import com.kumulus.domain.*
 class CaptureController {
 
     def permissionsService
+    def workflowService
 
-    def collect() { 
-       def project = Project.findById(params?.id)
-        if(permissionsService.checkPermissions(project)) {
-            def nodeTypes = NodeType.findAll {
-                isContainer==true
-            }
-            render view:"collect", model:[project: project, nodeTypes: nodeTypes]
+    def home() {
+        def projectList = Project.findAll {
+            // company == permissionsService.getCompany()?.name                 // temporary centralised implementattion of upload functionality
+            status == Project.STATUS_ACTIVE
         }
+        def userTasks = workflowService.getTaskQueues(permissionsService.getUsername())
+        render(view:"home", model:[pageTitle: "Home", projectList: projectList, userTasks: userTasks, userId: permissionsService.getUsername()])    
     }
     
     def upload() {
         def project = Project.findById(params?.id)
+        // no permission checking for the time being here
         if(permissionsService.checkPermissions(project)) {
             def nodeTypes = NodeType.findAll {
                 isContainer==true
             }
-        
-        render view:"upload", model:[project: project, nodeTypes: nodeTypes]
+            render view:"upload", model:[project: project, nodeTypes: nodeTypes]
         }
     }
     
@@ -38,7 +38,4 @@ class CaptureController {
         render view: "build", model: [tasks: taskList]
     }
     
-    def pickup (){
-        
-    }
 }

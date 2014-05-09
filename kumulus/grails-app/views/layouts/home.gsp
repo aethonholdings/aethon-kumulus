@@ -22,7 +22,7 @@
                <div class='pure-u-3-4'>
                  <div class='kumulus-session-management kumulus-small-font'>
                    <g:userCompany/> |
-                   <b><sec:loggedInUserInfo field='username'/></b> |  
+                   user: <b><sec:loggedInUserInfo field='username'/></b> |  
                    <g:link controller='logout'> Logout</g:link>
                  </div>
                </div>
@@ -30,13 +30,8 @@
          </div>
         </div>
         <div class='kumulus-menu'>
-         <!--<a class='pure-menu-heading' href=''>kumulus</a>-->
           <ul>
-                <li><g:link controller='home' action='index'>Home</g:link></li>
-                <li><g:link controller='logistics' action='orderMaterials'>Order materials</g:link></li>
-                <li><a href="#">Manage users</a></li>
-                <li><a href="#">Billing</a></li>
-                <li><a href="#">Manage account</a></li>
+            <li><g:link controller='home' action='index'>Home</g:link></li>
           </ul>
        </div>
        <div id='layout'>

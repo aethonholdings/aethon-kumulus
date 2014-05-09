@@ -1,0 +1,106 @@
+<?xml version="1.0" ?>
+<Application-IM>
+<ReverseRouteShipment>
+	<REVERSEROUTESHIPMENTJPANEL>
+		<MAX_PER_PAGE  e030="32" r070="32" g060="32"/>
+		<MAX_PER_PAGE1  e030="42" r070="42" g060="42"/>
+		<accNo  e030="Account No" r070="Nr Cont" g060="Αρ.Λογ/μού"/>
+		<Authorized  e030="Auth." r070=" Aut." g060="Εξουσ."/>
+		<no_auth_prod  e030="Authorized product not found" r070=" Produs autorizat negasit" g060="Δεν βρέθηκε εξουσιοδοτημένο προϊόν."/>
+		<jrbtnAutomated  e030="Automated" r070="Automat(D)" g060="Αυτόματο"/>
+		<jtblBagsunit  e030="Bags/Case" r070="Buc./Box" g060="Σακ./Κιβ."/>
+		<jlblCaddies  e030="Caddies :" r070="Display :" g060="Κουτιά:"/>
+		<jlblCancelstatus  e030="Cancel" r070="Anulare" g060="Άκυρο"/>
+		<jbtnCancel1  e030="Cancel" r070="Anulare" g060="Άκυρο"/>
+		<jbtnCancel  e030="Cancel" r070="Anulare" g060="Άκυρο"/>
+		<carrierID  e030="Carrier ID" r070="ID Transportator" g060="Κωδ.Μεταφ."/>
+		<carrierName  e030="Carrier Name" r070="Nume Transportator" g060="Κωδ.Μεταφ."/>
+		<jlblCases  e030="Cases :" r070="Boxuri :" g060="Κιβ.:"/>
+		<jbtnRetrieveTT  e030="Click here to open the specified document" r070="Apasa aici pt deschidere document specificat" g060="Κάντε κλικ εδώ για να ανοίξετε το καθορισμένο παραστατικό"/>
+		<comments  e030="Comments :" r070="Comentarii:" g060="Σχόλια:"/>
+		<costCenter  e030="Cost Center" r070="Centru Cost" g060="Κ.Κόστους"/>
+		<date   e030="Date" r070="Data" g060="Ημ/νία"/>
+		<jlblSysDate  e030="Date :" r070="Data :" g060="Ημ/νία:"/>
+		<jlbldate1  e030="Date:" r070="Data:" g060="Ημ/νία:"/>
+		<description  e030="Description" r070="Descriere" g060="Περιγραφή"/>
+		<rowDelete  e030="Do you want to delete the specified row" r070="Stergeti randul?" g060="Θέλετε να διαγράψετε την επιλεγείσα γραμμή;"/>
+		<docLineId  e030="Doc Line Id" r070="Linie Doc." g060="Αρ.Γραμ."/>
+		<jlblDocNo  e030="Doc No :" r070="Doc. Nr.:" g060="Αρ.Παρ/κού :"/>
+		<jlblDocSeries  e030="Doc. Series :" r070="Serie Doc." g060="Σειρ.Παρ./κού.:"/>
+		<DocNoHeader  e030="Document Number Header Dialog" r070="Doc. Nr." g060="Κεφαλίδα Διαλόγου Αρ. Παραστατικού"/>
+		<jlblDocumentTypecode  e030="Document Type Code :" r070="Cod Tip Doc." g060="Κωδ.Τυπ.Παρ/κού:"/>
+		<jrbtnExistingSC  e030="E" r070="X" g060="E"/>
+		<jlblEaches  e030="Eaches :" r070="Bucati :" g060="Τεμ.:"/>
+		<jbtnEditHeadTT  e030="Edit Header" r070="Modifica Antet" g060="Επεξεργασία Κεφαλίδας"/>
+		<jbtnEditHead  e030="Edit Header" r070="Modifica Antet" g060="Επεξεργασία Κεφαλίδας"/>
+		<jrbtnExisting  e030="Existing" r070="Existent" g060="Υπάρχον"/>
+		<freightReptTitle  e030="Freight" r070="Cost transport" g060="Μεταφορικά"/>
+		<freight  e030="Freight :" r070="Cost transport:" g060="Μεταφορικά :"/>
+		<freightCost  e030="Freight Cost" r070="Cost transport" g060="Μεταφορικά"/>
+		<fullName  e030="Full Name" r070="Nume" g060="Πλήρης Επωνυμία"/>
+		<jbtnEditHeadSC  e030="H" r070="H" g060="H"/>
+		<jlblHHCRefDoc  e030="HHC Doc No.:" r070="HHC Doc No.:" g060="Αρ.Παρ/κού HHC:"/>
+		<HHCQty  e030="HHC Qty" r070="HHC Cant." g060="Ποσ/τα HHC"/>
+		<jbtnRetProdSC  e030="I" r070="I" g060="Ι"/>
+		<IMQty  e030="IM Qty" r070="IM Cant." g060="Ποσ/τα ΙΜ"/>
+		<jlblItems  e030="Items :" r070="Produs :" g060="Είδη:"/>
+		<lineStatus  e030="Line Status" r070="Stare Linie" g060="Κατ.Γραμμής"/>
+		<jlblSource  e030="Location :" r070="Locatie :" g060="Αποθήκη:"/>
+		<jlblLocationType  e030="Location Type :" r070="Tip Locatie :" g060="Τυπ.Αποθ."/>
+		<jlblOPMLocation  e030="Logical Location :" r070="Locatie Logica:" g060="Λογική αποθήκη :"/>
+		<luCode  e030="LU Code" r070="Cod SKU" g060="LU"/>
+		<jrbtnManual  e030="Manual" r070="Manual" g060="Χειρόγραφο"/>
+		<jlblMatch  e030="Match" r070="Match" g060="Συμφωνία"/>
+		<jrbtnNewSC  e030="N" r070="N" g060="N"/>
+		<jrbtnNew  e030="New" r070="Nou" g060="Νέο"/>
+		<jlblNO  e030="NO" r070="NU" g060="ΟΧΙ"/>
+		<jsNoRow  e030="No Rows to delete" r070="Nu sint rinduri de sters" g060="Δεν υπάρχουν γραμμές για διαγραφή"/>
+		<notReceived  e030="Not Receive" r070="Nereceptionat" g060="Δεν παρελήφθη"/>
+		<jbtnOK  e030="OK" r070="OK" g060="OK"/>
+		<jlblpage  e030="Page:" r070="Pagina:" g060="Σελ.:"/>
+		<plate1  e030="Plate 1" r070="Numar 1" g060="Πινακιδα 1"/>
+		<plate2  e030="Plate 2" r070="Numar 2" g060="Πινακιδα 2"/>
+		<position   e030="Position" r070="Pozitie" g060="Θέση"/>
+		<Products  e030="Products" r070="Produse" g060="Προϊόντα"/>
+		<jbtnRetrieveSC  e030="R" r070="E" g060="R"/>
+		<received  e030="Receive" r070="Receptionat" g060="Παραληφθέντα"/>
+		<received  e030="Receive" r070="Receptionat" g060="Παραληφθέντα"/>
+		<jlblTotQuantity  e030="Receive" r070="Receptionat" g060="Παραληφθέντα"/>
+		<jlblShipDate  e030="Received Date :" r070="Data Receptie :" g060="Ημ/νία παραλ."/>
+		<jlblReceivedTime  e030="Received Time :" r070="Ora receptie :" g060="Ώρα Παραλ.:"/>
+		<jlblRefDoc  e030="Ref Doc :" r070="Ref Doc :" g060="Σχ. Παρ/κό:"/>
+		<jbtnRetrieve  e030="Retrieve" r070="Aduce" g060="Ανάκτηση"/>
+		<jbtnRetProd  e030="Retrieve Products" r070="Aduce Produse" g060="Ανάκτηση Προϊόντων"/>
+		<jbtnRetProdTT  e030="Retrieve Products" r070="Aduce Produse" g060="Ανάκτηση Προϊόντων"/>
+		<Title  e030="Reverse Route Shipment" r070="Vizualizare czi. retur" g060="Ανάκληση δρομολογίου"/>
+		<header  e030="Reverse Route Shipment Edit Dialog" r070="Dialog Editare Reversare Livrare Ruta" g060="Διάλογος επεξεργασίας ανάκλησης δρομολογίου"/>
+		<jlblDestination  e030="Route :" r070="Ruta :" g060="Δρομολόγιο:"/>
+		<jsSelectRow  e030="Select a row for delete" r070="Selectati rind pentru sterg" g060="Ελέξτε μια γραμμή για διαγραφή"/>
+		<sellingCode  e030="Selling Code" r070="Cod Vanzare" g060="Κωδ.Πώλησης"/>
+		<signature   e030="Signature" r070="Semnatura" g060="Υπογραφή"/>
+		<rmncmpname  e030="STAR FOODS" r070="STAR FOODS" g060="STAR FOODS"/>
+		<jlblstatus  e030="Status :" r070="STARE :" g060="Κατάσταση :"/>
+		<jlblSystem  e030="System :" r070="System :" g060="Σύστημα:"/>
+		<grccmpname  e030="TASTY" r070="TASTY" g060="TASTY"/><!-- changed by shraddha for QA Issue#7753 -->
+		<jlblTotal  e030="Total :" r070="Total :" g060="Σύνολο:"/>
+		<frTotal  e030="Total :" r070="Total :" g060="Σύνολο:"/>
+		<jlblTranscationCode  e030="Transaction Code :" r070="Cod Tranzactie :" g060="Κωδ.Κιν.:"/>
+		<unAuthorized  e030="Unauth." r070="Neaut." g060="Μη εξουσ."/>
+		<Unauthorized  e030="Unauthorized" r070="Neautorizat" g060="Μη εξουσ."/>
+		<UOM  e030="UOM" r070="UM" g060="Μ.Μ."/>
+		<voided  e030="Void" r070="Anulat" g060="ΑΚΥΡΩΤΙΚΟ"/>
+		<volume  e030="Volume" r070="Volum" g060="Όγκος"/>
+		<jlblTotM3  e030="Volume" r070="Volum" g060="Όγκος"/>
+		<jlblWithDiff  e030="With Diff." r070="Cu Dif." g060="Με διαφορά"/>
+		<jlblYES  e030="YES" r070="DA" g060="ΝΑΙ"/>
+		<jtblCasetype  e030="Case Label" r070="Case Label" g060="Ετικ.Κιβ."/>
+		<jlblStatuCommit  e030="Commit" r070="Comis" g060="Επιβεβαίωση"/>
+		<lblPageTotals   e030="Page Total:" r070="Page Total:" g060="Σύνολο Σελίδας:"/>
+		<jlblGrandTotal  e030="Grand Total :" r070="Grand Total :" g060="Τελικό Σύνολο:"/>
+		<DocNoExists  e030="Do you want to changed document number?" r070="Schimbati nr. documentului?" g060="Θέλετε να αλλάξετε αριθμό Παρ/κού;"/>
+	    <DocNoExists1  e030="Document Number Exist" r070="Nr. Doc. Existent" g060="Ο αριθμός Παρ/κού υπάρχει"/>
+	    <rowDeleteTT  e030="Delete" r070="Stergeti randul?" g060="Διαγραφή"/>
+	    <lblOf  e030="Of" r070="Of" g060="Από"/>
+	</REVERSEROUTESHIPMENTJPANEL>
+</ReverseRouteShipment>
+</Application-IM>

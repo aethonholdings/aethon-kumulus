@@ -1,0 +1,340 @@
+<?xml version="1.0" ?>
+<Application-IM>
+<DeskTop>
+	<DeskTopJPanel>
+		<ApplicationSC  e030="A" r070="A" g060="A"/>
+		<jmnuitmPhyInvSuppReportSC  e030="A" r070="A" g060="A"/>
+		<CloseAllSC  e030="A" r070="T" g060="T"/>
+		<AdjustAckSC  e030="A" r070="A" g060="A"/>
+		<menuItemAbout  e030="About" r070="Despre" g060="Πληροφορίες"/>
+		<AccNo  e030="Account No" r070="Nr Cont" g060="Αρ.Λογ/μού"/>
+		<jmnuitmAccNo  e030="Account No" r070="Nr Cont" g060="Αρ.Λογ/μού"/>
+		<AdjustAck  e030="Adjust Acknowledgement" r070="Confirmare Ajustare" g060="Αποδοχή Διαφορών"/>
+		<jmnuApplication  e030="Application" r070="Aplicatie" g060="Εφαρμογή"/>
+		<jmsgExit  e030="Are you sure to exit?" r070="Sinteti siguri ca doriti sa Inchide?" g060="Είστε βέβαιοι ότι θέλετε να κλείσετε το πρόγραμμα;"/>
+		<jmsgLogout  e030="Are you sure to logout?" r070="Sinteti siguri ca doriti sa va delogati?" g060="Είστε βέβαιοι ότι θέλετε να αποσυνδεθείτε;"/>
+		<Averageactualcost  e030="Average actual cost/Period Closing" r070="Cost mediu actual/Inchidere perioada" g060="Μέσο Κόστος / Κλείσιμο περιόδου"/>
+		<jmnuitmGreeceTransactionbookReportsSC  e030="B" r070="B" g060="Β"/>
+		<AboutSC  e030="b" r070="D" g060="Β"/>
+		<jmnuitmGreeceBillOfMaterialReports  e030="Bill of Materials Reports(36 and 37)" r070="Bill of Materials Reports(36 and 37)" g060="Αναφορές Bill of Materials (36 and 37)"/>
+		<BUNDLE_RELEASE  e030="Bundle Release" r070="Bundle Release" g060="Αποδέσμευση παρτίδας"/>
+		<CascadeSC  e030="C" r070="C" g060="C"/>
+		<ProductionReceiptSC  e030="c" r070="c" g060="C"/>
+		<ProductionCostInformationSC  e030="C" r070="C" g060="C"/>
+		<CostCenterSC  e030="C" r070="C" g060="C"/>
+		<jlblCANCEL  e030="CANCEL" r070="ANULARE" g060="ΑΚΥΡΟ"/>
+		<Carrier  e030="Carrier" r070="Transportator" g060="Μεταφορέας"/>
+		<jmnuitmcarrier  e030="Carrier" r070="Transportator" g060="Μεταφορέας"/>
+		<CarrierTruckAssignment  e030="Carrier Truck Assignment(X)" r070="Carrier Truck Assignment(X)" g060="Ορισμ.Φορτηγού Μεταφορέα(X)"/>
+		<jmnuCascade  e030="Cascade" r070="Cascadare" g060="Κλιμακωτά"/>
+		<CLIENT_RELEASE  e030="Client Release" r070="Client Release" g060="Έκδοση Client"/>
+		<jmnuCloseAll  e030="Close All" r070="Inchide Tot" g060="Κλείσιμο όλων"/>
+		<jmnuCloseAllToolTip  e030="Close All Screen" r070="Inchide Toate Ecranele" g060="Κλείσιμο όλων των οθονών"/>
+		<jmnuitmConfigureParameter  e030="Configure Parameter" r070="Configurare parametrii" g060="Ρύθμιση Παραμέτρων"/>
+		<AdjustAckSCcontrol  e030="control A" r070="control A" g060="control A"/>
+		<GreeceTransactionbookReportsshift  e030="control alt B" r070="control alt B" g060="control alt B"/>
+		<ProductionCostInformationSCcontrol  e030="control alt C" r070="control alt C" g060="control alt C"/>
+		<jmnuitmInvDetMovmtReportSCalt  e030="control alt D" r070="control alt M" g060="control alt D"/>
+		<PendTransReportSCshift  e030="control alt G" r070="control alt F" g060="control alt G"/>
+		<GreeceReportsshift_invcounts  e030="control alt H" r070="control alt B" g060="control alt H"/>
+		<GreeceItemBreakDownReportsshift  e030="control alt I" r070="control alt I" g060="control alt I"/>
+		<GreeceBillOfMaterialReportsshift  e030="control alt L" r070="control alt L" g060="control alt L"/>
+		<jmnuitmProdSummaryDocReportSCshift  e030="control alt M" r070="control alt M" g060="control alt M"/>
+		<jmnuitmDailyInvMovReportSCshift  e030="control alt N" r070="control alt N" g060="control alt N"/>
+		<GreeceReportsshift  e030="control alt O" r070="control alt O" g060="control alt O"/>
+		<PurchaseSummaryReportSCshift  e030="control alt P" r070="control alt P" g060="control alt P"/>
+		<ProdRecDetailReportSCalt  e030="control alt R" r070="control alt R" g060="control alt R"/>
+		<GreeceStaleTransactionReportsshift  e030="control alt S" r070="control alt G" g060="control alt S"/>
+		<GreeceTrialBalanceReportsshift  e030="control alt T" r070="control alt T" g060="control alt T"/>
+		<jmnuitemProductionSummaryReportshift  e030="control alt U" r070="control alt U" g060="control alt U"/>
+		<jmnuitemTempPurValReportshift  e030="control alt V" r070="control alt V" g060="control alt V"/>
+		<GreeceStatutoryReportshift  e030="control alt Y" r070="control alt Y" g060="control alt Y"/>
+		<ProductionReceiptSCcontrol  e030="control C" r070="control C" g060="control C"/>
+		<DocumentSearchSCcontrol  e030="control D" r070="control D" g060="control D"/>
+		<TransferInSCcontrol  e030="control E" r070="control I" g060="control E"/>
+		<TCOMMsSCcontrol  e030="control G" r070="control G" g060="control G"/>
+		<ReverseRouteShipmentSCcontrol  e030="control H" r070="control U" g060="control H"/>
+		<ReconciliationSCshift  e030="control J" r070="control J" g060="control J"/>
+		<DetailStockInquirySCcontrol  e030="control Q" r070="control O" g060="control Q"/><!-- CHANGED FOR QA Issue#12803 -->
+		<TruckMasterSCcontrol  e030="control K" r070="control K" g060="control K"/>
+		<MiscellaneousSCcontrol  e030="control M" r070="control M" g060="control M"/>
+		<AverageactualcostControl  e030="control N" r070="control N" g060="control N"/>
+		<TransferOutSCcontrol  e030="control O" r070="control S" g060="control O"/>
+		<PurchaseReturnSCcontrol  e030="control P" r070="control E" g060="control P"/>
+		<StockInquirySCcontrol  e030="control R" r070="control R" g060="control R"/>
+		<RouteShipmentSCcontrol  e030="control S" r070="control L" g060="control S"/>
+		<CloseAllSCshift  e030="control shift A" r070="control shift A" g060="control shift A"/>
+		<PhyInvSuppReportSCshift  e030="control shift A" r070="control shift A" g060="control shift A"/>
+		<AboutSCshift  e030="control shift B" r070="control shift B" g060="control shift B"/>
+		<CostCenterSCalter  e030="control shift C" r070="control shift C" g060="control shift C"/>
+		<CascadeSCshift  e030="control shift C" r070="control shift C" g060="control shift C"/>
+		<PhyInvDetReportSCshift  e030="control shift D" r070="control shift D" g060="control shift D"/>
+		<DefaultAccCostSCalter  e030="control shift D" r070="control shift D" g060="control shift D"/>
+		<jmnuitmDynamicTransactionReportSCshift  e030="control shift D" r070="control shift D" g060="control shift D"/>
+		<jmnuitmTransSummReportCompanySCshift  e030="control shift E" r070="control shift E" g060="control shift E"/>
+		<EnglishSCshift  e030="control shift E" r070="control shift E" g060="control shift E"/>
+		<ConfigureParameterSCshift  e030="control shift F" r070="control shift F" g060="control shift F"/>
+		<InvDiffReportSCshift  e030="control shift F" r070="control shift F" g060="control shift F"/>
+		<GreekSCshift  e030="control shift G" r070="control shift G" g060="control shift G"/>
+		<GreeceCostingReportsshift  e030="control shift S" r070="control shift S" g060="control shift S"/>
+		<HorizontalSCshift  e030="control shift H" r070="control shift H" g060="control shift H"/>
+		<InvMovmtReportSCshift  e030="control shift I" r070="control shift I" g060="control shift I"/>
+		<IntExtDocListReportSCshift  e030="control shift I" r070="control shift I" g060="control shift I"/>
+		<PickingSequenceSCcontrol  e030="control shift K" r070="control shift K" g060="control shift K"/>
+		<jmnuitmMiscSummReportCompanySCshift  e030="control shift L" r070="control shift L" g060="Control shift L"/>
+		<LogoutSCshift  e030="control shift L" r070="control shift L" g060="control shift L"/>
+		<RomanianSCshift  e030="control shift M" r070="control shift M" g060="control shift M"/>
+		<MaximizeSCshift  e030="control shift M" r070="control shift M" g060="control shift M"/>
+		<LocationChangeSCshift  e030="control shift N" r070="control shift N" g060="control shift N"/>
+		<ProdActiveInactiveSCshift  e030="control shift O" r070="control shift O" g060="control shift O"/>
+		<jmnuitmInvMovReportCompanySCshift  e030="control shift O" r070="control shift O" g060="control shift O"/>
+		<PhyInvReportSCshift  e030="control shift P" r070="control shift P" g060="control shift P"/>
+		<PeriodClosingReportSCshift  e030="control shift P" r070="control shift P" g060="control shift P"/>
+		<ReasonCodeSCalter  e030="control shift R" r070="control shift M" g060="control shift R"/>
+		<InvSalesForcastingReportSCshift  e030="control shift S" r070="control alt C" g060="control shift S"/>
+		<jmnuitmInvSalesForecastingReportSC  e030="control shift S" r070="control shift S" g060="control shift S"/>
+		<StockPerDayReportSCshift  e030="control shift S" r070="control shift S" g060="control shift S"/>
+		<CarrierSCalter  e030="control shift T" r070="control shift T" g060="control shift T"/>
+		<TranSummReportSCshift  e030="control shift T" r070="control shift T" g060="control shift T"/>
+		<AccNoSCalter  e030="control shift U" r070="control shift U" g060="control shift U"/>
+		<MisSummReportSCshift  e030="control shift U" r070="control shift U" g060="control shift U"/>
+		<VerticalSCshift  e030="control shift V" r070="control shift V" g060="control shift V"/>
+		<LocWiseInvMovDtlReportSCshift  e030="control shift W" r070="control alt D" g060="control shift W"/>
+		<ProdRcptShiftWiseReportSCshift  e030="control shift W" r070="control shift W" g060="control shift W"/>
+		<ExitSCshift  e030="control shift X" r070="control shift X" g060="control shift X"/>
+		<PhyInvMapReportSCshift  e030="control shift Y" r070="control shift Y" g060="control shift Y"/>
+		<ProductionReturnSCcontrol  e030="control T" r070="control T" g060="control T"/>
+		<RouteAllocationSCcontrol  e030="control U" r070="control U" g060="Control U"/>
+		<PurchaseReceiptSCcontrol  e030="control U" r070="control P" g060="control U"/>
+		<InventoryTransformationSCcontrol  e030="control V" r070="control H" g060="control V"/>
+		<PeriodCostSCcontrol  e030="control W" r070="control W" g060="control W"/>
+		<CarrierTruckAssignmentSCcontrol  e030="control X" r070="control X" g060="control X"/>
+		<PhysicalInventorySCcontrol  e030="control Y" r070="control Z" g060="control Y"/>
+		<jmnuitmCostCenter  e030="Cost Center" r070="Centru Cost" g060="Κ.Κόστους"/>
+		<CostCenter  e030="Cost Center" r070="Centru Cost" g060="Κ.Κόστους"/>
+		<jmnuitmGreeceCostingReports  e030="Costing Reports(38 and 40)" r070="Rapoarte Costuri(38 and 40)" g060="Αναφορές Κοστους(38 and 40)"/>
+		<JbuttonCarrierTruckAssignmentText  e030="CTA" r070="CTA" g060="CTA"/>
+		<jmnuitmPhyInvDetReportSC  e030="D" r070="M" g060="D"/>
+		<jmnuitmDynamicTransactionReportSC  e030="D" r070="D" g060="D"/>
+		<DefaultAccCostSC  e030="D" r070="P" g060="D"/>
+		<DocumentSearchSC  e030="D" r070="D" g060="D"/>
+		<jmnuitmDailyInvMovReport  e030="Daily Inventory Movement Report" r070="Miscari zilnice de stoc" g060="Ημερολόγιο Κινήσεων Αποθεμάτων"/>
+		<jmnuitmDOH  e030="Days On Hand Report" r070="Raport Zile Stoc" g060="Αναφορά Αποθεμάτων (Ημέρες ανά Χείρας)"/>
+		<DB_RELEASE  e030="DB Release" r070="DB Release" g060="Έκδοση DB"/>
+		<JbuttonDocumentSearchText  e030="DCS" r070="DCS" g060="DCS"/>
+		<DefaultAccCost  e030="Default Account and Cost Center" r070="Cont si Centru Cost Implicit" g060="Προεπιλεγμένος Λογαριασμός και Κέντρο Κόστους"/>
+		<jmnuitmDefaultAccCost  e030="Default Account and Cost Center" r070="Cont si Centru Cost Implicit" g060="Προεπιλεγμένος Λογαριασμός και Κέντρο Κόστους"/>
+		<jmsgExitInternalFrame  e030="Do You Want To Exit?" r070="Inchide?" g060="Θέλετε να εξέλθετε από τη φόρμα;"/>
+		<DocumentSearch  e030="Document Search" r070="Cautare documente" g060="Αναζήτηση Παρ/κού"/>
+		<jmnuitmDID  e030="Due In Detail Report" r070="Raport detaliat tranzit" g060="Λεπτομερής Αναφορά Αναμενόμενων Αγαθών"/>
+		<jmnuitmDynamicTransactionReport  e030="Dynamic Transaction Code Report" r070="Dynamic Transaction Code Report" g060="Δυναμική Αναφορά ανά Κωδ.Κίνησης"/>
+		<EnglishSC  e030="e" r070="e" g060="E"/>
+		<jmnuitmTransSummReportCompanySC  e030="E" r070="E" g060="E"/>
+		<TransferInSC  e030="E" r070="I" g060="E"/>
+		<jmnuitmGreeceCostingReportsSC  e030="e" r070="e" g060="E"/>
+		<englishRadioMenuItem  e030="English" r070="Engleza" g060="ΑΓΓΛΙΚΑ"/>
+		<language  e030="ENGLISH" r070="ROMAN" g060="ΑΓΓΛΙΚΑ"/>
+		<error  e030="Error" r070="Eroare!" g060="Λάθος"/>
+		<jmsgExitInternalFrameHeader  e030="Exit" r070="Inchide" g060="Έξοδος"/>
+		<jmnuitmExit  e030="Exit" r070="Inchide" g060="Έξοδος"/>
+		<jmsgExitHeader  e030="Exit ScannerApp" r070="Inchide Aplicatie" g060="Έξοδος ΙΜ"/>
+		<FileSC  e030="F" r070="F" g060="F"/>
+		<jmnuitmInvDiffReportSC  e030="F" r070="F" g060="F"/>
+		<jmnuitmConfigureParameterSC  e030="F" r070="F" g060="F"/>
+		<RefreshSCshift  e030="F5" r070="F5" g060="F5"/>
+		<jmnuFile  e030="File" r070="Fisier" g060="Αρχείο"/>
+		<TCOMMsSC  e030="G" r070="G" g060="G"/>
+		<GreekSC  e030="G" r070="G" g060="G"/>
+		<jmnuitmPendTransReportSC  e030="G" r070="F" g060="G"/>
+		<GreekRadioMenuItem  e030="Greek" r070="Greek" g060="Ελληνικά"/>
+		<ReverseRouteShipmentSC  e030="h" r070="u" g060="H"/>
+		<HorizontalSC  e030="H" r070="H" g060="H"/>
+		<jmnuitmGreeceReportsSC_invcounts  e030="H" r070="B" g060="H"/>
+		<jmnuHelp  e030="Help" r070="Ajutor" g060="Βοήθεια"/>
+		<jmnuitmIntExtDocListReportSC  e030="I" r070="I" g060="I"/>
+		<jmnuitmInvMovmtReportSC  e030="I" r070="I" g060="I"/>
+		<CarrierSC  e030="I" r070="S" g060="I"/>
+		<jmnuitmGreeceItemBreakDownReportsSC  e030="i" r070="i" g060="I"/>
+		<information  e030="Information" r070="Informatii" g060="Πληροφορίες"/>
+		<jmnuitmIntExtDocListReport  e030="Internal or External doc. List Report" r070="Transferuri la co-packer" g060="Αναφορά Εσωτερικών ή Εξωτερικών Παραστατικών"/>
+		<jmnuitmInvDiffReport  e030="Inventory Difference Report" r070="Raport diferente inventar" g060="Αναφορά Αποκλίσεων Αποθεμάτων"/>
+		<jlblTitle  e030="ScanDo" r070="Gestiune stocuri" g060="Διαχείριση Αποθεμάτων"/>
+		<jmnuitmPhyInvDetReport  e030="Inventory Movement Detail Report" r070="Miscari de stoc pe loc. curenta" g060="Αναλυτική Αναφορά Κινήσεων Αποθεμάτων"/>
+		<jmnuitmInvMovmtReport  e030="Inventory Movement Report" r070="Raport detaliat tranz. stoc" g060="Αναφορά Κινήσεων Αποθεμάτων"/>
+		<jmnuitmInvMovReportCompany  e030="Inventory Movement Report by Company" r070="Gestine stoc per companie" g060="Αναφορά Κινήσεων Αποθεμάτων ανά Εταιρεία"/>
+		<jmnuitmInvSalesForecasting  e030="Inventory Sales Forecasting Report" r070="Raport medii zilnice" g060="Αναφορά Πρόβλεψης Πωλήσεων"/>
+		<InventoryTransformation  e030="Inventory Transformation" r070="Impachetari/Infolieri" g060="Ανασυσκευασία Αποθέματος"/>
+		<jmnuitmInventoryTransformation  e030="Inventory Transformation" r070="Impachetari/Infolieri" g060="Ανασυσκευασία Αποθέματος"/>
+		<jmsgDifferentDate  e030="is previous to current date,do you want to continue?" r070="este anterior datei curente, doriti sa continuati ?" g060="Η ημ/νία είναι προγενέστερη της τρέχουσας, Θέλετε να συνεχίσετε."/>
+		<jmsgDifferentDategreece  e030="is previous to current Date,you can not continue" r070="is previous to current Date,you can not continue" g060="Η ημ/νία είναι προγενέστερη της τρέχουσας, δεν μπορείτε να συνεχίσετε."/>
+		<jmnuitemGreeceItemBreakDownReport  e030="Item Break Down Reports" r070="Item Break Down Reports" g060="Αναφορά Συστατικών (Συναγή)"/>
+		<JbuttonInventoryTransformationText  e030="ITR" r070="ITR" g060="ITR"/>
+		<ReconciliationSC  e030="J" r070="J" g060="J"/>
+		<TruckMasterSC  e030="K" r070="K" g060="K"/>
+		<PickingSequenceSC  e030="k" r070="k" g060="K"/>
+		<DetailStockInquirySC  e030="Q" r070="O" g060="Q"/><!-- CHANGED FOR QA Issue#12803 -->
+		<jmnuitmGreeceBillOfMaterialReportsSC  e030="L" r070="L" g060="L"/>
+		<LogoutSC  e030="L" r070="L" g060="L"/>
+		<LanguageSC  e030="L" r070="L" g060="L"/>
+		<jmnuitmMiscSummReportCompanySC  e030="L" r070="L" g060="L"/>
+		<jmnuOption  e030="Language" r070="Limba" g060="Γλώσσα"/>
+		<jlblLanguage  e030="Language :" r070="Limba :" g060="Γλώσσα:"/>
+		<jmnuitmLT  e030="Load Truck Report" r070="Raport Incarcare Camion" g060="Αναφορά φόρτωσης φορτηγού"/>
+		<jmnuLocalMaintenance  e030="Local Maintenance" r070="Mentenanta Locala" g060="Τοπική Διαχείριση"/>
+		<jmnuUtils  e030="Location" r070="Locatie" g060="Αποθήκη"/>
+		<jlblLocation  e030="Location :" r070="Locatie :" g060="Αποθήκη:"/>
+		<jmnuitmLocationChange  e030="Location Change" r070="Schimbare Locatie" g060="Αλλαγή Αποθήκης"/>
+		<jmnuitmLocWiseInvMovDtlReport  e030="Location Wise Inventory Detail Movement Report" r070="Miscari de stoc pe toate loc." g060="Αναλυτικές κινήσεις αποθεμάτων ανά αποθήκη"/>
+		<jmsgLogoutHeader  e030="Logout" r070="Iesire" g060="Αποσύνδεση"/>
+		<jmnuitmLogout  e030="Logout" r070="Iesire" g060="Αποσύνδεση"/>
+		<jmnuitmProdSummaryDocReportSC  e030="M" r070="M" g060="M"/>
+		<MiscellaneousSC  e030="M" r070="M" g060="M"/>
+		<RomanianSC  e030="m" r070="m" g060="M"/>
+		<MaximizeSC  e030="M" r070="M" g060="M"/>
+		<jmnuMaximize  e030="Maximize" r070="Maximizare" g060="Μεγιστοποίηση"/>
+		<JbuttonMiscellaneousText  e030="MIS" r070="MIS" g060="MIS"/>
+		<Miscellaneous  e030="Miscellaneous" r070="Bon Consum" g060="Πρωτόκολλα Καταστροφής"/>
+		<jmnuitmMisSummReport  e030="Miscellaneous Summary Report" r070="Raport Sumarizat Bon Consum" g060="Συνοπτική Αναφορά Πρωτ.Καταστροφής"/>
+		<jmnuitmMiscSummReportCompany  e030="Miscellaneous Summary Report by Company" r070="Raport Sumarizat Bon Consum pe Companie" g060="Συνοπτικη Αναφορά Πρωτ/λου Κατ/φης ανα εταιρεία"/>
+		<jmnuitmLocationChangeSC  e030="n" r070="s" g060="N"/>
+		<jmnuitmDailyInvMovReportSC  e030="N" r070="N" g060="N"/>
+		<AverageactualcostSC  e030="N" r070="N" g060="N"/>
+		<jlblNO  e030="NO" r070="NU" g060="ΟΧΙ"/>
+		<TransferOutSC  e030="O" r070="s" g060="O"/>
+		<jmnuitmInvMovReportCompanySC  e030="O" r070="O" g060="O"/>
+		<LocalMaintenanceSC  e030="o" r070="o" g060="O"/>
+		<jmnuitmProdActiveInactiveSC  e030="O" r070="O" g060="O"/>
+		<jmnuitmGreeceReportsSC  e030="O" r070="O" g060="O"/>
+		<jlblOK  e030="OK" r070="OK" g060="OK"/>
+		<jmnuitemGreeceReport_invcounts  e030="On Hand Quantities and Inventory Counts(1-7)" r070="Disponibil in toate locatiile(1-7)" g060="Ποσότητες ανά χείρας και καταμέτρηση Αποθεμάτων(1-7)"/>
+		<jmnuitmPhyInvReportSC  e030="P" r070="P" g060="P"/>
+		<HelpSC  e030="P" r070="J" g060="P"/>
+		<PurchaseReturnSC  e030="P" r070="E" g060="P"/>
+		<jmnuitmPurchaseSummaryReportSC  e030="P" r070="P" g060="P"/>
+		<jmnuitmPeriodClosingReportSC  e030="P" r070="P" g060="P"/>
+		<jmnuitmMP  e030="Parameter Maintenance Report" r070="Raport Mentenanta Parametri" g060="Αναφορά Διαχείρισης Παραμέτρων"/>
+		<JbuttonProductionCostInformationText  e030="PCI" r070="PCI" g060="PCI"/>
+		<JbuttonPeriodcloseText  e030="PCL" r070="PCL" g060="PCL"/>
+		<JbuttonPeriodcostText  e030="PCO" r070="PCO" g060="PCO"/>
+		<jmnuitmPendTransReport  e030="Pending Transaction Report" r070="Documente nefinalizate" g060="Αναφορά Συναλλαγών σε Εκκρεμότητα"/>
+		<jmnuitmPeriodClosingReport  e030="Period Closing Reports" r070="Rapoarte inchidere de luna" g060="Αναφορές Κλεισίματος Περιόδου"/>
+		<PeriodCost  e030="Period Cost(W)" r070="Period Cost(W)" g060="Κόστγος Περιόδου(W)"/>
+		<JbuttonPhysicalInventoryText  e030="PHY" r070="PHY" g060="ΦΥΣ."/>
+		<PhysicalInventory  e030="Physical Inventory" r070="Inventar Fizic" g060="Φυσική Απογραφή"/>
+		<jmnuitmPhyInvReport  e030="Physical Inventory Report" r070="Raport Inventar Fizic" g060="Αναφορά Φυσικής Απογραφής"/>
+		<jmnuitmPhyInvMapReport  e030="Physical Inventory Report" r070="Raport Inventar Fizic" g060="Αναφορά Φυσικής Απογραφής"/>
+		<jmnuitmPhyInvSuppReport  e030="Physical Inventory Support Report" r070="Tiparire lista inventar" g060="Έντυπο καταγραφής Φυσικής Απογραφής"/>
+		<PickingSequence  e030="Picking Sequence" r070="Secventa Picking" g060="Σειρά Διαλογής"/>
+		<JbuttonPickingSequenceText  e030="PIS" r070="PIS" g060="PIS"/>
+		<plainMessage  e030="Plain Message" r070="Mesaj simplu" g060="Μήνυμα"/>
+		<JbuttonProductionReceiptText  e030="PRC" r070="PRC" g060="PRC"/>
+		<jmsgDifferentDateHeader  e030="Previous Date" r070="Data Anterioara" g060="Προηγούμενη Ημ/νία"/>
+		<jmnuitmProdActiveInactive  e030="Product Active - InActive" r070="Produs Activ - InActiv" g060="Είδος Ενεργό - Ανενεργό"/>
+		<jmnuitmPP  e030="Product Percent Report" r070="Raport Procentaj Produs" g060="Product Percent Report"/>
+		<ProductionCostInformation  e030="production Cost Information" r070="Informatie Cost Productie" g060="Πληροφορίες Κόστους Παραγωγής"/>
+		<ProductionReceipt  e030="Production Receipt" r070="Receptii productie" g060="Παραλαβή από Παραγωγή"/>
+		<jmnuitmProdRecDetailReport  e030="Production Receipt Detail Report" r070="Raport Detaliat Receptie Productie" g060="Αναλυτική Αναφορά Εισαγωγών από Παραγωγή"/>
+		<jmnuitmProdRcptShiftWise  e030="Production Receipt Shiftwise Report" r070="Raport Receptie Productie pe Schimb" g060="Αναφορά Εισαγωγών από Παραγωγή ανά Περίοδο Εργασίας"/>
+		<ProductionReturn  e030="Production Return" r070="Retur Productie" g060="Επιστροφή στην Παραγωγή"/>
+		<jmnuitmProdSummaryDocReport  e030="Production Summary Document" r070="Production Summary Document" g060="Συνοπτικό Παραστατικό Παραγωγής"/>
+		<jmnuitemProductionSummaryReport  e030="Production Summary Report" r070="Sumar receptii din productie" g060="Συνοπτική Αναφορά Παραγωγής"/>
+		<JbuttonProductionReturnText  e030="PRT" r070="PRT" g060="PRT"/>
+		<JbuttonPurchaseReceiptText  e030="PUC" r070="PUC" g060="PUC"/>
+		<PurchaseReceipt  e030="Purchase Receipt" r070="Receptii furnizor" g060="Παραλαβή Αγορών"/>
+		<PurchaseReturn  e030="Purchase Return" r070="Retur receptii furnizor" g060="Επιστροφή Αγορών"/>
+		<jmnuitmPurchaseSummaryReport  e030="Purchase Summary Report" r070="Sumar receptii furnizori" g060="Συνοπτική Αναφορά Αγορών"/>
+		<JbuttonPurchaseReturnText  e030="PUT" r070="PUT" g060="PUT"/>
+		<question  e030="Question" r070="Intrebare" g060="Ερώτηση"/>
+		<jmnuitmProdRecDetailReportSC  e030="R" r070="R" g060="R"/>
+		<StockInquirySC  e030="R" r070="R" g060="R"/>
+		<ReasonCodeSC  e030="R" r070="M" g060="R"/>
+		<jmnuitmRefreshSC  e030="R" r070="z" g060="R"/>
+		<jmnuitmReasonCode  e030="Reason Code" r070="Motiv" g060="Κωδ.Αιτίας"/>
+		<ReasonCode  e030="Reason Code" r070="Motiv" g060="Κωδ.Αιτίας"/>
+		<jmnuitmReconciliation  e030="Reconciliation Transaction Journal" r070="Jurnal Tranzactii Reconciliere" g060="Ημερολόγιο Διορθωτικών Κινήσεων"/>
+		<jmnuitmRefresh  e030="Refresh" r070="Actualizare" g060="Ανανέωση"/>
+		<jmnuReports  e030="Reports" r070="Rapoarte" g060="Αναφορές"/>
+		<!-- <ReverseRouteShipment  e030="Reverse Route Shipment" r070="Vizualizare czi. retur" g060="Ανάκληση Αποστολής Δρομολογίου"/> -->
+		<ReverseRouteShipment  e030="Reverse Route Shipment" r070="Vizualizare czi. retur" g060="Ανάκληση δρομολογίου"/><!-- For QA Issue#12995 -->
+		<JbuttonRefershText  e030="RFS" r070="RFS" g060="RFS"/>
+		<RomanianRadioMenuItem  e030="Roman" r070="Roman" g060="Roman"/>
+		<RouteAllocation  e030="Route Allocation/ UnAllocation" r070="Alocare/Dealocare Ruta" g060="Καθορισμός / Αναίρεση Δρομολογίου"/>
+		<RouteShipment  e030="Route Shipment" r070="Vizualizare comenzi" g060="Αποστολή Δρομολογίου"/>
+		<JbuttonReverseRouteShipmentText  e030="RRS" r070="RRS" g060="RRS"/>
+		<JbuttonRouteShipmentText  e030="RSH" r070="RSH" g060="RSH"/>
+		<JbuttonReconsilationTransactionJournalText  e030="RTJ" r070="RTJ" g060="RTJ"/>
+		<jmnuitmStockPerDayReportSC  e030="S" r070="S" g060="S"/>
+		<RouteShipmentSC  e030="S" r070="L" g060="S"/>
+		<jmnuitmGreeceStaleTransactionReportsSC  e030="S" r070="G" g060="S"/>
+		<SERVER_RELEASE  e030="Server Release" r070="Server Release" g060="Έκδοση Server"/>
+		<SERVER_USED  e030="Server Used" r070="Server Utilizat" g060="Χρησιμοποιούμενος Server"/>
+		<jmnuitmGreeceStaleTransactionReports  e030="Stale Transaction Reports(18 and 19)" r070="Distrugeri/Expirate(18 and 19)" g060="Αναφορά Κινήσεων Ακαταλλήλων(18 and 19)"/>
+		<Averageactualcost1  e030="Standard Cost/Period Closing" r070="Cost Standard/Inchidere de luna" g060="Πρότυπο Κόστος / Κλείσιμο Περιόδου"/>
+		<jmnuitemGreeceStatutoryReport  e030="Statutory Reports" r070="Statutory Reports" g060="Φορολογικές Αναφορές"/>
+		<JbuttonStockInquiryText  e030="STI" r070="STI" g060="STI"/>
+		<StockInquiry  e030="Stock Inquiry" r070="Interogare Stoc" g060="Ερώτηση Αποθέματος"/>
+		<DetailStockInquiry  e030="Stock Inquiry" r070="Interogare Stoc" g060="Ερώτηση Αποθέματος"/>
+		<jmnuitmStockPerDayReport  e030="Stock Per Day Report" r070="Raport Stoc Pe Zi" g060="Αναφορά Αποθεμάτων ανά ημέρα"/>
+		<jmnuitmSOA  e030="Suggested Order Analysis Report" r070="Raport Analiza Comanda Sugerata" g060="Αναφορά Ανάλυσης Προτεινόμενων Παραγγελιών"/>
+		<jmnuitmSOD  e030="Suggested Order Detail Report" r070="Raport Detaliat Comanda Sugerata" g060="Λεπτομερής Αναφορά Προτεινόμενων Παραγγελιών"/>
+		<jmnuitmGreeceTrialBalanceReportsSC  e030="T" r070="T" g060="T"/>
+		<ProductionReturnSC  e030="t" r070="t" g060="T"/>
+		<ReportsSC  e030="t" r070="t" g060="T"/>
+		<jmnuitmTranSummReportSC  e030="T" r070="T" g060="T"/>
+		<JbuttonTCOMMText  e030="TCM" r070="TCM" g060="TCM"/>
+		<TCOMMs  e030="TCOMM Checking" r070="Verificare TCOMM" g060="Έλεγχος TCOMM"/>
+		<jmnuitemTempPurValReport  e030="Temporary Purchase Value Report" r070="Raport Estimari" g060="Αναφορά κινήσεων Προσωρινών Αξιών Αγορών"/>
+		<jmnuHorizontal  e030="Tile Windows Horizontally" r070="Tile Windows Horizontally" g060="Οριζόντια παράθεση παραθύρων"/>
+		<jmnuVertical  e030="Tile Windows Vertically" r070="Tile Windows Vertically" g060="Κατακόρυφη παράθεση παραθύρων"/>
+		<JbuttonTransferInText  e030="TIN" r070="TIN" g060="TIN"/>
+		<JbuttonTransferOutText  e030="TOT" r070="TOT" g060="TOT"/>
+		<jmnuitmGreeceTransactionBookReports  e030="Transaction Books(20-26)" r070="Lista tranzactii(20-26)" g060="Βιβλίο Κινήσεων(20-26)"/>
+		<jmnuitmGreeceReports  e030="Transaction Reports(8-14)" r070="Rapoarte tranzactii(8-14)" g060="Αναφορές Κινήσεων (8-14)"/>
+		<jmnuitmTranSummReport  e030="Transaction Summary Report" r070="Raport Sumar Tranzactii" g060="Συνοπτική Αναφορά Κινήσεων"/>
+		<jmnuitmTransSummReportCompany  e030="Transaction Summary Report by Company" r070="Raport Sumar Tranzactii per Companie" g060="Συνοπτική Αναφορά κινήσεων Αποθεμάτων ανά Εταιρεία"/>
+		<TransferIn  e030="Transfer In" r070="Intrari" g060="Ενδ/ση Εισαγωγής"/>
+		<TransferOut  e030="Transfer Out" r070="Iesiri" g060="Ενδ/ση Εξαγωγής"/>
+		<jmnuitmGreeceTrialBalanceReports  e030="Trial Balance Reports(27-35)" r070="Rapoarte Balanta Verificare(27-35)" g060="Αναφορές Ισοζυγίων(27-35)"/>
+		<JbuttonTruckMasterText  e030="TRM" r070="TRM" g060="TRM"/>
+		<TruckMaster  e030="Truck Master" r070="Truck Master" g060="Αρχείο Φορτηγών"/>
+		<PurchaseReceiptSC  e030="U" r070="P" g060="U"/>
+		<RouteAllocationSC  e030="U" r070="U" g060="U"/>
+		<AccNoSC  e030="U" r070="N" g060="U"/>
+		<jmnuitemProductionSummaryReportSC  e030="U" r070="U" g060="U"/>
+		<jmnuitmMisSummReportSC  e030="U" r070="U" g060="U"/>
+		<jlblUserId  e030="User Id :" r070="Utilizator Id :" g060="ΧΡΗΣΤΗΣ:"/>
+		<InventoryTransformationSC  e030="v" r070="h" g060="v"/>
+		<VerticalSC  e030="V" r070="V" g060="V"/>
+		<jmnuitemTempPurValReportSC  e030="v" r070="v" g060="v"/>
+		<VERSION  e030="Version" r070="Versiune" g060="Έκδοση"/>
+		<WindowSC  e030="W" r070="R" g060="ε"/>
+		<jmnuitmProdRcptShiftWiseReportSC  e030="W" r070="W" g060="W"/>
+		<PeriodCostSC  e030="W" r070="W" g060="W"/>
+		<jmnuitmLocWiseInvMovDtlReportSC  e030="W" r070="D" g060="W"/>
+		<warning  e030="Warning" r070="Avertisment" g060="Προειδοποίηση"/>
+		<jmnuWindow  e030="Window" r070="Fereastra" g060="Παράθυρο"/>
+		<CarrierTruckAssignmentSC  e030="X" r070="X" g060="Χ"/>
+		<ExitSC  e030="x" r070="I" g060="Χ"/>
+		<jmnuitmPhyInvMapReportSC  e030="Y" r070="Y" g060="Υ"/>
+		<jmnuitemGreeceStatutoryReportSC  e030="Y" r070="Y" g060="Υ"/>
+		<PhysicalInventorySC  e030="y" r070="z" g060="Υ"/>
+		<jlblYES  e030="YES" r070="DA" g060="ΝΑΙ"/>
+		<jlblDBInstance e030="DB Instance :" r070="DB Instance :" g060="DB Instance :"/>
+		<HHCIMErrorMgt  e030="HHC-IM Error Management" r070="HHC-IM Error Management" g060="HHC-IM Error Management"/>
+    	<HHCIMErrorMgtSCcontrol  e030="control I" r070="control I" g060="control I"/>		
+    	<HHCIMErrorMgtSC  e030="I" r070="I" g060="I"/>
+    	<JbuttonHHCIMErrorMgtText  e030="HIEM" r070="HIEM" g060="HIEM"/>
+    
+    	<jmnuitmChangePwd e030="Change Password" r070="Change Password" g060="Change Password"/>
+		<ChangePwdSCshift e030="control alt A" r070="control alt A" g060="control alt A"/>		
+		<ChangePwdSC e030="C" r070="C" g060="C"/>	
+    
+		
+		<inactiveTime e030="1500" r070="1500" g060="1500" />	<!-- ADDED By SHALIN SHAH For CLIENT ISSUE 335 (OMS) [AUTO LOGOFF AFTER MENTIONED MINUTES IF SYSTEM REMAINS IDLE] -->
+		<idleMsg1 e030="Applicaton was idle for " r070="Applicaton was idle for " g060="Η σύνδεσή σας απενεργοποιήθηκε (ανενεργή για πάνω από " />
+		<idleMsg2 e030=" minutes. Session has been deactivated." r070=" minutes. Session has been deactivated." g060=" λεπτά)" />
+		<idleTitle e030="Session expired" r070="Session expired" g060="Η σύνδεσή σας στην εφαρμογή έχει λήξει" />
+    
+	</DeskTopJPanel>
+</DeskTop>
+</Application-IM>

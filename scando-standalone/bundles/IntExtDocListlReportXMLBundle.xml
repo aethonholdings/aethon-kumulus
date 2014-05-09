@@ -1,0 +1,36 @@
+<?xml version="1.0" ?>
+<Application-IM>
+<Report>
+	<Report>
+		<lbluserid  e030="User Id :" r070="Utilizator Id :" g060="Χρήστης :"/>
+		<lblDestCompany  e030="Dest. Company" r070="Dest. Company" g060="Εταιρ.Προορισμού"/>
+		<lblExternal  e030="External Location" r070="Locatii Externe" g060="Αποθ.Ανασ/τού"/>
+		<lblInternal  e030="Internal Location" r070="Locatii Interne" g060="Εσωτ.Ανασ/σία"/>
+		<IntExtDocListReportTitle  e030="Internal or External Document List Report" r070="Lista doc. Transferuri la copacker" g060="Αναφορά Παραστατικών Εσωτ. / Εξωτ. Ανασυσκευασίας"/>
+		<lblLocation  e030="Location" r070="Locatie" g060="Αποθήκη"/>
+		<lblStatus  e030="Status" r070="Stare" g060="Κατάσταση"/>
+		<lblSystem  e030="System" r070="System" g060="Σύστημα"/>
+		<lblUser  e030="User" r070="Utilizator" g060="Χρήστης"/>
+		<statusVoided  e030="void" r070="void" g060="ΑΚΥΡΟ"/>
+		<statusCancel  e030="Cancel" r070="Anulare" g060="Ακύρωση"/>
+		<statusSave  e030="Save" r070="Salvare" g060="ΑΠΟΘΗΚΕΥΜΕΝΟ"/>
+		<lbllocation  e030="Location :" r070="Locatie :" g060="Αποθήκη:"/>
+		<lblDocNo  e030="Doc.No." r070="Doc. Nr." g060="Αρ.Παρ/κού"/>
+		<statusNOTRECEIVED  e030="Not Receive" r070="Nereceptionat" g060="ΔΕΝ ΕΧΕΙ ΠΡΑΓΜΑΤΟΠΟΙΗΘΕΙ ΛΗΨΗ"/>
+		<statusPENDACK  e030="Pending Ack" r070="Ast.Conf" g060="ΕΚΚΡΕΜΗΣ ΑΠΟΔΟΧΗ"/>
+		<fromdate  e030="From Date :" r070="De la :" g060="Ημ/νία αποστ.:"/>
+		<lblfromdate  e030="From Date :" r070="De la :" g060="Ημ/νία αποστ.:"/>
+		<todate  e030="To Date :" r070="Pina La :" g060="Ημ/νία παράδ.:"/>
+		<lbltodate  e030="To Date :" r070="Pina La :" g060="Ημ/νία παράδ.:"/>
+		<lblDocDate  e030="Doc.Date" r070="Data doc." g060="Ημ/νία παρ/κού"/>
+		<sysdate  e030="Date :" r070="Data :" g060="Ημ/νία:"/>
+		<lblsysdate  e030="Date :" r070="Data :" g060="Ημ/νία:"/>
+		<statusRECEIVED  e030="Receive" r070="Receptionat" g060="ΠΑΡΕΛΗΦΘΗ"/>
+		<lblDestLocation  e030="Dest. Location" r070="Dest. Location" g060="Αποθήκη Προορ."/>
+		<lblDestCountry  e030="Dest. Country" r070="Dest. Country" g060="Χώρα Προορ."/>
+		<lbltotExternal  e030="Total External Location Documents :" r070="Total Documente Locatii Externe :" g060="Συνολο Εξωτ. Παρ/κών Αποθήκης:"/>
+		<lbltotInternal  e030="Total Internal Location Documents :" r070="Total Documente Locatii Interne :" g060="Συνολο Εσωτ. Παρ/κών Αποθήκης:"/>
+		<lblDocType  e030="Doc.Type" r070="Tip Doc." g060="Τύπ. Παρ/κού"/>
+	</Report>
+</Report>
+</Application-IM>

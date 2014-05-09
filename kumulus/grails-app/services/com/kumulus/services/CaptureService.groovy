@@ -22,7 +22,7 @@ class CaptureService {
         }
     }
     
-    def insertNode(parent, project, barcodeString, name, comment, type) {
+    def insertNode(parent, project, barcodeString, name, comment, type, state) {
         
         def barcode = Barcode.findByText(barcodeString)
         def nodeType = NodeType.findByName(type)
@@ -42,6 +42,7 @@ class CaptureService {
             node.lastUpdateDatetime = timestamp
             node.location = Node.LOCATION_CLIENT
             node.page = null
+            node.state = state
             node.save()
             
             barcode?.used = true
@@ -63,7 +64,6 @@ class CaptureService {
             node.type = nodeType
             node.location = location
             node.save()
-            
             barcode.used = true
             barcode.save()
         }
@@ -71,6 +71,15 @@ class CaptureService {
     }
     
     def renderNode(node) {
+        def parentId = "#"
+        def thumbnailId = null
+        def viewId = null
+        
+        if(node?.parent) parentId = node.parent.id 
+        if(node?.page) {
+            thumbnailId = node.page.thumbnailImage.id
+            viewId = node.page.viewImage.id
+        }
         
         if(node) {
             def treeNode = [
@@ -78,16 +87,39 @@ class CaptureService {
                 title: node.name,
                 isLazy: true,
                 text: node.name,
-                barcode: node.barcode.text,
+                barcode: node?.barcode?.text,
                 isFolder: node.type.isContainer,
                 comment: node.comment,
                 type: node.type.name,
+                typeId: node.type.id,
                 status: node.status(),
                 location: node.location,
+                stateId: node.state,
+                state: node.state(),
+                storeable: node.type.storeable,
                 id: node.id, 
-                project: node.project.id
+                project: node.project.id,
+                parentId: parentId,
+                thumbnailId: thumbnailId,
+                viewId: viewId
             ]
             return(treeNode)
+        }
+    }
+    
+    def renderProject(project) {
+        if(project) {
+            def projectRender = [
+                id: project.id,
+                company: project.company,
+                name: project.projectName,
+                topLevelNodeIds: []
+            ]
+            def nodes = Node.findAllByProjectAndParent(project, null, [sort: "name", order: "asc"])
+            nodes.each { node ->
+                projectRender.topLevelNodeIds.add(node.id)
+            }
+            return(projectRender)
         }
     }
     
@@ -107,10 +139,16 @@ class CaptureService {
             comment: null,
             status: null,
             location: null,
+            stateId: null,
+            state: null,
+            storeable: false,
             children: children,
             type: "ROOT",
             id: "ROOT",
-            project: project.id
+            project: project.id,
+            parentId: null, 
+            thumbnailId: null,
+            viewId: null
         ]
         
         // get the top-level nodes
@@ -148,7 +186,8 @@ class CaptureService {
                 createDatetime: timestamp,
                 lastUpdateDatetime: timestamp,
                 status: Node.STATUS_CLOSED,
-                location: Node.LOCATION_CLIENT
+                location: Node.LOCATION_CLIENT,
+                state: parentNode.state
             )
             node.save()
 
@@ -203,11 +242,14 @@ class CaptureService {
         Document newDocument
 
         if(documents?.size > 1) {
-            // cycle through the pages to build the document
+            
             def pages = []
             long pageCount = 0
             def project = documents[0].project
-            boolean projectCheck = true                                         // check if all docs are from same project
+            
+            // cycle through the pages to build the document
+            // at the same time ensure that all docs are from same project
+            boolean projectCheck = true                                         
             documents.each { document ->
                 if(document.project == project && projectCheck) {                   
                     document.pages.each { page ->
@@ -251,14 +293,34 @@ class CaptureService {
         }
         return(newDocument)
     }
-    def updateContainer(node,status){
-     if(node && status){
-          if(status=='0'){
-             status='1'
-             node.status=status
-             node.save()
-          }
-      }  
-        return(node)
+    
+    Project insertProject(String projectName, String clientName, String comment, String companyName, String username) {
+        def project = new Project([
+            projectName: projectName, 
+            comment: comment, 
+            status: "A", 
+            company: companyName, 
+            lineItems:[], 
+            nodes:[], 
+            created: new Date(),
+            closed: null,
+            ownerId: username
+        ])
+        filesystemService.newProject(project)
+        updateProject(project, projectName, clientName, comment)
+        return(project)
+    }
+    
+    Project updateProject(Project project, String projectName, String clientName, String comment) {
+        def client = Company.findByName(clientName)
+        if (client == null) {
+            client = new Company([name: clientName])
+            client.save()
+        }
+        project.client = client
+        project.projectName = projectName
+        project.comment = comment
+        project.save()
+        return(project)
     }
 }

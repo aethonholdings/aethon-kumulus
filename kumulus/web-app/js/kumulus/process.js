@@ -12,7 +12,6 @@ $(document).ready(function()
         }
     });
     
-    
     currentRowObj= $("#lineItems tbody tr");
  
     datePick($("#lineItems tbody tr").length,$("#lineItemCount").val());
@@ -91,13 +90,11 @@ function cloneRow() {
 
 }
 
-
 function send(obj) {
 
     currentRowObj = obj;
     
 }
-
 
 function CheckNumeric(e) {
     var keyCode = e.which;
@@ -126,13 +123,10 @@ function CheckNumericWithoutDec(e) {
     }
 }
 
-
-
 function onLoadPreview() {
     var obj = $("ul#pages li:first img")
     imagePreview(obj);
 }
-
 
 function imagePreview(obj) {
 
@@ -180,10 +174,9 @@ function ConvertFormToJSON(form) {
     var itemList = new Array();
     var i = 0;
 
-
     jQuery.each(array, function() {
 
-        if (i < 7) {
+        if (i < 8) {
             json[this.name] = this.value || '';
         }
         else {
@@ -298,21 +291,19 @@ for(var j=0;j<=mainCounter;j++)
 }
 
 function save(next) {
-
     var formObj = $("#structure");
     validate();
     var status = $("#structure").valid();
     var rowStatus = validateLastRow();
-
+    
     if (status && rowStatus) {
-        var json = ConvertFormToJSON(formObj);
         var submit = {
             completeTask: next,
-            form: json
+            form: ConvertFormToJSON(formObj)
         };
         
         $.ajax({
-            url: url('structure', 'save', ''),
+            url: url('backOffice', 'save', ''),
             type: 'POST',
             data: JSON.stringify(submit),
             contentType: 'application/json; charset=utf-8',
@@ -321,7 +312,8 @@ function save(next) {
             success: function(data) {
                 if(data.done) { 
                     if(next) {
-                        location.href = url("structure", "getNextTask", "");
+                        var toUrl = "getNextTask?type=" + submit.form.taskType;
+                        window.location.href = toUrl;
                     } else {
                         location.reload();
                     } 

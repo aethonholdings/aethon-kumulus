@@ -1,0 +1,393 @@
+<?xml version="1.0" ?>
+<Application-IM>
+<DocumentSearch>
+	<DOCUMENTSEARCHJPANEL>
+		<jlblCopackeLocation e030="Co-packer Location:" r070="Co-packer Location:" g060="Αποθ.Ανασυσκ.:"/>
+		<jsRowRet e030="Rows Retrieved" r070="Rinduri aduse" g060="Ανακτηθείσες γραμμές"/>
+		<lblAccrualDocNumber e030="Accrual Number" r070="Accrual Number" g060="Αρ. Παραστατικού Προβλέψεως"/><!-- Changed for QA Issue#12750 -->
+		<statusACK e030="ACKNOWLEDGED" r070="CONFIRMAT" g060="Αποδεκτό"/>
+		<adjAck e030="Adjust Acknowledgement" r070="Confirmare Ajustare" g060="Αποδοχή Διόρθωσης"/>
+		<alladjack e030="Adjust Acknowledgement(ALL)" r070="Confirmare Ajustare (TOT)" g060="Αποδοχή διαφοράς"/>
+		<RACK_EQUIPMENT_TOA e030="Adjustment Rack Equipment" r070="Ajustare Echipament Rack" g060="Διαφορά σε RACK"/>
+		<ALL e030="ALL" r070="TOT" g060="ΟΛΑ"/>
+		<statusAPPLIED e030="Applied" r070="Aplicat" g060="Εφαρμόστηκε"/>
+		<statusAPPROVED e030="Approve" r070="Aprobat" g060="ΕΓΚΕΚΡΙΜΕΝΟ"/>
+		<automated e030="Automated" r070="Automat" g060="Αυτόματο"/>
+		<cancelcopacktransferOut e030="Cancel Co Packer Transfer Out" r070="Anulare Iesire Impachetare" g060="Ακυρωτικό Εξαφωγής προς Ανασυσκευασία"/>
+		<CANCEL_CORE_GOOD_RETURN_COMBINED e030="Cancel Core Good Return Combined" r070="Cancel Core Good Return Combined" g060="ΑΚΥΡ/ΚΟ ΠΙΣΤ/ΚΟ ΤΙΜ/ΓΙΟ / Δ.Π.Π ΚΑΤ/ΛΩΝ"/>
+		<CANCEL_CORE_INVOICE e030="Cancel Core Invoice" r070="Cancel Core Invoice" g060="ΑΚΥΡΩΤΙΚΟ ΤΙΜΟΛΟΓΙΟ ΠΩΛΗΣΗΣ"/>
+		<CANCEL_CORE_STALE_RETURN_COMBINED e030="Cancel Core Stale Return Combined" r070="Cancel Core Stale Return Combined" g060="ΑΚΥΡ/ΚΟ ΠΙΣΤ/ΚΟ ΤΙΜ/ΓΙΟ / Δ.Π.Π ΑΚΑΤ/ΛΩΝ"/>
+		<CANCEL_CREDIT_NOTE_ONLY_WITH_EXTERNAL_NOTE_NUMBER e030="Cancel Credit Note Only With External Note Number" r070="Cancel Credit Note Only With External Note Number" g060="ΑΚΥΡ/ΚΟ ΠΙΣΤ/ΚΟ ΤΙΜ/ΓΙΟ ΕΠΙΣ/ΦΗ (Δ/Α ΠΕΛ)"/>
+		<CANCEL_EXPORT_SELF_DELIVERY_NOTE e030="Cancel Export Self Delivery Note" r070="Cancel Export Self Delivery Note" g060="ΑΚΥΡ/ΚΟ ΔΕΛΤΙΟ ΑΠΟΣ/ΛΗΣ ΑΥΤ/ΣΗΣ ΕΞ/ΓΩΝ"/>
+		<CANCEL_GOOD_RACK_RETURN_RECEIPT_NOTE_ONLY_WITHOUT_CREDIT_NOTE_FROM_BILLING e030="Cancel Good Rack Return Receipt Note Only Without Credit Note From Billing" r070="Cancel Good Rack Return Receipt Note Only Without Credit Note From Billing" g060="ΑΚΥΡ/ΚΟ ΔΕΛΤΙΟ ΑΠΟΣ/ΛΗΣ ΑΥΤ/ΣΗΣ ΕΞ/ΓΩΝ"/>
+		<CANCEL_GOOD_RETURN_COMBINED e030="Cancel Good Return Combined" r070="Cancel Good Return Combined" g060="ΑΚΥΡ/ΚΟ ΠΙΣΤ/ΚΟ ΤΙΜ/ΓΙΟ / Δ.Π.Π ΚΑΤ/ΛΩΝ"/>
+		<CANCEL_GOOD_RETURN_NOTE e030="Cancel Good Return Note" r070="Cancel Good Return Note" g060="ΑΚΥΡ/ΚΟ ΔΕΛΤΙΟ ΠΟΣ/ΚΗΣ ΠΑΡ/ΒΗΣ ΚΑΤ/ΛΩΝ"/>
+		<CANCEL_GOOD_RETURN_RECEIPT_NOTE_ONLY_WITHOUT_CREDIT_NOTE_FROM_BILLING e030="Cancel Good Return Receipt Note Only Without Credit Note From Billing" r070="Cancel Good Return Receipt Note Only Without Credit Note From Billing" g060="ΑΚΥΡ/ΚΟ Δ.Π.ΠΑΡ/ΒΗΣ ΚΑΤ/ΛΩΝ (ΑΝΕΥ ΑΞΙΑ)"/>
+		<CANCEL_GOOD_RETURN_RECEIPT_NOTE_ONLY_WITHOUT_PRINT e030="Cancel Good Return Receipt Note Only Without Print" r070="Cancel Good Return Receipt Note Only Without Print" g060="ΑΚΥΡ. ΠΑΡ/ΒΗΣ ΔΕΛΤ.ΑΠΟΣΤ.ΕΠΙΣΤ.(ΑΝ.ΠΙΣΤ)"/>
+		<CANCEL_IMPORT_TRANSACTION_WITHOUT_PRINT_WITH_EXTERNAL_NOTE_NUMBER e030="Cancel Import Transaction Without Print With External Note Number" r070="Cancel Import Transaction Without Print With External Note Number" g060="ΑΚΥΡ/ΚΟ ΠΑΡΑΛΑΒΗ Δ/Α ΕΠΙΣ/ΦΗ(ΑΝΕΥ ΑΞΙΑ)"/>
+		<cancelpacking e030="Cancel InventoryTransformation(Packing)" r070="Anulare Infoliere(Impachetare)" g060="Ακυρωτικό μετασχηματισμού συσκευασίας"/>
+		<cancelunpacking e030="Cancel InventoryTransformation(UnPacking)" r070="Anulare Infoliere(Despachetare)" g060="Ακυρωτικό μετασχηματισμού αποσυσκευασίας"/>
+		<CANCEL_INVOICE e030="Cancel Invoice" r070="Cancel Invoice" g060="ΑΚΥΡΩΤΙΚΟ ΤΙΜΟΛΟΓΙΟ ΠΩΛΗΣΗΣ"/>
+		<CANCEL_INVOICE_COMBINED e030="Cancel Invoice Combined" r070="Cancel Invoice Combined" g060="ΑΚΥΡΩΤΙΚΟ ΤΙΜΟΛΟΓΙΟ ΠΩΛΗΣΗΣ Δ.Α."/>
+		<cancelitxtransferOut e030="Cancel ITX Transfer Out" r070="Anulare Iesire ITX" g060="Ακύρωση Δελτ. Εξαγ.Μετ/μό"/>
+		<CANCEL_MANUAL_INVOICE e030="Cancel Manual Core Invoice" r070="Cancel Manual Core Invoice" g060="ΑΚΥΡΩΤΙΚΟ ΧΕΙΡΟΓΡ.ΤΙΜΟΛΟΓΙΟ ΠΩΛΗΣΗΣ"/>
+		<cancelmanualpacking e030="Cancel Manual InventoryTransformation(Packing)" r070="Anulare Infoliere(Impachetare) Manual" g060="Χειρόγραφο ακυρωτικό ανασυσκευασίας αποθέματος (συσκευασία)"/>
+		<cancelmanualunpacking e030="Cancel Manual InventoryTransformation(UnPacking)" r070="Anulare Infoliere(Despachetare) Manual" g060="Χειρόγραφο ακυρωτικό ανασυσκευασίας αποθέματος (αποσυσκευασία)"/>
+		<cancelmanualmiscellaneous e030="Cancel Manual Miscellaneous" r070="Anulare Bon Consum Manual" g060="Ακυρ.Χειρ.Πρωτ.Καταστροφής"/>
+		<cancelmiscellaneous e030="Cancel Miscellaneous" r070="Anulare Diverse" g060="Ακυρ.Πρωτ.Καταστροφής"/>
+		<CANCEL_STALE_RACK_RETURN_RECEIPT_NOTE_ONLY_WITHOUT_CREDIT_NOTE_FROM_BILLING e030="Cancel Stale Rack Return Receipt Note Only Without Credit Note From Billing" r070="Cancel Stale Rack Return Receipt Note Only Without Credit Note From Billing" g060="ΑΚΥΡΩΤΙΚΟ Δ.Π.Π. ΑΚΑΤ/ΛΩΝ (ΧΡΗΣ/ΝΕΙΟ)"/>
+		<CANCEL_STALE_RETURN_COMBINED e030="Cancel Stale Return Combined" r070="Cancel Stale Return Combined" g060="ΑΚΥΡ/ΚΟ ΠΙΣΤ/ΚΟ ΤΙΜ/ΓΙΟ / Δ.Π.Π ΑΚΑΤ/ΛΩΝ"/>
+		<CANCEL_STALE_RETURN_RECEIPT_NOTE_ONLY_WITHOUT_CREDIT_NOTE_FROM_BILLING e030="Cancel Stale Return Receipt Note Only Without Credit Note From Billing" r070="Cancel Stale Return Receipt Note Only Without Credit Note From Billing" g060="ΑΚΥΡ. ΔΕΛΤ.ΠΟΣ/ΚΗ ΠΑΡ/ΒΗ ΑΚΑΤ(ΑΝΕΥ ΑΞΙΑ)"/>
+		<CANCEL_STALE_RETURN_RECEIPT_NOTE_ONLY_WITHOUT_PRINT e030="Cancel Stale Return Receipt Note Only Without Print" r070="Cancel Stale Return Receipt Note Only Without Print" g060="ΑΚΥΡ. ΠΑΡ/ΒΗΣ Δ/Α ΕΠΙΣΤ.ΑΚΑΤ.(ΑΝ.ΠΙΣΤ)"/>
+		<cancelstaletransferOut e030="Cancel Stale Transfer Out" r070="Anulare Stale Transfer Out" g060="Ακυρωτικό Δελτ.Ενδ/σης Εξ.Ακατ/λων"/>
+		<canceltransferOut e030="Cancel Transfer Out" r070="Anulare Transfer Out" g060="Ακυρ.Χειρ.Ενδοδιακίν.Εξαγωγής"/>
+		<statusCANCELLED e030="Cancel" r070="Anulat" g060="ΑΚΥΡΩΜΕΝΟ"/>
+		<carrier e030="Carrier" r070="Transportator" g060="Μεταφορέας"/>
+		<jbtnExcelTT e030="Click here to Export to Excel" r070="Click here to Export to Excel" g060="Κλικ γιαε ξαγωγή σε  EXCEL"/>
+		<jbtnPrintTT e030="Click here to Print" r070="Apasa aici pt Tiparire" g060="Κλικ εδώ για εκτύπωση"/>
+		<jbtnSortTT e030="Click here to sort" r070="Apasa aici pt sortare" g060="Κλικ εδώ για ταξινόμηση"/>
+		<jbtnretrieveTT e030="Click to open the specified document" r070="Apasa pt deschidere document specificat" g060="Κλικ για να ανοίξετε το επιλεγμένο παραστατικό"/>
+		<statusSAVEP e030="Close Period" r070="Inchide luna" g060="Κλείσιμο Περιόδου"/>
+		<copackadjAck e030="Co Packer Adjust Acknowledgement" r070="Confirmare Ajustare Impachetare" g060="Αποδοχή διαφ.Αν/σίας"/>
+		<copacktransferIn e030="Co Packer Transfer In" r070="Intrari Impachetare" g060="Εισαγ.Ανασυσκ."/>
+		<copacktransferOut e030="Co Packer Transfer Out" r070="Iesiri Impachetare" g060="Εξαγ.Ανασυσκ."/>
+		<COPACKER_ADJUSTMENT_ACK e030="Co Packer Transfer Out Adjustment" r070="Ajustare Iesiri Impachetare" g060="Co Packer Transfer Out Adjustment"/>
+		<jlblCopackeDocNo e030="Co-packer Delivery Note No:" r070="Co-packer Delivery Note No:" g060="Αρ. Δ.Α. Ανασυσκευαστή"/>
+		<CopackerDeliveryNotenumber e030="Co-Packer delivery note number" r070="Co-Packer delivery note number" g060="Αρ. Δ.Α. Ανασυσκευαστή"/>
+		<jlblCopackeLocation1 e030="Co-packer Location:" r070="Co-packer Location:" g060="Αποθ.Ανασυσκ.:"/>
+		<coPackerTIN e030="Co-Packer TIN" r070="Impachetare IN" g060="Εισαγ.Ανασυσκ."/>
+		<coPackerTOT e030="Co-Packer TOT" r070="Impachetare IES" g060="Εξαγ.Ανασυσκ."/>
+		<COMBINE_GOOD_RETUN_NOTE e030="Combine Good Return Note" r070="Combine Good Return Note" g060="ΠΙΣΤ/ΚΟ ΤΙΜ.-ΔΕΛΤΙΟ ΠΟΣ/ΚΗΣ ΠΑΡ/ΒΗΣ ΚΑΤ."/>
+		<CMB_MAN_GOOD_RETUN_NOTE e030="Combine Manual Good Return Note" r070="Combine Manual Good Return Note" g060="ΧΕΙΡ. ΠΙΣΤ/ΚΟ ΤΙΜ.-ΔΕΛΤΙΟ ΠΟΣ/ΚΗΣ ΠΑΡ/ΒΗΣ ΚΑΤ."/>
+		<CMB_MAN_STALE_RETURN_NOTE e030="Combine Manual Stale Return Note" r070="Combine Manual Stale Return Note" g060="ΧΕΙΡ. ΠΙΣΤ/ΚΟ ΤΙΜ.-ΔΕΛΤΙΟ ΠΟΣ/ΚΗΣ ΠΑΡ/ΒΗΣ ΑΚΑΤΑΛ."/>
+		<COMBINE_STALE_RETURN_NOTE e030="Combine Stale Return Note" r070="Combine Stale Return Note" g060="ΠΙΣΤ/ΚΟ ΤΙΜ.-ΔΕΛΤΙΟ ΠΟΣ/ΚΗΣ ΠΑΡ/ΒΗΣ ΑΚΑΤΑΛ."/>
+		<statusCOMMITED e030="Commit" r070="Comis" g060="ΕΧΕΙ ΕΚΤΕΛΕΣΤΕΙ"/>
+		<statusAPPROVED1 e030="Committed" r070="Comis" g060="Επιβεβαιωμένα"/>
+		<CORE_COMBINE_ADJ_ACK e030="Core Combine Adjustment Acknowledgement" r070="Core Combine Adjustment Acknowledgement" g060="Core Combine Adjustment Acknowledgement"/>
+		<CORE_COMBINE_DELIVERY_NOTE e030="Core Combine Delivery Note" r070="Aviz Expeditie Combinat Core" g060="CORE Δ.Α. ΤΙΜΟΛΟΓΙΟ ΠΩΛΗΣΗΣ"/>
+		<CORE_COMBINE_GOOD_TRANSF_IN e030="Core Combine Good Transfer In" r070="Core Combine Good Transfer In" g060="CORE ΠΙΣΤ/ΚΟ ΤΙΜ.-ΔΕΛΤΙΟ ΠΟΣ/ΚΗΣ ΠΑΡ/ΒΗΣ ΚΑΤ."/>
+		<CORE_CMB_GOOD_TRANSFER_OUT e030="Core Combine Good Transfer out" r070="Core Combine Good Transfer out" g060="ΠΑΡ/ΛΗ  ΕΞΑΓ. ΔΑΤ - ΕΠΙΣ/ΦΗ ΠΩΛ.ΑΠΟ CORE"/>
+		<CORE_CMB_MAN_GOOD_TRANSF_IN e030="Core Combine Manual Good Transfer In" r070="Core Combine Manual Good Transfer In" g060="ΠΙΣΤ/ΚΟ ΤΙΜ.-ΔΕΛΤΙΟ ΠΟΣ/ΚΗΣ ΠΑΡ/ΒΗΣ ΚΑΤ. ΑΠΟ CORE ΧΕΙΡ."/>
+		<CORE_CMB_MAN_GOOD_TRANSF_OUT e030="Core Combine Manual Good Transfer out" r070="Core Combine Manual Good Transfer out" g060="ΠΑΡ/ΛΗ  ΕΞΑΓ. ΔΑΤ - ΕΠΙΣ/ΦΗ ΠΩΛ.ΑΠΟ CORE"/>
+		<CORE_CMB_MAN_STALE_TRANSF_IN e030="Core Combine Manual Stale Transfer In" r070="Core Combine Manual Stale Transfer In" g060="ΠΙΣΤΩΤΙΚΟ ΤΙΜ/ΓΙΟ - Δ.Π.ΠΑΡ/ΒΗΣ ΑΚΑΤ/ΛΩΝ ΑΠΟ CORE ΧΕΙΡ."/>
+		<CORE_CMB_MAN_STALE_TRANSF_OUT e030="Core Combine Manual Stale Transfer out" r070="Core Combine Manual Stale Transfer out" g060="ΠΑΡ/ΛΗ  ΕΞΑΓ.ΔΑΤ - ΕΠΙΣ/ΦΗ ΑΚΑΤ.ΑΠΟ CORE ΧΕΙΡ."/>
+		<CORE_COMBINE_STALE_TRANSF_IN e030="Core Combine Stale Transfer In" r070="Core Combine Stale Transfer In" g060="ΠΙΣΤΩΤΙΚΟ ΤΙΜ/ΓΙΟ - Δ.Π.ΠΑΡ/ΒΗΣ ΑΚΑΤ/ΛΩΝ ΑΠΟ CORE"/>
+		<CORE_CMB_STALE_TRANSFER_OUT e030="Core Combine Stale Transfer out" r070="Core Combine Stale Transfer out" g060="ΠΑΡ/ΛΗ  ΕΞΑΓ.ΔΑΤ - ΕΠΙΣ/ΦΗ ΑΚΑΤ.ΑΠΟ CORE"/>
+		<CORE_GOOD_RETURN_COMBINED e030="Core Good Return Combined" r070="Core Good Return Combined" g060="ΑΚΥΡ/ΚΟ ΠΙΣΤ/ΚΟ ΤΙΜ/ΓΙΟ / Δ.Π.Π ΚΑΤ/ΛΩΝ"/>
+		<CORE_GOOD_RETURN_NOTE e030="Core Good Return Note" r070="Core Good Return Note" g060="Core Good Return Note"/>
+		<CORE_GOOD_TRANSF_IN e030="Core Good Transfer In" r070="Core Good Transfer In" g060="ΔΕΛΤΙΟ ΠΟΣΟΤΙΚΗΣ ΠΑΡΑΛΑΒΗΣ ΚΑΤΑΛΛΗΛΩΝ"/>
+		<CORE_GOOD_TRANSFER_OUT e030="Core Good Transfer Out" r070="Iesiri Core" g060="Core Good Transfer Out"/>
+		<CORE_INDIVIDUAL_ADJ_ACK e030="Core Individual Adjustment" r070="Ajustare Individuala Core" g060="Core Individual Adjustment"/>
+		<CORE_INDIVIDUAL_DELIVERY_NOTE e030="Core Individual Delivery Note" r070="Aviz Expeditie Individual Core" g060="CORE ΔΕΛΤΙΟ ΑΠΟΣΤΟΛΗΣ ΠΩΛΗΣΗΣ"/>
+		<CORE_MANUAL_GOOD_TRANSF_IN e030="Core Manual Good Transfer In" r070="Core Manual Good Transfer In" g060="ΧΕΙΡ. ΔΕΛΤΙΟ ΠΟΣΟΤΙΚΗΣ ΠΑΡΑΛΑΒΗΣ ΚΑΤΑΛΛΗΛΩΝ"/>
+		<CORE_MANUAL_GOOD_TRANSF_OUT e030="Core Manual Good Transfer Out" r070="Iesiri Manual Core" g060="ΠΑΡ/ΛΗ  ΕΞΑΓ. ΔΑΤ - ΕΠΙΣ/ΦΗ ΠΩΛ.ΑΠΟ CORE"/>
+		<CORE_MAN_RECEIPT_COMIBNE e030="Core Manual Receipt Combine" r070="Core Manual Receipt Combine" g060="Core Manual Receipt Combine"/>
+		<CORE_MAN_RECEIPT_INDIVIDUAL e030="Core Manual Receipt Individual" r070="Core Manual Receipt Individual" g060="Core Manual Receipt Individual"/>
+		<CORE_MANUAL_STALE_TRANSF_IN e030="Core Manual Stale Transfer In" r070="Core Manual Stale Transfer In" g060="ΧΕΙΡ. ΔΕΛΤΙΟ ΠΟΣΟΤΙΚΗΣ ΠΑΡΑΛΑΒΗΣ AΚΑΤΑΛΛΗΛΩΝ"/>
+		<CORE_MANUAL_STALE_TRANSF_OUT e030="Core Manual Stale Transfer Out" r070="Iesiri Perimate Manual Core" g060="Core Manual Stale Transfer Out"/>
+		<CORE_RECEIPT_COMBINE e030="Core Receipt Combine" r070="Core Receipt Combine" g060="Core Receipt Combine"/>
+		<CORE_RECEIPT_INDIVIDUAL e030="Core Receipt Individual" r070="Receptie Individuala Core" g060="Core Receipt Individual"/>
+		<CORE_STALE_RETURN_COMBINED e030="Core Stale Return Combined" r070="Core Stale Return Combined" g060="Core Stale Return Combined"/>
+		<CORE_STALE_RETURN_NOTE e030="Core Stale Return Note" r070="Core Stale Return Note" g060="Core Stale Return Note"/>
+		<CORE_STALE_TRANSF_IN e030="Core Stale Transfer In" r070="Core Stale Transfer In" g060="ΔΕΛΤΙΟ ΠΟΣΟΤΙΚΗΣ ΠΑΡΑΛΑΒΗΣ ΑΚΑΤ/ΛΩΝ"/>
+		<CORE_STALE_TRANSFER_OUT e030="Core Stale Transfer Out" r070="Iesiri Perimate Core" g060="Core Stale Transfer Out"/>
+		<CREDIT_NOTE_ONLY_WITH_EXTERNAL_NOTE_NUMBER e030="Credit Note Only With External Note Number" r070="Credit Note Only With External Note Number" g060="ΠΙΣΤΩΤΙΚΟ ΤΙΜΟΛΟΓΙΟ ΕΠΙΣ/ΦΗΣ (Δ/Α ΠΕΛ.)"/>
+		<CREDIT_NOTE_ONLY_WITH_EXTERNAL_NOTE_NUMBER_EXPORT e030="Credit Note Only With External Note Number Export" r070="Credit Note Only With External Note Number Export" g060="Credit Note Only With External Note Number Export"/>
+		<creditReconciliationCost e030="Credit Reconciliation Cost" r070="Credit Reconciliation Cost" g060="ΚΟΣΤΟΣ ΑΛΛΩΝ ΚΙΝΗΣΕΩΝ (ΠΙΣΤΩΣΗ)"/>
+		<date e030="Date" r070="Data" g060="Ημ/νία"/>
+		<jlbldate1 e030="Date:" r070="Data:" g060="Ημ/νία:"/>
+		<debitReconciliationCost e030="Debit Reconciliation Cost" r070="Debit Reconciliation Cost" g060="ΚΟΣΤΟΣ ΑΛΛΩΝ ΚΙΝΗΣΕΩΝ (ΧΡΕΩΣΗ)"/>
+		<INDIVIDUAL_DELIVERY_NOTE e030="Delivery Note" r070="Aviz Expeditie" g060="ΔΕΛΤΙΟ ΑΠΟΣΤΟΛΗΣ ΠΩΛΗΣΗΣ"/>
+		<COMBINE_DELIVERY_NOTE e030="Delivery Note / Invoice (consolidate document)" r070="Aviz Expeditie / Factura (document consolidat)" g060="ΤΙΜΟΛΟΓΙΟ / ΔΕΛΤΙΟ ΑΠΟΣΤΟΛΗΣ"/>
+		<jlblDeliveryNo e030="Delivery Note Number :" r070="Nr Aviz Expeditie :" g060="Αρ. Δ.Α.:"/>
+		<destinationDescReport e030="Dest Desc" r070="Descr. Dest." g060="Προορισμός"/>
+		<destinationLocationReport e030="Dest Location" r070="Locatie dest." g060="Αποθ.Προορ."/>
+		<destinationDesc e030="Destination Description" r070="Descriere destinatie" g060="Αποθήκη Προορισμού"/>
+		<destinationLocation e030="Destination Location" r070="Locatie destinatie" g060="Αποθ.Προορ."/>
+		<documentDateReport e030="Doc Date" r070="Data Doc." g060="Ημ/νία Παρ/κού"/>
+		<documentDate e030="Document Date" r070="Data Doc." g060="Ημ/νία Παρ/κού"/>
+		<documentNumberReport e030="Document No" r070="Doc. Nr." g060="Αρ.Παρ/κού"/>
+		<documentNumber e030="Document Number" r070="Nr. Document" g060="Αρ.Παρ/κού"/>
+		<Title e030="Document Search" r070="Cautare documente" g060="Αναζήτηση Παραστατικού"/>
+		<jbtnExcelSC e030="E" r070="E" g060="E"/>
+		<jbtnExcel e030="Excel" r070="Excel" g060="Excel"/>
+		<jlblExpectedNo e030="Expected Doc No :" r070="Nr. Comanda :" g060="Αρ.Παρ/κού Ανα.Αγορ.:"/>
+		<ExpdocumentNumber e030="Expected Document Number" r070="Expected Document Number" g060="Αρ.Παρ/κού Ανα.Αγορ."/>
+		<ExpectedPurchaseReceipt e030="Expected Purchase Receipt" r070="Comanda cump." g060="Αναμεν. Παραλαβή Αγορών"/>
+		<ExpectedPurchaseReturn e030="Expected Purchase Return" r070="Comanda retur" g060="Αναμεν. Επιστροφή Αγορών"/>
+		<jlblExpectedQty e030="Expected Quantity :" r070="Cant. Comandata:" g060="Αναμεν. Ποσότητα:"/>
+		<EXPORT_RACK_EQUIPMENT e030="Export Rack Equipment" r070="Export Rack Equipment" g060="ΤΙΜΟΛΟΓΙΟ ΕΞΑΓΩΓΩΝ (ΑΝΕΥ ΑΞΙΑΣ)"/>
+		<EXPORT_RACK_EQUIPMENT_RETURN e030="Export Rack Equipment Return" r070="Export Rack Equipment Return" g060="ΑΚΥΡΩΤΙΚΟ ΤΙΜΟΛΟΓΙΟ ΕΞ/ΓΩΝ (ΑΝΕΥ ΑΞΙΑΣ)"/>
+		<EXPORT_RETURN_COMBINED e030="Export Return Combined" r070="Export Return Combined" g060="Export Return Combined"/>
+		<EXPORT_SELF_DELIVERY_NOTE e030="Export Self Delivery Note" r070="Export Self Delivery Note" g060="Export Self Delivery Note"/>
+		<EXPORT_SELF_INVOICE e030="Export Self Invoice" r070="Export Self Invoice" g060="Export Self Invoice"/>
+		<EXPORTS_DELIVERY_NOTE e030="Exports Delivery Note" r070="Aviz export" g060="ΔΕΛΤΙΟ ΑΠΟΣΤΟΛΗΣ ΕΞΑΓΩΓΩΝ"/>
+		<EXP_GOOD_RTN_DLV_NOTE e030="Exports Good Return Delivery Note" r070="Aviz retur export" g060="ΔΕΛΤΙΟ ΠΟΣΟΤΙΚΗΣ ΠΑΡΑΛΑΒΗΣ ΕΞΑΓΩΓΩΝ"/>
+		<EXP_MANUAL_GOOD_RTN_DLV_NOTE e030="Exports Manual Good Return Delivery Note" r070="Exports Manual Good Return Delivery Note" g060="ΧΕΙΡ. ΔΕΛΤΙΟ ΠΟΣΟΤΙΚΗΣ ΠΑΡΑΛΑΒΗΣ ΕΞΑΓΩΓΩΝ"/>
+		<EXP_MANUAL_GOOD_RTN_DLV_NOTE_E e030="Exports Manual Good Return Note" r070="Exports Manual Good Return Note" g060="EXP_MANUAL_GOOD_RTN_DLV_NOTE_E"/>
+		<EXP_MAN_STALE_RTN_DLV_NOTE_E e030="Exports Manual Stale Return Delivery Note" r070="Exports Manual Stale Return Delivery Note" g060="EXP_MAN_STALE_RTN_DLV_NOTE_E"/>
+		<EXP_MANUAL_STALE_RTN_DLV_NOTE e030="Exports Manual Stale Return Delivery Note" r070="Exports Manual Stale Return Delivery Note" g060="ΧΕΙΡ. ΔΕΛΤ.ΠΟΣΟΤΙΚΗΣ ΠΑΡΑΛΑΒΗΣ ΕΞΑΓΩΓΩΝ ΑΚΑΤΑΛΛΗΛΩΝ"/>
+		<EXPORTS_PACKING_NOTE e030="Exports Packing Note" r070="Exports Packing Note" g060="ΔΕΛΤΙΟ ΑΠΟΣΤΟΛΗΣ ΕΞΑΓΩΓΩΝ"/>
+		<EXP_STALE_RTN_DLV_NOTE e030="Exports Stale Return Delivery Note" r070="Aviz retur expirate export" g060="ΔΕΛΤ.ΠΟΣΟΤΙΚΗΣ ΠΑΡΑΛΑΒΗΣ ΕΞΑΓΩΓΩΝ ΑΚΑΤΑΛΛΗΛΩΝ"/>
+		<externalnumbercopacktransferIn e030="External Number Co Packer Transfer In" r070="External Number Co Packer Transfer In" g060="ΠΑΡΑΛΑΒΗ ΔΕΛΤΙΟΥ ΑΠΟΣΤΟΛΗΣ (ΤΡΙΤΟΥ)"/>
+		<externalnumbercopacktransferOut e030="External Number Co Packer Transfer Out" r070="External Number Co Packer Transfer Out" g060="ΔΕΛΤΙΟ ΑΠΟΣΤΟΛΗΣ ( ΤΡΙΤΟΥ) "/>
+		<freight e030="Freight" r070="Cost transport" g060="Μεταφορικά"/>
+		<from e030="FROM" r070="De la" g060="ΑΠΟ"/>
+		<jlblPallateNumber e030="From Pallet Number :" r070="Nr. Palet, de la :" g060="Από Αρ.Παλλέτας:"/>
+		<jlblPallateNumberFromConstant e030="From Pallet Constant :" r070="From Pallet Constant :" g060="Από Σταθ.Αρ.Παλ.:"/>
+		<jlblFromTime e030="From Time:" r070="From Time:" g060="Από Ώρα:"/>
+		<jlblFromTransDt e030="From Document Date :" r070="From Document Date :" g060="Από Ημερ/νια Παραστατικού :"/>
+		<fullName e030="Full Name" r070="Nume" g060="Πλήρης Επωνυμία"/>
+		<GOOD_RACK_RETURN_RECEIPT_NOTE_ONLY_WITHOUT_CREDIT_NOTE_FROM_BILLING e030="Good Rack Return Receipt Note Only Without Credit Note From Billing" r070="Good Rack Return Receipt Note Only Without Credit Note From Billing" g060="ΔΕΛΤΙΟ ΠΟΣΟΤΙΚΗΣ ΠΑΡΑΛΑΒΗΣ (ΧΡΗΣ/ΝΕΙΟ)"/>
+		<GOOD_RETURN_COMBINED e030="Good Return Combined" r070="Good Return Combined" g060="ΠΙΣΤ/ΚΟ ΤΙΜ.-ΔΕΛΤΙΟ ΠΟΣ/ΚΗΣ ΠΑΡ/ΒΗΣ ΚΑΤ."/>
+		<GOOD_RETUN_NOTE e030="Good Return Document Note" r070="Document  retur bun" g060="ΔΕΛΤΙΟ ΠΟΣΟΤΙΚΗΣ ΠΑΡΑΛΑΒΗΣ ΚΑΤΑΛΛΗΛΩΝ"/>
+		<GOOD_RETURN_RECEIPT_NOTE_ONLY_WITHOUT_CREDIT_NOTE_FROM_BILLING e030="Good Return Receipt Note Only Without Credit Note From Billing" r070="Good Return Receipt Note Only Without Credit Note From Billing" g060="ΔΕΛΤΙΟ ΠΟΣ/ΚΗΣ ΠΑΡ/ΒΗ ΚΑΤ/ΛΑ (ΑΝΕΥ ΑΞΙΑ)"/>
+		<GOOD_RETURN_RECEIPT_NOTE_ONLY_WITHOUT_PRINT e030="Good Return Receipt Note Only Without Print" r070="Good Return Receipt Note Only Without Print" g060="ΠΑΡ/ΒΗ ΔΕΛΤ.ΑΠΟΣΤ.ΕΠΙΣΤΡ.ΚΑΤ(ΑΝΑΜ.ΠΙΣΤ.)"/>
+		<GOOD_RACK_RETURN_RECEIPT_NOTE_ONLY_WITHOUT_PRINT e030="Good_Rack_Return Receipt Note Only Without Print" r070="Good_Rack_Return Receipt Note Only Without Print" g060="ΔΕΛΤΙΟ ΠΟΣΟΤΙΚΗΣ ΠΑΡΑΛΑΒΗΣ (ΧΡΗΣ/ΝΕΙΟ)"/>
+		<greecePeriodClosing e030="Greece Period Closing" r070="Greece Period Closing" g060="Κλείσιμο Περιόδου"/>
+		<jlblHHCRefDoc e030="HHC Doc No.:" r070="HHC Doc No.:" g060="Αρ.Παρ/κού HHC"/>
+		<IMPORT_TRANSACTION_WITHOUT_PRINT_AND_NO_EXTERNAL_NOTE_NUMBER e030="Import Transaction Without Print And No External Note Number" r070="Import Transaction Without Print And No External Note Number" g060="IMPORT_TRANSACTION_WITHOUT_PRINT_AND_NO_EXTERNAL_NOTE_NUMBER"/>
+		<IMPORT_TRANSACTION_WITHOUT_PRINT_WITH_EXTERNAL_NOTE_NUMBER e030="Import Transaction Without Print With External Note Number" r070="Import Transaction Without Print With External Note Number" g060="ΠΑΡΑΛΑΒΗ Δ/Α ΕΠΙΣ/ΦΗΣ(ΑΝΕΥ ΑΞΙΑ)"/>
+		<INDIVIDUAL_ADJUSTMENT_ACK e030="Individual Adjustment Acknowledgement" r070="Individual Adjustment Acknowledgement" g060="INDIVIDUAL_ADJUSTMENT_ACK"/>
+		<inventoryTransformation e030="Inventory Transformation" r070="Impachetari/Infolieri" g060="Μετασχημ.Αποθεμάτων"/>
+		<packing e030="InventoryTransformation(Packing)" r070="Impachetari" g060="Μετασχημ.Αποθεμάτων (Συσκ.)"/>
+		<unpacking e030="InventoryTransformation(UnPacking)" r070="Despachetari" g060="Μετασχημ.Αποθεμάτων (Αποσυσκ.)"/>
+		<jlblInvoice e030="Invoice No :" r070="Nr. factura :" g060="Αρ.Τιμολ.:"/>
+		<lblInvoiceDocNumber e030="Invoice Number" r070="Invoice Number" g060="Αρ. Τιμολογίου"/>
+		<itxadjAck e030="ITX Adjust Acknowledgement" r070="ITX Dif." g060="Αποδοχή διαφ.Μετ/μού"/>
+		<itxtransferIn e030="ITX Transfer In" r070="ITX Intrare" g060="Εισ.Μετ/μό"/>
+		<itxtransferOut e030="ITX Transfer Out" r070="ITX Iesire" g060="Εξαγ.Μετ/μό"/>
+		<statusINVENTORYCONTROLL e030="LOCATION NOT INVENTORY CONTROLLED" r070="LOCATION NOT INVENTORY CONTROLLED" g060="ΑΠΟΘΗΚΗ ΜΗ ΕΛΕΓΧΟΜΕΝΗ"/>
+		<logicalPhysicalInventory e030="Logical Physical Inventory" r070="Inventar fizic logic" g060="Λογιστικό Απόθεμα"/>
+		<jlblLUCode e030="LU Code :" r070="Cod SKU :" g060="LU"/>
+		<manual e030="Manual" r070="Manual" g060="Χειρόγραφο"/>
+		<manualcancelcopacktransferOut e030="Manual Cancel Co Packer Transfer Out" r070="Manual Cancel Co Packer Transfer Out" g060="Χειρόγραφο Ακυρωτικό αποστολής ενδοδιακίνησης προς ανασυσκευαστή"/>
+		<manualcancelitxtransferOut e030="Manual Cancel ITX Transfer Out" r070="Manual Cancel ITX Transfer Out" g060="Ακύρωση Χ/φου Δελτ. Εξαγ.Μετ/μό"/>
+		<manualcancelstaletransferOut e030="Manual Cancel Stale Transfer Out" r070="Manual Cancel  Stale Transfer Out" g060="Ακυρωτικό Χ/φου Δελτ.Ενδ/σης Εξ.Ακατ/λων"/>
+		<manualcanceltransferOut e030="Manual Cancel Transfer Out" r070="Manual Cancel Transfer Out" g060="Ακυρ.Ενδοδιακίν.Εξαγωγής"/>
+		<CANCEL_MANUAL_CORE_INVOICE e030="Manual Canceled Core Invoice" r070="Manual Canceled Core Invoice" g060="ΑΚΥΡΩΤΙΚΟ ΤΙΜΟΛΟΓΙΟ ΠΩΛΗΣΗΣ (CORE)"/>
+		<manualcopacktransferOut e030="Manual Co Packer Transfer Out" r070="Manual Co Packer Transfer Out" g060="ΔΕΛΤΙΟ ΑΠΟΣΤΟΛΗΣ (ΕΣΩΤ/ΚΗ ΔΙΑΚ/ΣΗ) "/>
+		<MANUAL_CORE_COMBINE_DEL_NOTE e030="Manual Core Combine Delivery Note" r070="Manual Core Combine Delivery Note" g060="Manual Core Combine Delivery Note"/>
+		<MANUAL_CORE_GOOD_RETURN_NOTE e030="Manual Core Good Return Note" r070="Manual Core Good Return Note" g060="Manual Core Good Return Note"/>
+		<MANUAL_CORE_INDI_DEL_NOTE e030="Manual Core Individual Delivery Note" r070="Manual Core Individual Delivery Note" g060="ΧΕΙΡ. ΔΕΛΤΙΟ ΑΠΟΣΤΟΛΗΣ ΠΩΛΗΣΗΣ (CORE)"/>
+		<MANUAL_INDIVIDUAL_DEL_NOTE e030="Manual Delivery Note" r070="Manual Delivery Note" g060="ΧΕΙΡ. ΔΕΛΤΙΟ ΑΠΟΣΤΟΛΗΣ ΠΩΛΗΣΗΣ"/>
+		<MANUAL_COMBINE_DELIVERY_NOTE e030="Manual Delivery Note / Invoice (consolidate document)" r070="Manual Delivery Note / Invoice (consolidate document)" g060="ΧΕΙΡ. ΤΙΜΟΛΟΓΙΟ / ΔΕΛΤΙΟ ΑΠΟΣΤΟΛΗΣ"/>
+		<ManualExpectedPurchaseReceipt e030="Manual Expected Purchase Receipt" r070="Manual Expected Purchase Receipt" g060="ΑΝΑΜΕΝΟΜΕΝΗ ΠΑΡΑΛΑΒΗ ΑΓΟΡΩΝ "/>
+		<ManualExpectedPurchaseReturn e030="Manual Expected Purchase Return" r070="Manual Expected Purchase Return" g060="ΑΝΑΜΕΝΟΜΕΝΗ ΕΠΙΣΤΡΟΦΗ ΑΓΟΡΩΝ"/>
+		<MANUAL_EXPORTS_DELIVERY_NOTE e030="Manual Exports Delivery Note" r070="Manual Exports Delivery Note" g060="Χειρ. ΔΕΛΤΙΟ ΑΠΟΣΤΟΛΗΣ ΕΞΑΓΩΓΩΝ"/>
+		<MANUAL_EXPORTS_PACKING_NOTE e030="Manual Exports Packing Note" r070="Manual Exports Packing Note" g060="ΧΕΙΡ. ΔΕΛΤΙΟ ΑΠΟΣΤΟΛΗΣ ΕΞΑΓΩΓΩΝ"/>
+		<MANUAL_GOOD_RETUN_NOTE e030="Manual Good Return Document Note" r070="Manual Good Return Document Note" g060="ΧΕΙΡ. ΔΕΛΤΙΟ ΠΟΣΟΤΙΚΗΣ ΠΑΡΑΛΑΒΗΣ ΚΑΤΑΛΛΗΛΩΝ"/>
+		<manualpacking e030="Manual InventoryTransformation(Packing)" r070="Manual InventoryTransformation(Packing)" g060="Χειρ/φο Δελτίο Συσκευασίας"/>
+		<manualunpacking e030="Manual InventoryTransformation(UnPacking)" r070="Manual InventoryTransformation(UnPacking)" g060="Χειρ/φο Δελτίο Αποσυσκευασίας"/>
+		<manualitxtransferOut e030="Manual ITX Transfer Out" r070="Manual ITX Transfer Out" g060="Χειρ/φο Δελτ. Εξαγ.Μετ/μό"/>
+		<manualLogicalPhysicalInventory e030="Manual Logical Physical Inventory" r070="Manual Logical Physical Inventory" g060="ΔΕΛΤΙΟ ΑΠΟΓΡΑΦΗΣ (ΟΜΑΔΩΝ)"/>
+		<manualmiscellaneous e030="Manual Miscellaneous" r070="Manual Miscellaneous" g060="χειρ.Πρωτοκ. Καταστροφής"/>
+		<manualnoninnventorytransferOut e030="Manual NonInventory Transfer Out" r070="Manual NonInventory Transfer Out" g060="Manual NonInventory Transfer Out"/>
+		<manualPhysicalInventory e030="Manual Physical Inventory" r070="Manual Physical Inventory" g060="Χειρ. Δελτίο Φυσικής Απογραφής"/>
+		<manualproductionReceipt e030="Manual Production Receipt" r070="Manual Production Receipt" g060="Χειρ.Δελτ.Παραγωγής"/>
+		<manualproductionReceiptSummaryDoc e030="Manual Production Receipt(Summarise Doc)" r070="Manual Production Receipt(Summarise Doc)" g060="ΔΕΛΤΙΟ ΕΣΩΤ.ΔΙΑΚ/ΣΗΣ ΠΑΡ/ΒΗΣ ΠΑΡΑΓΩΓΗΣ"/>
+		<manualproductionReceiptSummary e030="Manual Production Receipt(Summarise)" r070="Manual Production Receipt(Summarise)" g060="Χειρ.Δελτ.Παραγωγής (συνοπτικό)"/>
+		<manualproductionReturn e030="Manual Production Return" r070="Manual Production Return" g060="Χειρ.Δελτ.Επιστροφής Παραγωγής"/>
+		<ManualPurchaseReceiptQuantity e030="Manual Purchase Quantity Receipt" r070="Manual Purchase Quantity Receipt" g060="ΧΕΙΡ. ΔΕΛΤ.ΠΟΣΟΤΙΚΗΣ ΠΑΡΑΛΑΒΗΣ ΑΓΟΡΩΝ"/>
+		<ManualPurchaseReturnQuantity e030="Manual Purchase Quantity Return" r070="Manual Purchase Quantity Return" g060="ΧΕΡ. Δ.Α. ΕΠΙΣΤΡΟΦΗΣ ΑΓΟΡΩΝ"/>
+		<MANUAL_SELF_DELIVERY_NOTE e030="Manual Self Delivery Note" r070="Manual Self Delivery Note" g060="Χειρ. Δελτ.Αποστ.Αυτοpar;adoshw"/>
+		<manualstaletransferOut e030="Manual Stale Transfer Out" r070="Manual Stale Transfer Out" g060="Χειρ/φο Δελτίο Ενδ/σης Εξ.Ακατ/λων"/>
+		<MANUAL_STALE_RETURN_NOTE e030="Manual Stales Return Document" r070="Manual Stales Return Document" g060="Χειρ.Δ.Α. Επιστροφής Ακαταλλήλων"/>
+		<manualtransferOut e030="Manual Transfer Out" r070="Manual Transfer Out" g060="Χειρ. Ενδοδιακ. Εξαγωγής"/>
+		<VOID_MANUAL_CORE_INDI_DEL_NOTE e030="Manual Void Core Individual Delivery Note" r070="Manual Void Core Individual Delivery Note" g060="ΑΚΥΡΩΤΙΚΟ ΧΕΙΡ. ΔΕΛΤΙΟ ΑΠΟΣΤΟΛΗΣ ΠΩΛΗΣΗΣ (CORE)"/>
+		<VOID_MANUAL_IND_DEL_NOTE e030="Manual Void Individual Delivery Note" r070="Manual Void Individual Delivery Note" g060="ΑΚΥΡΩΤΙΚΟ ΧΕΙΡ. ΔΕΛΤΙΟ ΑΠΟΣΤΟΛΗΣ ΠΩΛΗΣΗΣ"/>
+		<ManualVoidPurchaseReceiptQty e030="Manual Void Purchase Quantity Receipt" r070="Manual Void Purchase Quantity Receipt" g060="Χειρ.Ακυρωτικό Δ.ΠΟΣΟΤ. ΠΑΡΑΛΑΒΗΣ ΑΓΟΡΩΝ"/>
+		<ManualVoidPurchaseReturnQty e030="Manual Void Purchase Quantity Return" r070="Manual Void Purchase Quantity Return" g060="Χειρ.Ακυρωτικό Δ.ΑΠΟΣΤ.ΕΠΙΣΤΡΟΦΗΣ ΑΓΟΡΩΝ"/>
+		<VOID_MANUAL_SELF_DELIVERY_NOTE e030="Manual Void Self Delivery Note" r070="Manual Void Self Delivery Note" g060="ΑΚΥΡΩΤΙΚΟ ΔΕΛΤΙΟ ΑΠΟΣΤΟΛΗΣ ΑΥΤΟΠΑΡ/ΣΗΣ"/>
+		<statusMatch e030="Match" r070="Match" g060="Συμφωνία"/>
+		<jlblMatch e030="Match" r070="Match" g060="Συμφωνία"/>
+		<miscellaneous e030="Miscellaneous" r070="Bon Consum" g060="Πρωτ. Καταστρορών"/>
+		<jlblMisType e030="Miscellaneous Type :" r070="Tip Bon Consum :" g060="Τύπος Πρωτ.Κατ/φης"/>
+		<noninnventorytransferIn e030="NonInventory Transfer In" r070="Intrari NonInventory" g060="NonInventory Transfer In"/>
+		<noninnventorytransferOut e030="NonInventory Transfer Out" r070="Iesiri NonInventory" g060="NonInventory Transfer Out"/>
+		<statusNOTRECEIVED e030="Not Receive" r070="Nereceptionat" g060="ΜΗ ΠΑΡΑΛΗΦΘΕΝ"/>
+		<jbtnSortSC e030="o" r070="o" g060="O"/>
+		<jbtnPrintSC e030="P" r070="P" g060="P"/>
+		<packed e030="PACKED" r070="IMPACHETAT" g060="Συσκευασθέν"/>
+		<jlblpage e030="Page:" r070="Pagina:" g060="Σελ.:"/>
+		<statusPENDACK e030="Pending Ack" r070="Ast.Conf" g060="ΕΚΚΡΕΜΕΙ ΑΠΟΔΟΧΗ"/>
+		<averageactualcost e030="Period Closing" r070="Inchidere Perioada" g060="Κλείσιμο  Περιόδου"/>
+		<physicalInventory e030="Physical Inventory" r070="Inventar Fizic" g060="Φυσικό Απόθεμα"/>
+		<lblPoRefNumber e030="PO Ref Number" r070="PO Ref Number" g060="Αρ. Ε.Α."/>
+		<position e030="Position" r070="Pozitie" g060="Θάση"/>
+		<jbtnPrint e030="Print" r070="Tiparire" g060="Εκτύπωση"/>
+		<productionReceipt e030="Production Receipt" r070="Receptie Productie" g060="Εισαγ.Παρ/γής"/>
+		<productionReceiptDoc e030="Production Receipt(PRO)" r070="Receptie Productie (PRO)" g060="Εισαγ.Παρ/γής"/>
+		<productionReceiptSummary e030="Production Receipt(Summarise)" r070="Receptie Productie (Sumarizat)" g060="Συνοπτ.Εισ.Παρ/γής"/>
+		<productionReturn e030="Production Return" r070="Receptii productie" g060="Επιστρ.Παρ/γης"/>
+		<PurchaseReceiptQuantity e030="Purchase Quantity Receipt" r070="Purchase Quantity Receipt" g060="Δελτίο Ποσοτ.Παραλαβής Αγορών"/>
+		<PurchaseReturnQuantity e030="Purchase Quantity Return" r070="Retur receptii" g060="Δελτιο Αποστολής Επιστροφής Αγορών"/>
+		<PurchaseReceipt e030="Purchase Receipt" r070="Receptii furnizor" g060="Παρ/βή Αγορών"/>
+		<PurchaseReturn e030="Purchase Return" r070="Retur receptii furnizor" g060="Επιστρ.Αγορών"/>
+		<PurchaseReturnVal e030="Purchase Return Value" r070="Valoare Nota Retur" g060="Αξία Επιστρ.Αγορών"/>
+		<PurchaseReceiptVal e030="Purchase Value" r070="Factura" g060="Αξία Αγορών"/>
+		<lblQtyDocNumber e030="Qty Doc Number" r070="Qty Doc Number" g060="Qty Doc Number"/>
+		<jbtnretrieveSC e030="R" r070="E" g060="R"/>
+		<RACK_EQUIPMENT e030="Rack Equipment" r070="Rack Equipment" g060="ΔΕΛΤΙΟ ΑΠΟΣΤΟΛΗΣ (ΧΡΗΣΙΔΑΝΕΙΟ)"/>
+		<RACK_EQUIPMENT_RET e030="Rack Equipment Return" r070="Rack Equipment Return" g060="ΔΕΛΤΙΟ ΠΟΣΟΤΙΚΗΣ ΠΑΡΑΛΑΒΗΣ (ΧΡΗΣΙΔΑΝΕΙΟ)"/>
+		<ReceiptSupplierDeliveryNote e030="Receipt Supplier Delivery Note" r070="Receipt Supplier Delivery Note" g060="Receipt Supplier Delivery Note"/>
+		<statusRECEIVED e030="Receive" r070="Receptionat" g060="ΠΑΡΑΛΗΦΘΕΝ"/>
+		<received e030="Receive" r070="Receptionat" g060="ΠΑΡΑΛΗΦΘΕΝ"/>
+		<statusRECEIVED e030="Receive" r070="Receptionat" g060="ΠΑΡΑΛΗΦΘΕΝ"/>
+		<jlblReceivedQty e030="Received Quantity :" r070="Cant Receptionata :" g060="Παραλ/σα ποσότητα:"/>
+		<lblRefDocNo e030="Ref.Doc.No:" r070="Ref.Doc.No:" g060="Αρ.Σχετ.Παρ/κου:"/>
+		<jlblReferancedocumentNumber e030="Reference document number" r070="Reference document number" g060="Αριθμός Σχετικού Παραστατικού"/>
+		<jlblRemainingQty e030="Remaining Quantity :" r070="Cantitate Ramasa :" g060="Υπολ/νη Ποσότητα:"/>
+		<jlblReplaced e030="Replaced" r070="Inlocuit" g060="Αντικαταστάθηκε"/>
+		<jbtnretrieve e030="Retrieve" r070="Aduce" g060="Ανάκτηση"/>
+		<creditNote e030="Return Credit Note" r070="Return Credit Note" g060="ΠΙΣΤΩΤΙΚΟ ΤΙΜΟΛΟΓΙΟ ΕΠΙΣ/ΦΗΣ"/>
+		<jlblReturnQty e030="Return Quantity :" r070="Return Quantity :" g060="Επιστρ.Ποσότ.:"/>
+		<ReturnSupplierDeliveryNote e030="Return Supplier Delivery Note" r070="Return Supplier Delivery Note" g060="Return Supplier Delivery Note"/>
+		<reverseRouteShipment e030="Reverse Route Shipment" r070="Vizualizare czi. retur" g060="Ανάκληση Δρομολ."/>
+		<routeAllocation e030="Route Allocation" r070="Alocare Ruta" g060="Ορισμ.Δρομολ."/>
+		<routeShipment e030="Route Shipment" r070="Vizualizare comenzi" g060="Αποστ.Δρομολ."/>
+		<statusSAVE e030="Save" r070="Salvare" g060="ΦΥΛΑΞΗ"/>
+		<statusPICKLIST e030="Saved" r070="Saved" g060="ΦΥΛΑΞΗ"/>
+		<SELF_DELIVERY_NOTE e030="Self Delivery Note" r070="Auto Aviz Expeditie" g060="Δελτί Αποστ. Αυτοπαράδωσης"/>
+		<statusSHIPPED e030="Shipped" r070="Livrat" g060="ΑΠΟΣΤΑΛΘΕΝ"/>
+		<shipped e030="Shipped" r070="Livrat" g060="ΑΠΟΣΤΑΛΘΕΝ"/>
+		<signature e030="Signature" r070="Semnatura" g060="Υπογραφή"/>
+		<jbtnSort e030="Sort" r070="Sort" g060="Ταξινόμηση"/>
+		<sourceDesc e030="Source Description" r070="Descriere Sursa" g060="Αποθήκη Προέλευσης"/>
+		<sourceLocation e030="Source Location" r070="Locatie Sursa" g060="Αποθ.Προελ."/>
+		<jlblCopackeLocation1 e030="Source Location:" r070="Source Location:" g060="Αποθ.Προελ."/>
+		<sourceDescReport e030="Src Desc" r070="Desc Sursa" g060="Προέλευση"/>
+		<sourceLocationReport e030="Src Location" r070="Loc Sursa" g060="Αποθ.Προελ."/>
+		<staleadjAck e030="Stale Adjust Acknowledgement" r070="Ajustare Confirmare Perimate" g060="Αποδοχή διαφοράς Ακαταλλήλων"/>
+		<STALE_RACK_RETURN_RECEIPT_NOTE_ONLY_WITHOUT_CREDIT_NOTE_FROM_BILLING e030="Stale Rack Return Receipt Note Only Without Credit Note From Billing" r070="Stale Rack Return Receipt Note Only Without Credit Note From Billing" g060="ΔΕΛΤΙΟ ΠΟΣ/ΚΗΣ ΠΑΡ/ΒΗΣ ΑΚΑΤ. (ΧΡΗΣ/ΝΕΙΟ)"/>
+		<STALE_RACK_RETURN_RECEIPT_NOTE_ONLY_WITHOUT_PRINT e030="Stale Rack Return Receipt Note Only Without Print" r070="Stale Rack Return Receipt Note Only Without Print" g060="ΔΕΛΤΙΟ ΠΟΣ/ΚΗΣ ΠΑΡ/ΒΗΣ ΑΚΑΤ. (ΧΡΗΣ/ΝΕΙΟ) (Δ.Α. ΠΕΛ.)"/>
+		<STALE_RETURN_COMBINED e030="Stale Return Combined" r070="Stale Return Combined" g060="ΠΙΣΤΩΤΙΚΟ ΤΙΜ/ΓΙΟ - Δ.Π.ΠΑΡ/ΒΗΣ ΑΚΑΤ/ΛΩΝ"/>
+		<STALE_RETURN_RECEIPT_NOTE_ONLY_WITHOUT_CREDIT_NOTE_FROM_BILLING e030="Stale Return Receipt Note Only Without Credit Note From Billing" r070="Stale Return Receipt Note Only Without Credit Note From Billing" g060="ΔΕΛΤΙΟ ΠΟΣΟΤ.ΠΑΡ/ΒΗΣ ΑΚΑΤ/ΛΑ(ΑΝΕΥ ΑΞΙΑ)"/>
+		<STALE_RETURN_RECEIPT_NOTE_ONLY_WITHOUT_PRINT e030="Stale Return Receipt Note Only Without Print" r070="Stale Return Receipt Note Only Without Print" g060="ΠΑΡ/ΒΗ ΔΕΛΤ.ΑΠΟΣΤ.ΕΠΙΣΤ.ΑΚΑΤ(ΑΝΑΜ.ΠΙΣΤ)"/>
+		<staletransferIn e030="Stale Transfer In" r070="Intrari Perimate" g060="Εισ.Ακατ/λων"/>
+		<staletransferOut e030="Stale Transfer Out" r070="Iesiri Perimate" g060="Εξαγ.Ακατ/λων"/>
+		<staleCreditNote e030="Stales Credit Note" r070="Stales Credit Note" g060="Πιστωτικό Τιμολόγιο Ακαταλλήλων"/>
+		<STALE_RETURN_NOTE e030="Stales Return Document" r070="Document Retur Perimate" g060="Παρ/κό Επιστροφής Ακαταλλήλων"/>
+		<rmncmpname e030="STAR FOODS" r070="STAR FOODS" g060="TASTY FOODS"/>
+		<documentStatusReport e030="Status" r070="Stare" g060="Κατάσταση"/>
+		<status e030="Status" r070="Stare" g060="Κατάσταση"/>
+		<jlblSupplier e030="Supplier # :" r070="Furnizor # :" g060="Κωδ.Προμηθ.:"/>
+		<system e030="Sys" r070="Sys" g060="Σύστημα"/>
+		<jlblSysDate e030="SysDate:" r070="SysDate:" g060="Ημ/νία Συστ."/>
+		<lblsystem e030="System" r070="System" g060="Σύστημα"/>
+		<jlblItems e030="System :" r070="System :" g060="Σύστημα:"/>
+		<grccmpname e030="TASTY" r070="TASTY" g060="TASTY"/>
+		<TemporaryPurchaseReceiptVal e030="Temporary Purchase Value" r070="Estimare factura" g060="Προσωρ.Αξία Αγορών"/>
+		<TemporaryPurchaseReturnVal e030="Temporary Return Value" r070="Estimare Retur" g060="Προσωρ.Αξία Επιστροφών"/>
+		<to e030="TO" r070="LA" g060="ΕΩΣ"/>
+		<jlblPallateNumberTo e030="To Pallet Number :" r070="In Nr. Palet :" g060="έως Αρ.Παλλέτας:"/>
+		<jlblPallateNumberTo e030="To Pallet Number :" r070="In Nr. Palet :" g060="έως Αρ.Παλλέτας:"/>
+		<jlblPallateNumberToConstant e030="To Pallet Cosntant :" r070="To Pallet Cosntant :" g060="έως Σταθ.Αρ.Παλλέτας:"/>
+		<jlblToTime e030="To Time:" r070="To Time:" g060="έως Ώρα:"/>
+		<jlblToTransDt e030="To Document date :" r070="To Document date :" g060="Έως Ημερ/νια Παραστατικού :"/>
+		<jlblTransType e030="To Transaction Type :" r070="Tip tranzactie :" g060="Έως Τυπ.Κίνησης"/>
+		<jlblTotal e030="Total Cost:" r070="Total Cost:" g060="Συν.Κόστος:"/>
+		<transSubTypeReport e030="Trans SbType" r070="SubTip Tranz" g060="Ειδ.Τύπ.Κιν."/>
+		<transTypeReport e030="Trans Type" r070="Tip Tranz" g060="Τυπ.Κίνησης"/>
+		<transSubType e030="Transaction SubType" r070="SubTip Tranzactie" g060="Ειδ.Τύπ.Κιν."/>
+		<transType e030="Transaction Type" r070="Tip Tranzactie" g060="Τυπ.Κίνησης"/>
+		<transferIn e030="Transfer In" r070="Intrari" g060="Ενδοδιακ.Εισαγ."/>
+		<RACK_EQUIPMENT_TIN e030="Transfer in Rack Equipment" r070="Intrari Rack" g060="ΠΑΡ/ΛΗ  ΕΙΣΑΓΩΓΗ Δ/Α -ΧΡΗΣ/ΝΕΙΟΥ ΣΕ CORE"/>
+		<transferOut e030="Transfer Out" r070="Iesiri" g060="Ενδοδιακ.Εξαγ."/>
+		<RACK_EQUIPMENT_TOT e030="Transfer out Rack Equipment" r070="Iesiri Rack Equipment" g060="ΔΕΛΤΙΟ ΑΠΟΣΤΟΛΗΣ (ΧΡΗΣΙΔΑΝΕΙΟ)"/>
+		<transferOutVoid e030="Transfer Out Void" r070="Anulare Iesiri" g060="Ακύρωση Ενδ.Εξαγ."/>
+		<alltransferOut e030="Transfer Out(ALL)" r070="Iesiri(TOT)" g060="Εξαγ.Ενδ/ση"/>
+		<ULL e030="ULL :" r070="ULL :" g060="ULL:"/>
+		<unpacked e030="UNPACKED" r070="DESPACH" g060="Αποσυσκευασθέν"/>
+		<usPeriodClosing e030="US Period Closing" r070="US Period Closing" g060="Κλείσιμο Περιόδου US"/>
+		<lblUser e030="User :" r070="Utilizator :" g060="Χρήστης:"/>
+		<voiddocument e030="Void" r070="Anulat" g060="Ακ.Παρ/κο"/>
+		<VOID_CORE_COMBINE_DEL_NOTE e030="Void Core Combine Delivery Note" r070="Anulare Aviz Expeditie Combinat Core" g060="ΑΚΥΡΩΤΙΚΟ Δ.Α.ΠΩΛΗΣΗΣ (CORE)"/>
+		<VOID_MANUAL_CORE_COMBINE_NOTE e030="Void Core Combine Delivery Note" r070="Anulare Aviz Expeditie Combinat Core" g060="ΑΚΥΡΩΤΙΚΟ ΧΕΙΡ. Δ.Α.ΤΙΜΟΛ.ΠΩΛΗΣΗΣ (CORE)"/>
+		<VOID_CORE_INDIVIDUAL_DELIVERY_NOTE e030="Void Core Individual Delivery Note" r070="Anulare Aviz Expeditie Core" g060="Μη έγκυρο Ατομικό Δελτίο Αποστολής Αντιπροσώπου"/>
+		<VOID_CORE_INDIVIDUAL_DEL_NOTE e030="Void Core Individual Delivery Note" r070="Void Core Individual Delivery Note" g060="Μη έγκυρο Ατομικό Δελτίο Αποστολής Αντιπροσώπου"/>
+		<VOID_INDIVIDUAL_DELIVERY_NOTE e030="Void Delivery Note" r070="Anulare Aviz Expeditie" g060="Ακυρ. Δελτ.Α:ποστολής"/>
+		<VOID_EXPORTS_DELIVERY_NOTE e030="Void Exports Delivery Note" r070="Anulare Aviz Expeditie Export" g060="Ακυρ. Δελτ. Αποστ. Εξαγωγών"/>
+		<VOID_EXPORTS_PACKING_NOTE e030="Void Exports Packing Note" r070="Void Exports Packing Note" g060="Ακυρ. Δελτ. Αποστ. Εξαγωγών (Αγκλ.)"/>
+		<VOID_MANUAL_COMBINE_DLV_NOTE e030="Void Manual Combine Delivery Note" r070="Anulare Aviz Expeditie Combinat Manual" g060="Ακυρ.Χειρ. Δ.Α./Τιμολ."/>
+		<VOID_MANUAL_EXPORTS_DELI_NOTE e030="Void Manual Exports Delivery Note" r070="Anulare Aviz Expeditie Export Manual" g060="Ακυρ. Χειρ. Δ.Α. Εξαγωγών"/>
+		<VoidPurchaseReceiptQty e030="Void Purchase Quantity Receipt" r070="Anulare retur receptie" g060="Ακυρ. Δελτ.Ποσοτ.Παρφαλαβής Αγορών"/>
+		<VoidPurchaseReturnQty e030="Void Purchase Quantity Return" r070="Void Purchase Quantity Return" g060="Ακυρ. Δ.Α. Επιστροφής Αγορών"/>
+		<VOID_RACK_EQUIPMENT e030="Void Rack Equipment" r070="Anulare Rack" g060="ΑΚΥΡΩΤΙΚΟ ΔΕΛΤΙΟ ΑΠΟΣΤΟΛΗΣ (ΧΡΗΣ/ΝΕΙΟ)"/>
+		<VOID_RACK_EQUIPMENT_TOT e030="Void Rack Equipment" r070="Anulare Rack" g060="ΑΚΥΡΩΤΙΚΟ ΔΕΛΤΙΟ ΑΠΟΣΤΟΛΗΣ (ΧΡΗΣ/ΝΕΙΟ) ΤΟΤ"/>
+		<VOID_RACK_EQUIPMENT_RET e030="Void Rack Equipment Return" r070="Void Rack Equipment Return" g060="ΑΚΥΡΩΤΙΚΟ ΕΠΙΣΤΡΟΦΗΣ ΧΡΗΣΙΔΑΝΕΙΟΥ"/>
+		<VOID_SELF_DELIVERY_NOTE e030="Void Self Delivery Note" r070="Anulare Auto-Aviz Expeditie" g060="ΑΚΥΡΩΤΙΚΟ ΔΕΛΤΙΟ ΑΠΟΣΤΟΛΗΣ ΑΥΤΟΠΑΡ/ΣΗΣ"/>
+		<VoidTemporaryPurchaseReceiptVal e030="void Temporary Purchase Receipt Value" r070="Anulare Estimare" g060="Ακυρωτικό Προσωρινής Αξίας Αγορών"/>
+		<VoidTemporaryPurchaseReturnVal e030="void Temporary Return Value" r070="Anulare Estimare Retur" g060="Ακυρ.Προσωρ.Αξία Επιστροφών"/>
+		<jlblWithDiff e030="With Diff." r070="Cu Dif." g060="Με διαφορές"/>
+		<statusWithDiff e030="With Diff." r070="Cu Dif." g060="Με διαφορές"/>
+		<jlblBillingTransaction  e030="Commit" r070="comis" g060="ΕΧΕΙ ΕΚΤΕΛΕΣΤΕΙ"/><!--Added by jiten for Unit Test Issue#5240-->
+		<CORE_TOT_IMPORT_TRANSACTION_WITHOUT_PRINT_WITH_EXTERNAL_NOTE_NUMBER                e030="Core Tot Import Transaction Without Print With External Note Number"     r070="Core Tot Import Transaction Without Print With External Note Number"            g060="ΠΑΡΑΛΑΒΗ Δ/Α ΕΠΙΣ/ΦΗΣ(ΑΝΕΥ ΑΞΙΑ)"            />
+		<CORE_TOT_IMPORT_TRANSACTION_WITHOUT_PRINT_AND_NO_EXTERNAL_NOTE_NUMBER              e030="Core Tot Import Transaction Without Print And No External Note Number"           r070="Core Tot Import Transaction Without Print And No External Note Number"          g060="Core Tot Import Transaction Without Print And No External Note Number"          />
+		<CORE_TOT_STALE_RETURN_RECEIPT_NOTE_ONLY_WITHOUT_CREDIT_NOTE_FROM_BILLING           e030="Core Tot Stale Return Receipt Note Only Without Credit Note From Billing"        r070="Core Tot Stale Return Receipt Note Only Without Credit Note From Billing"       g060="ΔΕΛΤΙΟ ΠΟΣΟΤ.ΠΑΡ/ΒΗΣ ΑΚΑΤ/ΛΑ(ΑΝΕΥ ΑΞΙΑ)"       />
+		<CORE_TOT_GOOD_RETURN_RECEIPT_NOTE_ONLY_WITHOUT_CREDIT_NOTE_FROM_BILLING            e030="Core Tot Good Return Receipt Note Only Without Credit Note From Billing"         r070="Core Tot Good Return Receipt Note Only Without Credit Note From Billing"        g060="Core Tot Good Return Receipt Note Only Without Credit Note From Billing"        />
+		<CORE_TOT_STALE_RACK_RETURN_RECEIPT_NOTE_ONLY_WITHOUT_CREDIT_NOTE_FROM_BILLING      e030="Core Tot Stale Rack Return Receipt Note Only Without Credit Note From Billing"   r070="Core Tot Stale Rack Return Receipt Note Only Without Credit Note From Billing"  g060="ΔΕΛΤΙΟ ΠΟΣ/ΚΗΣ ΠΑΡ/ΒΗΣ ΑΚΑΤ. (ΧΡΗΣ/ΝΕΙΟ)"  />
+		<CORE_TOT_GOOD_RACK_RETURN_RECEIPT_NOTE_ONLY_WITHOUT_CREDIT_NOTE_FROM_BILLING       e030="Core Tot Good Rack Return Receipt Note Only Without Credit Note From Billing"    r070="Core Tot Good Rack Return Receipt Note Only Without Credit Note From Billing"   g060="ΔΕΛΤΙΟ ΠΟΣΟΤΙΚΗΣ ΠΑΡΑΛΑΒΗΣ (ΧΡΗΣ/ΝΕΙΟ)"   />
+		<CORE_TIN_STALE_RETURN_RECEIPT_NOTE_ONLY_WITHOUT_PRINT                              e030="Core Tin Stale Return Receipt Note Only Without Print"                           r070="Core Tin Stale Return Receipt Note Only Without Print"                          g060="ΠΑΡ/ΒΗ ΔΕΛΤ.ΑΠΟΣΤ.ΕΠΙΣΤ.ΑΚΑΤ(ΑΝΑΜ.ΠΙΣΤ)"                          />
+		<CORE_TIN_GOOD_RETURN_RECEIPT_NOTE_ONLY_WITHOUT_PRINT                               e030="Core Tin Good Return Receipt Note Only Without Print"                            r070="Core Tin Good Return Receipt Note Only Without Print"                           g060="ΠΑΡ/ΒΗ ΔΕΛΤ.ΑΠΟΣΤ.ΕΠΙΣΤΡ.ΚΑΤ(ΑΝΑΜ.ΠΙΣΤ.)"                           />
+		<CORE_TIN_STALE_RACK_RETURN_RECEIPT_NOTE_ONLY_WITHOUT_PRINT                         e030="Core Tin Stale Rack Return Receipt Note Only Without Print"                      r070="Core Tin Stale Rack Return Receipt Note Only Without Print"                     g060="Core Tin Stale Rack Return Receipt Note Only Without Print"                     />
+		<CORE_TIN_GOOD_RACK_RETURN_RECEIPT_NOTE_ONLY_WITHOUT_PRINT                          e030="Core Tin Good Rack Return Receipt Note Only Without Print"                       r070="Core Tin Good Rack Return Receipt Note Only Without Print"                      g060="Core Tin Good Rack Return Receipt Note Only Without Print"                      />
+		<CORE_TIN_IMPORT_TRANSACTION_WITHOUT_PRINT_WITH_EXTERNAL_NOTE_NUMBER                e030="Core Tin Import Transaction Without Print With External Note Number"             r070="Core Tin Import Transaction Without Print With External Note Number"            g060="ΠΑΡΑΛΑΒΗ Δ/Α ΕΠΙΣ/ΦΗΣ(ΑΝΕΥ ΑΞΙΑ)"            />
+		<CORE_TIN_IMPORT_TRANSACTION_WITHOUT_PRINT_AND_NO_EXTERNAL_NOTE_NUMBER              e030="Core Tin Import Transaction Without Print And No External Note Number"           r070="Core Tin Import Transaction Without Print And No External Note Number"          g060="Core Tin Import Transaction Without Print And No External Note Number"          />
+		<CORE_TIN_STALE_RETURN_RECEIPT_NOTE_ONLY_WITHOUT_CREDIT_NOTE_FROM_BILLING           e030="Core Tin Stale Return Receipt Note Only Without Credit Note From Billing"        r070="Core Tin Stale Return Receipt Note Only Without Credit Note From Billing"       g060="ΔΕΛΤΙΟ ΠΟΣΟΤ.ΠΑΡ/ΒΗΣ ΑΚΑΤ/ΛΑ(ΑΝΕΥ ΑΞΙΑ)"       />
+		<CORE_TIN_GOOD_RETURN_RECEIPT_NOTE_ONLY_WITHOUT_CREDIT_NOTE_FROM_BILLING            e030="Core Tin Good Return Receipt Note Only Without Credit Note From Billing"         r070="Core Tin Good Return Receipt Note Only Without Credit Note From Billing"        g060="ΔΕΛΤΙΟ ΠΟΣ/ΚΗΣ ΠΑΡ/ΒΗ ΚΑΤ/ΛΑ (ΑΝΕΥ ΑΞΙΑ)"        />
+		<CORE_TIN_STALE_RACK_RETURN_RECEIPT_NOTE_ONLY_WITHOUT_CREDIT_NOTE_FROM_BILLING      e030="Core Tin Stale Rack Return Receipt Note Only Without Credit Note From Billing"   r070="Core Tin Stale Rack Return Receipt Note Only Without Credit Note From Billing"  g060="ΔΕΛΤΙΟ ΠΟΣ/ΚΗΣ ΠΑΡ/ΒΗΣ ΑΚΑΤ. (ΧΡΗΣ/ΝΕΙΟ)"  />
+		<CORE_TIN_GOOD_RACK_RETURN_RECEIPT_NOTE_ONLY_WITHOUT_CREDIT_NOTE_FROM_BILLING       e030="Core Tin Good Rack Return Receipt Note Only Without Credit Note From Billing"    r070="Core Tin Good Rack Return Receipt Note Only Without Credit Note From Billing"   g060="ΔΕΛΤΙΟ ΠΟΣΟΤΙΚΗΣ ΠΑΡΑΛΑΒΗΣ (ΧΡΗΣ/ΝΕΙΟ)"   />
+		<CORE_STALE_RACK_RETURN_TOT                                                         e030="Core Stale Rack Return Tot"                                                      r070="Core Stale Rack Return Tot"                                                     g060="Core Stale Rack Return Tot"                                                     />
+		<CORE_STALE_RACK_RETURN_TIN                                                         e030="Core Stale Rack Return Tin"                                                      r070="Core Stale Rack Return Tin"                                                     g060="Core Stale Rack Return Tin"                                                     />
+		<CORE_GOOD_RACK_RETURN_TOT                                                          e030="Core Good Rack Return Tot"                                                       r070="Core Good Rack Return Tot"                                                      g060="Core Good Rack Return Tot"                                                      />
+		<CORE_GOOD_RACK_RETURN_TIN                                                          e030="Core Good Rack Return Tin"                                                       r070="Core Good Rack Return Tin"                                                      g060="Core Good Rack Return Tin"                                                      />
+		<EXPORT_RACK_DELIVERY_NOTE                                                          e030="Export Rack Delivery Note"                                                       r070="Export Rack Delivery Note"                                                      g060="ΔΕΛΤΙΟ ΑΠΟΣΤΟΛΗΣ ΕΞΑΓΩΓΩΝ (ΑΝΕΥ ΑΞΙΑΣ)"                                                      />
+		<CAN_EXPORT_RACK_DELIVERY_NOTE                                                      e030="Can Export Rack Delivery Note"                                                   r070="Can Export Rack Delivery Note"                                                  g060="ΑΚΥΡ. ΔΕΛΤΙΟ ΑΠΟΣ/ΛΗΣ ΕΞ/ΓΩΝ (ΑΝΕΥ ΑΞΙΑΣ)"                                                  />
+		<EXPORT_SELF_RACK_DELIVERY_NOTE                                                     e030="Export Self Rack Delivery Note"                                                  r070="Export Self Rack Delivery Note"                                                 g060="ΔΕΛΤΙΟ ΑΠΟΣΤΟΛΗΣ ΕΞΑΓΩΓΩΝ (ΑΥΤΟΠ/ΣΗ)"                                                 />
+		<CAN_EXPORT_SELF_RACK_DELIVERY_NOTE                                                 e030="Can Export Self Rack Delivery Note"                                              r070="Can Export Self Rack Delivery Note"                                             g060="ΑΚΥΡ. ΔΕΛΤΙΟ ΑΠΟΣ/ΛΗΣ ΕΞ/ΓΩΝ (ΑΥΤΟΠ/ΣΗ)"                                             />
+		<CANCEL_STALE_RETURN_NOTE                                                           e030="Cancel Stale Return Note"                                                        r070="Cancel Stale Return Note"                                                       g060="ΑΚΥΡ/ΚΟ ΔΕΛΤΙΟ ΠΟΣ/ΚΗΣ ΠΑΡ/ΒΗΣ ΑΚΑΤ/ΛΑ"                                                       />
+		<CANCEL_MANUAL_COMBINE_INVOICE                                                      e030="Cancel Manual Combine Invoice"                                                   r070="Cancel Manual Combine Invoice"                                                  g060="ΑΚΥΡΩΤΙΚΟ ΤΙΜΟΛΟΓΙΟ / ΔΕΛΤΙΟ ΑΠΟΣΤΟΛΗΣ"                                                  />
+		<CANCEL_GOOD_RETURN_NOTE_EXPORT                                                     e030="Cancel Good Return Note Export"                                                  r070="Cancel Good Return Note Export"                                                 g060="ΑΚΥΡΩΤΙΚΟ ΔΕΛΤΙΟ ΠΟΣΤ.ΠΑΡ/ΒΗΣ ΕΞ/ΓΩΝ"                                                 />
+		<CANCEL_GOOD_RETURN_NOTE_EXPORT_MANUAL                                              e030="Cancel Good Return Note Export Manual"                                           r070="Cancel Good Return Note Export Manual"                                          g060="ΑΚΥΡΩΤΙΚΟ ΔΕΛΤΙΟ ΠΟΣΤ.ΠΑΡ/ΒΗΣ ΕΞ/ΓΩΝ"                                          />
+		<CANCEL_STALE_RETURN_NOTE_EXPORT                                                    e030="Cancel Stale Return Note Export"                                                 r070="Cancel Stale Return Note Export"                                                g060="ΑΚΥΡΩΤΙΚΟ ΔΕΛΤΙΟ ΠΟΣΤ.ΠΑΡ/ΒΗΣ ΕΞ/ΓΩΝ"                                                />
+		<CANCEL_STALE_RETURN_NOTE_EXPORT_MANUAL                                             e030="Cancel Stale Return Note Export Manual"                                          r070="Cancel Stale Return Note Export Manual"                                         g060="ΑΚΥΡΩΤΙΚΟ ΔΕΛΤΙΟ ΠΟΣΤ.ΠΑΡ/ΒΗΣ ΕΞ/ΓΩΝ"                                         />
+		<CANCEL_SELF_GOOD_RETURN_NOTE_EXPORT                                                e030="Cancel Self Good Return Note Export"                                             r070="Cancel Self Good Return Note Export"                                            g060="ΑΚΥΡ/ΚΟ Δ.Π.Π. ΕΞ/ΓΩΝ (ΑΥΤΟΠ)"                                            />
+		<CANCEL_SELF_GOOD_RETURN_NOTE_EXPORT_MANUAL                                         e030="Cancel Self Good Return Note Export Manual"                                      r070="Cancel Self Good Return Note Export Manual"                                     g060="ΑΚΥΡ/ΚΟ Δ.Π.Π. ΕΞ/ΓΩΝ (ΑΥΤΟΠ)"                                     />
+		<CANCEL_SELF_STALE_RETURN_NOTE_EXPORT                                               e030="Cancel Self Stale Return Note Export"                                            r070="Cancel Self Stale Return Note Export"                                           g060="ΑΚΥΡ/ΚΟ Δ.Π.Π. ΕΞ/ΓΩΝ (ΑΥΤΟΠ)"                                           />
+		<CANCEL_SELF_STALE_RETURN_NOTE_EXPORT_MANUAL                                        e030="Cancel Self Stale Return Note Export Manual"                                     r070="Cancel Self Stale Return Note Export Manual"                                    g060="ΑΚΥΡ/ΚΟ Δ.Π.Π. ΕΞ/ΓΩΝ (ΑΥΤΟΠ)"                                    />
+		<INVOICE_ONLY_WITH_EXTERNAL_DELIVERY_NOTE                                           e030="Invoice Only With External Delivery Note"                                        r070="Invoice Only With External Delivery Note"                                       g060="Invoice Only With External Delivery Note"                                       />
+		<CANCEL_INVOICE_ONLY_WITH_EXTERNAL_DELIVERY_NOTE                                    e030="Cancel Invoice Only With External Delivery Note"                                 r070="Cancel Invoice Only With External Delivery Note"                                g060="Cancel Invoice Only With External Delivery Note"                                />
+		<CANCEL_CORE_COMBINED_INVOICE                                                       e030="Cancel Core Combined Invoice"                                                    r070="Cancel Core Combined Invoice"                                                   g060="ΑΚΥΡΩΤΙΚΟ ΤΙΜΟΛΟΓΙΟ / ΔΕΛΤΙΟ ΑΠΟΣΤΟΛΗΣ"                                                   />
+		<CANCEL_MANUAL_CORE_COMBINED_INVOICE                                                e030="Cancel Manual Core Combined Invoice"                                             r070="Cancel Manual Core Combined Invoice"                                            g060="ΑΚΥΡΩΤΙΚΟ ΤΙΜΟΛΟΓΙΟ / ΔΕΛΤΙΟ ΑΠΟΣΤΟΛΗΣ"                                            />
+		<SELF_COMBINED_DELIVERY_NOTE                                                        e030="Self Combined Delivery Note"                                                     r070="Self Combined Delivery Note"                                                    g060="Self Combined Delivery Note"                                                    />                       
+		<MANUAL_SELF_COMBINED_DELIVERY_NOTE                                                 e030="Manual Self Combined Delivery Note"                                              r070="Manual Self Combined Delivery Note"                                             g060="Manual Self Combined Delivery Note"                                             />                       
+		<VOID_SELF_COMBINED_DELIVERY_NOTE                                                   e030="Void Self Combined Delivery Note"                                                r070="Void Self Combined Delivery Note"                                               g060="Void Self Combined Delivery Note"                                               />                       
+		<VOID_MANUAL_SELF_COMBINED_DELIVERY_NOTE                                            e030="Void Manual Self Combined Delivery Note"                                         r070="Void Manual Self Combined Delivery Note"                                        g060="Void Manual Self Combined Delivery Note"                                        />                       
+		<CORE_TOT_STALE_RETURN_RECEIPT_NOTE_ONLY_WITHOUT_PRINT                              e030="Core Tot Stale Return Receipt Note Only Without Print"                           r070="Core Tot Stale Return Receipt Note Only Without Print"                          g060="Core Tot Stale Return Receipt Note Only Without Print"                          />                       
+		<CORE_TOT_GOOD_RETURN_RECEIPT_NOTE_ONLY_WITHOUT_PRINT                               e030="Core Tot Good Return Receipt Note Only Without Print"                            r070="Core Tot Good Return Receipt Note Only Without Print"                           g060="Core Tot Good Return Receipt Note Only Without Print"                           />                       
+		<CORE_TOT_STALE_RACK_RETURN_RECEIPT_NOTE_ONLY_WITHOUT_PRINT                         e030="Core Tot Stale Rack Return Receipt Note Only Without Print"                      r070="Core Tot Stale Rack Return Receipt Note Only Without Print"                     g060="Core Tot Stale Rack Return Receipt Note Only Without Print"                     />                       
+		<CORE_TOT_GOOD_RACK_RETURN_RECEIPT_NOTE_ONLY_WITHOUT_PRINT                          e030="Core Tot Good Rack Return Receipt Note Only Without Print"                       r070="Core Tot Good Rack Return Receipt Note Only Without Print"                      g060="Core Tot Good Rack Return Receipt Note Only Without Print"                      />                       
+		<EXT_PACK_MANUAL_COPACKER_OUT    e030="External Packing Manual Co-Packer Transfer Out" r070="External Packing Manual Co-Packer Transfer Out"  g060="External Packing Manual Co-Packer Transfer Out" />                             
+		<EXT_PACK_VOID_COPACKER_OUT      e030="External Packing Void Co-Packer Transfer Out"   r070="External Packing Void Co-Packer Transfer Out"    g060="External Packing Void Co-Packer Transfer Out" />
+		<EXT_PACK_COPACKER_TRANSFER_IN   e030="External Packing Copacker Transfer In"          r070="External Packing Copacker Transfer In"           g060="External Packing Copacker Transfer In" />
+		<EXT_PACK_MANUAL_ITX_OUT         e030="External Packing Manual ITX Transfer Out"       r070="External Packing Manual ITX Transfer Out"        g060="External Packing Manual ITX Transfer Out" />
+		<EXT_PACK_VOID_ITX_OUT           e030="External Packing ITX Transfer Out Void"         r070="External Packing ITX Transfer Out Void"          g060="External Packing ITX Transfer Out Void" />
+		<EXT_PACK_ITX_TRANSFER_IN        e030="External Packing ITX Transfer In"               r070="External Packing ITX Transfer In"                g060="External Packing ITX Transfer In" />
+		
+		<EXT_PACK_VOID_COPACKER_IN        e030="External Packing Void Co-Packer Transfer In"               r070="External Packing Void Co-Packer Transfer In"                g060="External Packing Void Co-Packer Transfer In" />
+		<EXT_PACK_VOID_ITX_IN        e030="External Packing Void ITX Transfer In"               r070="External Packing Void ITX Transfer In"                g060="External Packing Void ITX Transfer In" />	
+		<VOID_COPACKER_IN        e030="Void Co-Packer Transfer In" r070="Void Co-Packer Transfer In"                g060="Void Co-Packer Transfer In" />	
+		
+		<VOID_TRANSFER_IN        e030="Void Transfer In" r070="Void Transfer In"                g060="Void Transfer In" />	
+		<VOID_ITX_IN        e030="Void ITX Transfer In" r070="Void ITX Transfer In"                g060="Void ITX Transfer In" />	
+		<VOID_STALE_IN        e030="Void Stale Transfer In" r070="Void Stale Transfer In"                g060="Void Stale Transfer In" />	
+		<lblDocNo e030="Doc. No.:" r070="Doc. Nr.:" g060="Αρ.Παρ/κού:"/>
+		
+	
+		<lblVendorLocation e030="Vendor Location" r070="Vendor Location" g060="Αρ. Προμηθευτή" />	<!-- ADDED By SHALIN SHAH For CLIENT ISSUE 359 -->
+		
+	
+	</DOCUMENTSEARCHJPANEL>
+</DocumentSearch>
+</Application-IM>

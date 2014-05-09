@@ -5,6 +5,7 @@ import com.lucastex.grails.fileuploader.UFile
 
 class ImageController {
 
+    def accessService
     def permissionsService
     def captureService
     def workflowService
@@ -27,6 +28,11 @@ class ImageController {
     def get() {
         // check for permissions here
         def image = Image.findById(params?.id)
-        if(image && permissionsService.checkPermissions(image)) redirect controller: "download", action: "index", id: image.file.id
+        if(image && permissionsService.checkPermissions(image)) accessService.renderFile(response, image.file, "attachment")
+    }
+    
+    def view() {
+        def image = Image.findById(params?.id)
+        if(image && permissionsService.checkPermissions(image)) accessService.renderFile(response, image.file, "inline")
     }
 }

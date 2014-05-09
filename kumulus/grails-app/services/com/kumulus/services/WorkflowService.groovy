@@ -23,7 +23,12 @@ class WorkflowService {
             types: [:]
         ]
         stateMap().each {
-            def tasks = Task.findAllByUserIdAndTypeAndCompleted(userId, it.key, null, [sort:"created", order:"asc"])
+            def tasks 
+            if(userId) {
+                tasks = Task.findAllByUserIdAndTypeAndCompleted(userId, it.key, null, [sort:"created", order:"asc"])
+            } else {
+                tasks = Task.findAllByTypeAndCompleted(it.key, null, [sort:"created", order:"asc"])
+            }
             queues.types.put(it.key, [count: tasks.size(), tasks: tasks])
             queues.count += tasks.size().toLong()
         }

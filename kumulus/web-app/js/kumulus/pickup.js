@@ -1,75 +1,47 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-var selectDate = "", deliveryId, shipmentId;
+
+var selectDate = "";
 
 $(document).ready(function() {
 
     $("#divCalendar").datepicker({
         minDate: new Date(),
         onSelect: function(selectedDate) {
-
             selectDate = selectedDate.toString();
-
         }
     });
 
     $("#scheduleDated").datepicker({
         minDate: new Date(),
-         beforeShow:function(){
-          $('#scheduleDated').val($('#scheduleDated').val());
-      }
-
+        beforeShow:function(){
+            $('#scheduleDated').val($('#scheduleDated').val());
+        }
     });
+    
     $("#datePickerDate").datepicker({
         minDate: new Date(),
         onClose: function() {
             this.focus();
         }
-
     });
 
+    $("#addNode").click(function() {
+        getNodeList();
+    });
 
-//  getNodeList();  
-
-    $("#sendPickupNode").click(function() {
-
-        if ($("input:checkbox:checked").length != 0) {
-            $("input:checkbox:checked").each(function(i) {
-                if ($(this).attr("checked", true)) {
-                    nodeId[i] = $(this).attr("id")
-                    $("#nodeId").val(nodeId)
-                }
-
-            });
-
-            saveNode();
-        }
-        else {
-            alert("Please select a node to send")
-        }
-
-    })
-
-
-    $("#addNode, #addNode1").click(function() {
-        deliveryId = $(this).attr('deliveryId');
-        shipmentId = $("#shipmentId").val()
-        getNodeList($(this).attr('deliveryId'), $("#shipmentId").val());
-
+    $("#removeNode, #removeNode1").click(function() {
+        removeNodesFromShipment();
+        window.location.reload(true);
     });
 
     $("#nodeDialog").dialog({
         autoOpen: false,
         height: 300,
-        width: 400,
+        width: 700,
         modal: true,
         buttons: {
-            "Add Nodes": function() {
-                addNodes();
-                $(this).dialog("close")
+            "Add to shipment": function() {
+                addNodesToShipment();
+                $(this).dialog("close");
                 window.location.reload(true);
             },
             Cancel: function() {
@@ -81,141 +53,78 @@ $(document).ready(function() {
         }
     });
 
-    $("#removeNode, #removeNode1").click(function() {
-        deliveryId = $(this).attr('deliveryId');
-        removeNode($(this).attr('deliveryId'));
-        window.location.reload(true);
-
-    });
-
-
 });
 
-
-
-function getNodeList(deliveryId, shipmentId) {
-
-    var data = {deliveryId: deliveryId, shipmentId: shipmentId, }
+function getNodeList() {
+    
     $.ajax({
-        url: url('node', 'list', ''),
+        url: url('node', 'listShippable', ''),
         type: 'POST',
-        data: JSON.stringify(data),
+        data: null,
         contentType: 'application/json; charset=utf-8',
         dataType: 'json',
         async: false,
         success: function(data) {
             $("#nodeDialog").dialog("open");
-            $("#nodeTableDialog tbody tr").remove()
+            $("#nodeTableDialog tbody tr").remove();
             $.each(data, function(i) {
-
-                $("#nodeTableDialog").append('<tr><td><input type="checkbox" class="checkbox" name="node_checkbox" id="' + data[i].id + '"></td><td>' + data[i].name + '</td></tr>');
-            })
-
+                $("#nodeTableDialog").append('<tr><td><input type="checkbox" class="inputCheckbox" name="node_checkbox" id="' + data[i].key + '"></td><td>' + data[i].text + '</td><td>' + data[i].barcode + '</td></tr>');
+            });
         }
     });
 
 }
 
-
-function saveNode() {
-
-    if (selectDate != "") {
-        var data = {node: nodeId, selectDate: selectDate}
+function addNodesToShipment() {
+    
+    var shipmentId = $("#shipmentId").attr("value")
+    var nodeIds = [];
+    
+    $(".inputCheckbox").each(function(i) {
+        if ($(this).attr("checked", true)) {
+            nodeIds[i] = $(this).attr("id");
+        }
+    });
+    if(nodeIds.length>0) {
         $.ajax({
-            url: url('node', 'test', ''),
+            url: url('shipment', 'addNodes', ''),
             type: 'POST',
-            data: JSON.stringify(data),
+            data: JSON.stringify({nodeIds: nodeIds, shipmentId: shipmentId}),
             contentType: 'application/json; charset=utf-8',
             dataType: 'json',
             async: false,
             success: function(data) {
 
-                $.each(data, function(i) {
-
-                    $("#nodeTable").append('<tr><td>' + data[i].name + '</td><td>' + data[i].barcode + '</td><td><input type="checkbox" class="checkbox" name="node_checkbox" id="' + data[i].id + '"></td></tr>');
-                })
-
             }
         });
     }
-    else {
-        alert("Please select date")
-    }
-
 }
 
-function addNodes() {
-    var nodeId = [];
-    if ($("input[name=node_checkbox]:checked").length != 0) {
-        $("input[name=node_checkbox]:checked").each(function(i) {
-
-            if ($(this).attr("checked", true)) {
-                nodeId[i] = $(this).attr("id");
-            }
-        })
-        saveShipmentNode(nodeId, deliveryId);
-    }
-    else {
-        alert("Select the node to be add.");
-        return false;
-    }
-
-}
-
-function removeNode() {
-    var nodeId = [];
+function removeNodesFromShipment() {
+    
+    var shipmentItemIds = [];
+    
     if ($("input[name=shipItem]:checked").length != 0) {
         $("input[name=shipItem]:checked").each(function(i) {
 
             if ($(this).attr("checked", true)) {
-                nodeId[i] = $(this).attr("id");
+                shipmentItemIds[i] = $(this).attr("id");
             }
         })
-        removeShipmentNode(nodeId, deliveryId);
+    
+        $.ajax({
+            url: url('shipment', 'removeNodes', ''),
+            type: 'POST',
+            data: JSON.stringify({shipmentItemIds: shipmentItemIds}),
+            contentType: 'application/json; charset=utf-8',
+            dataType: 'json',
+            async: false,
+            success: function(data) {
+
+            }
+        });
     }
-    else {
-        alert("Select the node to be remove.");
-        return false;
-    }
-
 }
-
-function saveShipmentNode(nodeId, deliveryId) {
-
-    var data = {nodeList: nodeId, deliveryId: deliveryId, shipmentId: shipmentId};
-    $.ajax({
-        url: url('shipment', 'saveItems', ''),
-        type: 'POST',
-        data: JSON.stringify(data),
-        contentType: 'application/json; charset=utf-8',
-        dataType: 'json',
-        async: false,
-        success: function(data) {
-
-        }
-    });
-
-}
-
-function  removeShipmentNode(nodeId, deliveryId) {
-    var data = {nodeList: nodeId, deliveryId: deliveryId};
-    $.ajax({
-        url: url('shipment', 'removeItems', ''),
-        type: 'POST',
-        data: JSON.stringify(data),
-        contentType: 'application/json; charset=utf-8',
-        dataType: 'json',
-        async: false,
-        success: function(data) {
-
-        }
-    });
-
-}
-
-
-
-
 
 
 

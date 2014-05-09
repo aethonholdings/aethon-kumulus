@@ -6,8 +6,6 @@ class BootStrap {
     
     def init = { servlentContext ->                         
         
-
-
     }
     
     def destroy = {

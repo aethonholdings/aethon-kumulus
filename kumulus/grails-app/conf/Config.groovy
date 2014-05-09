@@ -13,6 +13,8 @@
 
 grails.project.groupId = kumulus // change this to alter the default package name and Maven publishing destination
 
+grails.gorm.failOnError = true
+
 // The ACCEPT header will not be used for content negotiation for user agents containing the following strings (defaults to the 4 major rendering engines)
 grails.mime.disable.accept.header.userAgents = ['Gecko', 'WebKit', 'Presto', 'Trident']
 grails.mime.types = [
@@ -108,75 +110,71 @@ log4j = {
 }
 
 // Added by the Spring Security Core plugin:
-// grails.plugin.springsecurity.userLookup.userDomainClassName = 'com.kumulus.domain.User'              // not needed because we are using LDAP
-// grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'com.kumulus.domain.UserRole'       // not needed because we are using LDAP
-// grails.plugin.springsecurity.authority.className = 'com.kumulus.domain.Role'                         // not needed because we are using LDAP
-grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/home'                                  // added by Konstantinos to configure login landing page
+grails.plugin.springsecurity.userLookup.userDomainClassName = 'com.kumulus.domain.User'              
+grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'com.kumulus.domain.UserRole'       
+grails.plugin.springsecurity.authority.className = 'com.kumulus.domain.Role'                         
+grails.plugin.springsecurity.successHandler.defaultTargetUrl = '/home'
+
+// permission definitions
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
-        
-        // public
-	'/':                              ['permitAll'],
 	'/**/js/**':                      ['permitAll'],
 	'/**/css/**':                     ['permitAll'],
 	'/**/images/**':                  ['permitAll'],
 	'/**/favicon.ico':                ['permitAll'],
-
-        // secured - workflow controllers
-        '/home/**':                       ['isAuthenticated()'],
-        '/access/**':                     ['ROLE_ADMIN', 'ROLE_VIEW'],
-        '/capture/**':                    ['ROLE_ADMIN', 'ROLE_IMPORT'],
-        '/structure/**':                  ['ROLE_ADMIN', 'ROLE_PROCESS'],
-        '/logistics/**':                  ['isAuthenticated()'],
+]
+grails.plugin.springsecurity.securityConfigType = "InterceptUrlMap"
+grails.plugin.springsecurity.interceptUrlMap = [    
+        // authentication pages accessed by all
+        '/login/**':                      ['permitAll'],
+        '/logout/**':                     ['permitAll'],
     
-        // secured - domain controllers
+        // key controller tools shared by all authenticated users
+        '/':                              ['isAuthenticated()'],
+        '/home/**':                       ['isAuthenticated()'],
+        '/fileUploader/process/**':       ['isAuthenticated()'],
+        '/download/**':                   ['isAuthenticated()'],
+
+        // admin pages
+        '/user/**':                       ['ROLE_ADMIN'],
+        '/admin/**':                      ['ROLE_ADMIN'],
+    
+        // workflow pages
+        '/customer/**':                   ['ROLE_ADMIN', 'ROLE_CUSTOMER'],
+        '/capture/**':                    ['ROLE_ADMIN', 'ROLE_CAPTURE'],
+        '/backOffice/**':                 ['ROLE_ADMIN', 'ROLE_BACK_OFFICE'],
+        '/logistics/**':                  ['ROLE_ADMIN', 'ROLE_LOGISTICS'],
+
+        // import
+        '/scanDo/**':                     ['ROLE_ADMIN','ROLE_IMPORT'],
+        '/scanDo2/**':                    ['ROLE_ADMIN','ROLE_IMPORT'],
+       
+        // domain base controllers
         '/company/**':                    ['isAuthenticated()'],
         '/document/**':                   ['isAuthenticated()'],
         '/file/**':                       ['isAuthenticated()'],
         '/image/**':                      ['isAuthenticated()'],
         '/node/**':                       ['isAuthenticated()'],
-        '/project/**':                    ['isAuthenticated()'],
         '/task/**':                       ['isAuthenticated()'],
-
-        '/barcode/**':                    ['ROLE_ADMIN'],
-        '/scanDo/**':                    ['permitAll'],
-
-
+        '/barcode/**':                    ['isAuthenticated()'],
         '/shipment/**':                   ['isAuthenticated()'],
         '/product/**':                    ['isAuthenticated()'],
-        '/scando/**':                     ['isAuthenticated()'],
-   
-        // secured - plugin controllers
-        '/fileUploader/process/**':       ['ROLE_ADMIN', 'ROLE_IMPORT'],
-        '/download/**':                   ['isAuthenticated()']
-        
+        '/project/**':                    ['isAuthenticated()']
 ]
 
 // scando controller - use basic authentication
 grails.plugin.springsecurity.useBasicAuth = true
 grails.plugin.springsecurity.basic.realmName = "kumulus"
+grails.plugin.springsecurity.logout.postOnly = false
 grails.plugin.springsecurity.filterChain.chainMap = [
         '/scando/**': 'JOINED_FILTERS,-exceptionTranslationFilter',
+        '/scando2/**': 'JOINED_FILTERS,-exceptionTranslationFilter',
         '/**': 'JOINED_FILTERS,-basicAuthenticationFilter,-basicExceptionTranslationFilter'
 ]
-
-grails.plugin.springsecurity.providerNames = ['ldapAuthProvider', 'anonymousAuthenticationProvider', 'rememberMeAuthenticationProvider']
-grails.plugin.springsecurity.logout.postOnly = false
-
-// LDAP configuration ----------------------------
-
-// server
-grails.plugin.springsecurity.ldap.context.server = 'ldap://test.aethon.sg:389'
-grails.plugin.springsecurity.ldap.context.managerDn = 'cn=admin,dc=aethon,dc=sg'
-grails.plugin.springsecurity.ldap.context.managerPassword = 'secret'
-
-// search
-grails.plugin.springsecurity.ldap.user.base = 'ou=people,dc=aethon,dc=sg'
-grails.plugin.springsecurity.ldap.search.base = 'dc=aethon,dc=sg'
-grails.plugin.springsecurity.ldap.search.searchSubtree = true
-
-// authorities
-grails.plugin.springsecurity.ldap.authorities.groupRoleAttribute = 'cn'
-grails.plugin.springsecurity.ldap.authorities.groupSearchBase = 'ou=groups,dc=aethon,dc=sg'
+grails.plugin.springsecurity.providerNames = [
+        'daoAuthenticationProvider', 
+        'anonymousAuthenticationProvider', 
+        'rememberMeAuthenticationProvider'
+]
 
 // Kumulus configuration --------------------------
 grails.sitemesh.default.layout = 'home'                 // default layout
@@ -195,6 +193,7 @@ kumulus {
         'ROLE_SUPERVISE',
         'ROLE_VIEW'
     ]
+    useABBYY = System.getenv('KUMULUS_STRESS') == null
 }
 
 environments {
@@ -255,3 +254,5 @@ smtp {
     from = "theodoros.balopoulos@aethon.sg"
     error_to = "theodoros.balopoulos@aethon.sg"
 }
+
+

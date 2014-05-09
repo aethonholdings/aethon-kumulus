@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+
+<!--
+============================ Modification History ============================
+
+   Date			   Author              Code #                  Description of Modifications
+   ====			   ======		       ======				   ============================
+17/05/2011		Shalin Shah		PickSeqJPnlXMLBundle#1					QA Issue# 12975
+
+-->
+
+<Application-IM>
+<PickingSequence>
+	<PICKINGSEQUENCEJPANEL>
+		<date   e030="Date" r070="Data" g060="Ημ/νία"/>
+		<description  e030="Description" r070="Descriere" g060="Περιγραφή"/>
+		<luCode  e030="LU Code" r070="Cod SKU" g060="LU"/>
+		<pickLocation  e030="Picking Location" r070="Locatie Picking" g060="Θέση Συγκέντρωσης"/>
+		<Printingsequence  e030="Printing Sequence" r070="Secventa de printare" g060="Σειρά Εκτύπωσης"/>
+		<jbtnRetrieveSC  e030="R" r070="E" g060="R"/>
+		<jbtnRetrieveTT  e030="Retrieve data" r070="Aduce date" g060="Ανάκτηση δεδομένων"/>
+		<sellingCode  e030="Selling Code" r070="Cod Vanzare" g060="Κωδ.Πώλησης"/>
+		<srNo  e030="Sr. No." r070="Sr. No." g060="A.A."/>
+		<rmncmpname  e030="STAR FOODS" r070="STAR FOODS" g060="TASTY FOODS"/>
+		<grccmpname  e030="TASTY" r070="TASTY" g060="TASTY"/>
+		<UOM  e030="UOM" r070="UM" g060="Μ.Μ."/>
+		<docLineId  e030="Doc Line Id" r070="Linie Doc." g060="Αρ.γραμμής"/>
+		<jbtnRetrieve  e030="Retrieve" r070="Aduce" g060="Ανάκτηση"/>
+		<jlblLocation  e030="Location :" r070="Locatie :" g060="Αποθήκη:"/>
+		<jlblItem  e030="Items :" r070="Produs :" g060="Είδη :"/>
+		<jlbldate1  e030="Date:" r070="Data:" g060="Ημ/νία:"/>
+		<jlblDate  e030="Date :" r070="Data :" g060="Ημ/νία:"/>
+		<position e030="Position" r070="Pozitie" g060="Θέση"/>
+		<jlblOPMLocation  e030="Logical Location :" r070="Locatie Logica:" g060="Λογική Αποθήκη :"/>
+		<fullName e030="Full Name" r070="Nume" g060="Πλήρης επωνυμία"/>
+		<jlblpage  e030="Page:" r070="Pagina:" g060="Σελίδα:"/>		<!-- For PickSeqJPnlXMLBundle#1 === Shalin for QA Issue# 12975  -->
+		<system  e030="System :" r070="System :" g060="Σύστημα:"/>
+		<sequence  e030="Sequence" r070="Secventa" g060="Σειρά Παρ/ικού"/>
+		<title  e030="Picking Sequence" r070="Secventa Picking" g060="Σειρα Συλλογής"/>
+		<signature   e030="Signature" r070="Semnatura" g060="Υπογραφή"/>
+		<lblOf  e030="Of" r070="Of" g060="Από"/>
+		
+	</PICKINGSEQUENCEJPANEL>
+</PickingSequence>
+</Application-IM>

@@ -43,7 +43,7 @@ public class IMApplicationMain
 	
     try
     {
-      InitLog4j.initializeLogger();//For Log4j
+      InitLog4j.initializeLogger();     //For Log4j
       final Logger log = Logger.getLogger(IMApplicationMain.class);//For Log4j
       CommandLineParser parser = new CommandLineParser ( args ) ;
       IMTheme im = new IMTheme () ;
