@@ -5,12 +5,14 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Home | Kumulus</title>
+    <g:javascript src='kumulus/classes/ContainerViewer.js'/>
+    <g:javascript src='kumulus/pickup.js'/>
   </head>
   <body>
     <div class="pure-g">
       <div class="pure-u-2-5">
         <div class="kumulus-container">
-          <div class="kumulus-widget-base kumulus-widget-1-2">
+          <div class="kumulus-widget-base kumulus-widget">
             <div class="kumulus-widget-header">
               <span class="kumulus-widget-header-title">Shipment information</span>
               <span class="kumulus-widget-header-action"></span>
@@ -29,19 +31,9 @@
                 <input id="date" type="date" class="pure-u-1-2" disabled>
               </div>
             </div>
-          </div>
-          <div class="kumulus-widget-base kumulus-widget-1-2">
-            <div class="kumulus-widget-header">
-              <span class="kumulus-widget-header-title">Container details</span>
-              <span class="kumulus-widget-header-action"></span>
-            </div>
             <div id="containerViewer" class="pure-form pure-form-aligned">
               <div class="pure-control-group">
-                <label for="barcode">Barcode:</label>
-                <input name="barcode" type="text" id="nodeBarcode" class="pure-u-1-2" readonly=""/>
-              </div>
-              <div class="pure-control-group">
-                <label for="type">Type:</label>
+                <label for="type">Container type:</label>
                 <input name="type" type="text" id="nodeType" class="pure-u-1-2" readonly=""/>
               </div>
               <div class="pure-control-group">
