@@ -3,7 +3,6 @@
 -->
 <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <g:javascript src='kumulus/schedule.js'/>
     <title>Logistics schedule | Kumulus</title>
   </head>

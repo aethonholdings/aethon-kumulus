@@ -243,7 +243,6 @@ class CaptureService {
             document.identifier = identifier
             document.save()
         }
-        
         return(document)
         
     }

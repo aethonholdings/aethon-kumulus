@@ -3,12 +3,9 @@
   and open the template in the editor.
 -->
 
-<%@ page contentType="text/html;charset=UTF-8" %>
-
 <html>
   <head>
     <meta name="layout" content="main" />
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <link rel='stylesheet' type='text/css' href='${resource(dir: 'css/kumulus', file: 'main.css')}'/>
     <title>Barcode Print Layout</title>
   </head>

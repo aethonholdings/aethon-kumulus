@@ -354,6 +354,10 @@ width:60%;
     text-align: center;
 }
 
+.kumulus-column-number{
+    text-align: right;
+}
+
 /* -- NODE IMPORT WIDGET ------------------------- */
 
 .kumulus-control-group {

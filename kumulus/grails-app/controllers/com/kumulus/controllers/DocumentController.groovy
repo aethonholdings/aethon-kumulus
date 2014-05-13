@@ -44,15 +44,7 @@ class DocumentController {
         }
         render response as JSON
     }
-            
-    def update() {  
-        def data = request.JSON
-        def response = [done: false]
-        def document = Document.findById(data?.id)
-        captureService.update(document, data)
-        render response as JSON
-    }
-    
+
     def get() {
         def document = Document.findById(params?.id) 
         if(document && permissionsService.checkPermissions(document)) {

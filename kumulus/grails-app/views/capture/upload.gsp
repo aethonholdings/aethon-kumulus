@@ -3,8 +3,6 @@
   and open the template in the editor.
 -->
 
-<%@ page contentType="text/html;charset=UTF-8" %>
-
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="${resource(dir: 'css/dynatree/skin', file: 'ui.dynatree.css')}"/>

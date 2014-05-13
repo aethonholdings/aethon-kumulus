@@ -3,7 +3,6 @@
 -->
 <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Home | Kumulus</title>
     <g:javascript src='kumulus/classes/ContainerViewer.js'/>
     <g:javascript src='kumulus/pickup.js'/>

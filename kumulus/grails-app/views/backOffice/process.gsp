@@ -1,4 +1,3 @@
-<%@ page import="java.text.SimpleDateFormat;" contentType="text/html;charset=UTF-8" %>
 <html>
   <head>
     <title>Process document | Kumulus</title>
@@ -8,8 +7,7 @@
     <g:javascript src='kumulus/process.js'/>
   </head>
   <body>
-    <g:form name="structure" action="save" id="${document.id}" class="pure-form pure-form-stacked">
-      <% SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yyyy"); %>
+    <g:form name="structure" action="save" id="${document.id}" class="pure-form pure-form-stacked">      
       <div class="kumulus-widget-base kumulus-widget-3-5">
         <div class="pure-g">
           <div class="pure-u-3-4">
@@ -27,6 +25,7 @@
                 <input type="hidden" name ="taskId" value="${task.id}"/>
                 <input type="hidden" name ="taskType" value="${task.type}"/>
                 <input type="hidden" name ="documentId" value="${document.id}"/>
+                <input type="hidden" name ="pageCount" value="${document.pages.size()}"/>
                 <div class="pure-control-group">
                   <label for="documentType">* Document type</label>
                   <g:select id="documentType" name="documentType" optionKey="id" optionValue="name" from="${documentTypes}"  value="${document.type.id.toString()}" class="pure-input-1" />
@@ -36,26 +35,12 @@
                   <input id="company" name="company" type="text" value="${document.company?.name}" class="pure-input-1 ui-widget"></input>
                 </div>
                 <div class="pure-control-group">
-                  <label for="date">* Date</label>                
-                  <g:if test="${document.date==null}">
-                    <input id="datePickerDate" name ="date" placeholder="Select a date"type="text" class="pure-input-1">
-                  </g:if>
-                  <g:else>
-                    <input id="datePickerDate" name ="date" placeholder="Select a date"type="text" value="${document.date.format('dd/MM/yyyy')}" class="pure-input-1">
-                  </g:else>
+                  <label for="date">* Date</label>
+                  <input name ="date" placeholder="Select a date" type="date" value="${document.date?.format('yyyy-MM-dd')}" class="pure-input-1"/>
                 </div>
                 <div class="pure-control-group">
                   <label for="documentId">* Identifier</label>
                   <input id="documentId"  name="identifier" type=text value="${document.identifier}" class="pure-input-1"></input>
-                </div>
-                <div>
-                  <label for="documentId">*Currency</label> 
-                  <g:if test="${document.pages.lineItems.currency.id[0][0]}">
-                    <g:select id="currency" name="currency" optionKey="id" optionValue="shortName" from="${currencies}" value="${document.pages.lineItems.currency.id[0][0]}" class="pure-input-1" />
-                  </g:if>
-                  <g:else>
-                    <g:select id="currency" name="currency" optionKey="id" optionValue="shortName" from="${currencies}" value="${127}" class="pure-input-1" />
-                  </g:else>
                 </div>
               </fieldset>
             </div>
@@ -63,67 +48,37 @@
         </div>
       </div>
       <div class="kumulus-widget-base kumulus-widget-2-5 kumulus-scrollable-y">
-        <div class="kumulus-line-item-table">
-          <table id="lineItems" class="pure-table-horizontal">
+        <div id="lineItems" class="kumulus-line-item-table">
+          <table class="pure-table-horizontal">
             <thead>
-              <th>ID</th>
-              <th>*Page</th>
-              <th>*Description</th>                  
-              <th>Date</th>
-              <th>Quantity</th>
-              <th>Price</th>
-              <th>*Amount</th>
-              <th>Actions</th>
+              <th style="width:5%">*Page</th>
+              <th style="width:40%">*Description</th>                  
+              <th style="width:5%">Date</th>
+              <th style="width:10%">Quantity</th>
+              <th style="width:10%">*Currency</th>
+              <th style="width:10%">Price</th>
+              <th style="width:10%">*Amount</th>
+              <th style="width:10%">Action</th>
             </thead>
             <tbody class="kumulus-vertical-align-top">
-              <g:if test="${document?.pages?.lineItems}">
-                <g:hiddenField name="lineItemCount" id="lineItemCount" value="${size}" />
-                <g:each var="page" status ="j" in="${document?.pages}">
-                  <g:each var="lineItem" status ="i" in="${page.lineItems}">
-                    <tr onchange="send(this)" class="new">
-                      <td><input id="lineItemId" name="lineItemId" size="4" type="text" value="${lineItem.id}" class="kumulus-column-id new" readonly></input></td>
-                      <td>
-                        <input id="pageNo" name="pageNo" size="2" type="text" value="" class="kumulus-column-page new" onkeypress="CheckNumeric(event)" ></input>
-                        <input id="pageId" name="pageId" type="hidden" value="${page.id}"></input>
-                      </td>
-                      <td><input id="focus" name="description" size="25" type=text value="${lineItem.description}" class="kumulus-column-description new" ></input></td>
-                      <td>
-                        <g:if test="${lineItem.date==null}">
-                         <input id="lineItemDate${j}${i}" name ="lineItemDate" placeholder="Select a date" type="text" class="kumulus-column-date new">
-                        </g:if>
-                        <g:else>
-                          <input id="lineItemDate${j}${i}" name ="lineItemDate" placeholder="Select a date" type="text" value="${lineItem.date.format('dd/MM/yyyy')}" class="kumulus-column-date new">
-                        </g:else>
-                      </td>    
-                      <td><input id="quantity" name="quantity" type=text  size="6" value="${lineItem.quantity}" class="kumulus-column-quantity new" onkeydown="CheckNumeric(event)"></input></td>
-                      <td><input id="price" name="price" size="6" type="text" value="${lineItem.price}" class="kumulus-column-price new" onkeydown="CheckNumeric(event)" onchange="total(this)"></input></td>
-                      <td><input id="amount" name ="amount" size="6" type="text"  value="${lineItem.amount}" class="kumulus-column-amount new" onkeydown="CheckNumeric(event)" id="test"></input></td>
-                      <td><a class="remove" href="#">Remove</a></td>
-                    </tr>
-                  </g:each> 
-                </g:each>  
-              </g:if>
-              <g:else>
-                <tr onchange="send(this)" class="new">
-                  <td><input id="lineItemId" name="lineItemId" size="4" type="text" value="" class="kumulus-column-id new" readonly></input></td>
-                  <td>
-                    <input id="pageNo" name="pageNo" size="2" type="text" value="" class="kumulus-column-page new" onkeypress="CheckNumeric(event)" ></input>
-                    <input id="pageId" name="pageId" type="hidden" value=""></input>
-                  </td>
-                  <td><input id="focus" name="description" size="25" type=text value="" class="kumulus-column-description new" ></input></td>
-                  <td><input  id="lineItemDate0" name ="lineItemDate" placeholder="Select a date" type="text" readonly="true" class="kumulus-column-date new"></td>
-                  <td><input id="quantity" name="quantity" type=text  size="6" value="" class="kumulus-column-quantity new" onkeydown="CheckNumeric(event)"></input></td>
-                  <td><input id="price" name="price" size="6" type="text" value="" class="kumulus-column-price new" onkeydown="CheckNumeric(event)" onchange="total(this)"></input></td>
-                  <td><input id="amount" name ="amount" size="6" type="text"  value="" class="kumulus-column-amount new" onkeydown="CheckNumeric(event)" id="test"></input></td>
-                  <td><a class="remove" href="#">Remove</a></td>
-                </tr>
-              </g:else>
+              <g:each var="page" in="${document?.pages.sort{it.number}}">
+                <g:each var="lineItem" in="${page.lineItems}">
+                  <tr id="lineItem${lineItem.id}">
+                    <td><input name="pageNo" type="text" value="${lineItem.page.number}" class="kumulus-column-page pure-input-1"/></td>
+                    <td><input name="description" type=text value="${lineItem.description}" class="kumulus-column-description pure-input-1"/></td>
+                    <td><input name ="lineItemDate" type="date" value="${lineItem.date?.format('yyyy-MM-dd')}" class="kumulus-column-date pure-input-1"></td>
+                    <td><input name="quantity" type=text  value="${lineItem.quantity}" class="kumulus-column-quantity pure-input-1"/></td>
+                    <td><g:select name="currency" optionKey="id" optionValue="shortName" from="${currencies}" value="${127}" class="kumulus-column-currency pure-input-1"/></td>
+                    <td><input name="price" type="text" value="${lineItem.price}" class="kumulus-column-price pure-input-1"/></td>
+                    <td><input name ="amount" type="text"  value="${lineItem.amount}" class="kumulus-column-amount pure-input-1"/></td>
+                    <td><a class="remove" href="#">Remove</a></td>
+                  </tr>
+                </g:each> 
+              </g:each>  
             </tbody>
           </table>
-          <div>
-            <input type="button" id="add" value="Add" class="pure-button kumulus-float-right"></input>
-          </div>
         </div>
+        <p><input type="button" id="add" value="Add" class="pure-button"/></p>
       </div> 
       <div class="kumulus-button-bank">
         <input type="button" id ="saveAndNext" value="Save and next" class="pure-button"></input>
