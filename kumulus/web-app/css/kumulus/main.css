@@ -358,6 +358,10 @@ width:60%;
     text-align: right;
 }
 
+.kumulus-entry-error{
+    background-color: #ff0;
+}
+
 /* -- NODE IMPORT WIDGET ------------------------- */
 
 .kumulus-control-group {
