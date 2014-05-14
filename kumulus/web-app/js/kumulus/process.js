@@ -2,26 +2,25 @@
 
 
 $(document).ready(function(){
-
+    var count = 0;
     $("#template").hide();    
     
     $(".remove").click(function(){ $(this).parent().parent().remove(); });
     
     $("#add").click(function(){
-        if(validateLineItems()) {
+        $("#lineItemForm").validate();
+        if($("#lineItemForm").valid()) {
             var newRow = $("#template tbody").clone(true, true);
-            $("#lineItems tbody").append(newRow.html());
-            $(".remove").click(function(){ $(this).parent().parent().remove(); });
+            $("#lineItems tbody").append(newRow.html());                            // add the row
+            $(".remove").click(function(){ $(this).parent().parent().remove(); });  // bind events
+            // bind validation            
         }
     });
-    
 })
 
-function validateLineItems() {
-    var success = true;
-    var maxPages = $("#pageCount").val();
-    var lineItems = [];
+function packageLineItems() {
     
+    var lineItems = [];
     $("#lineItems tr:not(:has(th))").each(function() {
         // check the page number
         var lineItem = {
@@ -33,15 +32,9 @@ function validateLineItems() {
             price: $(this).find(".kumulus-column-price").val(),
             amount: $(this).find(".kumulus-column-amount").val()
         }
-        
-        if(!lineItem.page || isNaN(lineItem.page) || lineItem.page > maxPages) {
-            $(this).find(".kumulus-column-page").addClass("kumulus-entry-error")
-            success = false;
-        } else {
-            $(this).find(".kumulus-column-page").removeClass("kumulus-entry-error")
-        } 
-        
+        lineItems.push(lineItem);
     });
-    return success;
+    return lineItems;
+    
 }
 

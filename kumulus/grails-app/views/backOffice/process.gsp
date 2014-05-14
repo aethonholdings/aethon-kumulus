@@ -1,7 +1,7 @@
 <html>
   <head>
     <title>Process document | Kumulus</title>
-    <g:javascript src='jquery/validate/validate.js'/>
+    <g:javascript src='jquery/validate/jquery.validate.js'/>
     <g:javascript src='kumulus/process.js'/>
   </head>
   <body>
@@ -63,14 +63,14 @@
             <tbody>
               <g:each var="page" in="${document?.pages.sort{it.number}}">
                 <g:each var="lineItem" in="${page?.lineItems.sort{it.id}}">
-                  <tr lineItemId="${lineItem.id}" currencyId="${lineItem.currency.id}">
-                    <td><input type="text" value="${lineItem.page.number}" class="kumulus-column-page pure-input-1 kumulus-column-number"/></td>
-                    <td><input type="text" value="${lineItem.description}" class="kumulus-column-description pure-input-1"/></td>
-                    <td><input type="date" value="${lineItem.date?.format('yyyy-MM-dd')}" class="kumulus-column-date pure-input-1"></td>
-                    <td><input type="text" value="${lineItem.quantity}" class="kumulus-column-quantity pure-input-1 kumulus-column-number"/></td>
-                    <td><g:select name="currency" from="${currencies}" class="kumulus-column-currency pure-input-1" optionKey="id" optionValue="shortName" value="${lineItem.currency.id}"/></td>
-                    <td><input type="text" value="${lineItem.price}" class="kumulus-column-price pure-input-1 kumulus-column-number"/></td>
-                    <td><input type="text" value="${lineItem.amount}" class="kumulus-column-amount pure-input-1 kumulus-column-number"/></td>
+                  <tr lineItemId="${lineItem.id}">
+                    <td><input name="page-${lineItem.id}" type="text" value="${lineItem.page.number}" class="kumulus-column-page pure-input-1 kumulus-column-number" required/></td>
+                    <td><input name="description-${lineItem.id}" type="text" value="${lineItem.description}" class="kumulus-column-description pure-input-1" required/></td>
+                    <td><input name="date-${lineItem.id}" type="date" value="${lineItem.date?.format('yyyy-MM-dd')}" class="kumulus-column-date pure-input-1"/></td>
+                    <td><input name="quantity-${lineItem.id}" type="text" value="${lineItem.quantity}" class="kumulus-column-quantity pure-input-1 kumulus-column-number"/></td>
+                    <td><g:select name="currency-${lineItem.id}" from="${currencies}" class="kumulus-column-currency pure-input-1" optionKey="id" optionValue="shortName" value="${lineItem.currency.id}"/></td>
+                    <td><input name="price-${lineItem.id}" type="text" value="${lineItem.price}" class="kumulus-column-price pure-input-1 kumulus-column-number"/></td>
+                    <td><input name="amount-${lineItem.id}" type="text" value="${lineItem.amount}" class="kumulus-column-amount pure-input-1 kumulus-column-number" required/></td>
                     <td><a class="remove" href="#">Remove</a></td>
                   </tr>
                 </g:each> 
@@ -87,14 +87,14 @@
     </div>
     <div id="template">
       <table>
-        <tr id="template" lineItemId="" currencyId="">
-          <td><input type="text" class="kumulus-column-page pure-input-1 kumulus-column-number"/></td>
-          <td><input type="text" class="kumulus-column-description pure-input-1"/></td>
-          <td><input type="date" class="kumulus-column-date pure-input-1"></td>
-          <td><input type="text" class="kumulus-column-quantity pure-input-1 kumulus-column-number"/></td>
-          <td><g:select name="currency" from="${currencies}" class="kumulus-column-currency pure-input-1" optionKey="id" optionValue="shortName" value="127"/></td>
-          <td><input type="text" class="kumulus-column-price pure-input-1 kumulus-column-number"/></td>
-          <td><input type="text" class="kumulus-column-amount pure-input-1 kumulus-column-number"/></td>
+        <tr id="template" lineItemId="">
+          <td><input name="page!" type="text" class="kumulus-column-page pure-input-1 kumulus-column-number" required/></td>
+          <td><input name="description!" type="text" class="kumulus-column-description pure-input-1" required/></td>
+          <td><input name="date!" type="date" class="kumulus-column-date pure-input-1"/></td>
+          <td><input name="quantity!" type="text" class="kumulus-column-quantity pure-input-1 kumulus-column-number" /></td>
+          <td><g:select name="currency!" from="${currencies}" class="kumulus-column-currency pure-input-1" optionKey="id" optionValue="shortName" value="127"/></td>
+          <td><input name="price!" type="text" class="kumulus-column-price pure-input-1 kumulus-column-number"/></td>
+          <td><input name="amount!" type="text" class="kumulus-column-amount pure-input-1 kumulus-column-number" required/></td>
           <td><a class="remove" href="#">Remove</a></td>      
         </tr>
       </table>
