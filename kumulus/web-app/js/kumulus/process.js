@@ -1,22 +1,50 @@
 
-
-
 $(document).ready(function(){
     var count = 0;
-    $("#template").hide();    
-    
-    $(".remove").click(function(){ $(this).parent().parent().remove(); });
+    var pageCount = $("pageCount").val();
+    $("#template").hide();
+
+    $("#lineItems tr:not(:has(th))").each(function() {
+        initialiseRow($(this), pageCount);
+    });
     
     $("#add").click(function(){
-        $("#lineItemForm").validate();
         if($("#lineItemForm").valid()) {
-            var newRow = $("#template tbody").clone(true, true);
-            $("#lineItems tbody").append(newRow.html());                            // add the row
-            $(".remove").click(function(){ $(this).parent().parent().remove(); });  // bind events
-            // bind validation            
+            count++;
+            var regExp = new RegExp("!0", "g");
+            $("#lineItems tbody").append($("#template tbody").clone(true, true).html().replace(regExp,"!"+count));                                               // add the row
+            initialiseRow($("#lineItems tbody tr:last"), pageCount);
         }
     });
+ 
+    function initialiseRow(element, pageCount) {
+        
+        if(!element.attr("initialised")) {        
+            
+            element.find(".remove").click(function(){ $(this).parent().parent().remove(); });
+            
+            // validation setup
+            $("#lineItemForm").validate();
+            element.find(".kumulus-column-page").rules("add", {
+                required: true, 
+                digits: true,
+                min: 1,
+                max: pageCount
+            });
+            element.find(".kumulus-column-description").rules("add", {
+                required: true, 
+            });
+            element.find(".kumulus-column-amount").rules("add", {
+                required: true, 
+                number: true
+            });
+            element.attr("initialised", true);
+        }
+    }
 })
+
+
+
 
 function packageLineItems() {
     
