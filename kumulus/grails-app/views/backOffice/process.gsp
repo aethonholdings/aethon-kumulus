@@ -5,7 +5,7 @@
     <g:javascript src='kumulus/process.js'/>
   </head>
   <body>
-    <form id="inputForm" class="pure-form pure-form-stacked">      
+    <form id="documentForm" class="pure-form pure-form-stacked">      
       <div class="kumulus-widget-base kumulus-widget-3-5">
         <div class="pure-g">
           <div class="pure-u-3-4">
@@ -82,8 +82,8 @@
       </div> 
     </form>
     <div class="kumulus-button-bank">
-      <input type="button" id ="saveAndNext" value="Save and next" class="pure-button"></input>
       <input type="button" id ="save" value="Save" class="pure-button"></input>
+      <input type="button" id ="saveAndNext" value="Save and next" class="pure-button"></input>
     </div>
     <div id="template">
       <table>

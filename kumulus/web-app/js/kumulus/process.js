@@ -1,9 +1,15 @@
 
 $(document).ready(function(){
+    
     var count = 0;
-    var pageCount = $("pageCount").val();
+    var pageCount = $("#pageCount").val();
     $("#template").hide();
-
+    
+    $("#documentForm").validate();
+    $("#documentForm input").each(function() {
+        $(this).rules("add", {required: true});
+    });
+    
     $("#lineItems tr:not(:has(th))").each(function() {
         initialiseRow($(this), pageCount);
     });
@@ -16,7 +22,16 @@ $(document).ready(function(){
             initialiseRow($("#lineItems tbody tr:last"), pageCount);
         }
     });
- 
+    
+    $("#save").click(function(){
+        if(validateAll()) alert("pass");
+    });
+    
+    function validateAll() {
+        if($("#documentForm").valid() && $("#lineItemForm").valid()) return true;
+        return false;
+    }
+        
     function initialiseRow(element, pageCount) {
         
         if(!element.attr("initialised")) {        
@@ -24,7 +39,10 @@ $(document).ready(function(){
             element.find(".remove").click(function(){ $(this).parent().parent().remove(); });
             
             // validation setup
-            $("#lineItemForm").validate();
+            $("#lineItemForm").validate({
+                errorPlacement: $.noop
+            });
+            
             element.find(".kumulus-column-page").rules("add", {
                 required: true, 
                 digits: true,
@@ -41,6 +59,7 @@ $(document).ready(function(){
             element.attr("initialised", true);
         }
     }
+    
 })
 
 
