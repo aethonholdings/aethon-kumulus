@@ -472,6 +472,12 @@ label.error{
     min-width: 100%;
 }
 
+.kumulus-vertical-align-top select{
+    height: 30px;
+    margin: auto; 
+    min-width: 100%;
+}
+
 .kumulus-vertical-align-top a{
     line-height: 30px;
 }

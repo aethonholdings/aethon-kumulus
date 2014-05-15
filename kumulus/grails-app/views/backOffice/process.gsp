@@ -60,7 +60,7 @@
               <th style="width:10%">*Amount</th>
               <th style="width:10%">Action</th>
             </thead>
-            <tbody>
+            <tbody class="kumulus-vertical-align-top">
               <g:each var="page" in="${document?.pages.sort{it.number}}">
                 <g:each var="lineItem" in="${page?.lineItems.sort{it.id}}">
                   <tr lineItemId="${lineItem.id}">
