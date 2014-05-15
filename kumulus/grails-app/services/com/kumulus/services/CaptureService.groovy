@@ -229,9 +229,11 @@ class CaptureService {
         return(project)
     }
     
-    def updateDocument(Document document, String companyName, DocumentType documentType, Date date, String identifier) {
+    def updateDocument(Document document, String companyName, DocumentType documentType, String dateString, String identifier) {
         
-        if(document && documentType) {    
+        if(document && documentType && companyName) {    
+            Date date = null
+            if(dateString) date = new Date().parse("yyyy-MM-dd", dateString)
             def company = Company.findByName(companyName)
             if(!company) {
                 company = new Company(name: companyName)
@@ -247,18 +249,23 @@ class CaptureService {
         
     }
     
-    def updateLineItem(String lineItemId, String pageId, Currency currency, Date date, String description, String quantity, String price, String amount) {
-       
-        def lineItem = LineItem.findById(lineItemId)
+    def updateLineItem(LineItem lineItem, Page page, Currency currency, def dateString, def description, def quantity, def price, def amount) {
+        Date date = null
+        if(dateString) date = new Date().parse("yyyy-MM-dd", dateString)
         if(!lineItem) lineItem = new LineItem()
-        lineItem.page = Page.findById(pageId)
+        lineItem.page = page
         lineItem.currency = currency
         lineItem.date = date
         lineItem.description = description
-        if(quantity) lineItem.quantity = Float.parseFloat(quantity) else lineItem.quantity = 0
-        if(price) lineItem.price = Float.parseFloat(price) else lineItem.price = 0
-        lineItem.amount = Float.parseFloat(amount)
+        if(quantity) lineItem.quantity = quantity else lineItem.quantity = 0
+        if(price) lineItem.price = price else lineItem.price = 0
+        lineItem.amount = amount
         lineItem.save()
         return(lineItem)
+    }
+    
+    def deleteLineItem(LineItem lineItem) {
+        lineItem.page.removeFromLineItems(lineItem)
+        lineItem.delete()
     }
 }

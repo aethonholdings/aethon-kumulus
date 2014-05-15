@@ -34,11 +34,11 @@
                 </div>
                 <div class="pure-control-group">
                   <label for="date">* Date</label>
-                  <input name ="date" placeholder="Select a date" type="date" value="${document.date?.format('yyyy-MM-dd')}" class="pure-input-1"/>
+                  <input id="date" name ="date" placeholder="Select a date" type="date" value="${document.date?.format('yyyy-MM-dd')}" class="pure-input-1"/>
                 </div>
                 <div class="pure-control-group">
-                  <label for="documentId">* Identifier</label>
-                  <input id="documentId"  name="identifier" type=text value="${document.identifier}" class="pure-input-1"></input>
+                  <label for="identifier">* Identifier</label>
+                  <input id="identifier"  name="identifier" type=text value="${document.identifier}" class="pure-input-1"></input>
                 </div>
               </fieldset>
             </div>

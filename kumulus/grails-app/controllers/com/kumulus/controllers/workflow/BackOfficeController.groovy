@@ -46,49 +46,4 @@ class BackOfficeController {
         }
     }
     
-    def save(){
-        // NEED TO MOVE ALL THIS TO A SERVICE, CURRENTLY IT IS NOT ATOMIC
-        def response = [done: false]
-        def data = request.JSON
-        if(data?.form && data.form?.taskId && data.form?.currency && data.form?.documentType) {
-            def task = Task.findById(data.form.taskId)
-            def currency = Currency.findById(data.form.currency)
-            def documentType = DocumentType.findById(data.form.documentType)
-
-            if(task && !task.completed && currency && documentType && data?.form.company && data?.form.identifier) {
-
-                // update the document
-                Date date
-                if(data.form.date) date = new Date().parse("dd/MM/yyyy", data.form.date) else date = null
-                def document = captureService.updateDocument(task.document, data.form.company, documentType, date, data.form.identifier)
-
-                // update the line items submitted
-                def updatedLineItems = []
-                data.form?.lineItems.each {
-                    date = null
-                    if(it?.lineItemDate) date = new Date().parse("dd/MM/yyyy", it.lineItemDate)
-                    def lineItem = captureService.updateLineItem(it?.lineItemId, it?.pageId, currency, date, it?.description, it?.quantity, it?.price, it?.amount)
-                    updatedLineItems.add(lineItem)
-                }
-
-                // remove any deleted line items from the database
-                def lineItemsToRemove = document.pages.lineItems.toList().flatten()
-                lineItemsToRemove.removeAll(updatedLineItems)
-                lineItemsToRemove.each { lineItem ->
-                    lineItem.page.removeFromLineItems(lineItem)
-                    lineItem.delete()
-                }
-
-                // close the task if requested
-                if(data?.completeTask) {
-                    workflowService.completeTask(task)
-                    if(task.type==Task.TYPE_PROCESS) {
-                        def newTask = workflowService.createTask(document, Task.TYPE_VALIDATE, permissionsService.getUsername())
-                    }
-                }
-                response.done = true
-            }
-        }
-        render response as JSON
-    }
 }

@@ -8,8 +8,7 @@ $(document).ready(function(){
     $("#company").autocomplete({
         source: url("company", "search", ""),
         minLength: 2,
-        select: function(event, ui) {
-        }
+        select: function(event, ui) {}
     });
     
     $("#documentForm").validate();
@@ -18,7 +17,7 @@ $(document).ready(function(){
     });
     
     $("#lineItems tr:not(:has(th))").each(function() {
-        initialiseRow($(this), pageCount);
+        initialiseRow($(this), pageCount, "updateTag");
     });
     
     $("#add").click(function(){
@@ -26,32 +25,39 @@ $(document).ready(function(){
             count++;
             var regExp = new RegExp("!0", "g");
             $("#lineItems tbody").append($("#template tbody").clone(true, true).html().replace(regExp,"!"+count));                                               // add the row
-            initialiseRow($("#lineItems tbody tr:last"), pageCount);
+            initialiseRow($("#lineItems tbody tr:last"), pageCount, "createTag");
         }
     });
     
-    $("#save").click(function(){
+    $("#save").click(function(){ 
         if(validateAll()) {
-            
+            if(!save()) alert("Server error, could not save.");
         }
+    });
+    
+    $("#saveAndNext").click(function(){ 
+        if(validateAll()) {
+            if(!save()) alert("Server error, could not save.");
+            // get next here
+        } 
     });
     
     function validateAll() {
+        
         if($("#documentForm").valid() && $("#lineItemForm").valid()) return true;
         return false;
+        
     }
         
-    function initialiseRow(element, pageCount) {
-        
+    function initialiseRow(element, pageCount, action) {
+
         if(!element.attr("initialised")) {        
-            
-            element.find(".remove").click(function(){ $(this).parent().parent().remove(); });
-            
-            // validation setup
-            $("#lineItemForm").validate({
-                errorPlacement: $.noop
+            element.find(".remove").click(function(){ 
+                $(this).parent().parent().attr("action","deleteTag");
+                $(this).parent().parent().hide(); 
             });
-            
+            // validation setup
+            $("#lineItemForm").validate({ errorPlacement: $.noop });
             element.find(".kumulus-column-page").rules("add", {
                 required: true, 
                 digits: true,
@@ -65,37 +71,54 @@ $(document).ready(function(){
                 required: true, 
                 number: true
             });
+            element.attr("action", action);
             element.attr("initialised", true);
         }
+        
     }
     
     function save() {
         
+        var success;
         var taskId = $("#taskId").val();
         
         // package document data
         var document = {
             taskId: taskId,
-            type: $("#documentType")
+            typeId: $("#documentType").val(),
+            company: $("#company").val(),
+            date: $("#date").val(),
+            identifier: $("#identifier").val()
         }
         
         // package line items
         var lineItems = [];
         $("#lineItems tr:not(:has(th))").each(function() {
-            // check the page number
             var lineItem = {
-                page: $(this).find(".kumulus-column-page").val(),
+                action: $(this).attr("action"),
+                taskId: parseInt(taskId),
+                lineItemId: parseInt($(this).attr("lineItemId")),
+                page: parseInt($(this).find(".kumulus-column-page").val()),
                 description: $(this).find(".kumulus-column-description").val(),
                 date: $(this).find(".kumulus-column-date").val(),
-                quantity: $(this).find(".kumulus-column-quantity").val(),
-                currency: $(this).find(".kumulus-column-currency").val(),
-                price: $(this).find(".kumulus-column-price").val(),
-                amount: $(this).find(".kumulus-column-amount").val()
+                quantity: parseFloat($(this).find(".kumulus-column-quantity").val()),
+                currencyId: parseInt($(this).find(".kumulus-column-currency").val()),
+                price: parseFloat($(this).find(".kumulus-column-price").val()),
+                amount: parseFloat($(this).find(".kumulus-column-amount").val())
             }
             lineItems.push(lineItem);
         });
-        return lineItems;
-
+        
+        // update document
+        request(url("document", "update", ""), document, function(response){ success = response.done; }); 
+        // update line items
+        if(success) {                                                          
+            for(var i=0; i<lineItems.length && success; i++) {
+                request(url("document", lineItems[i].action, ""), lineItems[i], function(response){ success = response.done });
+            }
+        }
+        return success;
+        
     }
     
 })
