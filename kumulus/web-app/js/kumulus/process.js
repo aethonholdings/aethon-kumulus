@@ -5,6 +5,13 @@ $(document).ready(function(){
     var pageCount = $("#pageCount").val();
     $("#template").hide();
     
+    $("#company").autocomplete({
+        source: url("company", "search", ""),
+        minLength: 2,
+        select: function(event, ui) {
+        }
+    });
+    
     $("#documentForm").validate();
     $("#documentForm input").each(function() {
         $(this).rules("add", {required: true});
@@ -24,7 +31,9 @@ $(document).ready(function(){
     });
     
     $("#save").click(function(){
-        if(validateAll()) alert("pass");
+        if(validateAll()) {
+            
+        }
     });
     
     function validateAll() {
@@ -60,28 +69,36 @@ $(document).ready(function(){
         }
     }
     
+    function save() {
+        
+        var taskId = $("#taskId").val();
+        
+        // package document data
+        var document = {
+            taskId: taskId,
+            type: $("#documentType")
+        }
+        
+        // package line items
+        var lineItems = [];
+        $("#lineItems tr:not(:has(th))").each(function() {
+            // check the page number
+            var lineItem = {
+                page: $(this).find(".kumulus-column-page").val(),
+                description: $(this).find(".kumulus-column-description").val(),
+                date: $(this).find(".kumulus-column-date").val(),
+                quantity: $(this).find(".kumulus-column-quantity").val(),
+                currency: $(this).find(".kumulus-column-currency").val(),
+                price: $(this).find(".kumulus-column-price").val(),
+                amount: $(this).find(".kumulus-column-amount").val()
+            }
+            lineItems.push(lineItem);
+        });
+        return lineItems;
+
+    }
+    
 })
 
 
-
-
-function packageLineItems() {
-    
-    var lineItems = [];
-    $("#lineItems tr:not(:has(th))").each(function() {
-        // check the page number
-        var lineItem = {
-            page: $(this).find(".kumulus-column-page").val(),
-            description: $(this).find(".kumulus-column-description").val(),
-            date: $(this).find(".kumulus-column-date").val(),
-            quantity: $(this).find(".kumulus-column-quantity").val(),
-            currency: $(this).find(".kumulus-column-currency").val(),
-            price: $(this).find(".kumulus-column-price").val(),
-            amount: $(this).find(".kumulus-column-amount").val()
-        }
-        lineItems.push(lineItem);
-    });
-    return lineItems;
-    
-}
 
