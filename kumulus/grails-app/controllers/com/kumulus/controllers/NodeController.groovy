@@ -119,6 +119,7 @@ class NodeController {
             def nodes = Node.findAll() { node -> 
                 parent.id == data.node.toLong()
                 page != null
+                page.document.status > Document.STATUS_PROCESSED
                 [order: "createDatetime", sort: "asc"]
             }
             nodes.page.groupBy({page -> page.document}).each { row ->

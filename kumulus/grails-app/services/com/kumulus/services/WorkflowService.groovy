@@ -56,9 +56,13 @@ class WorkflowService {
     }
         
     def getNextTask(String userId) {
-        // return the next oldest task
-        Task task = Task.findByCompletedAndUserId(null, null, [order: "created", type: "asc"])
-        return(task)
+        
+        // return the oldest task
+        def tasks = Task.findAll([sort:"created", order:"asc"]) {
+            completed == null && userId == null && (type == Task.TYPE_PROCESS || type == Task.TYPE_VALIDATE)
+        }
+        if(tasks.size()>0) return(tasks[0]) 
+        return(null)
     }
     
     def assignTask(Task task, String userId) {

@@ -52,19 +52,19 @@ class Document {
     String status() {
         switch(status){
             case STATUS_IMPORTED:
-                return("Scan completed, ready to build document")
+                return("20%")
             case STATUS_BUILT:
-                return("In optical character recognition queue")
+                return("40%")
             case STATUS_SUBMITTED:
-                return("Optical character recognition in progress")
+                return("35%")
             case STATUS_SEARCHABLE:
-                return("Optical character recognition in progress")
+                return("45%")
             case STATUS_EXTRACTED:
-                return("In data entry queue")    
+                return("60%")    
             case STATUS_PROCESSED:
-                return("Ready for review")   
+                return("80%")   
             case STATUS_FINAL:
-                return("Workflow completed")          
+                return("100%")          
         }         
     }
     

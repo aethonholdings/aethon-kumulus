@@ -22,7 +22,7 @@ class BackOfficeController {
     }
     
     def performTask() {
-        def task = Task.get(params?.id)
+        def task = Task.get(params?.id?.toLong())
         if(task && permissionsService.checkPermissions(task) && !task.completed) {
             def currencies = Currency.listOrderByFullName()
             def documentTypes = DocumentType.listOrderByName()
@@ -32,5 +32,20 @@ class BackOfficeController {
             redirect controller: "home", action: "index"
         }
     }
+    
+    def closeTask() {
+        def response = [
+            success: false,
+            data: []
+        ]
+        def task = Task.findById(params?.id)
+        if(task && permissionsService.checkPermissions(task) && (task.type == Task.TYPE_PROCESS || task.type == Task.TYPE_VALIDATE)) {
+            def document = task.document
+            workflowService.completeTask(task)
+            if(task.type == Task.TYPE_PROCESS) workflowService.createTask(document, Task.TYPE_VALIDATE, permissionsService.getUsername())
+            response.success = true
+        }
+        render response as JSON
+    }    
         
 }

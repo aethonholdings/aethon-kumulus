@@ -25,17 +25,4 @@ class TaskController {
         render response as JSON
     }
     
-    def close() {
-        def data = request.JSON
-        def response = [
-            success: false,
-            data: []
-        ]
-        def task = Task.findById(data?.taskId)
-        if(task && permissionsService.checkPermissions(task)) {
-            workflowService.completeTask(task)
-            response.success = true
-        }
-        render response as JSON
-    }    
 }

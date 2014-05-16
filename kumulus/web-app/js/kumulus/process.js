@@ -45,10 +45,13 @@ $(document).ready(function(){
         if(validateAll()) {
             if(!save()) alert("Server error, could not save."); 
             else {
-                request(url("task", "close", ""), {taskId: $("#taskId").val()}, function(){
+                request(url("backOffice", "closeTask", $("#taskId").val()), {}, function(){
                     request(url("task", "getNext", ""), "", function(response){
-                        alert(JSON.stringify(response))
-                        window.open(url("backOffice", "process", response.data.taskId));
+                        if(response.success==true) {
+                            window.open(url("backOffice", "performTask", response.data.taskId));
+                        } else {
+                            window.open(url("backOffice", "home", ""));
+                        }
                     });
                 });
             }
