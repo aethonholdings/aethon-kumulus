@@ -271,4 +271,13 @@ class AccessService {
         ])
     }
     
+    def renderTask(task) {
+        return([
+            taskId: task.id,
+            taskType: task.type,
+            documentLiteral: task.document.literal,
+            created: task.created.format("dd MMM yyyy hh:mm:ss")
+        ])
+    }
+    
 }

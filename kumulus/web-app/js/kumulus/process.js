@@ -37,20 +37,20 @@ $(document).ready(function(){
     
     $("#saveAndNext").click(function(){ 
         if(validateAll()) {
-            if(!save()) alert("Server error, could not save.");
-            // get next here
+            if(!save()) alert("Server error, could not save."); 
+            else {
+                request(url("task", "close", ""), {taskId: $("#taskId").val()}, function(){});
+                request(url("task", "getNext", ""), {type: $("#taskType").val()}, function(){});
+            }
         } 
     });
     
-    function validateAll() {
-        
+    function validateAll() {  
         if($("#documentForm").valid() && $("#lineItemForm").valid()) return true;
         return false;
-        
     }
         
     function initialiseRow(element, pageCount, action) {
-
         if(!element.attr("initialised")) {        
             element.find(".remove").click(function(){ 
                 $(this).parent().parent().attr("action","deleteTag");
@@ -74,11 +74,9 @@ $(document).ready(function(){
             element.attr("action", action);
             element.attr("initialised", true);
         }
-        
     }
     
     function save() {
-        
         var success;
         var taskId = $("#taskId").val();
         
@@ -118,7 +116,6 @@ $(document).ready(function(){
             }
         }
         return success;
-        
     }
     
 })

@@ -16,27 +16,14 @@ class BackOfficeController {
             status == Project.STATUS_ACTIVE
         }
         def shipmentList=Shipment.findAll()
-        def userTasks = workflowService.getTaskQueues(permissionsService.getUsername())
+        def userTasks = Task.findAllByUserIdAndCompleted(permissionsService.getUsername(), null, [sort:"created", order:"asc"])
         def backOfficeTasks = workflowService.getTaskQueues(null)
         render(view:"home", model:[pageTitle: "Home", projectList: projectList,shipmentList:shipmentList, userTasks: userTasks, backOfficeTasks: backOfficeTasks, userId: permissionsService.getUsername()])    
     }
     
-    def getNextTask() {
-        if(params?.type) {
-            def task = workflowService.getNextTask(params.type, permissionsService.getUsername())
-            if(task) {
-                workflowService.assignTask(task, permissionsService.getUsername())
-                workflowService.startTask(task)
-                redirect action: "process", params: [taskId: task.id]
-            } else {
-                redirect controller: "home", action: "index"
-            }
-        }
-    }
-    
-    def process() {
-        def task = Task.get(params?.taskId)
-        if(task && !task.completed) {
+    def performTask() {
+        def task = Task.get(params?.id)
+        if(task && permissionsService.checkPermissions(task) && !task.completed) {
             def currencies = Currency.listOrderByFullName()
             def documentTypes = DocumentType.listOrderByName()
             def document = task.document            
@@ -45,5 +32,5 @@ class BackOfficeController {
             redirect controller: "home", action: "index"
         }
     }
-    
+        
 }

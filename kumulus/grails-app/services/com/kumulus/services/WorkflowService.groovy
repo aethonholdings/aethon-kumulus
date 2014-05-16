@@ -24,12 +24,8 @@ class WorkflowService {
         ]
         stateMap().each {
             def tasks 
-            if(userId) {
-                tasks = Task.findAllByUserIdAndTypeAndCompleted(userId, it.key, null, [sort:"created", order:"asc"])
-            } else {
-                tasks = Task.findAllByTypeAndCompleted(it.key, null, [sort:"created", order:"asc"])
-            }
-            queues.types.put(it.key, [count: tasks.size(), tasks: tasks])
+            tasks = Task.findAllByUserIdAndTypeAndCompleted(userId, it.key, null, [sort:"created", order:"asc"])
+            queues.types.put(it.key, tasks)
             queues.count += tasks.size().toLong()
         }
         return(queues)
@@ -67,6 +63,12 @@ class WorkflowService {
         // if there are no tasks in the user queue, check the back office queue 
         if(!task) task = Task.findByTypeAndCompletedAndUserId(taskType, null, null, [order: "created", type: "asc"])
                 
+        return(task)
+    }
+    
+    def getNextTask(String userId) {
+        // return the next oldest task
+        Task task = Task.findByCompletedAndUserId(null, null, [order: "created", type: "asc"])
         return(task)
     }
     
