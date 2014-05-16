@@ -5,21 +5,25 @@ $(document).ready(function(){
     var pageCount = $("#pageCount").val();
     $("#template").hide();
     
+    // bind autocomplete to Company name 
     $("#company").autocomplete({
         source: url("company", "search", ""),
         minLength: 2,
         select: function(event, ui) {}
     });
     
+    // initialisation of validation for document inputs
     $("#documentForm").validate();
     $("#documentForm input").each(function() {
         $(this).rules("add", {required: true});
     });
     
+    // initialisation of validation and even handlers for all input table rows
     $("#lineItems tr:not(:has(th))").each(function() {
         initialiseRow($(this), pageCount, "updateTag");
     });
     
+    // bind add new row
     $("#add").click(function(){
         if($("#lineItemForm").valid()) {
             count++;
@@ -29,22 +33,29 @@ $(document).ready(function(){
         }
     });
     
+    // bind save event
     $("#save").click(function(){ 
         if(validateAll()) {
             if(!save()) alert("Server error, could not save.");
         }
     });
     
+    // bind save and next event
     $("#saveAndNext").click(function(){ 
         if(validateAll()) {
             if(!save()) alert("Server error, could not save."); 
             else {
-                request(url("task", "close", ""), {taskId: $("#taskId").val()}, function(){});
-                request(url("task", "getNext", ""), {type: $("#taskType").val()}, function(){});
+                request(url("task", "close", ""), {taskId: $("#taskId").val()}, function(){
+                    request(url("task", "getNext", ""), "", function(response){
+                        alert(JSON.stringify(response))
+                        window.open(url("backOffice", "process", response.data.taskId));
+                    });
+                });
             }
         } 
     });
     
+    // perform full validation 
     function validateAll() {  
         if($("#documentForm").valid() && $("#lineItemForm").valid()) return true;
         return false;

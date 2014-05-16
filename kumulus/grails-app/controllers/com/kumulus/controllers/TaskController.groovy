@@ -31,7 +31,7 @@ class TaskController {
             success: false,
             data: []
         ]
-        def task = Task.findById(data?.id)
+        def task = Task.findById(data?.taskId)
         if(task && permissionsService.checkPermissions(task)) {
             workflowService.completeTask(task)
             response.success = true

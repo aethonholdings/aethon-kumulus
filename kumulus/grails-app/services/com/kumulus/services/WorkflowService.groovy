@@ -54,18 +54,7 @@ class WorkflowService {
             throw new InconsistentStateException()
         }
     }
-    
-    def getNextTask(String taskType, String userId) {
         
-        // check the user queue first 
-        def task = Task.findByTypeAndCompletedAndUserId(taskType, null, userId, [order: "created", type: "asc"])
-        
-        // if there are no tasks in the user queue, check the back office queue 
-        if(!task) task = Task.findByTypeAndCompletedAndUserId(taskType, null, null, [order: "created", type: "asc"])
-                
-        return(task)
-    }
-    
     def getNextTask(String userId) {
         // return the next oldest task
         Task task = Task.findByCompletedAndUserId(null, null, [order: "created", type: "asc"])
