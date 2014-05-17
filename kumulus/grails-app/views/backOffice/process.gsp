@@ -10,7 +10,7 @@
         <div class="pure-g">
           <div class="pure-u-3-4">
             <div class="kumulus-preview">
-              <iframe src='http://localhost:8080/kumulus/document/view/${document.id}#view=FitH&pagemode=thumbs&scrollbar=1&toolbar=1'
+              <iframe src='/kumulus/document/view/${document.id}#view=FitH&pagemode=thumbs&scrollbar=1&toolbar=1'
                       type='application/pdf' 
                       width='100%' 
                       height='95%'>
