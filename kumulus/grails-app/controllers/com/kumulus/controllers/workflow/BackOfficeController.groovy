@@ -33,19 +33,22 @@ class BackOfficeController {
         }
     }
     
-    def closeTask() {
-        def response = [
-            success: false,
-            data: []
-        ]
+    def closeTaskAndNext() {
         def task = Task.findById(params?.id)
         if(task && permissionsService.checkPermissions(task) && (task.type == Task.TYPE_PROCESS || task.type == Task.TYPE_VALIDATE)) {
             def document = task.document
             workflowService.completeTask(task)
             if(task.type == Task.TYPE_PROCESS) workflowService.createTask(document, Task.TYPE_VALIDATE, permissionsService.getUsername())
-            response.success = true
+            def nextTask = workflowService.getNextTask(permissionsService.getUsername())
+            if(nextTask) { 
+                workflowService.assignTask(nextTask, permissionsService.getUsername())
+                workflowService.startTask(nextTask)
+                redirect action: "performTask", id: nextTask.id
+            } else {
+                redirect action: "home"
+            }
         }
-        render response as JSON
-    }    
+        
+    }  
         
 }
