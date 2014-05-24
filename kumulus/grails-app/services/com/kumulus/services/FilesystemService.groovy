@@ -52,7 +52,16 @@ class FilesystemService {
         return(project)
     }
     
-    def indexImageInFilesystem(literal, page, uFile, timestamp) {
+    def writeStringToFile(encodedString, filename) {
+        bytes = encodedString.decodeBase64()
+        def f = new File(filename)
+        f.delete()
+        f.withOutputStream { s ->
+          s << bytes
+        }
+    }
+    
+    def indexImageInFilesystem(literal, page, uFile, timestamp, view, thumbnail) {
         
         // NEED ERROR HANDLING HERE
         
@@ -70,12 +79,19 @@ class FilesystemService {
         ]
 
         // load the imported image to buffer and generate the write to the staging area output files
+        // TODO: generate TIFF from scando
         def imageTool = new ImageTool()
         imageTool.load(uFile.path)
         imageTool.writeResult(imageFiles.scanImage.getAbsolutePath(), "TIFF")
-        imageTool.writeResult(imageFiles.viewImage.getAbsolutePath(), "JPEG")
-        imageTool.thumbnail(300)
-        imageTool.writeResult(imageFiles.thumbnailImage.getAbsolutePath(), "JPEG")   
+        if (view && thumbnail) {
+            writeStringToFile(view, imageFiles.viewImage.getAbsolutePath())
+            writeStringToFile(thumbnail, imageFiles.thumbnailImage.getAbsolutePath())
+        }
+        else {
+            imageTool.writeResult(imageFiles.viewImage.getAbsolutePath(), "JPEG")
+            imageTool.thumbnail(300)
+            imageTool.writeResult(imageFiles.thumbnailImage.getAbsolutePath(), "JPEG")
+        }
         
         // move the files from the staging area to the main area
         def images = [:]
@@ -142,7 +158,7 @@ class FilesystemService {
         return(true)
     }
     
-    def writeStringToImageFile(encodedImageString, filename, locale) {
+    def writeStringToImageFile(encodedImageString, filename) {
         
         // PARAMETRISE THE MAX SIZE
         DiskFileItem imageFileItem = new DiskFileItem("file", null, false, filename, 40000000, new File(grailsApplication.config.filesystem.staging))

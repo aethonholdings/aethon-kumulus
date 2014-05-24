@@ -71,7 +71,7 @@ class CaptureService {
         return(node)
     }
     
-    def indexScan(parentNode, uFile, scanBatch, userId) {
+    def indexScan(parentNode, uFile, scanBatch, userId, view, thumbnail) {
         
         Document document
 
@@ -124,7 +124,7 @@ class CaptureService {
             )
 
             // generate the image files for the page
-            def images = filesystemService.indexImageInFilesystem(literal, page, uFile, timestamp)
+            def images = filesystemService.indexImageInFilesystem(literal, page, uFile, timestamp, view, thumbnail)
             
             page.scanImage = images.scanImage
             page.viewImage = images.viewImage

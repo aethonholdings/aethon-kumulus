@@ -10,6 +10,8 @@ class ScanDo2Controller {
     def accessService
     def captureService
     def permissionsService
+    def filesystemService
+    def workflowService
 
     // action to handle authentication
     def authenticate() {
@@ -94,6 +96,29 @@ class ScanDo2Controller {
             response.success = true
             response.data = accessService.renderProject(project)
         }
+        render response as JSON
+    }
+    
+    def putImages() {
+        def data = request.JSON
+        def response = [
+            success: false,
+            data: [:]
+        ]
+        
+        def parent = Node.findById(data.parent_id)
+        def userId = permissionsService.getUsername()
+        if(parent && data?.full && data?.view && data?.thumbnail) {
+            def scanBatch = new ScanBatch(userId: userId, timestamp: new Date(), project: parent.project)
+            scanBatch.save()
+            def uFile = filesystemService.writeStringToImageFile(data.full, filesystemService.generateLiteral())
+            def document = captureService.indexScan(parent, uFile, scanBatch, userId, data.view, data.thumnail)
+            def task = workflowService.createTask(document, Task.TYPE_BUILD, userId)
+            if (document && task) { workflowService.assignTask(task, userId) }
+            response.data.id = Page.findByDocument(document).node.id
+            response.success = true
+        }
+        
         render response as JSON
     }
 }
