@@ -145,7 +145,6 @@ grails.plugin.springsecurity.interceptUrlMap = [
         '/logistics/**':                  ['ROLE_ADMIN', 'ROLE_LOGISTICS'],
 
         // import
-        '/scanDo/**':                     ['ROLE_ADMIN','ROLE_IMPORT'],
         '/scanDo2/**':                    ['ROLE_ADMIN','ROLE_IMPORT'],
        
         // domain base controllers
@@ -166,7 +165,6 @@ grails.plugin.springsecurity.useBasicAuth = true
 grails.plugin.springsecurity.basic.realmName = "kumulus"
 grails.plugin.springsecurity.logout.postOnly = false
 grails.plugin.springsecurity.filterChain.chainMap = [
-        '/scando/**': 'JOINED_FILTERS,-exceptionTranslationFilter',
         '/scando2/**': 'JOINED_FILTERS,-exceptionTranslationFilter',
         '/**': 'JOINED_FILTERS,-basicAuthenticationFilter,-basicExceptionTranslationFilter'
 ]
