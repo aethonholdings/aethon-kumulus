@@ -112,7 +112,7 @@ class ScanDo2Controller {
             def scanBatch = new ScanBatch(userId: userId, timestamp: new Date(), project: parent.project)
             scanBatch.save()
             def uFile = filesystemService.writeStringToImageFile(data.full, filesystemService.generateLiteral())
-            def document = captureService.indexScan(parent, uFile, scanBatch, userId, data.view, data.thumnail)
+            def document = captureService.indexScan(parent, uFile, scanBatch, userId, data.view, data.thumbnail)
             def task = workflowService.createTask(document, Task.TYPE_BUILD, userId)
             if (document && task) { workflowService.assignTask(task, userId) }
             response.data.id = Page.findByDocument(document).node.id
