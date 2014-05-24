@@ -53,7 +53,7 @@ class FilesystemService {
     }
     
     def writeStringToFile(encodedString, filename) {
-        bytes = encodedString.decodeBase64()
+        def bytes = encodedString.decodeBase64()
         def f = new File(filename)
         f.delete()
         f.withOutputStream { s ->
