@@ -10,6 +10,8 @@ import com.sun.jersey.core.util.*
 import org.springframework.web.multipart.commons.CommonsMultipartFile
 import org.apache.commons.fileupload.disk.DiskFileItem
 import org.codehaus.groovy.grails.commons.ConfigurationHolder
+import java.nio.file.Files
+import java.nio.file.Paths
 
 @Transactional
 class FilesystemService {
@@ -79,15 +81,16 @@ class FilesystemService {
         ]
 
         // load the imported image to buffer and generate the write to the staging area output files
-        // TODO: generate TIFF from scando
         def imageTool = new ImageTool()
-        imageTool.load(uFile.path)
-        imageTool.writeResult(imageFiles.scanImage.getAbsolutePath(), "TIFF")
         if (view && thumbnail) {
+            // if view and thumbnail is supplied, then everything is already done by scando
+            Files.copy(Paths.get(uFile.path), Paths.get(imageFiles.scanImage.getAbsolutePath()))
             writeStringToFile(view, imageFiles.viewImage.getAbsolutePath())
             writeStringToFile(thumbnail, imageFiles.thumbnailImage.getAbsolutePath())
         }
         else {
+            imageTool.load(uFile.path)
+            imageTool.writeResult(imageFiles.scanImage.getAbsolutePath(), "TIFF")
             imageTool.writeResult(imageFiles.viewImage.getAbsolutePath(), "JPEG")
             imageTool.thumbnail(300)
             imageTool.writeResult(imageFiles.thumbnailImage.getAbsolutePath(), "JPEG")
