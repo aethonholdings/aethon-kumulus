@@ -10,6 +10,8 @@ import com.sun.jersey.core.util.*
 import org.springframework.web.multipart.commons.CommonsMultipartFile
 import org.apache.commons.fileupload.disk.DiskFileItem
 import org.codehaus.groovy.grails.commons.ConfigurationHolder
+import java.nio.file.Files
+import java.nio.file.Paths
 
 @Transactional
 class FilesystemService {
@@ -52,7 +54,16 @@ class FilesystemService {
         return(project)
     }
     
-    def indexImageInFilesystem(literal, page, uFile, timestamp) {
+    def writeStringToFile(encodedString, filename) {
+        def bytes = encodedString.decodeBase64()
+        def f = new File(filename)
+        f.delete()
+        f.withOutputStream { s ->
+          s << bytes
+        }
+    }
+    
+    def indexImageInFilesystem(literal, page, uFile, timestamp, view, thumbnail) {
         
         // NEED ERROR HANDLING HERE
         
@@ -71,11 +82,19 @@ class FilesystemService {
 
         // load the imported image to buffer and generate the write to the staging area output files
         def imageTool = new ImageTool()
-        imageTool.load(uFile.path)
-        imageTool.writeResult(imageFiles.scanImage.getAbsolutePath(), "TIFF")
-        imageTool.writeResult(imageFiles.viewImage.getAbsolutePath(), "JPEG")
-        imageTool.thumbnail(300)
-        imageTool.writeResult(imageFiles.thumbnailImage.getAbsolutePath(), "JPEG")   
+        if (view && thumbnail) {
+            // if view and thumbnail is supplied, then everything is already done by scando
+            Files.copy(Paths.get(uFile.path), Paths.get(imageFiles.scanImage.getAbsolutePath()))
+            writeStringToFile(view, imageFiles.viewImage.getAbsolutePath())
+            writeStringToFile(thumbnail, imageFiles.thumbnailImage.getAbsolutePath())
+        }
+        else {
+            imageTool.load(uFile.path)
+            imageTool.writeResult(imageFiles.scanImage.getAbsolutePath(), "TIFF")
+            imageTool.writeResult(imageFiles.viewImage.getAbsolutePath(), "JPEG")
+            imageTool.thumbnail(300)
+            imageTool.writeResult(imageFiles.thumbnailImage.getAbsolutePath(), "JPEG")
+        }
         
         // move the files from the staging area to the main area
         def images = [:]
@@ -142,7 +161,7 @@ class FilesystemService {
         return(true)
     }
     
-    def writeStringToImageFile(encodedImageString, filename, locale) {
+    def writeStringToImageFile(encodedImageString, filename) {
         
         // PARAMETRISE THE MAX SIZE
         DiskFileItem imageFileItem = new DiskFileItem("file", null, false, filename, 40000000, new File(grailsApplication.config.filesystem.staging))

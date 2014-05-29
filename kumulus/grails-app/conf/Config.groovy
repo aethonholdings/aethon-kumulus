@@ -166,7 +166,6 @@ grails.plugin.springsecurity.useBasicAuth = true
 grails.plugin.springsecurity.basic.realmName = "kumulus"
 grails.plugin.springsecurity.logout.postOnly = false
 grails.plugin.springsecurity.filterChain.chainMap = [
-        '/scando/**': 'JOINED_FILTERS,-exceptionTranslationFilter',
         '/scando2/**': 'JOINED_FILTERS,-exceptionTranslationFilter',
         '/**': 'JOINED_FILTERS,-basicAuthenticationFilter,-basicExceptionTranslationFilter'
 ]
