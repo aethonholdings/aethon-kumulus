@@ -45,6 +45,7 @@ grails.project.dependency.resolution = {
         // uncomment these (or add new ones) to enable remote dependency resolution from public Maven repositories
         mavenRepo "http://repository.codehaus.org"
         mavenRepo "http://repo.grails.org/grails/core"
+        mavenRepo "http://www.tomgibara.com/maven/repo/"
         // mavenRepo "http://repo.spring.io/milestone/"                        
         // mavenRepo "http://download.java.net/maven/2/"
         // mavenRepo "http://repository.jboss.com/maven2/"
@@ -56,6 +57,8 @@ grails.project.dependency.resolution = {
         runtime "javax.mail:javax.mail-api:1.5.1"
         runtime "com.sun.jersey:jersey-core:1.18"
         runtime "com.sun.mail:javax.mail:1.5.1"
+        runtime "net.coobird:thumbnailator:0.4.7"
+        runtime "com.tomgibara.imageio:imageio-tiff:1.0"
     }
 
     plugins {

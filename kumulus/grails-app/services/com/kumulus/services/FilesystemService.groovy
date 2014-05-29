@@ -1,7 +1,6 @@
 package com.kumulus.services
 
 import com.kumulus.domain.*
-import org.grails.plugins.imagetools.ImageTool
 import grails.transaction.Transactional
 import org.apache.commons.lang.RandomStringUtils
 import com.lucastex.grails.fileuploader.UFile
@@ -12,6 +11,8 @@ import org.apache.commons.fileupload.disk.DiskFileItem
 import org.codehaus.groovy.grails.commons.ConfigurationHolder
 import java.nio.file.Files
 import java.nio.file.Paths
+import javax.imageio.ImageIO
+import net.coobird.thumbnailator.Thumbnails
 
 @Transactional
 class FilesystemService {
@@ -81,7 +82,6 @@ class FilesystemService {
         ]
 
         // load the imported image to buffer and generate the write to the staging area output files
-        def imageTool = new ImageTool()
         if (view && thumbnail) {
             // if view and thumbnail is supplied, then everything is already done by scando
             Files.copy(Paths.get(uFile.path), Paths.get(imageFiles.scanImage.getAbsolutePath()))
@@ -89,11 +89,13 @@ class FilesystemService {
             writeStringToFile(thumbnail, imageFiles.thumbnailImage.getAbsolutePath())
         }
         else {
-            imageTool.load(uFile.path)
-            imageTool.writeResult(imageFiles.scanImage.getAbsolutePath(), "TIFF")
-            imageTool.writeResult(imageFiles.viewImage.getAbsolutePath(), "JPEG")
-            imageTool.thumbnail(300)
-            imageTool.writeResult(imageFiles.thumbnailImage.getAbsolutePath(), "JPEG")
+            def image = ImageIO.read(new File(uFile.path));
+            ImageIO.write(image, "TIFF", new File(imageFiles.scanImage.getAbsolutePath()));
+            ImageIO.write(image, "JPEG", new File(imageFiles.viewImage.getAbsolutePath()));
+            // create thumbnail from the view image (for scando)
+            Thumbnails.of(new File(imageFiles.viewImage.getAbsolutePath()))
+                    .size(300, 300)
+                    .toFile(new File(imageFiles.thumbnailImage.getAbsolutePath()));
         }
         
         // move the files from the staging area to the main area
@@ -114,10 +116,10 @@ class FilesystemService {
             file.save()
             
             // need to modify entry here based on whether it is a scan image or thumbnail or compressed
-            imageTool.load(file.path)
+            def imageIO = ImageIO.read(new File(file.path))
             def image = new Image(
-                height: imageTool.getHeight(),
-                width: imageTool.getWidth(),
+                height: imageIO.getHeight(),
+                width: imageIO.getWidth(),
                 file: file,
                 thumbnail: false,
                 compressed: false,

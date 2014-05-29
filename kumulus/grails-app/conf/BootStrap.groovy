@@ -5,7 +5,7 @@ class BootStrap {
     def filesystemService
     
     def init = { servlentContext ->                         
-        
+        ImageIO.scanForPlugins()
     }
     
     def destroy = {
