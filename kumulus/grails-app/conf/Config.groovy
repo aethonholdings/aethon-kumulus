@@ -145,8 +145,8 @@ grails.plugin.springsecurity.interceptUrlMap = [
         '/logistics/**':                  ['ROLE_ADMIN', 'ROLE_LOGISTICS'],
 
         // import
-        '/scanDo/**':                     ['ROLE_ADMIN','ROLE_IMPORT'],
-        '/scanDo2/**':                    ['ROLE_ADMIN','ROLE_IMPORT'],
+        '/scanDo/**':                     ['ROLE_ADMIN','ROLE_CAPTURE'],
+        '/scanDo2/**':                    ['ROLE_ADMIN','ROLE_CAPTURE'],
        
         // domain base controllers
         '/company/**':                    ['isAuthenticated()'],
