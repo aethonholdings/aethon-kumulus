@@ -50,7 +50,7 @@ class ScanDo2Controller {
         render response as JSON
     }
     
-    def getNodeIdFromBarcode() {
+    def getNodesFromBarcode() {
         def data = request.JSON
         def response = [
             success: false,
@@ -60,7 +60,11 @@ class ScanDo2Controller {
         if(barcode) {
             def node = Node.findByBarcode(barcode) 
             if(node && permissionsService.checkPermissions(node)) {
-                response.data = accessService.renderNode(node)
+                response.data.add(accessService.renderNode(node))
+                def children = Node.findAllByParent(node, [sort: "createDatetime", order: "asc"])
+                children.each {    
+                    response.data.add(accessService.renderNode(it))
+                }
             }
         }
         response.success = true
