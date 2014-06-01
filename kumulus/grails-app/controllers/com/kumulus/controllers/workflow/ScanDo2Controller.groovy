@@ -54,16 +54,16 @@ class ScanDo2Controller {
         def data = request.JSON
         def response = [
             success: false,
-            data: [id: -1]
+            data: []
         ]
         def barcode = Barcode.findByText(data?.barcode)
         if(barcode) {
             def node = Node.findByBarcode(barcode) 
             if(node && permissionsService.checkPermissions(node)) {
-                response.success = true
-                response.data.id = node.id
+                response.data = accessService.renderNode(node)
             }
         }
+        response.success = true
         render response as JSON
     }
     
