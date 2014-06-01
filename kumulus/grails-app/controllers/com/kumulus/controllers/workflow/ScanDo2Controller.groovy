@@ -42,9 +42,9 @@ class ScanDo2Controller {
         def node = Node.findById(data?.id)
         if(node && permissionsService.checkPermissions(node)) {
             response.success = true
-            def children = Node.findAllByParent(node, [sort: "name", order: "asc"])
+            def children = Node.findAllByParent(node, [sort: "createDatetime", order: "asc"])
             children.each {    
-                response.data.add(it.id)
+                response.data.add(accessService.renderNode(it))
             }
         }
         render response as JSON
