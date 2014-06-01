@@ -94,7 +94,7 @@ class FilesystemService {
             ImageIO.write(image, "JPEG", new File(imageFiles.viewImage.getAbsolutePath()));
             // create thumbnail from the view image (for scando)
             Thumbnails.of(new File(imageFiles.viewImage.getAbsolutePath()))
-                    .size(300, 300)
+                    .size(200, 200)
                     .toFile(new File(imageFiles.thumbnailImage.getAbsolutePath()));
         }
         
