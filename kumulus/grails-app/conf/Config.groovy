@@ -215,13 +215,20 @@ environments {
                 path = "${filesystem.root}/staging/"
             }
         }
-        
     }
     
     production {
-        grails.logging.jul.usebridge = false
-        // TODO: grails.serverURL = "http://www.changeme.com"
-        
+        grails.logging.jul.usebridge = true
+        filesystem.root = "/home/tomcat/kumulus"
+        filesystem.staging = "${filesystem.root}/staging/"
+        filesystem.main = "${filesystem.root}/main/"
+        // plugins
+        fileuploader {
+            image {
+                allowedExtensions = ["bmp", "png", "pdf", "tiff", "tif", "jpg"]
+                path = "${filesystem.root}/staging/"
+            }
+        }
     }
 }
 
