@@ -7,9 +7,11 @@ import java.text.SimpleDateFormat
 
 class ScanDo2Controller {
 
+    def accessService
     def captureService
     def permissionsService
     def filesystemService
+    def workflowService
 
     // action to handle authentication
     def authenticate() {
@@ -26,7 +28,7 @@ class ScanDo2Controller {
         def node = Node.findById(data?.id)
         if(node && permissionsService.checkPermissions(node)) {
             response.success = true
-            response.data = captureService.renderNode(node)
+            response.data = accessService.renderNode(node)
         }
         render response as JSON
     }
@@ -40,28 +42,32 @@ class ScanDo2Controller {
         def node = Node.findById(data?.id)
         if(node && permissionsService.checkPermissions(node)) {
             response.success = true
-            def children = Node.findAllByParent(node, [sort: "name", order: "asc"])
+            def children = Node.findAllByParent(node, [sort: "createDatetime", order: "asc"])
             children.each {    
-                response.data.add(it.id)
+                response.data.add(accessService.renderNode(it))
             }
         }
         render response as JSON
     }
     
-    def getNodeIdFromBarcode() {
+    def getNodesFromBarcode() {
         def data = request.JSON
         def response = [
             success: false,
-            data: [id: -1]
+            data: []
         ]
         def barcode = Barcode.findByText(data?.barcode)
         if(barcode) {
             def node = Node.findByBarcode(barcode) 
             if(node && permissionsService.checkPermissions(node)) {
-                response.success = true
-                response.data.id = node.id
+                response.data.add(accessService.renderNode(node))
+                def children = Node.findAllByParent(node, [sort: "createDatetime", order: "asc"])
+                children.each {    
+                    response.data.add(accessService.renderNode(it))
+                }
             }
         }
+        response.success = true
         render response as JSON
     }
     
@@ -78,7 +84,7 @@ class ScanDo2Controller {
             response.data.put ("height", image.height)
             response.data.put ("width", image.width)
             response.data.put ("filename", image.file.name)
-            response.data.put ("imageData", filesystemService.renderFileInBase64(image.file))
+            response.data.put ("imageData", accessService.renderFileInBase64(image.file))
         }
         render response as JSON
     }
@@ -92,8 +98,31 @@ class ScanDo2Controller {
         def project = Project.findById(data?.id)
         if(project && permissionsService.checkPermissions(project)) {
             response.success = true
-            response.data = captureService.renderProject(project)
+            response.data = accessService.renderProject(project)
         }
+        render response as JSON
+    }
+    
+    def putImages() {
+        def data = request.JSON
+        def response = [
+            success: false,
+            data: [:]
+        ]
+        
+        def parent = Node.findById(data.parent_id)
+        def userId = permissionsService.getUsername()
+        if(parent && data?.full && data?.view && data?.thumbnail) {
+            def scanBatch = new ScanBatch(userId: userId, timestamp: new Date(), project: parent.project)
+            scanBatch.save()
+            def uFile = filesystemService.writeStringToImageFile(data.full, filesystemService.generateLiteral())
+            def document = captureService.indexScan(parent, uFile, scanBatch, userId, data.view, data.thumbnail)
+            def task = workflowService.createTask(document, Task.TYPE_BUILD, userId)
+            if (document && task) { workflowService.assignTask(task, userId) }
+            response.data.id = Page.findByDocument(document).node.id
+            response.success = true
+        }
+        
         render response as JSON
     }
 }

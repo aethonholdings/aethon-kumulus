@@ -24,12 +24,8 @@ class WorkflowService {
         ]
         stateMap().each {
             def tasks 
-            if(userId) {
-                tasks = Task.findAllByUserIdAndTypeAndCompleted(userId, it.key, null, [sort:"created", order:"asc"])
-            } else {
-                tasks = Task.findAllByTypeAndCompleted(it.key, null, [sort:"created", order:"asc"])
-            }
-            queues.types.put(it.key, [count: tasks.size(), tasks: tasks])
+            tasks = Task.findAllByUserIdAndTypeAndCompleted(userId, it.key, null, [sort:"created", order:"asc"])
+            queues.types.put(it.key, tasks)
             queues.count += tasks.size().toLong()
         }
         return(queues)
@@ -58,16 +54,15 @@ class WorkflowService {
             throw new InconsistentStateException()
         }
     }
-    
-    def getNextTask(String taskType, String userId) {
         
-        // check the user queue first 
-        def task = Task.findByTypeAndCompletedAndUserId(taskType, null, userId, [order: "created", type: "asc"])
+    def getNextTask(String userId) {
         
-        // if there are no tasks in the user queue, check the back office queue 
-        if(!task) task = Task.findByTypeAndCompletedAndUserId(taskType, null, null, [order: "created", type: "asc"])
-                
-        return(task)
+        // return the oldest task
+        def tasks = Task.findAll([sort:"created", order:"asc"]) {
+            completed == null && userId == null && (type == Task.TYPE_PROCESS || type == Task.TYPE_VALIDATE)
+        }
+        if(tasks.size()>0) return(tasks[0]) 
+        return(null)
     }
     
     def assignTask(Task task, String userId) {

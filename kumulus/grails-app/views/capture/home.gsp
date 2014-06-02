@@ -2,11 +2,8 @@
   Capture user homepage
 -->
 
-<%@ page import="java.text.SimpleDateFormat;" contentType="text/html;charset=UTF-8" %>
-
 <html>
   <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Home | Kumulus</title>
   </head>
   <body>
@@ -15,10 +12,25 @@
         <div class="kumulus-container">
           <div class="kumulus-widget-base kumulus-widget kumulus-scrollable-y">                
             <div class="kumulus-widget-header">
-              <span class="kumulus-widget-header-title">You have ${userTasks.count} tasks outstanding in your task queue</span>
+              <span class="kumulus-widget-header-title">${scanCount} scans to be assembled into documents</span>
               <span class="kumulus-widget-header-action"></span>
             </div>
-            <div class="kumulus-task"><g:taskQueue taskQueue="${userTasks}"/></div>
+            <div class="kumulus-task">
+              <table class='pure-table pure-table-horizontal'>
+                <thead>
+                  <th width="80%">Project name</th>
+                  <th width="20%">Scans</th>
+                </thead>
+                <tbody>
+                  <g:each var="project" in="${userTasks}">
+                    <tr>
+                      <td><g:link controller="capture" action="build" id="${project.key.id}">${project.key.projectName}</g:link></td>
+                      <td>${project.value.size()}</td>
+                    </tr>
+                  </g:each>
+                </tbody>
+              </table>
+            </div>
           </div>
         </div>
       </div>

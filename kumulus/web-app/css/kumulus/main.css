@@ -354,6 +354,14 @@ width:60%;
     text-align: center;
 }
 
+.kumulus-column-number{
+    text-align: right;
+}
+
+.kumulus-entry-error{
+    background-color: #ff0;
+}
+
 /* -- NODE IMPORT WIDGET ------------------------- */
 
 .kumulus-control-group {
@@ -386,6 +394,42 @@ width:60%;
     height: 270px;
     background-color: null;
 }
+
+/* -- SCHEDULER WIDGET --------------------------- */
+
+.kumulus-scheduler {
+    margin: 3px;
+    padding: 3px;
+    background-color: #eeeeee;
+    height: 480px;
+}
+
+.kumulus-scheduler ul {
+    list-style: none;
+    padding: 0px;
+    min-height: 475px;  
+}
+
+.kumulus-scheduler li {
+    vertical-align: middle;
+    text-align: center;
+    background-color: #dddddd;
+    height: 40px;
+    margin: 4px;
+}
+
+.kumulus-scheduler-header {
+    text-align: center;
+    padding: 0px;
+    margin: 0px;
+}
+
+
+
+
+
+
+
 
 
 
@@ -423,6 +467,12 @@ label.error{
 }
 
 .kumulus-vertical-align-top input{
+    height: 30px;
+    margin: auto; 
+    min-width: 100%;
+}
+
+.kumulus-vertical-align-top select{
     height: 30px;
     margin: auto; 
     min-width: 100%;

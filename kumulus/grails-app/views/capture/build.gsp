@@ -2,9 +2,9 @@
 <html>
   <head>
     <title>Build documents | Kumulus</title>
-    <g:javascript src='kumulus/documentBuilder.js'/>
-    <g:javascript src='kumulus/documentViewer.js'/>
-    <g:javascript src='kumulus/preview.js'/>
+    <g:javascript src='kumulus/classes/DocumentBuilder.js'/>
+    <g:javascript src='kumulus/classes/DocumentViewer.js'/>
+    <g:javascript src='kumulus/classes/Preview.js'/>
   </head>
   <body>
     <div class="pure-g">

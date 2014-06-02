@@ -145,8 +145,8 @@ grails.plugin.springsecurity.interceptUrlMap = [
         '/logistics/**':                  ['ROLE_ADMIN', 'ROLE_LOGISTICS'],
 
         // import
-        '/scanDo/**':                     ['ROLE_ADMIN','ROLE_IMPORT'],
-        '/scanDo2/**':                    ['ROLE_ADMIN','ROLE_IMPORT'],
+        '/scanDo/**':                     ['ROLE_ADMIN','ROLE_CAPTURE'],
+        '/scanDo2/**':                    ['ROLE_ADMIN','ROLE_CAPTURE'],
        
         // domain base controllers
         '/company/**':                    ['isAuthenticated()'],
@@ -166,7 +166,6 @@ grails.plugin.springsecurity.useBasicAuth = true
 grails.plugin.springsecurity.basic.realmName = "kumulus"
 grails.plugin.springsecurity.logout.postOnly = false
 grails.plugin.springsecurity.filterChain.chainMap = [
-        '/scando/**': 'JOINED_FILTERS,-exceptionTranslationFilter',
         '/scando2/**': 'JOINED_FILTERS,-exceptionTranslationFilter',
         '/**': 'JOINED_FILTERS,-basicAuthenticationFilter,-basicExceptionTranslationFilter'
 ]
@@ -184,22 +183,14 @@ grails.databinding.dateFormats = [
         'yyyy-MM-dd HH:mm:ss.S', 
         "yyyy-MM-dd'T'hh:mm:ss'Z'"
     ]
+
 kumulus {
-    roles = [
-        'ROLE_ADMIN',
-        'ROLE_IMPORT',
-        'ROLE_PROCESS',
-        'ROLE_REVIEW',
-        'ROLE_SUPERVISE',
-        'ROLE_VIEW'
-    ]
     useABBYY = System.getenv('KUMULUS_STRESS') == null
 }
 
 environments {
     development {
         grails.logging.jul.usebridge = true
-        grails.serverURL
         filesystem.root = "../data/filesystem"
         filesystem.staging = "${filesystem.root}/staging/"
         filesystem.main = "${filesystem.root}/main/"
@@ -210,13 +201,10 @@ environments {
                 path = "${filesystem.root}/staging/"
             }
         }
-        // grails.serverURL = "http://localhost:8080/"
     }
     
     test {
-        // grails.serverURL = "http://test.llamrei.sg:8080"
         grails.logging.jul.usebridge = true
-        grails.serverURL
         filesystem.root = "/home/tomcat/kumulus"
         filesystem.staging = "${filesystem.root}/staging/"
         filesystem.main = "${filesystem.root}/main/"
@@ -227,13 +215,20 @@ environments {
                 path = "${filesystem.root}/staging/"
             }
         }
-        
     }
     
     production {
-        grails.logging.jul.usebridge = false
-        // TODO: grails.serverURL = "http://www.changeme.com"
-        
+        grails.logging.jul.usebridge = true
+        filesystem.root = "/home/tomcat/kumulus"
+        filesystem.staging = "${filesystem.root}/staging/"
+        filesystem.main = "${filesystem.root}/main/"
+        // plugins
+        fileuploader {
+            image {
+                allowedExtensions = ["bmp", "png", "pdf", "tiff", "tif", "jpg"]
+                path = "${filesystem.root}/staging/"
+            }
+        }
     }
 }
 

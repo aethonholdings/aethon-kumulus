@@ -5,105 +5,64 @@ import grails.transaction.Transactional
 import com.kumulus.domain.*
 import java.text.SimpleDateFormat
 import grails.converters.*
+import java.sql.Timestamp
 
 
 class ShipmentController {
     def permissionsService
     def logisticsService
-    
-    static allowedMethods = [save: "POST", update: "PUT", delete: "DELETE"]
-    
+    def accessService
+        
     def create(){
-       
-        SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
-
-        if(params.scheduleDate){
-            def newObj= new Shipment()
-            newObj.fromCompany=permissionsService.getCompany()?.name
-            newObj.toCompany="kumulus"
-            newObj.scheduled=formatter.parse(params.scheduleDate)
-            newObj.notes=params.notes
-            newObj.save(flush:true)
-            if(params["Save and Create"]){
-                redirect(action: "view" ,params:[id:newObj.id])
-            }
-            else{
-                redirect(controller :"home", action: "index") 
-            }
-      
+        def data = request.JSON
+        Company company = Company.findById(data?.companyId)
+        Date date = new Date(Timestamp.valueOf(data?.scheduledDate).getTime())
+        if(!data?.id && company && date) {            
+            logisticsService.createShipment(company, date.clearTime())
         }
- 
-        
     }
     
-    def view() {
-
-        def productList=[],nodeList=[]
-        def shipmentObj=Shipment.findAllById(params.id)
-        shipmentObj.shipmentItems[0].each{ it ->
-            if(it.type==1){  
-                nodeList<<[
-                    id:it.id,
-                    nodeObj: Node.findById(it.itemId),
-                    quantity: it.quantity,
-                    delivery:it.delivery
-                ]
-            }
-            else{
-                productList<<[
-                    productObj: Product.findById(it.itemId),
-                    quantity: it.quantity,
-                    delivery:it.delivery
-                ]
-            }
-      
-        }
-
-        [nodeList:nodeList,productList:productList,shipmentObj:shipmentObj]
-    
+    def delete() {
+        def data = request.JSON
+        logisticsService.deleteShipment(Shipment.findById(data?.id))
     }
     
-    def remove() {
-
-        def shipment=Shipment.findById(params?.id)
+    def update() {
+        def data = request.JSON
+        Date date = new Date(Timestamp.valueOf(data?.scheduledDate).getTime())
+        Shipment shipment = Shipment.findById(data.id)
+        if(shipment && date) {
+            shipment.scheduled = date
+            shipment.save()
+        }
+    }
+    
+    def getByBarcode() {
+        def data = request.JSON
+        def response = [
+            success: false,
+            data: []
+        ]
+        def node=Node.findByBarcode(Barcode.findByText(request.JSON?.barcode))
+        if(node && permissionsService.checkPermissions(node) && node?.shipment) {  
+            response.success = true
+            response.data = accessService.renderShipment(node.shipment)
+        }
+        render response as JSON
+    }
+    
+    def getNodes() {
+        def data = request.JSON
+        def response = [
+            success: false,
+            data: []
+        ]
+        def shipment = Shipment.findById(data?.shipmentId) 
         if(shipment) {
-            shipment.shipmentItems.each { shipmentItem ->
-                def node = Node.findById(shipmentItem.itemId)
-                if(node && permissionsService.checkPermissions(node)) logisticsService.unshipNode(node)
-            }
-            shipment.delete(flush:true, failOnError:true)
-        }
-        redirect controller :"home", action: "index" 
-        
-    }
-    
-    def addNodes() {
-        def data = request.JSON
-        def status=[done: true]
-        
-        def shipment = Shipment.findById(data?.shipmentId)
-        if(shipment && data?.nodeIds) {
-            data.nodeIds.each {
-                def node = Node.findById(it)
-                if(permissionsService.checkPermissions(node)) status.done = status.done && logisticsService.shipNode(node, shipment)
+            shipment.nodes.each { node ->
+                if(permissionsService.checkPermissions(node)) response.data.add(accessService.renderNode(node))
             }
         }
-        render status as JSON
+        render response as JSON
     }
-    
-    def removeNodes(){
-        
-        def data = request.JSON
-        def status = [done: true]
-
-        if(data?.shipmentItemIds) {
-            data.shipmentItemIds.each {
-                def node = Node.findById(ShipmentItem.findById(it)?.itemId)
-                if(node && permissionsService.checkPermissions(node)) status.done = status.done && logisticsService.unshipNode(node)
-            }
-        }
-        render status as JSON
-
-    }
-    
 }

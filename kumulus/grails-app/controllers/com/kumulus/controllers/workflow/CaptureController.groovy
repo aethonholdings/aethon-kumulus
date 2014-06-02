@@ -8,12 +8,10 @@ class CaptureController {
     def workflowService
 
     def home() {
-        def projectList = Project.findAll {
-            // company == permissionsService.getCompany()?.name                 // temporary centralised implementattion of upload functionality
-            status == Project.STATUS_ACTIVE
-        }
-        def userTasks = workflowService.getTaskQueues(permissionsService.getUsername())
-        render(view:"home", model:[pageTitle: "Home", projectList: projectList, userTasks: userTasks, userId: permissionsService.getUsername()])    
+        def projectList = Project.findAllByStatus(Project.STATUS_ACTIVE)
+        def taskQueue = workflowService.getTaskQueues(permissionsService.getUsername())
+        def userTasks = taskQueue.types.BUILD.groupBy { task -> task.document.project }
+        render(view:"home", model:[pageTitle: "Home", scanCount: taskQueue.types.BUILD.size(), projectList: projectList, userTasks: userTasks, userId: permissionsService.getUsername()])    
     }
     
     def upload() {
@@ -29,7 +27,7 @@ class CaptureController {
     
     def build() {
         def taskList = []
-        def project = Project.findById(params?.projectId)
+        def project = Project.findById(params?.id)
         if(permissionsService.checkPermissions(project)) {
             taskList = Task.findAll(sort:"created", order: "asc") { 
                 (project == project && type == Task.TYPE_BUILD && userId == permissionsService.getUsername() && completed == null)

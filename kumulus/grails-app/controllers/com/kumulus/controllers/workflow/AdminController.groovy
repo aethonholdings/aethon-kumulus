@@ -13,7 +13,7 @@ class AdminController {
             status == Project.STATUS_ACTIVE
         }
         def shipmentList=Shipment.findAll()
-        def userTasks = workflowService.getTaskQueues(permissionsService.getUsername())
+        def userTasks = workflowService.getTaskQueues()
         def backOfficeTasks = workflowService.getTaskQueues(null)
         render(view:"home", model:[pageTitle: "Home", projectList: projectList,shipmentList:shipmentList, userTasks: userTasks, backOfficeTasks: backOfficeTasks, userId: permissionsService.getUsername()])    
     }

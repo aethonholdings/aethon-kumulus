@@ -10,7 +10,63 @@ class DocumentController {
     def workflowService
     def permissionsService
     def captureService
-    def structureService
+    
+    def update() {
+        def data = request.JSON
+        def response = [done: false]
+        Task task = Task.findById(data?.taskId)
+        DocumentType type = DocumentType.findById(data?.typeId)
+        if(task && permissionsService.checkPermissions(task) && type && data?.date) {
+            captureService.updateDocument(task.document, data?.company, type, data.date, data?.identifier)
+            response.done = true
+        }
+        render response as JSON
+    }
+    
+    def updateTag() {
+        def data = request.JSON
+        def response = [done: false]
+        Task task = Task.findById(data?.taskId)
+        LineItem lineItem = null
+        if(data?.lineItemId) lineItem = LineItem.findById(data.lineItemId)
+        Currency currency = Currency.findById(data?.currencyId)
+        if(task && lineItem && permissionsService.checkPermissions(task) 
+                    && currency 
+                    && data?.page 
+                    && (data.page>0 && data.page<=task.document.pages.size())) {
+            captureService.updateLineItem(lineItem, task.document.pages[data.page-1], currency, data?.date, data?.description, data?.quantity, data?.price, data?.amount)
+            response.done = true
+        }
+        render response as JSON
+    }
+    
+    def createTag() {
+        def data = request.JSON
+        def response = [done: false]
+        Task task = Task.findById(data?.taskId)
+        Currency currency = Currency.findById(data?.currencyId)
+        if(task && permissionsService.checkPermissions(task) 
+                    && currency 
+                    && data?.page 
+                    && (data.page>0 && data.page<=task.document.pages.size())) {
+            LineItem lineItem = new LineItem()
+            captureService.updateLineItem(lineItem, task.document.pages[data.page-1], currency, data?.date, data?.description, data?.quantity, data?.price, data?.amount)
+            response.done = true
+        }
+        render response as JSON
+    }
+    
+    def deleteTag() {
+        def data = request.JSON
+        def response = [done: false]
+        Task task = Task.findById(data?.taskId)
+        LineItem lineItem = LineItem.findById(data?.lineItemId) 
+        if(task && permissionsService.checkPermissions(task) && lineItem) {
+            captureService.deleteLineItem(lineItem)
+            response.done = true
+        }
+        render response as JSON
+    }
     
     def merge() {
         def data = request.JSON
@@ -45,15 +101,7 @@ class DocumentController {
         }
         render response as JSON
     }
-            
-    def update() {  
-        def data = request.JSON
-        def response = [done: false]
-        def document = Document.findById(data?.id)
-        structureService.update(document, data)
-        render response as JSON
-    }
-    
+
     def get() {
         def document = Document.findById(params?.id) 
         if(document && permissionsService.checkPermissions(document)) {

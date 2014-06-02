@@ -3,18 +3,15 @@
   and open the template in the editor.
 -->
 
-<%@ page contentType="text/html;charset=UTF-8" %>
-
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="${resource(dir: 'css/dynatree/skin', file: 'ui.dynatree.css')}"/>
     <g:javascript src='dynatree/jquery.dynatree.js'/>
-    <g:javascript src='kumulus/base.js'/>
+    <g:javascript src='kumulus/classes/NodeTree.js'/>
+    <g:javascript src='kumulus/classes/ContainerViewer.js'/>
+    <g:javascript src='kumulus/classes/ContainerContentViewer.js'/>
+    <g:javascript src='kumulus/classes/Uploader.js'/>
     <g:javascript src='kumulus/upload.js'/>
-    <g:javascript src='kumulus/nodeTree.js'/>
-    <g:javascript src='kumulus/containerViewer.js'/>
-    <g:javascript src='kumulus/uploader.js'/>
-    <g:javascript src='kumulus/documentViewer.js'/>
     <title>Upload scans | Kumulus</title>
   </head>
   <body>
@@ -61,16 +58,14 @@
       <div class="pure-u-1-3">
         <div class="kumulus-container">
           <div class="kumulus-widget-base kumulus-widget kumulus-scrollable-y">
-            <div class="kumulus-container-for-collect">
-              <div class="kumulus-widget-header">
-                <span class="kumulus-widget-header-title">Container contents</span>
-              </div>
-              <div class="kumulus-scrollable-y">
-                <table id="pageInfo" class="pure-table pure-table-horizontal kumulus-table-no-border">
-                  <tbody> 
-                  </tbody>
-                </table>
-              </div>
+            <div class="kumulus-widget-header">
+              <span class="kumulus-widget-header-title">Container contents</span>
+            </div>
+            <div id="containerContentViewer" class="kumulus-scrollable-y">
+              <table id="pageInfo" class="pure-table pure-table-horizontal kumulus-table-no-border">
+                <tbody> 
+                </tbody>
+              </table>
             </div>
           </div>
         </div>

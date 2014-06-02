@@ -1,13 +1,15 @@
 <html>
   <head>
     <link rel="stylesheet" type="text/css" href="${resource(dir: 'css/dynatree/skin', file: 'ui.dynatree.css')}"/>
-    <g:javascript src='kumulus/collect.js'/>
     <g:javascript src='dynatree/jquery.dynatree.js'/>
-    <g:javascript src='kumulus/nodeTree.js'/>
-    <g:javascript src='kumulus/containerViewer.js'/>
-    <g:javascript src='kumulus/documentViewer.js'/>
-    <g:javascript src='kumulus/nodeWorkflow.js'/>
-    <g:javascript src='kumulus/searchPane.js'/>
+    <g:javascript src='kumulus/classes/NodeTree.js'/>
+    <g:javascript src='kumulus/classes/DocumentViewer.js'/>
+    <g:javascript src='kumulus/classes/NodeWorkflow.js'/>
+    <g:javascript src='kumulus/classes/ContainerViewer.js'/>
+    <g:javascript src='kumulus/classes/ContainerContentViewer.js'/>
+    <g:javascript src='kumulus/classes/SearchPane.js'/>
+    <g:javascript src='kumulus/classes/LogisticsController.js'/>
+    <g:javascript src='kumulus/collect.js'/>
     <title>Prepare scans | Kumulus</title>
   </head>
   <body>
@@ -24,9 +26,9 @@
                 <div id="nodeTree" class="jstree-draggable"></div>
               </div>            
               <div class="kumulus-button-bank">
-                <button type="button" id="button-add" class="pure-button kumulus-margin-bottom" onclick="add_node();">Add</button>
-                <button type="button" id="button-edit" class="pure-button kumulus-margin-bottom" onclick="update_node();">Edit</button>
-                <button type="button" id="button-delete" class="pure-button kumulus-margin-bottom" onclick="delete_node();">Delete</button>
+                <button type="button" id="button-add" class="pure-button kumulus-margin-bottom">Add</button>
+                <button type="button" id="button-edit" class="pure-button kumulus-margin-bottom">Edit</button>
+                <button type="button" id="button-delete" class="pure-button kumulus-margin-bottom">Delete</button>
               </div>
             </div>
             <div class="kumulus-widget-base kumulus-widget-2-5">
@@ -34,7 +36,7 @@
                 <span class="kumulus-widget-header-title">Container details</span>
                 <span class="kumulus-widget-header-action"></span>
               </div>
-              <div class="pure-form pure-form-aligned">
+              <div id="containerViewer" class="pure-form pure-form-aligned">
                 <div class="pure-control-group">
                   <label for="barcode">Barcode:</label>
                   <input name="barcode" type="text" id="nodeBarcode" class="pure-u-1-2" readonly=""/>
@@ -52,7 +54,7 @@
                   <input name="status" type="text" id="nodeStatus" class="pure-u-1-2" readonly=""/>
                 </div>
               </div>
-              <div id ="nodeActions" class="kumulus-button-bank"></div>
+              <div id="nodeActions" class="kumulus-button-bank"></div>
             </div> 
           </div>
         </div>
@@ -62,7 +64,7 @@
               <div class="kumulus-widget-header">
                 <span class="kumulus-widget-header-title">Container contents</span>
               </div>
-              <div class="kumulus-scrollable-y">
+              <div id="containerContentViewer" class="kumulus-scrollable-y">
                 <table id="pageInfo" class="pure-table pure-table-horizontal kumulus-table-no-border">
                   <tbody> 
                   </tbody>
@@ -80,7 +82,7 @@
               </div>
               <div class="kumulus-search-input">
                 <g:link controller="customer" action="download" id="${project.id}" >Download journal</g:link> | 
-                <a hred="#">Download documents</a> 
+                <a href="#">Download documents</a> 
               </div>
             </div>
             <div class ="kumulus-widget-base kumulus-widget-4-5">
@@ -93,7 +95,7 @@
                   <form>
                     <input name="projectId" value="${project.id}" class="pure-input-search-project" type="hidden"/>
                     <g:textField name="q" value="${params.q}" class="pure-input-search" placeholder="Enter search terms" size="20"/> 
-                    <input type="submit" value="Search" class="pure-button" onclick="search();"/>
+                    <input type="submit" value="Search" class="pure-button"/>
                   </form>
                 </div>
                 <div class="kumulus-search-outputs kumulus-scrollable-y">

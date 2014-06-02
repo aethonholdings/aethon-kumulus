@@ -5,6 +5,7 @@ import grails.converters.*
 
 class NodeController {
 
+    def accessService
     def captureService
     def logisticsService
     def permissionsService
@@ -12,19 +13,30 @@ class NodeController {
     def getRoot() {
         def project = Project.findById(params?.id)
         if(permissionsService.checkPermissions(project)) {
-            def rootNode = captureService.renderRoot(Project?.findById(params?.id))   
+            def rootNode = accessService.renderRoot(Project?.findById(params?.id))   
             render rootNode as JSON
         }
     }    
     
     def getChildren() {
         def treeNodes = []
-        def node = Node.findById(params?.id)   
-        if (permissionsService.checkPermissions(node)) {
-            def children = Node.findAll {
-                (parent == node && type.isContainer == true)               // get all the non-page children nodes
+        def children
+        if(params?.id && params.id!="#") { 
+            def node = Node.findById(params?.id)   
+            if (permissionsService.checkPermissions(node)) {
+                children = Node.findAll ([sort: "name", order: "asc"]) {
+                    (parent == node && type.isContainer == true)               // get all the non-page children nodes
+                }
+                children.each { treeNodes.add(accessService.renderNode(it)) }   
             }
-            children.each { treeNodes.add(captureService.renderNode(it)) }   
+        } else if(params?.projectId) {
+            def project = Project.findById(params.projectId)
+            if(project && permissionsService.checkPermissions(project)) {
+                children = Node.findAll ([sort: "name", order: "asc"]) {
+                    (project == project && parent == null && type.isContainer == true)  
+                }
+                children.each { treeNodes.add(accessService.renderNode(it)) }   
+            }
         }
         render treeNodes as JSON
     }
@@ -63,46 +75,29 @@ class NodeController {
         render response as JSON
     }
     
-    def listShippable(){
-        
-        def renderedNodes = []
-        
-        def nodes = Node.findAll {
-            type.storeable == true && project.company == permissionsService.getCompany()?.name && state == Node.STATE_CLIENT_SEALED
-        }
-        nodes.each { node ->
-            if(permissionsService.checkPermissions(node)) renderedNodes.add(captureService.renderNode(node))
-        }
-        render renderedNodes as JSON
-    }
-
     def move(){
         def data = request.JSON
         def parent
         if(data?.targetId=="ROOT") parent = null else parent = Node.findById(data?.targetId)
         def child = Node.findById(data?.id)
         def response = [done: false]
-        if(permissionsService.checkPermissions(parent) && permissionsService.checkPermissions(child)) {
-            if(parent) child.parent = parent else child.parent = null
+        if(permissionsService.checkPermissions(child)) {
+            if(parent && permissionsService.checkPermissions(parent)) child.parent = parent else child.parent = null
             child.save()
             response.done = true
         }
         render response as JSON
     }
-
-    def test(){
-        def data = request.JSON
-        def response = [done: false]
-        // handle this to send email request
-        // need to create a logistics shipment instance
-        render response as JSON
-    }
     
-    def searchByBarcode() {
-        def response = []
-        def node=Node.findByBarcode(Barcode.findByText(request.JSON?.barCode))
+    def getByBarcode() {
+        def response = [
+            success: false,
+            data: []
+        ]
+        def node=Node.findByBarcode(Barcode.findByText(request.JSON?.barcode))
         if(node && permissionsService.checkPermissions(node)) {            
-            response = captureService.renderNodeHierarchy(node)
+            response.success = true
+            response.data = accessService.renderNode(node)
         }
         render response as JSON
     }
@@ -120,11 +115,11 @@ class NodeController {
     def getDocuments() {
         def data = request.JSON
         def response = []
-                
-        if(data?.node) {
+        if(data?.node && data.node!="ROOT") {
             def nodes = Node.findAll() { node -> 
                 parent.id == data.node.toLong()
                 page != null
+                page.document.status >= Document.STATUS_PROCESSED
                 [order: "createDatetime", sort: "asc"]
             }
             nodes.page.groupBy({page -> page.document}).each { row ->
@@ -140,19 +135,18 @@ class NodeController {
         render response as JSON
     }
     
-    def seal(){
+    def pickup() {
         def data = request.JSON
-        def node = Node.findById(data?.id)
-        if (permissionsService.checkPermissions(node) && node.type.storeable) {
-            logisticsService.sealNode(node)
-            render node as JSON
+        def response = [
+            success: false,
+            data: []
+        ]
+        def node = Node.findById(data?.nodeId)
+        if (permissionsService.checkPermissions(node)) {
+            logisticsService.pickup(node, (boolean)data?.flag)
+            response.success = true
         }
-    }
-    
-    def fetch() {
-        def response = [done: true]
-        //fetch from storage
         render response as JSON
     }
-    
+        
 }

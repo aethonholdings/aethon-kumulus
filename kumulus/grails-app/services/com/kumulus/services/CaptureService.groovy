@@ -1,13 +1,15 @@
 package com.kumulus.services
 
 import com.kumulus.domain.*
+import java.text.SimpleDateFormat
 import grails.transaction.Transactional
 
 @Transactional
 class CaptureService {
 
-    def springSecurityService
     def filesystemService
+    def grailsApplication
+    def permissionsService
     
     def deleteNode(nodeID) {
         
@@ -29,12 +31,11 @@ class CaptureService {
         if(project && nodeType) {
             def timestamp = new Date()            
             def node = new Node()
-            node.creatorId = springSecurityService.principal.username
-            node.lastUpdateId = springSecurityService.principal.username
+            node.creatorId = permissionsService.getUsername()
+            node.lastUpdateId = permissionsService.getUsername()
             node.project = project
             node.status = Node.STATUS_OPEN
             node.type = nodeType
-            node.parent = parent
             node.barcode = barcode
             node.name = name
             node.comment = comment
@@ -42,9 +43,9 @@ class CaptureService {
             node.lastUpdateDatetime = timestamp
             node.location = Node.LOCATION_CLIENT
             node.page = null
-            node.state = state
-            node.save()
-            
+            node.parent = parent
+            if(parent) node.state = parent.state else node.state = Node.STATE_CLIENT_OPEN
+            node.save()            
             barcode?.used = true
             barcode?.save()
             return(node)
@@ -70,103 +71,7 @@ class CaptureService {
         return(node)
     }
     
-    def renderNode(node) {
-        def parentId = "#"
-        def thumbnailId = null
-        def viewId = null
-        
-        if(node?.parent) parentId = node.parent.id 
-        if(node?.page) {
-            thumbnailId = node.page.thumbnailImage.id
-            viewId = node.page.viewImage.id
-        }
-        
-        if(node) {
-            def treeNode = [
-                key: node.id.toString(),
-                title: node.name,
-                isLazy: true,
-                text: node.name,
-                barcode: node?.barcode?.text,
-                isFolder: node.type.isContainer,
-                comment: node.comment,
-                type: node.type.name,
-                typeId: node.type.id,
-                status: node.status(),
-                location: node.location,
-                stateId: node.state,
-                state: node.state(),
-                storeable: node.type.storeable,
-                id: node.id, 
-                project: node.project.id,
-                parentId: parentId,
-                thumbnailId: thumbnailId,
-                viewId: viewId
-            ]
-            return(treeNode)
-        }
-    }
-    
-    def renderProject(project) {
-        if(project) {
-            def projectRender = [
-                id: project.id,
-                company: project.company,
-                name: project.projectName,
-                topLevelNodeIds: []
-            ]
-            def nodes = Node.findAllByProjectAndParent(project, null, [sort: "name", order: "asc"])
-            nodes.each { node ->
-                projectRender.topLevelNodeIds.add(node.id)
-            }
-            return(projectRender)
-        }
-    }
-    
-    def renderRoot(project) {
-
-        def children = []
-        def root = [
-            key: "#",
-            title: "Root",
-            isFolder: true,
-            expand: true,
-            select: true,
-            isLazy: false,
-            parent: null,
-            text: null, 
-            barcode: null,
-            comment: null,
-            status: null,
-            location: null,
-            stateId: null,
-            state: null,
-            storeable: false,
-            children: children,
-            type: "ROOT",
-            id: "ROOT",
-            project: project.id,
-            parentId: null, 
-            thumbnailId: null,
-            viewId: null
-        ]
-        
-        // get the top-level nodes
-        def nodeList = Node.findAllByProjectAndParent(project, null)  // temporary solution, should be filtering out documents here
-        nodeList.each { root.children.add renderNode(it) }
-        return(root)
-    }
-    
-    def renderNodeHierarchy(Node node) {
-        def nodes = [renderNode(node)]
-        while(node.parent!=null) {
-            node = node.parent
-            nodes.add(renderNode(node))
-        }
-        return(nodes)
-    }
-
-    def indexScan(parentNode, uFile, scanBatch, userId) {
+    def indexScan(parentNode, uFile, scanBatch, userId, view, thumbnail) {
         
         Document document
 
@@ -219,7 +124,7 @@ class CaptureService {
             )
 
             // generate the image files for the page
-            def images = filesystemService.indexImageInFilesystem(literal, page, uFile, timestamp)
+            def images = filesystemService.indexImageInFilesystem(literal, page, uFile, timestamp, view, thumbnail)
             
             page.scanImage = images.scanImage
             page.viewImage = images.viewImage
@@ -322,5 +227,45 @@ class CaptureService {
         project.comment = comment
         project.save()
         return(project)
+    }
+    
+    def updateDocument(Document document, String companyName, DocumentType documentType, String dateString, String identifier) {
+        
+        if(document && documentType && companyName) {    
+            Date date = null
+            if(dateString) date = new Date().parse("yyyy-MM-dd", dateString)
+            def company = Company.findByName(companyName)
+            if(!company) {
+                company = new Company(name: companyName)
+                company.save()
+            }
+            document.company = company
+            document.type = documentType
+            document.date = date
+            document.identifier = identifier
+            document.save()
+        }
+        return(document)
+        
+    }
+    
+    def updateLineItem(LineItem lineItem, Page page, Currency currency, def dateString, def description, def quantity, def price, def amount) {
+        Date date = null
+        if(dateString) date = new Date().parse("yyyy-MM-dd", dateString)
+        if(!lineItem) lineItem = new LineItem()
+        lineItem.page = page
+        lineItem.currency = currency
+        lineItem.date = date
+        lineItem.description = description
+        if(quantity) lineItem.quantity = quantity else lineItem.quantity = 0
+        if(price) lineItem.price = price else lineItem.price = 0
+        lineItem.amount = amount
+        lineItem.save()
+        return(lineItem)
+    }
+    
+    def deleteLineItem(LineItem lineItem) {
+        lineItem.page.removeFromLineItems(lineItem)
+        lineItem.delete()
     }
 }

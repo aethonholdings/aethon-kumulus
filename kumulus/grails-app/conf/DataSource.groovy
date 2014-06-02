@@ -14,7 +14,8 @@ environments {
     development {
         dataSource {
             dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
-            url = "jdbc:mysql://"+ (System.getenv('KUMULUS_DB_HOST') ?: "localhost") +":3306/kumulus?autoReconnect=true"
+            url = "jdbc:mysql://"+ (System.getenv('KUMULUS_DB_HOST') ?: "localhost") +\
+                  ":3306/"+(System.getenv('KUMULUS_DB_NAME') ?: "kumulus")+"?autoReconnect=true"
             username = "kumulus"
             password = System.getenv('KUMULUS_DB_PASS') ?:"password"
             properties {
@@ -33,7 +34,8 @@ environments {
     test {
         dataSource {
             dbCreate = "update"
-            url = "jdbc:mysql://"+(System.getenv('KUMULUS_DB_HOST') ?:"kumulus.cokd1jwuhqlu.ap-southeast-1.rds.amazonaws.com")+":3306/kumulus?autoReconnect=true"
+            url = "jdbc:mysql://"+(System.getenv('KUMULUS_DB_HOST') ?:"kumulus.cokd1jwuhqlu.ap-southeast-1.rds.amazonaws.com")+\
+                  ":3306/"+(System.getenv('KUMULUS_DB_NAME') ?: "kumulus_test")+"?autoReconnect=true"
             username = "kumulus"
             password = System.getenv('KUMULUS_DB_PASS') ?:"d7!8d826ddx1"
             properties {
@@ -52,17 +54,20 @@ environments {
     production {
         dataSource {
             dbCreate = "update"
-            url = "jdbc:h2:prodDb;MVCC=TRUE;LOCK_TIMEOUT=10000;DB_CLOSE_ON_EXIT=FALSE"
+            url = "jdbc:mysql://"+(System.getenv('KUMULUS_DB_HOST') ?:"kumulus.cokd1jwuhqlu.ap-southeast-1.rds.amazonaws.com")+\
+                  ":3306/"+(System.getenv('KUMULUS_DB_NAME') ?: "kumulus")+"?autoReconnect=true"
+            username = "kumulus"
+            password = System.getenv('KUMULUS_DB_PASS') ?:"d7!8d826ddx1"
             properties {
-               maxActive = -1
-               minEvictableIdleTimeMillis=1800000
-               timeBetweenEvictionRunsMillis=1800000
-               numTestsPerEvictionRun=3
-               testOnBorrow=true
-               testWhileIdle=true
-               testOnReturn=false
-               validationQuery="SELECT 1"
-               jdbcInterceptors="ConnectionState"
+                //run the evictor every 30 minutes and evict any connections older than 30 minutes.
+                minEvictableIdleTimeMillis=1800000
+                timeBetweenEvictionRunsMillis=1800000
+                numTestsPerEvictionRun=3
+                //test the connection while its idle, before borrow and return it
+                testOnBorrow=true
+                testWhileIdle=true
+                testOnReturn=true
+                validationQuery="SELECT 1"
             }
         }
     }

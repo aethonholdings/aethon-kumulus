@@ -1,7 +1,6 @@
 package com.kumulus.services
 
 import com.kumulus.domain.*
-import org.grails.plugins.imagetools.ImageTool
 import grails.transaction.Transactional
 import org.apache.commons.lang.RandomStringUtils
 import com.lucastex.grails.fileuploader.UFile
@@ -10,6 +9,10 @@ import com.sun.jersey.core.util.*
 import org.springframework.web.multipart.commons.CommonsMultipartFile
 import org.apache.commons.fileupload.disk.DiskFileItem
 import org.codehaus.groovy.grails.commons.ConfigurationHolder
+import java.nio.file.Files
+import java.nio.file.Paths
+import javax.imageio.ImageIO
+import net.coobird.thumbnailator.Thumbnails
 
 @Transactional
 class FilesystemService {
@@ -52,7 +55,16 @@ class FilesystemService {
         return(project)
     }
     
-    def indexImageInFilesystem(literal, page, uFile, timestamp) {
+    def writeStringToFile(encodedString, filename) {
+        def bytes = encodedString.decodeBase64()
+        def f = new File(filename)
+        f.delete()
+        f.withOutputStream { s ->
+          s << bytes
+        }
+    }
+    
+    def indexImageInFilesystem(literal, page, uFile, timestamp, view, thumbnail) {
         
         // NEED ERROR HANDLING HERE
         
@@ -70,12 +82,21 @@ class FilesystemService {
         ]
 
         // load the imported image to buffer and generate the write to the staging area output files
-        def imageTool = new ImageTool()
-        imageTool.load(uFile.path)
-        imageTool.writeResult(imageFiles.scanImage.getAbsolutePath(), "TIFF")
-        imageTool.writeResult(imageFiles.viewImage.getAbsolutePath(), "JPEG")
-        imageTool.thumbnail(300)
-        imageTool.writeResult(imageFiles.thumbnailImage.getAbsolutePath(), "JPEG")   
+        if (view && thumbnail) {
+            // if view and thumbnail is supplied, then everything is already done by scando
+            Files.copy(Paths.get(uFile.path), Paths.get(imageFiles.scanImage.getAbsolutePath()))
+            writeStringToFile(view, imageFiles.viewImage.getAbsolutePath())
+            writeStringToFile(thumbnail, imageFiles.thumbnailImage.getAbsolutePath())
+        }
+        else {
+            def image = ImageIO.read(new File(uFile.path));
+            ImageIO.write(image, "TIFF", new File(imageFiles.scanImage.getAbsolutePath()));
+            ImageIO.write(image, "JPEG", new File(imageFiles.viewImage.getAbsolutePath()));
+            // create thumbnail from the view image (for scando)
+            Thumbnails.of(new File(imageFiles.viewImage.getAbsolutePath()))
+                    .size(200, 200)
+                    .toFile(new File(imageFiles.thumbnailImage.getAbsolutePath()));
+        }
         
         // move the files from the staging area to the main area
         def images = [:]
@@ -95,10 +116,10 @@ class FilesystemService {
             file.save()
             
             // need to modify entry here based on whether it is a scan image or thumbnail or compressed
-            imageTool.load(file.path)
+            def imageIO = ImageIO.read(new File(file.path))
             def image = new Image(
-                height: imageTool.getHeight(),
-                width: imageTool.getWidth(),
+                height: imageIO.getHeight(),
+                width: imageIO.getWidth(),
                 file: file,
                 thumbnail: false,
                 compressed: false,
@@ -142,7 +163,7 @@ class FilesystemService {
         return(true)
     }
     
-    def writeStringToImageFile(encodedImageString, filename, locale) {
+    def writeStringToImageFile(encodedImageString, filename) {
         
         // PARAMETRISE THE MAX SIZE
         DiskFileItem imageFileItem = new DiskFileItem("file", null, false, filename, 40000000, new File(grailsApplication.config.filesystem.staging))
@@ -170,25 +191,5 @@ class FilesystemService {
         ufile.save()
         return(ufile)
         
-    }
-    
-    def renderFileInBase64(UFile ufile) {
-        
-        // get the image byte buffer
-        FileInputStream inputStream = new FileInputStream(ufile.path)
-        ByteArrayOutputStream outputStream = new ByteArrayOutputStream()
-        byte[] block = new byte[1024]
-        int bytesRead = 0
-        while ((bytesRead = inputStream.read(block)) != -1) {
-            outputStream.write(block, 0, bytesRead);
-        }
-        byte[] imageBytes = outputStream.toByteArray();
-        
-        // convert to Base 64
-        String render = imageBytes.encodeBase64().toString()
-
-        return(render)
-    }
-    
-   
+    }   
 }
